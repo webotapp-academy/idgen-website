@@ -17,7 +17,7 @@ export function Footer() {
         <div className="lg:col-span-2">
           {/* Official Dark Logo */}
           <Link href="/" className="inline-block">
-            <IdgenLogo variant="dark" size="md" withTagline={true} />
+            <IdgenLogo variant="dark" size="lg" withTagline={true} />
           </Link>
           
           <p className="mt-4 max-w-xs text-xs leading-relaxed text-slate-300">{SITE.description}</p>
