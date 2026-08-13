@@ -216,7 +216,7 @@ export default function HomePage() {
       </section>
 
       {/* 4. Interactive Live Quote Calculator */}
-      <section className="border-y border-surface-border bg-[#030d1a] py-20 text-white">
+      <section className="border-y border-surface-border bg-[#0B1320] py-20 text-white">
         <Container>
           <div className="mb-10 text-center max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold tracking-widest text-cyan-300 uppercase backdrop-blur-md mb-3">

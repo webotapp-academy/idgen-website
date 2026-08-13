@@ -145,7 +145,7 @@ export function HeroSection() {
   const [viewMode, setViewMode] = useState<"specimen" | "photo">("photo");
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10 bg-[#040f1d] text-white">
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#0B1320] text-white">
       {/* Ambient Grid & Lighting Orbs */}
       <div className="hero-grid-pattern absolute inset-0 opacity-40" />
       

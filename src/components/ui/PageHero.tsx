@@ -47,14 +47,14 @@ export function PageHero({
   );
 
   return (
-    <div className="relative overflow-hidden border-b border-white/10 bg-[#071626] text-white">
+    <div className="relative overflow-hidden border-b border-white/10 bg-[#0B1320] text-white">
       <div className="hero-grid-pattern absolute inset-0 opacity-40" aria-hidden="true" />
       <div
         className="animate-pulse-glow pointer-events-none absolute -top-32 right-0 h-80 w-80 rounded-full bg-accent/20 blur-[120px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -bottom-24 left-0 h-64 w-64 rounded-full bg-blue-600/15 blur-[110px]"
+        className="pointer-events-none absolute -bottom-24 left-0 h-64 w-64 rounded-full bg-[#009FE3]/15 blur-[110px]"
         aria-hidden="true"
       />
 

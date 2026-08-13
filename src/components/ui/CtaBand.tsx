@@ -5,7 +5,7 @@ export type CtaLink = { label: string; href: string; primary?: boolean };
 
 export function CtaBand({ title, body, links }: { title: string; body?: string; links: CtaLink[] }) {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#071626] px-6 py-10 text-white sm:px-10 sm:py-12">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0B1320] px-6 py-10 text-white sm:px-10 sm:py-12">
       <div className="hero-grid-pattern absolute inset-0 opacity-30" aria-hidden="true" />
       <div
         className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-accent/20 blur-[110px]"
@@ -22,7 +22,7 @@ export function CtaBand({ title, body, links }: { title: string; body?: string; 
               <Link
                 key={link.href}
                 href={link.href}
-                className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow-[0_0_25px_rgba(27,159,222,0.4)] transition hover:bg-accent-hover hover:text-white"
+                className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition hover:bg-accent-hover hover:text-white"
               >
                 {link.label}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

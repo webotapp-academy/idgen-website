@@ -60,7 +60,7 @@ export default function RequestAQuotePage() {
           <div className="space-y-6 lg:col-span-4">
             
             {/* 1. Factory Direct Guarantee Card */}
-            <div className="rounded-3xl border border-white/10 bg-[#07192e] p-6 text-white shadow-xl backdrop-blur-md">
+            <div className="rounded-3xl border border-white/10 bg-[#0B1320] p-6 text-white shadow-xl backdrop-blur-md">
               <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-cyan-300">
                 <ShieldCheck className="h-4 w-4" />
                 <span>The IDGen Guarantee</span>
@@ -142,7 +142,7 @@ export default function RequestAQuotePage() {
             </div>
 
             {/* 3. Physical Specimen Kit Callout */}
-            <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-gradient-to-br from-slate-900 to-[#040f1d] p-6 text-white shadow-md">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0B1320] p-6 text-white shadow-md">
               <div className="relative z-10">
                 <span className="rounded-full bg-accent px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-slate-950">
                   Specimen Kit
