@@ -16,14 +16,14 @@ export function IdgenLogo({
   variant = "auto",
   withTagline = true,
   size = "md",
-  useImage = true,
+  useImage = false,
 }: IdgenLogoProps) {
-  // Size dimensions
+  // Height configurations (increased for clear visibility)
   const heights = {
-    sm: withTagline ? 36 : 26,
-    md: withTagline ? 48 : 34,
-    lg: withTagline ? 64 : 46,
-    xl: withTagline ? 84 : 60,
+    sm: withTagline ? 38 : 28,
+    md: withTagline ? 48 : 36,
+    lg: withTagline ? 60 : 46,
+    xl: withTagline ? 80 : 60,
   };
 
   const height = heights[size];
@@ -35,8 +35,8 @@ export function IdgenLogo({
           <Image
             src="/images/idgen-logo-light.jpg"
             alt="IDGen Identity Solutions Simplified"
-            width={240}
-            height={120}
+            width={300}
+            height={150}
             style={{ height: `${height}px`, width: "auto" }}
             className="object-contain"
             priority
@@ -51,8 +51,8 @@ export function IdgenLogo({
           <Image
             src="/images/idgen-logo-dark.jpg"
             alt="IDGen Identity Solutions Simplified"
-            width={240}
-            height={120}
+            width={300}
+            height={150}
             style={{ height: `${height}px`, width: "auto" }}
             className="object-contain rounded-md"
             priority
@@ -61,34 +61,33 @@ export function IdgenLogo({
       );
     }
 
-    // Auto theme mode: light mode loads dark text logo, dark mode loads white text logo
     return (
       <div className={`inline-flex items-center select-none ${className}`}>
-        {/* Light version (displayed in light mode) */}
+        {/* Light theme image */}
         <Image
           src="/images/idgen-logo-light.jpg"
           alt="IDGen Identity Solutions Simplified"
-          width={240}
-          height={120}
+          width={300}
+          height={150}
           style={{ height: `${height}px`, width: "auto" }}
-          className="object-contain dark:hidden"
+          className="object-contain block dark:hidden"
           priority
         />
-        {/* Dark version (displayed in dark mode) */}
+        {/* Dark theme image */}
         <Image
           src="/images/idgen-logo-dark.jpg"
           alt="IDGen Identity Solutions Simplified"
-          width={240}
-          height={120}
+          width={300}
+          height={150}
           style={{ height: `${height}px`, width: "auto" }}
-          className="hidden object-contain rounded-md dark:block"
+          className="object-contain rounded-md hidden dark:block"
           priority
         />
       </div>
     );
   }
 
-  // Vector SVG Fallback
+  // --- Premium Vector SVG Mode (100% Transparent, Pixel-Perfect at all DPIs) ---
   const viewBoxHeight = withTagline ? 180 : 130;
   const viewBoxWidth = 520;
   
@@ -113,7 +112,7 @@ export function IdgenLogo({
       <svg
         viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
         style={{ height: `${height}px`, width: "auto" }}
-        className="transition-colors duration-300"
+        className="transition-colors duration-200"
         xmlns="http://www.w3.org/2000/svg"
         aria-label="IDGen Identity Solutions Simplified Logo"
       >
@@ -164,7 +163,7 @@ export function IdgenLogo({
         {/* --- TAGLINE --- */}
         {withTagline && (
           <g>
-            <line x1="34" y1="162" x2="68" y2="162" stroke={cyan} strokeWidth="3" strokeLinecap="round" />
+            <line x1="34" y1="162" x2="68" y2="162" stroke={cyan} strokeWidth="3.5" strokeLinecap="round" />
             <text
               x="260"
               y="168"
@@ -179,7 +178,7 @@ export function IdgenLogo({
             >
               IDENTITY SOLUTIONS, SIMPLIFIED
             </text>
-            <line x1="452" y1="162" x2="486" y2="162" stroke={cyan} strokeWidth="3" strokeLinecap="round" />
+            <line x1="452" y1="162" x2="486" y2="162" stroke={cyan} strokeWidth="3.5" strokeLinecap="round" />
           </g>
         )}
       </svg>
