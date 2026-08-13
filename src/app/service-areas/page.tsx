@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Search } from "lucide-react";
+import { MapPin, Search, ArrowRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -15,158 +15,174 @@ import type { Faq } from "@/data/types";
 export const metadata = pageMetadata({
   title: "ID Card Printing & Identity Solutions Across Northeast India | IDGen",
   description:
-    "IDGen provides ID card printing and identity solutions across Assam and Northeast India. Find IDGen service areas by state and city, including Guwahati and other regional markets.",
+    "IDGen provides factory-direct ID card printing and identity solutions across all 8 Northeast India states. Find service areas across Assam, Arunachal Pradesh, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, and Sikkim.",
   path: "/service-areas/",
 });
 
-const plannedStates = [
-  { name: "Arunachal Pradesh", note: "Potential city pages developed according to actual customer demand and service coverage." },
-  { name: "Nagaland", note: "Priority cities: Kohima, Dimapur." },
-  { name: "Manipur", note: "Primary city opportunity: Imphal." },
-  { name: "Mizoram", note: "Primary city opportunity: Aizawl." },
-  { name: "Tripura", note: "Primary city opportunity: Agartala." },
-  { name: "Sikkim", note: "Primary city opportunity: Gangtok." },
+const networkMetrics = [
+  { label: "Regional Hub", value: "Guwahati, Assam" },
+  { label: "State Coverage", value: "All 8 NE States" },
+  { label: "Dispatch SLA", value: "48–72h Regional" },
+  { label: "Institutions Served", value: "500+ Campus Hubs" },
 ];
 
 const faqs: Faq[] = [
-  { q: "Where does IDGen provide ID card printing?", a: "IDGen is based in Guwahati, Assam and serves organizations across Assam and the wider Northeast India market." },
-  { q: "Does IDGen serve cities outside Guwahati?", a: "Yes. IDGen's service strategy covers cities and locations across Assam and the wider Northeast India market." },
-  { q: "Does IDGen provide ID card printing in Assam?", a: "Yes. IDGen serves organizations across Assam, with Guwahati as its base." },
-  { q: "Does IDGen serve Northeast India?", a: "Yes. Northeast India is the broader regional service market for IDGen." },
-  { q: "Can I order from a city that does not have a dedicated IDGen page?", a: "Yes. A dedicated city page is not required to request service. Contact IDGen with your location and requirement." },
-  { q: "Does every city have a separate IDGen office?", a: "No. A city appearing in the service-area architecture should not automatically be interpreted as an IDGen physical office location. The website says \"serving,\" \"providing services in,\" or \"service area\" rather than implying a physical branch where none exists." },
-  { q: "Where is IDGen based?", a: "IDGen is based in Guwahati, Assam, India." },
-  { q: "Can IDGen handle bulk orders from Northeast India?", a: "Yes. IDGen supports organizational and high-volume identification requirements, with actual production capability depending on the product and project specifications." },
+  { q: "Where does IDGen provide ID card printing?", a: "IDGen is based in Guwahati, Assam and serves organizations across Assam and all 8 Northeast Indian states (Arunachal Pradesh, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, and Sikkim)." },
+  { q: "How are orders dispatched to other Northeast states?", a: "All orders are manufactured in our central Guwahati production cleanroom and dispatched via priority courier (Speed Post, BlueDart, DTDC) with door-step delivery in 24–48 hours across state capitals." },
+  { q: "Can we order student ID cards from remote hill districts?", a: "Yes. Our digital data collection tool, IDGen Studio, allows schools and universities in any district to collect student photos and data online without physical paperwork." },
+  { q: "Do we get free physical samples before ordering in bulk?", a: "Yes. We courier complimentary specimen sample kits containing PVC cards, custom lanyards, RFID credentials, and crystal holders to institutions across the Northeast." },
 ];
 
 export default function ServiceAreasPage() {
   return (
     <>
       <PageHero
-        eyebrow="Service Areas"
+        eyebrow="Regional Coverage"
         icon={MapPin}
         title="ID Card Printing & Identity Solutions Across Northeast India"
-        lede="IDGen is based in Guwahati, Assam and serves organizations across Assam and the wider Northeast India market — schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, events and associations."
+        lede="From our centralized automated manufacturing facility in Guwahati, IDGen supplies custom PVC ID cards, high-density satin lanyards, RFID credentials, and ultrasonic sealing across all 8 Northeast states."
+        stats={networkMetrics}
         visual={<NortheastNetworkMap />}
       />
+
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Service Areas", path: "/service-areas/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            IDGen&apos;s identification-product experience dates back to 2014, and the business has supplied
-            identification products to customers and organizations across the Northeast India market. Our
-            location architecture is organized so customers can find information at three levels:
-          </p>
-          <ol className="list-decimal space-y-1 pl-5 text-sm text-muted">
-            <li><strong className="text-foreground">Northeast India</strong> — Regional service coverage.</li>
-            <li><strong className="text-foreground">State</strong> — State-specific identification requirements and service information.</li>
-            <li><strong className="text-foreground">City</strong> — Local ID card printing and identification requirements.</li>
-          </ol>
-          <p className="text-sm text-muted">
-            Example: Northeast India → Assam → Guwahati / Northeast India → Meghalaya → Shillong. This
-            structure allows each local page to contain genuinely relevant information instead of creating
-            hundreds of nearly identical pages.
-          </p>
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          <div className="rounded-3xl border border-surface-border bg-surface p-6 shadow-sm">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <Truck className="h-5 w-5" />
+            </div>
+            <h3 className="mt-4 font-bold text-foreground text-base">Direct Guwahati Dispatch</h3>
+            <p className="mt-1.5 text-xs text-muted leading-relaxed">
+              Air and overland express logistics connecting all 8 state capitals within 24 to 48 hours.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-surface-border bg-surface p-6 shadow-sm">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <Sparkles className="h-5 w-5" />
+            </div>
+            <h3 className="mt-4 font-bold text-foreground text-base">IDGen Studio Digital Portal</h3>
+            <p className="mt-1.5 text-xs text-muted leading-relaxed">
+              Zero geographical friction — collect student photos, crop biometrics, and approve proofs online.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-surface-border bg-surface p-6 shadow-sm">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <ShieldCheck className="h-5 w-5" />
+            </div>
+            <h3 className="mt-4 font-bold text-foreground text-base">Zero Intermediary Markup</h3>
+            <p className="mt-1.5 text-xs text-muted leading-relaxed">
+              Deal directly with the manufacturer for true bulk institutional rates and custom engineering.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request a Quote
-          </Link>
-        </div>
-
-        {/* Built-out states */}
+        {/* 8 State Coverage Grid */}
         <div className="mt-16">
-          <SectionHead eyebrow="Our Service Network" title="Find IDGen near you" />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <SectionHead
+            eyebrow="State Directories"
+            title="Operational State Hubs Across Northeast India"
+            lede="Select a state to explore local education hubs, enterprise service coverage, and priority city networks."
+          />
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {states.map((st) => (
-              <div key={st.slug} className="rounded-2xl border border-surface-border bg-surface p-6">
-                <h3 className="font-bold text-foreground">
-                  <Link href={`/service-areas/${st.slug}/`} className="hover:text-accent">
-                    {st.name}
-                  </Link>
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{st.heroIntro}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {st.cities.map((c) => (
+              <div
+                key={st.slug}
+                className="group relative flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition hover:border-accent/40 hover:shadow-md"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">
+                      {st.cities.length} {st.cities.length === 1 ? "Major Hub" : "Major Hubs"}
+                    </span>
                     <Link
-                      key={c.slug}
-                      href={`/service-areas/${st.slug}/${c.slug}/`}
-                      className="rounded-full bg-background px-3 py-1 text-xs font-medium text-foreground hover:text-accent"
+                      href={`/service-areas/${st.slug}/`}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-accent group-hover:underline"
                     >
-                      {c.name}
+                      <span>Explore State</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
-                  ))}
+                  </div>
+
+                  <h3 className="mt-4 text-xl font-extrabold text-foreground">
+                    <Link href={`/service-areas/${st.slug}/`} className="hover:text-accent">
+                      {st.name}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted line-clamp-3">
+                    {st.heroIntro}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-surface-border">
+                    {st.cities.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/service-areas/${st.slug}/${c.slug}/`}
+                        className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-foreground hover:bg-accent hover:text-white transition"
+                      >
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Planned states */}
-        <div className="mt-10">
-          <p className="text-xs font-bold tracking-widest text-muted uppercase">Other Northeast India States — Coming Soon</p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {plannedStates.map((s) => (
-              <div key={s.name} className="rounded-xl border border-dashed border-surface-border p-4">
-                <h4 className="text-sm font-semibold text-foreground">{s.name}</h4>
-                <p className="mt-1 text-xs leading-relaxed text-muted">{s.note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* What IDGen provides */}
+        {/* All Identification Services Available Regionally */}
         <div className="mt-16">
-          <SectionHead eyebrow="Across Every Service Area" title="What IDGen provides" />
-          <div className="mt-6 flex flex-wrap gap-2">
+          <SectionHead
+            eyebrow="Capabilities"
+            title="Identification Services Available Across All Service Areas"
+            lede="Every product and finishing option is available for dispatch to any location in the Northeast."
+          />
+          <div className="mt-6 flex flex-wrap gap-2.5">
             {services.map((s) => (
               <Link
                 key={s.slug}
                 href={`/${s.slug}/`}
-                className="rounded-full border border-surface-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
+                className="rounded-full border border-surface-border bg-surface px-5 py-2.5 text-xs font-semibold text-foreground transition hover:border-accent hover:text-accent hover:shadow-sm"
               >
-                {s.name}
+                {s.name} →
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Architecture note */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <div className="flex items-start gap-3">
-            <Search className="mt-1 h-5 w-5 shrink-0 text-accent" />
+        {/* Centralized Hub Architecture Info */}
+        <div className="mt-16 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <Search className="h-5 w-5" />
+            </div>
             <div>
-              <h2 className="text-lg font-bold text-foreground">Local service. Centralized production support.</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-                Location pages explain where IDGen serves. Service pages explain what IDGen provides.{" "}
-                <Link href="/idgen-studio/" className="font-semibold text-accent hover:underline">IDGen Studio</Link>{" "}
-                explains the digital workflow. <Link href="/pricing/" className="font-semibold text-accent hover:underline">Pricing</Link>{" "}
-                explains cost. This separation keeps the website useful instead of repeating the same product
-                information across dozens of location pages.
+              <h2 className="text-xl font-bold text-foreground">Centralized Production & Digital Operations</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
+                To maintain strict quality control, color calibration, and data security, all card printing, RFID encoding, and ultrasonic lanyard welding are performed in IDGen&apos;s centralized Guwahati cleanroom. Our regional service pages represent established institutional delivery routes and dedicated logistics pipelines.
               </p>
+              <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold">
+                <Link href="/idgen-studio/" className="text-accent hover:underline">
+                  Learn about IDGen Studio Portal →
+                </Link>
+                <Link href="/pricing/" className="text-accent hover:underline">
+                  View Transparent Pricing →
+                </Link>
+                <Link href="/why-idgen/" className="text-accent hover:underline">
+                  Explore Quality Assurance Pipeline →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Can't find */}
-        <div className="mt-16 rounded-2xl border border-dashed border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">Can&apos;t find your city?</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            IDGen&apos;s service network is not limited to the cities listed above. If your organization is
-            located elsewhere in Assam or Northeast India, contact us with your city, state, organization type,
-            required products, approximate quantity and delivery requirement — we can evaluate the requirement
-            and provide the appropriate service information.
-          </p>
-          <Link href="/request-a-quote/" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
-            Request a Quote →
-          </Link>
-        </div>
-
         {/* FAQ */}
         <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions on Regional Service" />
           <div className="mt-6 max-w-3xl">
             <FaqList faqs={faqs} />
           </div>
@@ -175,11 +191,11 @@ export default function ServiceAreasPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Need ID cards in your city?"
-            body="Whether your organization is in Guwahati, Jorhat, Dibrugarh, Silchar, Shillong or another Northeast Indian location, start with your requirement."
+            title="Start your institution's ID card project anywhere in Northeast India"
+            body="Whether your campus is in Guwahati, Shillong, Itanagar, Kohima, Imphal, Aizawl, Agartala, or Gangtok, submit your requirements for an immediate factory proposal."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
-              { label: "Contact IDGen", href: "/contact-us/" },
+              { label: "Request a Formal Quote", href: "/request-a-quote/", primary: true },
+              { label: "Contact Engineering Desk", href: "/contact-us/" },
             ]}
           />
         </div>

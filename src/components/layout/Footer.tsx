@@ -69,10 +69,12 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/service-areas/" className="font-semibold text-accent hover:underline">
+                All Service Areas →
+              </Link>
+            </li>
           </ul>
-          <p className="mt-4 text-xs leading-relaxed text-white/40">
-            Also serving {SITE.regionalFocus.filter((r) => !states.some((s) => s.name === r)).join(", ")}.
-          </p>
         </div>
 
         <div>
