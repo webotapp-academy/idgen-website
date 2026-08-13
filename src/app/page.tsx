@@ -5,7 +5,6 @@ import {
   Building2,
   CalendarDays,
   Sparkles,
-  Workflow,
   ShieldCheck,
   Zap,
   ArrowRight,
@@ -141,39 +140,104 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <HeroSection />
 
-      {/* 2. Trust Band: Factory Direct Quality */}
-      <section className="border-b border-surface-border bg-surface py-12">
+      {/* 2. Trust Band: Factory Direct Quality & Institutional Standards */}
+      <section className="relative border-b border-surface-border bg-gradient-to-b from-surface via-background/60 to-surface py-16">
         <Container>
-          <div className="grid gap-8 md:grid-cols-3 md:items-center">
-            <div className="md:col-span-1">
-              <span className="text-xs font-bold tracking-widest text-accent uppercase">Institutional Standard</span>
-              <h2 className="mt-1 text-2xl font-extrabold text-foreground">
-                One Partner. Complete Identity Workflow.
-              </h2>
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-4 py-1.5 text-xs font-bold tracking-widest text-accent uppercase mb-3 shadow-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-ping" />
+              <span>Institutional Standard</span>
             </div>
-            <div className="md:col-span-2 grid gap-4 sm:grid-cols-2">
-              <div className="flex items-start gap-3 rounded-2xl border border-surface-border bg-background p-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-foreground text-sm">Direct Factory Sourcing</h3>
-                  <p className="text-xs text-muted mt-1 leading-relaxed">
-                    No middlemen or reseller markups. Direct thermal retransfer and dye-sublimation from our Guwahati hub.
-                  </p>
-                </div>
-              </div>
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl lg:text-4xl tracking-tight">
+              One Partner. Complete Identity Workflow.
+            </h2>
+            <p className="mt-3 text-sm text-muted leading-relaxed max-w-2xl">
+              From digital biometric roster collection in IDGen Studio to automated ultrasonic lanyard assembly and express Guwahati dispatch across all 8 Northeast states.
+            </p>
+          </div>
 
-              <div className="flex items-start gap-3 rounded-2xl border border-surface-border bg-background p-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                  <Workflow className="h-5 w-5" />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Pillar 1 */}
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-xs transition-transform duration-300 group-hover:scale-110">
+                    <ShieldCheck className="h-6 w-6" />
+                  </div>
+                  <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-[10px] font-bold text-accent">
+                    Factory Direct
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-bold text-foreground text-sm">Full Hardware Assembly</h3>
-                  <p className="text-xs text-muted mt-1 leading-relaxed">
-                    Pre-assembled wearable packages: cards inserted into holders, hooks clamped, and ribbons ultrasonically sealed.
-                  </p>
+                <h3 className="mt-5 font-bold text-foreground text-base">Direct Factory Sourcing</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  No middlemen or reseller markups. Direct high-definition thermal retransfer and satin dye-sublimation from our Guwahati production hub.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-surface-border text-[11px] font-semibold text-accent">
+                Zero Intermediary Fees →
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-xs transition-transform duration-300 group-hover:scale-110">
+                    <Layers className="h-6 w-6" />
+                  </div>
+                  <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-[10px] font-bold text-accent">
+                    Pre-Assembled
+                  </span>
                 </div>
+                <h3 className="mt-5 font-bold text-foreground text-base">Full Hardware Assembly</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  Complete wearable kits: cards inserted into hard holders, chrome swivel hooks attached, and ribbons ultrasonically welded into tear-proof loops.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-surface-border text-[11px] font-semibold text-accent">
+                Ready-to-Distribute Sets →
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-xs transition-transform duration-300 group-hover:scale-110">
+                    <Sparkles className="h-6 w-6" />
+                  </div>
+                  <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-[10px] font-bold text-accent">
+                    Zero Errors
+                  </span>
+                </div>
+                <h3 className="mt-5 font-bold text-foreground text-base">IDGen Studio Portal</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  Eliminate spreadsheet chaos. Cloud student photo submission, automatic AI face centering, and batch preview approvals prior to printing.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-surface-border text-[11px] font-semibold text-accent">
+                Explore Digital Ingestion →
+              </div>
+            </div>
+
+            {/* Pillar 4 */}
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-xs transition-transform duration-300 group-hover:scale-110">
+                    <Zap className="h-6 w-6" />
+                  </div>
+                  <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-[10px] font-bold text-accent">
+                    48–72h SLA
+                  </span>
+                </div>
+                <h3 className="mt-5 font-bold text-foreground text-base">Express Dispatch</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  High-capacity daily production with express air and road logistics connecting all 8 Northeast states with live door-step tracking.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-surface-border text-[11px] font-semibold text-accent">
+                Regional Logistics Network →
               </div>
             </div>
           </div>
