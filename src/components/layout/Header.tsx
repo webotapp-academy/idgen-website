@@ -16,7 +16,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <IdgenLogo size="sm" withTagline={false} />
+          <IdgenLogo size="md" withTagline={true} />
         </Link>
 
         {/* Desktop Navigation */}
