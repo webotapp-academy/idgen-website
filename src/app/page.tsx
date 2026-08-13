@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { HeroSection } from "@/components/home/HeroSection";
 import { services } from "@/data/services";
 import { products } from "@/data/products";
 import { states } from "@/data/locations";
@@ -7,56 +8,7 @@ import { states } from "@/data/locations";
 export default function HomePage() {
   return (
     <>
-      <section className="border-b border-surface-border bg-navy text-white">
-        <Container className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="text-xs font-bold tracking-widest text-accent uppercase">Identity Solutions, Simplified</p>
-            <h1 className="mt-4 max-w-xl text-4xl font-extrabold text-balance sm:text-5xl">
-              ID cards, RFID credentials, and lanyards — manufactured for Northeast India.
-            </h1>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/75">
-              iDGen prints durable, tamper-resistant ID cards for schools, colleges, universities, and
-              enterprises, and ships in bulk across Assam, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, and
-              Arunachal Pradesh.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/get-a-quote"
-                className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-navy-deep transition hover:bg-accent-hover hover:text-white"
-              >
-                Get a Quote
-              </Link>
-              <Link
-                href="/services"
-                className="rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:border-accent hover:text-accent"
-              >
-                Browse Services
-              </Link>
-            </div>
-          </div>
-
-          <dl className="grid grid-cols-2 gap-4 text-sm">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <dt className="text-xs font-semibold tracking-widest text-accent uppercase">Service lines</dt>
-              <dd className="mt-2 text-3xl font-extrabold">{services.length}</dd>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <dt className="text-xs font-semibold tracking-widest text-accent uppercase">States served</dt>
-              <dd className="mt-2 text-3xl font-extrabold">{states.length}</dd>
-            </div>
-            <div className="col-span-2 rounded-2xl border border-white/10 bg-white/5 p-5">
-              <dt className="text-xs font-semibold tracking-widest text-accent uppercase">Card build</dt>
-              <dd className="mt-2 text-sm text-white/75">
-                0.76mm PVC · edge-to-edge lamination · optional RFID embedding — see{" "}
-                <Link href="/manufacturing" className="text-accent underline">
-                  Manufacturing
-                </Link>
-                .
-              </dd>
-            </div>
-          </dl>
-        </Container>
-      </section>
+      <HeroSection />
 
       <section className="py-16">
         <Container>
