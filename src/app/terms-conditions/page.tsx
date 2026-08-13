@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Terms & Conditions",
   description: "Terms governing orders placed with iDGen for ID card, RFID card, and lanyard printing.",
-  path: "/terms-conditions",
+  path: "/terms-conditions/",
 });
 
 export default function TermsConditionsPage() {
@@ -14,7 +14,7 @@ export default function TermsConditionsPage() {
     <>
       <PageHero eyebrow="Legal" title="Terms & Conditions" />
       <Container className="py-14">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Terms & Conditions", path: "/terms-conditions" }]} />
+        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Terms & Conditions", path: "/terms-conditions/" }]} />
 
         <div className="mt-8 max-w-3xl space-y-6 text-sm leading-relaxed text-foreground/90">
           <p className="rounded-lg border border-dashed border-surface-border bg-surface p-4 text-muted">

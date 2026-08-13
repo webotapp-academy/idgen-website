@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { ServiceContent } from "@/data/types";
+import type { ServiceIndexItem } from "@/data/types";
 
-export function QuoteForm({ services, defaultServiceSlug }: { services: ServiceContent[]; defaultServiceSlug?: string }) {
+export function QuoteForm({ services, defaultServiceSlug }: { services: ServiceIndexItem[]; defaultServiceSlug?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
 

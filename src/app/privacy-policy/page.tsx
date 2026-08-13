@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Privacy Policy",
   description: "How iDGen collects, uses, and protects data submitted for ID card printing and quote requests.",
-  path: "/privacy-policy",
+  path: "/privacy-policy/",
 });
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
     <>
       <PageHero eyebrow="Legal" title="Privacy Policy" />
       <Container className="py-14">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy" }]} />
+        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy/" }]} />
 
         <div className="mt-8 max-w-3xl space-y-6 text-sm leading-relaxed text-foreground/90">
           <p className="rounded-lg border border-dashed border-surface-border bg-surface p-4 text-muted">

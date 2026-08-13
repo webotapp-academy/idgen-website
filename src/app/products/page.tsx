@@ -1,14 +1,15 @@
-import Link from "next/link";
+import { Layers } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { FeatureCard } from "@/components/ui/FeatureCard";
 import { products } from "@/data/products";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Products",
-  description: "ID card holders and lanyard hooks from iDGen, sold in bulk alongside or separate from card orders.",
-  path: "/products",
+  title: "Products | ID Card Holders & Hooks",
+  description: "ID card holders and lanyard hooks from IDGen — the hardware that completes an identification setup.",
+  path: "/products/",
 });
 
 export default function ProductsPage() {
@@ -16,21 +17,15 @@ export default function ProductsPage() {
     <>
       <PageHero
         eyebrow="Hardware"
+        icon={Layers}
         title="Products"
-        lede="The hardware that completes a card program — holders and connecting hooks, sold in bulk."
+        lede="An ID card is rarely the whole identification setup. Holders and hooks are the hardware that connects a card to a lanyard and turns it into something people actually wear."
       />
       <Container className="py-14">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Products", path: "/products" }]} />
+        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Products", path: "/products/" }]} />
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {products.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/products/${p.slug}`}
-              className="rounded-2xl border border-surface-border bg-surface p-6 transition hover:border-accent hover:shadow-sm"
-            >
-              <h2 className="font-semibold">{p.name}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{p.description[0]}</p>
-            </Link>
+            <FeatureCard key={p.slug} icon={Layers} title={p.name} body={p.shortDescription} href={`/${p.slug}/`} />
           ))}
         </div>
       </Container>

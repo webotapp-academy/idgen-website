@@ -1,32 +1,25 @@
-import { pgTable, serial, text, varchar, integer, jsonb, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, varchar, integer, timestamp } from "drizzle-orm/pg-core";
+
+// Lightweight index tables — nav/quote-form lookups only. Page content itself
+// lives in hand-authored route files under src/app, not here (each service,
+// product, and location page has its own bespoke layout per the client's
+// content doc, so a generic content column would just go stale).
 
 export const services = pgTable("services", {
   id: serial("id").primaryKey(),
   slug: varchar("slug", { length: 120 }).notNull().unique(),
   name: text("name").notNull(),
-  category: varchar("category", { length: 60 }).notNull(), // "id-card" | "lanyard"
+  category: varchar("category", { length: 60 }).notNull(), // "id-card" | "lanyard" | "accessory"
   shortDescription: text("short_description").notNull(),
-  content: text("content").notNull(),
-  heroImage: text("hero_image"),
-  faqs: jsonb("faqs").$type<{ q: string; a: string }[]>().default([]),
-  metaTitle: text("meta_title"),
-  metaDescription: text("meta_description"),
   sortOrder: integer("sort_order").default(0),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const products = pgTable("products", {
   id: serial("id").primaryKey(),
   slug: varchar("slug", { length: 120 }).notNull().unique(),
   name: text("name").notNull(),
-  description: text("description").notNull(),
-  specs: jsonb("specs").$type<Record<string, string>>().default({}),
-  heroImage: text("hero_image"),
-  metaTitle: text("meta_title"),
-  metaDescription: text("meta_description"),
+  shortDescription: text("short_description").notNull(),
   sortOrder: integer("sort_order").default(0),
-  createdAt: timestamp("created_at").defaultNow(),
 });
 
 export const states = pgTable("states", {
@@ -43,10 +36,7 @@ export const cities = pgTable("cities", {
     .notNull(),
   slug: varchar("slug", { length: 80 }).notNull(),
   name: text("name").notNull(),
-  isPrimary: integer("is_primary").default(0), // 1 = state's main hub city
-  localContent: text("local_content"), // unique local proof copy, never boilerplate
-  metaTitle: text("meta_title"),
-  metaDescription: text("meta_description"),
+  isPrimary: integer("is_primary").default(0), // 1 = IDGen's actual base (Guwahati)
 });
 
 export const blogPosts = pgTable("blog_posts", {

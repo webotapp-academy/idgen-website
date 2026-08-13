@@ -6,22 +6,23 @@ import { states, allCities } from "@/data/locations";
 
 const staticPaths = [
   "/",
-  "/about-us",
-  "/why-idgen",
-  "/manufacturing",
-  "/quality-assurance",
-  "/our-process",
-  "/services",
-  "/products",
-  "/idgen-studio",
-  "/service-area",
-  "/become-a-partner",
-  "/contact-us",
-  "/get-a-quote",
-  "/faq",
-  "/privacy-policy",
-  "/terms-conditions",
-  "/shipping-returns",
+  "/why-idgen/",
+  "/services/",
+  "/products/",
+  "/idgen-studio/",
+  "/service-areas/",
+  "/pricing/",
+  "/partners/",
+  "/resources/",
+  "/resources/guides/",
+  "/faq/",
+  "/case-studies/",
+  "/templates/",
+  "/contact-us/",
+  "/request-a-quote/",
+  "/privacy-policy/",
+  "/terms-conditions/",
+  "/shipping-returns/",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -35,17 +36,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   for (const s of services) {
-    entries.push({ url: `${SITE_URL}/services/${s.slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
+    entries.push({ url: `${SITE_URL}/${s.slug}/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
   }
   for (const p of products) {
-    entries.push({ url: `${SITE_URL}/products/${p.slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
+    entries.push({ url: `${SITE_URL}/${p.slug}/`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
   }
   for (const st of states) {
-    entries.push({ url: `${SITE_URL}/service-area/${st.slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
+    entries.push({ url: `${SITE_URL}/service-areas/${st.slug}/`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
   }
   for (const { state, city } of allCities()) {
     entries.push({
-      url: `${SITE_URL}/service-area/${state.slug}/${city.slug}`,
+      url: `${SITE_URL}/service-areas/${state.slug}/${city.slug}/`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,

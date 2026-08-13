@@ -1,5 +1,5 @@
 import { SITE, SITE_URL } from "@/data/site";
-import type { ServiceContent, ProductContent, Faq } from "@/data/types";
+import type { Faq } from "@/data/types";
 
 // Central JSON-LD builders — one function per page type, so schema stays
 // consistent as the service/product/location page count grows.
@@ -57,26 +57,26 @@ export function faqSchema(faqs: Faq[]) {
   };
 }
 
-export function serviceSchema(service: ServiceContent) {
+export function serviceSchema(opts: { name: string; description: string; path: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: service.name,
-    description: service.shortDescription,
+    name: opts.name,
+    description: opts.description,
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "Country", name: "India" },
-    url: `${SITE_URL}/services/${service.slug}`,
+    url: `${SITE_URL}${opts.path}`,
   };
 }
 
-export function productSchema(product: ProductContent) {
+export function productSchema(opts: { name: string; description: string; path: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: product.name,
-    description: product.description.join(" "),
+    name: opts.name,
+    description: opts.description,
     brand: { "@type": "Brand", name: SITE.name },
-    url: `${SITE_URL}/products/${product.slug}`,
+    url: `${SITE_URL}${opts.path}`,
   };
 }
 

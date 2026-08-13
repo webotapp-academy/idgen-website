@@ -1,35 +1,34 @@
 export type Faq = { q: string; a: string };
 
-export type ServiceContent = {
-  slug: string;
-  name: string;
-  category: "id-card" | "lanyard";
-  shortDescription: string;
-  content: string[]; // paragraphs
-  highlights: string[];
-  faqs: Faq[];
-  metaTitle: string;
-  metaDescription: string;
-};
-
-export type ProductContent = {
-  slug: string;
-  name: string;
-  description: string[];
-  specs: Record<string, string>;
-  metaTitle: string;
-  metaDescription: string;
-};
-
 export type CityContent = {
   slug: string;
   name: string;
-  isPrimary: boolean;
-  localContent: string;
+  isPrimary: boolean; // Guwahati — IDGen's actual base
+  heroIntro: string;
+  localColor?: string;
+  nearbyAreas: string[];
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export type StateContent = {
   slug: string;
   name: string;
+  heroIntro: string;
   cities: CityContent[];
+  metaTitle: string;
+  metaDescription: string;
+};
+
+export type ServiceIndexItem = {
+  slug: string;
+  name: string;
+  category: "id-card" | "lanyard" | "accessory";
+  shortDescription: string;
+};
+
+export type ProductIndexItem = {
+  slug: string;
+  name: string;
+  shortDescription: string;
 };

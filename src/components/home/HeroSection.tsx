@@ -18,6 +18,7 @@ import {
   PhoneCall
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { SITE } from "@/data/site";
 
 interface CardPreset {
   id: string;
@@ -166,7 +167,7 @@ export function HeroSection() {
 
           <div className="hidden items-center gap-1.5 text-xs text-white/60 sm:inline-flex">
             <ShieldCheck className="h-3.5 w-3.5 text-accent" />
-            <span>ISO 7810 Compliant PVC</span>
+            <span>Identification Experience Since {SITE.foundedYear}</span>
           </div>
         </div>
 
@@ -184,31 +185,32 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              Manufactured direct-from-factory for Northeast India&apos;s schools, universities, hospitals, 
-              and corporate enterprises. Built with durable <strong>0.76mm ISO-grade PVC</strong>, tamper-resistant 
-              edge-to-edge lamination, and fast-track regional delivery across all 7 states.
+              IDGen is a {SITE.hqCity}-based identity solutions company helping schools, universities,
+              hospitals and corporate enterprises across Northeast India create professional identification
+              systems — from ID card printing and custom lanyards to RFID cards, event badges and digital
+              data collection through IDGen Studio.
             </p>
 
             {/* Quick Spec Highlights */}
             <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
               <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-2.5 backdrop-blur-sm">
                 <Radio className="h-4 w-4 shrink-0 text-accent" />
-                <span className="text-xs font-medium text-slate-200">125kHz / 13.56MHz RFID</span>
+                <span className="text-xs font-medium text-slate-200">RFID Matched to Your Reader</span>
               </div>
               <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-2.5 backdrop-blur-sm">
                 <Layers className="h-4 w-4 shrink-0 text-accent" />
-                <span className="text-xs font-medium text-slate-200">0.76mm Solid Core PVC</span>
+                <span className="text-xs font-medium text-slate-200">{SITE.dailyCapacity}</span>
               </div>
               <div className="col-span-2 sm:col-span-1 flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] p-2.5 backdrop-blur-sm">
                 <Zap className="h-4 w-4 shrink-0 text-accent" />
-                <span className="text-xs font-medium text-slate-200">48-Hour Fast Dispatch</span>
+                <span className="text-xs font-medium text-slate-200">{SITE.dispatchTime}</span>
               </div>
             </div>
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                href="/get-a-quote"
+                href="/request-a-quote/"
                 className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-accent px-7 py-3.5 text-sm font-bold text-slate-950 shadow-[0_0_30px_rgba(27,159,222,0.45)] transition duration-200 hover:bg-accent-hover hover:text-white hover:shadow-[0_0_40px_rgba(27,159,222,0.7)]"
               >
                 <span>Request an Instant Bulk Quote</span>
@@ -216,7 +218,7 @@ export function HeroSection() {
               </Link>
 
               <Link
-                href="/idgen-studio"
+                href="/idgen-studio/"
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition hover:border-accent hover:bg-white/10 hover:text-accent"
               >
                 <Sparkles className="h-4 w-4 text-accent" />
@@ -235,7 +237,7 @@ export function HeroSection() {
                 <span>Zero Minimum for Reorders</span>
               </div>
               <Link 
-                href="/contact-us" 
+                href="/contact-us/" 
                 className="flex items-center gap-1.5 text-accent hover:underline"
               >
                 <PhoneCall className="h-3.5 w-3.5" />
@@ -291,7 +293,7 @@ export function HeroSection() {
               {/* Floating Feature Chip: Bottom Left */}
               <div className="animate-float-delayed absolute -bottom-4 -left-3 z-20 hidden rounded-xl border border-white/20 bg-slate-900/90 px-3 py-2 text-xs font-semibold text-white shadow-xl backdrop-blur-md sm:flex sm:items-center sm:gap-2">
                 <ShieldCheck className="h-4 w-4 text-accent" />
-                <span>0.76mm ISO UV Laminated</span>
+                <span>Preview Before Printing</span>
               </div>
 
               {/* Physical Lanyard Strap Representation */}
@@ -396,7 +398,7 @@ export function HeroSection() {
               <div className="mt-3 flex items-center justify-between px-1 text-xs text-slate-400">
                 <span>Direct PVC Printing & RFID Embedding</span>
                 <Link
-                  href="/manufacturing"
+                  href="/why-idgen/"
                   className="inline-flex items-center gap-1 font-semibold text-accent hover:underline"
                 >
                   <span>See Manufacturing Specs</span>
@@ -410,29 +412,32 @@ export function HeroSection() {
         {/* Bottom Metrics / Social Proof Glass Banner */}
         <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:gap-4">
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.05]">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">500k+</p>
-            <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">Cards Manufactured</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">Schools, Unis & Corporates</p>
+            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">{SITE.foundedYear}</p>
+            <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">Experience Since</p>
+            <p className="mt-0.5 text-[11px] text-slate-400">Identification-product supply</p>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.05]">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">7 States</p>
+            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">{SITE.regionalFocus.length} States</p>
             <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">Northeast Coverage</p>
             <p className="mt-0.5 text-[11px] text-slate-400">Direct regional dispatch</p>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.05]">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">0.76 mm</p>
-            <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">ISO 7810 Solid Core</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">Durable & tamper-proof</p>
+            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">10,000+</p>
+            <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">IDs / Day Capacity*</p>
+            <p className="mt-0.5 text-[11px] text-slate-400">Varies by product & project</p>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.05]">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">48-72h</p>
-            <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">Fast-Track Turnaround</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">Guaranteed production speed</p>
+            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">72h</p>
+            <p className="mt-1 text-xs font-semibold text-accent uppercase tracking-wider">Dispatch Commitment</p>
+            <p className="mt-0.5 text-[11px] text-slate-400">After approval & payment</p>
           </div>
         </div>
+        <p className="mt-3 text-center text-[11px] text-slate-500 sm:text-right">
+          *{SITE.capacityFootnote}
+        </p>
       </Container>
     </section>
   );

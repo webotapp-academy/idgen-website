@@ -17,8 +17,27 @@ const CONTENT_SECURITY_POLICY = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   turbopack: {
     root: path.join(__dirname),
+  },
+  async redirects() {
+    // Sources include the trailing slash so these fire in a single hop —
+    // trailingSlash:true would otherwise redirect once to normalize the
+    // slash, then again to the real destination.
+    return [
+      { source: "/about-us/", destination: "/why-idgen/", permanent: true },
+      { source: "/manufacturing/", destination: "/why-idgen/", permanent: true },
+      { source: "/quality-assurance/", destination: "/why-idgen/", permanent: true },
+      { source: "/our-process/", destination: "/why-idgen/", permanent: true },
+      { source: "/services/:slug/", destination: "/:slug/", permanent: true },
+      { source: "/products/:slug/", destination: "/:slug/", permanent: true },
+      { source: "/service-area/:state/:city/", destination: "/service-areas/:state/:city/", permanent: true },
+      { source: "/service-area/:state/", destination: "/service-areas/:state/", permanent: true },
+      { source: "/service-area/", destination: "/service-areas/", permanent: true },
+      { source: "/get-a-quote/", destination: "/request-a-quote/", permanent: true },
+      { source: "/become-a-partner/", destination: "/partners/", permanent: true },
+    ];
   },
   async headers() {
     return [

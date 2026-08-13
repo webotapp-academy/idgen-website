@@ -18,10 +18,6 @@ async function main() {
         name: s.name,
         category: s.category,
         shortDescription: s.shortDescription,
-        content: s.content.join("\n\n"),
-        faqs: s.faqs,
-        metaTitle: s.metaTitle,
-        metaDescription: s.metaDescription,
         sortOrder: i,
       })
       .onConflictDoNothing({ target: servicesTable.slug });
@@ -34,10 +30,7 @@ async function main() {
       .values({
         slug: p.slug,
         name: p.name,
-        description: p.description.join("\n\n"),
-        specs: p.specs,
-        metaTitle: p.metaTitle,
-        metaDescription: p.metaDescription,
+        shortDescription: p.shortDescription,
         sortOrder: i,
       })
       .onConflictDoNothing({ target: productsTable.slug });
@@ -67,7 +60,6 @@ async function main() {
           slug: c.slug,
           name: c.name,
           isPrimary: c.isPrimary ? 1 : 0,
-          localContent: c.localContent,
         })
         .onConflictDoNothing();
     }

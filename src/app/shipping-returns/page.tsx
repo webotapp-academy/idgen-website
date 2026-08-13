@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "Shipping & Returns",
   description: "How iDGen dispatches bulk ID card orders and handles reprints for production errors.",
-  path: "/shipping-returns",
+  path: "/shipping-returns/",
 });
 
 export default function ShippingReturnsPage() {
@@ -15,7 +15,7 @@ export default function ShippingReturnsPage() {
     <>
       <PageHero eyebrow="Legal" title="Shipping & Returns" />
       <Container className="py-14">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Shipping & Returns", path: "/shipping-returns" }]} />
+        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Shipping & Returns", path: "/shipping-returns/" }]} />
 
         <div className="mt-8 max-w-3xl space-y-6 text-sm leading-relaxed text-foreground/90">
           <p className="rounded-lg border border-dashed border-surface-border bg-surface p-4 text-muted">
