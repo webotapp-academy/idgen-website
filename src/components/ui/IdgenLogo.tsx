@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useSyncExternalStore } from "react";
 import Image from "next/image";
 
 interface IdgenLogoProps {
@@ -10,74 +10,52 @@ interface IdgenLogoProps {
   size?: "sm" | "md" | "lg" | "xl";
 }
 
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getSnapshot() {
+  if (typeof window === "undefined") return "light";
+  return localStorage.getItem("idgen-theme") === "dark" ? "dark" : "light";
+}
+
+function getServerSnapshot() {
+  return "light";
+}
+
 export function IdgenLogo({
   className = "",
   variant = "auto",
   size = "md",
 }: IdgenLogoProps) {
-  // Height sizing for clear, prominent visibility
-  const dimensions = {
-    sm: { width: 140, height: 42, hClass: "h-9 sm:h-10" },
-    md: { width: 170, height: 50, hClass: "h-11 sm:h-12" },
-    lg: { width: 220, height: 64, hClass: "h-14 sm:h-16" },
-    xl: { width: 280, height: 84, hClass: "h-20 sm:h-24" },
+  const currentTheme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  // Determine if dark logo is needed:
+  // variant "dark": forced dark background logo (white text on dark navy)
+  // variant "light": forced light background logo (dark text on white)
+  // variant "auto": follows current active theme (light theme -> light bg logo, dark theme -> dark bg logo)
+  const isDark =
+    variant === "dark" || (variant === "auto" && currentTheme === "dark");
+
+  const logoSrc = isDark ? "/images/logo-dark.jpg" : "/images/logo-light.jpg";
+
+  // Exact dimensional containers ensuring high-DPI crisp rendering and no shrinkage
+  const sizeClasses = {
+    sm: "h-9 w-36 sm:h-10 sm:w-44",
+    md: "h-11 w-44 sm:h-12 sm:w-52",
+    lg: "h-14 w-56 sm:h-16 sm:w-64",
+    xl: "h-20 w-72 sm:h-24 sm:w-96",
   };
 
-  const dim = dimensions[size];
-
-  if (variant === "light") {
-    // Specifically for light backgrounds
-    return (
-      <div className={`inline-flex items-center select-none ${className}`}>
-        <Image
-          src="/images/logo-light.jpg"
-          alt="IDGen - Identity Solutions, Simplified"
-          width={dim.width}
-          height={dim.height}
-          className={`${dim.hClass} w-auto object-contain mix-blend-multiply`}
-          priority
-        />
-      </div>
-    );
-  }
-
-  if (variant === "dark") {
-    // Specifically for dark backgrounds
-    return (
-      <div className={`inline-flex items-center select-none ${className}`}>
-        <Image
-          src="/images/logo-dark.jpg"
-          alt="IDGen - Identity Solutions, Simplified"
-          width={dim.width}
-          height={dim.height}
-          className={`${dim.hClass} w-auto object-contain rounded-lg`}
-          priority
-        />
-      </div>
-    );
-  }
-
-  // Auto theme mode:
-  // - Light theme: shows 1st logo for light bg (logo-light.jpg)
-  // - Dark theme: shows 2nd logo for dark bg (logo-dark.jpg)
   return (
-    <div className={`inline-flex items-center select-none ${className}`}>
-      {/* 1st Logo: Light background */}
+    <div className={`relative flex items-center shrink-0 select-none ${sizeClasses[size]} ${className}`}>
       <Image
-        src="/images/logo-light.jpg"
+        src={logoSrc}
         alt="IDGen - Identity Solutions, Simplified"
-        width={dim.width}
-        height={dim.height}
-        className={`${dim.hClass} w-auto object-contain mix-blend-multiply block dark:hidden`}
-        priority
-      />
-      {/* 2nd Logo: Dark background */}
-      <Image
-        src="/images/logo-dark.jpg"
-        alt="IDGen - Identity Solutions, Simplified"
-        width={dim.width}
-        height={dim.height}
-        className={`${dim.hClass} w-auto object-contain rounded-lg hidden dark:block`}
+        fill
+        sizes="(max-width: 768px) 200px, 300px"
+        className={`object-contain ${!isDark ? "mix-blend-multiply" : "rounded-md"}`}
         priority
       />
     </div>
