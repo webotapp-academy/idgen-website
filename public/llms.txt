@@ -1,0 +1,32 @@
+# iDGen
+
+> iDGen — Identity Solutions, Simplified. iDGen manufactures ID cards, RFID credentials, and lanyards for schools, colleges, universities, and enterprises across Northeast India.
+
+iDGen prints ID cards on durable PVC with edge-to-edge lamination, embeds RFID chips for access-control and library systems, and produces custom-branded lanyards. Bulk orders are printed in-house and dispatched across Assam, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, and Arunachal Pradesh.
+
+## Services
+- [School ID Card Printing](/services/school-id-card-printing)
+- [College ID Card Printing](/services/college-id-card-printing)
+- [University ID Card Printing](/services/university-id-card-printing)
+- [Employee ID Card Printing](/services/employee-id-card-printing)
+- [Visitor ID Card](/services/visitor-id-card)
+- [RFID ID Card](/services/rfid-id-card)
+- [Event ID Card Printing](/services/event-id-card-printing)
+- [Membership Card Printing](/services/membership-card-printing)
+- [Custom Printed Lanyard](/services/custom-printed-lanyard)
+
+## Products
+- [ID Card Holder](/products/id-card-holder)
+- [ID Card and Lanyard Hook](/products/id-card-and-lanyard-hook)
+
+## Company
+- [About Us](/about-us)
+- [Why iDGen](/why-idgen)
+- [Manufacturing](/manufacturing)
+- [Quality Assurance](/quality-assurance)
+- [Our Process](/our-process)
+- [iDGen Studio](/idgen-studio)
+- [Service Area](/service-area)
+- [Become a Partner](/become-a-partner)
+- [FAQ](/faq)
+- [Contact Us](/contact-us)

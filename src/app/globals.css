@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f8fa;
+  --surface: #ffffff;
+  --surface-border: #dce4ea;
+  --foreground: #0f1e2e;
+  --muted: #5c6b7a;
+  --accent: #1b9fde;
+  --accent-hover: #1587bd;
+  --accent-soft: #def1fb;
+  --navy: #0b3550;
+  --navy-deep: #0a2a40;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-border: var(--surface-border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Avenir Next", "Century Gothic", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
