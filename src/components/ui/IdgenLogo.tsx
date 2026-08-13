@@ -31,7 +31,7 @@ export function IdgenLogo({
 }: IdgenLogoProps) {
   const currentTheme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  // Determine if dark logo is needed:
+  // Exact theme selection:
   // variant "dark": forced dark background logo (white text on dark navy)
   // variant "light": forced light background logo (dark text on white)
   // variant "auto": follows current active theme (light theme -> light bg logo, dark theme -> dark bg logo)
@@ -40,12 +40,12 @@ export function IdgenLogo({
 
   const logoSrc = isDark ? "/images/logo-dark.jpg" : "/images/logo-light.jpg";
 
-  // Exact dimensional containers ensuring high-DPI crisp rendering and no shrinkage
+  // Tight proportions matching the 2.75:1 cropped aspect ratio
   const sizeClasses = {
-    sm: "h-9 w-36 sm:h-10 sm:w-44",
-    md: "h-11 w-44 sm:h-12 sm:w-52",
-    lg: "h-14 w-56 sm:h-16 sm:w-64",
-    xl: "h-20 w-72 sm:h-24 sm:w-96",
+    sm: "h-8 w-24 sm:h-8.5 sm:w-26",
+    md: "h-9 w-28 sm:h-10 sm:w-32",
+    lg: "h-12 w-36 sm:h-14 sm:w-44",
+    xl: "h-16 w-48 sm:h-20 sm:w-60",
   };
 
   return (
@@ -54,7 +54,7 @@ export function IdgenLogo({
         src={logoSrc}
         alt="IDGen - Identity Solutions, Simplified"
         fill
-        sizes="(max-width: 768px) 200px, 300px"
+        sizes="(max-width: 768px) 160px, 220px"
         className={`object-contain ${!isDark ? "mix-blend-multiply" : "rounded-md"}`}
         priority
       />

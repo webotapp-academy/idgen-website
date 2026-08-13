@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/90 text-foreground backdrop-blur-xl transition-colors duration-300">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-1.5 sm:py-2">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <IdgenLogo size="md" withTagline={true} />
