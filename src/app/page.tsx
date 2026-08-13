@@ -575,8 +575,6 @@ export default function HomePage() {
             body="Whether you need 250 school ID cards or 10,000 corporate RFID badges with ultrasonic sealed lanyards, IDGen delivers factory-direct precision."
             links={[
               { label: "Request an Instant Quote", href: "/request-a-quote/", primary: true },
-              { label: "Explore IDGen Studio", href: "/idgen-studio/" },
-              { label: "View Pricing Tiers", href: "/pricing/" },
             ]}
           />
         </Container>
