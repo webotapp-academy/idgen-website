@@ -14,63 +14,65 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/90 text-foreground backdrop-blur-xl transition-colors duration-300">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-1.5 sm:py-2">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <IdgenLogo size="md" withTagline={true} />
-        </Link>
+        {/* Left Side: Brand Logo + Desktop Navigation Links */}
+        <div className="flex items-center gap-5 lg:gap-7">
+          <Link href="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
+            <IdgenLogo size="md" withTagline={true} />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-0.5 text-xs font-semibold lg:flex">
-          {NAV.map((item) =>
-            item.children ? (
-              <div
-                key={item.href}
-                className="relative"
-                onMouseEnter={() => setOpenDropdown(item.href)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-0.5 text-xs font-semibold lg:flex">
+            {NAV.map((item) =>
+              item.children ? (
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(item.href)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1.5 text-foreground/80 transition hover:bg-surface-border/50 hover:text-accent"
+                  >
+                    {item.label}
+                    <ChevronDown className="h-3 w-3 shrink-0" />
+                  </Link>
+                  {openDropdown === item.href && (
+                    <div className="absolute left-0 top-full pt-2">
+                      <div className="w-64 rounded-2xl border border-surface-border bg-surface/95 p-2 shadow-2xl backdrop-blur-xl">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block rounded-xl px-3.5 py-2 text-xs font-medium text-foreground/80 transition hover:bg-accent-soft hover:text-accent"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
                 <Link
+                  key={item.href}
                   href={item.href}
-                  className="flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-foreground/80 transition hover:bg-surface-border/50 hover:text-accent"
+                  className="whitespace-nowrap rounded-full px-2.5 py-1.5 text-foreground/80 transition hover:bg-surface-border/50 hover:text-accent"
                 >
                   {item.label}
-                  <ChevronDown className="h-3 w-3 shrink-0" />
                 </Link>
-                {openDropdown === item.href && (
-                  <div className="absolute left-0 top-full pt-2">
-                    <div className="w-64 rounded-2xl border border-surface-border bg-surface/95 p-2 shadow-2xl backdrop-blur-xl">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block rounded-xl px-3.5 py-2 text-xs font-medium text-foreground/80 transition hover:bg-accent-soft hover:text-accent"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap rounded-full px-3 py-2 text-foreground/80 transition hover:bg-surface-border/50 hover:text-accent"
-              >
-                {item.label}
-              </Link>
-            )
-          )}
-        </nav>
+              )
+            )}
+          </nav>
+        </div>
 
         {/* Right CTA & Theme Toggle */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 shrink-0">
           <ThemeToggle />
 
           <Link
             href="/request-a-quote/"
-            className="hidden shrink-0 whitespace-nowrap rounded-full bg-accent px-5 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-accent-hover hover:shadow-md lg:inline-block"
+            className="hidden shrink-0 whitespace-nowrap rounded-full bg-accent px-5 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-accent-hover hover:shadow-md lg:inline-block"
           >
             Request a Quote
           </Link>
