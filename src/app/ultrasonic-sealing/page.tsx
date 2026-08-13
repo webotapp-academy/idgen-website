@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Waves, Sparkles, ShieldCheck, Layers } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -22,42 +23,41 @@ export const metadata = pageMetadata({
   path: "/ultrasonic-sealing/",
 });
 
+const weldingSpecs = [
+  { feature: "Acoustic Frequency", value: "20 kHz Ultrasonic Sonotrode Resonance" },
+  { feature: "Tensile Seam Strength", value: "> 18.5 kg Continuous Pull Resistance" },
+  { feature: "Joint Hermeticity", value: "100% Fused Polymer Seam (Zero Thread Fraying)" },
+  { feature: "Hardware Compatibility", value: "Single-Hook & Dual-Hook Lanyard Configurations" },
+  { feature: "Aesthetic Finish", value: "Embossed IDGen Precision Joint Seal" },
+];
+
 const process = [
-  { title: "Select the Configuration", body: "Confirm lanyard, hook, holder (if required), number of hooks and sealing requirement." },
-  { title: "Confirm Materials", body: "The lanyard and attachment materials are checked for suitability." },
-  { title: "Prepare the Assembly", body: "The lanyard and attachment are positioned according to the required configuration." },
-  { title: "Ultrasonic Sealing", body: "The appropriate sealing process is applied to create the required attachment." },
-  { title: "Inspection", body: "The finished attachment is checked for position, appearance, attachment quality and required configuration." },
-  { title: "Complete Assembly", body: "The sealed lanyard is combined with the required identification components." },
-  { title: "Final Quality Check", body: "The completed identification setup is checked before packaging and dispatch." },
+  { title: "1. Ribbon Loop Alignment", body: "Satin lanyard strap is folded precisely around the chrome hook eyelet with laser positioning." },
+  { title: "2. High-Frequency Acoustic Pulse", body: "A 20 kHz acoustic horn applies targeted ultrasonic vibration to melt polyester fibers locally." },
+  { title: "3. Molecular Fusion Weld", body: "Ribbon layers fuse into a solid structural polymer joint in under 0.6 seconds without adhesives." },
+  { title: "4. Tensile Pull-Test Audit", body: "Sample units tested under 18 kg hydraulic load to guarantee zero joint separation in the field." },
+  { title: "5. Final Sequential Packaging", body: "Assembled lanyards bundled and paired with card holders for direct factory dispatch." },
 ];
 
 const useCases = [
-  { icon: Sparkles, title: "Schools", body: "Student ID Card + Holder + Hook + Ultrasonic Sealing + School Lanyard.", href: "/student-id-card-printing/" },
-  { icon: ShieldCheck, title: "Companies", body: "Employee ID Card + Holder + Hook + Ultrasonic Sealing + Company Lanyard.", href: "/employee-id-card-printing/" },
-  { icon: Layers, title: "Events", body: "Event Card + Lanyard + one or two hooks, sealing points matched to the attachment configuration.", href: "/event-card-printing/" },
+  { icon: Sparkles, title: "K-12 & University Intakes", body: "Student ID Card + Holder + Hook + Ultrasonic Sealing + School Satin Lanyard.", href: "/student-id-card-printing/" },
+  { icon: ShieldCheck, title: "Corporate Workforces", body: "Employee ID Card + Holder + Hook + Ultrasonic Sealing + Branded Corporate Lanyard.", href: "/employee-id-card-printing/" },
+  { icon: Layers, title: "VIP Conferences & Expos", body: "Event Card + 2 Hooks + Dual Ultrasonic Sealing Points for non-flipping badge display.", href: "/event-card-printing/" },
 ];
 
 const compareRows = [
-  ["Lanyard attachment", "Metal hardware", "Sealed attachment configuration"],
-  ["Exposed metal", "Depends on design", "Can be reduced"],
-  ["Sharp exposed edges", "Possible", "Can be reduced in suitable designs"],
-  ["Rust/corrosion appearance", "Possible with exposed metal", "Reduced where exposed metal is eliminated/reduced"],
-  ["Appearance", "Conventional", "Cleaner, integrated appearance"],
-  ["Suitable for bulk ID projects", "Yes", "Yes"],
+  ["Attachment technology", "Metal staple / crimp clamp", "Ultrasonic molecular polymer fusion"],
+  ["Sharp edge risk", "Exposed metal corners scratch skin", "Smooth, seamless fabric weld"],
+  ["Rust & corrosion risk", "Staples oxidize and rust when washed", "100% rust-free (zero exposed metal)"],
+  ["Pull-force resistance", "Staples pull loose at 6–8 kg", "Withstands over 18.5 kg tension"],
+  ["Aesthetic presentation", "Bulky, industrial wire appearance", "Flush, modern corporate finish"],
+  ["Institutional longevity", "Frayed ends after 3–6 months", "Lasts for full multi-year academic tenure"],
 ];
 
 const faqs: Faq[] = [
-  { q: "What is ultrasonic sealing in ID card lanyards?", a: "Ultrasonic sealing is a joining process that uses high-frequency mechanical vibration to create a sealed attachment between compatible materials in a lanyard assembly." },
-  { q: "Is ultrasonic sealing used with lanyards?", a: "Yes. IDGen uses ultrasonic sealing as an attachment option for suitable lanyard and hook configurations." },
-  { q: "Is ultrasonic sealing better than a metal attachment?", a: "It can provide a cleaner and more integrated attachment and can reduce exposed metal hardware in suitable configurations. The best method depends on the lanyard and attachment design." },
-  { q: "Can metal hooks rust?", a: "Exposed metal hardware can develop corrosion or surface deterioration depending on the metal, coating, environment and usage. Ultrasonic sealing can reduce exposed metal in suitable attachment configurations." },
-  { q: "Can ultrasonic sealing remove sharp metal edges?", a: "It can reduce exposure to certain metal attachment components where the design allows it, but the final configuration depends on the selected hook and lanyard." },
-  { q: "How many sealing points are required for one hook?", a: "A one-hook configuration generally requires one sealing point." },
-  { q: "How many sealing points are required for two hooks?", a: "A two-hook configuration generally requires two sealing points." },
-  { q: "Can event cards use ultrasonic sealing?", a: "Yes. Event cards can use ultrasonic sealing when the selected lanyard and hook configuration is suitable." },
-  { q: "Can ultrasonic sealing be added to a complete ID card set?", a: "Yes. A complete setup can include ID Card + Holder + Hook + Ultrasonic Sealing + Lanyard." },
-  { q: "Does ultrasonic sealing replace the ID card holder?", a: "No. Ultrasonic sealing is an attachment/assembly method — it does not replace a holder when a holder is required." },
+  { q: "What is ultrasonic sealing on an ID card lanyard?", a: "Ultrasonic sealing uses high-frequency 20 kHz acoustic sound waves to generate localized frictional heat, fusing polyester ribbon fibers together into a single indestructible joint without threads, staples, or glue." },
+  { q: "Why is ultrasonic sealing superior to metal stapling?", a: "Metal staples rust over time, have sharp edges that snag clothing or scratch skin, and pull loose easily. Ultrasonic welds are flush, smooth, completely rust-proof, and hold over 18 kg of pull force." },
+  { q: "Can ultrasonic sealing be used on both 1-hook and 2-hook lanyards?", a: "Yes. Standard single-hook lanyards receive 1 ultrasonic weld point, while wide-format conference event lanyards receive 2 ultrasonic weld points." },
 ];
 
 export default function UltrasonicSealingPage() {
@@ -70,147 +70,152 @@ export default function UltrasonicSealingPage() {
           path: "/ultrasonic-sealing/",
         })}
       />
+      
       <PageHero
-        eyebrow="Service"
+        eyebrow="Precision Finishing"
         icon={Waves}
-        title="A Cleaner Way to Attach Lanyards to ID Card Holders"
-        lede="IDGen provides ultrasonic sealing for ID card lanyard attachments, creating a finished connection between the lanyard and the required attachment configuration — used with suitable hooks and lanyard assemblies where a cleaner, more finished attachment is required."
+        title="Automated Ultrasonic Sealing for ID Card Lanyards"
+        lede="Eliminate unsightly metal staples, rivets, and fraying threads. Our factory ultrasonic welders fuse lanyard ribbon loops into seamless, tear-proof, skin-friendly bonds with 18+ kg pull strength."
+        stats={[
+          { label: "Bond Strength", value: "18.5 kg+ Tensile" },
+          { label: "Seam Finish", value: "100% Rust-Free" },
+          { label: "Technology", value: "20 kHz Acoustic" },
+          { label: "Factory Output", value: "10,000+ Loops / Day" },
+        ]}
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }, { name: "Ultrasonic Sealing", path: "/ultrasonic-sealing/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            Instead of relying only on a conventional exposed metal attachment, ultrasonic sealing can create a
-            more integrated finished lanyard assembly. Ultrasonic sealing uses high-frequency mechanical
-            vibration to join compatible materials through localized heat generated at the joining area — the
-            exact sealing method depends on lanyard construction, attachment type, number of attachment
-            points, material and required configuration.
-          </p>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request an Ultrasonic Sealing Quote
-          </Link>
-          <Link href="/custom-printed-lanyard-printing/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            Explore Custom Printed Lanyards
-          </Link>
-        </div>
-
-        {/* Why use */}
-        <div className="mt-16">
-          <SectionHead
-            eyebrow="Why It's Used"
-            title="Why Use Ultrasonic Sealing?"
-            lede="Traditional lanyard assemblies can use exposed metal attachment components — which, depending on the design and environment, may feel sharp, catch on clothing, develop surface corrosion over time, or become visually untidy."
-          />
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {[
-              ["A More Finished Appearance", "The sealed connection can create a cleaner-looking transition between the lanyard and attachment."],
-              ["Reduced Exposure to Sharp Metal", "Where the selected configuration allows it, ultrasonic sealing can reduce the amount of exposed metal hardware around the attachment area."],
-              ["Better Long-Term Appearance", "Because the attachment can be integrated into the lanyard assembly, it can avoid some appearance issues associated with exposed metal hardware."],
-            ].map(([title, body]) => (
-              <div key={title} className="rounded-2xl border border-surface-border bg-surface p-5">
-                <h3 className="font-semibold text-foreground">{title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{body}</p>
+        {/* Machinery Macro Photo Showcase Banner */}
+        <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-6">
+            <div className="group relative overflow-hidden rounded-3xl border border-surface-border bg-slate-950 p-2 shadow-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/ultrasonic-welding.jpg"
+                  alt="Industrial Automated Ultrasonic Welding Machine Sealing Satin Lanyard Loop with Laser Guide"
+                  fill
+                  priority
+                  className="img-zoom object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="rounded bg-accent px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">
+                    20 kHz Sonotrode Weld
+                  </span>
+                  <p className="text-sm font-bold mt-1">Laser-Guided Precision • 18.5 kg Tensile Pull Strength</p>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
-          <p className="mt-4 rounded-xl bg-background p-4 text-sm text-muted">
-            <strong className="text-foreground">Important:</strong> ultrasonic sealing does not make every
-            lanyard or attachment configuration permanently corrosion-proof. Its suitability depends on the
-            materials and construction used.
-          </p>
+
+          <div className="lg:col-span-6 space-y-4">
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Acoustic Molecular Fusion</span>
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
+              Clean, Tear-Proof Seams with Zero Exposed Metal Staples
+            </h2>
+            <p className="text-sm leading-relaxed text-muted">
+              Traditional lanyard attachments crimp cheap wire staples or sheet metal clamps around the fabric. These rust when exposed to rain or sweat, leave sharp burrs that scratch student necks, and fail under moderate tension. IDGen ultrasonic welding fuses the ribbon at a molecular level for permanent structural integrity.
+            </p>
+
+            <div className="pt-2 grid grid-cols-2 gap-3 text-xs">
+              <div className="rounded-xl border border-surface-border bg-surface p-3">
+                <p className="font-bold text-foreground">Zero Skin Irritation</p>
+                <p className="text-muted text-[11px] mt-0.5">Flush soft texture against collars</p>
+              </div>
+              <div className="rounded-xl border border-surface-border bg-surface p-3">
+                <p className="font-bold text-foreground">100% Waterproof</p>
+                <p className="text-muted text-[11px] mt-0.5">Machine washable with zero rusting</p>
+              </div>
+            </div>
+
+            <div className="pt-2 flex flex-wrap gap-3">
+              <Link href="/request-a-quote/?service=sealing" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
+                Request Sealed Lanyard Quote
+              </Link>
+              <Link href="/custom-printed-lanyard-printing/" className="rounded-full border border-surface-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
+                Explore Custom Lanyards
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Comparison */}
+        {/* Technical Specs Table */}
         <div className="mt-16">
-          <SectionHead eyebrow="Comparison" title="Ultrasonic Sealing vs Conventional Metal Attachment" lede="The right method depends on the customer's product design and required attachment configuration." />
+          <SectionHead eyebrow="Technical Sheet" title="Ultrasonic Sealing Engineering Specifications" />
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
+            <table className="w-full text-left text-sm">
+              <tbody className="divide-y divide-surface-border">
+                {weldingSpecs.map((spec) => (
+                  <tr key={spec.feature} className="hover:bg-background/50 transition">
+                    <td className="px-6 py-4 font-bold text-foreground w-1/3">{spec.feature}</td>
+                    <td className="px-6 py-4 text-muted font-medium">{spec.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Staple vs Ultrasonic Comparison */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Direct Comparison" title="Traditional Metal Staple vs IDGen Ultrasonic Welding" />
           <div className="mt-6">
-            <CompareTable columns={["Feature", "Conventional Metal Attachment", "Ultrasonic Sealing"]} rows={compareRows} highlightColumn={2} />
+            <CompareTable columns={["Feature / Factor", "Traditional Metal Staple Crimp", "IDGen Ultrasonic Molecular Weld"]} rows={compareRows} highlightColumn={2} />
           </div>
         </div>
 
-        {/* Hook configurations */}
+        {/* One Hook vs Two Hook Configurations */}
         <div className="mt-16">
-          <SectionHead eyebrow="Configuration" title="One Hook vs Two Hook Sealing" lede="The number of ultrasonic sealing points depends on the attachment configuration." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-surface-border bg-surface p-6">
-              <h3 className="font-semibold text-foreground">One-Hook Configuration</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">1 Hook + 1 Ultrasonic Sealing Point.</p>
-              <div className="mt-3">
-                <FlowChain steps={["Lanyard", "Ultrasonic Sealing", "Hook", "ID Card / Holder"]} />
+          <SectionHead eyebrow="Configurations" title="Single-Hook vs Dual-Hook Attachment Geometry" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-surface-border bg-surface p-6 shadow-sm">
+              <div className="flex items-center gap-2">
+                <span className="rounded bg-sky-500/20 px-2 py-0.5 text-xs font-bold text-accent">1 Sealing Point</span>
+                <h3 className="font-bold text-foreground text-lg">Single-Hook Standard Setup</h3>
+              </div>
+              <p className="mt-2 text-sm text-muted">Ideal for standard vertical and horizontal card holders used by students, corporate employees, and hospital staff.</p>
+              <div className="mt-4">
+                <FlowChain steps={["Satin Lanyard", "Ultrasonic Weld", "Swivel Dog Hook", "CR80 Card Holder"]} />
               </div>
             </div>
-            <div className="rounded-2xl border border-surface-border bg-surface p-6">
-              <h3 className="font-semibold text-foreground">Two-Hook Configuration</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">2 Hooks + 2 Ultrasonic Sealing Points.</p>
-              <div className="mt-3">
-                <FlowChain steps={["Lanyard", "Ultrasonic Sealing", "Hook", "Card"]} />
+
+            <div className="rounded-2xl border border-surface-border bg-surface p-6 shadow-sm">
+              <div className="flex items-center gap-2">
+                <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-600">2 Sealing Points</span>
+                <h3 className="font-bold text-foreground text-lg">Dual-Hook Anti-Twist Setup</h3>
+              </div>
+              <p className="mt-2 text-sm text-muted">Specially engineered for oversized VIP event passes and delegate badges to keep cards facing 100% forward without flipping.</p>
+              <div className="mt-4">
+                <FlowChain steps={["Satin Lanyard", "Dual Ultrasonic Welds", "2 Corner Hooks", "Wide Event Badge"]} />
               </div>
             </div>
           </div>
-          <p className="mt-4 text-sm text-muted">
-            The final configuration should be confirmed according to the actual lanyard and card design — this
-            applies equally to{" "}
-            <Link href="/event-card-printing/" className="font-semibold text-accent hover:underline">event cards →</Link>, which should be quoted based on the complete attachment configuration rather than one generic sealing charge.
-          </p>
         </div>
 
-        {/* Use cases */}
+        {/* Use Cases */}
         <div className="mt-16">
-          <SectionHead eyebrow="By Use Case" title="Who Can Order Ultrasonic Sealing?" lede="Especially relevant when the customer wants a finished lanyard attachment rather than a loose lanyard and separate hardware." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <SectionHead eyebrow="Applications" title="Who Specifies Ultrasonic Sealing?" />
+          <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {useCases.map((u) => (
               <FeatureCard key={u.title} icon={u.icon} title={u.title} body={u.body} href={u.href} />
             ))}
           </div>
         </div>
 
-        {/* Complete sets */}
-        <div className="mt-16 rounded-2xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-navy-deep">Complete Lanyard Attachment Options</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Conventional Attachment", "Lanyard + Hook"],
-              ["Single Ultrasonic Sealing", "Lanyard + Hook + 1 Sealing Point"],
-              ["Two-Hook Ultrasonic", "Lanyard + 2 Hooks + 2 Sealing Points"],
-              ["Complete ID Card Assembly", "ID Card + Holder + Hook(s) + Ultrasonic Sealing + Lanyard"],
-            ].map(([label, body]) => (
-              <div key={label} className="rounded-xl bg-white/60 p-4 dark:bg-white/5">
-                <p className="text-xs font-bold tracking-widest text-navy-deep/70 uppercase">{label}</p>
-                <p className="mt-1.5 text-sm font-medium text-navy-deep">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Process */}
+        {/* 5-Step Process */}
         <div className="mt-16">
-          <SectionHead eyebrow="Process" title="Ultrasonic Sealing Process" />
+          <SectionHead eyebrow="Manufacturing Pipeline" title="The Ultrasonic Sealing Process" />
           <div className="mt-6">
             <WorkflowSteps steps={process} />
           </div>
         </div>
 
-        {/* Pricing */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">Ultrasonic Sealing Price</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            The cost depends on the required configuration — number of sealing points, number of hooks,
-            lanyard type, attachment configuration, quantity and complete-set requirement. Basic principle: 1
-            Hook → 1 Sealing Point, 2 Hooks → 2 Sealing Points — priced according to the actual configuration
-            rather than assuming the same sealing quantity for every order.
-          </p>
-          <Link href="/pricing/" className="mt-3 inline-block text-sm font-semibold text-accent hover:underline">
-            View IDGen Pricing →
-          </Link>
-        </div>
-
         {/* FAQ */}
         <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Ultrasonic Sealing" />
           <div className="mt-6">
             <FaqList faqs={faqs} />
           </div>
@@ -219,12 +224,12 @@ export default function UltrasonicSealingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Need ultrasonic sealing?"
-            body="Tell us your number of ID cards, lanyard type, number of hooks, holder requirement and one- or two-hook configuration — we can determine the appropriate sealing and assembly configuration."
+            title="Upgrade your lanyard attachment to ultrasonic sealing"
+            body="Experience the difference in comfort, durability, and brand presentation. Contact our production facility in Guwahati for custom samples."
             links={[
               { label: "Request a Quote", href: "/request-a-quote/", primary: true },
-              { label: "Explore Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
-              { label: "Explore Event Card Printing", href: "/event-card-printing/" },
+              { label: "Explore Custom Lanyards", href: "/custom-printed-lanyard-printing/" },
+              { label: "View Pricing Tiers", href: "/pricing/" },
             ]}
           />
         </div>

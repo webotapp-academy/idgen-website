@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Radio, GraduationCap, Building2, Hospital, Users, AlertTriangle, Layers } from "lucide-react";
+import { Radio, GraduationCap, Building2, Hospital, Users, AlertTriangle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
-import { IllustratedCard } from "@/components/ui/IllustratedCard";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
@@ -16,53 +16,51 @@ import { pageMetadata } from "@/lib/metadata";
 import type { Faq } from "@/data/types";
 
 export const metadata = pageMetadata({
-  title: "RFID Card Printing | Custom RFID ID Cards for Organizations | IDGen",
+  title: "RFID Card Printing | Custom RFID & NFC Smart Credentials | IDGen",
   description:
     "Custom RFID card printing for schools, companies, institutions and organizations. Personalized RFID ID cards matched to compatible readers and systems, with bulk printing and accessory options.",
   path: "/rfid-card-printing/",
 });
 
 const applications = [
-  { icon: GraduationCap, title: "Educational Institutions", body: "Student, faculty and staff identification, campus access, library and attendance systems — where the institution's system supports RFID." },
-  { icon: Building2, title: "Companies", body: "Employee identification, access-control, attendance, internal identification and visitor-management systems." },
-  { icon: Hospital, title: "Hospitals & Institutions", body: "Staff identification, employee access, visitor identification and internal identification systems." },
-  { icon: Users, title: "Clubs & Membership Organizations", body: "Membership identification that needs to work with a compatible RFID reader or system." },
+  { icon: GraduationCap, title: "Universities & Campus Gates", body: "Automated student gate access, library book checkout, canteen contactless payments, and hostel security." },
+  { icon: Building2, title: "Corporate Access Control", body: "Turnstile tap badges, elevator floor restriction, server room access, and automated biometric time-attendance." },
+  { icon: Hospital, title: "Hospitals & Secure Labs", body: "Doctor and staff access to ICU, surgical suites, pharmaceutical inventory, and emergency wards." },
+  { icon: Users, title: "VIP Clubs & Membership", body: "Prepaid cashless spending, VIP lounge entry, gym turnstile access, and membership tier validation." },
+];
+
+const rfidSpecs = [
+  { standard: "13.56 MHz HF (Mifare Classic 1K / 4K)", encryption: "Crypto-1 (1K/4K EEPROM)", readRange: "Up to 10 cm", commonSystems: "College campuses, metro transit, corporate turnstiles" },
+  { standard: "13.56 MHz HF (Mifare DESFire EV2/EV3)", encryption: "AES-128 / 3DES Hardware", readRange: "Up to 10 cm", commonSystems: "Banking, defense, high-security enterprise data centers" },
+  { standard: "13.56 MHz HF (NFC NTAG213 / 215 / 216)", encryption: "Universal NFC ISO 14443A", readRange: "Smartphone Tap (5 cm)", commonSystems: "Digital business cards, event accreditation, dynamic URLs" },
+  { standard: "125 kHz LF (EM4100 / TK4100 / T5577)", encryption: "64-bit Read-Only UID", readRange: "Up to 5 cm", commonSystems: "Legacy door controllers, basic employee attendance punches" },
+  { standard: "Dual-Frequency Hybrid (HF + LF Inlay)", encryption: "Mifare 1K + EM4100 Dual Core", readRange: "Up to 10 cm", commonSystems: "Organizations transitioning between older & newer readers" },
 ];
 
 const process = [
-  { title: "Understand the Requirement", body: "Application, quantity, card format, printing requirement, existing RFID system, reader/system compatibility, encoding requirements." },
-  { title: "Confirm RFID Specification", body: "The required RFID technology is confirmed against the customer's system information, existing card or other available specifications." },
-  { title: "Prepare Card Design", body: "The visual card design is prepared according to the organization's requirements." },
-  { title: "Data Preparation", body: "Personalized information and photographs are organized where required." },
-  { title: "Preview & Approval", body: "The design and relevant information are reviewed before production where applicable." },
-  { title: "Production", body: "The approved RFID cards are produced according to the confirmed specifications." },
-  { title: "Quality Check", body: "Cards are checked against the approved requirements and project specifications." },
-  { title: "Dispatch", body: "Completed cards are packaged and dispatched according to the applicable order timeline." },
+  { title: "1. Reader & Frequency Audit", body: "We identify your current access controller model (13.56 MHz ISO 14443A or 125 kHz Proximity)." },
+  { title: "2. Sample Chip Verification", body: "We provide physical sample test cards to swipe on your actual door locks before mass printing." },
+  { title: "3. UID Reading / Pre-Encoding", body: "Option to pre-encode sector data or extract UID serial numbers in a clean spreadsheet for IT mapping." },
+  { title: "4. Thermal Retransfer Lamination", body: "Edge-to-edge color graphics printed without damaging internal copper antenna coils." },
+  { title: "5. 100% RF Frequency Ping Test", body: "Every finished card is electronically pinged across RF readers to ensure zero dead chips." },
+  { title: "6. Guwahati Dispatch", body: "Packed in anti-static protective boxes and shipped directly across Assam and Northeast India." },
 ];
 
-const requiredInfo = ["Existing RFID card sample", "Reader model", "System details", "Chip/frequency information", "Existing card photograph", "Required card dimensions", "Required printing", "Required quantity"];
-
 const compareRows = [
-  ["Printed identification", "Yes", "Yes"],
-  ["Photograph", "Yes", "Yes"],
-  ["Organization branding", "Yes", "Yes"],
-  ["ID number", "Yes", "Yes"],
-  ["RFID functionality", "—", "Yes"],
-  ["Requires compatible RFID system", "—", "Yes"],
-  ["Custom artwork", "Yes", "Yes"],
+  ["Edge-to-edge color printing", "Yes", "Yes"],
+  ["Photo & Biometric accuracy", "Yes", "Yes"],
+  ["Internal copper antenna coil", "No", "Yes (Embedded Inlay)"],
+  ["Contactless tap functionality", "No", "Yes (0–10 cm range)"],
+  ["Turnstile / Gate integration", "Barcode Only", "Instant RF Electromagnetic Tap"],
+  ["Data sector encryption", "No", "Yes (AES/Crypto-1)"],
+  ["Smartphone NFC compatibility", "No", "Yes (NTAG & Mifare models)"],
 ];
 
 const faqs: Faq[] = [
-  { q: "What is an RFID ID card?", a: "An RFID ID card is a printed identification card containing an RFID component that can communicate with a compatible RFID reader or system." },
-  { q: "Can RFID cards be customized?", a: "Yes. RFID cards can be printed with organization branding, photographs, names, identification numbers, departments and other required information." },
-  { q: "Can an RFID card be used as an employee ID card?", a: "Yes, where the organization's existing employee access, attendance or identification system supports the selected RFID technology." },
-  { q: "Can students use RFID ID cards?", a: "Yes. Educational institutions can use RFID-enabled student cards where their existing RFID system supports the required card technology." },
-  { q: "Does every RFID card work with every RFID reader?", a: "No. RFID cards must be compatible with the reader and system being used. Frequency, chip technology and system specifications need to be considered." },
-  { q: "Can I send my existing RFID card?", a: "Yes. Providing an existing card sample can help determine the required specification for a replacement or customized card project." },
-  { q: "Can IDGen print photographs and names on RFID cards?", a: "Yes. RFID cards can be customized with photographs, names, ID numbers, organization branding and other approved information." },
-  { q: "Can RFID cards be supplied with lanyards?", a: "Yes. Depending on the requirement, RFID cards can be combined with holders, hooks and custom printed lanyards." },
-  { q: "Can IDGen handle bulk RFID card orders?", a: "Yes. IDGen supports bulk identification projects. The required RFID specification should be confirmed before production." },
-  { q: "Does IDGen encode RFID cards?", a: "Encoding requirements depend on the project and RFID system. The required encoding specification should be confirmed before quotation and production." },
+  { q: "How do I know which RFID chip my organization needs?", a: "The easiest way is to share a photo of your door reader model or send us one of your existing working access cards. Our engineers will scan the frequency and chip family to guarantee 100% compatibility." },
+  { q: "Can RFID cards be printed with full-color photos and barcodes?", a: "Yes. Our high-precision thermal retransfer presses print full photographic detail over the card surface without disrupting the delicate internal microchip or copper antenna inlay." },
+  { q: "Do you supply dual-frequency hybrid cards?", a: "Yes. If your company uses older 125 kHz readers for parking and modern 13.56 MHz Mifare readers for office doors, a hybrid dual-frequency card consolidates everything onto a single badge." },
+  { q: "Can you provide a sequential UID list for our IT database?", a: "Yes. We can electronically scan and log every card's unique hexadecimal/decimal UID into an Excel/CSV file matched to the cardholder's printed name." },
 ];
 
 export default function RfidCardPrintingPage() {
@@ -75,144 +73,145 @@ export default function RfidCardPrintingPage() {
           path: "/rfid-card-printing/",
         })}
       />
+      
       <PageHero
-        eyebrow="Service"
+        eyebrow="Smart Credentials"
         icon={Radio}
-        title="Customized RFID ID Cards for Organizations, Access & Identification"
-        lede="IDGen provides customized RFID card printing for organizations that need identification cards with RFID functionality — combining printed visual identification with an embedded RFID component for use with a compatible RFID-based system."
-        visual={
-          <IllustratedCard
-            org="YOUR ORGANIZATION"
-            subOrg="RFID-Enabled Identification"
-            holderName="Full Name"
-            holderRole="Access Level"
-            holderId="ID: XXXX-0000"
-            showChip
-          />
-        }
+        title="Custom Contactless RFID & NFC Smart Card Printing"
+        lede="High-security 13.56 MHz Mifare, DESFire, NTAG, and 125 kHz EM-Proximity credentials engineered for seamless turnstile attendance, door access, and campus ecosystems across Northeast India."
+        stats={[
+          { label: "Frequency Range", value: "13.56 MHz / 125 kHz" },
+          { label: "Chip Testing", value: "100% RF Verified" },
+          { label: "Encoding", value: "UID Pre-Logged" },
+          { label: "Turnaround", value: "48–72h Batch" },
+        ]}
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }, { name: "RFID Card Printing", path: "/rfid-card-printing/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            Customized for schools and educational institutions, colleges and universities, companies,
-            corporate offices, hospitals, industries, government organizations, membership organizations,
-            clubs and associations. The RFID technology and card specification should always be selected
-            according to the reader, system and application in which the card will be used.
-          </p>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request an RFID Card Quote
-          </Link>
-          <Link href="/id-card-printing/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            Explore ID Card Printing
-          </Link>
+        {/* RFID Card Macro Photo Showcase */}
+        <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-6">
+            <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-slate-950 p-2 shadow-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/rfid-nfc-credentials.jpg"
+                  alt="Futuristic Matte Black RFID NFC Contactless Smart Access Card with Internal Antenna Glow"
+                  fill
+                  priority
+                  className="img-zoom object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="rounded bg-cyan-400 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950">
+                    Smart Contactless Inlay
+                  </span>
+                  <p className="text-sm font-bold mt-1">13.56 MHz High-Speed RF Induction • Zero Wear & Tear</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 space-y-4">
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Security & Turnstile Integration</span>
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
+              Embedded Microchips Matched to Your Access Control System
+            </h2>
+            <p className="text-sm leading-relaxed text-muted">
+              Stop guessing chip specifications. IDGen delivers customized smart credentials matched precisely to your biometric turnstiles, time-attendance clocks, and hospital door locks — complete with crisp color printing and optional UID data logging.
+            </p>
+
+            <div className="pt-2 grid grid-cols-2 gap-3 text-xs">
+              <div className="rounded-xl border border-surface-border bg-surface p-3">
+                <p className="font-bold text-foreground">100% Pre-Tested Chips</p>
+                <p className="text-muted text-[11px] mt-0.5">Zero defective or dead units in batch</p>
+              </div>
+              <div className="rounded-xl border border-surface-border bg-surface p-3">
+                <p className="font-bold text-foreground">Dual-Frequency Options</p>
+                <p className="text-muted text-[11px] mt-0.5">Combine 13.56 MHz + 125 kHz in one card</p>
+              </div>
+            </div>
+
+            <div className="pt-2 flex flex-wrap gap-3">
+              <Link href="/request-a-quote/?service=rfid" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
+                Request an RFID Quote
+              </Link>
+              <Link href="/pricing/" className="rounded-full border border-surface-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
+                Calculate Batch Pricing
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Critical compatibility notice */}
-        <div className="mt-10 flex items-start gap-3 rounded-2xl border border-amber-400/40 bg-amber-50 p-6 dark:bg-amber-950/20">
-          <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
+        {/* Compatibility Warning Box */}
+        <div className="mt-12 flex items-start gap-4 rounded-3xl border border-amber-400/40 bg-amber-500/10 p-6 backdrop-blur-sm">
+          <AlertTriangle className="mt-1 h-6 w-6 shrink-0 text-amber-500" />
           <div>
-            <h2 className="font-bold text-foreground">RFID Technology Must Match Your System</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              This is one of the most important things to understand before ordering RFID cards —{" "}
-              <strong className="text-foreground">not every RFID card works with every RFID reader</strong>. The
-              required card depends on RFID frequency, chip technology, reader compatibility, your existing
-              access-control or attendance system, software, required read range, encoding requirements and
-              existing card infrastructure. Before production, share the relevant reader/card specification,
-              an existing card sample, chip details or system information where available, and IDGen can
-              determine the required card specification for the project.
+            <h3 className="text-base font-bold text-foreground">Important: Chip Compatibility Guarantee</h3>
+            <p className="mt-1.5 text-xs leading-relaxed text-muted sm:text-sm">
+              Not all RFID cards function with all readers. If you are unsure of your reader&apos;s frequency or chip protocol, simply send us your existing card sample or reader model number. We will scan and verify compatibility free of charge before manufacturing.
             </p>
           </div>
         </div>
 
-        {/* Two purposes */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h3 className="font-semibold text-foreground">1. Identification</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted">People can visually identify the cardholder from the printed information.</p>
+        {/* RFID Frequency Technical Matrix */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Technical Sheet" title="RFID & NFC Chip Protocol Matrix" />
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-surface-border bg-background/80 text-xs font-bold text-muted uppercase">
+                <tr>
+                  <th className="px-5 py-4">Protocol / Standard</th>
+                  <th className="px-5 py-4">Encryption Level</th>
+                  <th className="px-5 py-4">Read Range</th>
+                  <th className="px-5 py-4">Typical Deployment</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-surface-border">
+                {rfidSpecs.map((spec) => (
+                  <tr key={spec.standard} className="hover:bg-background/50 transition">
+                    <td className="px-5 py-4 font-bold text-foreground">{spec.standard}</td>
+                    <td className="px-5 py-4 text-muted font-mono text-xs">{spec.encryption}</td>
+                    <td className="px-5 py-4 font-semibold text-accent">{spec.readRange}</td>
+                    <td className="px-5 py-4 text-muted">{spec.commonSystems}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h3 className="font-semibold text-foreground">2. RFID Interaction</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted">The RFID component can interact with a compatible reader or system.</p>
+        </div>
+
+        {/* Standard vs RFID Comparison */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Feature Comparison" title="Plain PVC Card vs RFID Smart Card" />
+          <div className="mt-6">
+            <CompareTable columns={["Credential Feature", "Standard CR80 PVC Card", "RFID Smart Card"]} rows={compareRows} highlightColumn={2} />
           </div>
         </div>
 
         {/* Applications */}
         <div className="mt-16">
-          <SectionHead eyebrow="By Application" title="RFID Card Applications" lede="RFID cards can be used for different applications depending on the RFID technology and the customer's system." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHead eyebrow="Sectors" title="Where IDGen RFID Credentials Are Used" />
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {applications.map((a) => (
               <FeatureCard key={a.title} icon={a.icon} title={a.title} body={a.body} />
             ))}
           </div>
-          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-accent">
-            <Link href="/student-id-card-printing/" className="hover:underline">Explore Student ID Card Printing →</Link>
-            <Link href="/employee-id-card-printing/" className="hover:underline">Explore Employee ID Card Printing →</Link>
-          </div>
         </div>
 
-        {/* Existing systems */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">RFID Cards for Existing Systems</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            If your organization already has an RFID system, the most important information is the existing
-            system specification. Before requesting a quotation, ideally provide:
-          </p>
-          <ul className="mt-4 grid grid-cols-2 gap-2 text-sm text-muted sm:grid-cols-4">
-            {requiredInfo.map((item) => (
-              <li key={item} className="rounded-lg bg-background px-3 py-2">{item}</li>
-            ))}
-          </ul>
-          <p className="mt-4 text-sm text-muted">This helps reduce the risk of supplying a card that is physically correct but incompatible with your RFID system.</p>
-        </div>
-
-        {/* Compare */}
+        {/* 6-Stage Engineering Process */}
         <div className="mt-16">
-          <SectionHead eyebrow="Comparison" title="RFID Card Printing vs Standard ID Card" lede="An RFID card should be selected when the organization actually requires RFID functionality supported by its existing or planned system." />
-          <div className="mt-6">
-            <CompareTable columns={["Feature", "Standard ID Card", "RFID ID Card"]} rows={compareRows} highlightColumn={2} />
-          </div>
-        </div>
-
-        {/* Process */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Process" title="RFID Card Printing Process" />
+          <SectionHead eyebrow="Quality Pipeline" title="RFID Testing & Production Lifecycle" />
           <div className="mt-6">
             <WorkflowSteps steps={process} />
           </div>
         </div>
 
-        {/* Complete setup */}
-        <div className="mt-16 rounded-2xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
-          <div className="flex items-center gap-2.5">
-            <Layers className="h-5 w-5 text-navy-deep" />
-            <h2 className="text-lg font-bold text-navy-deep">RFID Card + Lanyard + Holder</h2>
-          </div>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-navy-deep/80">
-            An RFID card can be supplied as part of a larger identification setup — RFID Card only, RFID Card +
-            Holder, or wearable RFID Card + Holder + Hook + Custom Printed Lanyard, depending on how the card
-            will be used.
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-navy-deep">
-            <Link href="/id-card-holders/" className="hover:underline">Explore ID Card Holders →</Link>
-            <Link href="/custom-printed-lanyard-printing/" className="hover:underline">Explore Custom Printed Lanyards →</Link>
-          </div>
-        </div>
-
-        {/* Digital workflow */}
-        <p className="mt-16 max-w-3xl text-sm leading-relaxed text-muted">
-          For large personalized RFID projects, IDGen Studio can support the data-collection and card-preview
-          side of suitable identification projects.{" "}
-          <Link href="/idgen-studio/" className="font-semibold text-accent hover:underline">Explore IDGen Studio →</Link>
-        </p>
-
         {/* FAQ */}
         <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About RFID Cards" />
           <div className="mt-6">
             <FaqList faqs={faqs} />
           </div>
@@ -221,10 +220,11 @@ export default function RfidCardPrintingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Need RFID card printing?"
-            body="Tell us what RFID system you're using, what quantity you need and what information should be printed on the card. For the fastest specification check, share an existing RFID card or the relevant reader/system details."
+            title="Need RFID access cards matched to your turnstiles?"
+            body="Speak directly with our RFID technical team in Guwahati to confirm reader frequencies, test sample cards, and receive batch pricing."
             links={[
-              { label: "Request an RFID Card Quote", href: "/request-a-quote/", primary: true },
+              { label: "Request an RFID Quote", href: "/request-a-quote/", primary: true },
+              { label: "View Pricing Tiers", href: "/pricing/" },
               { label: "Explore ID Card Printing", href: "/id-card-printing/" },
             ]}
           />

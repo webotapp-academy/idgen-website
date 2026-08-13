@@ -1,13 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Layers, Fish } from "lucide-react";
+import { Layers } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
-import { FlowChain } from "@/components/ui/FlowChain";
 import { HolderShape, type HolderVariant } from "@/components/ui/HolderShape";
 import { CompareTable } from "@/components/ui/CompareTable";
-import { SpecTable } from "@/components/ui/SpecTable";
 import { WorkflowSteps } from "@/components/ui/WorkflowSteps";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
@@ -17,41 +16,31 @@ import { pageMetadata } from "@/lib/metadata";
 import type { Faq } from "@/data/types";
 
 export const metadata = pageMetadata({
-  title: "ID Card Holders | Vertical, Horizontal & Lock Holders | IDGen",
+  title: "ID Card Holders | Vertical, Horizontal & Crystal Lock Holders | IDGen",
   description: "ID card holders for schools, companies, institutions and events. Choose vertical, horizontal, four-side-lock, metal, crystal and chemical sticker holders from IDGen.",
   path: "/id-card-holders/",
 });
 
-const holders: { model: string; title: string; body: string; variant: HolderVariant }[] = [
-  { model: "V-1", title: "Vertical ID Card Holder", body: "Standard vertical holder for one ID card — the default choice for a portrait-oriented 86 × 54 mm card.", variant: "v1" },
-  { model: "V-2", title: "Vertical Four-Side-Lock Holder", body: "Transparent vertical holder with four-side locking, for stronger card retention.", variant: "v2" },
-  { model: "V-3", title: "Chemical Sticker Holder", body: "Vertical holder for applications requiring a chemical sticker holder format.", variant: "v3" },
-  { model: "H-1", title: "Horizontal ID Card Holder", body: "Standard holder for landscape-oriented identification cards.", variant: "h1" },
-  { model: "H-2", title: "Horizontal Four-Side-Lock Holder", body: "Landscape holder with four-side locking, for additional retention.", variant: "h2" },
-  { model: "Metal", title: "Metal ID Card Holder", body: "A premium holder option with a different appearance from standard plastic holders.", variant: "metal" },
-  { model: "CV-1", title: "Crystal ID Card Holder", body: "A more distinctive, premium-style presentation for corporate and membership identification.", variant: "crystal" },
-  { model: "Fish Hook", title: "Holder Attachment", body: "Connects a suitable ID card holder or badge to a lanyard.", variant: "hook" },
+const holders: { model: string; title: string; body: string; variant: HolderVariant; tag: string }[] = [
+  { model: "V-1", title: "Vertical Hard ID Card Holder", body: "Standard vertical polycarbonate holder for one CR80 portrait card with 20mm lanyard loop slot.", variant: "v1", tag: "Standard Portrait" },
+  { model: "V-2", title: "Vertical Four-Side-Lock Holder", body: "Transparent heavy-duty holder with 4-side perimeter snap locks for maximum card retention.", variant: "v2", tag: "Four-Side Lock" },
+  { model: "CV-1", title: "Crystal Cast Acrylic Holder", body: "Executive glass-clear cast PMMA acrylic holder with polished chamfered edges.", variant: "crystal", tag: "Executive Crystal" },
+  { model: "H-1", title: "Horizontal ID Card Holder", body: "Standard landscape orientation holder designed for landscape company & event credentials.", variant: "h1", tag: "Standard Landscape" },
+  { model: "H-2", title: "Horizontal Four-Side-Lock Holder", body: "Landscape heavy-duty casing with four-side locking tabs to prevent card loss in active environments.", variant: "h2", tag: "Four-Side Lock" },
+  { model: "Metal", title: "Anodized Aluminum Metal Holder", body: "Sleek metallic frame with frosted polycarbonate backplate for executive badge presentation.", variant: "metal", tag: "Metal Armor" },
 ];
 
 const orderingSteps = [
-  { title: "Tell Us Your Requirement", body: "Holder type (if known), quantity, card dimensions, card orientation, application." },
-  { title: "Select the Holder", body: "Choose the suitable model based on your card and retention requirement." },
-  { title: "Add Attachment", body: "Add a fish hook or another compatible attachment if required." },
-  { title: "Add Lanyard", body: "Add a custom printed lanyard if required." },
-  { title: "Confirm", body: "Confirm the product combination and quantity." },
-  { title: "Dispatch", body: "After confirmation and payment, approved orders are prepared for dispatch." },
+  { title: "1. Select Orientation & Model", body: "Choose vertical (portrait) or horizontal (landscape), standard or 4-side-lock." },
+  { title: "2. Specify Quantity & Material", body: "Select virgin polycarbonate, crystal acrylic, or anodized metal frames." },
+  { title: "3. Choose Lanyard & Hook Pair", body: "Pair with 20mm satin lanyards and anti-rust chrome swivel dog hooks." },
+  { title: "4. Direct Guwahati Dispatch", body: "Shipped in bulk cartons of 100 with 48–72h turnaround across Northeast India." },
 ];
 
 const faqs: Faq[] = [
-  { q: "What is an ID card holder?", a: "An ID card holder is an accessory used to carry and display an identification card while helping protect the card during use." },
-  { q: "Which ID card holder is suitable for a vertical card?", a: "V-1 is the standard vertical option. V-2 is the vertical four-side-lock option when additional retention is preferred." },
-  { q: "Which holder is suitable for a horizontal card?", a: "H-1 is the standard horizontal option, while H-2 provides four-side locking." },
-  { q: "What is a four-side-lock ID card holder?", a: "A holder designed to retain an ID card from four sides. IDGen offers V-2 and H-2 in this configuration." },
-  { q: "Can an ID card holder be connected to a lanyard?", a: "Yes. A compatible holder can be connected to a lanyard using an attachment such as a fish hook." },
-  { q: "What size card fits V-1 and V-2?", a: "The specified card format is 86 × 54 mm. Always confirm the actual card and holder dimensions before bulk ordering." },
-  { q: "Does IDGen provide metal or crystal ID card holders?", a: "Yes — a Metal ID Card Holder and the CV-1 Crystal ID Card Holder are both available as premium options." },
-  { q: "Can I order holders with custom printed lanyards?", a: "Yes. Compatible holders can be combined with custom printed lanyards." },
-  { q: "How quickly are orders dispatched?", a: "Eligible approved orders are dispatched within 72 hours after confirmation and payment, excluding courier transit time." },
+  { q: "What card dimensions fit inside IDGen holders?", a: "All our standard holders (V-1, V-2, H-1, H-2, CV-1) fit ISO CR80 standard cards (85.6 × 54 mm) with thickness from 0.76 mm (30 mil) up to 1.0 mm." },
+  { q: "What is the benefit of a four-side-lock holder?", a: "Four-side-lock holders enclose the card completely around all edges, preventing unauthorized card extraction, physical scratching, and moisture penetration during active student or factory work." },
+  { q: "Can we order pre-assembled kits with cards already inside the holders?", a: "Yes! Our factory assembly line can insert cards into holders, attach hooks, and ultrasonically weld the lanyards so you receive ready-to-distribute sets." },
 ];
 
 export default function IdCardHoldersPage() {
@@ -64,164 +53,144 @@ export default function IdCardHoldersPage() {
           path: "/id-card-holders/",
         })}
       />
+      
       <PageHero
-        eyebrow="Product"
+        eyebrow="Hardware & Protection"
         icon={Layers}
-        title="ID Card Holders"
-        lede="Accessories for organizations that need a practical way to carry, protect and display identification cards — vertical, horizontal, four-side-lock, chemical sticker, metal, crystal holders and fish hooks."
-        visual={
-          <div className="grid grid-cols-2 gap-3 rounded-3xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-            {(["v1", "v2", "h1", "h2"] as const).map((v) => (
-              <div key={v} className="rounded-2xl bg-white/5 p-2">
-                <HolderShape variant={v} />
-                <p className="mt-1 text-center font-mono text-[10px] font-bold text-accent uppercase">{v}</p>
-              </div>
-            ))}
-          </div>
-        }
+        title="Crystal-Clear & Four-Side-Lock ID Card Holders"
+        lede="Protect and showcase your credentials with high-impact virgin polycarbonate cases, four-side-lock retention casings, and luxury cast acrylic holders engineered for daily institutional use."
+        stats={[
+          { label: "Material Grade", value: "Virgin Polycarbonate" },
+          { label: "Compatibility", value: "Universal CR80" },
+          { label: "Dispatch Time", value: "48–72h Factory" },
+          { label: "Durability", value: "UV & Shatter Proof" },
+        ]}
       />
+
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Products", path: "/products/" }, { name: "ID Card Holders", path: "/id-card-holders/" }]} />
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request a Quote
-          </Link>
-          <Link href="/id-card-printing/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            Explore ID Card Printing
-          </Link>
-        </div>
+        {/* Product Photo Macro Showcase Banner */}
+        <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-6">
+            <div className="group relative overflow-hidden rounded-3xl border border-surface-border bg-slate-950 p-2 shadow-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/id-holders-hooks.jpg"
+                  alt="Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders with Chrome Clips"
+                  fill
+                  priority
+                  className="img-zoom object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="rounded bg-accent px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">
+                    Crystal Polycarbonate Range
+                  </span>
+                  <p className="text-sm font-bold mt-1">Vertical, Horizontal & Executive Crystal Holders</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        {/* Quick selection */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Quick Guide" title="Quick Holder Selection" lede="Portrait card → Vertical holder. Landscape card → Horizontal holder. If you're unsure, provide your card dimensions and a photo, and the appropriate holder can be identified." />
-          <div className="mt-6">
-            <CompareTable
-              columns={["Your requirement", "Recommended option"]}
-              highlightColumn={1}
-              rows={[
-                ["Standard vertical card", "V-1"],
-                ["Vertical card with four-side locking", "V-2"],
-                ["Chemical sticker holder", "V-3"],
-                ["Standard horizontal card", "H-1"],
-                ["Horizontal card with four-side locking", "H-2"],
-                ["Premium metal appearance", "Metal Holder"],
-                ["Premium crystal appearance", "CV-1 Crystal Holder"],
-                ["Connect holder to lanyard", "Fish Hook"],
-              ]}
-            />
+          <div className="lg:col-span-6 space-y-4">
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Engineered Protection</span>
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
+              Optical Clarity with Anti-Yellowing UV Stabilization
+            </h2>
+            <p className="text-sm leading-relaxed text-muted">
+              Standard recycled plastic holders turn yellow, brittle, and crack within months of student use. IDGen holders are molded from 100% virgin optical-grade polycarbonate, delivering diamond clarity, high scratch resistance, and long-term durability.
+            </p>
+
+            <div className="pt-2 grid grid-cols-2 gap-3 text-xs">
+              <div className="rounded-xl border border-surface-border bg-surface p-3">
+                <p className="font-bold text-foreground">Four-Side Snap Retention</p>
+                <p className="text-muted text-[11px] mt-0.5">Locks cards firmly in place</p>
+              </div>
+              <div className="rounded-xl border border-surface-border bg-surface p-3">
+                <p className="font-bold text-foreground">Barcode Scan Compatible</p>
+                <p className="text-muted text-[11px] mt-0.5">Scans through case without removal</p>
+              </div>
+            </div>
+
+            <div className="pt-2 flex flex-wrap gap-3">
+              <Link href="/request-a-quote/?product=holders" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
+                Request a Bulk Quote
+              </Link>
+              <Link href="/id-card-hooks/" className="rounded-full border border-surface-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
+                Explore Lanyard Hooks →
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* What is a holder */}
-        <div className="mt-12 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            A typical wearable identification arrangement is ID Card → Holder → Attachment → Lanyard — for example,
-            PVC ID Card → Holder → Fish Hook → Lanyard. IDGen supplies holders separately or can coordinate them
-            with the other components required for an identification setup.
-          </p>
-        </div>
-        <div className="mt-4">
-          <FlowChain steps={["ID Card", "Holder", "Fish Hook", "Lanyard"]} />
-        </div>
-
-        {/* Range */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Range" title="ID Card Holder Range" />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Product Catalog Grid */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Product Lineup" title="Complete Range of ID Card Badge Holders" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {holders.map((h) => (
-              <div key={h.model} className="overflow-hidden rounded-2xl border border-surface-border bg-surface">
-                <div className="border-b border-surface-border bg-background">
-                  <HolderShape variant={h.variant} />
-                </div>
-                <div className="p-5">
-                  <span className="font-mono text-xs font-bold text-accent">{h.model}</span>
-                  <h3 className="mt-1 font-semibold text-foreground">{h.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{h.body}</p>
+              <div key={h.model} className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:border-accent/40 hover:shadow-md">
+                <div>
+                  <div className="border-b border-surface-border bg-background p-3">
+                    <HolderShape variant={h.variant} />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-xs font-bold text-accent">{h.model}</span>
+                      <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold text-accent">{h.tag}</span>
+                    </div>
+                    <h3 className="mt-2 font-bold text-foreground text-base">{h.title}</h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted">{h.body}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Specs */}
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
-          <SpecTable
-            title="V-1 — Vertical Holder"
-            specs={{ Capacity: "1 card", Orientation: "Vertical", Material: "Plastic", Finish: "Gloss", "Card format": "86 × 54 mm", "Lanyard hole": "20 mm", Construction: "100% virgin plastic" }}
-          />
-          <SpecTable
-            title="V-2 — Vertical Four-Side-Lock"
-            specs={{ Orientation: "Vertical", Type: "Transparent", Material: "Plastic", "Card format": "86 × 54 mm", "Lanyard hole": "20 mm", Locking: "Four-side lock", Construction: "100% virgin plastic" }}
-          />
-        </div>
-
-        {/* Standard vs four-side-lock */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Comparison" title="Standard vs Four-Side-Lock Holders" lede="The main difference between the standard and four-side-lock configurations is how the card is retained. The best option depends on the card format and intended application." />
+        {/* Quick Selection Matrix */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Selector" title="Match Your Card Orientation to the Right Holder" />
           <div className="mt-6">
             <CompareTable
-              columns={["Configuration", "Models", "Suitable for"]}
+              columns={["Identification Requirement", "Recommended Holder Model"]}
+              highlightColumn={1}
               rows={[
-                ["Standard", "V-1 / H-1", "Standard everyday identification requirements"],
-                ["Four-Side Lock", "V-2 / H-2", "Where additional card retention is preferred"],
+                ["Standard vertical portrait student ID", "V-1 Virgin Polycarbonate"],
+                ["Heavy-duty active campus wear with lock", "V-2 Four-Side-Lock Holder"],
+                ["Executive corporate landscape badge", "H-1 / CV-1 Crystal Acrylic"],
+                ["Industrial shopfloor badge with secure lock", "H-2 Horizontal Four-Side-Lock"],
+                ["Executive boardroom & metal finish", "Anodized Aluminum Metal Holder"],
+                ["Fast attachment to 20mm satin lanyards", "Chrome Swivel Dog Hook"],
               ]}
             />
           </div>
         </div>
 
-        {/* Applications */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Applications" title="ID Card Holder Applications" lede="The holder selection should always be based on the actual card format and application, rather than simply the organization type." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-2xl border border-surface-border bg-surface p-5">
-              <h3 className="font-semibold text-foreground">Schools & Educational Institutions</h3>
-              <p className="mt-1.5 text-sm text-muted">For student, teacher, staff and visitor identification.</p>
-              <Link href="/student-id-card-printing/" className="mt-2 inline-block text-sm font-semibold text-accent hover:underline">Student ID Card Printing →</Link>
-            </div>
-            <div className="rounded-2xl border border-surface-border bg-surface p-5">
-              <h3 className="font-semibold text-foreground">Companies & Offices</h3>
-              <p className="mt-1.5 text-sm text-muted">For employees, staff, contractors and visitors.</p>
-              <Link href="/employee-id-card-printing/" className="mt-2 inline-block text-sm font-semibold text-accent hover:underline">Employee ID Card Printing →</Link>
-            </div>
-            <div className="rounded-2xl border border-surface-border bg-surface p-5">
-              <h3 className="font-semibold text-foreground">Events</h3>
-              <p className="mt-1.5 text-sm text-muted">For delegates, speakers, organizers, exhibitors and participants.</p>
-              <Link href="/event-card-printing/" className="mt-2 inline-block text-sm font-semibold text-accent hover:underline">Event Card Printing →</Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Ordering */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Process" title="Ordering ID Card Holders" />
+        {/* Ordering Pipeline */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Procurement" title="How to Order ID Card Holders in Bulk" />
           <div className="mt-6">
             <WorkflowSteps steps={orderingSteps} />
-          </div>
-          <div className="mt-6 rounded-2xl border border-accent/30 bg-accent-soft p-5 flex items-center gap-3">
-            <Fish className="h-5 w-5 shrink-0 text-navy-deep" />
-            <p className="text-sm text-navy-deep">
-              <strong>72-Hour Dispatch:</strong> for eligible approved orders — approval + payment → preparation →
-              quality check → dispatch within 72 hours. This refers to dispatch from IDGen; courier transit time
-              is additional.
-            </p>
           </div>
         </div>
 
         {/* FAQ */}
-        <div className="mt-12">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
+        <div className="mt-16">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About ID Card Holders" />
           <div className="mt-6">
             <FaqList faqs={faqs} />
           </div>
         </div>
 
-        <div className="mt-12">
+        {/* Closing CTA */}
+        <div className="mt-16">
           <CtaBand
-            title="Need the right ID card holder?"
-            body="Tell us your card size, orientation, quantity and application, and we'll help you select the appropriate holder."
+            title="Need sample holders for your organization?"
+            body="Contact our Guwahati office for physical samples of V-1, V-2, CV-1, and metal holders before placing a bulk order."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
+              { label: "Request Specimen Kit", href: "/request-a-quote/", primary: true },
               { label: "Explore ID Card Printing", href: "/id-card-printing/" },
               { label: "Explore Lanyards", href: "/custom-printed-lanyard-printing/" },
             ]}
