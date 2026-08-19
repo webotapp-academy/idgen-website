@@ -663,29 +663,31 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-surface-border bg-surface shadow-xl max-w-4xl mx-auto">
-            <div className="grid grid-cols-12 bg-muted/10 p-4 sm:p-5 border-b border-surface-border text-xs font-bold text-foreground uppercase tracking-wider">
-              <div className="col-span-4 sm:col-span-3">Feature</div>
-              <div className="col-span-4 sm:col-span-5 text-accent">IDGen Factory Solution</div>
-              <div className="col-span-4 sm:col-span-4 text-muted">Traditional Local Reseller</div>
-            </div>
+          <div className="overflow-x-auto rounded-3xl border border-surface-border bg-surface shadow-xl max-w-4xl mx-auto">
+            <div className="min-w-[620px]">
+              <div className="grid grid-cols-12 bg-muted/10 p-4 sm:p-5 border-b border-surface-border text-xs font-bold text-foreground uppercase tracking-wider">
+                <div className="col-span-4 sm:col-span-3">Feature</div>
+                <div className="col-span-4 sm:col-span-5 text-accent">IDGen Factory Solution</div>
+                <div className="col-span-4 sm:col-span-4 text-muted">Traditional Local Reseller</div>
+              </div>
 
-            <div className="divide-y divide-surface-border">
-              {comparisonData.map((row) => (
-                <div key={row.feature} className="grid grid-cols-12 p-4 sm:p-5 text-xs sm:text-sm items-center hover:bg-surface/80 transition-colors">
-                  <div className="col-span-4 sm:col-span-3 font-bold text-foreground">
-                    {row.feature}
+              <div className="divide-y divide-surface-border">
+                {comparisonData.map((row) => (
+                  <div key={row.feature} className="grid grid-cols-12 p-4 sm:p-5 text-xs sm:text-sm items-center hover:bg-surface/80 transition-colors">
+                    <div className="col-span-4 sm:col-span-3 font-bold text-foreground">
+                      {row.feature}
+                    </div>
+                    <div className="col-span-4 sm:col-span-5 text-foreground font-medium flex items-start gap-2 pr-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{row.idgen}</span>
+                    </div>
+                    <div className="col-span-4 sm:col-span-4 text-muted flex items-start gap-2">
+                      <XCircle className="h-4 w-4 text-rose-400 shrink-0 mt-0.5" />
+                      <span>{row.traditional}</span>
+                    </div>
                   </div>
-                  <div className="col-span-4 sm:col-span-5 text-foreground font-medium flex items-start gap-2 pr-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{row.idgen}</span>
-                  </div>
-                  <div className="col-span-4 sm:col-span-4 text-muted flex items-start gap-2">
-                    <XCircle className="h-4 w-4 text-rose-400 shrink-0 mt-0.5" />
-                    <span>{row.traditional}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </Container>

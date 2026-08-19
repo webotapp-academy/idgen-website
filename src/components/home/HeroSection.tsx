@@ -255,34 +255,34 @@ export function HeroSection() {
 
       <Container className="relative z-10">
         {/* Top Facility Live Status Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.05] px-4 py-1.5 text-xs font-semibold backdrop-blur-md shadow-lg shadow-black/20">
-            <span className="relative flex h-2.5 w-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-5 sm:mb-6">
+          <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-3 sm:px-4 py-1.5 text-[10px] xs:text-[11px] sm:text-xs font-semibold backdrop-blur-md shadow-lg shadow-black/20">
+            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <span className="relative inline-flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-emerald-400"></span>
             </span>
-            <span className="text-white font-medium">Guwahati Factory Direct Production</span>
+            <span className="text-white font-medium truncate">Guwahati Factory Direct</span>
             <span className="text-white/30">•</span>
-            <span className="text-cyan-300 font-semibold">{SITE.dailyCapacity}</span>
+            <span className="text-cyan-300 font-semibold shrink-0">{SITE.dailyCapacity}</span>
           </div>
 
           <div className="hidden items-center gap-2 text-xs text-slate-300 md:inline-flex">
-            <ShieldCheck className="h-4 w-4 text-cyan-400" />
+            <ShieldCheck className="h-4 w-4 text-cyan-400 shrink-0" />
             <span>ISO Compliant Retransfer Printing & Ultrasonic Sealing</span>
           </div>
         </div>
 
         {/* Hero Main Content Split */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-10 lg:gap-12 lg:grid-cols-12 lg:items-center">
           
           {/* Left Column: Value Proposition & CTAs (7 Cols) */}
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-lg bg-cyan-500/15 px-3.5 py-1.5 text-xs font-bold text-cyan-300 border border-cyan-500/30 mb-5 backdrop-blur-md">
-              <Flame className="h-3.5 w-3.5" />
-              <span>Northeast India&apos;s Dedicated Identity Manufacturing Hub</span>
+          <div className="lg:col-span-7 min-w-0">
+            <div className="inline-flex max-w-full items-center gap-1.5 sm:gap-2 rounded-lg bg-cyan-500/15 px-2.5 sm:px-3.5 py-1.5 text-[10px] xs:text-[11px] sm:text-xs font-bold text-cyan-300 border border-cyan-500/30 mb-4 sm:mb-5 backdrop-blur-md">
+              <Flame className="h-3.5 w-3.5 shrink-0" />
+              <span className="leading-tight">Northeast India&apos;s Dedicated Identity Manufacturing Hub</span>
             </div>
 
-            <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl sm:leading-[1.12] lg:text-[3.5rem]">
+            <h1 className="text-2xl sm:text-4xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-tight sm:leading-[1.12] break-words">
               Precision-Engineered{" "}
               <span className="gradient-text">
                 ID Cards, Smart RFID
@@ -290,82 +290,82 @@ export function HeroSection() {
               & Custom Lanyards
             </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            <p className="mt-4 sm:mt-6 max-w-2xl text-xs xs:text-sm sm:text-base leading-relaxed text-slate-300 sm:text-lg">
               Direct factory manufacturing in Guwahati for schools, universities, hospitals, and corporate workforces across Assam and Northeast India. Zero middleman markup, free AI photo collection via IDGen Studio, and 48–72h express regional dispatch.
             </p>
 
             {/* Spec Highlights Grid */}
-            <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <div className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
-                <div className="flex items-center gap-2 text-cyan-300 text-xs font-bold">
-                  <Layers className="h-4 w-4" />
-                  <span>30-Mil CR80 PVC</span>
+            <div className="mt-6 sm:mt-7 grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-4">
+              <div className="flex flex-col min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
+                <div className="flex items-center gap-1.5 text-cyan-300 text-[11px] sm:text-xs font-bold">
+                  <Layers className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">30-Mil PVC</span>
                 </div>
-                <span className="mt-1 text-[11px] text-slate-300">Solid Core Retransfer</span>
+                <span className="mt-0.5 text-[10px] sm:text-[11px] text-slate-300 truncate">Retransfer Core</span>
               </div>
 
-              <div className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
-                <div className="flex items-center gap-2 text-cyan-300 text-xs font-bold">
-                  <Flame className="h-4 w-4" />
-                  <span>Ultrasonic Loop</span>
+              <div className="flex flex-col min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
+                <div className="flex items-center gap-1.5 text-cyan-300 text-[11px] sm:text-xs font-bold">
+                  <Flame className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">Ultrasonic</span>
                 </div>
-                <span className="mt-1 text-[11px] text-slate-300">Zero Staples or Rivets</span>
+                <span className="mt-0.5 text-[10px] sm:text-[11px] text-slate-300 truncate">Zero Staples</span>
               </div>
 
-              <div className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
-                <div className="flex items-center gap-2 text-cyan-300 text-xs font-bold">
-                  <Radio className="h-4 w-4" />
-                  <span>13.56 MHz RFID</span>
+              <div className="flex flex-col min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
+                <div className="flex items-center gap-1.5 text-cyan-300 text-[11px] sm:text-xs font-bold">
+                  <Radio className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">Smart RFID</span>
                 </div>
-                <span className="mt-1 text-[11px] text-slate-300">NFC & Mifare Smart Chips</span>
+                <span className="mt-0.5 text-[10px] sm:text-[11px] text-slate-300 truncate">NFC & Mifare</span>
               </div>
 
-              <div className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
-                <div className="flex items-center gap-2 text-cyan-300 text-xs font-bold">
-                  <Zap className="h-4 w-4" />
-                  <span>48–72h Dispatch</span>
+              <div className="flex flex-col min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07]">
+                <div className="flex items-center gap-1.5 text-cyan-300 text-[11px] sm:text-xs font-bold">
+                  <Zap className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">24–48h Dispatch</span>
                 </div>
-                <span className="mt-1 text-[11px] text-slate-300">Guwahati Direct Hub</span>
+                <span className="mt-0.5 text-[10px] sm:text-[11px] text-slate-300 truncate">Guwahati Hub</span>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 href="/request-a-quote/"
-                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-accent px-8 py-4 text-sm font-bold text-slate-950 shadow-[0_0_35px_rgba(2,132,199,0.5)] transition-all duration-300 hover:bg-accent-hover hover:text-white hover:shadow-[0_0_50px_rgba(2,132,199,0.8)] btn-glow"
+                className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full bg-accent px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-slate-950 shadow-[0_0_35px_rgba(2,132,199,0.5)] transition-all duration-300 hover:bg-accent-hover hover:text-white hover:shadow-[0_0_50px_rgba(2,132,199,0.8)] btn-glow"
               >
-                <Sparkles className="h-4 w-4" />
-                <span>Calculate Instant Wholesale Quote</span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                <Sparkles className="h-4 w-4 shrink-0" />
+                <span className="text-center truncate">Calculate Instant Wholesale Quote</span>
+                <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
 
               <a
                 href="https://wa.me/919207012084?text=Hi%20IDGen%20Team%2C%20I%20would%20like%20to%20request%20samples%20and%20pricing%20for%20ID%20cards."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-950/40 px-6 py-4 text-sm font-semibold text-emerald-300 backdrop-blur-md transition-all duration-300 hover:bg-emerald-900/60 hover:border-emerald-400 hover:text-emerald-200"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-950/40 px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold text-emerald-300 backdrop-blur-md transition-all duration-300 hover:bg-emerald-900/60 hover:border-emerald-400 hover:text-emerald-200"
               >
-                <MessageSquare className="h-4 w-4 text-emerald-400" />
+                <MessageSquare className="h-4 w-4 shrink-0 text-emerald-400" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
             {/* Micro Trust Proof */}
-            <div className="mt-8 flex flex-wrap items-center gap-6 text-xs text-slate-400">
+            <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row flex-wrap items-start xs:items-center gap-x-5 gap-y-2 text-xs text-slate-400">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
                 <span>Zero Setup or Plate Charges</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
                 <span>Free Digital Sample PDF Proofs</span>
               </div>
               <Link 
                 href="/contact-us/" 
                 className="flex items-center gap-1.5 text-cyan-300 hover:underline transition-colors"
               >
-                <PhoneCall className="h-3.5 w-3.5" />
+                <PhoneCall className="h-3.5 w-3.5 shrink-0" />
                 <span>Direct Production Support</span>
               </Link>
             </div>
@@ -598,29 +598,29 @@ export function HeroSection() {
         </div>
 
         {/* Bottom Social Proof & Metrics Glass Strip */}
-        <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:gap-4">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">{SITE.foundedYear}</p>
-            <p className="mt-1 text-xs font-bold text-cyan-300 uppercase tracking-wider">Experience Since</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">12+ Years Manufacturing</p>
+        <div className="mt-10 sm:mt-14 grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-4 lg:gap-4">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
+            <p className="text-xl xs:text-2xl font-black text-white sm:text-3xl lg:text-4xl">{SITE.foundedYear}</p>
+            <p className="mt-1 text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider">Experience Since</p>
+            <p className="mt-0.5 text-[10px] sm:text-[11px] text-slate-400">12+ Years Manufacturing</p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">{SITE.regionalFocus.length} States</p>
-            <p className="mt-1 text-xs font-bold text-cyan-300 uppercase tracking-wider">Northeast Coverage</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">Direct Express Logistics</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
+            <p className="text-xl xs:text-2xl font-black text-white sm:text-3xl lg:text-4xl">{SITE.regionalFocus.length} States</p>
+            <p className="mt-1 text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider">Northeast Coverage</p>
+            <p className="mt-0.5 text-[10px] sm:text-[11px] text-slate-400">Direct Express Logistics</p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">10,000+</p>
-            <p className="mt-1 text-xs font-bold text-cyan-300 uppercase tracking-wider">Daily Factory Capacity</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">Cards, Lanyards & Sealing</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
+            <p className="text-xl xs:text-2xl font-black text-white sm:text-3xl lg:text-4xl">10,000+</p>
+            <p className="mt-1 text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider">Daily Capacity</p>
+            <p className="mt-0.5 text-[10px] sm:text-[11px] text-slate-400">Cards & Lanyards</p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
-            <p className="text-2xl font-black text-white sm:text-3xl lg:text-4xl">24–48h</p>
-            <p className="mt-1 text-xs font-bold text-cyan-300 uppercase tracking-wider">Fast Turnaround</p>
-            <p className="mt-0.5 text-[11px] text-slate-400">Direct from Guwahati Hub</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3 sm:p-4 text-center backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5">
+            <p className="text-xl xs:text-2xl font-black text-white sm:text-3xl lg:text-4xl">24–48h</p>
+            <p className="mt-1 text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider">Fast Turnaround</p>
+            <p className="mt-0.5 text-[10px] sm:text-[11px] text-slate-400">Guwahati Direct Hub</p>
           </div>
         </div>
       </Container>

@@ -70,29 +70,29 @@ export function QuoteCalculator() {
   return (
     <div className="overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-[#091629] via-[#06101f] to-[#040914] text-white shadow-2xl backdrop-blur-2xl">
       {/* Header Band */}
-      <div className="border-b border-white/10 bg-white/[0.03] p-6 sm:p-8">
+      <div className="border-b border-white/10 bg-white/[0.03] p-4 sm:p-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3.5">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
-              <Calculator className="h-6 w-6" />
+          <div className="flex items-center gap-3 sm:gap-3.5">
+            <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
+              <Calculator className="h-5 w-5 sm:h-6 sm:w-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white">Instant Project Estimator</h3>
+                <h3 className="text-lg sm:text-2xl font-extrabold text-white">Instant Project Estimator</h3>
                 <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mt-0.5">Simulate real-time institutional batch pricing & dispatch commitments</p>
+              <p className="text-[11px] sm:text-sm text-slate-300 mt-0.5">Simulate real-time institutional batch pricing & dispatch commitments</p>
             </div>
           </div>
 
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-4 py-1.5 text-xs font-bold text-emerald-300 shadow-md">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold text-emerald-300 shadow-md">
             <Zap className="h-3.5 w-3.5 text-emerald-400" />
             <span>Guwahati Live Factory Rates</span>
           </span>
         </div>
       </div>
 
-      <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-12">
+      <div className="grid gap-6 sm:gap-8 p-4 sm:p-8 lg:grid-cols-12">
         {/* Configuration Left (7 cols) */}
         <div className="space-y-7 lg:col-span-7">
           {/* Step 1: Select Product */}
@@ -253,7 +253,7 @@ export function QuoteCalculator() {
         </div>
 
         {/* Estimation Summary Card Right (5 cols) */}
-        <div className="flex flex-col justify-between rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-[#0a1e38] via-[#08172c] to-[#050e1c] p-6 sm:p-7 shadow-2xl backdrop-blur-2xl lg:col-span-5 relative overflow-hidden">
+        <div className="flex flex-col justify-between rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-[#0a1e38] via-[#08172c] to-[#050e1c] p-4 sm:p-7 shadow-2xl backdrop-blur-2xl lg:col-span-5 relative overflow-hidden">
           <div className="absolute top-0 right-0 h-40 w-40 bg-cyan-500/15 blur-[60px] rounded-full pointer-events-none" />
 
           <div>
@@ -267,16 +267,16 @@ export function QuoteCalculator() {
 
             <div className="mt-6">
               <p className="text-xs font-bold uppercase tracking-wider text-cyan-400">Estimated Rate Per Unit</p>
-              <div className="mt-1 flex items-baseline gap-2">
-                <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              <div className="mt-1 flex items-baseline gap-2 flex-wrap">
+                <span className="text-3xl xs:text-4xl sm:text-5xl font-black text-white tracking-tight">
                   ₹{minUnitEst} – ₹{maxUnitEst}
                 </span>
                 <span className="text-sm font-semibold text-slate-300">/ {product.unit}</span>
               </div>
 
-              <div className="mt-5 rounded-2xl bg-white/[0.04] border border-white/10 p-4 shadow-inner">
+              <div className="mt-5 rounded-2xl bg-white/[0.04] border border-white/10 p-3.5 sm:p-4 shadow-inner">
                 <p className="text-xs text-slate-400">Total Project Estimate for {quantity.toLocaleString()} units:</p>
-                <p className="mt-1 text-2xl sm:text-3xl font-extrabold text-cyan-300">
+                <p className="mt-1 text-xl sm:text-3xl font-extrabold text-cyan-300">
                   ₹{totalMinEst.toLocaleString()} – ₹{totalMaxEst.toLocaleString()}*
                 </p>
               </div>

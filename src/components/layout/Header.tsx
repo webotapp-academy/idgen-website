@@ -92,9 +92,9 @@ export function Header() {
             : "border-b border-white/[0.08] bg-[#060D19]/85 backdrop-blur-xl text-white"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 xl:gap-4 px-4 sm:px-6 py-2.5 sm:py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 xl:gap-4 px-3 sm:px-6 py-2.5 sm:py-3">
           {/* Left Side: Brand Logo + Desktop Navigation Links */}
-          <div className="flex items-center gap-4 xl:gap-6 min-w-0">
+          <div className="flex items-center gap-3 xl:gap-6 min-w-0">
             <Link href="/" className="flex items-center shrink-0 group transition-transform duration-200 hover:scale-[1.02]" onClick={() => setOpen(false)}>
               <IdgenLogo size="md" variant="dark" withTagline={true} />
             </Link>
@@ -111,7 +111,7 @@ export function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="flex items-center gap-1 whitespace-nowrap rounded-full px-2 xl:px-3 py-1.5 text-slate-200 font-medium transition-all duration-200 hover:bg-white/10 hover:text-cyan-300"
+                      className="flex items-center gap-1 whitespace-nowrap rounded-full px-2 xl:px-2 py-1.5 text-slate-200 font-medium transition-all duration-200 hover:bg-white/10 hover:text-cyan-300"
                     >
                       {item.label}
                       <ChevronDown className={`h-3 w-3 shrink-0 transition-transform duration-200 ${openDropdown === item.href ? "rotate-180 text-cyan-300" : "opacity-60"}`} />
@@ -147,7 +147,7 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="whitespace-nowrap rounded-full px-2 xl:px-3 py-1.5 text-slate-200 font-medium transition-all duration-200 hover:bg-white/10 hover:text-cyan-300"
+                    className="whitespace-nowrap rounded-full px-2 xl:px-2 py-1.5 text-slate-200 font-medium transition-all duration-200 hover:bg-white/10 hover:text-cyan-300"
                   >
                     {item.label}
                   </Link>
@@ -157,29 +157,39 @@ export function Header() {
           </div>
 
           {/* Right CTA Buttons */}
-          <div className="flex items-center gap-2 xl:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-3 shrink-0">
             <a
               href="https://wa.me/919207012084?text=Hi%20IDGen%20Team%2C%20I%20would%20like%20to%20inquire%20about%20ID%20cards."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-950/40 px-3 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-900/50 hover:border-emerald-400 transition-all"
+              className="hidden 2xl:inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-950/40 px-3 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-900/50 hover:border-emerald-400 transition-all"
             >
               <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
               <span>WhatsApp</span>
             </a>
 
+            {/* Desktop Request Quote button */}
             <Link
               href="/request-a-quote/"
-              className="shrink-0 whitespace-nowrap rounded-full bg-accent px-4 xl:px-5 py-2 text-xs font-bold text-slate-950 shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:bg-accent-hover hover:text-white hover:shadow-cyan-500/40 inline-flex items-center gap-1.5 btn-glow"
+              className="hidden sm:inline-flex shrink-0 whitespace-nowrap rounded-full bg-accent px-4 xl:px-5 py-2 text-xs font-bold text-slate-950 shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:bg-accent-hover hover:text-white hover:shadow-cyan-500/40 items-center gap-1.5 btn-glow"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span>Request a Quote</span>
               <ArrowRight className="h-3.5 w-3.5 ml-0.5" />
             </Link>
 
+            {/* Mobile compact Quote button */}
+            <Link
+              href="/request-a-quote/"
+              className="sm:hidden inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1.5 text-[11px] font-bold text-slate-950 shadow-md shadow-cyan-500/20"
+            >
+              <Sparkles className="h-3 w-3" />
+              <span>Quote</span>
+            </Link>
+
             <button
               type="button"
-              className="flex items-center justify-center rounded-full p-2.5 text-white hover:bg-white/10 hover:text-cyan-300 transition-colors lg:hidden"
+              className="flex items-center justify-center rounded-full p-2 text-white hover:bg-white/10 hover:text-cyan-300 transition-colors lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
