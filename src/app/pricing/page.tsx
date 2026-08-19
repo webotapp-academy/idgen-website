@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { IndianRupee, Check, ArrowRight } from "lucide-react";
+import { IndianRupee, Check, ArrowRight, ShieldCheck, CheckCircle2, Calculator } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -68,6 +69,47 @@ export default function PricingPage() {
           { label: "Dispatch Window", value: "48–72 Hours" },
           { label: "Volume Discount", value: "Up to 35% OFF" },
         ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-emerald-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Pricing Specimen Set */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  alt="Complete Wearable ID Card Package Setup"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-emerald-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Factory Direct Tiers</span>
+                </div>
+              </div>
+
+              {/* Overlapping Lanyard Set */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 1.jpeg"
+                  alt="Custom Sublimated 20mm Satin Lanyard"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* PVC Card Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 1.jpg"
+                  alt="30-Mil CR80 Card Specimen"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
@@ -89,7 +131,7 @@ export default function PricingPage() {
             {setupTiers.map((tier) => (
               <div key={tier.name} className="flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition hover:border-accent/40 hover:shadow-md">
                 <div>
-                  <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">
+                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs font-bold text-accent">
                     {tier.price}
                   </span>
                   <h3 className="mt-4 font-bold text-foreground text-lg">{tier.name}</h3>
@@ -98,8 +140,8 @@ export default function PricingPage() {
                 </div>
                 <div className="mt-6 pt-4 border-t border-surface-border">
                   <Link
-                    href={`/request-a-quote/?tier=${encodeURIComponent(tier.name)}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-accent hover:underline"
+                    href="/request-a-quote/"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:underline"
                   >
                     <span>Request Tier Quote</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -110,40 +152,31 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {/* Quick Reference Table */}
+        {/* Quick Rate Reference Table */}
         <div className="mt-20">
-          <SectionHead eyebrow="Price Guide" title="Standard Component Base Rates" />
+          <SectionHead eyebrow="Wholesale Matrix" title="Reference Unit Pricing (1,000+ Volume)" />
           <div className="mt-6 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-surface-border bg-background/80 text-xs font-bold text-muted uppercase">
-                <tr>
-                  <th className="px-6 py-4">Identification Product / Service</th>
-                  <th className="px-6 py-4 text-right">Factory Base Reference Rate</th>
-                </tr>
-              </thead>
               <tbody className="divide-y divide-surface-border">
-                {quickPricing.map(([service, price]) => (
-                  <tr key={service} className="hover:bg-background/50 transition">
-                    <td className="px-6 py-4 font-bold text-foreground">{service}</td>
-                    <td className="px-6 py-4 text-right font-mono text-sm font-extrabold text-accent">{price}</td>
+                {quickPricing.map(([item, rate]) => (
+                  <tr key={item} className="hover:bg-background/50 transition">
+                    <td className="px-6 py-4 font-bold text-foreground w-2/3">{item}</td>
+                    <td className="px-6 py-4 font-mono font-bold text-emerald-500 text-right">{rate}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs text-muted">
-            *Final contract pricing varies by exact quantity, RFID chip selection, and courier delivery destination.
-          </p>
         </div>
 
-        {/* What Affects Pricing Factors */}
+        {/* Pricing Factors Grid */}
         <div className="mt-20">
-          <SectionHead eyebrow="Transparency" title="Key Pricing & Specification Drivers" />
+          <SectionHead eyebrow="Cost Structure" title="Key Factors Influencing Your Quotation" />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {priceFactors.map(([label, body]) => (
-              <div key={label} className="rounded-2xl border border-surface-border bg-surface p-5 shadow-sm">
+              <div key={label} className="rounded-2xl border border-surface-border bg-surface p-5">
                 <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <CheckCircle2 className="h-4 w-4 text-accent shrink-0" />
                   <h3 className="font-bold text-foreground text-sm">{label}</h3>
                 </div>
                 <p className="mt-2 text-xs text-muted leading-relaxed">{body}</p>
@@ -154,7 +187,7 @@ export default function PricingPage() {
 
         {/* FAQ */}
         <div className="mt-20">
-          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Pricing" />
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Pricing & Invoicing" />
           <div className="mt-8">
             <FaqList faqs={faqs} />
           </div>
@@ -163,12 +196,12 @@ export default function PricingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Lock in your project's custom factory quotation"
-            body="Submit your batch size and specifications to receive a formal written proposal and digital proof within 2 hours."
+            title="Need an official GST quotation with institutional terms?"
+            body="Submit your bill-to entity details for a stamped proforma invoice and specimen kit dispatched in 2 hours."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
+              { label: "Request Formal Quotation", href: "/request-a-quote/", primary: true },
               { label: "Explore IDGen Studio", href: "/idgen-studio/" },
-              { label: "Contact Sales", href: "/contact-us/" },
+              { label: "View Card Products", href: "/products/" },
             ]}
           />
         </div>

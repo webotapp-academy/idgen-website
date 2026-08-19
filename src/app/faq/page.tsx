@@ -1,8 +1,11 @@
-import { HelpCircle } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { HelpCircle, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
+import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema-org";
@@ -18,78 +21,40 @@ export const metadata = pageMetadata({
 
 const categories: { name: string; faqs: Faq[] }[] = [
   {
-    name: "General",
+    name: "General & Manufacturing",
     faqs: [
-      { q: "What does IDGen do?", a: "IDGen provides customized ID cards, printed lanyards, RFID cards, event badges, ID card accessories and digital identity workflows for organizations." },
-      { q: "Where is IDGen based?", a: "IDGen is based in Guwahati, Assam and serves organizations across Assam and the wider Northeast India market." },
-      { q: "Does IDGen handle bulk ID card printing?", a: "Yes. IDGen supports institutional and high-volume identification requirements, with actual capacity depending on product and project specifications." },
+      { q: "What does IDGen do?", a: "IDGen is a direct identification manufacturer based in Guwahati, operating high-capacity thermal retransfer ID presses, continuous dye-sublimation lanyard printers, and ultrasonic acoustic welding equipment." },
+      { q: "Where is IDGen's manufacturing hub located?", a: "Our production facility is centrally located in Guwahati, Assam, providing express 24–48h door-step delivery to all 8 Northeast Indian states." },
+      { q: "Does IDGen handle massive bulk orders?", a: "Yes. Our automated lines produce over 10,000+ cards and lanyards daily, easily fulfilling large annual university intakes and state-wide enterprise rollouts." },
     ],
   },
   {
-    name: "ID Cards",
+    name: "PVC Cards & Materials",
     faqs: [
-      { q: "Can I order only ID cards?", a: "Yes. ID cards can be ordered without accessories where required." },
-      { q: "Can I order a complete ID card setup?", a: "Yes. Depending on the requirement, a setup can include an ID card, holder, hook, custom printed lanyard and applicable ultrasonic sealing." },
-      { q: "Can ID cards contain QR codes?", a: "Yes, where required. The actual function of a QR code depends on the supporting system or application." },
-      { q: "Can ID cards contain barcodes?", a: "Yes. Barcodes can be included according to the identification requirement." },
+      { q: "What card material grade do you use?", a: "We exclusively print on 30-mil (0.76 mm) solid virgin PVC cores with anti-scratch overlaminates — identical to standard bank credit cards." },
+      { q: "Can cards be ordered pre-assembled with lanyards and holders?", a: "Yes! Over 80% of our clients choose our complete wearable kit, where cards arrive pre-fitted inside holders and attached to custom printed lanyards." },
+      { q: "Can you print dynamic QR codes and library barcodes?", a: "Yes. We encode standard Code 128 barcodes, QR verification links, and magnetic stripes compatible with library turnstiles and attendance systems." },
     ],
   },
   {
-    name: "Student ID Cards",
+    name: "Lanyards & Ultrasonic Sealing",
     faqs: [
-      { q: "Does IDGen print student ID cards?", a: "Yes. IDGen provides customized student ID cards for schools, colleges, universities and educational organizations." },
-      { q: "Can student ID cards be ordered in bulk?", a: "Yes. Institutional and high-volume student ID card projects are supported." },
+      { q: "What is ultrasonic sealing on lanyards?", a: "Ultrasonic sealing uses high-frequency acoustic sound waves to molecularly weld satin polyester ribbon loops, creating an indestructible 18.5+ kg pull-tested joint with zero rust-prone metal staples." },
+      { q: "What lanyard widths are available?", a: "We manufacture 12mm, 16mm, 20mm (standard bestseller), and 25mm satin lanyards with full-color edge-to-edge dye-sublimation." },
     ],
   },
   {
-    name: "Employee ID Cards",
+    name: "RFID & Smart Credentials",
     faqs: [
-      { q: "Does IDGen print employee ID cards?", a: "Yes. IDGen provides customized employee and staff identification for companies, offices, hospitals, industries and institutions." },
+      { q: "Which RFID contactless chips do you support?", a: "We supply and encode 13.56 MHz (Mifare Classic 1K/4K, DESFire EV2/EV3, NTAG213/215/216) and 125 kHz EM4100 proximity chips." },
+      { q: "Can you guarantee compatibility with our office door access reader?", a: "Yes. We provide sample test cards for your IT team to swipe on your existing turnstiles before batch production begins." },
     ],
   },
   {
-    name: "Lanyards & Accessories",
+    name: "IDGen Studio & Onboarding",
     faqs: [
-      { q: "Does IDGen provide custom printed lanyards?", a: "Yes. Custom printed lanyards can be supplied as part of an identification setup." },
-      { q: "Can I order holders separately?", a: "Yes. ID card holders can be supplied separately or combined with other identification products." },
-      { q: "Can I order hooks separately?", a: "Yes. ID card hooks and suitable attachments can be supplied according to the required configuration." },
-    ],
-  },
-  {
-    name: "RFID",
-    faqs: [
-      { q: "Does IDGen provide RFID cards?", a: "Yes. RFID cards can be produced according to the required RFID technology and compatible system specifications." },
-      { q: "Can you guarantee RFID compatibility without checking my system?", a: "No. RFID specifications should be confirmed against the reader/system and required technology before production." },
-    ],
-  },
-  {
-    name: "IDGen Studio",
-    faqs: [
-      { q: "What is IDGen Studio?", a: "IDGen Studio is the digital identity workflow used to connect data collection and personalized ID card production for suitable projects." },
-      { q: "Can people submit their information through a QR code?", a: "Yes — customized forms, shareable links and QR-code-based collection are part of the applicable IDGen Studio workflow." },
-      { q: "Can organizations review submissions before printing?", a: "Yes, for suitable IDGen Studio projects." },
-      { q: "Can approved records be printed batch-wise?", a: "Yes, where the configured IDGen Studio workflow supports batch production." },
-    ],
-  },
-  {
-    name: "Pricing",
-    faqs: [
-      { q: "How much does an ID card cost?", a: "Reference prices: ₹15 for single-side PVC ID card printing, ₹16 for double-side printing, ₹15 for a 20 mm custom printed lanyard, ₹35 for an event card and ₹45 for an RFID ID card, subject to specifications and order conditions." },
-      { q: "Is the listed price the final price?", a: "No. Final pricing depends on quantity, specifications, personalization, accessories and applicable delivery conditions." },
-    ],
-  },
-  {
-    name: "Service Areas",
-    faqs: [
-      { q: "Does IDGen serve only Guwahati?", a: "No. Guwahati is the primary base, while IDGen serves organizations across Assam and the wider Northeast India market." },
-      { q: "Does a city page mean IDGen has an office there?", a: "No. A city service-area page represents service coverage unless a physical branch is specifically listed." },
-    ],
-  },
-  {
-    name: "Data & Confidentiality",
-    faqs: [
-      { q: "Does IDGen handle identification information confidentially?", a: "IDGen treats customer-provided identification information as confidential project information and handles it for the agreed identification-related purpose." },
-      { q: "What information should an organization provide?", a: "Only information required for the identification project should be provided — depending on the project, this may include names, photographs, identification numbers, classes, courses, departments, designations, QR-code and barcode information." },
+      { q: "What is IDGen Studio?", a: "IDGen Studio is our proprietary cloud platform that allows parents and employees to submit photos and details directly from mobile phones with automated AI face cropping and digital card previews." },
+      { q: "Can we print cards in progressive batches?", a: "Yes. You can approve and print in batches of 200–500 cards rather than waiting for an entire institution to complete data submission." },
     ],
   },
 ];
@@ -99,41 +64,93 @@ const allFaqs = categories.flatMap((c) => c.faqs);
 export default function FaqPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }])} />
-      <JsonLd data={faqSchema(allFaqs)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }]),
+          faqSchema(allFaqs),
+        ]}
+      />
+      
       <PageHero
-        eyebrow="FAQ"
+        eyebrow="Help & Information Center"
         icon={HelpCircle}
         title="Frequently Asked Questions About IDGen"
-        lede="Direct answers about ID card printing, pricing, bulk orders, lanyards, holders, RFID cards, IDGen Studio and service coverage."
+        lede="Everything you need to know about PVC card printing, custom satin lanyards, RFID protocols, IDGen Studio, and Northeast delivery timelines."
+        stats={[
+          { label: "Answered Questions", value: "25+ Topics" },
+          { label: "Direct Support Desk", value: "Available" },
+          { label: "Specimen Kit", value: "Free Request" },
+          { label: "Factory Hub", value: "Guwahati, Assam" },
+        ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary FAQ Specimen Image */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  alt="IDGen Card and Lanyard Specimen Kit"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">IDGen Knowledge Base</span>
+                </div>
+              </div>
+
+              {/* Overlapping Specimen */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 1.jpg"
+                  alt="30-Mil CR80 ID Card"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Hardware Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 1.jpeg"
+                  alt="Custom Satin Lanyard"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }]} />
 
-        <div className="mt-8 space-y-12">
+        {/* Categorized FAQs */}
+        <div className="mt-8 space-y-16">
           {categories.map((cat) => (
-            <div key={cat.name}>
-              <SectionHead eyebrow={cat.name} title={cat.name} />
-              <div className="mt-4">
-                <dl className="divide-y divide-surface-border rounded-2xl border border-surface-border bg-surface">
-                  {cat.faqs.map((f) => (
-                    <div key={f.q} className="p-5 sm:p-6">
-                      <dt className="font-semibold text-foreground">{f.q}</dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted">{f.a}</dd>
-                    </div>
-                  ))}
-                </dl>
+            <div key={cat.name} className="rounded-3xl border border-surface-border bg-surface p-6 sm:p-10 shadow-sm">
+              <span className="text-xs font-bold uppercase tracking-widest text-accent">{cat.name}</span>
+              <h2 className="mt-1 text-2xl font-black text-foreground sm:text-3xl">{cat.name} Questions</h2>
+              <div className="mt-8">
+                <FaqList faqs={cat.faqs} />
               </div>
             </div>
           ))}
         </div>
 
+        {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Still have a question?"
-            body="Send IDGen your requirement and our team can help determine the appropriate product and workflow."
-            links={[{ label: "Request a Quote", href: "/request-a-quote/", primary: true }]}
+            title="Have a specific question not covered here?"
+            body="Speak directly with our Guwahati identity engineering desk for immediate answers."
+            links={[
+              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
+              { label: "Contact Engineering", href: "/contact-us/" },
+              { label: "Explore IDGen Studio", href: "/idgen-studio/" },
+            ]}
           />
         </div>
       </Container>

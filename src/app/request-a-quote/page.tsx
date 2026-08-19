@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { 
   Send, 
   ShieldCheck, 
@@ -6,7 +8,9 @@ import {
   Phone, 
   Mail, 
   MessageSquare, 
-  Sparkles
+  Sparkles,
+  PackageCheck,
+  ArrowRight
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
@@ -43,12 +47,53 @@ export default function RequestAQuotePage() {
           { label: "Dispatch Window", value: "48–72 Hours" },
           { label: "Samples", value: "Complimentary" },
         ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Quotation & Specimen Kit Sample */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  alt="Complete ID Card and Lanyard Specimen Package"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Sample Kit Dispatch</span>
+                </div>
+              </div>
+
+              {/* Overlapping PVC Card Specimen */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 1.jpg"
+                  alt="30-Mil CR80 Solid PVC ID Card"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Lanyard Swivel Hook Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 17 .jpg"
+                  alt="Anti-Rust Swivel Dog Hook"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Request a Quote", path: "/request-a-quote/" }]} />
 
-        {/* Split Grid: Left Form (7 cols on lg) | Right Credentials & Contact Sidebar (5 cols on lg) */}
+        {/* Split Grid: Left Form | Right Credentials & Contact Sidebar */}
         <div className="mt-8 grid gap-8 lg:grid-cols-12">
           
           {/* Main Form Left Column */}
@@ -97,105 +142,49 @@ export default function RequestAQuotePage() {
                     href={`tel:${SITE.phone}`}
                     className="flex items-center gap-3 rounded-2xl border border-surface-border bg-background p-3 text-xs font-semibold text-foreground transition hover:border-accent hover:text-accent"
                   >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
                       <Phone className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-[10px] text-muted uppercase">Phone Hotline</p>
-                      <p className="font-bold">{SITE.phone}</p>
+                      <span className="block text-[10px] text-muted">Direct Hotline</span>
+                      <span>{SITE.phone}</span>
                     </div>
                   </a>
                 )}
 
                 {SITE.whatsapp && (
                   <a
-                    href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hello IDGen, I would like to request a quote for ID cards and lanyards.")}`}
+                    href={`https://wa.me/${SITE.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-3 text-xs font-semibold text-emerald-900 transition hover:bg-emerald-100"
+                    className="flex items-center gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-xs font-semibold text-emerald-600 transition hover:border-emerald-500 hover:bg-emerald-500/15"
                   >
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-white">
                       <MessageSquare className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-[10px] text-emerald-700 uppercase">WhatsApp Instant Desk</p>
-                      <p className="font-bold">+91 {SITE.whatsapp}</p>
-                    </div>
-                  </a>
-                )}
-
-                {SITE.email && (
-                  <a
-                    href={`mailto:${SITE.email}`}
-                    className="flex items-center gap-3 rounded-2xl border border-surface-border bg-background p-3 text-xs font-semibold text-foreground transition hover:border-accent hover:text-accent"
-                  >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                      <Mail className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-muted uppercase">Official Email</p>
-                      <p className="font-bold truncate">{SITE.email}</p>
+                      <span className="block text-[10px] text-emerald-600 font-bold">Instant WhatsApp Desk</span>
+                      <span>Chat with Production</span>
                     </div>
                   </a>
                 )}
               </div>
             </div>
 
-            {/* 3. Physical Specimen Kit Callout */}
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0B1320] p-6 text-white shadow-md">
-              <div className="relative z-10">
-                <span className="rounded-full bg-accent px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-slate-950">
-                  Specimen Kit
-                </span>
-                <h3 className="mt-3 text-base font-bold text-white">Institutional Sample Box</h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-slate-300">
-                  We courier physical sample packs containing printed PVC cards, RFID smart credentials, satin lanyards, and crystal holders to school and enterprise procurement committees.
-                </p>
-                <div className="mt-4 flex items-center gap-1.5 text-xs text-cyan-300 font-semibold">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  <span>Dispatched via priority speed post</span>
-                </div>
+            {/* 3. Physical Sample Kit Request */}
+            <div className="rounded-3xl border border-surface-border bg-gradient-to-br from-surface to-background p-6 shadow-sm">
+              <div className="flex items-center gap-2 text-xs font-bold text-accent uppercase">
+                <PackageCheck className="h-4 w-4" />
+                <span>Institutional Specimen Kit</span>
               </div>
+              <h4 className="mt-2 text-sm font-bold text-foreground">Need to inspect before ordering?</h4>
+              <p className="mt-1 text-xs text-muted leading-relaxed">
+                We courier physical specimen packs including printed PVC cards, satin lanyards, RFID credentials, and acrylic holders to institutional procurement committees.
+              </p>
             </div>
 
           </div>
-        </div>
 
-        {/* Bottom Process Walkthrough */}
-        <div className="mt-20 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
-          <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-accent uppercase">
-            <Clock className="h-4 w-4" />
-            <span>Order Progression</span>
-          </div>
-          <h2 className="mt-2 text-2xl font-extrabold text-foreground sm:text-3xl">
-            What Happens After You Submit Your Request?
-          </h2>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-4">
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="font-mono text-xs font-bold text-accent">Step 1 (Within 2h)</span>
-              <h3 className="mt-2 font-bold text-foreground text-sm">Itemized Proposal</h3>
-              <p className="mt-1 text-xs text-muted leading-relaxed">We calculate exact quantity discounts, finishing fees, and turnaround dates.</p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="font-mono text-xs font-bold text-accent">Step 2</span>
-              <h3 className="mt-2 font-bold text-foreground text-sm">1:1 Digital Proof</h3>
-              <p className="mt-1 text-xs text-muted leading-relaxed">Review full-scale PDF proof with Pantone colors, barcodes, and text layout.</p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="font-mono text-xs font-bold text-accent">Step 3</span>
-              <h3 className="mt-2 font-bold text-foreground text-sm">Factory Production</h3>
-              <p className="mt-1 text-xs text-muted leading-relaxed">High-definition retransfer presses, laser encoding, and ultrasonic sealing.</p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="font-mono text-xs font-bold text-accent">Step 4 (48–72h)</span>
-              <h3 className="mt-2 font-bold text-foreground text-sm">Guwahati Dispatch</h3>
-              <p className="mt-1 text-xs text-muted leading-relaxed">Packed sequentially by class/department with live courier tracking.</p>
-            </div>
-          </div>
         </div>
       </Container>
     </>

@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Handshake, Store, Megaphone, Laptop2, Cable, CheckCircle2, XCircle } from "lucide-react";
+import { Handshake, Store, Megaphone, Laptop2, Cable, CheckCircle2, XCircle, ShieldCheck, ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -33,183 +34,173 @@ const models = [
     icon: Store,
     title: "Reseller Partner",
     tagline: "Sell identification products in your market.",
-    body: "Acquire customers and sell IDGen products under an agreed reseller arrangement. Flow: Customer → Partner → IDGen → Production → Dispatch → Customer. Suitable for printing businesses, stationery businesses, IT companies, advertising agencies, local distributors, school suppliers and entrepreneurs.",
+    body: "Acquire customers and sell IDGen products under an agreed wholesale reseller margin. Suitable for local printers, stationery businesses, advertising agencies, and school suppliers.",
   },
   {
     icon: Megaphone,
     title: "Referral Partner",
-    tagline: "Refer customers to IDGen.",
-    body: "If you don't want to manage the complete sales and order process, refer potential customers to IDGen. Flow: Partner → Customer Lead → IDGen → Requirement → Production → Dispatch. Suitable for people with relevant customer connections who don't want to maintain inventory.",
+    tagline: "Refer institutional customers to IDGen.",
+    body: "Pass qualified institutional leads to IDGen and earn recurring commissions on all fulfilled print runs without managing production or logistics.",
   },
   {
     icon: Laptop2,
-    title: "School ERP Printing Partner",
-    tagline: "Your school software. Our ID card production.",
-    body: "If you operate a School ERP, student management platform or education technology solution, offer printed student and staff ID cards to your existing school customers. Model: Your Software → School Data → IDGen → Card Preview → Approval → Production → Quality Check → Dispatch.",
+    title: "School ERP & EdTech Partner",
+    tagline: "Your software. Our physical ID production.",
+    body: "Integrate physical student ID card and lanyard fulfillment directly into your School ERP software, offering a complete digital-to-physical bundle to your school clients.",
   },
   {
     icon: Cable,
     title: "Technology Integration Partner",
-    tagline: "Connect software with physical identification.",
-    body: "Technology companies managing organizational or educational data may explore future integration opportunities — connecting Software Data → Identification Workflow → Card Production. Integration requirements are evaluated individually.",
+    tagline: "Connect software with physical credentials.",
+    body: "Access control, biometric hardware vendors, and HRMS platforms seeking seamless RFID/NFC smart card manufacturing for client turnstiles.",
   },
 ];
 
 const faqs: Faq[] = [
   { q: "What is the IDGen reseller program?", a: "The IDGen reseller program allows suitable businesses to acquire customers and offer IDGen identity products under an agreed reseller arrangement while IDGen supports the applicable production workflow." },
-  { q: "Do I need my own ID card printing machine?", a: "Not necessarily. The partner model is designed so suitable partners can focus on sales and customer relationships while IDGen supports production." },
-  { q: "Can I become an IDGen reseller in my city?", a: "Yes. IDGen is developing local partnerships across Northeast India and is interested in partners with local market knowledge and customer relationships." },
-  { q: "Can a printing company become an IDGen partner?", a: "Yes. Printing and related businesses can be considered where they have relevant customers and want to add identity products to their offering." },
-  { q: "Can an IT company become an IDGen partner?", a: "Yes. IT companies with relevant organizational or education-sector customers can explore reseller, referral or technology partnership models." },
-  { q: "Can a School ERP company partner with IDGen?", a: "Yes. A School ERP company can explore a printing partnership in which the ERP company serves the software requirement while IDGen supports physical student and staff ID-card production." },
-  { q: "Can I become a referral partner?", a: "Yes. Suitable businesses or individuals can explore a referral arrangement with IDGen." },
-  { q: "Can partners sell multiple IDGen products?", a: "Yes. The partner network can offer a range of identification products, including cards, RFID cards, event cards, membership cards, lanyards, holders and other identity products." },
-  { q: "Does IDGen offer exclusive city territories?", a: "Do not assume exclusivity. Territory arrangements, if available, should be discussed and agreed separately with IDGen." },
-  { q: "Does IDGen provide fixed reseller margins?", a: "IDGen does not publish a universal margin. Commercial terms can vary according to the partnership model and business arrangement." },
+  { q: "Do I need my own ID card printing machine?", a: "No! The partner model is designed so partners focus purely on sales, relationships, and customer service while IDGen handles all retransfer printing, lanyard sublimation, and ultrasonic assembly in Guwahati." },
+  { q: "Can I become an IDGen reseller in my city?", a: "Yes. IDGen is expanding across all 8 Northeast states and actively partners with regional distributors in Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, and Sikkim." },
+  { q: "Can a School ERP company partner with IDGen?", a: "Yes. School ERP companies can connect student rosters directly to IDGen Studio for instant digital proofing and physical delivery to schools." },
 ];
 
 export default function PartnersPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Partners", path: "/partners/" }])} />
+      
       <PageHero
-        eyebrow="Partner Program"
+        eyebrow="B2B & Reseller Network"
         icon={Handshake}
-        title="Become an IDGen Partner"
-        lede="Build your local identity-products business with IDGen. You focus on customers — IDGen supports the production."
+        title="Become an IDGen Partner & Reseller"
+        lede="Build a high-margin identity business in your city. You own the client relationship — IDGen powers high-volume thermal retransfer production, lanyard sublimation, and 48-hour express dispatch."
+        stats={[
+          { label: "Margin Potential", value: "Wholesale Tiers" },
+          { label: "Production Setup", value: "Zero CapEx Needed" },
+          { label: "Partner Hubs", value: "All 8 NE States" },
+          { label: "Turnaround", value: "48–72h Delivery" },
+        ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Factory Production Photo */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250321154119.jpg"
+                  alt="High Capacity ID Production Lines at IDGen"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-cyan-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Factory Production Backing</span>
+                </div>
+              </div>
+
+              {/* Overlapping Specimen Kit */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  alt="Complete ID Card and Lanyard Specimen Package"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Hardware Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 1.jpeg"
+                  alt="Full Color Printed Lanyard"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Partners", path: "/partners/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            IDGen is developing a network of resellers, referral partners, printing partners and technology
-            partners across Northeast India. If you already have relationships with schools, colleges,
-            companies, hospitals, institutions or other businesses, you can offer professional identification
-            products without necessarily building your own complete ID-card production setup.
+        {/* Partnership Ecosystem Flow */}
+        <div className="mt-8 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10 shadow-sm">
+          <span className="text-xs font-bold tracking-widest text-accent uppercase">How The Model Works</span>
+          <h2 className="mt-2 text-2xl font-black text-foreground sm:text-3xl">
+            You Win Customers. We Deliver Factory Precision.
+          </h2>
+          <p className="mt-3 text-sm text-muted max-w-2xl leading-relaxed">
+            Eliminate equipment maintenance, ink stockouts, and manual labor. Focus on growing your business while leveraging IDGen&apos;s industrial printing lines in Guwahati.
           </p>
-        </div>
-        <div className="mt-6">
-          <FlowChain steps={["Find Customers", "Collect Requirements", "Send Order to IDGen", "Production", "Dispatch", "Customer Delivery"]} />
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a href="#apply" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Apply to Become a Partner
-          </a>
-          <Link href="/contact-us/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            Talk to IDGen
-          </Link>
+          <div className="mt-8">
+            <FlowChain steps={["Acquire Customer", "Collect Roster & Photo", "Submit to IDGen Studio", "Guwahati Factory Print", "Direct Express Dispatch", "Satisfied Client"]} />
+          </div>
         </div>
 
-        {/* Why partner */}
-        <div className="mt-16">
+        {/* 4 Partnership Models */}
+        <div className="mt-20">
           <SectionHead
-            eyebrow="Why Partner"
-            title="Why partner with IDGen?"
-            lede="Starting an ID-card business can require investment in printing, fusing and cutting equipment, materials, accessories, production staff and quality-control processes. An IDGen partnership lets a local business focus more on sales, customer relationships and local market development, while IDGen supports the required production."
+            eyebrow="Collaboration Models"
+            title="Choose Your Ideal Partnership Model"
+            lede="Flexible arrangements designed for local printers, School ERP software companies, agencies, and entrepreneurs."
           />
-        </div>
-
-        {/* Strengths */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">A partnership built around your strengths</h2>
-          <p className="mt-2 max-w-2xl text-sm text-muted">You may already have something IDGen needs:</p>
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-            {strengths.map((s) => (
-              <li key={s} className="flex items-start gap-2 text-sm text-foreground/90">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                {s}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Partnership models */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Choose Your Model" title="Choose your partnership model" />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {models.map((m) => (
-              <div key={m.title} className="rounded-2xl border border-surface-border bg-surface p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                  <m.icon className="h-5 w-5" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {models.map((m) => {
+              const Icon = m.icon;
+              return (
+                <div key={m.title} className="group rounded-3xl border border-surface-border bg-surface p-6 sm:p-8 transition-all hover:border-accent/40 hover:shadow-lg">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent text-slate-950 font-bold mb-4">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{m.title}</h3>
+                  <p className="mt-1 font-mono text-xs text-accent font-semibold">{m.tagline}</p>
+                  <p className="mt-3 text-xs leading-relaxed text-muted">{m.body}</p>
                 </div>
-                <h3 className="mt-4 font-semibold text-foreground">{m.title}</h3>
-                <p className="mt-1 text-xs font-bold tracking-wide text-accent uppercase">{m.tagline}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{m.body}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Local + centralized */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-surface-border bg-surface p-5">
-            <h3 className="font-semibold text-foreground">Local Partner</h3>
-            <p className="mt-1.5 text-sm text-muted">Sales + Customer Relationship + Local Support</p>
-          </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-5">
-            <h3 className="font-semibold text-foreground">IDGen</h3>
-            <p className="mt-1.5 text-sm text-muted">Production + Quality Control + Product Support</p>
-          </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-5">
-            <h3 className="font-semibold text-foreground">Customer</h3>
-            <p className="mt-1.5 text-sm text-muted">Professional Identity Products</p>
-          </div>
-        </div>
-
-        {/* Not a franchise */}
-        <div className="mt-16 rounded-2xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
-          <div className="flex items-start gap-3">
-            <XCircle className="mt-1 h-5 w-5 shrink-0 text-navy-deep" />
-            <div>
-              <h2 className="text-lg font-bold text-navy-deep">Is this a franchise? No.</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-navy-deep/80">
-                The IDGen partner model should not automatically be presented as a franchise. It is a business
-                partnership / reseller / referral / printing relationship, with exact commercial
-                responsibilities and terms agreed between IDGen and the partner. This distinction is important
-                for both customer clarity and legal accuracy.
+        {/* Partner Onboarding Form Split */}
+        <div id="apply" className="mt-20 grid gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <div className="rounded-3xl border border-surface-border bg-surface p-6 sm:p-10 shadow-sm">
+              <span className="text-xs font-bold uppercase tracking-widest text-accent">Apply for Partner Status</span>
+              <h2 className="mt-1 text-2xl font-black text-foreground sm:text-3xl">
+                Partner Onboarding Application
+              </h2>
+              <p className="mt-2 text-xs text-muted leading-relaxed mb-6">
+                Tell us about your business, current customer base, and target region. We review applications within 24 business hours.
               </p>
+              <PartnerForm />
+            </div>
+          </div>
+
+          <div className="space-y-6 lg:col-span-4">
+            <div className="rounded-3xl border border-white/10 bg-[#0B1320] p-6 text-white shadow-xl">
+              <span className="flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase">
+                <ShieldCheck className="h-4 w-4" />
+                <span>Partner Benefits</span>
+              </span>
+              <h3 className="mt-2 text-lg font-bold text-white">Why Partner with IDGen?</h3>
+              <div className="mt-4 space-y-3">
+                {strengths.map((s, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{s}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* City-wise opportunities */}
-        <div className="mt-16">
-          <SectionHead
-            eyebrow="Territory"
-            title="City-wise partner opportunities"
-            lede="IDGen is interested in developing local partnerships across Assam, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, Arunachal Pradesh and Sikkim. Territory arrangements, if available, should be discussed and agreed separately — don't assume exclusivity."
-          />
-          <div className="mt-4">
-            <FlowChain steps={["Your City", "Your Customers", "Your Market", "IDGen Production Support"]} />
-          </div>
-        </div>
-
-        {/* What we expect */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-2">
-          <FeatureCard
-            title="What IDGen provides to partners"
-            body="Production, product range (cards, lanyards, RFID products, holders, hooks), customization, quality workflow, dispatch and product knowledge."
-          />
-          <FeatureCard
-            title="What we expect from partners"
-            body="Build customer relationships, collect accurate requirements, communicate professionally, manage customers, protect customer information, and develop the market for long-term business."
-          />
-        </div>
-
-        {/* Apply */}
-        <div id="apply" className="mt-16 scroll-mt-24">
-          <SectionHead eyebrow="Apply" title="Ready to partner with IDGen?" lede="Tell us about your business — we'll follow up with the applicable partnership details." />
-          <div className="mt-6 max-w-2xl">
-            <PartnerForm />
-          </div>
-        </div>
-
         {/* FAQ */}
-        <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
-          <div className="mt-6">
+        <div className="mt-20">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About the Partner Program" />
+          <div className="mt-8">
             <FaqList faqs={faqs} />
           </div>
         </div>

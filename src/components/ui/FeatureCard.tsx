@@ -25,7 +25,7 @@ export function FeatureCard({
   const content = (
     <>
       {imageSrc && (
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-900 mb-4 border border-surface-border/60">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-900 mb-4 border border-surface-border/40 img-shine">
           <Image
             src={imageSrc}
             alt={imageAlt || title}
@@ -33,9 +33,9 @@ export function FeatureCard({
             className="img-zoom object-cover object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
           {badge && (
-            <span className="absolute top-3 left-3 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 px-2.5 py-1 text-[10px] font-bold tracking-wider text-accent uppercase">
+            <span className="absolute top-3 left-3 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 px-3 py-1 text-[10px] font-bold tracking-wider text-accent uppercase shadow-lg">
               {badge}
             </span>
           )}
@@ -44,25 +44,25 @@ export function FeatureCard({
 
       <div className="flex items-start justify-between gap-3">
         {Icon && !imageSrc && (
-          <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-[#07192e] shadow-[0_6px_16px_-6px_rgba(2,132,199,0.55)] transition-transform duration-200 group-hover:scale-105">
+          <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-[#07192e] shadow-[0_8px_20px_-6px_rgba(2,132,199,0.5)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_12px_28px_-6px_rgba(2,132,199,0.6)]">
             <Icon className="h-5 w-5 text-white" strokeWidth={2.25} />
-            <span className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/15" aria-hidden="true" />
+            <span className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/15" aria-hidden="true" />
           </div>
         )}
         {tag && (
-          <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-[11px] font-semibold text-accent">
+          <span className="rounded-full bg-accent-soft px-3 py-1 text-[11px] font-bold text-accent border border-accent/15">
             {tag}
           </span>
         )}
       </div>
 
-      <div className={Icon && !imageSrc ? "mt-4" : ""}>
+      <div className={Icon && !imageSrc ? "mt-5" : ""}>
         <div className="flex items-center justify-between gap-2">
-          <h3 className="font-bold text-foreground text-lg transition-colors group-hover:text-accent">
+          <h3 className="font-bold text-foreground text-lg transition-colors duration-200 group-hover:text-accent">
             {title}
           </h3>
           {href && (
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
+            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent group-hover:scale-110" />
           )}
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
@@ -74,10 +74,16 @@ export function FeatureCard({
     return (
       <Link
         href={href}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-surface-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_20px_40px_-15px_rgba(7,25,46,0.15)]"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-surface-border bg-surface p-5 transition-all duration-400 hover:-translate-y-2 hover:border-accent/40 hover:shadow-[0_25px_50px_-15px_rgba(0,159,227,0.15)] card-3d"
       >
+        {/* Ambient glow */}
         <span
-          className="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full bg-accent/0 blur-2xl transition-colors duration-300 group-hover:bg-accent/10"
+          className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-accent/0 blur-3xl transition-all duration-500 group-hover:bg-accent/10"
+          aria-hidden="true"
+        />
+        {/* Bottom line accent */}
+        <span
+          className="pointer-events-none absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           aria-hidden="true"
         />
         <div>{content}</div>

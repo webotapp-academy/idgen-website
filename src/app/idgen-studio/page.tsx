@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, FileEdit, QrCode, Eye, Send, LayoutDashboard, PenLine, CheckCircle2, Layers, Printer, Zap } from "lucide-react";
+import { Sparkles, FileEdit, QrCode, Eye, Send, LayoutDashboard, PenLine, CheckCircle2, Layers, Printer, Zap, ArrowRight, ShieldCheck, Database } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -42,13 +42,6 @@ const traditionalVsStudio = [
   ["Administrative load", "Heavy repetitive manual entry", "Automated roster mapping & status tracking"],
 ];
 
-const useCases = [
-  { title: "Schools & K-12 Institutions", body: "School generates a class-wise QR code → Parents upload student photo and details from home → Admin approves batch → 500 cards printed and delivered in 48 hours." },
-  { title: "Colleges & Universities", body: "Organize thousands of student records across engineering, medical, and arts departments with roll-number validation and automated RFID UID mapping." },
-  { title: "Corporate Enterprises", body: "Continuous employee onboarding: new hires submit their photo during week 1, HR clicks approve, and their access badge arrives ready-to-wear." },
-  { title: "Conferences & Summits", body: "Delegate self-registration portal generates high-resolution VIP passes with personalized QR ticketing, printed progressively before the event." },
-];
-
 const benefits = [
   { title: "Zero Manual Data Re-Entry", body: "Parents and employees enter their exact names and details, preventing transcription typos." },
   { title: "AI Biometric Photo Cropping", body: "Automatically levels, crops, and enhances photos to strict institutional aspect ratios." },
@@ -82,6 +75,47 @@ export default function IdgenStudioPage() {
           { label: "Batch Approvals", value: "Real-time" },
           { label: "Reprint Waste", value: "Reduced by 95%" },
         ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Studio App Interface */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/idgen-studio-interface.jpg"
+                  alt="IDGen Studio Cloud Software Interface"
+                  fill
+                  priority
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-cyan-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Cloud Web Console</span>
+                </div>
+              </div>
+
+              {/* Overlapping Factory Production Sync */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250321154119.jpg"
+                  alt="Guwahati Factory Retransfer Press Sync"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Delivered Sample Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Order Deliver/DBS ITANAGAR 1.png"
+                  alt="Approved Card Dispatched Directly"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
@@ -90,7 +124,7 @@ export default function IdgenStudioPage() {
         {/* Studio Dashboard Visual Showcase Banner */}
         <div className="mt-8">
           <div className="group relative overflow-hidden rounded-3xl border border-surface-border bg-slate-950 p-2 sm:p-4 shadow-2xl">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl img-shine">
               <Image
                 src="/images/idgen-studio-interface.jpg"
                 alt="IDGen Studio Enterprise Identity Management & Batch Card Preview Console"
@@ -99,111 +133,87 @@ export default function IdgenStudioPage() {
                 className="img-zoom object-cover object-top"
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-4 text-white">
                 <div>
-                  <span className="rounded-full bg-accent px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-950">
-                    Live Platform Preview
+                  <span className="rounded-full bg-cyan-400 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-950">
+                    Self-Service Cloud Portal
                   </span>
                   <h2 className="mt-2 text-xl font-extrabold sm:text-2xl text-white">
-                    Self-Service Data Collection → Automated Biometric Proofs → Factory Queue
+                    Live Photo Uploads, Automated Proofs & Factory Production Sync
                   </h2>
                 </div>
                 <Link
-                  href="/request-a-quote/?service=idgen-studio"
-                  className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-bold text-slate-950 shadow-lg transition hover:bg-cyan-300"
+                  href="/request-a-quote/"
+                  className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow-lg transition hover:bg-accent-hover hover:text-white"
                 >
-                  Request Studio Onboarding
+                  Onboard Your Institution
                 </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 8-Step Flow Chain */}
-        <div className="mt-14">
+        {/* How It Works Grid */}
+        <div className="mt-20">
           <SectionHead
-            eyebrow="Workflow"
-            title="The 8-Step Zero-Friction Workflow"
-            lede="How IDGen Studio transforms weeks of manual data collection into a streamlined 48-hour print-ready pipeline."
+            eyebrow="Workflow Breakdown"
+            title="8 Steps from Link Sharing to Physical Card Delivery"
+            lede="Eliminate paperwork, missing photos, and spreadsheet errors with our streamlined digital-to-physical pipeline."
           />
-          <div className="mt-6">
-            <FlowChain steps={["1. Create Form", "2. Share Link / QR", "3. Fill & Preview", "4. User Submits", "5. Admin Reviews", "6. Batch Sign-Off", "7. Factory Print", "8. Direct Dispatch"]} />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {howItWorks.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.title} className="group rounded-2xl border border-surface-border bg-surface p-6 transition-all hover:border-accent/40 hover:-translate-y-1 hover:shadow-lg">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-slate-950 font-bold shadow-sm">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="font-mono text-xs font-bold text-accent">0{idx + 1}</span>
+                  </div>
+                  <h3 className="mt-4 font-bold text-foreground text-sm">{step.title}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted">{step.body}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* How It Works Detailed Steps */}
-        <div className="mt-16">
-          <WorkflowSteps steps={howItWorks} />
-        </div>
-
-        {/* Progressive Batching Advantage */}
-        <div className="mt-16 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
-          <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-accent uppercase">
-            <Zap className="h-4 w-4" />
-            <span>Operational Advantage</span>
-          </div>
-          <h2 className="mt-2 text-2xl font-extrabold text-foreground sm:text-3xl">
-            Why Wait for Missing Records? Print Incrementally.
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-            In an institution with 2,500 students or employees, 20% of submissions are always delayed. Traditional vendors make you wait for 100% submission before starting the press. With IDGen Studio, you can print in batches as records approve:
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="rounded bg-sky-500/20 px-2 py-0.5 text-xs font-bold text-accent">Batch 1 (Day 3)</span>
-              <h3 className="mt-3 font-bold text-foreground">1,200 Submissions Approved</h3>
-              <p className="mt-1 text-xs text-muted">Manufactured and dispatched immediately. Students wear badges during week 1.</p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="rounded bg-sky-500/20 px-2 py-0.5 text-xs font-bold text-accent">Batch 2 (Day 7)</span>
-              <h3 className="mt-3 font-bold text-foreground">800 Late Submissions</h3>
-              <p className="mt-1 text-xs text-muted">Second wave automatically queued without starting a new contract or setup fees.</p>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-background p-5">
-              <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-600">Batch 3 (Day 12)</span>
-              <h3 className="mt-3 font-bold text-foreground">Final Stragglers & Transfers</h3>
-              <p className="mt-1 text-xs text-muted">Last intake finalized with identical color consistency and RFID formatting.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Traditional vs IDGen Studio Comparison Table */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Direct Comparison" title="Traditional ID Collection vs IDGen Studio" />
+        {/* Traditional vs Studio Comparison */}
+        <div className="mt-20">
+          <SectionHead
+            eyebrow="Comparative Efficiency"
+            title="Traditional Manual Spreadsheets vs. IDGen Studio"
+            lede="See how digital automation cuts onboarding time from weeks to hours."
+          />
           <div className="mt-8">
-            <CompareTable columns={["Operational Factor", "Traditional ID Vendor", "IDGen Studio Platform"]} highlightColumn={2} rows={traditionalVsStudio} />
+            <CompareTable
+              columns={["Workflow Parameter", "Manual Spreadsheet Method", "IDGen Studio Digital Flow"]}
+              rows={traditionalVsStudio}
+              highlightColumn={2}
+            />
           </div>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Platform Benefits" title="Engineered to Save Weeks of Administrative Effort" />
+        {/* Core Platform Benefits Grid */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Platform Benefits" title="Why Administrators & HR Leaders Love IDGen Studio" />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b) => (
-              <FeatureCard key={b.title} icon={Layers} title={b.title} body={b.body} />
-            ))}
-          </div>
-        </div>
-
-        {/* Sector Use Cases */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Deployments" title="Proven Across Every Institutional Sector" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {useCases.map((u) => (
-              <div key={u.title} className="rounded-2xl border border-surface-border bg-surface p-6">
-                <h3 className="font-bold text-foreground text-lg">{u.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{u.body}</p>
+              <div key={b.title} className="rounded-2xl border border-surface-border bg-surface p-6 shadow-sm hover:border-accent/30 transition">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0" />
+                  <h3 className="font-bold text-foreground text-sm">{b.title}</h3>
+                </div>
+                <p className="mt-2 text-xs text-muted leading-relaxed">{b.body}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div className="mt-16">
+        {/* FAQ */}
+        <div className="mt-20">
           <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About IDGen Studio" />
           <div className="mt-8">
             <FaqList faqs={faqs} />
@@ -213,12 +223,12 @@ export default function IdgenStudioPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Ready to automate your next ID card collection?"
-            body="We will set up your branded data collection form, QR codes, and dashboard within 24 hours. Contact our team to begin."
+            title="Ready to automate your institution's ID card workflow?"
+            body="Schedule a live 10-minute demo of IDGen Studio and see how simple ID card data collection can be."
             links={[
-              { label: "Request Studio Access", href: "/request-a-quote/", primary: true },
-              { label: "Browse Card Templates", href: "/templates/" },
-              { label: "Contact Engineering", href: "/contact-us/" },
+              { label: "Request Studio Onboarding", href: "/request-a-quote/", primary: true },
+              { label: "Explore Student ID Cards", href: "/student-id-card-printing/" },
+              { label: "View Pricing Calculator", href: "/pricing/" },
             ]}
           />
         </div>

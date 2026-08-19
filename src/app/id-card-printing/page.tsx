@@ -6,6 +6,10 @@ import {
   Building2,
   Ticket,
   Radio,
+  Sparkles,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
@@ -63,6 +67,13 @@ const configRows = [
   ["VIP Summit delegate pass", "Large Format Event Card + Dual-Hook Lanyard"],
 ];
 
+const deliveredShowcase = [
+  { name: "Don Bosco Hr Sec School", state: "Meghalaya & Assam", img: "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png" },
+  { name: "CKB College Jorhat", state: "Assam", img: "/images/Order Deliver/CKB COLLAGE,JORHAT 1.png" },
+  { name: "DBS Itanagar", state: "Arunachal Pradesh", img: "/images/Order Deliver/DBS ITANAGAR 1.png" },
+  { name: "Jorhat Kendriya Vidyalaya", state: "Assam", img: "/images/Order Deliver/Jorhat kendra vidyalaya 1.png" },
+];
+
 const faqs: Faq[] = [
   { q: "What printing technology does IDGen use for PVC ID cards?", a: "We use high-definition thermal retransfer and dye-sublimation presses. Unlike cheaper desktop printers, retransfer bonds color beneath a protective clear lamination layer, preventing fading and scratching." },
   { q: "What is the standard size and thickness of an ID card?", a: "We manufacture standard ISO CR80 cards measuring 85.6 × 54 mm with a 30-mil (0.76 mm) thickness — identical to bank credit cards." },
@@ -92,6 +103,47 @@ export default function IdCardPrintingPage() {
           { label: "Daily Output", value: "10,000+ IDs" },
           { label: "Dispatch", value: "48–72h Turnaround" },
         ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary PVC Card Sample */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 1.jpg"
+                  alt="High Definition 30-Mil CR80 PVC ID Card by IDGen"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">CR80 Solid Core</span>
+                </div>
+              </div>
+
+              {/* Overlapping Institutional Card */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Order Deliver/CKB COLLAGE,JORHAT 1.png"
+                  alt="Delivered Institutional College ID Card"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Factory Press Badge */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250321154119.jpg"
+                  alt="Live Factory Retransfer Press"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
@@ -101,9 +153,9 @@ export default function IdCardPrintingPage() {
         <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <div className="group relative overflow-hidden rounded-3xl border border-surface-border bg-slate-950 p-2 shadow-2xl">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl img-shine">
                 <Image
-                  src="/images/id-card-specimen.jpg"
+                  src="/images/PVC Cards Samples/Sample 3.jpg"
                   alt="High-Definition 30-Mil CR80 PVC ID Card Specimen with Smart Chip and Hologram"
                   fill
                   priority
@@ -152,8 +204,42 @@ export default function IdCardPrintingPage() {
           </div>
         </div>
 
+        {/* Real Delivered Client Showcase Gallery */}
+        <div className="mt-20">
+          <SectionHead
+            eyebrow="Proven Deliveries"
+            title="Real Cards Dispatched to Institutions Across Northeast India"
+            lede="Every year, hundreds of educational institutions and corporate clients trust IDGen for accurate, flaw-free ID printing."
+          />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {deliveredShowcase.map((c) => (
+              <div key={c.name} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-lg hover:border-accent/40">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
+                  <Image
+                    src={c.img}
+                    alt={c.name}
+                    fill
+                    className="img-zoom object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-slate-300 backdrop-blur-md">
+                    {c.state}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-foreground text-sm">{c.name}</h3>
+                  <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-500 font-semibold">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <span>Delivered Batch</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Technical Specs Table */}
-        <div className="mt-16">
+        <div className="mt-20">
           <SectionHead eyebrow="Technical Sheet" title="CR80 PVC ID Card Specifications" />
           <div className="mt-6 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
             <table className="w-full text-left text-sm">
@@ -170,7 +256,7 @@ export default function IdCardPrintingPage() {
         </div>
 
         {/* Sector Applications */}
-        <div className="mt-16">
+        <div className="mt-20">
           <SectionHead eyebrow="Applications" title="Specialized ID Solutions for Every Organization" />
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {audiences.map((a) => (
@@ -180,7 +266,7 @@ export default function IdCardPrintingPage() {
         </div>
 
         {/* Workflow */}
-        <div className="mt-16">
+        <div className="mt-20">
           <SectionHead eyebrow="Production Process" title="From Approved Roster to Dispatched Batch" />
           <div className="mt-6">
             <WorkflowSteps steps={workflow} />
@@ -188,7 +274,7 @@ export default function IdCardPrintingPage() {
         </div>
 
         {/* Configurations Comparison */}
-        <div className="mt-16">
+        <div className="mt-20">
           <SectionHead eyebrow="Setup Options" title="Choose Your Ideal Package Configuration" />
           <div className="mt-6">
             <CompareTable columns={["Organization Requirement", "Recommended Package Setup"]} rows={configRows} highlightColumn={1} />
@@ -196,7 +282,7 @@ export default function IdCardPrintingPage() {
         </div>
 
         {/* FAQ */}
-        <div className="mt-16">
+        <div className="mt-20">
           <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About ID Card Printing" />
           <div className="mt-6">
             <FaqList faqs={faqs} />

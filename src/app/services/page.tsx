@@ -1,4 +1,6 @@
-import { IdCard, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { IdCard, ArrowRight, ShieldCheck, Sparkles, Layers, Zap } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -20,7 +22,7 @@ const idCardServices = [
     title: "PVC ID Card Printing",
     slug: "id-card-printing",
     shortDescription: "High-resolution thermal retransfer and direct-to-card PVC printing for schools, universities, hospitals, and corporate organizations.",
-    imageSrc: "/images/id-card-specimen.jpg",
+    imageSrc: "/images/PVC Cards Samples/Sample 1.jpg",
     imageAlt: "PVC ID Card Printing Specimen",
     tag: "30-Mil CR80",
     badge: "Core Service"
@@ -29,8 +31,8 @@ const idCardServices = [
     title: "Student ID Card Printing",
     slug: "student-id-card-printing",
     shortDescription: "High-volume student identification for schools and colleges, featuring automated roster imports, batch photo cropping, and library barcodes.",
-    imageSrc: "/images/hero-cards-showcase.jpg",
-    imageAlt: "Student ID Card Printing Service",
+    imageSrc: "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
+    imageAlt: "Student ID Card Printing Service for Schools",
     tag: "Education",
     badge: "Bulk Intake"
   },
@@ -38,7 +40,7 @@ const idCardServices = [
     title: "Employee ID Card Printing",
     slug: "employee-id-card-printing",
     shortDescription: "Corporate employee badges with RFID turnstile integration, executive finishes, department color bands, and security holograms.",
-    imageSrc: "/images/id-card-specimen.jpg",
+    imageSrc: "/images/ID Card Full Set Samples/High-quality Employee ID Cards and Staff Identity Cards delivered to clients in Guwahati and Assam.jpg",
     imageAlt: "Corporate Employee ID Card Printing",
     tag: "Corporate",
     badge: "Enterprise"
@@ -47,7 +49,7 @@ const idCardServices = [
     title: "RFID & NFC Smart Card Printing",
     slug: "rfid-card-printing",
     shortDescription: "13.56 MHz (Mifare, DESFire, NTAG) and 125 kHz contactless smart cards customized with high-security encoding and durable lamination.",
-    imageSrc: "/images/rfid-nfc-credentials.jpg",
+    imageSrc: "/images/ID Card Full Set Samples/IMG20250328133145.jpg",
     imageAlt: "Contactless RFID Smart Card Printing",
     tag: "13.56 MHz / 125 kHz",
     badge: "Contactless"
@@ -56,8 +58,8 @@ const idCardServices = [
     title: "Event & Conference Badges",
     slug: "event-card-printing",
     shortDescription: "Oversized VIP passes, delegate badges, and accreditation credentials with dual-hook anti-twist lanyards and fast event turnaround.",
-    imageSrc: "/images/hero-cards-showcase.jpg",
-    imageAlt: "Event & Conference Badge Printing",
+    imageSrc: "/images/Event Card/Events Card with 2 hook.png",
+    imageAlt: "Event & Conference Badge Printing with Dual Hooks",
     tag: "Summits & Expos",
     badge: "VIP Credentials"
   },
@@ -65,7 +67,7 @@ const idCardServices = [
     title: "Membership & Loyalty Cards",
     slug: "membership-card-printing",
     shortDescription: "Premium VIP club membership cards with embossed foil stamping, magnetic stripes, smart chips, and luxury matte or gloss surfaces.",
-    imageSrc: "/images/id-card-specimen.jpg",
+    imageSrc: "/images/PVC Cards Samples/Sample 3.jpg",
     imageAlt: "Membership & Loyalty Card Printing",
     tag: "Retail & Clubs",
     badge: "VIP Cards"
@@ -77,8 +79,8 @@ const lanyardServices = [
     title: "Custom Printed Satin Lanyards",
     slug: "custom-printed-lanyard-printing",
     shortDescription: "Full-color dye-sublimated 20mm satin lanyards with sharp continuous logo printing, safety breakaways, and heavy-duty swivel dog hooks.",
-    imageSrc: "/images/satin-lanyards.jpg",
-    imageAlt: "Custom Printed Satin Lanyards",
+    imageSrc: "/images/Lanyard with Hook Samples/Sample 1.jpeg",
+    imageAlt: "Custom Printed Satin Lanyards IDGen",
     tag: "20mm Satin Sublimation",
     badge: "Bestseller"
   },
@@ -86,8 +88,8 @@ const lanyardServices = [
     title: "Precision Ultrasonic Sealing",
     slug: "ultrasonic-sealing",
     shortDescription: "Acoustic high-frequency welding that seamlessly bonds lanyard ribbon loops, delivering 18kg+ pull resistance with zero staples or loose threads.",
-    imageSrc: "/images/ultrasonic-welding.jpg",
-    imageAlt: "Ultrasonic Sealing of Lanyards",
+    imageSrc: "/images/Lanyard with Holder Samples/Sample 26.jpg",
+    imageAlt: "Ultrasonic Sealing of Lanyards by IDGen",
     tag: "Hermetic Weld",
     badge: "Heavy Duty"
   },
@@ -109,6 +111,46 @@ export default function ServicesPage() {
           { label: "Print Technology", value: "Thermal Retransfer" },
           { label: "Artwork Setup", value: "Zero Fee" },
         ]}
+        visual={
+          <div className="relative h-[420px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Top Image: Real Delivered Full Set */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  alt="Complete ID Card and Satin Lanyard Kit by IDGen"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                  <span className="rounded-full bg-emerald-500 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Guwahati Factory</span>
+                </div>
+              </div>
+
+              {/* Secondary Overlapping Image: Real Event Card */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Event Card/Events Card with 2 hook.png"
+                  alt="High-Visibility VIP Event Badge"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Tertiary Accent: Satin Lanyard Details */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 12.jpg"
+                  alt="Dye-Sublimated Lanyard with Swivel Hook"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
@@ -161,31 +203,35 @@ export default function ServicesPage() {
         </div>
 
         {/* Section 3: Hardware Accessories Teaser */}
-        <div className="mt-20 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+        <div className="mt-20 rounded-3xl border border-surface-border bg-gradient-to-br from-surface to-background p-8 sm:p-10 shadow-xl overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center relative z-10">
             <div className="lg:col-span-8">
-              <span className="text-xs font-bold tracking-widest text-accent uppercase">Hardware Accessories</span>
-              <h2 className="mt-2 text-2xl font-extrabold text-foreground sm:text-3xl">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-accent uppercase mb-2">
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>Hardware Accessories & Holders</span>
+              </span>
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Looking for ID Card Holders & Hardware Hooks?
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                Complete your card setup with crystal acrylic cases, horizontal/vertical four-side-lock holders, and anti-rust swivel carabiners.
+              <p className="mt-3 text-sm leading-relaxed text-muted max-w-2xl">
+                Complete your card setup with crystal acrylic cases, horizontal/vertical four-side-lock holders, and anti-rust swivel carabiners manufactured for maximum durability.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
-              <a
+              <Link
                 href="/id-card-holders/"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-accent-hover hover:text-white"
               >
                 <span>Explore Card Holders</span>
                 <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/id-card-hooks/"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-surface-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-surface-border bg-surface px-6 py-3.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent"
               >
                 <span>Explore Lanyard Hooks</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

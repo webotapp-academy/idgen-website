@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Link2 } from "lucide-react";
+import { Link2, ShieldCheck, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -8,7 +9,6 @@ import { FlowChain } from "@/components/ui/FlowChain";
 import { WorkflowSteps } from "@/components/ui/WorkflowSteps";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { HolderShape } from "@/components/ui/HolderShape";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
@@ -20,30 +20,24 @@ export const metadata = pageMetadata({
   path: "/id-card-hooks/",
 });
 
-const chooseFactors = [
-  { title: "Holder Type", body: "Check the attachment point on your ID card holder." },
-  { title: "Card Configuration", body: "Confirm whether the card is used inside a holder or as a direct badge attachment." },
-  { title: "Lanyard", body: "Check the lanyard width and attachment arrangement." },
-  { title: "Application", body: "Daily student use, employee identification, visitor identification, events, membership, or institutional use." },
+const hookModels = [
+  { name: "Chrome Swivel Dog Hook", material: "Nickel-Plated Zinc Alloy", pullStrength: "25 kg Tensile", img: "/images/Lanyard with Hook Samples/Sample 17 .jpg", desc: "Heavy-duty spring lever snap with 360° free rotation to prevent lanyard twists." },
+  { name: "Classic Fish Hook Attachment", material: "Hardened Steel Wire", pullStrength: "15 kg Tensile", img: "/images/Lanyard with Hook Samples/Sample 18 .jpg", desc: "Lightweight, reliable wire snap hook designed for daily school badge loops." },
+  { name: "Dual-Hook Conference Clip", material: "Twin Swivel Carabiners", pullStrength: "30 kg Tensile", img: "/images/Lanyard with Hook Samples/Sample 19 .jpg", desc: "Anchors oversized convention credentials at both corners to eliminate badge flip." },
+  { name: "Safety Breakaway Clip", material: "Molded POM Polymer", pullStrength: "5 kg Auto-Release", img: "/images/Lanyard with Hook Samples/Sample 23 .jpg", desc: "Emergency release buckle positioned at the neck nape for workshop & hospital safety." },
 ];
 
 const orderingSteps = [
-  { title: "Tell Us Your Requirement", body: "Provide the required quantity and application." },
-  { title: "Share Your Holder Details", body: "Tell us the holder model if known (V-1 / V-2 / H-1 / H-2)." },
-  { title: "Confirm Attachment", body: "Specify one hook, two hooks, fish hook, or another compatible attachment." },
-  { title: "Confirm Lanyard", body: "If required, specify your lanyard type and width." },
-  { title: "Confirm Quantity", body: "Confirm the number of complete sets or individual hooks required." },
-  { title: "Order Confirmation", body: "Once configuration and quantity are confirmed, the order is processed." },
+  { title: "1. Specify Hook Model", body: "Select Dog Hook, Fish Hook, Crocodile Clip, or Safety Breakaway." },
+  { title: "2. Choose Finish & Material", body: "Opt for mirror chrome, matte black, or heavy-duty zinc alloy." },
+  { title: "3. Match Lanyard Ribbon Width", body: "Available in 12mm, 16mm, 20mm, and 25mm inner loop apertures." },
+  { title: "4. Bulk Factory Delivery", body: "Packaged in poly-bags of 100 with immediate dispatch from our Guwahati warehouse." },
 ];
 
 const faqs: Faq[] = [
-  { q: "What is an ID card hook?", a: "An ID card hook is an attachment used to connect an ID card holder or badge to a lanyard." },
-  { q: "What is a fish hook for an ID card?", a: "A fish hook is an attachment used to connect a compatible ID card holder or badge to a lanyard." },
-  { q: "Can an ID card hook be used with an ID card holder?", a: "Yes. A compatible hook can connect an ID card holder to a lanyard." },
-  { q: "Can I use a hook with a custom printed lanyard?", a: "Yes. A suitable hook can be used with a compatible custom printed lanyard." },
-  { q: "Can I order hooks in bulk?", a: "Yes. ID card hooks can be supplied for institutional, organizational and event requirements, subject to availability and specifications." },
-  { q: "Do I need one or two hooks?", a: "That depends on the card/holder and lanyard configuration. If your setup requires two attachment points, a two-hook configuration can be used." },
-  { q: "How do I choose the correct ID card hook?", a: "Provide the card size, holder model, lanyard type and intended application so the compatible attachment can be identified." },
+  { q: "What is the difference between a Dog Hook and a Fish Hook?", a: "A Dog Hook features a spring-loaded trigger lever with a 360-degree swivel base that prevents lanyard tangling. A Fish Hook is a simpler curved steel snap clip favored for economical student lanyard sets." },
+  { q: "Are IDGen hooks rust-resistant?", a: "Yes. All our metallic hooks are electroplated with anti-corrosion nickel/chrome layers that resist humidity, sweat, and tarnishing." },
+  { q: "Can I buy hooks separately without lanyards?", a: "Yes. We supply individual hardware attachments and clips in bulk wholesale quantities for printing businesses and institutional inventory." },
 ];
 
 export default function IdCardHooksPage() {
@@ -56,109 +50,138 @@ export default function IdCardHooksPage() {
           path: "/id-card-hooks/",
         })}
       />
+      
       <PageHero
-        eyebrow="Product"
+        eyebrow="Hardware & Attachments"
         icon={Link2}
-        title="ID Card Hooks & Attachments"
-        lede="Attachment components used to connect identification cards, holders and badges to lanyards — the small but important link in a complete wearable identification setup."
+        title="Heavy-Duty Chrome Swivel Hooks & Attachment Hardware"
+        lede="Engineered for high-tension durability and effortless 360° rotation. Nickel-plated dog hooks, classic fish hooks, and safety breakaway buckles manufactured for reliable everyday badge wear."
+        stats={[
+          { label: "Material", value: "Nickel-Plated Zinc" },
+          { label: "Rotation", value: "360° Free Swivel" },
+          { label: "Tensile Rating", value: "Up to 25 kg" },
+          { label: "Dispatch", value: "Immediate Stock" },
+        ]}
         visual={
-          <div className="mx-auto flex w-40 items-center justify-center rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm">
-            <HolderShape variant="hook" />
+          <div className="relative h-[400px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Hook Product Photo */}
+              <div className="absolute top-0 right-0 h-60 w-[70%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 17 .jpg"
+                  alt="Chrome Swivel Dog Hook for Lanyards"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Chrome Swivel</span>
+                </div>
+              </div>
+
+              {/* Secondary Fish Hook Sample */}
+              <div className="absolute bottom-4 left-0 h-48 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 18 .jpg"
+                  alt="Steel Wire Fish Hook Attachment"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Lanyard Set Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-full overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 19 .jpg"
+                  alt="Lanyard Hardware Assembly"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         }
       />
+
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Products", path: "/products/" }, { name: "ID Card Hooks", path: "/id-card-hooks/" }]} />
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request a Quote
-          </Link>
-          <Link href="/id-card-holders/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            Explore ID Card Holders
-          </Link>
+        {/* Real Hardware Specimen Grid */}
+        <div className="mt-8">
+          <SectionHead
+            eyebrow="Hardware Models"
+            title="Industrial-Grade ID Card Hooks & Fasteners"
+            lede="Tested to withstand continuous daily pull resistance without bending, snapping, or tarnishing."
+          />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {hookModels.map((hm) => (
+              <div key={hm.name} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-xl hover:border-accent/40">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950 img-shine">
+                  <Image
+                    src={hm.img}
+                    alt={hm.name}
+                    fill
+                    className="img-zoom object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
+                    {hm.pullStrength}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-foreground text-sm">{hm.name}</h3>
+                  <p className="mt-1.5 text-xs text-muted leading-relaxed">{hm.desc}</p>
+                  <div className="mt-3 flex items-center gap-1 text-[11px] text-accent font-semibold">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <span>{hm.material}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            An ID card hook is an attachment component used to connect an ID card holder or badge to a lanyard.
-            Instead of attaching the card directly to the lanyard, the hook provides the connection between the
-            two components — a typical setup is ID Card → Holder → Fish Hook → 20&nbsp;mm Custom Printed Lanyard.
+        {/* Connection Flow Diagram */}
+        <div className="mt-20 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
+          <span className="text-xs font-bold tracking-widest text-accent uppercase">Component Ecosystem</span>
+          <h2 className="mt-2 text-2xl font-extrabold text-foreground sm:text-3xl">
+            How IDGen Hardware Pairs Together
+          </h2>
+          <p className="mt-3 text-sm text-muted max-w-2xl">
+            A secure, comfortable ID setup combines high-grade PVC cards with protective cases and swivel hooks:
           </p>
-        </div>
-        <div className="mt-4">
-          <FlowChain steps={["ID Card", "Holder", "Hook", "Lanyard"]} />
-        </div>
-
-        {/* Configurations */}
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h3 className="font-semibold text-foreground">One-Hook Configuration</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">ID Card / Holder + One Hook + Lanyard — suitable where a single attachment point is required.</p>
-          </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h3 className="font-semibold text-foreground">Two-Hook Configuration</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">ID Card / Holder + Two Hooks + Lanyard — suitable where two attachment points are required, common for event configurations.</p>
-            <Link href="/event-card-printing/" className="mt-2 inline-block text-sm font-semibold text-accent hover:underline">Explore Event Card Printing →</Link>
+          <div className="mt-8">
+            <FlowChain steps={["30-Mil PVC ID Card", "Crystal Acrylic Holder", "Chrome Swivel Hook", "20mm Satin Lanyard"]} />
           </div>
         </div>
 
-        {/* Choosing */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Choosing" title="Choosing the right ID card hook" lede="The correct hook shouldn't be selected on appearance alone — consider these four factors." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {chooseFactors.map((f) => (
-              <div key={f.title} className="rounded-2xl border border-surface-border bg-surface p-5">
-                <h3 className="font-semibold text-foreground">{f.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.body}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-sm font-semibold text-foreground">Simple rule: Holder → Compatible Hook → Lanyard.</p>
-        </div>
-
-        {/* Complete sets */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Assemblies" title="Hooks for complete identification sets" />
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Basic", "ID Card + Holder"],
-              ["Wearable", "ID Card + Holder + Hook + Lanyard"],
-              ["Branded Wearable", "ID Card + Holder + Hook + Custom Printed Lanyard"],
-              ["Complete Setup", "Card + Holder + Attachment + Lanyard"],
-            ].map(([label, combo]) => (
-              <div key={label} className="rounded-2xl border border-surface-border bg-surface p-5">
-                <p className="text-xs font-bold tracking-widest text-accent uppercase">{label}</p>
-                <p className="mt-2 text-sm font-medium text-foreground">{combo}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Ordering */}
-        <div className="mt-12">
-          <SectionHead eyebrow="Process" title="How to order ID card hooks" />
-          <div className="mt-6">
+        {/* Workflow */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Ordering Guide" title="How to Order Lanyard Hooks in Bulk" />
+          <div className="mt-8">
             <WorkflowSteps steps={orderingSteps} />
           </div>
         </div>
 
         {/* FAQ */}
-        <div className="mt-12">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
-          <div className="mt-6">
+        <div className="mt-20">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About ID Card Hooks" />
+          <div className="mt-8">
             <FaqList faqs={faqs} />
           </div>
         </div>
 
-        <div className="mt-12">
+        {/* Closing CTA */}
+        <div className="mt-16">
           <CtaBand
-            title="Need ID card hooks?"
-            body="Whether for student ID cards, employee cards, institutional identification or events, IDGen can help coordinate the appropriate attachment with your holder and lanyard configuration."
+            title="Looking for wholesale hardware supplies?"
+            body="Get in touch with our Guwahati distribution warehouse for carton pricing on dog hooks, fish hooks, and alligator clips."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
+              { label: "Request Hardware Quote", href: "/request-a-quote/", primary: true },
               { label: "Explore ID Card Holders", href: "/id-card-holders/" },
-              { label: "Explore Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
+              { label: "Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
             ]}
           />
         </div>

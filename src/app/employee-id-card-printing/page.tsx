@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Building2,
@@ -10,10 +11,12 @@ import {
   ShieldCheck,
   Layers,
   MapPin,
+  CheckCircle2,
+  Lock,
+  ArrowRight
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
-import { IllustratedCard } from "@/components/ui/IllustratedCard";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
@@ -34,42 +37,44 @@ export const metadata = pageMetadata({
 });
 
 const solutions = [
-  { icon: Building2, title: "Corporate Employee ID Cards", body: "Employee Photo + Name + Employee ID + Designation + Department + Company Branding." },
-  { icon: Users, title: "Staff ID Cards", body: "Suitable for staff in offices, institutions, hospitals, schools and colleges — designs can distinguish staff categories." },
-  { icon: Factory, title: "Employee ID Cards for Industries", body: "Permanent employees, supervisors, technicians, production staff, administrative staff and contract workforce." },
-  { icon: Hospital, title: "Hospital Employee ID Cards", body: "Doctors, nurses, administrative staff, technicians, support staff and other authorized personnel." },
-  { icon: HeartHandshake, title: "NGO & Institutional Cards", body: "NGOs, trusts, institutions and other organizations, customized for their workforce." },
+  { icon: Building2, title: "Corporate Workforces & Tech Parks", body: "Executive access credentials with employee photos, designation, department color banners, and smart RFID turnstile integration." },
+  { icon: Hospital, title: "Hospitals & Healthcare Networks", body: "Sterile, anti-microbial card holders with high-contrast blood group markers, doctor accreditations, and staff access tiers." },
+  { icon: Factory, title: "Manufacturing & Industrial Plants", body: "Heavy-duty 30-mil PVC cards with ultrasonic welded lanyard ribbons built to resist grease, moisture, and high tensile pull." },
+  { icon: Users, title: "Government & Public Sector", body: "High-security departmental credentials featuring microtext, guilloche patterns, and tamper-evident holographic overlays." },
+  { icon: HeartHandshake, title: "NGOs, Trusts & Field Teams", body: "Durable identification for distributed field personnel, volunteers, and multi-branch organizational staff." },
+];
+
+const corporateDeliveries = [
+  { name: "Government of Assam Nagaon", sector: "Public Sector", img: "/images/Order Deliver/Government of assam,nagoan 1.jpeg" },
+  { name: "Non Stop GHY", sector: "Commercial Enterprise", img: "/images/Order Deliver/NON STOP 1.png" },
+  { name: "My Sarah Healthcare", sector: "Healthcare & Clinics", img: "/images/Order Deliver/MY SARAH,JORHAT 1.png" },
+  { name: "TMPK Dhemaji Staff", sector: "Regional Organization", img: "/images/Order Deliver/Takam Mising Porin Kebang(TMPK),           Dhemaji 1.png" },
 ];
 
 const orderSteps = [
-  { title: "Share Your Requirement", body: "Tell us the approximate number of employee cards and required specifications." },
-  { title: "Share Employee Data", body: "Provide the employee information and photographs." },
-  { title: "Confirm Design", body: "Provide your existing design or discuss the required card layout." },
-  { title: "Review", body: "Review the required information and design where applicable." },
-  { title: "Approve", body: "Approve the final requirements." },
-  { title: "Production", body: "The approved order moves into production." },
-  { title: "Quality Check & Dispatch", body: "Completed cards are checked and prepared for dispatch." },
+  { title: "Consultation & Spec Selection", body: "Define card thickness, RFID frequency, lanyard width (16/20mm), and holder type." },
+  { title: "Staff Roster Data Ingestion", body: "Upload employee names, employee IDs, designations, and blood groups via Excel or IDGen Studio." },
+  { title: "Corporate Branding Proofs", body: "Our design team aligns exact Pantone corporate brand colors and renders digital sample cards." },
+  { title: "HR Administrator Approval", body: "Authorized administrator signs off on the digital roster proof before factory printing starts." },
+  { title: "Retransfer Printing & Encoding", body: "300 DPI edge-to-edge thermal retransfer printing and contactless chip programming." },
+  { title: "Hardware Assembly & Quality Inspection", body: "Cards matched with custom corporate lanyards and checked against optical scan standards." },
+  { title: "Secure Direct Dispatch", body: "Department-sorted packages dispatched with trackable regional express transit." },
 ];
 
 const whyChoose = [
-  { icon: Users, title: "Employee-Focused Personalization", body: "Cards can be customized around employee data and organizational requirements." },
-  { icon: Layers, title: "Structured Data Workflow", body: "Employee information and photographs can be organized for personalization." },
-  { icon: Eye, title: "Preview Before Production", body: "Where applicable, important employee information can be reviewed before production." },
-  { icon: ShieldCheck, title: "Complete Identification Options", body: "Cards can be combined with required accessories." },
-  { icon: Building2, title: "Bulk Capability", body: "Suitable for workforce-wide and institutional requirements." },
-  { icon: Sparkles, title: "Digital Workflow", body: "IDGen Studio can support suitable employee data-collection projects." },
+  { icon: Users, title: "Executive-Grade Finish", body: "Available in ultra-gloss, velvet matte, and frosted surfaces for a prestigious corporate identity." },
+  { icon: Layers, title: "Smart Access Integration", body: "Compatible with HID, Mifare, and standard 125 kHz door access turnstiles and biometric time clocks." },
+  { icon: Eye, title: "Zero Minimum Reorder", body: "Easily order 1 to 5 replacement cards for new hires at existing bulk contract rates." },
+  { icon: ShieldCheck, title: "Data Privacy & NDA Protection", body: "Employee personal data is treated with strict confidentiality and purged post-production." },
+  { icon: Building2, title: "Complete Wearable Sets", body: "Cards arrive pre-assembled inside holders with matching satin lanyards attached." },
+  { icon: Sparkles, title: "IDGen Studio HR Portal", body: "Self-service onboarding portal for new employee photo submission and ID approvals." },
 ];
 
 const faqs: Faq[] = [
-  { q: "What is an employee ID card?", a: "An employee ID card is a personalized identification card issued by an organization to identify its employees and display relevant employee and organizational information." },
-  { q: "What information can be printed on an employee ID card?", a: "Common information includes the employee's photograph, name, employee ID, designation, department, company name and logo. QR codes, barcodes and other information can also be included where required." },
-  { q: "Can employee ID cards be customized?", a: "Yes. The card design, information fields and organization branding can be customized according to the company's requirements." },
-  { q: "Can you print employee ID cards in bulk?", a: "Yes. IDGen supports bulk personalized ID card requirements for organizations." },
-  { q: "Can I order employee ID cards with lanyards?", a: "Yes. Employee cards can be combined with suitable holders, hooks and custom printed lanyards according to the required setup." },
-  { q: "Can employee ID cards include QR codes or barcodes?", a: "Yes. QR codes and barcodes can be included where required and where the supplied information supports their generation." },
-  { q: "Can employee ID cards use RFID?", a: "Yes. RFID cards are available for suitable identification requirements. The RFID technology should be selected according to the organization's compatible system." },
-  { q: "Can employees collect their information digitally?", a: "For suitable projects, IDGen Studio can support digital information and photograph collection and card preview." },
-  { q: "How much does an employee ID card cost?", a: "Pricing depends on the card specification, quantity and personalization requirements. Current pricing is maintained on the central IDGen pricing page." },
+  { q: "Can our employee ID cards integrate with our office door access system?", a: "Yes. We supply and encode standard 13.56 MHz (Mifare 1k/4k, DESFire, NTAG) and 125 kHz EM4100 RFID proximity cards compatible with leading biometric access turnstiles." },
+  { q: "How do we handle new joiners throughout the year?", a: "With IDGen's Zero-Minimum Reorder program, your HR team can order single replacement or new joiner cards anytime without paying small-batch penalty fees." },
+  { q: "What security features can be added to prevent forgery?", a: "We provide custom holographic hot-stamping foils, UV watermarks, QR verification codes, and guilloche security patterns." },
+  { q: "Can lanyards be printed with our custom corporate logo?", a: "Yes. We manufacture full-color dye-sublimated satin lanyards in 16mm and 20mm widths with crisp, edge-to-edge logo printing." },
 ];
 
 export default function EmployeeIdCardPrintingPage() {
@@ -82,184 +87,157 @@ export default function EmployeeIdCardPrintingPage() {
           path: "/employee-id-card-printing/",
         })}
       />
+      
       <PageHero
-        eyebrow="Service"
+        eyebrow="Corporate & Enterprise Identity"
         icon={Building2}
-        title="Custom Employee ID Cards for Companies, Offices & Organizations"
-        lede="IDGen provides custom employee ID card printing for companies, offices, institutions, hospitals, industries, NGOs, organizations and other workplaces."
+        title="Custom Employee ID Cards & Corporate Access Credentials"
+        lede="Elevate your corporate brand and secure your workplace with high-definition thermal retransfer employee badges, RFID smart cards, and custom satin lanyards manufactured in Guwahati."
+        stats={[
+          { label: "Durability", value: "5+ Years Anti-Fade" },
+          { label: "RFID Options", value: "13.56MHz & 125kHz" },
+          { label: "Reorders", value: "Zero Minimum" },
+          { label: "Delivery", value: "Guwahati Hub Dispatch" },
+        ]}
         visual={
-          <IllustratedCard
-            org="YOUR COMPANY"
-            subOrg="Employee Identification"
-            holderName="Employee Name"
-            holderRole="Designation / Dept."
-            holderId="EMP: XXXX"
-          />
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Corporate Staff ID Delivery */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/High-quality Employee ID Cards and Staff Identity Cards delivered to clients in Guwahati and Assam.jpg"
+                  alt="High-quality Employee ID Cards and Staff Identity Cards delivered in Assam"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Corporate Specimen</span>
+                </div>
+              </div>
+
+              {/* Overlapping Staff Card */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Order Deliver/Government of assam,nagoan 1.jpeg"
+                  alt="Government and Public Sector ID Credential"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Lanyard Hardware Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 17 .jpg"
+                  alt="Executive Lanyard Swivel Hook"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }, { name: "Employee ID Card Printing", path: "/employee-id-card-printing/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            Employee ID cards can be personalized with employee name, photograph, employee ID, designation,
-            department, company name and logo, joining information, contact information, QR codes, barcodes
-            and other organization-required information. Whether you&apos;re onboarding new employees,
-            replacing existing cards or producing ID cards for an entire workforce, IDGen can organize the
-            printing requirement around your employee data and approved design.
-          </p>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request Employee ID Card Quote
-          </Link>
-          <Link href="/id-card-printing/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            See ID Card Printing Options
-          </Link>
+        {/* Corporate Delivered Showcase Gallery */}
+        <div className="mt-8">
+          <SectionHead
+            eyebrow="Enterprise Proof"
+            title="Trusted by Corporate Hubs, Hospitals & Government Bodies"
+            lede="From Assam state departments to private clinics and industrial tech centers, IDGen delivers flawless credentials with prompt turnarounds."
+          />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {corporateDeliveries.map((c) => (
+              <div key={c.name} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-xl hover:border-accent/40">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950 img-shine">
+                  <Image
+                    src={c.img}
+                    alt={c.name}
+                    fill
+                    className="img-zoom object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
+                    {c.sector}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-foreground text-sm">{c.name}</h3>
+                  <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-500 font-semibold">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <span>Delivered Order</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Solutions */}
-        <div className="mt-16">
-          <SectionHead eyebrow="By Workplace" title="Employee ID Card Solutions" lede="Different organizations have different workforce structures — the major employee-identification requirements, in one place." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Sector Solutions */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Workforce Verticals" title="Custom ID Frameworks for Every Industry" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {solutions.map((s) => (
               <FeatureCard key={s.title} icon={s.icon} title={s.title} body={s.body} />
             ))}
           </div>
         </div>
 
-        {/* Card layout */}
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
-          <SpecTable
-            title="Front"
-            specs={{ Layout: "Company logo, employee photograph, employee name, designation, employee ID" }}
-          />
-          <SpecTable
-            title="Back"
-            specs={{ Layout: "Company information, emergency/contact info, QR code or barcode, terms or instructions, verification info" }}
-          />
-        </div>
-
-        {/* Personalization example */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Personalization" title="Employee ID Card Personalization" lede="IDGen can personalize employee cards using organization-supplied employee data — fields can be customized according to the company's identification requirements." />
-          <div className="mt-6">
-            <SpecTable
-              specs={{
-                "Employee Name": "e.g. Rahul Sharma",
-                "Employee ID": "e.g. EMP1024",
-                Designation: "e.g. Sales Executive",
-                Department: "e.g. Sales",
-                Photograph: "Employee photo",
-                "Joining Date": "Organization-defined",
-                "QR Code": "Organization-defined",
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Onboarding / department-wise */}
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h2 className="text-lg font-bold text-foreground">New Employee Onboarding</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              Employee ID printing is often connected with onboarding: Employee Data → Photograph → ID Card
-              Design → Preview → Approval → Printing. This helps organizations maintain a consistent ID-card
-              format as new employees join. For larger batches, IDGen Studio supports structured data and
-              photograph collection.
-            </p>
-            <Link href="/idgen-studio/" className="mt-3 inline-block text-sm font-semibold text-accent hover:underline">
-              Explore IDGen Studio →
-            </Link>
-          </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h2 className="text-lg font-bold text-foreground">Department-Wise Identification</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              Organizations with multiple departments — Management, HR, Finance, Sales, Operations, IT — can
-              maintain a common card design while differentiating departments through approved design
-              elements, especially useful for larger organizations with multiple departments or locations.
-            </p>
-          </div>
-        </div>
-
-        {/* Complete setup */}
-        <div className="mt-16 rounded-2xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-navy-deep">Employee ID Card Complete Setup</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-navy-deep/80">
-            Depending on the organization&apos;s requirements, the identification setup can include Employee ID
-            Card + Holder + Hook + Custom Printed Lanyard, plus digital identification elements — QR codes,
-            barcodes, or RFID technology matched to the organization&apos;s compatible system.
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-navy-deep">
-            <Link href="/custom-printed-lanyard-printing/" className="hover:underline">Custom Printed Lanyards →</Link>
-            <Link href="/id-card-holders/" className="hover:underline">ID Card Holders →</Link>
-            <Link href="/id-card-hooks/" className="hover:underline">ID Card Hooks →</Link>
-            <Link href="/rfid-card-printing/" className="hover:underline">RFID Card Printing →</Link>
-          </div>
-        </div>
-
-        {/* Preview & approval */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">Employee ID Card Preview & Approval</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Before production, organizations can review the required design and employee information where
-            applicable — an opportunity to catch an incorrect name, mismatched photograph, wrong employee ID,
-            incorrect designation or department, missing information, or design errors before bulk production.
-          </p>
-        </div>
-
-        {/* Who can order */}
-        <div className="mt-16 rounded-2xl border border-dashed border-surface-border bg-surface p-6">
-          <h2 className="text-lg font-bold text-foreground">Who Can Order Employee ID Cards?</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Private companies, corporate offices, startups, factories, industries, hospitals, schools,
-            colleges, universities, NGOs, government organizations, institutions, associations and other
-            workplaces.
-          </p>
-        </div>
-
-        {/* Location */}
-        <div className="mt-16 flex items-start gap-3 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <MapPin className="mt-1 h-5 w-5 shrink-0 text-accent" />
-          <div>
-            <h2 className="text-lg font-bold text-foreground">Employee ID Card Printing in Assam</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-              IDGen is based in Guwahati, Assam, serving organizations across Assam and the wider Northeast
-              India market.
-            </p>
-            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-accent">
-              <Link href="/service-areas/assam/" className="hover:underline">ID Card Printing in Assam →</Link>
-              <Link href="/service-areas/assam/guwahati/" className="hover:underline">ID Card Printing in Guwahati →</Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Why choose */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Why IDGen" title="Why Choose IDGen for Employee ID Cards?" />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {whyChoose.map((w) => (
-              <FeatureCard key={w.title} icon={w.icon} title={w.title} body={w.body} />
-            ))}
-          </div>
-          <Link href="/why-idgen/" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
-            Why Choose IDGen →
-          </Link>
-        </div>
-
-        {/* How to order */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Get Started" title="How to Order Employee ID Cards" />
-          <div className="mt-6">
+        {/* Workflow */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Seamless Ordering" title="How We Handle Corporate Card Production" />
+          <div className="mt-8">
             <WorkflowSteps steps={orderSteps} />
           </div>
         </div>
 
+        {/* Why Choose IDGen */}
+        <div className="mt-20">
+          <SectionHead eyebrow="The IDGen Advantage" title="Enterprise-Grade Reliability & Security" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChoose.map((w) => (
+              <FeatureCard key={w.title} icon={w.icon} title={w.title} body={w.body} />
+            ))}
+          </div>
+        </div>
+
+        {/* Security & Access Feature Callout */}
+        <div className="mt-20 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-8">
+              <span className="flex items-center gap-2 text-xs font-bold tracking-widest text-accent uppercase mb-2">
+                <Lock className="h-4 w-4" />
+                <span>Turnstile & Door Access Ready</span>
+              </span>
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
+                RFID & NFC Chip Integration for Automated Attendance
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted max-w-2xl">
+                We embed standard 13.56 MHz (Mifare 1k/4k, DESFire EV2/EV3, NTAG) and 125 kHz contactless microchips directly beneath the solid PVC layer, pre-tested to guarantee 100% read rates on your access readers.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex flex-col gap-3">
+              <Link
+                href="/rfid-card-printing/"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white"
+              >
+                <span>Explore RFID Smart Cards</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* FAQ */}
-        <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
-          <div className="mt-6">
+        <div className="mt-20">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Corporate ID Cards" />
+          <div className="mt-8">
             <FaqList faqs={faqs} />
           </div>
         </div>
@@ -267,12 +245,12 @@ export default function EmployeeIdCardPrintingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Ready to print employee ID cards?"
-            body="Whether you're onboarding a few employees or preparing identification for an entire workforce, start with your employee data, quantity and required card format."
+            title="Upgrade your organization's employee credentials"
+            body="Submit your staff volume for an instant formal quote, free sample kit, and dedicated onboarding with an IDGen account manager."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
-              { label: "View Pricing", href: "/pricing/" },
-              { label: "Explore IDGen Studio", href: "/idgen-studio/" },
+              { label: "Request Employee ID Quote", href: "/request-a-quote/", primary: true },
+              { label: "Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
+              { label: "View Pricing Tiers", href: "/pricing/" },
             ]}
           />
         </div>

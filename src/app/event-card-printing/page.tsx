@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Ticket, Presentation, Store, Building2, Trophy, School, Link as LinkIcon } from "lucide-react";
+import { Ticket, Presentation, Store, Building2, Trophy, School, Link as LinkIcon, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
-import { IllustratedCard } from "@/components/ui/IllustratedCard";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
@@ -24,40 +24,40 @@ export const metadata = pageMetadata({
 });
 
 const eventTypes = [
-  { icon: Presentation, title: "Conference Cards", body: "Business, industry, academic and professional conferences — Conference Card + Lanyard + Hook." },
-  { icon: Store, title: "Exhibition & Trade Show Badges", body: "Different designs for Visitor, Exhibitor, Organizer, Speaker and VIP categories." },
-  { icon: Building2, title: "Corporate Event Cards", body: "Corporate meetings, annual events, dealer meets and product launches, branded to the event." },
-  { icon: School, title: "School & Institutional Events", body: "Annual functions, cultural programmes, sports events and institutional conferences." },
-  { icon: Trophy, title: "Sports Event Cards", body: "Tournaments, competitions, marathons and institutional sporting events." },
+  { icon: Presentation, title: "Conferences & Summits", body: "High-visibility large format delegate badges with sponsor logos, speaker ribbons, and anti-flip dual hooks." },
+  { icon: Store, title: "Exhibitions & Trade Expos", body: "Color-coded category passes for Visitors, Exhibitors, Organizers, Media, and VIP buyers with instant scan QR codes." },
+  { icon: Building2, title: "Corporate Summits & Dealer Meets", body: "Executive satin lanyard sets with personalized delegate names, agenda timetables, and RFID access zones." },
+  { icon: School, title: "Academic & Institutional Fests", body: "Durable PVC badge passes for university symposiums, inter-college cultural events, and youth festivals." },
+  { icon: Trophy, title: "Sports Tournaments & Marathons", body: "Waterproof, tear-proof accreditation badges for athletes, referees, official marshals, and VIP guests." },
 ];
 
 const categories = ["Delegate", "Speaker", "Organizer", "Staff", "Exhibitor", "Sponsor", "VIP", "Media", "Volunteer", "Visitor"];
 
+const eventGallery = [
+  { title: "Dual-Hook Anti-Flip Event Pass", type: "Conference Pass", img: "/images/Event Card/Events Card with 2 hook.png" },
+  { title: "Single-Hook VIP Summit Badge", type: "Executive Summit", img: "/images/Event Card/Events card with 1 hook.png" },
+  { title: "Deluxe Acrylic Lanyard Pass", type: "Expo & Trade Show", img: "/images/Event Card/Event card.jpeg" },
+  { title: "Sponsor-Branded Credential", type: "Institutional Fest", img: "/images/Event Card/1.jpeg" },
+  { title: "Press & Media VIP Accreditation Pass", type: "Media Pass", img: "/images/Event Card/2.jpeg" },
+  { title: "Organizer & Crew Event Badge", type: "Crew Pass", img: "/images/Event Card/3.jpeg" },
+  { title: "Summit Speaker & Delegate Badge", type: "Delegate Pass", img: "/images/Event Card/4.jpeg" },
+  { title: "Over-Sized Convention Badge with Satin Lanyard", type: "Convention", img: "/images/Event Card/5.jpeg" },
+];
+
 const process = [
-  { title: "Event Requirement", body: "Event type, approximate quantity, event date, card requirement, personalization and attachment requirement." },
-  { title: "Share Participant Data", body: "Provide participant information and photographs where personalization is required." },
-  { title: "Share Artwork", body: "Provide the event logo, branding and design requirements." },
-  { title: "Select Attachment", body: "Choose One Hook + Lanyard or Two Hooks + Lanyard — sealing configuration follows the attachment setup." },
-  { title: "Preview", body: "The design and personalized information can be reviewed where applicable." },
-  { title: "Approval", body: "Production begins after the required specifications and artwork are approved." },
-  { title: "Production", body: "The event cards and required components move into production." },
-  { title: "Quality Check", body: "Finished materials are checked against the approved requirements." },
-  { title: "Dispatch", body: "The completed order is prepared for dispatch according to the applicable project timeline." },
+  { title: "1. Event Scope & Timeline", body: "Confirm attendee volume, date of event, card format (standard CR80 or large format), and hook configuration." },
+  { title: "2. Participant Data Ingestion", body: "Upload attendee roster, designations, companies, and category types (VIP, Speaker, Delegate)." },
+  { title: "3. Sponsor Branding Artwork", body: "Our design team positions title sponsors, co-hosts, and schedule QR codes with high-contrast typography." },
+  { title: "4. Single or Dual Hook Assembly", body: "Select anti-twist two-hook lanyard ribbons or single swivel clips depending on pass size." },
+  { title: "5. Automated Proof Sign-Off", body: "Event organizers review high-resolution digital print sheets before mass press run." },
+  { title: "6. Express Production & Dispatch", body: "High-capacity printing with guaranteed express delivery to your event venue across Northeast India." },
 ];
 
 const faqs: Faq[] = [
-  { q: "What is an event card?", a: "An event card is a customized identification badge used to identify participants, delegates, speakers, organizers, exhibitors, staff, VIPs or other event attendees." },
-  { q: "Can event cards include photographs?", a: "Yes. Personalized event cards can include photographs when required and supplied as part of the event data." },
-  { q: "Can event cards include QR codes?", a: "Yes. QR codes can be included when required as part of the approved card design." },
-  { q: "Can event cards include sponsor logos?", a: "Yes. Sponsor and partner branding can be incorporated into the approved event-card artwork." },
-  { q: "Do event cards use holders?", a: "Event cards can use different attachment configurations — the required setup may use a lanyard and one or two hooks rather than a conventional card holder." },
-  { q: "Can event cards use two hooks?", a: "Yes. A two-hook configuration can be used where the event-card design requires two attachment points." },
-  { q: "How many ultrasonic sealing points are required?", a: "For the configurations used by IDGen, one-hook setups use one sealing point and two-hook setups use two sealing points." },
-  { q: "Can I order event cards with lanyards?", a: "Yes. Event cards can be supplied with the required lanyard and hook configuration." },
-  { q: "Can I order only event cards?", a: "Yes. Event cards can be ordered separately when the customer already has the required accessories." },
-  { q: "Can event cards be personalized?", a: "Yes. Participant names, photographs, organizations, categories, registration numbers and other required information can be personalized." },
-  { q: "Can IDGen handle bulk event cards?", a: "Yes. IDGen supports bulk event-card requirements, subject to quantity, specification, personalization and production requirements." },
-  { q: "Can I review the event cards before production?", a: "Where applicable, the design and personalized information can be reviewed before production." },
+  { q: "Why choose dual-hook lanyards for event badges?", a: "Dual-hook lanyards attach to both top corners of an oversized event pass, preventing the badge from flipping backwards so delegate names and sponsor logos remain visible 100% of the time." },
+  { q: "Can we print last-minute badges for on-spot registrations?", a: "Yes. We can provide pre-printed blank branded event card shells that your registration desk can personalize on-site using thermal label printers or marker overlays." },
+  { q: "Can event cards include dynamic QR codes for access scanning?", a: "Yes. Every badge can feature a unique encrypted QR code or barcode matched to your event app (Townscript, Eventbrite, or custom scanners) for fast turnstile check-in." },
+  { q: "What sizes are available for event cards?", a: "We produce standard ISO CR80 (85.6 × 54 mm), large convention badges (100 × 70 mm), and oversized VIP credentials (140 × 90 mm)." },
 ];
 
 export default function EventCardPrintingPage() {
@@ -70,162 +70,138 @@ export default function EventCardPrintingPage() {
           path: "/event-card-printing/",
         })}
       />
+      
       <PageHero
-        eyebrow="Service"
+        eyebrow="Conferences & Accreditation"
         icon={Ticket}
-        title="Custom Event Cards & Badges for Conferences, Exhibitions, Seminars & Events"
-        lede="IDGen provides custom printed event cards and badges for conferences, seminars, exhibitions, workshops, corporate events, institutional programmes, trade shows, cultural events, sports events and other organized gatherings."
+        title="Custom Event Badges, VIP Passes & Dual-Hook Lanyards"
+        lede="Turn attendees into brand ambassadors with high-definition delegate credentials, sponsor-branded satin lanyards, and anti-flip double-hook badges manufactured for seamless event management."
+        stats={[
+          { label: "Format", value: "Standard & Large" },
+          { label: "Lanyard Setup", value: "Single & Dual Hook" },
+          { label: "Rush Dispatch", value: "24–48h Available" },
+          { label: "Branding", value: "Full-Color Sublimation" },
+        ]}
         visual={
-          <IllustratedCard
-            org="YOUR EVENT"
-            subOrg="Delegate Identification"
-            holderName="Delegate Name"
-            holderRole="Speaker / Attendee"
-            holderId="PASS: VIP-000"
-            accent="#c084fc"
-          />
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-purple-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Dual Hook Event Card */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Event Card/Events Card with 2 hook.png"
+                  alt="Events Card with 2 Hook Anti-Flip Lanyard"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-purple-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Dual-Hook Anti-Flip</span>
+                </div>
+              </div>
+
+              {/* Overlapping Single Hook Pass */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Event Card/Events card with 1 hook.png"
+                  alt="Single Hook VIP Delegate Badge"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Event Badge Sample */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Event Card/Event card.jpeg"
+                  alt="Event Accreditation Pass"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }, { name: "Event Card Printing", path: "/event-card-printing/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            Event cards can be personalized with participant information, event branding, organization logos,
-            photographs, QR codes, barcodes, categories and other required information. Depending on the
-            event format, the card can be supplied with the appropriate lanyard and hook configuration,
-            including one-hook or two-hook arrangements.
-          </p>
-          <p>
-            An event card can identify participants, delegates, speakers, organizers, staff, volunteers,
-            exhibitors, sponsors, VIP guests, media representatives and visitors — designed according to the
-            event&apos;s branding and identification requirements.
-          </p>
-        </div>
-        <div className="mt-6">
-          <FlowChain steps={["Event Data", "Card Design", "Preview", "Approval", "Printing", "Attachment", "Quality Check", "Dispatch"]} />
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request Event Card Quote
-          </Link>
-          <Link href="/pricing/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            View Event Card Pricing
-          </Link>
-        </div>
-
-        {/* Event types */}
-        <div className="mt-16">
-          <SectionHead eyebrow="By Event Type" title="Event Card Types" lede="IDGen can produce event identification cards for different event categories." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {eventTypes.map((e) => (
-              <FeatureCard key={e.title} icon={e.icon} title={e.title} body={e.body} />
-            ))}
-          </div>
-        </div>
-
-        {/* Attachment configuration */}
-        <div className="mt-16">
+        {/* Real Event Badges Showcase */}
+        <div className="mt-8">
           <SectionHead
-            eyebrow="Configuration"
-            title="Event Card + Lanyard + Hook"
-            lede="Event cards are commonly designed as a wearable identification system — unlike standard employee or student ID cards, event badges may use different attachment configurations depending on the card format and lanyard design."
+            eyebrow="Accreditation Showcase"
+            title="Real Event Passes & Badges Produced by IDGen"
+            lede="Engineered for maximum sponsor visibility and attendee comfort at conferences across Guwahati, Shillong, and the Northeast."
           />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-surface-border bg-surface p-6">
-              <h3 className="font-semibold text-foreground">One-Hook Configuration</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">Event Card + One Hook + Lanyard — suitable where the card has a single attachment point.</p>
-            </div>
-            <div className="rounded-2xl border border-surface-border bg-surface p-6">
-              <h3 className="font-semibold text-foreground">Two-Hook Configuration</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">Event Card + Two Hooks + Lanyard — used where the event card requires attachment at two points.</p>
-            </div>
-          </div>
-          <p className="mt-4 text-sm text-muted">
-            Where ultrasonic sealing is required, the sealing arrangement corresponds to the attachment
-            configuration: one-hook setups use one ultrasonic sealing point, two-hook setups use two.
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-accent">
-            <Link href="/custom-printed-lanyard-printing/" className="hover:underline">Explore Custom Printed Lanyard Printing →</Link>
-            <Link href="/id-card-hooks/" className="hover:underline">Explore ID Card Hooks →</Link>
-            <Link href="/ultrasonic-sealing/" className="hover:underline">Explore Ultrasonic Sealing →</Link>
-          </div>
-        </div>
-
-        {/* Categories */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">Event Card Categories</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted">Large events may require different identification categories, each with its own design, colour treatment or text.</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {categories.map((c) => (
-              <span key={c} className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-foreground">{c}</span>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {eventGallery.map((eg) => (
+              <div key={eg.title} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-xl hover:border-accent/40">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950 img-shine">
+                  <Image
+                    src={eg.img}
+                    alt={eg.title}
+                    fill
+                    className="img-zoom object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
+                    {eg.type}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-foreground text-sm">{eg.title}</h3>
+                  <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-500 font-semibold">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <span>Live Sample</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Event vs Student/Employee */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Distinction" title="Event Card vs Student or Employee ID Card" lede="Event cards are generally created for a specific event or programme, whereas student and employee ID cards are normally used for ongoing organizational identification." />
-          <div className="mt-6">
-            <CompareTable
-              columns={["Identification", "Flow"]}
-              rows={[
-                ["Event", "Event → Participant → Badge → Lanyard"],
-                ["Student", "Student → Institution → ID Card → Holder/Lanyard"],
-                ["Employee", "Employee → Company → ID Card → Holder/Lanyard"],
-              ]}
-            />
-          </div>
-          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-accent">
-            <Link href="/student-id-card-printing/" className="hover:underline">Student ID Card Printing →</Link>
-            <Link href="/employee-id-card-printing/" className="hover:underline">Employee ID Card Printing →</Link>
+        {/* Categories Banner */}
+        <div className="mt-20 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
+          <span className="text-xs font-bold tracking-widest text-accent uppercase">Attendee Segmentation</span>
+          <h2 className="mt-2 text-2xl font-extrabold text-foreground sm:text-3xl">
+            Color-Coded Badge Ribbons for Instant Identification
+          </h2>
+          <p className="mt-3 text-sm text-muted max-w-2xl">
+            Eliminate registration bottlenecks and security confusion by assigning custom badge colors to each participant tier:
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {categories.map((c) => (
+              <span key={c} className="rounded-xl border border-surface-border bg-background px-4 py-2 text-xs font-bold text-foreground shadow-sm">
+                {c}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* What we need */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["Basic Information", "Event name, event date, quantity, event location, required delivery date."],
-            ["Card Information", "Card size, single or double-sided printing, personalization, photograph and QR/barcode requirement."],
-            ["Branding", "Event logo, organization logo, sponsor logos, artwork and brand colours."],
-            ["Attachment", "One-hook or two-hook configuration, lanyard requirement, ultrasonic sealing requirement."],
-          ].map(([label, body]) => (
-            <div key={label} className="rounded-2xl border border-surface-border bg-surface p-5">
-              <h3 className="font-semibold text-foreground">{label}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">{body}</p>
-            </div>
-          ))}
+        {/* Event Types */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Event Types" title="Tailored Badging for Every Type of Gathering" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {eventTypes.map((t) => (
+              <FeatureCard key={t.title} icon={t.icon} title={t.title} body={t.body} />
+            ))}
+          </div>
         </div>
 
-        {/* Process */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Process" title="Event Card Printing Process" />
-          <div className="mt-6">
+        {/* Workflow */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Production Pipeline" title="From Agenda Finalization to Event-Ready Badges" />
+          <div className="mt-8">
             <WorkflowSteps steps={process} />
           </div>
         </div>
 
-        {/* Pricing */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <div className="flex items-center gap-2.5">
-            <LinkIcon className="h-5 w-5 text-accent" />
-            <h2 className="text-lg font-bold text-foreground">Event Card Pricing</h2>
-          </div>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
-            Event-card pricing depends on the required configuration rather than only the printed card —
-            quantity, card specification, printing, personalization, artwork, lanyard, hook configuration,
-            ultrasonic sealing, packaging and delivery requirements.
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-accent">
-            <Link href="/pricing/" className="hover:underline">View Event Card Pricing →</Link>
-          </div>
-        </div>
-
         {/* FAQ */}
-        <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
-          <div className="mt-6">
+        <div className="mt-20">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Event Badges" />
+          <div className="mt-8">
             <FaqList faqs={faqs} />
           </div>
         </div>
@@ -233,12 +209,12 @@ export default function EventCardPrintingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Need event cards?"
-            body="Whether you're organizing a conference, exhibition, seminar, workshop, corporate event, sports programme or institutional event, IDGen can provide customized event cards according to the required identification configuration."
+            title="Organizing an upcoming conference or summit?"
+            body="Submit your event date and estimated attendee count for priority fast-track scheduling and custom 3D digital mockups."
             links={[
-              { label: "Request Event Card Quote", href: "/request-a-quote/", primary: true },
-              { label: "Explore Custom Lanyard Printing", href: "/custom-printed-lanyard-printing/" },
-              { label: "Explore Ultrasonic Sealing", href: "/ultrasonic-sealing/" },
+              { label: "Request Event Badge Quote", href: "/request-a-quote/", primary: true },
+              { label: "Custom Satin Lanyards", href: "/custom-printed-lanyard-printing/" },
+              { label: "View Pricing Tiers", href: "/pricing/" },
             ]}
           />
         </div>

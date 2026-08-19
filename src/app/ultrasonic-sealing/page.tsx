@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Waves, Sparkles, ShieldCheck, Layers } from "lucide-react";
+import { Waves, Sparkles, ShieldCheck, Layers, CheckCircle2, Zap, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -82,6 +82,47 @@ export default function UltrasonicSealingPage() {
           { label: "Technology", value: "20 kHz Acoustic" },
           { label: "Factory Output", value: "10,000+ Loops / Day" },
         ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Factory Ultrasonic Sealing Photo */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250321154119.jpg"
+                  alt="Industrial Automated Ultrasonic Welding Machine at IDGen Guwahati"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Guwahati Automation Hub</span>
+                </div>
+              </div>
+
+              {/* Overlapping Ultrasonic Welded Sample */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Holder Samples/Sample 26.jpg"
+                  alt="Ultrasonically Welded Lanyard Loop"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Hardware Hook Seam Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 17 .jpg"
+                  alt="Precision Welded Joint"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
@@ -91,10 +132,10 @@ export default function UltrasonicSealingPage() {
         <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <div className="group relative overflow-hidden rounded-3xl border border-surface-border bg-slate-950 p-2 shadow-2xl">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl img-shine">
                 <Image
-                  src="/images/ultrasonic-welding.jpg"
-                  alt="Industrial Automated Ultrasonic Welding Machine Sealing Satin Lanyard Loop with Laser Guide"
+                  src="/images/ID Card Full Set Samples/IMG20250321153934.jpg"
+                  alt="IDGen High-Capacity Production Floor in Guwahati"
                   fill
                   priority
                   className="img-zoom object-cover object-center"
@@ -103,48 +144,48 @@ export default function UltrasonicSealingPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <span className="rounded bg-accent px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">
-                    20 kHz Sonotrode Weld
+                    Industrial Acoustic Press
                   </span>
-                  <p className="text-sm font-bold mt-1">Laser-Guided Precision • 18.5 kg Tensile Pull Strength</p>
+                  <p className="text-sm font-bold mt-1">20 kHz High-Frequency Molecular Bonding</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-6 space-y-4">
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">Acoustic Molecular Fusion</span>
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Zero Staples. Zero Loose Threads.</span>
             <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
-              Clean, Tear-Proof Seams with Zero Exposed Metal Staples
+              Acoustic Welding for 18.5+ kg Pull-Resistant Lanyards
             </h2>
             <p className="text-sm leading-relaxed text-muted">
-              Traditional lanyard attachments crimp cheap wire staples or sheet metal clamps around the fabric. These rust when exposed to rain or sweat, leave sharp burrs that scratch student necks, and fail under moderate tension. IDGen ultrasonic welding fuses the ribbon at a molecular level for permanent structural integrity.
+              Cheap lanyard suppliers use manual metal staples that rust, snag clothes, and tear out after a few months. IDGen operates automated ultrasonic bonding stations in Guwahati that weld satin ribbon loops instantly at the molecular level, creating a permanent, indestructible seal.
             </p>
 
             <div className="pt-2 grid grid-cols-2 gap-3 text-xs">
               <div className="rounded-xl border border-surface-border bg-surface p-3">
-                <p className="font-bold text-foreground">Zero Skin Irritation</p>
-                <p className="text-muted text-[11px] mt-0.5">Flush soft texture against collars</p>
+                <p className="font-bold text-foreground">100% Rust-Proof</p>
+                <p className="text-muted text-[11px] mt-0.5">Withstands daily washing & rain</p>
               </div>
               <div className="rounded-xl border border-surface-border bg-surface p-3">
-                <p className="font-bold text-foreground">100% Waterproof</p>
-                <p className="text-muted text-[11px] mt-0.5">Machine washable with zero rusting</p>
+                <p className="font-bold text-foreground">Skin Safe & Smooth</p>
+                <p className="text-muted text-[11px] mt-0.5">No sharp metal corners or pins</p>
               </div>
             </div>
 
             <div className="pt-2 flex flex-wrap gap-3">
-              <Link href="/request-a-quote/?service=sealing" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
-                Request Sealed Lanyard Quote
+              <Link href="/request-a-quote/" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
+                Request Ultrasonic Lanyard Quote
               </Link>
-              <Link href="/custom-printed-lanyard-printing/" className="rounded-full border border-surface-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-                Explore Custom Lanyards
+              <Link href="/pricing/" className="rounded-full border border-surface-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
+                View Price Calculator
               </Link>
             </div>
           </div>
         </div>
 
         {/* Technical Specs Table */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Technical Sheet" title="Ultrasonic Sealing Engineering Specifications" />
+        <div className="mt-20">
+          <SectionHead eyebrow="Technical Sheet" title="Acoustic Welding Specifications" />
           <div className="mt-6 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
             <table className="w-full text-left text-sm">
               <tbody className="divide-y divide-surface-border">
@@ -159,45 +200,17 @@ export default function UltrasonicSealingPage() {
           </div>
         </div>
 
-        {/* Staple vs Ultrasonic Comparison */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Direct Comparison" title="Traditional Metal Staple vs IDGen Ultrasonic Welding" />
+        {/* Stapling vs Ultrasonic Sealing Comparison Table */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Comparative Analysis" title="Metal Stapling vs. IDGen Ultrasonic Welding" />
           <div className="mt-6">
-            <CompareTable columns={["Feature / Factor", "Traditional Metal Staple Crimp", "IDGen Ultrasonic Molecular Weld"]} rows={compareRows} highlightColumn={2} />
+            <CompareTable columns={["Performance Factor", "Outdated Metal Stapling", "IDGen Ultrasonic Welding"]} rows={compareRows} highlightColumn={2} />
           </div>
         </div>
 
-        {/* One Hook vs Two Hook Configurations */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Configurations" title="Single-Hook vs Dual-Hook Attachment Geometry" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-2xl border border-surface-border bg-surface p-6 shadow-sm">
-              <div className="flex items-center gap-2">
-                <span className="rounded bg-sky-500/20 px-2 py-0.5 text-xs font-bold text-accent">1 Sealing Point</span>
-                <h3 className="font-bold text-foreground text-lg">Single-Hook Standard Setup</h3>
-              </div>
-              <p className="mt-2 text-sm text-muted">Ideal for standard vertical and horizontal card holders used by students, corporate employees, and hospital staff.</p>
-              <div className="mt-4">
-                <FlowChain steps={["Satin Lanyard", "Ultrasonic Weld", "Swivel Dog Hook", "CR80 Card Holder"]} />
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-surface-border bg-surface p-6 shadow-sm">
-              <div className="flex items-center gap-2">
-                <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-600">2 Sealing Points</span>
-                <h3 className="font-bold text-foreground text-lg">Dual-Hook Anti-Twist Setup</h3>
-              </div>
-              <p className="mt-2 text-sm text-muted">Specially engineered for oversized VIP event passes and delegate badges to keep cards facing 100% forward without flipping.</p>
-              <div className="mt-4">
-                <FlowChain steps={["Satin Lanyard", "Dual Ultrasonic Welds", "2 Corner Hooks", "Wide Event Badge"]} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Use Cases */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Applications" title="Who Specifies Ultrasonic Sealing?" />
+        {/* Sector Applications */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Applications" title="Where Ultrasonic Sealing is Essential" />
           <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {useCases.map((u) => (
               <FeatureCard key={u.title} icon={u.icon} title={u.title} body={u.body} href={u.href} />
@@ -205,16 +218,16 @@ export default function UltrasonicSealingPage() {
           </div>
         </div>
 
-        {/* 5-Step Process */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Manufacturing Pipeline" title="The Ultrasonic Sealing Process" />
+        {/* Workflow */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Precision Assembly" title="5-Stage Ultrasonic Sealing Workflow" />
           <div className="mt-6">
             <WorkflowSteps steps={process} />
           </div>
         </div>
 
         {/* FAQ */}
-        <div className="mt-16">
+        <div className="mt-20">
           <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Ultrasonic Sealing" />
           <div className="mt-6">
             <FaqList faqs={faqs} />
@@ -224,12 +237,12 @@ export default function UltrasonicSealingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Upgrade your lanyard attachment to ultrasonic sealing"
-            body="Experience the difference in comfort, durability, and brand presentation. Contact our production facility in Guwahati for custom samples."
+            title="Experience the strength of ultrasonic welded lanyards"
+            body="Request a physical specimen sample kit shipped directly to your school or corporate office in Assam."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
-              { label: "Explore Custom Lanyards", href: "/custom-printed-lanyard-printing/" },
-              { label: "View Pricing Tiers", href: "/pricing/" },
+              { label: "Request Sample Kit", href: "/request-a-quote/", primary: true },
+              { label: "Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
+              { label: "ID Card Printing", href: "/id-card-printing/" },
             ]}
           />
         </div>

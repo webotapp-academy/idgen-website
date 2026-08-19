@@ -51,6 +51,10 @@ export const NAV: NavItem[] = [
     children: [
       { label: "ID Card Holders", href: "/id-card-holders/" },
       { label: "ID Card & Lanyard Hooks", href: "/id-card-hooks/" },
+      { label: "Acrylic Badges & Pins", href: "/acrylic-badges/" },
+      { label: "Custom Zinc Medals", href: "/zinc-medals/" },
+      { label: "30-Mil PVC Smart Cards", href: "/pvc-cards/" },
+      { label: "Event Badges & Passes", href: "/event-card-printing/" },
     ],
   },
   { label: "IDGen Studio", href: "/idgen-studio/" },

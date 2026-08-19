@@ -9,7 +9,7 @@ const CORNER_CLIPS = (
   </>
 );
 
-export function HolderShape({ variant }: { variant: HolderVariant }) {
+export function HolderShape({ variant, className }: { variant: HolderVariant; className?: string }) {
   if (variant === "hook") {
     return (
       <div className="flex h-24 items-center justify-center">

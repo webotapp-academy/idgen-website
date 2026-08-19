@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Radio, GraduationCap, Building2, Hospital, Users, AlertTriangle } from "lucide-react";
+import { Radio, GraduationCap, Building2, Hospital, Users, AlertTriangle, ShieldCheck, CheckCircle2, Cpu, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -85,6 +85,47 @@ export default function RfidCardPrintingPage() {
           { label: "Encoding", value: "UID Pre-Logged" },
           { label: "Turnaround", value: "48–72h Batch" },
         ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Smart Card Sample */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250328133145.jpg"
+                  alt="Contactless Smart Card Credentials with RFID Inlay"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-cyan-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">13.56 MHz Mifare</span>
+                </div>
+              </div>
+
+              {/* Overlapping Specimen */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 3.jpg"
+                  alt="High-Grade Encoded Smart Card"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Factory Verification Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250317104038.jpg"
+                  alt="Quality Testing RFID Badges"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
@@ -93,11 +134,11 @@ export default function RfidCardPrintingPage() {
         {/* RFID Card Macro Photo Showcase */}
         <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
-            <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-slate-950 p-2 shadow-2xl">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+            <div className="group relative overflow-hidden rounded-3xl border border-surface-border bg-slate-950 p-2 shadow-2xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl img-shine">
                 <Image
-                  src="/images/rfid-nfc-credentials.jpg"
-                  alt="Futuristic Matte Black RFID NFC Contactless Smart Access Card with Internal Antenna Glow"
+                  src="/images/ID Card Full Set Samples/IMG20250304160401.jpg"
+                  alt="RFID Proximity Smart Card Testing Specimen"
                   fill
                   priority
                   className="img-zoom object-cover object-center"
@@ -105,76 +146,65 @@ export default function RfidCardPrintingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="rounded bg-cyan-400 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950">
-                    Smart Contactless Inlay
+                  <span className="rounded bg-accent px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">
+                    Smart Specimen
                   </span>
-                  <p className="text-sm font-bold mt-1">13.56 MHz High-Speed RF Induction • Zero Wear & Tear</p>
+                  <p className="text-sm font-bold mt-1">100% Signal Ping Tested Before Packaging</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-6 space-y-4">
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">Security & Turnstile Integration</span>
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Engineered Contactless Tech</span>
             <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
-              Embedded Microchips Matched to Your Access Control System
+              Zero Dead Chips. Guaranteed Turnstile Compatibility.
             </h2>
             <p className="text-sm leading-relaxed text-muted">
-              Stop guessing chip specifications. IDGen delivers customized smart credentials matched precisely to your biometric turnstiles, time-attendance clocks, and hospital door locks — complete with crisp color printing and optional UID data logging.
+              Standard desktop laminators overheat and ruin internal RFID antenna wires. IDGen utilizes temperature-regulated thermal retransfer machines specifically calibrated for contactless chip inlays, ensuring 100% read reliability at your office gates and campus turnstiles.
             </p>
 
             <div className="pt-2 grid grid-cols-2 gap-3 text-xs">
               <div className="rounded-xl border border-surface-border bg-surface p-3">
-                <p className="font-bold text-foreground">100% Pre-Tested Chips</p>
-                <p className="text-muted text-[11px] mt-0.5">Zero defective or dead units in batch</p>
+                <p className="font-bold text-foreground">UID Data Export</p>
+                <p className="text-muted text-[11px] mt-0.5">Pre-scanned Excel roster for IT</p>
               </div>
               <div className="rounded-xl border border-surface-border bg-surface p-3">
-                <p className="font-bold text-foreground">Dual-Frequency Options</p>
-                <p className="text-muted text-[11px] mt-0.5">Combine 13.56 MHz + 125 kHz in one card</p>
+                <p className="font-bold text-foreground">Shielded PVC Core</p>
+                <p className="text-muted text-[11px] mt-0.5">Protects internal chip from bending</p>
               </div>
             </div>
 
             <div className="pt-2 flex flex-wrap gap-3">
-              <Link href="/request-a-quote/?service=rfid" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
-                Request an RFID Quote
+              <Link href="/request-a-quote/" className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-950 shadow transition hover:bg-accent-hover hover:text-white">
+                Request Smart Card Quote
               </Link>
               <Link href="/pricing/" className="rounded-full border border-surface-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-                Calculate Batch Pricing
+                View Price Calculator
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Compatibility Warning Box */}
-        <div className="mt-12 flex items-start gap-4 rounded-3xl border border-amber-400/40 bg-amber-500/10 p-6 backdrop-blur-sm">
-          <AlertTriangle className="mt-1 h-6 w-6 shrink-0 text-amber-500" />
-          <div>
-            <h3 className="text-base font-bold text-foreground">Important: Chip Compatibility Guarantee</h3>
-            <p className="mt-1.5 text-xs leading-relaxed text-muted sm:text-sm">
-              Not all RFID cards function with all readers. If you are unsure of your reader&apos;s frequency or chip protocol, simply send us your existing card sample or reader model number. We will scan and verify compatibility free of charge before manufacturing.
-            </p>
-          </div>
-        </div>
-
-        {/* RFID Frequency Technical Matrix */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Technical Sheet" title="RFID & NFC Chip Protocol Matrix" />
+        {/* Technical Standards Table */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Technical Sheet" title="Supported RFID, NFC & Proximity Chip Standards" />
           <div className="mt-6 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
             <table className="w-full text-left text-sm">
               <thead className="border-b border-surface-border bg-background/80 text-xs font-bold text-muted uppercase">
                 <tr>
-                  <th className="px-5 py-4">Protocol / Standard</th>
-                  <th className="px-5 py-4">Encryption Level</th>
-                  <th className="px-5 py-4">Read Range</th>
-                  <th className="px-5 py-4">Typical Deployment</th>
+                  <th className="px-5 py-4">Frequency & Standard</th>
+                  <th className="px-5 py-4">Security / Encryption</th>
+                  <th className="px-5 py-4">Read Distance</th>
+                  <th className="px-5 py-4">Common Applications</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-surface-border">
                 {rfidSpecs.map((spec) => (
                   <tr key={spec.standard} className="hover:bg-background/50 transition">
                     <td className="px-5 py-4 font-bold text-foreground">{spec.standard}</td>
-                    <td className="px-5 py-4 text-muted font-mono text-xs">{spec.encryption}</td>
-                    <td className="px-5 py-4 font-semibold text-accent">{spec.readRange}</td>
+                    <td className="px-5 py-4 text-muted">{spec.encryption}</td>
+                    <td className="px-5 py-4 font-mono text-xs text-accent font-semibold">{spec.readRange}</td>
                     <td className="px-5 py-4 text-muted">{spec.commonSystems}</td>
                   </tr>
                 ))}
@@ -183,17 +213,9 @@ export default function RfidCardPrintingPage() {
           </div>
         </div>
 
-        {/* Standard vs RFID Comparison */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Feature Comparison" title="Plain PVC Card vs RFID Smart Card" />
-          <div className="mt-6">
-            <CompareTable columns={["Credential Feature", "Standard CR80 PVC Card", "RFID Smart Card"]} rows={compareRows} highlightColumn={2} />
-          </div>
-        </div>
-
         {/* Applications */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Sectors" title="Where IDGen RFID Credentials Are Used" />
+        <div className="mt-20">
+          <SectionHead eyebrow="Deployment" title="Smart RFID Credentials in Action" />
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {applications.map((a) => (
               <FeatureCard key={a.title} icon={a.icon} title={a.title} body={a.body} />
@@ -201,17 +223,25 @@ export default function RfidCardPrintingPage() {
           </div>
         </div>
 
-        {/* 6-Stage Engineering Process */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Quality Pipeline" title="RFID Testing & Production Lifecycle" />
+        {/* Standard PVC vs Smart RFID Comparison */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Specification Matrix" title="Standard PVC Cards vs. Contactless Smart RFID Cards" />
+          <div className="mt-6">
+            <CompareTable columns={["Feature / Capability", "Standard PVC Card", "RFID Smart Card"]} rows={compareRows} highlightColumn={2} />
+          </div>
+        </div>
+
+        {/* Process */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Verification Workflow" title="6-Step Zero-Defect Smart Card Production" />
           <div className="mt-6">
             <WorkflowSteps steps={process} />
           </div>
         </div>
 
         {/* FAQ */}
-        <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About RFID Cards" />
+        <div className="mt-20">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About RFID Smart Cards" />
           <div className="mt-6">
             <FaqList faqs={faqs} />
           </div>
@@ -220,12 +250,12 @@ export default function RfidCardPrintingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Need RFID access cards matched to your turnstiles?"
-            body="Speak directly with our RFID technical team in Guwahati to confirm reader frequencies, test sample cards, and receive batch pricing."
+            title="Need sample RFID test cards for your reader system?"
+            body="We supply test credentials so your IT and facilities teams can verify gate compatibility before approving production."
             links={[
-              { label: "Request an RFID Quote", href: "/request-a-quote/", primary: true },
-              { label: "View Pricing Tiers", href: "/pricing/" },
-              { label: "Explore ID Card Printing", href: "/id-card-printing/" },
+              { label: "Request Test Sample Pack", href: "/request-a-quote/", primary: true },
+              { label: "Explore Employee ID Cards", href: "/employee-id-card-printing/" },
+              { label: "Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
             ]}
           />
         </div>

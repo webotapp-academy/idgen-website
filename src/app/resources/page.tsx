@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, HelpCircle, Briefcase, FileText } from "lucide-react";
+import { BookOpen, HelpCircle, Briefcase, FileText, CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -18,10 +19,10 @@ export const metadata = pageMetadata({
 });
 
 const categories = [
-  { icon: BookOpen, title: "Guides", body: "Practical guides covering ID card planning, personalization, bulk projects, lanyards, accessories, RFID requirements and identification workflows.", href: "/resources/guides/" },
-  { icon: HelpCircle, title: "Frequently Asked Questions", body: "Direct answers about ID card printing, pricing, bulk orders, lanyards, holders, RFID cards, IDGen Studio and service coverage.", href: "/faq/" },
-  { icon: Briefcase, title: "Case Studies", body: "Real identification projects demonstrating how organizations use IDGen products and workflows. Only completed, shareable projects are published here.", href: "/case-studies/" },
-  { icon: FileText, title: "Templates", body: "Useful templates to help organizations prepare data, card requirements, specifications and project information before contacting IDGen.", href: "/templates/" },
+  { icon: BookOpen, title: "Technical Guides", body: "Practical guides covering CR80 PVC specs, Pantone lanyard sublimation, and RFID frequency protocols.", href: "/resources/guides/" },
+  { icon: HelpCircle, title: "Frequently Asked Questions", body: "Direct answers about volume pricing, sample kits, IDGen Studio, and Northeast delivery turnaround.", href: "/faq/" },
+  { icon: Briefcase, title: "Delivered Case Studies", body: "Real identification projects for schools, colleges, and enterprise workforces across Assam and the Northeast.", href: "/case-studies/" },
+  { icon: FileText, title: "Production Templates", body: "Excel roster spreadsheets, biometric photo guidelines, and pre-flight print checklists.", href: "/templates/" },
 ];
 
 const byRequirement = [
@@ -38,59 +39,97 @@ export default function ResourcesPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])} />
+      
       <PageHero
-        eyebrow="Resources"
+        eyebrow="Knowledge & Planning Center"
         icon={BookOpen}
         title="ID Card & Identity Solutions Resources"
-        lede="ID card projects involve more than printing cards. The IDGen Resources section brings together practical information to help organizations plan and manage identification projects more effectively."
+        lede="Everything you need to successfully execute an institutional identification rollout — technical material sheets, digital roster templates, delivered case studies, and engineering FAQs."
+        stats={[
+          { label: "Guides & Docs", value: "Comprehensive" },
+          { label: "Templates", value: "Excel / CSV Ready" },
+          { label: "Case Studies", value: "Real Deliveries" },
+          { label: "Support", value: "Guwahati Desk" },
+        ]}
+        visual={
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Real Case Study Image */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  alt="Complete ID Card Resource Specimen"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">IDGen Knowledge Hub</span>
+                </div>
+              </div>
+
+              {/* Overlapping Specimen */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 1.jpg"
+                  alt="30-Mil CR80 PVC ID Card"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Hardware Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/Lanyard with Hook Samples/Sample 1.jpeg"
+                  alt="Satin Lanyard Sample"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }]} />
 
+        {/* 4 Core Resource Pillars */}
         <div className="mt-8">
-          <SectionHead eyebrow="Explore" title="Explore IDGen Resources" />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHead eyebrow="Resource Pillars" title="Explore IDGen Knowledge Hub" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((c) => (
               <FeatureCard key={c.title} icon={c.icon} title={c.title} body={c.body} href={c.href} />
             ))}
           </div>
         </div>
 
-        <div className="mt-16">
-          <SectionHead eyebrow="By Requirement" title="Resources by requirement" />
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {/* By Requirement Matrix */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Planning Matrix" title="Resources by Identification Requirement" />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {byRequirement.map(([label, body]) => (
-              <div key={label} className="rounded-2xl border border-surface-border bg-surface p-5">
-                <h3 className="font-semibold text-foreground">{label}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{body}</p>
+              <div key={label} className="rounded-2xl border border-surface-border bg-surface p-6 hover:border-accent/40 transition">
+                <h3 className="font-bold text-foreground text-base">{label}</h3>
+                <p className="mt-2 text-xs text-muted leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">How to use these resources</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Start with the guide that matches your requirement. Then review the relevant product/service page
-            for detailed specifications. If you already know your quantity and requirements, use the{" "}
-            <Link href="/pricing/" className="font-semibold text-accent hover:underline">
-              pricing page
-            </Link>{" "}
-            for reference pricing and request a project-specific quotation. For large projects involving
-            personalized data, explore{" "}
-            <Link href="/idgen-studio/" className="font-semibold text-accent hover:underline">
-              IDGen Studio
-            </Link>
-            .
-          </p>
-        </div>
-
+        {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Planning an ID card project?"
-            body="Tell IDGen your organization type, location, products, approximate quantity and requirements."
-            links={[{ label: "Request a Quote", href: "/request-a-quote/", primary: true }]}
+            title="Ready to begin your identification project?"
+            body="Submit your organization details to receive a factory direct proposal and digital proof."
+            links={[
+              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
+              { label: "Explore IDGen Studio", href: "/idgen-studio/" },
+              { label: "View Pricing Tiers", href: "/pricing/" },
+            ]}
           />
         </div>
       </Container>

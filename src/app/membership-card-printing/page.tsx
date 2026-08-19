@@ -1,12 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Award, Dumbbell, HeartHandshake, Building2, Hotel, Users, QrCode, Layers } from "lucide-react";
+import { Award, Dumbbell, HeartHandshake, Building2, Hotel, Users, QrCode, Layers, ShieldCheck, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
-import { IllustratedCard } from "@/components/ui/IllustratedCard";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
-import { FlowChain } from "@/components/ui/FlowChain";
 import { WorkflowSteps } from "@/components/ui/WorkflowSteps";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { FaqList } from "@/components/ui/FaqList";
@@ -23,45 +22,35 @@ export const metadata = pageMetadata({
 });
 
 const orgTypes = [
-  { icon: Award, title: "Clubs", body: "Sports, social, cultural, recreation, country and hobby clubs." },
-  { icon: HeartHandshake, title: "Associations", body: "Professional, trade, business, industry and community associations." },
-  { icon: Dumbbell, title: "Gyms & Fitness Centres", body: "Member Name + Photograph + Membership Number + Membership Plan + Validity." },
-  { icon: Hotel, title: "Hotels & Resorts", body: "Suitable membership, loyalty or guest programmes." },
-  { icon: Users, title: "NGOs & Community Organizations", body: "Members, volunteers, coordinators, field teams and registered participants." },
-  { icon: Building2, title: "Professional Organizations", body: "Registered members with membership category, number and validity." },
+  { icon: Award, title: "Private Clubs & Golf Resorts", body: "High-gloss gold and silver metallic base cards with member photo, tier status, and cashless club spending chips." },
+  { icon: Dumbbell, title: "Gyms & Fitness Centers", body: "Durable sweat-resistant PVC cards with barcode or RFID turnstile integration for automated 24/7 gym access." },
+  { icon: HeartHandshake, title: "Professional Associations", body: "Accreditation credentials for bar associations, medical councils, rotary clubs, and trade chambers." },
+  { icon: Hotel, title: "Hotel & Resort Loyalty", body: "VIP guest loyalty credentials with magnetic stripe point accumulation and room-key compatibility." },
+  { icon: Users, title: "NGOs & Community Bodies", body: "Personalized volunteer and member cards with expiration dates, emergency contacts, and blood groups." },
+  { icon: Building2, title: "Alumni & University Societies", body: "Lifetime membership cards with gold foil embossing and library privilege verification." },
+];
+
+const memberDeliveries = [
+  { title: "Gold Tier VIP Member Card", sector: "Private Club & Resort", img: "/images/PVC Cards Samples/Sample 3.jpg" },
+  { title: "Executive Laser-Cut Acrylic Badge", sector: "Professional Council", img: "/images/Acrylic Badges Samples/Sample 7.jpg" },
+  { title: "Smart RFID Gym Access Card", sector: "Fitness Hub", img: "/images/ID Card Full Set Samples/IMG20250317104207.jpg" },
+  { title: "Custom Magnetic Stripe Card", sector: "Hospitality & Loyalty", img: "/images/Acrylic Badges Samples/Sample 1.jpg" },
 ];
 
 const process = [
-  { title: "Requirement", body: "Share your membership-card requirements and approximate quantity." },
-  { title: "Member Data", body: "Provide member information and photographs, or use IDGen Studio where applicable." },
-  { title: "Design", body: "Finalize the card artwork and required information." },
-  { title: "Preview", body: "Review the design and personalized member information." },
-  { title: "Approval", body: "Approve the final records and design." },
-  { title: "Production", body: "Approved cards move into production." },
-  { title: "Quality Check", body: "Finished cards are checked against the approved requirements." },
-  { title: "Assembly", body: "Where required, cards can be combined with suitable holders, hooks and lanyards." },
-  { title: "Dispatch", body: "Completed and approved materials are prepared for dispatch according to the applicable order timeline." },
-];
-
-const setups = [
-  { title: "Card Only", body: "Membership Card." },
-  { title: "Wearable", body: "Membership Card + Holder + Hook + Lanyard." },
-  { title: "Technology-Enabled", body: "RFID Membership Card + Compatible Identification System." },
-  { title: "Digital Workflow", body: "IDGen Studio → Member Data → Preview → Approval → Production." },
+  { title: "1. Specification & Tier Design", body: "Select base PVC finish (matte black, gold metallic, ultra-gloss) and encoding options (QR, Barcode, RFID)." },
+  { title: "2. Member Roster Sync", body: "Upload member names, photos, membership IDs, and validity dates via Excel or IDGen Studio." },
+  { title: "3. Digital Proof Approval", body: "Review exact layout, font sizing, and member portrait alignments prior to batch printing." },
+  { title: "4. Precision Thermal Retransfer", body: "High-definition edge-to-edge printing with scratch-resistant protective overlaminate." },
+  { title: "5. Magnetic / RFID Encoding", body: "Optional pre-programming of member points, access codes, and unique RFID sector keys." },
+  { title: "6. Secure Guwahati Dispatch", body: "Numbered sequentially and shipped directly across Assam and Northeast India." },
 ];
 
 const faqs: Faq[] = [
-  { q: "What is a membership ID card?", a: "A membership ID card is a personalized card issued to a registered member of an organization, club, business or membership programme." },
-  { q: "Can IDGen print custom membership cards?", a: "Yes. IDGen provides customized membership card printing with member information, photographs, branding, membership numbers, validity and other required details." },
-  { q: "Can membership cards include photographs?", a: "Yes. Member photographs can be included where required." },
-  { q: "Can membership cards have QR codes?", a: "Yes. QR codes can be printed on membership cards where required. Their actual functionality depends on the organization's supporting system." },
-  { q: "Can membership cards have barcodes?", a: "Yes. Barcodes can be included for compatible identification and verification systems." },
-  { q: "Can you print RFID membership cards?", a: "RFID membership cards can be considered where the required RFID technology, chip, frequency, reader and software system are compatible." },
-  { q: "Can membership cards be printed in bulk?", a: "Yes. IDGen supports bulk membership-card requirements according to quantity, data readiness, design and specifications." },
-  { q: "Can membership cards be supplied with lanyards?", a: "Yes. A suitable membership card can be combined with an ID card holder, hook and 20 mm custom printed lanyard where a wearable setup is required." },
-  { q: "Can IDGen collect member information digitally?", a: "Yes. IDGen Studio can support customized data collection and card preview for suitable projects." },
-  { q: "Can membership cards be printed batch-wise?", a: "Where the configured IDGen Studio workflow supports it, organizations can review and approve suitable records in batches rather than waiting for all member records to be completed." },
-  { q: "How much does membership card printing cost?", a: "The price depends on quantity, card specification, personalization, printing requirements, accessories and other project requirements. A quotation should be requested for the exact specification." },
+  { q: "What finishes are available for luxury membership cards?", a: "We offer frosted velvet, deep matte black, mirror gloss, and metallic gold/silver substrates with optional holographic hot-stamped foil accents." },
+  { q: "Can membership cards connect to our billing and POS software?", a: "Yes. We encode standard 1D/2D barcodes, magnetic stripes (HiCo/LoCo), and contactless RFID/NFC chips compatible with leading POS and gym management systems." },
+  { q: "Can we print cards in ongoing batches as new members sign up?", a: "Yes. With IDGen Studio, your staff can submit single new member applications anytime and receive replacement/new cards at your locked-in contracted price." },
+  { q: "What is the expected lifespan of IDGen PVC membership cards?", a: "Our 30-mil virgin PVC cards are rated for 5+ years of daily wallet friction without edge peeling or photo fading." },
 ];
 
 export default function MembershipCardPrintingPage() {
@@ -74,153 +63,120 @@ export default function MembershipCardPrintingPage() {
           path: "/membership-card-printing/",
         })}
       />
+      
       <PageHero
-        eyebrow="Service"
+        eyebrow="VIP & Loyalty Solutions"
         icon={Award}
-        title="Custom Membership ID Card Printing for Clubs, Gyms, Associations, Hotels, Resorts & Organizations"
-        lede="IDGen provides custom membership card printing for clubs, associations, NGOs, gyms, sports clubs, hotels, resorts, recreational organizations, professional bodies, institutions and other membership-based organizations."
+        title="Custom PVC Membership Cards & Loyalty Credentials"
+        lede="Deliver an exceptional member experience with premium 30-mil PVC membership cards, smart RFID access badges, and luxury matte finishes engineered for clubs, gyms, and professional associations."
+        stats={[
+          { label: "Material", value: "30-Mil Solid PVC" },
+          { label: "Finishes", value: "Matte, Gloss, Metallic" },
+          { label: "Encoding", value: "RFID, QR & Barcode" },
+          { label: "Batch Reorders", value: "Zero Minimum" },
+        ]}
         visual={
-          <IllustratedCard
-            org="YOUR ORGANIZATION"
-            subOrg="Membership Card"
-            holderName="Member Name"
-            holderRole="Gold / Standard Tier"
-            holderId="MEM: XXXX"
-            accent="#f59e0b"
-          />
+          <div className="relative h-[430px] w-full">
+            <div className="absolute inset-0 bg-amber-500/20 blur-[90px] rounded-full" />
+            <div className="relative h-full w-full">
+              {/* Primary Membership Sample Card */}
+              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/PVC Cards Samples/Sample 3.jpg"
+                  alt="Gold Tier VIP Membership Card Specimen"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <span className="rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Gold VIP Specimen</span>
+                </div>
+              </div>
+
+              {/* Overlapping Acrylic Badge Sample */}
+              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
+                <Image
+                  src="/images/Acrylic Badges Samples/Sample 7.jpg"
+                  alt="Laser Cut Acrylic Membership Badge"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Club Badge Accent */}
+              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-2xl overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
+                <Image
+                  src="/images/ID Card Full Set Samples/IMG20250317104207.jpg"
+                  alt="Custom Printed Club Badges"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         }
       />
 
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }, { name: "Membership Card Printing", path: "/membership-card-printing/" }]} />
 
-        <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-foreground/90">
-          <p>
-            We produce personalized membership cards with member photograph, name, membership number,
-            category, plan, joining date, validity date, organization name and logo, QR code, barcode and
-            other organization-approved information. Membership cards can be used for member identification,
-            membership verification, loyalty programmes, check-in and compatible identification or access
-            systems, depending on the organization&apos;s requirements.
-          </p>
-        </div>
-        <div className="mt-6">
-          <FlowChain steps={["Member Data", "Design", "Preview", "Approval", "Production", "Quality Check", "Dispatch"]} />
-        </div>
-        <div className="mt-6">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request a Membership Card Quote
-          </Link>
+        {/* Real Membership Cards Showcase */}
+        <div className="mt-8">
+          <SectionHead
+            eyebrow="Membership Showcase"
+            title="Premium Finishes & Smart Credentials for Prestige Brands"
+            lede="Designed to elevate member perception while providing rugged durability for daily wallet friction and turnstile taps."
+          />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {memberDeliveries.map((m) => (
+              <div key={m.title} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-xl hover:border-accent/40">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950 img-shine">
+                  <Image
+                    src={m.img}
+                    alt={m.title}
+                    fill
+                    className="img-zoom object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
+                    {m.sector}
+                  </span>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-foreground text-sm">{m.title}</h3>
+                  <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-500 font-semibold">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <span>Real Sample</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Org types */}
-        <div className="mt-16">
-          <SectionHead eyebrow="By Organization" title="Membership Cards for Different Organizations" lede="One membership-card service can support different types of organizations without creating a separate page for every industry." />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Organization Types */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Sectors & Clubs" title="Tailored Membership Solutions for Every Community" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {orgTypes.map((o) => (
               <FeatureCard key={o.title} icon={o.icon} title={o.title} body={o.body} />
             ))}
           </div>
         </div>
 
-        {/* QR / barcode / RFID */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <div className="flex items-center gap-2.5">
-              <QrCode className="h-5 w-5 text-accent" />
-              <h3 className="font-semibold text-foreground">QR Codes</h3>
-            </div>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              Can be used to identify a member, retrieve information, support verification or check-in — the
-              actual function depends on the organization&apos;s system. IDGen does not claim a QR code
-              automatically provides membership management or access control.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h3 className="font-semibold text-foreground">Barcodes</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              For member identification, check-in, verification and internal record lookup — format and
-              implementation confirmed against the customer&apos;s existing system.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-surface-border bg-surface p-6">
-            <h3 className="font-semibold text-foreground">RFID Membership Cards</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              Considered where compatible hardware and software systems are available — Card → Chip →
-              Frequency → Reader → Software/System.
-            </p>
-            <Link href="/rfid-card-printing/" className="mt-2 inline-block text-sm font-semibold text-accent hover:underline">
-              Explore RFID Card Printing →
-            </Link>
-          </div>
-        </div>
-
-        {/* Lanyards/holders */}
-        <div className="mt-16 rounded-2xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
-          <div className="flex items-center gap-2.5">
-            <Layers className="h-5 w-5 text-navy-deep" />
-            <h2 className="text-lg font-bold text-navy-deep">Membership Cards With Lanyards & Holders</h2>
-          </div>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-navy-deep/80">
-            Where members should visibly wear their membership cards: Membership Card → Holder → Hook →
-            Custom Printed Lanyard, with 20 mm custom printed lanyards customizable to your branding.
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-navy-deep">
-            <Link href="/custom-printed-lanyard-printing/" className="hover:underline">Explore Custom Printed Lanyard Printing →</Link>
-            <Link href="/id-card-holders/" className="hover:underline">Explore ID Card Holders →</Link>
-          </div>
-        </div>
-
-        {/* Digital workflow */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">IDGen Studio for Membership Cards</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Organizations collecting information from many members can use IDGen Studio, where applicable —
-            a customized form, shared via link or QR code, lets members fill their details, upload a
-            photograph and preview their card before submitting. The organization can then review, correct,
-            and approve records batch-wise, particularly useful when members join at different times.
-          </p>
-          <Link href="/idgen-studio/" className="mt-3 inline-block text-sm font-semibold text-accent hover:underline">
-            Explore IDGen Studio →
-          </Link>
-        </div>
-
-        {/* Setups */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Configuration" title="Membership Cards + Complete Identification Setup" lede="Organizations can choose only the components they require." />
-          <div className="mt-6">
-            <WorkflowSteps steps={setups} />
-          </div>
-        </div>
-
-        {/* Process */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Process" title="Membership Card Production Process" />
-          <div className="mt-6">
+        {/* Production Workflow */}
+        <div className="mt-20">
+          <SectionHead eyebrow="Ordering Pipeline" title="From Member Database to Personalized Cards" />
+          <div className="mt-8">
             <WorkflowSteps steps={process} />
           </div>
         </div>
 
-        {/* Who can use */}
-        <div className="mt-16 rounded-2xl border border-dashed border-surface-border bg-surface p-6">
-          <h2 className="text-lg font-bold text-foreground">Who Can Use Custom Membership Cards?</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Clubs, associations, NGOs, gyms, fitness centres, sports clubs, games zones, entertainment
-            centres, hotels, resorts, spas, restaurants, cafés, food parks, recreation centres, professional
-            organizations, community organizations, alumni organizations and other membership programmes.
-          </p>
-        </div>
-
-        {/* Pricing */}
-        <p className="mt-16 max-w-3xl text-sm leading-relaxed text-muted">
-          Membership card pricing depends on quantity, card specification, single/double-side printing,
-          personalization, QR/barcode and RFID requirements, holder and lanyard requirements, packaging and
-          delivery. <Link href="/pricing/" className="font-semibold text-accent hover:underline">View IDGen Pricing →</Link>
-        </p>
-
         {/* FAQ */}
-        <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
-          <div className="mt-6">
+        <div className="mt-20">
+          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About Membership Cards" />
+          <div className="mt-8">
             <FaqList faqs={faqs} />
           </div>
         </div>
@@ -228,12 +184,12 @@ export default function MembershipCardPrintingPage() {
         {/* Closing CTA */}
         <div className="mt-16">
           <CtaBand
-            title="Need custom membership cards?"
-            body="Whether you need membership cards for a club, gym, association, hotel, resort, NGO, sports organization or other membership programme, IDGen can help you plan the required card and identification setup."
+            title="Ready to launch or upgrade your membership cards?"
+            body="Contact our Guwahati production center for physical specimen kits, metallic foil samples, and custom price estimates."
             links={[
-              { label: "Request a Membership Card Quote", href: "/request-a-quote/", primary: true },
-              { label: "Explore IDGen Studio", href: "/idgen-studio/" },
-              { label: "View Pricing", href: "/pricing/" },
+              { label: "Request Membership Quote", href: "/request-a-quote/", primary: true },
+              { label: "Explore RFID Smart Cards", href: "/rfid-card-printing/" },
+              { label: "View Pricing Tiers", href: "/pricing/" },
             ]}
           />
         </div>
