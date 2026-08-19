@@ -64,7 +64,9 @@ export function serviceSchema(opts: { name: string; description: string; path: s
     name: opts.name,
     description: opts.description,
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: { "@type": "Country", name: "India" },
+    // Was hardcoded to Country/India — overclaiming vs. the site's actual
+    // coverage (Assam + expanding Northeast India presence).
+    areaServed: SITE.regionalFocus.map((name) => ({ "@type": "State", name })),
     url: `${SITE_URL}${opts.path}`,
   };
 }
@@ -80,16 +82,32 @@ export function productSchema(opts: { name: string; description: string; path: s
   };
 }
 
-export function localBusinessSchema(opts?: { name?: string; areaServed?: string[] }) {
+export function localBusinessSchema(opts?: { areaServed?: string[] }) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${SITE_URL}/#localbusiness`,
-    name: opts?.name || SITE.name,
+    // Reuses the sitewide Organization's @id rather than a separate
+    // "#localbusiness" one. Every service-area page used to mint its own
+    // LocalBusiness with the SAME static @id but a DIFFERENT name
+    // ("IDGen — Guwahati", "IDGen — Shillong", ...) — Google resolves
+    // matching @ids as one entity, so ~30 pages were colliding into a
+    // single, name-flip-flopping record. One entity, one name; areaServed
+    // is the only thing that should vary per page.
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE.name,
     url: SITE_URL,
     ...(SITE.phone ? { telephone: SITE.phone } : {}),
     ...(SITE.email ? { email: SITE.email } : {}),
-    ...(SITE.address ? { address: SITE.address } : {}),
+    // Street address + PIN are not yet confirmed by the client — ship what's
+    // actually known (HQ city/state/country) rather than a fabricated full
+    // address. Add streetAddress/postalCode here once confirmed.
+    address: {
+      "@type": "PostalAddress",
+      ...(SITE.address ? { streetAddress: SITE.address } : {}),
+      addressLocality: SITE.hqCity,
+      addressRegion: SITE.hqState,
+      addressCountry: "IN",
+    },
     areaServed: opts?.areaServed?.map((name) => ({ "@type": "State", name })) ?? [
       { "@type": "Country", name: "India" },
     ],

@@ -6,8 +6,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -95,7 +93,6 @@ const realCaseStudies = [
 export default function CaseStudiesPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies/" }])} />
       
       <PageHero
         eyebrow="Proven Deliveries"
@@ -103,10 +100,10 @@ export default function CaseStudiesPage() {
         title="Real Institutional Deliveries & Case Studies"
         lede="Explore genuine identity projects manufactured at our Guwahati facility — from large-scale school intakes to university campuses and government organizations across Assam and Northeast India."
         stats={[
-          { label: "Schools & Colleges", value: "350+ Hubs" },
-          { label: "Credentials Dispatched", value: "500,000+" },
+          { label: "Documented Deliveries", value: "6 Featured Projects" },
+          { label: "Sectors Served", value: "Education, Government" },
           { label: "States Served", value: "All 8 NE States" },
-          { label: "Delivery Accuracy", value: "99.8%" },
+          { label: "Evidence Standard", value: "Real Photos Only" },
         ]}
         visual={
           <div className="relative h-[430px] w-full">

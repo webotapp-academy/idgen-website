@@ -7,8 +7,6 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -98,7 +96,6 @@ const lanyardServices = [
 export default function ServicesPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }])} />
       
       <PageHero
         eyebrow="Direct Factory Services"

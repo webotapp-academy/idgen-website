@@ -7,8 +7,6 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { FaqList } from "@/components/ui/FaqList";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import { QuoteCalculator } from "@/components/ui/QuoteCalculator";
 import type { Faq } from "@/data/types";
@@ -56,7 +54,6 @@ const faqs: Faq[] = [
 export default function PricingPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing/" }])} />
       
       <PageHero
         eyebrow="Transparent Pricing"

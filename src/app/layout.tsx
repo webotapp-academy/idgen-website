@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  // Every other page sets its own canonical via pageMetadata() (which
+  // overrides this). The homepage doesn't call pageMetadata(), so without
+  // this default it was the only page shipping with no canonical tag.
+  alternates: { canonical: SITE_URL },
   openGraph: {
     type: "website",
     siteName: SITE.name,

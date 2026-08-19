@@ -126,6 +126,7 @@ export const states: StateContent[] = [
   {
     slug: "arunachal-pradesh",
     name: "Arunachal Pradesh",
+    indexed: false, // no real body content in client's doc — noindex until confirmed
     heroIntro:
       "IDGen supplies high-definition PVC ID cards, custom printed satin lanyards, and RFID credentials for universities, government secretariats, and schools across Arunachal Pradesh, with direct dispatch from Guwahati.",
     metaTitle: "ID Card Printing in Arunachal Pradesh | Itanagar, Naharlagun & Pasighat | IDGen",
@@ -193,6 +194,7 @@ export const states: StateContent[] = [
         slug: "tura",
         name: "Tura",
         isPrimary: false,
+        indexed: false, // no real body content in client's doc — noindex until confirmed
         heroIntro:
           "IDGen delivers customized student identification sets, teachers' ID cards, and satin lanyards for institutions across the Garo Hills district of Tura, Meghalaya.",
         nearbyAreas: ["Rongram", "Asanang", "Chasingre", "Ampati", "Williamnagar"],
@@ -204,6 +206,7 @@ export const states: StateContent[] = [
         slug: "jowai",
         name: "Jowai",
         isPrimary: false,
+        indexed: false, // no real body content in client's doc — noindex until confirmed
         heroIntro:
           "IDGen supplies PVC ID cards, custom lanyards, and card holders for educational institutes and organizations across Jowai and the West Jaintia Hills.",
         nearbyAreas: ["Thadlaskein", "Amlarem", "Nartiang", "Khliehriat", "Lad Rymbai"],
@@ -216,6 +219,7 @@ export const states: StateContent[] = [
   {
     slug: "nagaland",
     name: "Nagaland",
+    indexed: false, // no real body content in client's doc — noindex until confirmed
     heroIntro:
       "IDGen manufactures and supplies high-grade PVC ID cards, custom printed satin lanyards, and event credentials for schools, universities, Hornbill Festival summits, and enterprises across Nagaland.",
     metaTitle: "ID Card Printing in Nagaland | Kohima, Dimapur & Mokokchung | IDGen",
@@ -260,6 +264,7 @@ export const states: StateContent[] = [
   {
     slug: "manipur",
     name: "Manipur",
+    indexed: false, // no real body content in client's doc — noindex until confirmed
     heroIntro:
       "IDGen supplies personalized PVC ID cards, custom dye-sublimated lanyards, and RFID access credentials for universities, medical colleges, sports academies, and institutions across Manipur.",
     metaTitle: "ID Card Printing in Manipur | Imphal & Regional Districts | IDGen",
@@ -293,6 +298,7 @@ export const states: StateContent[] = [
   {
     slug: "mizoram",
     name: "Mizoram",
+    indexed: false, // no real body content in client's doc — noindex until confirmed
     heroIntro:
       "IDGen manufactures and supplies high-definition PVC ID cards, custom printed lanyards, and RFID access cards for Mizoram University, government departments, and educational institutions across Mizoram.",
     metaTitle: "ID Card Printing in Mizoram | Aizawl, Lunglei & Champhai | IDGen",
@@ -326,6 +332,7 @@ export const states: StateContent[] = [
   {
     slug: "tripura",
     name: "Tripura",
+    indexed: false, // no real body content in client's doc — noindex until confirmed
     heroIntro:
       "IDGen supplies thermal retransfer PVC ID cards, high-density satin lanyards, and RFID smart badges for Tripura University, NIT Agartala, and organizations across Tripura.",
     metaTitle: "ID Card Printing in Tripura | Agartala, Dharmanagar & Udaipur | IDGen",
@@ -370,6 +377,7 @@ export const states: StateContent[] = [
   {
     slug: "sikkim",
     name: "Sikkim",
+    indexed: false, // no real body content in client's doc — noindex until confirmed
     heroIntro:
       "IDGen supplies high-definition PVC ID cards, custom printed satin lanyards, and tourist conference badges for Sikkim University, SMIT, and institutions across Sikkim.",
     metaTitle: "ID Card Printing in Sikkim | Gangtok, Namchi & Geyzing | IDGen",
@@ -413,4 +421,15 @@ export function getCity(stateSlug: string, citySlug: string) {
 
 export function allCities() {
   return states.flatMap((s) => s.cities.map((c) => ({ state: s, city: c })));
+}
+
+// Sitemap should only ever list pages we want indexed — states/cities with
+// indexed:false stay live (direct links still work) but are excluded here
+// and marked noindex on the page itself.
+export function indexedStates() {
+  return states.filter((s) => s.indexed !== false);
+}
+
+export function indexedCities() {
+  return allCities().filter(({ state, city }) => state.indexed !== false && city.indexed !== false);
 }

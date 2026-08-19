@@ -6,8 +6,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -62,15 +60,8 @@ const productsList = [
     tag: "Virgin PVC Core",
     badge: "Core Media"
   },
-  {
-    name: "Event Badges & Passes",
-    slug: "event-card-printing",
-    imageSrc: "/images/Event Card/Events Card with 2 hook.png",
-    imageAlt: "Dual-Hook Event Credential Badges",
-    shortDescription: "Heavy-duty 2-hook anti-flip passes, single swivel clip credentials, and oversized VIP conference badges with custom-printed lanyards.",
-    tag: "Conferences & Expos",
-    badge: "Accreditation"
-  },
+  // Event Badges & Passes lives under Services (/event-card-printing/), not
+  // here — it was briefly duplicated on this page too.
 ];
 
 const hardwareSpecs = [
@@ -83,7 +74,6 @@ const hardwareSpecs = [
 export default function ProductsPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Products", path: "/products/" }])} />
 
       <PageHero
         eyebrow="Hardware & Accessories"

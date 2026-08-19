@@ -5,8 +5,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -42,13 +40,6 @@ const categories = [
 export default function GuidesPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Resources", path: "/resources/" },
-          { name: "Guides", path: "/resources/guides/" },
-        ])}
-      />
       <PageHero
         eyebrow="Guides"
         icon={BookOpen}

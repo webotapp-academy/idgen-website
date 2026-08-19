@@ -104,7 +104,7 @@ export default function StudentIdCardPrintingPage() {
         title="Institutional Student ID Card Printing & Full Wearable Kits"
         lede="Complete ID card and custom lanyard solutions for schools, colleges, and universities across Assam and Northeast India. Class-sorted packaging, automated photo normalization, and rapid factory delivery."
         stats={[
-          { label: "Annual Student IDs", value: "250,000+" },
+          { label: "Card Grade", value: "30-Mil CR80 PVC" },
           { label: "Card Core", value: "30-Mil Virgin PVC" },
           { label: "Packaging", value: "Class-Wise Sorted" },
           { label: "Turnaround", value: "48–72h Delivery" },

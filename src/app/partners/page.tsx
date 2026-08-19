@@ -9,8 +9,6 @@ import { FeatureCard } from "@/components/ui/FeatureCard";
 import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { PartnerForm } from "@/components/forms/PartnerForm";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import type { Faq } from "@/data/types";
 
@@ -66,7 +64,6 @@ const faqs: Faq[] = [
 export default function PartnersPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Partners", path: "/partners/" }])} />
       
       <PageHero
         eyebrow="B2B & Reseller Network"

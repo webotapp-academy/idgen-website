@@ -23,7 +23,7 @@ const networkMetrics = [
   { label: "Regional Hub", value: "Guwahati, Assam" },
   { label: "State Coverage", value: "All 8 NE States" },
   { label: "Dispatch SLA", value: "48–72h Regional" },
-  { label: "Institutions Served", value: "500+ Campus Hubs" },
+  { label: "Manufacturing Base", value: "Guwahati, Assam" },
 ];
 
 const faqs: Faq[] = [

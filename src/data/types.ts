@@ -9,6 +9,10 @@ export type CityContent = {
   nearbyAreas: string[];
   metaTitle: string;
   metaDescription: string;
+  // false = page stays live (direct link still works) but is excluded from
+  // the sitemap and marked noindex — used for states/cities the client's
+  // content doc has no real body content for yet. Defaults to true.
+  indexed?: boolean;
 };
 
 export type StateContent = {
@@ -18,6 +22,7 @@ export type StateContent = {
   cities: CityContent[];
   metaTitle: string;
   metaDescription: string;
+  indexed?: boolean;
 };
 
 export type ServiceIndexItem = {

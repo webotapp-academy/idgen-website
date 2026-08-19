@@ -7,8 +7,6 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -38,7 +36,6 @@ const byRequirement = [
 export default function ResourcesPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])} />
       
       <PageHero
         eyebrow="Knowledge & Planning Center"

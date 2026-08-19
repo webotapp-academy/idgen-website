@@ -22,22 +22,28 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname),
   },
   async redirects() {
-    // Sources include the trailing slash so these fire in a single hop —
-    // trailingSlash:true would otherwise redirect once to normalize the
-    // slash, then again to the real destination.
-    return [
-      { source: "/about-us/", destination: "/why-idgen/", permanent: true },
-      { source: "/manufacturing/", destination: "/why-idgen/", permanent: true },
-      { source: "/quality-assurance/", destination: "/why-idgen/", permanent: true },
-      { source: "/our-process/", destination: "/why-idgen/", permanent: true },
-      { source: "/services/:slug/", destination: "/:slug/", permanent: true },
-      { source: "/products/:slug/", destination: "/:slug/", permanent: true },
-      { source: "/service-area/:state/:city/", destination: "/service-areas/:state/:city/", permanent: true },
-      { source: "/service-area/:state/", destination: "/service-areas/:state/", permanent: true },
-      { source: "/service-area/", destination: "/service-areas/", permanent: true },
-      { source: "/get-a-quote/", destination: "/request-a-quote/", permanent: true },
-      { source: "/become-a-partner/", destination: "/partners/", permanent: true },
+    // Each rule is listed with AND without the trailing slash. Sources with
+    // the slash fire in a single hop; without it, trailingSlash:true's own
+    // normalization would otherwise add a second hop (e.g. /about-us →
+    // /about-us/ → /why-idgen/) before the destination is ever reached.
+    const rules: { source: string; destination: string }[] = [
+      { source: "/about-us", destination: "/why-idgen/" },
+      { source: "/about", destination: "/why-idgen/" }, // was a dead end: /about → /about/ → 404
+      { source: "/manufacturing", destination: "/why-idgen/" },
+      { source: "/quality-assurance", destination: "/why-idgen/" },
+      { source: "/our-process", destination: "/why-idgen/" },
+      { source: "/services/:slug", destination: "/:slug/" },
+      { source: "/products/:slug", destination: "/:slug/" },
+      { source: "/service-area/:state/:city", destination: "/service-areas/:state/:city/" },
+      { source: "/service-area/:state", destination: "/service-areas/:state/" },
+      { source: "/service-area", destination: "/service-areas/" },
+      { source: "/get-a-quote", destination: "/request-a-quote/" },
+      { source: "/become-a-partner", destination: "/partners/" },
     ];
+    return rules.flatMap(({ source, destination }) => [
+      { source, destination, permanent: true },
+      { source: `${source}/`, destination, permanent: true },
+    ]);
   },
   async headers() {
     return [

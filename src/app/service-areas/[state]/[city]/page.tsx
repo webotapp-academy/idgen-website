@@ -35,6 +35,7 @@ export async function generateMetadata({
     description: city.metaDescription,
     alternates: { canonical: url },
     openGraph: { title: city.metaTitle, description: city.metaDescription, url },
+    ...(state.indexed === false || city.indexed === false ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
@@ -61,7 +62,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
 
   return (
     <>
-      <JsonLd data={localBusinessSchema({ name: `IDGen — ${city.name}`, areaServed: [state.name] })} />
+      <JsonLd data={localBusinessSchema({ areaServed: [state.name] })} />
       <PageHero
         eyebrow={state.name}
         icon={MapPin}

@@ -1,32 +1,34 @@
-# iDGen
+# IDGen
 
-> iDGen — Identity Solutions, Simplified. iDGen manufactures ID cards, RFID credentials, and lanyards for schools, colleges, universities, and enterprises across Northeast India.
+> IDGen — Identity Solutions, Simplified. IDGen manufactures ID cards, RFID credentials, custom lanyards, acrylic badges, and zinc medals for schools, colleges, universities, and enterprises across Northeast India.
 
-iDGen prints ID cards on durable PVC with edge-to-edge lamination, embeds RFID chips for access-control and library systems, and produces custom-branded lanyards. Bulk orders are printed in-house and dispatched across Assam, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, and Arunachal Pradesh.
+IDGen prints ID cards on durable 30-mil PVC with edge-to-edge lamination, embeds RFID chips for access-control and library systems, and produces custom-branded lanyards, acrylic badges, and die-cast zinc medals. Bulk orders are manufactured in-house in Guwahati, Assam and dispatched across Assam and Meghalaya (Shillong) with 48–72h turnaround; coverage in other Northeast Indian states is expanding.
 
 ## Services
-- [School ID Card Printing](/services/school-id-card-printing)
-- [College ID Card Printing](/services/college-id-card-printing)
-- [University ID Card Printing](/services/university-id-card-printing)
-- [Employee ID Card Printing](/services/employee-id-card-printing)
-- [Visitor ID Card](/services/visitor-id-card)
-- [RFID ID Card](/services/rfid-id-card)
-- [Event ID Card Printing](/services/event-id-card-printing)
-- [Membership Card Printing](/services/membership-card-printing)
-- [Custom Printed Lanyard](/services/custom-printed-lanyard)
+- [ID Card Printing](/id-card-printing/)
+- [Student ID Card Printing](/student-id-card-printing/)
+- [Employee ID Card Printing](/employee-id-card-printing/)
+- [Custom Printed Lanyards](/custom-printed-lanyard-printing/)
+- [Event Card Printing](/event-card-printing/)
+- [RFID Card Printing](/rfid-card-printing/)
+- [Ultrasonic Sealing](/ultrasonic-sealing/)
+- [Membership Card Printing](/membership-card-printing/)
 
 ## Products
-- [ID Card Holder](/products/id-card-holder)
-- [ID Card and Lanyard Hook](/products/id-card-and-lanyard-hook)
+- [ID Card Holders](/id-card-holders/)
+- [ID Card & Lanyard Hooks](/id-card-hooks/)
+- [Acrylic Badges & Pins](/acrylic-badges/)
+- [Custom Die-Cast Zinc Medals](/zinc-medals/)
+- [30-Mil CR80 PVC Smart Cards](/pvc-cards/)
 
 ## Company
-- [About Us](/about-us)
-- [Why iDGen](/why-idgen)
-- [Manufacturing](/manufacturing)
-- [Quality Assurance](/quality-assurance)
-- [Our Process](/our-process)
-- [iDGen Studio](/idgen-studio)
-- [Service Area](/service-area)
-- [Become a Partner](/become-a-partner)
-- [FAQ](/faq)
-- [Contact Us](/contact-us)
+- [Why IDGen](/why-idgen/)
+- [IDGen Studio](/idgen-studio/)
+- [Service Areas](/service-areas/)
+- [Pricing](/pricing/)
+- [Partners](/partners/)
+- [FAQ](/faq/)
+- [Case Studies](/case-studies/)
+- [Resources & Guides](/resources/guides/)
+- [Templates](/templates/)
+- [Contact Us](/contact-us/)

@@ -8,7 +8,7 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, faqSchema } from "@/lib/schema-org";
+import { faqSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import type { Faq } from "@/data/types";
 
@@ -64,12 +64,7 @@ const allFaqs = categories.flatMap((c) => c.faqs);
 export default function FaqPage() {
   return (
     <>
-      <JsonLd
-        data={[
-          breadcrumbSchema([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }]),
-          faqSchema(allFaqs),
-        ]}
-      />
+      <JsonLd data={faqSchema(allFaqs)} />
       
       <PageHero
         eyebrow="Help & Information Center"

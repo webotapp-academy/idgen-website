@@ -7,8 +7,6 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { SpecTable } from "@/components/ui/SpecTable";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -53,7 +51,6 @@ const bulkChecklist = [
 export default function TemplatesPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Templates", path: "/templates/" }])} />
       
       <PageHero
         eyebrow="Pre-Production Tools"

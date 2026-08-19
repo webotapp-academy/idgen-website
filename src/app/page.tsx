@@ -261,7 +261,7 @@ export default function HomePage() {
                 Trusted Credentials Partner
               </span>
               <h3 className="mt-1 text-sm font-bold text-foreground">
-                Delivered to 500+ Institutions Across Northeast India
+                Delivering ID Solutions Across Northeast India
               </h3>
             </div>
 

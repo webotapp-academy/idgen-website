@@ -13,10 +13,19 @@ export const SITE = {
   hqCity: "Guwahati",
   hqState: "Assam",
   regionalFocus: ["Assam", "Arunachal Pradesh", "Meghalaya", "Nagaland", "Manipur", "Mizoram", "Tripura", "Sikkim"],
-  // TODO fill in before launch — placeholders only, do not display fabricated
-  // contact details to site visitors.
-  phone: "",
-  whatsapp: "",
+  // Matches public/5579073bfa2cbb86d0175c69fabea6f3.txt — required by the
+  // IndexNow protocol (Bing/Yandex instant-indexing pings). The key file
+  // being live is the prerequisite; actually pinging api.indexnow.org with
+  // changed URLs is a post-deploy step, not something to wire in blind.
+  indexNowKey: "5579073bfa2cbb86d0175c69fabea6f3",
+  // Real, already public on the site (Header/Footer/Hero WhatsApp links) —
+  // wired here too so schema.org markup and the contact/quote pages pick it
+  // up instead of showing it inconsistently across the site.
+  phone: "+919207012084",
+  whatsapp: "919207012084",
+  // Street address + PIN code and a business email are still not confirmed
+  // — leave blank rather than fabricate. City/state are known (Guwahati,
+  // Assam) and used directly via SITE.hqCity/hqState where needed.
   email: "",
   address: "",
   social: {
@@ -54,7 +63,6 @@ export const NAV: NavItem[] = [
       { label: "Acrylic Badges & Pins", href: "/acrylic-badges/" },
       { label: "Custom Zinc Medals", href: "/zinc-medals/" },
       { label: "30-Mil PVC Smart Cards", href: "/pvc-cards/" },
-      { label: "Event Badges & Passes", href: "/event-card-printing/" },
     ],
   },
   { label: "IDGen Studio", href: "/idgen-studio/" },

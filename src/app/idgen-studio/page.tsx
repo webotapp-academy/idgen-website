@@ -11,8 +11,6 @@ import { CompareTable } from "@/components/ui/CompareTable";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import type { Faq } from "@/data/types";
 
@@ -62,7 +60,6 @@ const faqs: Faq[] = [
 export default function IdgenStudioPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "IDGen Studio", path: "/idgen-studio/" }])} />
       
       <PageHero
         eyebrow="Cloud Identity Platform"
@@ -70,7 +67,7 @@ export default function IdgenStudioPage() {
         title="IDGen Studio — Digital Data Collection & Production Portal"
         lede="Collect photos. Preview rendered badges. Approve online. Print progressively. IDGen Studio connects digital self-service collection with physical factory printing, eliminating delays and costly reprint errors."
         stats={[
-          { label: "Data Accuracy", value: "99.8%" },
+          { label: "Data Entry", value: "Self-Service" },
           { label: "Photo Processing", value: "Auto-Crop AI" },
           { label: "Batch Approvals", value: "Real-time" },
           { label: "Reprint Waste", value: "Reduced by 95%" },

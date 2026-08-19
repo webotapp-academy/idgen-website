@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
     description: state.metaDescription,
     alternates: { canonical: url },
     openGraph: { title: state.metaTitle, description: state.metaDescription, url },
+    ...(state.indexed === false ? { robots: { index: false, follow: true } } : {}),
   };
 }
 

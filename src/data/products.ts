@@ -26,11 +26,9 @@ export const products: ProductIndexItem[] = [
     name: "30-Mil CR80 PVC Smart Cards",
     shortDescription: "Bank-grade virgin PVC core cards with 300 DPI high-definition dye sublimation & overlaminate.",
   },
-  {
-    slug: "event-card-printing",
-    name: "Event Badges & Oversized Passes",
-    shortDescription: "Heavy-duty 2-hook and 1-hook event credentials with custom lanyards for conferences & expos.",
-  },
+  // event-card-printing is a Service (see services.ts) — it was briefly
+  // duplicated here too, which listed /event-card-printing/ under both
+  // "Services" and "Products" in the nav and doubled it up in the sitemap.
 ];
 
 export function getProductBySlug(slug: string) {

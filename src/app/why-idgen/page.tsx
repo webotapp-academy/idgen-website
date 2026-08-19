@@ -22,8 +22,6 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { FaqList } from "@/components/ui/FaqList";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema-org";
 import { SITE } from "@/data/site";
 import { pageMetadata } from "@/lib/metadata";
 import type { Faq } from "@/data/types";
@@ -79,13 +77,6 @@ const faqs: Faq[] = [
 export default function WhyIdgenPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Why IDGen", path: "/why-idgen/" },
-        ])}
-      />
-      
       {/* 
         HERO SECTION 
         Adding a rich visual right side using real factory images.
