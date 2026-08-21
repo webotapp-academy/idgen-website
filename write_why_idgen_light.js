@@ -1,4 +1,6 @@
-import Image from "next/image";
+const fs = require('fs');
+
+const code = `import Image from "next/image";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -23,7 +25,11 @@ import {
   MessageSquare,
   Sparkles,
   Globe2,
+  FileCheck2,
+  Check,
   ChevronRight,
+  Boxes,
+  Microscope,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -1319,3 +1325,11 @@ export default function WhyIdgenPage() {
     </div>
   );
 }
+\`;
+
+fs.writeFileSync('src/app/why-idgen/page.tsx', code, 'utf8');
+console.log('Successfully wrote src/app/why-idgen/page.tsx with rich photos and light design!');
+`;
+
+fs.writeFileSync('write_why_idgen_light.js', code, 'utf8');
+console.log('Script written');
