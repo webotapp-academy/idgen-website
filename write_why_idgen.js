@@ -1,4 +1,6 @@
-import Image from "next/image";
+const fs = require('fs');
+
+const content = `import Image from "next/image";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -705,3 +707,7 @@ export default function WhyIdgenPage() {
     </>
   );
 }
+`;
+
+fs.writeFileSync('src/app/why-idgen/page.tsx', content, 'utf8');
+console.log('Done. Lines:', content.split('\n').length);
