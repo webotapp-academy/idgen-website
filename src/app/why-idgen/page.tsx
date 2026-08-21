@@ -169,10 +169,10 @@ export default function WhyIdgenPage() {
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen">
       {/* ─────────────────────────────────────────────────────────────
-          1. ULTRA-PREMIUM LIGHT HERO SECTION (High-end photography)
+          1. HERO SECTION (Clear IDGen-Branded Luxury Flat-lay)
       ───────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-white border-b border-slate-200/80 pt-10 pb-16 lg:pt-14 lg:pb-24">
-        {/* Subtle decorative grid & accents */}
+        {/* Subtle decorative grid */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -181,11 +181,11 @@ export default function WhyIdgenPage() {
             backgroundSize: "32px 32px",
           }}
         />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-100/60 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-sky-100/60 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            {/* Left text column */}
+            {/* Left Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-[#009fe3]/10 px-4 py-1.5 text-xs font-bold text-[#009fe3] uppercase tracking-wider shadow-sm">
                 <Sparkles className="h-3.5 w-3.5 text-[#009fe3]" />
@@ -249,12 +249,12 @@ export default function WhyIdgenPage() {
               </div>
             </div>
 
-            {/* Right Photo Showcase */}
+            {/* Right: Sharp Clear "IDGen" Branded Flat-lay Showcase */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                 <Image
-                  src="/images/why-idgen-hero-light.jpg"
-                  alt="IDGen premium identification products flatlay"
+                  src="/images/why-idgen-hero-branded.jpg"
+                  alt="IDGen branded ID cards and lanyards"
                   width={750}
                   height={500}
                   className="w-full h-auto object-cover transform transition duration-500 hover:scale-[1.02]"
@@ -265,7 +265,7 @@ export default function WhyIdgenPage() {
                   <div className="flex items-center gap-2 mb-1">
                     <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
-                      Live Regional Production
+                      IDGen Identity Solutions
                     </span>
                   </div>
                   <p className="text-sm font-semibold text-white/95">
@@ -276,7 +276,7 @@ export default function WhyIdgenPage() {
 
               {/* Floating photo badge 1 */}
               <div className="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-slate-200 shadow-xl p-3 max-w-xs">
-                <div className="relative h-14 w-14 rounded-xl overflow-hidden shrink-0 border border-slate-100">
+                <div className="relative h-14 w-14 rounded-xl overflow-hidden shrink-0 border border-slate-100 bg-slate-50">
                   <Image
                     src="/images/Sample Photos/school-student-pvc-id-card-idgen.jpg.png"
                     alt="Sample Student ID Card"
@@ -285,8 +285,8 @@ export default function WhyIdgenPage() {
                   />
                 </div>
                 <div>
-                  <p className="text-xs font-extrabold text-slate-900">Institutional ID Cards</p>
-                  <p className="text-[11px] text-slate-500">Dating back to 2014</p>
+                  <p className="text-xs font-extrabold text-slate-900">IDGen ID Cards</p>
+                  <p className="text-[11px] text-slate-500">Experience Since 2014</p>
                 </div>
               </div>
 
@@ -304,7 +304,7 @@ export default function WhyIdgenPage() {
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Why IDGen", path: "/why-idgen/" }]} />
 
         {/* ─────────────────────────────────────────────────────────────
-            2. MORE THAN A NEW BRAND + PHOTO GALLERY
+            2. MORE THAN A NEW BRAND + CLEAR IDGEN-BRANDED CARDS
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-14 pt-6">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
@@ -354,18 +354,22 @@ export default function WhyIdgenPage() {
 
             {/* Right Photo & Journey Cards */}
             <div className="lg:col-span-6 space-y-6">
-              {/* Crisp ID Cards Photo */}
+              {/* Crisp Clear "IDGen" Cards Showcase */}
               <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-white">
                 <Image
-                  src="/images/why-idgen-id-cards-light.jpg"
-                  alt="High resolution professional ID cards"
+                  src="/images/why-idgen-cards-showcase-branded.jpg"
+                  alt="Clear IDGen branded PVC ID cards"
                   width={700}
                   height={450}
                   className="w-full h-auto object-cover"
                 />
                 <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900">Customized ID Card Printing &amp; Personalization</span>
-                  <span className="text-xs font-bold text-[#009fe3]">Guwahati Hub</span>
+                  <span className="text-xs font-bold text-slate-900">
+                    IDGen Personalized PVC ID Cards
+                  </span>
+                  <span className="text-xs font-bold text-[#009fe3]">
+                    Students • Corporate • Healthcare • Events
+                  </span>
                 </div>
               </div>
 
@@ -484,7 +488,7 @@ export default function WhyIdgenPage() {
         </section>
 
         {/* ─────────────────────────────────────────────────────────────
-            4. DATA CONFIDENTIALITY & RESPONSIBLE HANDLING (Dedicated Photo)
+            4. DATA CONFIDENTIALITY & RESPONSIBLE HANDLING
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-24 pt-8">
           <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden">
@@ -606,7 +610,7 @@ export default function WhyIdgenPage() {
         </section>
 
         {/* ─────────────────────────────────────────────────────────────
-            5. ONE IDENTITY PARTNER (Connected Products & Photos)
+            5. ONE IDENTITY PARTNER (Clear "IDGen" Complete Ecosystem Photo)
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-24 pt-8">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 lg:p-12 shadow-sm">
@@ -672,22 +676,22 @@ export default function WhyIdgenPage() {
                 </div>
               </div>
 
-              {/* Product Ecosystem Photo */}
+              {/* Complete IDGen Ecosystem Photo */}
               <div className="lg:col-span-5 relative">
                 <div className="rounded-3xl overflow-hidden border-2 border-slate-100 shadow-xl bg-slate-50">
                   <Image
-                    src="/images/complete-id-card-set-card-holder-hook-lanyard.jpg"
-                    alt="Complete ID card set with holder, hook and lanyard"
+                    src="/images/why-idgen-complete-ecosystem-branded.jpg"
+                    alt="IDGen complete identification set with holder, hook and lanyard"
                     width={600}
                     height={450}
                     className="w-full h-auto object-cover"
                   />
                   <div className="p-4 bg-white border-t border-slate-100 text-center">
                     <p className="text-xs font-bold text-slate-800">
-                      Coordinated Identification Ecosystem
+                      IDGen Coordinated Identification Ecosystem
                     </p>
                     <p className="text-[11px] text-slate-500">
-                      Matched colors, exact fittings, and uniform institutional branding
+                      IDGen Cards • Branded Lanyards • Acrylic Holders • Metal Hooks
                     </p>
                   </div>
                 </div>
@@ -697,16 +701,16 @@ export default function WhyIdgenPage() {
         </section>
 
         {/* ─────────────────────────────────────────────────────────────
-            6. PRODUCTION APPROACH — 9-STEP WORKFLOW & BANNER PHOTO
+            6. PRODUCTION APPROACH (Clear "IDGen" Batches & QA Banner)
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-24 pt-8">
           {/* Banner Photo */}
-          <div className="relative overflow-hidden rounded-3xl h-60 sm:h-72 mb-10 shadow-xl border border-slate-200 bg-slate-900">
+          <div className="relative overflow-hidden rounded-3xl h-64 sm:h-80 mb-10 shadow-xl border border-slate-200 bg-slate-900">
             <Image
-              src="/images/why-idgen-production-quality.jpg"
-              alt="IDGen production approach and quality checking"
+              src="/images/why-idgen-production-batches-branded.jpg"
+              alt="IDGen batch production and quality inspection"
               fill
-              className="object-cover opacity-90"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-center px-8 sm:px-12 text-white">
@@ -863,7 +867,7 @@ export default function WhyIdgenPage() {
         </section>
 
         {/* ─────────────────────────────────────────────────────────────
-            8. IDGEN STUDIO (Digital Workflow + Photo)
+            8. IDGEN STUDIO (Clear "IDGen Studio" Software & Mockup Photo)
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-24 pt-8">
           <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
@@ -937,15 +941,15 @@ export default function WhyIdgenPage() {
 
               <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-0 bg-slate-900">
                 <Image
-                  src="/images/why-idgen-studio-digital.jpg"
-                  alt="IDGen Studio digital data collection and live preview"
+                  src="/images/why-idgen-studio-workflow-branded.jpg"
+                  alt="IDGen Studio software workflow on laptop and mobile"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-950/80 lg:via-transparent lg:to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
                   <span className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
-                    Digital + Physical Sync
+                    IDGen Studio Platform
                   </span>
                   <p className="text-sm font-bold text-white mt-0.5">
                     Live ID Card Preview on Submission
