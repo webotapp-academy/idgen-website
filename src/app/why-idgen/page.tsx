@@ -24,6 +24,9 @@ import {
   Sparkles,
   Globe2,
   ChevronRight,
+  Check,
+  Clock,
+  CheckCircle,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -151,9 +154,15 @@ const responsiblePractices = [
   "Follow their applicable privacy and data-handling policies",
 ];
 
-const approachSteps = [
-  "Requirement", "Data", "Design", "Preview",
-  "Approval", "Production", "Quality Check", "Dispatch",
+const approachStepsDetailed = [
+  { step: "01", name: "Requirement" },
+  { step: "02", name: "Data" },
+  { step: "03", name: "Design" },
+  { step: "04", name: "Preview" },
+  { step: "05", name: "Approval" },
+  { step: "06", name: "Production" },
+  { step: "07", name: "Quality Check" },
+  { step: "08", name: "Dispatch" },
 ];
 
 const clientOrderSamples = [
@@ -167,133 +176,232 @@ const clientOrderSamples = [
 
 export default function WhyIdgenPage() {
   return (
-    <div className="bg-slate-50 text-slate-900 min-h-screen">
+    <div className="bg-[#f8fafc] text-slate-900 min-h-screen selection:bg-[#009fe3]/20 selection:text-[#009fe3]">
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION (Clear IDGen-Branded Luxury Flat-lay)
+          1. ULTRA-PREMIUM LUXURY LIGHT HERO SECTION
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/80 pt-10 pb-16 lg:pt-14 lg:pb-24">
-        {/* Subtle decorative grid */}
+      <section className="relative overflow-hidden bg-white border-b border-slate-200/90 pt-8 pb-16 lg:pt-14 lg:pb-24">
+        {/* Soft atmospheric gradient background */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,159,227,0.12),rgba(255,255,255,0))]" />
+        
+        {/* Geometric subtle mesh */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, #009fe3 1px, transparent 0)",
-            backgroundSize: "32px 32px",
+              "radial-gradient(circle at 1px 1px, #009fe3 1.5px, transparent 0)",
+            backgroundSize: "36px 36px",
           }}
         />
-        <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-sky-100/60 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            {/* Left Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-[#009fe3]/10 px-4 py-1.5 text-xs font-bold text-[#009fe3] uppercase tracking-wider shadow-sm">
-                <Sparkles className="h-3.5 w-3.5 text-[#009fe3]" />
-                <span>Identity Solutions Simplified</span>
+            {/* Left Column: Typography & Structured Workflow */}
+            <div className="lg:col-span-6 xl:col-span-7 space-y-7">
+              {/* Premium Pill Badge */}
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 to-sky-50 px-4 py-1.5 shadow-xs">
+                <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
+                <span className="text-xs font-extrabold text-[#009fe3] uppercase tracking-wider">
+                  Identity Solutions Simplified
+                </span>
+                <span className="h-3 w-px bg-[#009fe3]/30" />
+                <span className="text-[11px] font-semibold text-slate-600">Guwahati, Assam</span>
               </div>
 
+              {/* Headline */}
               <div className="space-y-3">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.08]">
+                <h1 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-black text-slate-950 tracking-tight leading-[1.06]">
                   Why Choose{" "}
-                  <span className="text-[#009fe3] underline decoration-[#009fe3]/30 underline-offset-8">
+                  <span className="bg-gradient-to-r from-[#009fe3] to-[#0077b6] bg-clip-text text-transparent">
                     IDGen?
                   </span>
                 </h1>
-                <p className="text-lg sm:text-xl font-bold text-slate-800">
-                  Built on Identification Experience Dating Back to 2014
-                </p>
+                <div className="flex items-center gap-3">
+                  <span className="h-1 w-10 rounded-full bg-[#009fe3]" />
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-800 tracking-tight">
+                    Built on Identification Experience Dating Back to 2014
+                  </p>
+                </div>
               </div>
 
-              <p className="text-base text-slate-600 leading-relaxed">
+              {/* Lead Paragraph */}
+              <p className="text-base sm:text-[17px] text-slate-600 leading-relaxed max-w-2xl">
                 IDGen is a Guwahati-based identity solutions company serving organizations across Assam and the wider Northeast India market. Our experience in ID card printing, identification products and organizational supply dates back to 2014.
               </p>
 
-              {/* Approach flow container */}
-              <div className="rounded-2xl border border-slate-200/90 bg-slate-50/80 p-5 shadow-sm">
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#009fe3]">Our Approach</p>
-                  <span className="text-[11px] text-slate-500 font-medium">8-Step Precision Workflow</span>
-                </div>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  {approachSteps.map((step, i, arr) => (
-                    <span key={step} className="flex items-center gap-1.5">
-                      <span className="rounded-lg bg-white text-slate-800 border border-slate-200 px-3 py-1 text-xs font-semibold shadow-xs">
-                        {step}
-                      </span>
-                      {i < arr.length - 1 && (
-                        <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-                      )}
+              {/* Architectural Approach Stepper Box */}
+              <div className="rounded-3xl border border-slate-200/90 bg-gradient-to-br from-slate-50/90 to-white p-6 shadow-sm">
+                <div className="flex items-center justify-between border-b border-slate-200/70 pb-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <Workflow className="h-4 w-4 text-[#009fe3]" />
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900">
+                      Our Approach
                     </span>
+                  </div>
+                  <span className="text-[11px] font-bold text-[#009fe3] bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200/60">
+                    8-Step Precision Workflow
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {approachStepsDetailed.map((item, idx) => (
+                    <div
+                      key={item.step}
+                      className="group relative flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-2.5 shadow-2xs hover:border-[#009fe3]/50 hover:shadow-xs transition-all"
+                    >
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#009fe3]/10 text-[10px] font-black text-[#009fe3] group-hover:bg-[#009fe3] group-hover:text-white transition-colors">
+                        {item.step}
+                      </span>
+                      <span className="text-xs font-bold text-slate-800 truncate">
+                        {item.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
+
+                <p className="mt-3.5 text-xs text-slate-500 italic">
+                  Our goal is simple: make identification projects easier to plan, manage and complete.
+                </p>
               </div>
 
-              <p className="text-xs text-slate-500 italic">
-                Our goal is simple: make identification projects easier to plan, manage and complete.
-              </p>
-
-              <div className="flex flex-wrap gap-3 pt-2">
+              {/* Call to Actions */}
+              <div className="flex flex-wrap items-center gap-4 pt-1">
                 <Link
                   href="/request-a-quote/"
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#009fe3]/25 transition-all hover:bg-[#0084be] hover:shadow-xl hover:shadow-[#009fe3]/35 hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#009fe3] to-[#0084be] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#009fe3]/30 transition-all hover:shadow-[#009fe3]/45 hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <span>Request a Quote</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/services/"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:border-[#009fe3] hover:text-[#009fe3] hover:bg-sky-50/50 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-bold text-slate-800 shadow-xs transition-all hover:border-[#009fe3] hover:text-[#009fe3] hover:bg-sky-50/40 hover:-translate-y-0.5"
                 >
                   <span>Explore Our Services</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right: Sharp Clear "IDGen" Branded Flat-lay Showcase */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
-                <Image
-                  src="/images/why-idgen-hero-branded.jpg"
-                  alt="IDGen branded ID cards and lanyards"
-                  width={750}
-                  height={500}
-                  className="w-full h-auto object-cover transform transition duration-500 hover:scale-[1.02]"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
-                      IDGen Identity Solutions
-                    </span>
+            {/* Right Column: Layered Luxury 3D Product Showcase */}
+            <div className="lg:col-span-6 xl:col-span-5 relative">
+              {/* Decorative background glow */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-sky-200/50 via-cyan-100/30 to-transparent rounded-[2.5rem] blur-2xl pointer-events-none" />
+
+              {/* Main Primary Showcase Card */}
+              <div className="relative rounded-[2rem] overflow-hidden border border-slate-200/80 bg-white shadow-2xl">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/why-idgen-cards-showcase-branded.jpg"
+                    alt="IDGen customized PVC identity cards showcase"
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  
+                  {/* Image Overlay Label */}
+                  <div className="absolute bottom-4 left-5 right-5 text-white">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                      <span className="text-[11px] font-black uppercase tracking-wider text-cyan-300">
+                        IDGen Official Identity Products
+                      </span>
+                    </div>
+                    <p className="text-sm font-bold text-white leading-snug">
+                      High-Precision PVC Cards &amp; Custom Lanyards
+                    </p>
                   </div>
-                  <p className="text-sm font-semibold text-white/95">
-                    Guwahati Facility • Complete ID Card &amp; Lanyard Sets
-                  </p>
+                </div>
+
+                {/* Sub-card features bar */}
+                <div className="p-4 bg-white grid grid-cols-2 gap-3 border-t border-slate-100">
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-slate-900 leading-tight">100% Verified</p>
+                      <p className="text-[10px] text-slate-500">Zero Error Check</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-8 w-8 rounded-lg bg-[#009fe3]/10 text-[#009fe3] flex items-center justify-center shrink-0">
+                      <Award className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-slate-900 leading-tight">Since 2014</p>
+                      <p className="text-[10px] text-slate-500">Northeast India</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Floating photo badge 1 */}
-              <div className="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-slate-200 shadow-xl p-3 max-w-xs">
-                <div className="relative h-14 w-14 rounded-xl overflow-hidden shrink-0 border border-slate-100 bg-slate-50">
+              {/* Floating Layered Ecosystem Inset (Bottom Right) */}
+              <div className="absolute -bottom-8 -right-4 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-slate-200/90 shadow-2xl p-3 max-w-[280px] z-20 backdrop-blur-md">
+                <div className="relative h-16 w-16 rounded-xl overflow-hidden shrink-0 border border-slate-100 bg-slate-50">
                   <Image
-                    src="/images/Sample Photos/school-student-pvc-id-card-idgen.jpg.png"
-                    alt="Sample Student ID Card"
+                    src="/images/why-idgen-complete-ecosystem-branded.jpg"
+                    alt="IDGen complete ecosystem"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div>
-                  <p className="text-xs font-extrabold text-slate-900">IDGen ID Cards</p>
-                  <p className="text-[11px] text-slate-500">Experience Since 2014</p>
+                  <p className="text-xs font-black text-slate-950">Modular ID Sets</p>
+                  <p className="text-[11px] text-slate-500">Cards • Lanyards • Holders</p>
+                  <span className="inline-block mt-0.5 text-[10px] font-bold text-[#009fe3]">
+                    Guwahati Facility →
+                  </span>
                 </div>
               </div>
 
-              {/* Floating photo badge 2 */}
-              <div className="absolute -top-4 -right-4 hidden sm:block rounded-2xl bg-[#009fe3] text-white shadow-lg p-3 text-center border-2 border-white">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-white/80">Experience</p>
-                <p className="text-xl font-black">10+ Years</p>
+              {/* Floating Live Badge (Top Left) */}
+              <div className="absolute -top-5 -left-5 hidden sm:flex items-center gap-2 rounded-full bg-slate-900 text-white shadow-xl px-4 py-2 border border-slate-800 z-20">
+                <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+                <span className="text-xs font-bold tracking-tight">Institutional &amp; Bulk Ready</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Trust Indicators Strip */}
+          <div className="mt-16 pt-8 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#009fe3]/10 text-[#009fe3] border border-[#009fe3]/20">
+                <Clock className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-base font-black text-slate-950">Dating to 2014</p>
+                <p className="text-xs text-slate-500">A decade of experience</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#009fe3]/10 text-[#009fe3] border border-[#009fe3]/20">
+                <Globe2 className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-base font-black text-slate-950">8 Northeast States</p>
+                <p className="text-xs text-slate-500">Regional supply footprint</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#009fe3]/10 text-[#009fe3] border border-[#009fe3]/20">
+                <Layers className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-base font-black text-slate-950">Digital + Physical</p>
+                <p className="text-xs text-slate-500">IDGen Studio workflow</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#009fe3]/10 text-[#009fe3] border border-[#009fe3]/20">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-base font-black text-slate-950">Data Confidentiality</p>
+                <p className="text-xs text-slate-500">Responsible data handling</p>
               </div>
             </div>
           </div>
@@ -357,8 +465,8 @@ export default function WhyIdgenPage() {
               {/* Crisp Clear "IDGen" Cards Showcase */}
               <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-white">
                 <Image
-                  src="/images/why-idgen-cards-showcase-branded.jpg"
-                  alt="Clear IDGen branded PVC ID cards"
+                  src="/images/why-idgen-hero-branded.jpg"
+                  alt="Clear IDGen branded PVC ID cards flatlay"
                   width={700}
                   height={450}
                   className="w-full h-auto object-cover"
