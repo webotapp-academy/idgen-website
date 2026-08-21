@@ -571,7 +571,7 @@ export default function HomePage() {
               <div className="group relative overflow-hidden rounded-3xl border border-surface-border shadow-2xl bg-background transition-all duration-300 hover:border-accent/40">
                 <div className="relative aspect-[4/3] w-full overflow-hidden img-shine bg-[#08111f]">
                   <Image
-                    src="/images/idgen-complete-id-card-identification-set.jpg"
+                    src="/images/idgen-modular-solutions-set-v3.jpg"
                     alt="Complete ID card identification set breakdown: ID Card, Holder, Hook, Lanyard, and Assembled Set"
                     title="IDGen Complete Identification Modular Breakdown"
                     fill
