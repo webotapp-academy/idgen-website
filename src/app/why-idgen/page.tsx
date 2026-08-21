@@ -24,8 +24,8 @@ import {
   Sparkles,
   Globe2,
   ChevronRight,
-  Check,
   Clock,
+  Palette,
   CheckCircle,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -178,15 +178,15 @@ export default function WhyIdgenPage() {
   return (
     <div className="bg-[#f8fafc] text-slate-900 min-h-screen selection:bg-[#009fe3]/20 selection:text-[#009fe3]">
       {/* ─────────────────────────────────────────────────────────────
-          1. ULTRA-PREMIUM LUXURY LIGHT HERO SECTION
+          1. ULTRA-PREMIUM VIBRANT LIGHT HERO (Perfect Height Alignment)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/90 pt-8 pb-16 lg:pt-14 lg:pb-24">
+      <section className="relative overflow-hidden bg-white border-b border-slate-200/90 pt-8 pb-14 lg:pt-12 lg:pb-20">
         {/* Soft atmospheric gradient background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,159,227,0.12),rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.14),rgba(255,255,255,0))]" />
         
-        {/* Geometric subtle mesh */}
+        {/* Subtle geometric dot grid */}
         <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0 opacity-[0.035] pointer-events-none"
           style={{
             backgroundImage:
               "radial-gradient(circle at 1px 1px, #009fe3 1.5px, transparent 0)",
@@ -195,43 +195,45 @@ export default function WhyIdgenPage() {
         />
 
         <Container className="relative z-10">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            {/* Left Column: Typography & Structured Workflow */}
-            <div className="lg:col-span-6 xl:col-span-7 space-y-7">
-              {/* Premium Pill Badge */}
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 to-sky-50 px-4 py-1.5 shadow-xs">
-                <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
-                <span className="text-xs font-extrabold text-[#009fe3] uppercase tracking-wider">
-                  Identity Solutions Simplified
-                </span>
-                <span className="h-3 w-px bg-[#009fe3]/30" />
-                <span className="text-[11px] font-semibold text-slate-600">Guwahati, Assam</span>
-              </div>
-
-              {/* Headline */}
-              <div className="space-y-3">
-                <h1 className="text-4xl sm:text-5xl lg:text-[3.75rem] font-black text-slate-950 tracking-tight leading-[1.06]">
-                  Why Choose{" "}
-                  <span className="bg-gradient-to-r from-[#009fe3] to-[#0077b6] bg-clip-text text-transparent">
-                    IDGen?
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+            {/* Left Column: Symmetrical & Balanced Content */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div className="space-y-5">
+                {/* Top Badge: Aligned with the Right Header Card */}
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white px-4 py-1.5 shadow-2xs">
+                  <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
+                  <span className="text-xs font-black text-[#009fe3] uppercase tracking-wider">
+                    Identity Solutions Simplified
                   </span>
-                </h1>
-                <div className="flex items-center gap-3">
-                  <span className="h-1 w-10 rounded-full bg-[#009fe3]" />
-                  <p className="text-lg sm:text-xl font-extrabold text-slate-800 tracking-tight">
-                    Built on Identification Experience Dating Back to 2014
-                  </p>
+                  <span className="h-3 w-px bg-[#009fe3]/30" />
+                  <span className="text-[11px] font-semibold text-slate-600">Guwahati, Assam</span>
                 </div>
-              </div>
 
-              {/* Lead Paragraph */}
-              <p className="text-base sm:text-[17px] text-slate-600 leading-relaxed max-w-2xl">
-                IDGen is a Guwahati-based identity solutions company serving organizations across Assam and the wider Northeast India market. Our experience in ID card printing, identification products and organizational supply dates back to 2014.
-              </p>
+                {/* Main Headline */}
+                <div className="space-y-2">
+                  <h1 className="text-4xl sm:text-5xl lg:text-[3.6rem] font-black text-slate-950 tracking-tight leading-[1.05]">
+                    Why Choose{" "}
+                    <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] bg-clip-text text-transparent">
+                      IDGen?
+                    </span>
+                  </h1>
+                  <div className="flex items-center gap-2.5 pt-1">
+                    <span className="h-1 w-8 rounded-full bg-[#009fe3]" />
+                    <p className="text-base sm:text-lg font-extrabold text-slate-800 tracking-tight">
+                      Built on Identification Experience Dating Back to 2014
+                    </p>
+                  </div>
+                </div>
+
+                {/* Lead Narrative */}
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
+                  IDGen is a Guwahati-based identity solutions company serving organizations across Assam and the wider Northeast India market. Our experience in ID card printing, identification products and organizational supply dates back to 2014.
+                </p>
+              </div>
 
               {/* Architectural Approach Stepper Box */}
-              <div className="rounded-3xl border border-slate-200/90 bg-gradient-to-br from-slate-50/90 to-white p-6 shadow-sm">
-                <div className="flex items-center justify-between border-b border-slate-200/70 pb-3 mb-4">
+              <div className="rounded-3xl border border-slate-200/90 bg-gradient-to-br from-slate-50/90 via-sky-50/30 to-white p-5 shadow-sm space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-200/70 pb-2.5">
                   <div className="flex items-center gap-2">
                     <Workflow className="h-4 w-4 text-[#009fe3]" />
                     <span className="text-xs font-extrabold uppercase tracking-wider text-slate-900">
@@ -243,11 +245,11 @@ export default function WhyIdgenPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {approachStepsDetailed.map((item, idx) => (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {approachStepsDetailed.map((item) => (
                     <div
                       key={item.step}
-                      className="group relative flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-2.5 shadow-2xs hover:border-[#009fe3]/50 hover:shadow-xs transition-all"
+                      className="group flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-2 shadow-2xs hover:border-[#009fe3]/50 hover:shadow-xs transition-all"
                     >
                       <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#009fe3]/10 text-[10px] font-black text-[#009fe3] group-hover:bg-[#009fe3] group-hover:text-white transition-colors">
                         {item.step}
@@ -259,76 +261,85 @@ export default function WhyIdgenPage() {
                   ))}
                 </div>
 
-                <p className="mt-3.5 text-xs text-slate-500 italic">
+                <p className="text-xs text-slate-500 italic pt-0.5">
                   Our goal is simple: make identification projects easier to plan, manage and complete.
                 </p>
               </div>
 
-              {/* Call to Actions */}
-              <div className="flex flex-wrap items-center gap-4 pt-1">
+              {/* Call to Actions: Aligned with the Bottom of the Right Image */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
                   href="/request-a-quote/"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#009fe3] to-[#0084be] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#009fe3]/30 transition-all hover:shadow-[#009fe3]/45 hover:-translate-y-0.5 active:translate-y-0"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#009fe3] to-[#0084be] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#009fe3]/25 transition-all hover:shadow-[#009fe3]/40 hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <span>Request a Quote</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/services/"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-bold text-slate-800 shadow-xs transition-all hover:border-[#009fe3] hover:text-[#009fe3] hover:bg-sky-50/40 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-bold text-slate-800 shadow-2xs transition-all hover:border-[#009fe3] hover:text-[#009fe3] hover:bg-sky-50/40 hover:-translate-y-0.5"
                 >
                   <span>Explore Our Services</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Column: Layered Luxury 3D Product Showcase */}
-            <div className="lg:col-span-6 xl:col-span-5 relative">
-              {/* Decorative background glow */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-sky-200/50 via-cyan-100/30 to-transparent rounded-[2.5rem] blur-2xl pointer-events-none" />
-
-              {/* Main Primary Showcase Card */}
-              <div className="relative rounded-[2rem] overflow-hidden border border-slate-200/80 bg-white shadow-2xl">
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+            {/* Right Column: Ultra-Vibrant Colorful Photo Showcase (Height Matched) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
+              {/* Primary Vibrant Photo Showcase Card */}
+              <div className="relative rounded-[2.25rem] overflow-hidden border-2 border-white bg-white shadow-2xl flex-1 min-h-[380px] sm:min-h-[420px] flex flex-col">
+                <div className="relative flex-1 w-full overflow-hidden bg-slate-950">
                   <Image
-                    src="/images/why-idgen-cards-showcase-branded.jpg"
-                    alt="IDGen customized PVC identity cards showcase"
+                    src="/images/why-idgen-hero-colorful.jpg"
+                    alt="Vibrant colorful IDGen identity cards and custom printed satin lanyards"
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  {/* Subtle top & bottom shadow gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/20" />
                   
-                  {/* Image Overlay Label */}
-                  <div className="absolute bottom-4 left-5 right-5 text-white">
+                  {/* Top Floating Badge */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-bold text-white border border-white/15 shadow-md">
+                      <Sparkles className="h-3 w-3 text-cyan-300 animate-pulse" />
+                      <span>IDGen Live Production</span>
+                    </div>
+                    <div className="rounded-full bg-[#009fe3] px-3 py-1 text-[11px] font-black text-white shadow-md">
+                      Guwahati Hub
+                    </div>
+                  </div>
+
+                  {/* Bottom Image Overlay Label */}
+                  <div className="absolute bottom-4 left-5 right-5 text-white z-10">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
                       <span className="text-[11px] font-black uppercase tracking-wider text-cyan-300">
-                        IDGen Official Identity Products
+                        Multi-Color Satin Lanyards &amp; PVC Cards
                       </span>
                     </div>
-                    <p className="text-sm font-bold text-white leading-snug">
-                      High-Precision PVC Cards &amp; Custom Lanyards
+                    <p className="text-sm font-extrabold text-white leading-snug">
+                      Royal Blue • Crimson Red • Onyx Black • Emerald Custom Finishes
                     </p>
                   </div>
                 </div>
 
-                {/* Sub-card features bar */}
-                <div className="p-4 bg-white grid grid-cols-2 gap-3 border-t border-slate-100">
-                  <div className="flex items-center gap-2.5">
-                    <div className="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                {/* Sub-Card Trust Indicators (Bottom of right card) */}
+                <div className="p-3.5 bg-white grid grid-cols-2 gap-2 border-t border-slate-100">
+                  <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-2 border border-slate-100">
+                    <div className="h-7 w-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="h-4 w-4" />
                     </div>
-                    <div>
-                      <p className="text-[11px] font-bold text-slate-900 leading-tight">100% Verified</p>
+                    <div className="truncate">
+                      <p className="text-[11px] font-bold text-slate-900 leading-tight">100% Quality Checked</p>
                       <p className="text-[10px] text-slate-500">Zero Error Check</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2.5">
-                    <div className="h-8 w-8 rounded-lg bg-[#009fe3]/10 text-[#009fe3] flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-2 border border-slate-100">
+                    <div className="h-7 w-7 rounded-lg bg-[#009fe3]/10 text-[#009fe3] flex items-center justify-center shrink-0">
                       <Award className="h-4 w-4" />
                     </div>
-                    <div>
+                    <div className="truncate">
                       <p className="text-[11px] font-bold text-slate-900 leading-tight">Since 2014</p>
                       <p className="text-[10px] text-slate-500">Northeast India</p>
                     </div>
@@ -336,35 +347,43 @@ export default function WhyIdgenPage() {
                 </div>
               </div>
 
-              {/* Floating Layered Ecosystem Inset (Bottom Right) */}
-              <div className="absolute -bottom-8 -right-4 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-slate-200/90 shadow-2xl p-3 max-w-[280px] z-20 backdrop-blur-md">
-                <div className="relative h-16 w-16 rounded-xl overflow-hidden shrink-0 border border-slate-100 bg-slate-50">
-                  <Image
-                    src="/images/why-idgen-complete-ecosystem-branded.jpg"
-                    alt="IDGen complete ecosystem"
-                    fill
-                    className="object-cover"
-                  />
+              {/* Secondary Inset Mini-Bar with Quick Product Preview */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xs">
+                  <div className="relative h-12 w-12 rounded-xl overflow-hidden shrink-0 border border-slate-100 bg-slate-50">
+                    <Image
+                      src="/images/why-idgen-cards-showcase-branded.jpg"
+                      alt="IDGen Cards"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="truncate">
+                    <p className="text-xs font-extrabold text-slate-900">Custom ID Cards</p>
+                    <p className="text-[10px] text-slate-500">Students &amp; Corporate</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-black text-slate-950">Modular ID Sets</p>
-                  <p className="text-[11px] text-slate-500">Cards • Lanyards • Holders</p>
-                  <span className="inline-block mt-0.5 text-[10px] font-bold text-[#009fe3]">
-                    Guwahati Facility →
-                  </span>
-                </div>
-              </div>
 
-              {/* Floating Live Badge (Top Left) */}
-              <div className="absolute -top-5 -left-5 hidden sm:flex items-center gap-2 rounded-full bg-slate-900 text-white shadow-xl px-4 py-2 border border-slate-800 z-20">
-                <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
-                <span className="text-xs font-bold tracking-tight">Institutional &amp; Bulk Ready</span>
+                <div className="flex items-center gap-3 rounded-2xl border border-slate-200/90 bg-white p-3 shadow-xs">
+                  <div className="relative h-12 w-12 rounded-xl overflow-hidden shrink-0 border border-slate-100 bg-slate-50">
+                    <Image
+                      src="/images/why-idgen-complete-ecosystem-branded.jpg"
+                      alt="IDGen Lanyards & Holders"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="truncate">
+                    <p className="text-xs font-extrabold text-slate-900">Lanyard Sets</p>
+                    <p className="text-[10px] text-slate-500">Holders &amp; Hooks</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Trust Indicators Strip */}
-          <div className="mt-16 pt-8 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-14 pt-8 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="flex items-center gap-3.5">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#009fe3]/10 text-[#009fe3] border border-[#009fe3]/20">
                 <Clock className="h-5 w-5" />
