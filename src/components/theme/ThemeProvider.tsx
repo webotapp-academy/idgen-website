@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useSyncExternalStore } from "react";
+import React, { createContext, useContext, useSyncExternalStore, useEffect } from "react";
 
 type Theme = "light" | "dark";
 
@@ -20,7 +20,8 @@ function subscribe(callback: () => void) {
 function getThemeSnapshot(): Theme {
   if (typeof window === "undefined") return "light";
   const saved = localStorage.getItem("idgen-theme") as Theme | null;
-  return saved === "dark" ? "dark" : "light";
+  if (saved === "dark") return "dark";
+  return "light"; // Default is light
 }
 
 function getServerSnapshot(): Theme {
@@ -29,6 +30,15 @@ function getServerSnapshot(): Theme {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore(subscribe, getThemeSnapshot, getServerSnapshot);
+
+  useEffect(() => {
+    // Ensure dark class is applied on initial render if theme is dark
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
     localStorage.setItem("idgen-theme", newTheme);

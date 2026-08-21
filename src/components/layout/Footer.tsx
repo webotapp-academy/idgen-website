@@ -31,49 +31,6 @@ export function Footer() {
         aria-hidden="true"
       />
 
-      {/* Top Call to Action Bar */}
-      <div className="border-b border-white/10 bg-white/[0.02] backdrop-blur-xl py-10 px-5 sm:px-8">
-        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-6 rounded-3xl border border-white/15 bg-gradient-to-r from-[#091527]/90 via-[#0a1b33]/90 to-[#091527]/90 p-6 sm:p-8 shadow-2xl">
-          <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
-              <Factory className="h-7 w-7" />
-            </div>
-            <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/30 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-cyan-300">
-                <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-                Guwahati Direct Factory
-              </span>
-              <h3 className="mt-1 text-xl sm:text-2xl font-extrabold text-white">
-                Need Bulk ID Cards, Lanyards or Custom Medals?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300">
-                Direct factory manufacturing, 10,000+ daily capacity & fast 24–48h dispatch across all 8 NE states.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <a
-              href="https://wa.me/919207012084?text=Hi%20IDGen%20Team%2C%20I%20would%20like%20to%20inquire%20about%20ID%20card%20and%20lanyard%20printing."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-5 py-3 text-xs font-bold text-emerald-300 shadow-lg hover:bg-emerald-900/80 hover:border-emerald-400 transition-all hover:scale-105"
-            >
-              <MessageSquare className="h-4 w-4 text-emerald-400" />
-              <span>Chat on WhatsApp</span>
-            </a>
-
-            <Link
-              href="/request-a-quote/"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-xs font-extrabold text-slate-950 shadow-xl shadow-cyan-500/25 hover:bg-accent-hover hover:text-white transition-all hover:scale-105 btn-glow"
-            >
-              <Sparkles className="h-4 w-4" />
-              <span>Get Wholesale Quote</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </div>
 
       {/* Main Footer Links Grid */}
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 py-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">

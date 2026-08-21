@@ -1,0 +1,5666 @@
+{
+  "relsMap": {
+    "rId11": "media/image5.jpg",
+    "rId10": "media/image2.jpg",
+    "rId13": "media/image3.jpg",
+    "rId12": "media/image4.jpg",
+    "rId1": "theme/theme1.xml",
+    "rId2": "settings.xml",
+    "rId3": "fontTable.xml",
+    "rId4": "numbering.xml",
+    "rId9": "media/image9.jpg",
+    "rId15": "media/image10.jpg",
+    "rId14": "media/image1.jpg",
+    "rId16": "media/image6.jpg",
+    "rId5": "styles.xml",
+    "rId6": "media/image7.jpg",
+    "rId7": "media/image8.jpg",
+    "rId8": "media/image12.jpg"
+  },
+  "lines": [
+    {
+      "text": "Home Page — IDGen",
+      "runs": [
+        {
+          "text": "Home Page — IDGen",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "URL: /",
+      "runs": [
+        {
+          "text": "URL: ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "H1",
+      "runs": [
+        {
+          "text": "H1",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Identity Solutions Simplified",
+      "runs": [
+        {
+          "text": "Identity Solutions Simplified",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Custom ID Cards, Printed Lanyards &amp; Complete Identification Solutions for Schools, Companies, Institutions &amp; Events",
+      "runs": [
+        {
+          "text": "Custom ID Cards, Printed Lanyards &amp; Complete Identification Solutions for Schools, Companies, Institutions &amp; Events",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen is a Guwahati-based identity solutions company helping organizations across Assam and Northeast India create professional identification systems—from ID card printing and custom lanyards to RFID cards, event badges, ID card accessories, and digital data collection through IDGen Studio.",
+      "runs": [
+        {
+          "text": "IDGen is a Guwahati-based identity solutions company helping organizations across Assam and Northeast India create professional identification systems—from ID card printing and custom lanyards to RFID cards, event badges, ID card accessories, and digital data collection through IDGen Studio.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image7.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "10,000+ IDs/day capacity*",
+      "runs": [
+        {
+          "text": "10,000+ IDs/day capacity*",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "72-hour dispatch",
+      "runs": [
+        {
+          "text": "72-hour dispatch",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Guwahati • Assam",
+      "runs": [
+        {
+          "text": "Guwahati • Assam",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete ID Solutions",
+      "runs": [
+        {
+          "text": "Complete ID Solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Cards, lanyards, holders, hooks &amp; RFID in one workflow.",
+      "runs": [
+        {
+          "text": "Cards, lanyards, holders, hooks &amp; RFID in one workflow.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Preview Before Printing",
+      "runs": [
+        {
+          "text": "Preview Before Printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Reduce errors with data review and approval.",
+      "runs": [
+        {
+          "text": "Reduce errors with data review and approval.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "*Production capacity depends on product type, personalization, quantity and project requirements.",
+      "runs": [
+        {
+          "text": "*Production capacity depends on product type, personalization, quantity and project requirements.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Trusted by Organizations That Need More Than Just an ID Card",
+      "runs": [
+        {
+          "text": "Trusted by Organizations That Need More Than Just an ID Card",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Most organizations don't simply need a card—they need a complete identification system.",
+      "runs": [
+        {
+          "text": "Most organizations don't simply need a card—they need a complete identification system.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Whether you're onboarding 2,000 students, issuing employee ID cards, organizing a conference, or replacing annual ID cards, IDGen helps coordinate the entire workflow from data collection to finished wearable identification.",
+      "runs": [
+        {
+          "text": "Whether you're onboarding 2,000 students, issuing employee ID cards, organizing a conference, or replacing annual ID cards, IDGen helps coordinate the entire workflow from data collection to finished wearable identification.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "One workflow. One partner.",
+      "runs": [
+        {
+          "text": "One workflow. One partner.",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Our Identity Services",
+      "runs": [
+        {
+          "text": "Our Identity Services",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen provides specialized identification services designed for institutions and organizations.",
+      "runs": [
+        {
+          "text": "IDGen provides specialized identification services designed for institutions and organizations.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image8.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "ID Card Printing",
+      "runs": [
+        {
+          "text": "ID Card Printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "PVC ID cards for schools, colleges, companies, hospitals and institutions.",
+      "runs": [
+        {
+          "text": "PVC ID cards for schools, colleges, companies, hospitals and institutions.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image12.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "Custom Printed Lanyards",
+      "runs": [
+        {
+          "text": "Custom Printed Lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Branded 20 mm lanyards with logos, colors and custom artwork.",
+      "runs": [
+        {
+          "text": "Branded 20 mm lanyards with logos, colors and custom artwork.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image9.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "Event Card Printing",
+      "runs": [
+        {
+          "text": "Event Card Printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Conference badges, delegate cards and event identification solutions.",
+      "runs": [
+        {
+          "text": "Conference badges, delegate cards and event identification solutions.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image2.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "RFID Card Printing",
+      "runs": [
+        {
+          "text": "RFID Card Printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Customized RFID cards compatible with attendance and access systems.",
+      "runs": [
+        {
+          "text": "Customized RFID cards compatible with attendance and access systems.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Internal links: /id-card-printing/, /custom-printed-lanyard-printing/, /event-card-printing/, /rfid-card-printing/",
+      "runs": [
+        {
+          "text": "Internal links: ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/custom-printed-lanyard-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/event-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/rfid-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete Identification Solutions",
+      "runs": [
+        {
+          "text": "Complete Identification Solutions",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Most customers don't order individual products—they order a complete wearable identification system.",
+      "runs": [
+        {
+          "text": "Most customers don't order individual products—they order a complete wearable identification system.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image5.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "Card Only",
+      "runs": [
+        {
+          "text": "Card Only",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Suitable when your organization already has holders and lanyards.",
+      "runs": [
+        {
+          "text": "Suitable when your organization already has holders and lanyards.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image7.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "Card + Holder",
+      "runs": [
+        {
+          "text": "Card + Holder",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Protects the card while keeping it professional and durable.",
+      "runs": [
+        {
+          "text": "Protects the card while keeping it professional and durable.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Wearable Identification",
+      "runs": [
+        {
+          "text": "Wearable Identification",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Card + Holder + Hook + Lanyard for daily student and employee use.",
+      "runs": [
+        {
+          "text": "Card + Holder + Hook + Lanyard for daily student and employee use.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image4.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "Complete Ready-to-Use Set",
+      "runs": [
+        {
+          "text": "Complete Ready-to-Use Set",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Ultrasonic sealing + holder + hook + lanyard for a finished wearable solution.",
+      "runs": [
+        {
+          "text": "Ultrasonic sealing + holder + hook + lanyard for a finished wearable solution.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Solutions for Every Organization",
+      "runs": [
+        {
+          "text": "Solutions for Every Organization",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Instead of creating separate product pages for every customer type, IDGen builds solutions around how organizations actually use identification.",
+      "runs": [
+        {
+          "text": "Instead of creating separate product pages for every customer type, IDGen builds solutions around how organizations actually use identification.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Students",
+      "runs": [
+        {
+          "text": "Students",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "School, college and university identification with bulk personalization.",
+      "runs": [
+        {
+          "text": "School, college and university identification with bulk personalization.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Companies",
+      "runs": [
+        {
+          "text": "Companies",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Employee, staff and visitor identification with branded accessories.",
+      "runs": [
+        {
+          "text": "Employee, staff and visitor identification with branded accessories.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Events",
+      "runs": [
+        {
+          "text": "Events",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Conference badges, delegate cards and one- or two-hook lanyard configurations.",
+      "runs": [
+        {
+          "text": "Conference badges, delegate cards and one- or two-hook lanyard configurations.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Institutions",
+      "runs": [
+        {
+          "text": "Institutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Hospitals, NGOs, government organizations and membership programmes.",
+      "runs": [
+        {
+          "text": "Hospitals, NGOs, government organizations and membership programmes.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Internal links: /student-id-card-printing/, /employee-id-card-printing/, /event-card-printing/",
+      "runs": [
+        {
+          "text": "Internal links: ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/student-id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/employee-id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/event-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio — Digital Identity Workflow",
+      "runs": [
+        {
+          "text": "IDGen Studio — Digital Identity Workflow",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Collecting photographs and personal information is often the most difficult part of an ID card project.",
+      "runs": [
+        {
+          "text": "Collecting photographs and personal information is often the most difficult part of an ID card project.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio connects digital data collection with physical ID card production.",
+      "runs": [
+        {
+          "text": "IDGen Studio connects digital data collection with physical ID card production.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image3.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "Digital Data Collection",
+      "runs": [
+        {
+          "text": "Digital Data Collection",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Collect names, photographs and ID information in one workflow.",
+      "runs": [
+        {
+          "text": "Collect names, photographs and ID information in one workflow.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Photo Management",
+      "runs": [
+        {
+          "text": "Photo Management",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Keep photographs connected to the correct student or employee record.",
+      "runs": [
+        {
+          "text": "Keep photographs connected to the correct student or employee record.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Card Preview",
+      "runs": [
+        {
+          "text": "Card Preview",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Review personalized cards before production begins.",
+      "runs": [
+        {
+          "text": "Review personalized cards before production begins.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Approval Workflow",
+      "runs": [
+        {
+          "text": "Approval Workflow",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Approve records before printing to reduce costly reprints.",
+      "runs": [
+        {
+          "text": "Approve records before printing to reduce costly reprints.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "See It Before We Print It.",
+      "runs": [
+        {
+          "text": "See It Before We Print It.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Internal link: /idgen-studio/",
+      "runs": [
+        {
+          "text": "Internal link: ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/idgen-studio/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Why Organizations Choose IDGen",
+      "runs": [
+        {
+          "text": "Why Organizations Choose IDGen",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Identity-Focused Business",
+      "runs": [
+        {
+          "text": "Identity-Focused Business",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Specialized in organizational identification systems.",
+      "runs": [
+        {
+          "text": "Specialized in organizational identification systems.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Structured Workflow",
+      "runs": [
+        {
+          "text": "Structured Workflow",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Requirement → Preview → Production → Quality → Dispatch.",
+      "runs": [
+        {
+          "text": "Requirement → Preview → Production → Quality → Dispatch.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Bulk Capability",
+      "runs": [
+        {
+          "text": "Bulk Capability",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Designed for institutional and high-volume projects.",
+      "runs": [
+        {
+          "text": "Designed for institutional and high-volume projects.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete ID Solutions",
+      "runs": [
+        {
+          "text": "Complete ID Solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Cards, lanyards, holders, hooks and RFID in one workflow.",
+      "runs": [
+        {
+          "text": "Cards, lanyards, holders, hooks and RFID in one workflow.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Preview Before Printing",
+      "runs": [
+        {
+          "text": "Preview Before Printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Reduce data and personalization errors before production.",
+      "runs": [
+        {
+          "text": "Reduce data and personalization errors before production.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Guwahati-Based Service",
+      "runs": [
+        {
+          "text": "Guwahati-Based Service",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Serving Assam and the wider Northeast India market.",
+      "runs": [
+        {
+          "text": "Serving Assam and the wider Northeast India market.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Internal link: /why-idgen/",
+      "runs": [
+        {
+          "text": "Internal link: ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/why-idgen/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen at a Glance",
+      "runs": [
+        {
+          "text": "IDGen at a Glance",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Based in Guwahati",
+      "runs": [
+        {
+          "text": "Based in Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Serving organizations across Assam and Northeast India.",
+      "runs": [
+        {
+          "text": "Serving organizations across Assam and Northeast India.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Up to 10,000 IDs/Day",
+      "runs": [
+        {
+          "text": "Up to 10,000 IDs/Day",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Production capability varies by product and project requirements.",
+      "runs": [
+        {
+          "text": "Production capability varies by product and project requirements.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "72-Hour Dispatch",
+      "runs": [
+        {
+          "text": "72-Hour Dispatch",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "After approval and payment, subject to applicable order conditions.",
+      "runs": [
+        {
+          "text": "After approval and payment, subject to applicable order conditions.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Institutional Focus",
+      "runs": [
+        {
+          "text": "Institutional Focus",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Schools, colleges, companies, hospitals, NGOs and events.",
+      "runs": [
+        {
+          "text": "Schools, colleges, companies, hospitals, NGOs and events.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Serving Assam &amp; Northeast India",
+      "runs": [
+        {
+          "text": "Serving Assam &amp; Northeast India",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen is based in Guwahati, Assam and provides identification solutions across Assam and the wider Northeast India region.",
+      "runs": [
+        {
+          "text": "IDGen is based in Guwahati, Assam and provides identification solutions across Assam and the wider Northeast India region.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image1.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image10.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "",
+      "runs": [],
+      "images": [
+        "media/image6.jpg"
+      ],
+      "style": ""
+    },
+    {
+      "text": "4",
+      "runs": [
+        {
+          "text": "4",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Priority Service Areas",
+      "runs": [
+        {
+          "text": "Priority Service Areas",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Guwahati",
+      "runs": [
+        {
+          "text": "Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Jorhat",
+      "runs": [
+        {
+          "text": "Jorhat",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Dibrugarh",
+      "runs": [
+        {
+          "text": "Dibrugarh",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Silchar",
+      "runs": [
+        {
+          "text": "Silchar",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Tezpur",
+      "runs": [
+        {
+          "text": "Tezpur",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Nagaon",
+      "runs": [
+        {
+          "text": "Nagaon",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Tinsukia",
+      "runs": [
+        {
+          "text": "Tinsukia",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Sivasagar",
+      "runs": [
+        {
+          "text": "Sivasagar",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Golaghat",
+      "runs": [
+        {
+          "text": "Golaghat",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Barpeta",
+      "runs": [
+        {
+          "text": "Barpeta",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Internal links: /service-areas/assam/, /service-areas/assam/guwahati/",
+      "runs": [
+        {
+          "text": "Internal links: ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/service-areas/assam/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/service-areas/assam/guwahati/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Frequently Asked Questions",
+      "runs": [
+        {
+          "text": "Frequently Asked Questions",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "What does IDGen do?",
+      "runs": [
+        {
+          "text": "What does IDGen do?",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen provides customized ID cards, printed lanyards, RFID cards, event badges, ID card accessories and digital identity workflows for organizations.",
+      "runs": [
+        {
+          "text": "IDGen provides customized ID cards, printed lanyards, RFID cards, event badges, ID card accessories and digital identity workflows for organizations.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Where is IDGen located?",
+      "runs": [
+        {
+          "text": "Where is IDGen located?",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen is based in Guwahati, Assam, and serves customers across Northeast India.",
+      "runs": [
+        {
+          "text": "IDGen is based in Guwahati, Assam, and serves customers across Northeast India.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Can IDGen handle bulk ID card printing?",
+      "runs": [
+        {
+          "text": "Can IDGen handle bulk ID card printing?",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Yes. Bulk ID card printing is supported for schools, colleges, companies, institutions and events through the main ID card printing service.",
+      "runs": [
+        {
+          "text": "Yes. Bulk ID card printing is supported for schools, colleges, companies, institutions and events through the main ID card printing service.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Can I order a complete ID card set?",
+      "runs": [
+        {
+          "text": "Can I order a complete ID card set?",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Yes. You can combine ID cards, holders, hooks, ultrasonic sealing and custom printed lanyards into one complete wearable identification solution.",
+      "runs": [
+        {
+          "text": "Yes. You can combine ID cards, holders, hooks, ultrasonic sealing and custom printed lanyards into one complete wearable identification solution.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Does IDGen provide data collection?",
+      "runs": [
+        {
+          "text": "Does IDGen provide data collection?",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Yes. IDGen Studio supports digital data collection, photograph management, card preview and approval before printing.",
+      "runs": [
+        {
+          "text": "Yes. IDGen Studio supports digital data collection, photograph management, card preview and approval before printing.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Ready to Build Your Identification System?",
+      "runs": [
+        {
+          "text": "Ready to Build Your Identification System?",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Whether you need student ID cards, employee identification, RFID cards, event badges or complete wearable ID solutions, IDGen helps you coordinate the entire workflow from data to dispatch.",
+      "runs": [
+        {
+          "text": "Whether you need student ID cards, employee identification, RFID cards, event badges or complete wearable ID solutions, IDGen helps you coordinate the entire workflow from data to dispatch.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Tell us your requirement",
+      "runs": [
+        {
+          "text": "Tell us your requirement",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "We'll help you choose the right products, accessories and workflow for your organization.",
+      "runs": [
+        {
+          "text": "We'll help you choose the right products, accessories and workflow for your organization.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Request a Quote",
+      "runs": [
+        {
+          "text": "Request a Quote",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "WhatsApp IDGen",
+      "runs": [
+        {
+          "text": "WhatsApp IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Contact Our Team",
+      "runs": [
+        {
+          "text": "Contact Our Team",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "SEO Package",
+      "runs": [
+        {
+          "text": "SEO Package",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "URL",
+      "runs": [
+        {
+          "text": "URL",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "/",
+      "runs": [
+        {
+          "text": "/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "SEO Title",
+      "runs": [
+        {
+          "text": "SEO Title",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "ID Card Printing &amp; Identity Solutions in Guwahati | IDGen",
+      "runs": [
+        {
+          "text": "ID Card Printing &amp; Identity Solutions in Guwahati | IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Meta Description",
+      "runs": [
+        {
+          "text": "Meta Description",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen provides ID card printing, custom lanyards, RFID cards, event badges and complete identity solutions for schools, colleges, companies and organizations across Assam and Northeast India.",
+      "runs": [
+        {
+          "text": "IDGen provides ID card printing, custom lanyards, RFID cards, event badges and complete identity solutions for schools, colleges, companies and organizations across Assam and Northeast India.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Primary Keywords",
+      "runs": [
+        {
+          "text": "Primary Keywords",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Identity solutions",
+      "runs": [
+        {
+          "text": "Identity solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID card printing",
+      "runs": [
+        {
+          "text": "ID card printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom printed lanyards",
+      "runs": [
+        {
+          "text": "Custom printed lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "RFID card printing",
+      "runs": [
+        {
+          "text": "RFID card printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Event card printing",
+      "runs": [
+        {
+          "text": "Event card printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID card accessories",
+      "runs": [
+        {
+          "text": "ID card accessories",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Student ID cards",
+      "runs": [
+        {
+          "text": "Student ID cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Employee ID cards",
+      "runs": [
+        {
+          "text": "Employee ID cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Guwahati",
+      "runs": [
+        {
+          "text": "Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Assam",
+      "runs": [
+        {
+          "text": "Assam",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Schema to Implement",
+      "runs": [
+        {
+          "text": "Schema to Implement",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Organization",
+      "runs": [
+        {
+          "text": "Organization",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "LocalBusiness",
+      "runs": [
+        {
+          "text": "LocalBusiness",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "WebSite",
+      "runs": [
+        {
+          "text": "WebSite",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "FAQPage",
+      "runs": [
+        {
+          "text": "FAQPage",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "BreadcrumbList",
+      "runs": [
+        {
+          "text": "BreadcrumbList",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Homepage Media Checklist",
+      "runs": [
+        {
+          "text": "Homepage Media Checklist",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Section",
+      "runs": [
+        {
+          "text": "Section",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Media Recommendation",
+      "runs": [
+        {
+          "text": "Media Recommendation",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Hero",
+      "runs": [
+        {
+          "text": "Hero",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Real IDGen finished ID-card set photo",
+      "runs": [
+        {
+          "text": "Real IDGen finished ID-card set photo",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Intro",
+      "runs": [
+        {
+          "text": "Intro",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "30–60 sec workflow video",
+      "runs": [
+        {
+          "text": "30–60 sec workflow video",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services",
+      "runs": [
+        {
+          "text": "Services",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Product photography (4 cards)",
+      "runs": [
+        {
+          "text": "Product photography (4 cards)",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete Solutions",
+      "runs": [
+        {
+          "text": "Complete Solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Assembly infographic",
+      "runs": [
+        {
+          "text": "Assembly infographic",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio",
+      "runs": [
+        {
+          "text": "IDGen Studio",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Software screenshot",
+      "runs": [
+        {
+          "text": "Software screenshot",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Trust",
+      "runs": [
+        {
+          "text": "Trust",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Real team / finished orders",
+      "runs": [
+        {
+          "text": "Real team / finished orders",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Location",
+      "runs": [
+        {
+          "text": "Location",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Guwahati / Assam imagery",
+      "runs": [
+        {
+          "text": "Guwahati / Assam imagery",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Content ownership (avoid duplication)",
+      "runs": [
+        {
+          "text": "Content ownership (avoid duplication)",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Topic",
+      "runs": [
+        {
+          "text": "Topic",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Owner Page",
+      "runs": [
+        {
+          "text": "Owner Page",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID card printing",
+      "runs": [
+        {
+          "text": "ID card printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/id-card-printing/",
+      "runs": [
+        {
+          "text": "/id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Student solutions",
+      "runs": [
+        {
+          "text": "Student solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/student-id-card-printing/",
+      "runs": [
+        {
+          "text": "/student-id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Employee solutions",
+      "runs": [
+        {
+          "text": "Employee solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/employee-id-card-printing/",
+      "runs": [
+        {
+          "text": "/employee-id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Lanyard printing",
+      "runs": [
+        {
+          "text": "Lanyard printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/custom-printed-lanyard-printing/",
+      "runs": [
+        {
+          "text": "/custom-printed-lanyard-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Event cards",
+      "runs": [
+        {
+          "text": "Event cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/event-card-printing/",
+      "runs": [
+        {
+          "text": "/event-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "RFID",
+      "runs": [
+        {
+          "text": "RFID",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/rfid-card-printing/",
+      "runs": [
+        {
+          "text": "/rfid-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Ultrasonic sealing",
+      "runs": [
+        {
+          "text": "Ultrasonic sealing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/ultrasonic-sealing/",
+      "runs": [
+        {
+          "text": "/ultrasonic-sealing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Trust &amp; quality",
+      "runs": [
+        {
+          "text": "Trust &amp; quality",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/why-idgen/",
+      "runs": [
+        {
+          "text": "/why-idgen/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Digital workflow",
+      "runs": [
+        {
+          "text": "Digital workflow",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/idgen-studio/",
+      "runs": [
+        {
+          "text": "/idgen-studio/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Pricing",
+      "runs": [
+        {
+          "text": "Pricing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/pricing/",
+      "runs": [
+        {
+          "text": "/pricing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "This homepage acts as the authority hub for the entire IDGen website rather than trying to rank for every keyword itself.",
+      "runs": [
+        {
+          "text": "This homepage acts as the authority hub for the entire IDGen website rather than trying to rank for every keyword itself.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "also mention what image file name and alt text i have to add in files",
+      "runs": [
+        {
+          "text": "also mention what image file name and alt text i have to add in files",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Absolutely. For IDGen, I would treat image filenames + ALT text + captions + placement as part of the SEO/GEO/AEO architecture, not as an afterthought.",
+      "runs": [
+        {
+          "text": "Absolutely. For IDGen, I would treat ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "image filenames + ALT text + captions + placement",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " as part of the SEO/GEO/AEO architecture, not as an afterthought.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "For the homepage, don't use generic filenames such as:",
+      "runs": [
+        {
+          "text": "For the homepage, don't use generic filenames such as:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IMG_1234.jpg id-card-final.jpg banner1.jpg",
+      "runs": [
+        {
+          "text": "IMG_1234.jpg",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": " ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "id-card-final.jpg",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": " ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "banner1.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Use descriptive, human-readable filenames that match the image's actual subject.",
+      "runs": [
+        {
+          "text": "Use descriptive, human-readable filenames that match the image's actual subject.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Homepage Image SEO Plan",
+      "runs": [
+        {
+          "text": "Homepage Image SEO Plan",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading2"
+    },
+    {
+      "text": "#",
+      "runs": [
+        {
+          "text": "#",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Homepage location",
+      "runs": [
+        {
+          "text": "Homepage location",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Recommended image",
+      "runs": [
+        {
+          "text": "Recommended image",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "File name",
+      "runs": [
+        {
+          "text": "File name",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT text",
+      "runs": [
+        {
+          "text": "ALT text",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Caption / purpose",
+      "runs": [
+        {
+          "text": "Caption / purpose",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "1",
+      "runs": [
+        {
+          "text": "1",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Hero",
+      "runs": [
+        {
+          "text": "Hero",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Real IDGen ID card + lanyard + holder set",
+      "runs": [
+        {
+          "text": "Real IDGen ID card + lanyard + holder set",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-complete-id-card-identification-set.jpg",
+      "runs": [
+        {
+          "text": "idgen-complete-id-card-identification-set.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete ID card identification set with ID card, holder, hook and custom printed lanyard",
+      "runs": [
+        {
+          "text": "Complete ID card identification set with ID card, holder, hook and custom printed lanyard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen complete identification solution",
+      "runs": [
+        {
+          "text": "IDGen complete identification solution",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "2",
+      "runs": [
+        {
+          "text": "2",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Hero/intro",
+      "runs": [
+        {
+          "text": "Hero/intro",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen production / finished products",
+      "runs": [
+        {
+          "text": "IDGen production / finished products",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-id-card-printing-identity-solutions-guwahati.jpg",
+      "runs": [
+        {
+          "text": "idgen-id-card-printing-identity-solutions-guwahati.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen identity products and ID card printing solutions in Guwahati",
+      "runs": [
+        {
+          "text": "IDGen identity products and ID card printing solutions in Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Identity solutions from IDGen",
+      "runs": [
+        {
+          "text": "Identity solutions from IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "3",
+      "runs": [
+        {
+          "text": "3",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services — ID cards",
+      "runs": [
+        {
+          "text": "Services — ID cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Student/employee PVC cards",
+      "runs": [
+        {
+          "text": "Student/employee PVC cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-pvc-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-pvc-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom PVC ID card printing by IDGen",
+      "runs": [
+        {
+          "text": "Custom PVC ID card printing by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Customized PVC identification cards",
+      "runs": [
+        {
+          "text": "Customized PVC identification cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "4",
+      "runs": [
+        {
+          "text": "4",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services — lanyards",
+      "runs": [
+        {
+          "text": "Services — lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Printed lanyards",
+      "runs": [
+        {
+          "text": "Printed lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-printed-id-card-lanyards-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-printed-id-card-lanyards-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom printed ID card lanyards by IDGen",
+      "runs": [
+        {
+          "text": "Custom printed ID card lanyards by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Branded 20 mm ID card lanyards",
+      "runs": [
+        {
+          "text": "Branded 20 mm ID card lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "5",
+      "runs": [
+        {
+          "text": "5",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services — events",
+      "runs": [
+        {
+          "text": "Services — events",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Event cards with lanyards",
+      "runs": [
+        {
+          "text": "Event cards with lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "event-card-printing-lanyard-idgen.jpg",
+      "runs": [
+        {
+          "text": "event-card-printing-lanyard-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom event cards with printed lanyards by IDGen",
+      "runs": [
+        {
+          "text": "Custom event cards with printed lanyards by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Event identification solutions",
+      "runs": [
+        {
+          "text": "Event identification solutions",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "6",
+      "runs": [
+        {
+          "text": "6",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services — RFID",
+      "runs": [
+        {
+          "text": "Services — RFID",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "RFID cards",
+      "runs": [
+        {
+          "text": "RFID cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "rfid-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "rfid-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Customized RFID card printing by IDGen",
+      "runs": [
+        {
+          "text": "Customized RFID card printing by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "RFID identification cards",
+      "runs": [
+        {
+          "text": "RFID identification cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "7",
+      "runs": [
+        {
+          "text": "7",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete identification",
+      "runs": [
+        {
+          "text": "Complete identification",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Card → holder → hook → lanyard",
+      "runs": [
+        {
+          "text": "Card → holder → hook → lanyard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "complete-id-card-set-card-holder-hook-lanyard.jpg",
+      "runs": [
+        {
+          "text": "complete-id-card-set-card-holder-hook-lanyard.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete ID card set with card holder hook and lanyard",
+      "runs": [
+        {
+          "text": "Complete ID card set with card holder hook and lanyard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete wearable identification",
+      "runs": [
+        {
+          "text": "Complete wearable identification",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "8",
+      "runs": [
+        {
+          "text": "8",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Digital workflow",
+      "runs": [
+        {
+          "text": "Digital workflow",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio dashboard",
+      "runs": [
+        {
+          "text": "IDGen Studio dashboard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-studio-id-card-data-collection.jpg",
+      "runs": [
+        {
+          "text": "idgen-studio-id-card-data-collection.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio digital ID card data collection and preview",
+      "runs": [
+        {
+          "text": "IDGen Studio digital ID card data collection and preview",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Digital identity workflow",
+      "runs": [
+        {
+          "text": "Digital identity workflow",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "9",
+      "runs": [
+        {
+          "text": "9",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Trust section",
+      "runs": [
+        {
+          "text": "Trust section",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Actual IDGen production/team photo",
+      "runs": [
+        {
+          "text": "Actual IDGen production/team photo",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-identity-products-production-guwahati.jpg",
+      "runs": [
+        {
+          "text": "idgen-identity-products-production-guwahati.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen identity product production and quality workflow in Guwahati",
+      "runs": [
+        {
+          "text": "IDGen identity product production and quality workflow in Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen production and quality workflow",
+      "runs": [
+        {
+          "text": "IDGen production and quality workflow",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "10",
+      "runs": [
+        {
+          "text": "10",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Northeast section",
+      "runs": [
+        {
+          "text": "Northeast section",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Assam/Guwahati image",
+      "runs": [
+        {
+          "text": "Assam/Guwahati image",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-id-card-solutions-guwahati-assam.jpg",
+      "runs": [
+        {
+          "text": "idgen-id-card-solutions-guwahati-assam.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID card and identity solutions by IDGen in Guwahati Assam",
+      "runs": [
+        {
+          "text": "ID card and identity solutions by IDGen in Guwahati Assam",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Serving Assam and Northeast India",
+      "runs": [
+        {
+          "text": "Serving Assam and Northeast India",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "One important point",
+      "runs": [
+        {
+          "text": "One important point",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Do not force keywords into ALT text.",
+      "runs": [
+        {
+          "text": "Do not force keywords into ALT text.",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "For example, don't write:",
+      "runs": [
+        {
+          "text": "For example, don't write:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "best cheap ID card printing company Guwahati Assam student employee PVC RFID lanyard",
+      "runs": [
+        {
+          "text": "best cheap ID card printing company Guwahati Assam student employee PVC RFID lanyard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "That's poor accessibility and looks like keyword stuffing.",
+      "runs": [
+        {
+          "text": "That's poor accessibility and looks like keyword stuffing.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Instead:",
+      "runs": [
+        {
+          "text": "Instead:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom PVC ID card printing by IDGen",
+      "runs": [
+        {
+          "text": "Custom PVC ID card printing by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "is much better.",
+      "runs": [
+        {
+          "text": "is much better.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Hero Image — Most Important",
+      "runs": [
+        {
+          "text": "Hero Image — Most Important",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "I would make your hero image a real IDGen photograph, not a stock image.",
+      "runs": [
+        {
+          "text": "I would make your ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "hero image a real IDGen photograph",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ", not a stock image.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "File",
+      "runs": [
+        {
+          "text": "File",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "idgen-complete-id-card-identification-set.jpg",
+      "runs": [
+        {
+          "text": "idgen-complete-id-card-identification-set.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT",
+      "runs": [
+        {
+          "text": "ALT",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Complete ID card identification set with ID card, holder, hook and custom printed lanyard",
+      "runs": [
+        {
+          "text": "Complete ID card identification set with ID card, holder, hook and custom printed lanyard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Image title",
+      "runs": [
+        {
+          "text": "Image title",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen Complete ID Card Identification Set",
+      "runs": [
+        {
+          "text": "IDGen Complete ID Card Identification Set",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Caption",
+      "runs": [
+        {
+          "text": "Caption",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Complete identification solutions from IDGen",
+      "runs": [
+        {
+          "text": "Complete identification solutions from IDGen",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "If possible, photograph your actual products professionally:",
+      "runs": [
+        {
+          "text": "If possible, photograph your actual products professionally:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "PVC ID Card + Holder + Hook + 20 mm Printed Lanyard",
+      "runs": [
+        {
+          "text": "PVC ID Card + Holder + Hook + 20 mm Printed Lanyard",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "This gives Google/AI systems a much stronger connection between IDGen → identification products → physical business.",
+      "runs": [
+        {
+          "text": "This gives Google/AI systems a much stronger connection between ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "IDGen → identification products → physical business",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ".",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services Section",
+      "runs": [
+        {
+          "text": "Services Section",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "ID Card Printing",
+      "runs": [
+        {
+          "text": "ID Card Printing",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "File:",
+      "runs": [
+        {
+          "text": "File:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-pvc-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-pvc-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT:",
+      "runs": [
+        {
+          "text": "ALT:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom PVC ID card printing by IDGen",
+      "runs": [
+        {
+          "text": "Custom PVC ID card printing by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Don't use:",
+      "runs": [
+        {
+          "text": "Don't use:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "id-card-printing-guwahati-assam-cheap-best.jpg",
+      "runs": [
+        {
+          "text": "id-card-printing-guwahati-assam-cheap-best.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom Lanyards",
+      "runs": [
+        {
+          "text": "Custom Lanyards",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "File:",
+      "runs": [
+        {
+          "text": "File:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-printed-id-card-lanyards-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-printed-id-card-lanyards-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT:",
+      "runs": [
+        {
+          "text": "ALT:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom printed ID card lanyards by IDGen",
+      "runs": [
+        {
+          "text": "Custom printed ID card lanyards by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Event Cards",
+      "runs": [
+        {
+          "text": "Event Cards",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "File:",
+      "runs": [
+        {
+          "text": "File:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "event-card-printing-lanyard-idgen.jpg",
+      "runs": [
+        {
+          "text": "event-card-printing-lanyard-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT:",
+      "runs": [
+        {
+          "text": "ALT:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Custom event cards with printed lanyards by IDGen",
+      "runs": [
+        {
+          "text": "Custom event cards with printed lanyards by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Remember that the event page should contain the detailed explanation of event-card configurations. The homepage only introduces it.",
+      "runs": [
+        {
+          "text": "Remember that the ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "event page",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " should contain the detailed explanation of event-card configurations. The homepage only introduces it.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "RFID",
+      "runs": [
+        {
+          "text": "RFID",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "File:",
+      "runs": [
+        {
+          "text": "File:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "rfid-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "rfid-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT:",
+      "runs": [
+        {
+          "text": "ALT:",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Customized RFID card printing by IDGen",
+      "runs": [
+        {
+          "text": "Customized RFID card printing by IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "The detailed RFID information belongs on:",
+      "runs": [
+        {
+          "text": "The detailed RFID information belongs on:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/rfid-card-printing/",
+      "runs": [
+        {
+          "text": "/rfid-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete Identification Section",
+      "runs": [
+        {
+          "text": "Complete Identification Section",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "This is an important image for your website because it visually communicates one of IDGen's differentiators.",
+      "runs": [
+        {
+          "text": "This is an important image for your website because it visually communicates one of IDGen's differentiators.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Photograph",
+      "runs": [
+        {
+          "text": "Photograph",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Arrange:",
+      "runs": [
+        {
+          "text": "Arrange:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID Card → Holder → Hook → Lanyard",
+      "runs": [
+        {
+          "text": "ID Card → Holder → Hook → Lanyard",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "and, where appropriate, show the assembled version.",
+      "runs": [
+        {
+          "text": "and, where appropriate, show the assembled version.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "File",
+      "runs": [
+        {
+          "text": "File",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "complete-id-card-set-card-holder-hook-lanyard.jpg",
+      "runs": [
+        {
+          "text": "complete-id-card-set-card-holder-hook-lanyard.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT",
+      "runs": [
+        {
+          "text": "ALT",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Complete ID card set with card holder hook and lanyard",
+      "runs": [
+        {
+          "text": "Complete ID card set with card holder hook and lanyard",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Caption",
+      "runs": [
+        {
+          "text": "Caption",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Build your identification setup from card to complete wearable ID.",
+      "runs": [
+        {
+          "text": "Build your identification setup from card to complete wearable ID.",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Then link to:",
+      "runs": [
+        {
+          "text": "Then link to:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/id-card-printing/",
+      "runs": [
+        {
+          "text": "/id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "and the appropriate accessory/service pages.",
+      "runs": [
+        {
+          "text": "and the appropriate accessory/service pages.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio",
+      "runs": [
+        {
+          "text": "IDGen Studio",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "For this section, use an actual screenshot of your software rather than a generated stock image.",
+      "runs": [
+        {
+          "text": "For this section, ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "use an actual screenshot of your software",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " rather than a generated stock image.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "File",
+      "runs": [
+        {
+          "text": "File",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "idgen-studio-id-card-data-collection.jpg",
+      "runs": [
+        {
+          "text": "idgen-studio-id-card-data-collection.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT",
+      "runs": [
+        {
+          "text": "ALT",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen Studio digital ID card data collection and preview",
+      "runs": [
+        {
+          "text": "IDGen Studio digital ID card data collection and preview",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Caption",
+      "runs": [
+        {
+          "text": "Caption",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Collect, review and prepare identification data before printing.",
+      "runs": [
+        {
+          "text": "Collect, review and prepare identification data before printing.",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Link:",
+      "runs": [
+        {
+          "text": "Link:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/idgen-studio/",
+      "runs": [
+        {
+          "text": "/idgen-studio/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "This is particularly useful for your GEO/AEO strategy, because you're establishing a clear relationship:",
+      "runs": [
+        {
+          "text": "This is particularly useful for your ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "GEO/AEO strategy",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ", because you're establishing a clear relationship:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen → physical identification → digital identity workflow",
+      "runs": [
+        {
+          "text": "IDGen → physical identification → digital identity workflow",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Trust / Production Image",
+      "runs": [
+        {
+          "text": "Trust / Production Image",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "I strongly recommend using real photographs from your business here.",
+      "runs": [
+        {
+          "text": "I strongly recommend using ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "real photographs from your business",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " here.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "If you don't want machinery visible, don't photograph machinery. You can photograph:",
+      "runs": [
+        {
+          "text": "If you don't want machinery visible, don't photograph machinery. You can photograph:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Finished cards",
+      "runs": [
+        {
+          "text": "Finished cards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Packed orders",
+      "runs": [
+        {
+          "text": "Packed orders",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Lanyards",
+      "runs": [
+        {
+          "text": "Lanyards",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Card sets",
+      "runs": [
+        {
+          "text": "Card sets",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Staff checking products",
+      "runs": [
+        {
+          "text": "Staff checking products",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Quality checking",
+      "runs": [
+        {
+          "text": "Quality checking",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Finished bulk orders",
+      "runs": [
+        {
+          "text": "Finished bulk orders",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Packaging",
+      "runs": [
+        {
+          "text": "Packaging",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "File",
+      "runs": [
+        {
+          "text": "File",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "idgen-identity-products-production-guwahati.jpg",
+      "runs": [
+        {
+          "text": "idgen-identity-products-production-guwahati.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT",
+      "runs": [
+        {
+          "text": "ALT",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen identity product production and quality workflow in Guwahati",
+      "runs": [
+        {
+          "text": "IDGen identity product production and quality workflow in Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "This is much more valuable for trust than a generic factory photograph.",
+      "runs": [
+        {
+          "text": "This is much more valuable for trust than a generic factory photograph.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Assam / Guwahati Section",
+      "runs": [
+        {
+          "text": "Assam / Guwahati Section",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "You can use a location image, but don't use a generic Guwahati image as if it proves your business is there.",
+      "runs": [
+        {
+          "text": "You can use a location image, but ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "don't use a generic Guwahati image as if it proves your business is there",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ".",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Better:",
+      "runs": [
+        {
+          "text": "Better:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Real IDGen office + subtle Guwahati context",
+      "runs": [
+        {
+          "text": "Real IDGen office + subtle Guwahati context",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "File",
+      "runs": [
+        {
+          "text": "File",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "idgen-identity-solutions-guwahati-assam.jpg",
+      "runs": [
+        {
+          "text": "idgen-identity-solutions-guwahati-assam.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ALT",
+      "runs": [
+        {
+          "text": "ALT",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen identity solutions in Guwahati Assam",
+      "runs": [
+        {
+          "text": "IDGen identity solutions in Guwahati Assam",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Caption:",
+      "runs": [
+        {
+          "text": "Caption:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Guwahati-based identity solutions serving organizations across Assam and Northeast India.",
+      "runs": [
+        {
+          "text": "Guwahati-based identity solutions serving organizations across Assam and Northeast India.",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Then link to:",
+      "runs": [
+        {
+          "text": "Then link to:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/service-areas/assam/",
+      "runs": [
+        {
+          "text": "/service-areas/assam/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "and",
+      "runs": [
+        {
+          "text": "and",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "/service-areas/assam/guwahati/",
+      "runs": [
+        {
+          "text": "/service-areas/assam/guwahati/",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Video SEO",
+      "runs": [
+        {
+          "text": "Video SEO",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "I would also add one short real video to the homepage.",
+      "runs": [
+        {
+          "text": "I would also add ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "one short real video",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " to the homepage.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Don't create a generic promotional video just for SEO.",
+      "runs": [
+        {
+          "text": "Don't create a generic promotional video just for SEO.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Make something like:",
+      "runs": [
+        {
+          "text": "Make something like:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "30–60 Second IDGen Workflow Video",
+      "runs": [
+        {
+          "text": "30–60 Second IDGen Workflow Video",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Show:",
+      "runs": [
+        {
+          "text": "Show:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Customer Data → Card Design → Preview → Printing → Lanyard → Assembly → Quality Check → Finished Order",
+      "runs": [
+        {
+          "text": "Customer Data → Card Design → Preview → Printing → Lanyard → Assembly → Quality Check → Finished Order",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Suggested video filename",
+      "runs": [
+        {
+          "text": "Suggested video filename",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "idgen-id-card-printing-production-process.mp4",
+      "runs": [
+        {
+          "text": "idgen-id-card-printing-production-process.mp4",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Video title",
+      "runs": [
+        {
+          "text": "Video title",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "IDGen ID Card Printing &amp; Identification Production Process",
+      "runs": [
+        {
+          "text": "IDGen ID Card Printing &amp; Identification Production Process",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Video description",
+      "runs": [
+        {
+          "text": "Video description",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "See how IDGen manages organizational identification projects from data and design through preview, production, quality checking and finished identification sets.",
+      "runs": [
+        {
+          "text": "See how IDGen manages organizational identification projects from data and design through preview, production, quality checking and finished identification sets.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "This can become useful supporting content for your Why IDGen and ID card printing pages too—but don't embed the exact same video everywhere unless it genuinely adds value.",
+      "runs": [
+        {
+          "text": "This can become useful supporting content for your ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "Why IDGen",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " and ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "ID card printing",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " pages too—but don't embed the exact same video everywhere unless it genuinely adds value.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Very Important: Don't Reuse the Same Image Everywhere",
+      "runs": [
+        {
+          "text": "Very Important: Don't Reuse the Same Image Everywhere",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "This is one of the changes I'd make to your previous website strategy.",
+      "runs": [
+        {
+          "text": "This is one of the changes I'd make to your previous website strategy.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "For example, don't take:",
+      "runs": [
+        {
+          "text": "For example, don't take:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-pvc-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-pvc-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "and put it on:",
+      "runs": [
+        {
+          "text": "and put it on:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Homepage",
+      "runs": [
+        {
+          "text": "Homepage",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID card printing",
+      "runs": [
+        {
+          "text": "ID card printing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Student ID card",
+      "runs": [
+        {
+          "text": "Student ID card",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Employee ID card",
+      "runs": [
+        {
+          "text": "Employee ID card",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Pricing",
+      "runs": [
+        {
+          "text": "Pricing",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Why IDGen",
+      "runs": [
+        {
+          "text": "Why IDGen",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Guwahati",
+      "runs": [
+        {
+          "text": "Guwahati",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Instead, create different photographs for different search intents.",
+      "runs": [
+        {
+          "text": "Instead, create ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "different photographs for different search intents",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ".",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Example",
+      "runs": [
+        {
+          "text": "Example",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "Homepage",
+      "runs": [
+        {
+          "text": "Homepage",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-complete-id-card-identification-set.jpg",
+      "runs": [
+        {
+          "text": "idgen-complete-id-card-identification-set.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ID Card Printing",
+      "runs": [
+        {
+          "text": "ID Card Printing",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "bulk-pvc-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "bulk-pvc-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Student ID",
+      "runs": [
+        {
+          "text": "Student ID",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "student-id-card-printing-schools-colleges-idgen.jpg",
+      "runs": [
+        {
+          "text": "student-id-card-printing-schools-colleges-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Employee ID",
+      "runs": [
+        {
+          "text": "Employee ID",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "employee-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "employee-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Lanyard",
+      "runs": [
+        {
+          "text": "Lanyard",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-printed-lanyard-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-printed-lanyard-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "This creates a much richer image/content ecosystem.",
+      "runs": [
+        {
+          "text": "This creates a much richer image/content ecosystem.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Your Image Naming System",
+      "runs": [
+        {
+          "text": "Your Image Naming System",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "I recommend adopting this standard across the entire IDGen website:",
+      "runs": [
+        {
+          "text": "I recommend adopting this standard across the entire IDGen website:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "[subject]-[service/product]-[brand].jpg",
+      "runs": [
+        {
+          "text": "[subject]-[service/product]-[brand].jpg",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Examples:",
+      "runs": [
+        {
+          "text": "Examples:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "student-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "student-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "bulk-pvc-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "bulk-pvc-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "employee-id-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "employee-id-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "custom-printed-lanyard-idgen.jpg",
+      "runs": [
+        {
+          "text": "custom-printed-lanyard-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "event-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "event-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "rfid-card-printing-idgen.jpg",
+      "runs": [
+        {
+          "text": "rfid-card-printing-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "ultrasonic-sealing-id-card-lanyard-idgen.jpg",
+      "runs": [
+        {
+          "text": "ultrasonic-sealing-id-card-lanyard-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "id-card-holder-idgen.jpg",
+      "runs": [
+        {
+          "text": "id-card-holder-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "id-card-hook-idgen.jpg",
+      "runs": [
+        {
+          "text": "id-card-hook-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "complete-id-card-set-idgen.jpg",
+      "runs": [
+        {
+          "text": "complete-id-card-set-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "idgen-studio-data-collection.jpg",
+      "runs": [
+        {
+          "text": "idgen-studio-data-collection.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "For local images:",
+      "runs": [
+        {
+          "text": "For local images:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "id-card-printing-guwahati-idgen.jpg",
+      "runs": [
+        {
+          "text": "id-card-printing-guwahati-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "student-id-card-printing-assam-idgen.jpg",
+      "runs": [
+        {
+          "text": "student-id-card-printing-assam-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "id-card-solutions-guwahati-assam-idgen.jpg",
+      "runs": [
+        {
+          "text": "id-card-solutions-guwahati-assam-idgen.jpg",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "But only use location in the filename when the image genuinely represents that location or the service is specifically being presented for that location.",
+      "runs": [
+        {
+          "text": "But ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "only use location in the filename when the image genuinely represents that location or the service is specifically being presented for that location.",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Homepage: Final Media Structure",
+      "runs": [
+        {
+          "text": "Homepage: Final Media Structure",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading1"
+    },
+    {
+      "text": "I would keep the homepage relatively visual but not overloaded:",
+      "runs": [
+        {
+          "text": "I would keep the homepage relatively visual but not overloaded:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Hero → 1 strong real product image",
+      "runs": [
+        {
+          "text": "Hero",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 1 strong real product image",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Services → 4 service/product images",
+      "runs": [
+        {
+          "text": "Services",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 4 service/product images",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Complete ID Solution → 1 assembly photograph/diagram",
+      "runs": [
+        {
+          "text": "Complete ID Solution",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 1 assembly photograph/diagram",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "IDGen Studio → 1 real software screenshot",
+      "runs": [
+        {
+          "text": "IDGen Studio",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 1 real software screenshot",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Why IDGen → 1 real business/production photograph",
+      "runs": [
+        {
+          "text": "Why IDGen",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 1 real business/production photograph",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Assam/Northeast → 1 genuine location/business photograph or map graphic",
+      "runs": [
+        {
+          "text": "Assam/Northeast",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 1 genuine location/business photograph or map graphic",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Workflow Video → 1 short real IDGen video",
+      "runs": [
+        {
+          "text": "Workflow Video",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": " → 1 short real IDGen video",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "So roughly 8–10 meaningful visual assets, rather than 20–30 random images.",
+      "runs": [
+        {
+          "text": "So roughly ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "8–10 meaningful visual assets",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ", rather than 20–30 random images.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "And one more SEO rule",
+      "runs": [
+        {
+          "text": "And one more SEO rule",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": "Heading3"
+    },
+    {
+      "text": "For every image, keep these aligned:",
+      "runs": [
+        {
+          "text": "For every image, keep these aligned:",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "Image subject → filename → ALT → surrounding heading → nearby text → destination page",
+      "runs": [
+        {
+          "text": "Image subject → filename → ALT → surrounding heading → nearby text → destination page",
+          "isBold": true,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "That creates a much stronger semantic signal than simply stuffing keywords into ALT attributes.",
+      "runs": [
+        {
+          "text": "That creates a much stronger semantic signal than simply stuffing keywords into ALT attributes.",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    },
+    {
+      "text": "For the next page, /id-card-printing/, I'll keep this same system: complete page content + SEO/GEO/AEO + exact image placements + image filename + ALT text + suggested photo/video + internal links, while making sure content owned by /student-id-card-printing/, /employee-id-card-printing/, /pricing/, etc. is not duplicated.",
+      "runs": [
+        {
+          "text": "For the next page, ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/id-card-printing/",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ", I'll keep this same system: complete page content + SEO/GEO/AEO + exact image placements + ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "image filename + ALT text + suggested photo/video + internal links",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ", while making sure content owned by ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/student-id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/employee-id-card-printing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "/pricing/",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": ", etc. is ",
+          "isBold": false,
+          "isItalic": false
+        },
+        {
+          "text": "not duplicated",
+          "isBold": true,
+          "isItalic": false
+        },
+        {
+          "text": ".",
+          "isBold": false,
+          "isItalic": false
+        }
+      ],
+      "images": [],
+      "style": ""
+    }
+  ]
+}

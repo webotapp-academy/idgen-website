@@ -25,7 +25,7 @@ export function FeatureCard({
   const content = (
     <>
       {imageSrc && (
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-900 mb-4 border border-surface-border/40 img-shine">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 mb-4 border border-surface-border/60 img-shine">
           <Image
             src={imageSrc}
             alt={imageAlt || title}
@@ -33,9 +33,9 @@ export function FeatureCard({
             className="img-zoom object-cover object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent dark:from-slate-950/80 dark:via-slate-950/20 pointer-events-none" />
           {badge && (
-            <span className="absolute top-3 left-3 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 px-3 py-1 text-[10px] font-bold tracking-wider text-accent uppercase shadow-lg">
+            <span className="absolute top-3 left-3 rounded-full bg-slate-900/85 dark:bg-slate-900/80 backdrop-blur-md border border-white/20 px-3 py-1 text-[10px] font-bold tracking-wider text-cyan-300 uppercase shadow-lg">
               {badge}
             </span>
           )}
