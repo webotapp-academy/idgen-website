@@ -30,6 +30,7 @@ export function FeatureCard({
             src={imageSrc}
             alt={imageAlt || title}
             fill
+            unoptimized
             className="img-zoom object-cover object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

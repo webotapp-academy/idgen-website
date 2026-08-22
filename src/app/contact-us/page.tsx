@@ -159,10 +159,10 @@ export default function ContactUsPage() {
               <p className="text-sm text-muted leading-relaxed max-w-2xl">
                 Our cleanroom manufacturing facility operates automated thermal retransfer printing presses, continuous dye-sublimation lines, and ultrasonic acoustic welding machinery.
               </p>
-              <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-foreground">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-accent" />
-                  <span>Guwahati, Assam, India</span>
+              <div className="pt-2 flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold text-foreground">
+                <div className="flex items-start gap-2 max-w-lg">
+                  <MapPin className="h-4 w-4 text-accent mt-0.5 shrink-0" />
+                  <span>{SITE.address}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-accent" />

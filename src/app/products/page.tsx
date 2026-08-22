@@ -18,7 +18,7 @@ const productsList = [
   {
     name: "ID Card Holders",
     slug: "id-card-holders",
-    imageSrc: "/images/ID card holder/IMG_20250117_172305.jpg",
+    imageSrc: "/images/product-id-holders.jpg",
     imageAlt: "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders",
     shortDescription: "Crystal-clear vertical and horizontal hard cases, four-side-lock enclosures, and flexible PVC vinyl pouches designed to protect CR80 smart cards from moisture and physical bending.",
     tag: "Hard Acrylic / Polycarbonate",
@@ -27,7 +27,7 @@ const productsList = [
   {
     name: "ID Card Hooks & Hardware Clips",
     slug: "id-card-hooks",
-    imageSrc: "/images/Lanyard with Hook Samples/Sample 17 .jpg",
+    imageSrc: "/images/product-hooks-hardware.jpg",
     imageAlt: "Chrome Swivel Dog Hooks and Lanyard Hardware Clips",
     shortDescription: "Heavy-duty chrome-plated swivel dog hooks, alligator clips, round carabiners, and safety breakaway clips engineered for high-tension daily use without tarnishing.",
     tag: "Chrome-Plated Metal",
@@ -36,7 +36,7 @@ const productsList = [
   {
     name: "Custom Acrylic Badges & Pins",
     slug: "acrylic-badges",
-    imageSrc: "/images/Acrylic Badges Samples/Sample 5.jpg",
+    imageSrc: "/images/product-acrylic-badges.jpg",
     imageAlt: "Laser Cut Acrylic Name Badges by IDGen",
     shortDescription: "Precision laser-cut acrylic badges with high-grade neodymium magnetic backings or safety pins for corporate staff, doctors, and executive conferences.",
     tag: "Laser Cut PMMA",
@@ -45,7 +45,7 @@ const productsList = [
   {
     name: "Custom Zinc Medals & Awards",
     slug: "zinc-medals",
-    imageSrc: "/images/Zinc Medal/IMG_20260213_100040.jpg.jpeg",
+    imageSrc: "/images/product-zinc-medals.jpg",
     imageAlt: "Die-Cast Zinc Medals with Custom Sublimation Ribbons",
     shortDescription: "High-relief antique gold, silver, and bronze die-cast zinc medals paired with full-color satin neck ribbons for school sports days and institutional ceremonies.",
     tag: "Die-Cast Metal",
@@ -54,14 +54,21 @@ const productsList = [
   {
     name: "30-Mil CR80 PVC Smart Cards",
     slug: "pvc-cards",
-    imageSrc: "/images/PVC Cards Samples/Sample 1.jpg",
+    imageSrc: "/images/product-pvc-cards.jpg",
     imageAlt: "Solid Virgin PVC Core ID Cards",
     shortDescription: "Bank-grade 30-mil CR80 solid virgin PVC cards featuring 300 DPI high-definition dye sublimation and edge-to-edge protective overlaminate.",
     tag: "Virgin PVC Core",
     badge: "Core Media"
   },
-  // Event Badges & Passes lives under Services (/event-card-printing/), not
-  // here — it was briefly duplicated on this page too.
+  {
+    name: "Custom Printed Satin Lanyards",
+    slug: "custom-printed-lanyard-printing",
+    imageSrc: "/images/product-satin-lanyards.jpg",
+    imageAlt: "Custom Printed 20mm Satin Neck Lanyards with Ultrasonic Sealing",
+    shortDescription: "Branded 20mm satin finish neck lanyards featuring high-definition dye-sublimation artwork and ultrasonic sealed attachment loops.",
+    tag: "20mm Satin Ribbon",
+    badge: "Bestseller"
+  },
 ];
 
 const hardwareSpecs = [
@@ -93,7 +100,7 @@ export default function ProductsPage() {
               {/* Main Card Holder Photo */}
               <div className="absolute top-0 right-0 h-60 w-[70%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
                 <Image
-                  src="/images/ID card holder/IMG_20250117_172305.jpg"
+                  src="/images/product-id-holders.jpg"
                   alt="Crystal Clear Acrylic ID Card Holders"
                   fill
                   className="object-cover"
@@ -107,7 +114,7 @@ export default function ProductsPage() {
               {/* Secondary Hook Sample */}
               <div className="absolute bottom-4 left-0 h-48 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
                 <Image
-                  src="/images/Lanyard with Hook Samples/Sample 17 .jpg"
+                  src="/images/product-hooks-hardware.jpg"
                   alt="Heavy Duty Swivel Hooks"
                   fill
                   className="object-cover"
@@ -117,7 +124,7 @@ export default function ProductsPage() {
               {/* Zinc Medal Showcase */}
               <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-full overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
                 <Image
-                  src="/images/Zinc Medal/IMG_20260213_100040.jpg.jpeg"
+                  src="/images/product-zinc-medals.jpg"
                   alt="Custom Zinc Medals"
                   fill
                   className="object-cover"

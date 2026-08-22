@@ -7,6 +7,14 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema-org";
 import { SITE, SITE_URL } from "@/data/site";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,7 +51,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable}`}
+      style={{
+        "--font-sans": inter.style.fontFamily,
+        "--font-display": inter.style.fontFamily,
+      } as React.CSSProperties}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-screen flex-col antialiased" suppressHydrationWarning>
         <ThemeProvider>
           <JsonLd data={organizationSchema()} />

@@ -15,6 +15,7 @@ import {
   Radio
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
 
 export function HeroSection() {
   return (
@@ -58,7 +59,7 @@ export function HeroSection() {
 
             {/* Primary Headline */}
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] text-foreground">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.5rem] font-black tracking-normal leading-[1.15] text-foreground">
                 Identity Solutions{" "}
                 <span className="bg-gradient-to-r from-accent via-cyan-400 to-blue-600 bg-clip-text text-transparent">
                   Simplified
@@ -128,50 +129,9 @@ export function HeroSection() {
 
           </div>
 
-          {/* Right Column: Uncropped ID Cards Showcase Visual */}
+          {/* Right Column: Interactive ID Suite Carousel */}
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
-            <div className="relative mx-auto max-w-lg lg:max-w-none w-full">
-
-              {/* Glowing Background Ambient Halo */}
-              <div className="pointer-events-none absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-accent/30 via-cyan-400/20 to-blue-600/30 blur-2xl opacity-75 dark:opacity-90 transition-all duration-500" />
-
-              {/* Master Showcase Frame with 1:1 Aspect Ratio */}
-              <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-surface-border dark:border-cyan-500/30 bg-surface dark:bg-[#09111e] shadow-2xl shadow-accent/15 transition-all duration-500 hover:border-accent/50">
-                <Image
-                  src="/images/idgen-hero-cards-showcase.jpg"
-                  alt="IDGen Complete Identification Suite - Don Bosco Hr Sec School Student ID (Priya Das), Corporate Employee ID (Vikram Sarma), and RFID Smart Access Card on Custom Printed Royal Blue Lanyards"
-                  title="IDGen Premium Custom ID Cards and Branded Lanyards"
-                  fill
-                  priority
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-
-                {/* Top-Left Floating Badge */}
-                <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-white shadow-xl pointer-events-none">
-                  <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>IDGen ID Suite</span>
-                </div>
-
-                {/* Top-Right Floating Spec Badge */}
-                <div className="absolute top-4 right-4 hidden sm:flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-white shadow-xl pointer-events-none">
-                  <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
-                  <span>20mm Satin Ribbon</span>
-                </div>
-
-                {/* Bottom Floating Spec Bar */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 rounded-2xl border border-white/20 bg-slate-950/85 backdrop-blur-md p-3 text-white shadow-2xl pointer-events-none">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <Radio className="h-4 w-4 text-cyan-400 shrink-0" />
-                    <span className="text-xs font-bold truncate">CR80 30-Mil PVC • Smart RFID / NFC</span>
-                  </div>
-                  <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 bg-cyan-950/80 px-2.5 py-1 rounded-lg border border-cyan-500/30">
-                    GUWAHATI HUB
-                  </span>
-                </div>
-              </div>
-
-            </div>
+            <HeroCarousel />
           </div>
 
         </div>

@@ -31,51 +31,51 @@ export function FloatingContact() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-950/80 text-emerald-300 shadow-xl shadow-emerald-500/10 backdrop-blur-md transition-all duration-300 hover:bg-emerald-900 hover:border-emerald-400 hover:scale-110 active:scale-95"
+          className="group relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 transition-all duration-300 hover:scale-110 hover:shadow-[#25D366]/40 active:scale-95 border-none"
           title="Chat with us on WhatsApp"
         >
           {/* Side-sliding Tooltip */}
           <span className="absolute right-16 sm:right-18 bg-[#0a1628]/95 backdrop-blur-md border border-white/10 text-white text-[11px] font-extrabold tracking-wide uppercase px-3 py-1.5 rounded-xl shadow-xl opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap">
             WhatsApp Us
           </span>
-          <WhatsAppIcon className="h-6 w-6 text-emerald-400" />
+          <WhatsAppIcon className="h-6.5 w-6.5 text-white" />
         </a>
 
         {/* Phone Button */}
         <a
           href={phoneUrl}
-          className="group relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/80 text-cyan-300 shadow-xl shadow-cyan-500/10 backdrop-blur-md transition-all duration-300 hover:bg-cyan-900 hover:border-cyan-400 hover:scale-110 active:scale-95"
+          className="group relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-xl shadow-blue-500/30 transition-all duration-300 hover:scale-110 hover:shadow-blue-500/40 active:scale-95 border-none"
           title="Call our Hotline"
         >
           {/* Side-sliding Tooltip */}
           <span className="absolute right-16 sm:right-18 bg-[#0a1628]/95 backdrop-blur-md border border-white/10 text-white text-[11px] font-extrabold tracking-wide uppercase px-3 py-1.5 rounded-xl shadow-xl opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap">
             Call Hotline
           </span>
-          <Phone className="h-6 w-6 text-cyan-400" />
+          <Phone className="h-6 w-6 text-white" />
         </a>
       </div>
 
       {/* ==========================================
           2. MOBILE FIXED BOTTOM CONTACT BAR
           ========================================== */}
-      <div className="fixed bottom-0 inset-x-0 z-50 bg-[#070e17]/90 backdrop-blur-xl border-t border-white/10 p-3 flex gap-3 sm:hidden shadow-[0_-8px_30px_rgb(0,0,0,0.5)]">
+      <div className="fixed bottom-0 inset-x-0 z-50 bg-[#070e17]/95 backdrop-blur-xl border-t border-white/10 p-3 flex gap-3 sm:hidden shadow-[0_-8px_30px_rgb(0,0,0,0.5)]">
         {/* WhatsApp Call Button */}
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-950/80 py-3 text-xs font-extrabold tracking-wider uppercase text-emerald-300 shadow-md active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3.5 text-xs font-extrabold tracking-wider uppercase text-white shadow-md active:scale-95 transition-transform border-none"
         >
-          <WhatsAppIcon className="h-4.5 w-4.5 text-emerald-400" />
+          <WhatsAppIcon className="h-4.5 w-4.5 text-white" />
           <span>WhatsApp</span>
         </a>
 
         {/* Direct Phone Call Button */}
         <a
           href={phoneUrl}
-          className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-950/80 py-3 text-xs font-extrabold tracking-wider uppercase text-cyan-300 shadow-md active:scale-95 transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] py-3.5 text-xs font-extrabold tracking-wider uppercase text-white shadow-md active:scale-95 transition-transform border-none"
         >
-          <Phone className="h-4.5 w-4.5 text-cyan-400" />
+          <Phone className="h-4.5 w-4.5 text-white" />
           <span>Call Now</span>
         </a>
       </div>

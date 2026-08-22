@@ -37,6 +37,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema, localBusinessSchema, breadcrumbSchema } from "@/lib/schema-org";
 import { HeroSection } from "@/components/home/HeroSection";
+import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import { QuoteCalculator } from "@/components/ui/QuoteCalculator";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
@@ -374,113 +375,120 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ============================================================
-          2. TRUSTED BY ORGANIZATIONS THAT NEED MORE THAN JUST AN ID CARD
+          2. PRODUCT SHOWCASE CAROUSEL (DIRECT HARDWARE & CARD PRODUCTS)
+          ============================================================ */}
+      <ProductShowcaseCarousel />
+
+      {/* ============================================================
+          3. TRUSTED BY ORGANIZATIONS THAT NEED MORE THAN JUST AN ID CARD
              ("One workflow. One partner." - Distinct Full-Width Process Design)
           ============================================================ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#050B14] via-[#0A1628] to-[#050B14] py-16 lg:py-24 text-white border-b border-white/10">
+      <section className="relative overflow-hidden bg-background dark:bg-gradient-to-b dark:from-[#050B14] dark:via-[#0A1628] dark:to-[#050B14] py-16 lg:py-24 text-foreground dark:text-white border-b border-surface-border dark:border-white/10 transition-colors duration-300">
         {/* Background Ambient Glows & Grid */}
         <div className="hero-grid-pattern absolute inset-0 opacity-15 pointer-events-none" />
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[180px]" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/5 dark:bg-cyan-500/10 blur-[180px]" />
 
         <Container className="relative z-10">
 
           {/* Centered Master Section Header */}
           <div className="text-center w-full mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-extrabold text-cyan-300 uppercase tracking-widest backdrop-blur-md shadow-lg shadow-cyan-500/10">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 dark:border-cyan-400/30 bg-accent/10 dark:bg-cyan-500/10 px-4 py-1.5 text-xs font-extrabold text-accent dark:text-cyan-300 uppercase tracking-widest backdrop-blur-md shadow-sm dark:shadow-lg dark:shadow-cyan-500/10">
               <Sparkles className="h-3.5 w-3.5" />
               <span>One Workflow. One Partner.</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight w-full px-4 text-balance mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground dark:text-white tracking-tight leading-tight w-full px-4 text-balance mx-auto">
               Trusted by Organizations That Need More Than Just an ID Card
             </h2>
 
-            <p className="text-base sm:text-lg font-semibold text-cyan-200">
+            <p className="text-base sm:text-lg font-semibold text-accent dark:text-cyan-200">
               Most organizations don&apos;t simply need a card—they need a complete identification system.
             </p>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-muted dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
               Whether you&apos;re onboarding 2,000 students, issuing employee ID cards, organizing a conference, or replacing annual ID cards, IDGen helps coordinate the entire workflow from data collection to finished wearable identification.
             </p>
           </div>
+        </Container>
 
-          {/* Institutional Client Trust Logo Carousel Ticker */}
-          <div className="mt-14">
-            <div className="text-center mb-6">
-              <span className="text-[11px] font-extrabold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-4 py-1.5 rounded-full border border-cyan-400/20 shadow-md">
-                Trusted Credentials Partner Across Assam &amp; Northeast India
-              </span>
-            </div>
-
-            {/* Premium Seamless Colorful Infinite Auto-Sliding Logo Ticker */}
-            <div className="relative w-full overflow-hidden py-4 bg-white/[0.02] border-y border-white/10 rounded-2xl backdrop-blur-md">
-              {/* Fade masks for smooth left/right edges */}
-              <div className="absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-[#050B14] via-[#050B14]/80 to-transparent z-10 pointer-events-none" />
-              <div className="absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-[#050B14] via-[#050B14]/80 to-transparent z-10 pointer-events-none" />
-
-              <div className="animate-marquee flex items-center gap-5 sm:gap-6">
-                {[
-                  { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "School ID & Lanyards" },
-                  { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Student Smart Cards" },
-                  { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Faculty & Staff IDs" },
-                  { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Complete Wearable Sets" },
-                  { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "RFID Campus Cards" },
-                  { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Student ID Cards" },
-                  { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Full ID Kits" },
-                  { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Official Credentials" },
-                  { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "School ID & Lanyards" },
-                  { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Student Smart Cards" },
-                  { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Faculty & Staff IDs" },
-                  { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Complete Wearable Sets" },
-                  { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "RFID Campus Cards" },
-                  { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Student ID Cards" },
-                  { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Full ID Kits" },
-                  { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Official Credentials" },
-                ].map((client, idx) => (
-                  <div
-                    key={idx}
-                    className="group flex flex-col items-center justify-between rounded-2xl border border-white/10 bg-white/[0.05] p-3 sm:p-3.5 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-white/[0.1] hover:shadow-xl hover:shadow-cyan-500/15 shrink-0 w-44 sm:w-52"
-                  >
-                    {/* Colorful White Badge Frame for Logo */}
-                    <div className="relative h-14 sm:h-16 w-full flex items-center justify-center p-1.5 rounded-xl bg-white/95 shadow-inner overflow-hidden mb-2.5 transition-transform duration-300 group-hover:scale-105">
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className="object-contain p-1"
-                        sizes="(max-width: 640px) 160px, 208px"
-                      />
-                    </div>
-
-                    {/* Bottom Client Name & Category Tag */}
-                    <div className="text-center w-full min-w-0">
-                      <h4 className="text-xs sm:text-[13px] font-extrabold text-white group-hover:text-cyan-300 transition-colors truncate">
-                        {client.name}
-                      </h4>
-                      <p className="text-[10px] font-semibold text-cyan-300/80 truncate mt-0.5">
-                        {client.tag}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Institutional Client Trust Logo Carousel Ticker (Fluid Width) */}
+        <div className="mt-14 relative z-10 w-full">
+          <div className="text-center mb-6">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent dark:text-cyan-400 bg-accent/10 dark:bg-cyan-500/10 px-4 py-1.5 rounded-full border border-accent/20 dark:border-cyan-400/20 shadow-sm dark:shadow-md">
+              Trusted Credentials Partner Across Assam &amp; Northeast India
+            </span>
           </div>
 
+          {/* Premium Seamless Colorful Infinite Auto-Sliding Logo Ticker */}
+          <div className="relative w-full overflow-hidden py-6 bg-surface/50 dark:bg-white/[0.02] border-y border-surface-border dark:border-white/10 backdrop-blur-md transition-colors duration-300">
+            {/* Fade masks for smooth left/right edges */}
+            <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-background dark:from-[#0A1628] via-background/80 dark:via-[#0A1628]/80 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+            <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-background dark:from-[#0A1628] via-background/80 dark:via-[#0A1628]/80 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+
+            <div className="animate-marquee flex items-center gap-5 sm:gap-6">
+              {[
+                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "School ID & Lanyards" },
+                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Student Smart Cards" },
+                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Faculty & Staff IDs" },
+                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Complete Wearable Sets" },
+                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "RFID Campus Cards" },
+                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Student ID Cards" },
+                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Full ID Kits" },
+                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Official Credentials" },
+                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "School ID & Lanyards" },
+                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Student Smart Cards" },
+                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Faculty & Staff IDs" },
+                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Complete Wearable Sets" },
+                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "RFID Campus Cards" },
+                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Student ID Cards" },
+                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Full ID Kits" },
+                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Official Credentials" },
+              ].map((client, idx) => (
+                <div
+                  key={idx}
+                  className="group flex flex-col items-center justify-between rounded-2xl border border-surface-border dark:border-white/10 bg-surface dark:bg-white/[0.05] p-3 sm:p-3.5 backdrop-blur-md transition-all duration-300 hover:border-accent/40 dark:hover:border-cyan-400/50 hover:bg-accent-soft/30 dark:hover:bg-white/[0.1] hover:shadow-xl hover:shadow-accent/10 dark:hover:shadow-cyan-500/15 shrink-0 w-44 sm:w-52 shadow-sm dark:shadow-none"
+                >
+                  {/* Colorful White Badge Frame for Logo */}
+                  <div className="relative h-14 sm:h-16 w-full flex items-center justify-center p-1.5 rounded-xl bg-white dark:bg-white/95 shadow-inner overflow-hidden mb-2.5 transition-transform duration-300 group-hover:scale-105 border border-surface-border/50 dark:border-none">
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className="object-contain p-1"
+                      sizes="(max-width: 640px) 160px, 208px"
+                    />
+                  </div>
+
+                  {/* Bottom Client Name & Category Tag */}
+                  <div className="text-center w-full min-w-0">
+                    <h4 className="text-xs sm:text-[13px] font-extrabold text-foreground dark:text-white group-hover:text-accent dark:group-hover:text-cyan-300 transition-colors truncate">
+                      {client.name}
+                    </h4>
+                    <p className="text-[10px] font-semibold text-accent/80 dark:text-cyan-300/80 truncate mt-0.5">
+                      {client.tag}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <Container className="relative z-10">
           {/* Video & Workflow Callout Banner */}
-          <div className="mt-10 p-5 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div className="mt-10 p-5 rounded-2xl bg-surface dark:bg-white/[0.03] border border-surface-border dark:border-white/10 flex flex-wrap items-center justify-between gap-4 shadow-sm dark:shadow-none transition-colors duration-300">
             <div className="flex items-center gap-3.5">
-              <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/30 group cursor-pointer hover:scale-105 transition-transform">
-                <Play className="h-6 w-6 fill-slate-950 ml-0.5" />
+              <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent dark:bg-cyan-500 text-white dark:text-slate-950 font-bold shadow-md shadow-accent/30 dark:shadow-cyan-500/30 group cursor-pointer hover:scale-105 transition-transform">
+                <Play className="h-6 w-6 fill-white dark:fill-slate-950 ml-0.5" />
               </div>
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent dark:text-cyan-400">
                   30–60 Second Workflow Video
                 </span>
-                <h4 className="text-sm sm:text-base font-extrabold text-white">
+                <h4 className="text-sm sm:text-base font-extrabold text-foreground dark:text-white">
                   IDGen ID Card Printing &amp; Identification Production Process
                 </h4>
-                <p className="text-xs text-slate-300 mt-0.5 max-w-xl leading-relaxed">
+                <p className="text-xs text-muted dark:text-slate-300 mt-0.5 max-w-xl leading-relaxed">
                   See how IDGen manages organizational identification projects from data and design through preview, production, quality checking and finished identification sets.
                 </p>
               </div>
@@ -488,13 +496,12 @@ export default function HomePage() {
 
             <Link
               href="/why-idgen/"
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-500/10 px-5 py-2.5 text-xs font-bold text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all shrink-0"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/30 dark:border-cyan-400/40 bg-accent/10 dark:bg-cyan-500/10 px-5 py-2.5 text-xs font-bold text-accent dark:text-cyan-300 hover:bg-accent/20 dark:hover:bg-cyan-500/20 hover:border-accent/50 dark:hover:border-cyan-400 transition-all shrink-0"
             >
               <span>Watch 60s Video</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-
         </Container>
       </section>
 
@@ -571,7 +578,7 @@ export default function HomePage() {
               <div className="group relative overflow-hidden rounded-3xl border border-surface-border shadow-2xl bg-background transition-all duration-300 hover:border-accent/40">
                 <div className="relative aspect-[4/3] w-full overflow-hidden img-shine bg-[#08111f]">
                   <Image
-                    src="/images/idgen-modular-solutions-set-v3.jpg"
+                    src="/images/idgen-complete-id-card-identification-set.jpg"
                     alt="Complete ID card identification set breakdown: ID Card, Holder, Hook, Lanyard, and Assembled Set"
                     title="IDGen Complete Identification Modular Breakdown"
                     fill
