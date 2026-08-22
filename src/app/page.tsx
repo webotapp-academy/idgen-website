@@ -38,6 +38,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema, localBusinessSchema, breadcrumbSchema } from "@/lib/schema-org";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
+import { ServicesCarousel } from "@/components/home/ServicesCarousel";
+import { SolutionsCarousel } from "@/components/home/SolutionsCarousel";
 import { QuoteCalculator } from "@/components/ui/QuoteCalculator";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
@@ -103,46 +105,6 @@ const institutionalClients = [
   { name: "Assam Govt Departments", location: "Guwahati Hub", tag: "Official Credentials" },
 ];
 
-/* 4 Core Services from docx */
-const coreServices = [
-  {
-    title: "ID Card Printing",
-    body: "PVC ID cards for schools, colleges, companies, hospitals and institutions.",
-    href: "/id-card-printing/",
-    imageSrc: "/images/service-pvc-id-card-printing-v3.jpg",
-    imageAlt: "Custom PVC ID card printing by IDGen with 2 cards and clear IDGen branding",
-    tag: "30-Mil CR80 PVC",
-    badge: "Core Service",
-  },
-  {
-    title: "Custom Printed Lanyards",
-    body: "Branded 20 mm lanyards with logos, colors and custom artwork.",
-    href: "/custom-printed-lanyard-printing/",
-    imageSrc: "/images/service-custom-printed-lanyards.jpg",
-    imageAlt: "Custom printed ID card lanyards by IDGen",
-    tag: "20 mm Satin",
-    badge: "Bestseller",
-  },
-  {
-    title: "Event Card Printing",
-    body: "Conference badges, delegate cards and event identification solutions.",
-    href: "/event-card-printing/",
-    imageSrc: "/images/service-event-card-printing-v3.jpg",
-    imageAlt: "Custom event cards with clear IDGen logo and branded lanyards",
-    tag: "Conferences & Summits",
-    badge: "Express 48h",
-  },
-  {
-    title: "RFID Card Printing",
-    body: "Customized RFID cards compatible with attendance and access systems.",
-    href: "/rfid-card-printing/",
-    imageSrc: "/images/service-rfid-card-printing-v3.jpg",
-    imageAlt: "Man tapping IDGen branded RFID smart card at electronic turnstile door sensor",
-    tag: "13.56 MHz / NFC",
-    badge: "Smart Contactless",
-  },
-];
-
 /* Complete Identification Solutions 4 Configurations */
 const completeSolutions = [
   {
@@ -172,50 +134,6 @@ const completeSolutions = [
     desc: "Ultrasonic sealing + holder + hook + lanyard for a finished wearable solution.",
     tag: "Finished Assembly",
     href: "/ultrasonic-sealing/",
-  },
-];
-
-/* Sector Solutions */
-const orgSolutions = [
-  {
-    icon: GraduationCap,
-    title: "Students",
-    body: "School, college and university identification with bulk personalization.",
-    href: "/student-id-card-printing/",
-    imageSrc: "/images/sol-students-idgen-v2.jpg",
-    imageAlt: "Student and University ID Card Printing with clear IDGen branding",
-    tag: "Education",
-    badge: "Schools & Colleges",
-  },
-  {
-    icon: Building2,
-    title: "Companies",
-    body: "Employee, staff and visitor identification with branded accessories.",
-    href: "/employee-id-card-printing/",
-    imageSrc: "/images/sol-companies-idgen-v2.jpg",
-    imageAlt: "Employee and Staff Corporate ID Cards with metallic badge reels and clear IDGen branding",
-    tag: "Corporate",
-    badge: "Enterprises",
-  },
-  {
-    icon: CalendarDays,
-    title: "Events",
-    body: "Conference badges, delegate cards and one- or two-hook lanyard configurations.",
-    href: "/event-card-printing/",
-    imageSrc: "/images/sol-events-idgen.png",
-    imageAlt: "Event VIP Badges and Delegate Passes with clear IDGen branding",
-    tag: "Events & Summits",
-    badge: "Conferences",
-  },
-  {
-    icon: Award,
-    title: "Institutions",
-    body: "Hospitals, NGOs, government organizations and membership programmes.",
-    href: "/membership-card-printing/",
-    imageSrc: "/images/sol-institutions-idgen.png",
-    imageAlt: "Institutional and Hospital Identity Cards with clear IDGen branding",
-    tag: "Institutional",
-    badge: "Hospitals & NGOs",
   },
 ];
 
@@ -389,7 +307,6 @@ export default function HomePage() {
         <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/5 dark:bg-cyan-500/10 blur-[180px]" />
 
         <Container className="relative z-10">
-
           {/* Centered Master Section Header */}
           <div className="text-center w-full mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 dark:border-cyan-400/30 bg-accent/10 dark:bg-cyan-500/10 px-4 py-1.5 text-xs font-extrabold text-accent dark:text-cyan-300 uppercase tracking-widest backdrop-blur-md shadow-sm dark:shadow-lg dark:shadow-cyan-500/10">
@@ -411,7 +328,7 @@ export default function HomePage() {
           </div>
         </Container>
 
-        {/* Institutional Client Trust Logo Carousel Ticker (Fluid Width) */}
+        {/* Institutional Client Trust Logo Carousel Ticker (Fluid Width, No Box Design, Larger Logos) */}
         <div className="mt-14 relative z-10 w-full">
           <div className="text-center mb-6">
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-accent dark:text-cyan-400 bg-accent/10 dark:bg-cyan-500/10 px-4 py-1.5 rounded-full border border-accent/20 dark:border-cyan-400/20 shadow-sm dark:shadow-md">
@@ -419,43 +336,43 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* Premium Seamless Colorful Infinite Auto-Sliding Logo Ticker */}
-          <div className="relative w-full overflow-hidden py-6 bg-surface/50 dark:bg-white/[0.02] border-y border-surface-border dark:border-white/10 backdrop-blur-md transition-colors duration-300">
+          {/* Clean Seamless Colorful Infinite Auto-Sliding Logo Ticker */}
+          <div className="relative w-full overflow-hidden py-8 bg-surface/30 dark:bg-white/[0.01] border-y border-surface-border/80 dark:border-white/10 backdrop-blur-md transition-colors duration-300">
             {/* Fade masks for smooth left/right edges */}
-            <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-background dark:from-[#0A1628] via-background/80 dark:via-[#0A1628]/80 to-transparent z-10 pointer-events-none transition-colors duration-300" />
-            <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-background dark:from-[#0A1628] via-background/80 dark:via-[#0A1628]/80 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+            <div className="absolute inset-y-0 left-0 w-16 sm:w-36 bg-gradient-to-r from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+            <div className="absolute inset-y-0 right-0 w-16 sm:w-36 bg-gradient-to-l from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
 
-            <div className="animate-marquee flex items-center gap-5 sm:gap-6">
+            <div className="animate-marquee flex items-center gap-10 sm:gap-14">
               {[
-                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "School ID & Lanyards" },
-                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Student Smart Cards" },
-                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Faculty & Staff IDs" },
-                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Complete Wearable Sets" },
-                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "RFID Campus Cards" },
-                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Student ID Cards" },
-                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Full ID Kits" },
-                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Official Credentials" },
-                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "School ID & Lanyards" },
-                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Student Smart Cards" },
-                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Faculty & Staff IDs" },
-                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Complete Wearable Sets" },
-                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "RFID Campus Cards" },
-                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Student ID Cards" },
-                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Full ID Kits" },
-                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Official Credentials" },
+                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
               ].map((client, idx) => (
                 <div
                   key={idx}
-                  className="group flex flex-col items-center justify-between rounded-2xl border border-surface-border dark:border-white/10 bg-surface dark:bg-white/[0.05] p-3 sm:p-3.5 backdrop-blur-md transition-all duration-300 hover:border-accent/40 dark:hover:border-cyan-400/50 hover:bg-accent-soft/30 dark:hover:bg-white/[0.1] hover:shadow-xl hover:shadow-accent/10 dark:hover:shadow-cyan-500/15 shrink-0 w-44 sm:w-52 shadow-sm dark:shadow-none"
+                  className="group flex flex-col items-center justify-center shrink-0 w-36 sm:w-44 transition-all duration-300 hover:scale-105"
                 >
-                  {/* Colorful White Badge Frame for Logo */}
-                  <div className="relative h-14 sm:h-16 w-full flex items-center justify-center p-1.5 rounded-xl bg-white dark:bg-white/95 shadow-inner overflow-hidden mb-2.5 transition-transform duration-300 group-hover:scale-105 border border-surface-border/50 dark:border-none">
+                  {/* Clean Large Floating Logo without Box */}
+                  <div className="relative h-20 sm:h-24 w-full flex items-center justify-center overflow-hidden mb-2">
                     <Image
                       src={client.logo}
                       alt={client.name}
                       fill
-                      className="object-contain p-1"
-                      sizes="(max-width: 640px) 160px, 208px"
+                      className="object-contain drop-shadow-sm filter dark:brightness-105 group-hover:drop-shadow-md transition-all duration-300"
+                      sizes="(max-width: 640px) 144px, 176px"
                     />
                   </div>
 
@@ -464,7 +381,7 @@ export default function HomePage() {
                     <h4 className="text-xs sm:text-[13px] font-extrabold text-foreground dark:text-white group-hover:text-accent dark:group-hover:text-cyan-300 transition-colors truncate">
                       {client.name}
                     </h4>
-                    <p className="text-[10px] font-semibold text-accent/80 dark:text-cyan-300/80 truncate mt-0.5">
+                    <p className="text-[10px] font-bold text-accent dark:text-cyan-400 truncate mt-0.5">
                       {client.tag}
                     </p>
                   </div>
@@ -506,74 +423,31 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          3. OUR IDENTITY SERVICES (4 CORE SERVICES)
+          4. OUR IDENTITY SERVICES (CAROUSEL WITH 3 PER ROW)
           ============================================================ */}
-      <section className="py-20 lg:py-24 bg-background border-b border-surface-border">
-        <Container>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHead
-              eyebrow="Specialized Capabilities"
-              title="Our Identity Services"
-              lede="IDGen provides specialized identification services designed for institutions and organizations."
-            />
-            <Link
-              href="/services/"
-              className="inline-flex items-center gap-1.5 rounded-full bg-surface border border-surface-border px-5 py-2.5 text-sm font-bold text-accent shadow-sm transition-all duration-300 hover:border-accent hover:shadow-md hover:-translate-y-0.5"
-            >
-              <span>View All Services</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {coreServices.map((service) => (
-              <FeatureCard
-                key={service.title}
-                title={service.title}
-                body={service.body}
-                href={service.href}
-                imageSrc={service.imageSrc}
-                imageAlt={service.imageAlt}
-                tag={service.tag}
-                badge={service.badge}
-              />
-            ))}
-          </div>
-
-          <div className="mt-10 p-4 rounded-2xl border border-surface-border bg-surface flex flex-wrap items-center justify-between gap-3 text-xs text-muted">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-accent shrink-0" />
-              <span>Explore detailed technical specifications and material standards for each service category.</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Link href="/id-card-printing/" className="font-semibold text-foreground hover:text-accent">
-                ID Cards
-              </Link>
-              <span>•</span>
-              <Link href="/custom-printed-lanyard-printing/" className="font-semibold text-foreground hover:text-accent">
-                Lanyards
-              </Link>
-              <span>•</span>
-              <Link href="/event-card-printing/" className="font-semibold text-foreground hover:text-accent">
-                Event Cards
-              </Link>
-              <span>•</span>
-              <Link href="/rfid-card-printing/" className="font-semibold text-foreground hover:text-accent">
-                RFID Smart
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ServicesCarousel />
 
       {/* ============================================================
-          4. COMPLETE IDENTIFICATION SOLUTIONS (ASSEMBLY WORKFLOW)
+          5. COMPLETE IDENTIFICATION SOLUTIONS (CENTERED HEADER & ASSEMBLY WORKFLOW)
           ============================================================ */}
       <section className="py-20 lg:py-24 bg-surface border-b border-surface-border">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          {/* Centered Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 dark:bg-accent/15 px-3.5 py-1.5 text-xs font-bold tracking-widest text-accent uppercase backdrop-blur-md">
+              <Sparkles className="h-3.5 w-3.5 text-accent" />
+              <span>Modular Systems</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+              Complete Identification Solutions
+            </h2>
+            <p className="text-base sm:text-lg text-muted leading-relaxed">
+              Most customers don&apos;t order individual products—they order a complete wearable identification system.
+            </p>
+          </div>
 
-            {/* Left: Complete Assembly Photograph (Uncropped 5-Step Breakdown) */}
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left: Complete Assembly Photograph */}
             <div className="lg:col-span-6">
               <div className="group relative overflow-hidden rounded-3xl border border-surface-border shadow-2xl bg-background transition-all duration-300 hover:border-accent/40">
                 <div className="relative aspect-[4/3] w-full overflow-hidden img-shine bg-[#08111f]">
@@ -606,41 +480,29 @@ export default function HomePage() {
             </div>
 
             {/* Right: 4 Modular Configurations */}
-            <div className="lg:col-span-6 space-y-6">
-              <div>
-                <span className="text-xs font-bold tracking-widest text-accent uppercase">
-                  Modular Systems
-                </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-foreground sm:text-4xl tracking-tight leading-tight">
-                  Complete Identification Solutions
-                </h2>
-                <p className="mt-4 text-base leading-relaxed text-muted">
-                  Most customers don&apos;t order individual products—they order a complete wearable identification system.
-                </p>
-              </div>
-
+            <div className="lg:col-span-6 space-y-6 flex flex-col justify-center">
               <div className="space-y-3">
                 {completeSolutions.map((item) => (
                   <Link
                     key={item.num}
                     href={item.href}
-                    className="group block rounded-2xl border border-surface-border bg-background p-4 transition-all duration-300 hover:border-accent/40 hover:shadow-md hover:-translate-y-0.5"
+                    className="group block rounded-2xl border border-surface-border bg-background p-4 sm:p-4.5 transition-all duration-300 hover:border-accent/40 hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-3.5">
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent text-white font-black text-sm shadow-md shadow-accent/25 transition-transform group-hover:scale-110">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-white font-black text-[15px] shadow-md shadow-accent/25 transition-transform group-hover:scale-110">
                           {item.num}
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <h3 className="font-bold text-foreground text-sm group-hover:text-accent transition-colors">
+                            <h3 className="font-extrabold text-foreground text-[15px] group-hover:text-accent transition-colors">
                               {item.title}
                             </h3>
-                            <span className="text-[10px] font-semibold text-muted bg-surface px-2 py-0.5 rounded border border-surface-border">
+                            <span className="text-[11px] font-bold text-muted bg-surface px-2 py-0.5 rounded border border-surface-border">
                               {item.tag}
                             </span>
                           </div>
-                          <p className="text-xs text-muted mt-0.5">{item.desc}</p>
+                          <p className="text-[13px] text-muted mt-0.5 leading-snug">{item.desc}</p>
                         </div>
                       </div>
                       <ArrowRight className="h-4 w-4 text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all shrink-0" />
@@ -665,80 +527,45 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-
           </div>
         </Container>
       </section>
 
       {/* ============================================================
-          5. SOLUTIONS FOR EVERY ORGANIZATION (BY USE-CASE)
+          6. SOLUTIONS FOR EVERY ORGANIZATION (CAROUSEL WITH 3 PER ROW)
           ============================================================ */}
-      <section className="py-20 lg:py-24 bg-background border-b border-surface-border">
-        <Container>
-          <SectionHead
-            eyebrow="Sector Applications"
-            title="Solutions for Every Organization"
-            lede="Instead of creating separate product pages for every customer type, IDGen builds solutions around how organizations actually use identification."
-          />
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {orgSolutions.map((org) => (
-              <FeatureCard
-                key={org.title}
-                icon={org.icon}
-                title={org.title}
-                body={org.body}
-                href={org.href}
-                imageSrc={org.imageSrc}
-                imageAlt={org.imageAlt}
-                tag={org.tag}
-                badge={org.badge}
-              />
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              href="/request-a-quote/"
-              className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-7 py-3.5 text-sm font-bold text-accent shadow-sm transition-all duration-300 hover:border-accent hover:shadow-md hover:-translate-y-0.5"
-            >
-              <span>Get a Customized Solution for Your Organization</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </Container>
-      </section>
+      <SolutionsCarousel />
 
       {/* ============================================================
-          6. IDGEN STUDIO — DIGITAL IDENTITY WORKFLOW
+          7. IDGEN STUDIO — DIGITAL IDENTITY WORKFLOW (CENTERED HEADER)
           ============================================================ */}
       <section className="py-20 lg:py-24 bg-surface border-b border-surface-border">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          {/* Centered Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3.5 py-1.5 text-xs font-bold tracking-widest text-accent uppercase border border-accent/15">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Digital Identity Workflow</span>
+            </div>
 
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
+              IDGen Studio — Digital Identity Workflow
+            </h2>
+
+            <p className="text-base sm:text-lg leading-relaxed text-muted">
+              Collecting photographs and personal information is often the most difficult part of an ID card project. IDGen Studio connects digital data collection with physical ID card production.
+            </p>
+          </div>
+
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Content */}
             <div className="lg:col-span-5 space-y-6">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3.5 py-1.5 text-xs font-bold tracking-widest text-accent uppercase mb-4 border border-accent/15">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  <span>Digital Identity Workflow</span>
-                </div>
-
-                <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl leading-tight tracking-tight">
-                  IDGen Studio — Digital Identity Workflow
-                </h2>
-
-                <p className="mt-4 text-base leading-relaxed text-muted">
-                  Collecting photographs and personal information is often the most difficult part of an ID card project. IDGen Studio connects digital data collection with physical ID card production.
-                </p>
-              </div>
-
               {/* 4 Pillars from docx */}
               <div className="space-y-3.5">
                 {studioPillars.map((pillar) => {
                   const Icon = pillar.icon;
                   return (
-                    <div key={pillar.title} className="flex items-start gap-3.5 group">
+                    <div key={pillar.title} className="flex items-start gap-3.5 group p-3 rounded-2xl bg-background border border-surface-border/70 hover:border-accent/40 transition-colors">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent text-white shadow-md shadow-accent/25 transition-transform group-hover:scale-110">
                         <Icon className="h-4 w-4" />
                       </div>
@@ -800,22 +627,35 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
           </div>
         </Container>
       </section>
 
       {/* ============================================================
-          7. WHY ORGANIZATIONS CHOOSE IDGEN & IDGEN AT A GLANCE
+          8. WHY ORGANIZATIONS CHOOSE IDGEN (CENTERED HEADER) & IDGEN AT A GLANCE
           ============================================================ */}
       <section className="py-20 lg:py-24 bg-background border-b border-surface-border">
         <Container>
+          {/* Centered Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 dark:bg-accent/15 px-3.5 py-1.5 text-xs font-bold tracking-widest text-accent uppercase backdrop-blur-md">
+              <ShieldCheck className="h-3.5 w-3.5 text-accent" />
+              <span>Proven Quality</span>
+            </div>
 
-          {/* Why Organizations Choose IDGen */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+              Why Organizations Choose IDGen
+            </h2>
+
+            <p className="text-base sm:text-lg text-muted leading-relaxed">
+              Specialized in institutional identity workflows with direct manufacturing and guaranteed regional reliability.
+            </p>
+          </div>
+
+          {/* Why Organizations Choose IDGen Content */}
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-
             {/* Left Production Photo */}
-            <div className="lg:col-span-6 order-2 lg:order-1">
+            <div className="lg:col-span-6">
               <div className="group relative overflow-hidden rounded-3xl border border-surface-border shadow-2xl bg-surface">
                 <div className="relative aspect-[16/10] w-full overflow-hidden img-shine">
                   <Image
@@ -846,22 +686,18 @@ export default function HomePage() {
             </div>
 
             {/* Right 6 Pillars */}
-            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-              <SectionHead
-                eyebrow="Proven Quality"
-                title="Why Organizations Choose IDGen"
-                lede="Specialized in institutional identity workflows with direct manufacturing and guaranteed regional reliability."
-              />
-
+            <div className="lg:col-span-6 space-y-6 flex flex-col justify-center">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {whyIdgenPillars.map((p) => (
                   <div
                     key={p.title}
-                    className="rounded-2xl border border-surface-border bg-surface p-3.5 transition-all duration-300 hover:border-accent/40 hover:shadow-sm"
+                    className="rounded-2xl border border-surface-border bg-surface p-4 transition-all duration-300 hover:border-accent/40 hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <span className="text-[10px] font-mono font-bold text-accent">{p.num}</span>
-                    <h3 className="font-bold text-foreground text-xs sm:text-sm mt-1">{p.title}</h3>
-                    <p className="text-[11px] text-muted mt-0.5 leading-relaxed">{p.desc}</p>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10 dark:bg-cyan-500/10 border border-accent/20 text-accent dark:text-cyan-400 font-mono font-extrabold text-[13px] mb-2.5 shadow-sm">
+                      {p.num}
+                    </div>
+                    <h3 className="font-extrabold text-foreground text-[15px]">{p.title}</h3>
+                    <p className="text-[13px] text-muted mt-1 leading-snug">{p.desc}</p>
                   </div>
                 ))}
               </div>
@@ -876,7 +712,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-
           </div>
 
           {/* IDGen at a Glance (4 Metric Cards) */}

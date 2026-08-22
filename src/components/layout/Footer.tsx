@@ -203,17 +203,19 @@ export function Footer() {
             <p className="text-xs leading-relaxed text-slate-400 max-w-md">
               {SITE.description}
             </p>
-            {/* Social Links Row (Original Branded Icons) */}
+            {/* Social Links Row (Official Brand Icons) */}
             <div className="mt-4 flex items-center gap-3.5">
               {SITE.social.facebook && (
                 <a 
                   href={SITE.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1877F2] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-blue-500/10"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1877F2] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-blue-500/20"
                   aria-label="Facebook"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4.5 w-4.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                    <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.52-.14-2.71-.14-2.85 0-4.79 1.74-4.79 4.93v2.57H7v4h3V22h4v-8.5z"/>
+                  </svg>
                 </a>
               )}
               {SITE.social.instagram && (
@@ -221,10 +223,12 @@ export function Footer() {
                   href={SITE.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-pink-500/10"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-pink-500/20"
                   aria-label="Instagram"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4.5 w-4.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16.113 11.44a5 5 0 1 1-7.143-7.14 5 5 0 0 1 7.143 7.14Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
                 </a>
               )}
               {SITE.social.youtube && (
@@ -232,10 +236,12 @@ export function Footer() {
                   href={SITE.social.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF0000] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-red-500/10"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF0000] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-red-500/20"
                   aria-label="YouTube"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4.5 w-4.5"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
                 </a>
               )}
               {SITE.whatsapp && (
@@ -243,10 +249,12 @@ export function Footer() {
                   href={`https://wa.me/${SITE.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-emerald-500/10"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white hover:scale-110 active:scale-95 transition-all shadow-md shadow-emerald-500/20"
                   aria-label="WhatsApp"
                 >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.636-1.023-5.11-2.884-6.974-1.862-1.865-4.343-2.891-6.986-2.892-5.44 0-9.865 4.421-9.868 9.866-.001 1.77.462 3.5 1.341 5.022l-.973 3.55 3.685-.959zm10.743-7.51c-.26-.13-1.536-.759-1.773-.846-.237-.087-.41-.13-.58.13-.17.26-.658.823-.808.997-.15.174-.3.195-.56.065-.26-.13-1.098-.405-2.091-1.293-.772-.688-1.293-1.539-1.445-1.8-.15-.26-.016-.4.113-.529.117-.117.26-.304.39-.456.13-.152.173-.26.26-.434.087-.174.043-.326-.021-.456-.065-.13-.58-1.399-.795-1.921-.21-.506-.442-.437-.607-.437-.157-.004-.336-.004-.515-.004-.18 0-.472.067-.719.336-.247.269-.942.922-.942 2.247s.965 2.603 1.098 2.777c.133.174 1.899 2.901 4.599 4.066.643.278 1.144.444 1.534.569.646.205 1.233.176 1.697.107.517-.077 1.536-.628 1.753-1.235.217-.607.217-1.127.152-1.235-.065-.108-.237-.174-.497-.304z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                    <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.477-.15-.678.15-.2.3-.778.979-.954 1.179-.176.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.5-1.786-1.677-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.175.2-.301.301-.502.101-.2.05-.376-.025-.526-.075-.15-.678-1.633-.929-2.235-.245-.587-.494-.507-.678-.517-.175-.01-.376-.01-.577-.01-.2 0-.527.075-.803.376s-1.054 1.029-1.054 2.51c0 1.481 1.079 2.91 1.229 3.11.151.201 2.124 3.243 5.145 4.549.719.31 1.281.496 1.719.635.722.23 1.379.197 1.898.12.578-.086 1.78-.727 2.031-1.43.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.351zm-5.467 7.618h-.008a10.04 10.04 0 0 1-5.117-1.396l-.367-.218-3.805.998 1.016-3.71-.239-.38a10.024 10.024 0 0 1-1.536-5.321c.002-5.539 4.51-10.044 10.052-10.044a10.005 10.005 0 0 1 7.106 2.946 9.99 9.99 0 0 1 2.94 7.103c-.002 5.541-4.51 10.046-10.042 10.046zM20.52 3.48A11.934 11.934 0 0 0 12.008 0C5.396 0 .025 5.371.023 11.984a11.94 11.94 0 0 0 1.637 6.012L0 24l6.195-1.625a11.944 11.944 0 0 0 5.808 1.503h.005c6.61 0 11.982-5.372 11.985-11.987a11.92 11.92 0 0 0-3.473-8.411z"/>
+                  </svg>
                 </a>
               )}
             </div>

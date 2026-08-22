@@ -3,14 +3,16 @@ export function SectionHead({
   title,
   lede,
   align = "left",
+  className,
 }: {
   eyebrow?: string;
   title: string;
   lede?: string;
   align?: "left" | "center";
+  className?: string;
 }) {
   return (
-    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <div className={`${align === "center" ? "mx-auto text-center" : ""} ${className ?? "max-w-2xl"}`}>
       {eyebrow && (
         <div className="inline-flex items-center gap-2 mb-3">
           <span className="h-px w-6 bg-accent" aria-hidden="true" />

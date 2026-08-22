@@ -1036,15 +1036,15 @@ export default function WhyIdgenPage() {
         <section className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800">
           <div className="rounded-[2.25rem] border border-slate-200/90 dark:border-slate-800 bg-gradient-to-br from-white via-sky-50/20 to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 p-7 sm:p-12 shadow-xl space-y-8 relative overflow-hidden">
             {/* Section Header */}
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-3.5 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-3">
+            <div className="text-center max-w-3xl mx-auto space-y-3 mb-8">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-3.5 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
                 <Building2 className="h-3.5 w-3.5" />
                 <span>Regional Experience • Footprint</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
                 Organizations Across Northeast India
               </h2>
-              <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                 Over the years, our identification business has supplied products to customers and organizations across Northeast India.
               </p>
             </div>
@@ -1135,43 +1135,38 @@ export default function WhyIdgenPage() {
             5. WHY CHOOSE IDGEN? (Core Pillars Carousel)
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800">
-          {/* Header Layout: 2-Line Headline + Right-Side Feature Box (Eliminates Blank Gap) */}
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end pb-8 border-b border-slate-100 dark:border-slate-800">
-            {/* Left Content (2-Line Headline) */}
-            <div className="lg:col-span-7 space-y-3">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-3.5 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
-                <Target className="h-3.5 w-3.5" />
-                <span>Why Choose IDGen?</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.15rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.2] max-w-3xl">
-                Choosing an Identification Supplier Is Not Only About Finding Someone Who Can Print a Card
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl pt-1">
-                For an organization, the real requirement may be: Data &rarr; Design &rarr; Personalization &rarr; Approval &rarr; Production &rarr; Accessories &rarr; Quality &rarr; Delivery. IDGen is built around this broader requirement.
-              </p>
+          <div className="text-center max-w-4xl mx-auto space-y-4 mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-3.5 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
+              <Target className="h-3.5 w-3.5" />
+              <span>Why Choose IDGen?</span>
             </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.2]">
+              Choosing an Identification Supplier Is Not Only About Finding Someone Who Can Print a Card
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto">
+              For an organization, the real requirement may be: Data &rarr; Design &rarr; Personalization &rarr; Approval &rarr; Production &rarr; Accessories &rarr; Quality &rarr; Delivery. IDGen is built around this broader requirement.
+            </p>
+          </div>
 
-            {/* Right-Side Feature Card (Fills Right-Side Blank Space) */}
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-sky-200/80 dark:border-slate-800 bg-gradient-to-br from-sky-50/80 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 p-5 shadow-sm space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
-                    <span className="text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
-                      End-to-End Scope
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-black text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-sky-200 dark:border-slate-700 shadow-2xs">
-                    Full Operations
+          <div className="max-w-2xl mx-auto mb-10">
+            <div className="rounded-2xl border border-sky-200/80 dark:border-slate-800 bg-gradient-to-br from-sky-50/80 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 p-5 shadow-sm space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
+                    End-to-End Scope
                   </span>
                 </div>
-                <div className="rounded-xl bg-white dark:bg-slate-900 border border-sky-200/60 dark:border-slate-800 p-3 text-[11px] font-bold text-slate-800 dark:text-slate-200 leading-snug">
-                  Data &rarr; Design &rarr; Personalization &rarr; Approval &rarr; Production &rarr; Delivery
-                </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                  We manage the complete operational scope from initial dataset setup to final localized dispatch.
-                </p>
+                <span className="text-[10px] font-black text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-sky-200 dark:border-slate-700 shadow-2xs">
+                  Full Operations
+                </span>
               </div>
+              <div className="rounded-xl bg-white dark:bg-slate-900 border border-sky-200/60 dark:border-slate-800 p-3 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 leading-snug text-center">
+                Data &rarr; Design &rarr; Personalization &rarr; Approval &rarr; Production &rarr; Delivery
+              </div>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium text-center">
+                We manage the complete operational scope from initial dataset setup to final localized dispatch.
+              </p>
             </div>
           </div>
 
@@ -1206,8 +1201,8 @@ export default function WhyIdgenPage() {
                 </span>
               </div>
 
-              <div className="absolute bottom-6 left-6 sm:left-10 right-6 text-white z-10">
-                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1 block">
+              <div className="absolute bottom-6 left-6 right-6 text-center text-white z-10">
+                <span className="text-xs sm:text-sm font-bold text-cyan-300 uppercase tracking-wider mb-1 block">
                   Data Confidentiality &amp; Responsible Handling
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
@@ -1488,6 +1483,7 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <SectionHead
+            align="center"
             eyebrow="Our Production Approach"
             title="From Requirement to Finished Identification Product"
             lede="We use a structured approach to keep personalized and bulk projects organized."
@@ -1522,8 +1518,8 @@ export default function WhyIdgenPage() {
                   Zero Error Goal
                 </span>
               </div>
-              <div className="absolute bottom-6 left-6 sm:left-10 right-6 text-white z-10">
-                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1 block">
+              <div className="absolute bottom-6 left-6 right-6 text-center text-white z-10">
+                <span className="text-xs sm:text-sm font-bold text-cyan-300 uppercase tracking-wider mb-1 block">
                   Quality Assurance
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
@@ -1641,8 +1637,8 @@ export default function WhyIdgenPage() {
                   Digital Portal
                 </span>
               </div>
-              <div className="absolute bottom-6 left-6 sm:left-10 right-6 text-white z-10">
-                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-1 block">
+              <div className="absolute bottom-6 left-6 right-6 text-center text-white z-10">
+                <span className="text-xs sm:text-sm font-bold text-cyan-300 uppercase tracking-wider mb-1 block">
                   IDGen Studio
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
@@ -1652,36 +1648,36 @@ export default function WhyIdgenPage() {
             </div>
 
             <div className="p-6 sm:p-10 space-y-8">
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
+              <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed max-w-4xl font-medium">
                 IDGen Studio extends the identification workflow before physical production. Organizations can create a customized data-collection form according to their requirements and share it through a link or QR code.
               </p>
 
               {/* A Person Can */}
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/70 p-5 space-y-3 shadow-2xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/70 p-6 space-y-3.5 shadow-2xs">
+                <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
                   A person can:
                 </p>
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2.5">
                   {personCanFlow.map((step, i) => (
-                    <span key={step} className="flex items-center gap-2">
-                      <span className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3.5 py-1.5 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+                    <span key={step} className="flex items-center gap-2.5">
+                      <span className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-4 py-2 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
                         {step}
                       </span>
-                      {i < personCanFlow.length - 1 && <ArrowRight className="h-3 w-3 text-slate-400 dark:text-slate-500" />}
+                      {i < personCanFlow.length - 1 && <ArrowRight className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />}
                     </span>
                   ))}
                 </div>
               </div>
 
               {/* Dashboard capabilities */}
-              <div className="space-y-3">
-                <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100">
+              <div className="space-y-4">
+                <p className="text-base sm:text-lg font-black text-slate-950 dark:text-white">
                   The organization can then review submissions through its dashboard. Authorized organization users can:
                 </p>
-                <div className="grid sm:grid-cols-2 gap-2.5">
+                <div className="grid sm:grid-cols-2 gap-3">
                   {dashboardCapabilities.map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs">
-                      <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0" />
+                    <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]/40 transition-colors">
+                      <CheckCircle2 className="h-5 w-5 text-[#009fe3] dark:text-cyan-400 shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -1689,51 +1685,51 @@ export default function WhyIdgenPage() {
               </div>
 
               {/* Batch-Wise Production */}
-              <div className="rounded-2xl border border-amber-300/80 dark:border-amber-800/60 bg-amber-50/60 dark:bg-amber-950/20 p-6 space-y-3 shadow-2xs">
-                <h3 className="text-sm font-black text-amber-900 dark:text-amber-300 uppercase tracking-wider">
+              <div className="rounded-2xl border border-amber-300/80 dark:border-amber-800/60 bg-amber-50/60 dark:bg-amber-950/20 p-6 sm:p-8 space-y-4 shadow-2xs">
+                <h3 className="text-base sm:text-lg font-black text-amber-900 dark:text-amber-300 uppercase tracking-wider">
                   Batch-Wise Production
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-semibold">
                   One of the key advantages is that an organization does not necessarily have to wait for every person to complete the form before beginning production.
                 </p>
-                <div className="space-y-2 text-xs font-bold text-slate-800 dark:text-slate-200">
-                  <p className="text-slate-600 dark:text-slate-400">For example:</p>
-                  <div className="rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 p-3.5 text-amber-950 dark:text-amber-200 font-black shadow-2xs">
+                <div className="space-y-2.5 text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <p className="text-slate-600 dark:text-slate-400 font-extrabold text-xs uppercase tracking-wider">For example:</p>
+                  <div className="rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 p-4 text-amber-950 dark:text-amber-200 font-black shadow-2xs text-sm sm:text-base">
                     500 Forms Completed → Approved → Batch 1 Printed
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-normal">while additional people continue submitting their information.</p>
-                  <p className="text-slate-600 dark:text-slate-400">Then:</p>
-                  <div className="rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 p-3.5 text-amber-950 dark:text-amber-200 font-black shadow-2xs">
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">while additional people continue submitting their information.</p>
+                  <p className="text-slate-600 dark:text-slate-400 font-extrabold text-xs uppercase tracking-wider pt-1">Then:</p>
+                  <div className="rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 p-4 text-amber-950 dark:text-amber-200 font-black shadow-2xs text-sm sm:text-base">
                     400 More Completed → Approved → Batch 2 Printed
                   </div>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-300 pt-1">
+                <p className="text-sm text-slate-700 dark:text-slate-300 pt-1 font-medium leading-relaxed">
                   This allows organizations to start distributing completed ID cards earlier instead of waiting for the entire population to complete the process.
                 </p>
               </div>
 
               {/* IDGen Studio Flow */}
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-4 shadow-2xs">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-7 space-y-4 shadow-2xs">
+                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900 dark:text-slate-100">
                   IDGen Studio Flow
                 </h3>
-                <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                <div className="flex flex-wrap items-center gap-2 pt-1">
                   {studioFlow.map((step, i) => (
-                    <span key={step} className="flex items-center gap-1.5">
-                      <span className="rounded-lg bg-sky-50 dark:bg-cyan-950/60 text-[#009fe3] dark:text-cyan-400 border border-sky-200 dark:border-cyan-800/50 px-2.5 py-1 text-xs font-bold">
+                    <span key={step} className="flex items-center gap-2">
+                      <span className="rounded-xl bg-sky-50 dark:bg-cyan-950/60 text-[#009fe3] dark:text-cyan-400 border border-sky-200 dark:border-cyan-800/50 px-3.5 py-1.5 text-xs sm:text-sm font-bold shadow-2xs">
                         {step}
                       </span>
-                      {i < studioFlow.length - 1 && <span className="text-slate-400 dark:text-slate-600 text-xs">↓</span>}
+                      {i < studioFlow.length - 1 && <span className="text-[#009fe3] dark:text-cyan-400 font-bold text-xs">→</span>}
                     </span>
                   ))}
                 </div>
                 <div className="pt-2">
                   <Link
                     href="/idgen-studio/"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-6 py-2.5 text-xs font-bold text-white shadow-md transition-transform hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-7 py-3 text-sm font-bold text-white shadow-md transition-transform hover:scale-105"
                   >
                     <span>Explore IDGen Studio</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -1750,39 +1746,39 @@ export default function WhyIdgenPage() {
               <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-3.5 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
                 Production Efficiency
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight leading-tight">
                 Why Batch-Wise Production Matters
               </h2>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/70 p-5 space-y-2">
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/70 p-6 space-y-2.5">
                 <p className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Traditional identification projects often follow:
                 </p>
-                <p className="text-xs font-extrabold text-slate-900 dark:text-slate-100">
+                <p className="text-sm sm:text-base font-black text-slate-950 dark:text-white leading-relaxed">
                   Wait for Everyone → Prepare Everything → Print Everything → Distribute
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#009fe3]/30 dark:border-cyan-800/50 bg-sky-50/50 dark:bg-cyan-950/30 p-5 space-y-2">
+              <div className="rounded-2xl border border-[#009fe3]/30 dark:border-cyan-800/50 bg-sky-50/70 dark:bg-cyan-950/30 p-6 space-y-2.5">
                 <p className="text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
                   A digital workflow can allow:
                 </p>
-                <p className="text-xs font-extrabold text-slate-950 dark:text-white">
+                <p className="text-sm sm:text-base font-black text-slate-950 dark:text-white leading-relaxed">
                   Collect → Approve Ready Records → Print → Distribute
                 </p>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">while remaining records continue through the process.</p>
+                <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">while remaining records continue through the process.</p>
               </div>
             </div>
 
-            <div className="space-y-3 pt-2">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
+            <div className="space-y-3.5 pt-2">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-slate-100">
                 This can be useful for:
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {batchWiseUseCases.map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 px-3.5 py-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs">
+                  <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]/40 transition-colors">
                     <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -1790,8 +1786,8 @@ export default function WhyIdgenPage() {
               </div>
             </div>
 
-            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-1 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              <p className="font-extrabold text-slate-950 dark:text-white">
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-5 space-y-1.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+              <p className="font-black text-slate-950 dark:text-white text-base sm:text-lg">
                 The benefit is not simply faster printing.
               </p>
               <p>
@@ -1810,51 +1806,51 @@ export default function WhyIdgenPage() {
               <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-3.5 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
                 Production Capability
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight leading-tight">
                 Built for Institutional &amp; Bulk Requirements
               </h2>
             </div>
 
             {/* Capacity Stat Callout Box */}
-            <div className="rounded-2xl border border-[#009fe3]/30 dark:border-cyan-800/50 bg-sky-50/80 dark:bg-slate-800/80 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
+            <div className="rounded-2xl border border-[#009fe3]/30 dark:border-cyan-800/50 bg-sky-50/80 dark:bg-slate-800/80 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
               <div>
-                <p className="text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">Stated Production Capability</p>
-                <p className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white mt-1">Up to 10,000 Identity Products / Day</p>
+                <p className="text-xs sm:text-sm font-extrabold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">Stated Production Capability</p>
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white mt-1">Up to 10,000 Identity Products / Day</p>
               </div>
-              <span className="rounded-full bg-[#009fe3] px-4 py-1.5 text-xs font-black text-white shadow-sm shrink-0">
+              <span className="rounded-full bg-[#009fe3] px-5 py-2 text-xs sm:text-sm font-black text-white shadow-sm shrink-0">
                 Bulk Scalability
               </span>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
               IDGen&apos;s stated production capability can reach up to 10,000 identity products per day, depending on product type and project requirements.
             </p>
 
-            <div className="space-y-3">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
+            <div className="space-y-3.5">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-slate-100">
                 Actual project capacity can vary according to:
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {capacityFactors.map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/70 px-3.5 py-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200">
-                    <div className="h-2 w-2 rounded-full bg-[#009fe3] shrink-0" />
+                  <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/70 px-4 py-3 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs">
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#009fe3] shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <p className="text-xs text-slate-500 dark:text-slate-400 italic">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 italic font-medium">
               Capacity should therefore be confirmed against the specific project.
             </p>
 
-            <div>
+            <div className="pt-2">
               <Link
                 href="/id-card-printing/"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 py-2 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3] dark:hover:border-cyan-400 hover:text-[#009fe3] dark:hover:text-cyan-400 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-950 dark:bg-slate-800 text-white px-6 py-3 text-sm font-bold shadow-md hover:bg-[#009fe3] transition-colors"
               >
                 <span>Explore ID Card Printing</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -1870,20 +1866,20 @@ export default function WhyIdgenPage() {
             <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
 
             <div className="relative z-10 space-y-8">
-              <div>
+              <div className="text-center max-w-3xl mx-auto flex flex-col items-center">
                 <span className="inline-block rounded-full bg-[#009fe3]/20 border border-[#009fe3]/40 px-4 py-1.5 text-xs font-bold text-cyan-300 uppercase tracking-wider mb-3">
                   Scale &amp; Execution
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
                   Experience That Matters in Bulk Projects
                 </h2>
-                <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+                <p className="mt-3 text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
                   Our experience since 2014 has provided practical exposure to the challenges associated with organizational identification.
                 </p>
               </div>
 
               <div className="space-y-4">
-                <p className="text-xs font-black uppercase tracking-wider text-cyan-400">
+                <p className="text-xs sm:text-sm font-black uppercase tracking-wider text-cyan-400 text-center">
                   Large projects can involve:
                 </p>
 
@@ -1891,7 +1887,7 @@ export default function WhyIdgenPage() {
                   {bulkProjectDisciplines.map((item, idx) => (
                     <div
                       key={item.title}
-                      className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-white/10 hover:-translate-y-1 shadow-lg space-y-2"
+                      className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-white/10 hover:-translate-y-1 shadow-lg space-y-2.5"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-mono text-xs font-black text-cyan-300 bg-cyan-950/60 px-2.5 py-1 rounded-md border border-cyan-800/50">
@@ -1899,10 +1895,10 @@ export default function WhyIdgenPage() {
                         </span>
                         <div className="h-2 w-2 rounded-full bg-[#009fe3] group-hover:scale-150 transition-transform" />
                       </div>
-                      <h3 className="text-sm font-black text-white group-hover:text-cyan-300 transition-colors pt-1">
+                      <h3 className="text-base font-black text-white group-hover:text-cyan-300 transition-colors pt-1">
                         {item.title}
                       </h3>
-                      <p className="text-xs text-slate-300 leading-relaxed">
+                      <p className="text-sm text-slate-300 leading-relaxed">
                         {item.body}
                       </p>
                     </div>
@@ -1910,9 +1906,9 @@ export default function WhyIdgenPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 flex items-center gap-3 text-xs sm:text-sm text-slate-300">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#009fe3]/20 text-cyan-300 border border-[#009fe3]/30">
-                  <CheckCircle2 className="h-4 w-4" />
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 flex items-center justify-center gap-3.5 text-sm sm:text-base text-slate-200 font-medium">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#009fe3]/20 text-cyan-300 border border-[#009fe3]/30">
+                  <CheckCircle2 className="h-5 w-5" />
                 </div>
                 <span>
                   This experience informs the way IDGen approaches organizational identification today.
@@ -1927,21 +1923,19 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <div className="rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 sm:p-12 shadow-xl space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
-              <div>
-                <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
-                  What Makes IDGen Different?
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
-                  Experience + Technology + Production
-                </h2>
-              </div>
-              <p className="text-sm text-slate-600 dark:text-slate-300 font-medium">
+            <div className="text-center max-w-3xl mx-auto flex flex-col items-center border-b border-slate-100 dark:border-slate-800 pb-6 space-y-2">
+              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
+                What Makes IDGen Different?
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
+                Experience + Technology + Production
+              </h2>
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 font-bold">
                 IDGen combines three important areas.
               </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-3">
               {whatMakesDifferent.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -1959,17 +1953,17 @@ export default function WhyIdgenPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="font-black text-slate-950 dark:text-white text-base group-hover:text-[#009fe3] dark:group-hover:text-cyan-400 transition-colors">
+                      <h3 className="font-black text-slate-950 dark:text-white text-lg group-hover:text-[#009fe3] dark:group-hover:text-cyan-400 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                         {item.body}
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800 text-[11px] font-bold text-[#009fe3] dark:text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800 text-xs font-bold text-[#009fe3] dark:text-cyan-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       <span>Core Distinction</span>
-                      <ArrowRight className="h-3 w-3" />
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </div>
                   </div>
                 );
@@ -1977,20 +1971,20 @@ export default function WhyIdgenPage() {
             </div>
 
             <div className="rounded-3xl border border-sky-200/80 dark:border-slate-800 bg-sky-50/80 dark:bg-slate-800/80 p-6 sm:p-8 text-center shadow-sm space-y-3">
-              <p className="text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
+              <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
                 Together:
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 {["Experience", "Digital Workflow", "Production"].map((s, i, arr) => (
                   <span key={s} className="flex items-center gap-3">
-                    <span className="rounded-full bg-white dark:bg-slate-800 text-slate-950 dark:text-slate-100 px-5 py-2 text-xs sm:text-sm font-black border border-sky-200 dark:border-slate-700 shadow-sm">
+                    <span className="rounded-full bg-white dark:bg-slate-800 text-slate-950 dark:text-slate-100 px-5 py-2.5 text-sm sm:text-base font-black border border-sky-200 dark:border-slate-700 shadow-sm">
                       {s}
                     </span>
                     {i < arr.length - 1 && <ArrowRight className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />}
                   </span>
                 ))}
               </div>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium pt-1">
+              <p className="text-sm text-slate-600 dark:text-slate-300 font-bold pt-1">
                 This is the foundation of the IDGen approach.
               </p>
             </div>
@@ -2002,11 +1996,11 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <div className="rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 sm:p-12 shadow-xl space-y-8">
-            <div className="border-b border-slate-100 dark:border-slate-800 pb-6">
+            <div className="text-center max-w-3xl mx-auto flex flex-col items-center border-b border-slate-100 dark:border-slate-800 pb-6 space-y-2">
               <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
                 We Focus on the Actual Requirement
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
                 Not Every Organization Needs the Same Identification Setup
               </h2>
             </div>
@@ -2017,14 +2011,14 @@ export default function WhyIdgenPage() {
                   key={label}
                   className={`rounded-3xl border ${border} dark:border-slate-800 ${bg} dark:bg-slate-800 p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow`}
                 >
-                  <p className="text-sm font-black text-slate-950 dark:text-white">{label}</p>
-                  <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-base font-black text-slate-950 dark:text-white">{label}</p>
+                  <div className="flex flex-wrap items-center gap-2.5">
                     {flow.map((s, i, arr) => (
                       <span key={s} className="flex items-center gap-2">
-                        <span className="rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200/90 dark:border-slate-700 px-3.5 py-1.5 text-xs font-bold shadow-2xs">
+                        <span className="rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200/90 dark:border-slate-700 px-4 py-2 text-sm font-bold shadow-2xs">
                           {s}
                         </span>
-                        {i < arr.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-[#009fe3] dark:text-cyan-400" />}
+                        {i < arr.length - 1 && <ArrowRight className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />}
                       </span>
                     ))}
                   </div>
@@ -2032,17 +2026,17 @@ export default function WhyIdgenPage() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-slate-100 dark:border-slate-800">
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-medium">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed max-w-2xl font-semibold text-center">
                 IDGen&apos;s role is to help determine the appropriate combination rather than forcing every customer into the same package.
               </p>
 
               <Link
                 href="/services/"
-                className="group inline-flex items-center gap-2 rounded-full bg-slate-950 dark:bg-slate-800 px-6 py-2.5 text-xs font-bold text-white border border-transparent dark:border-slate-700 shadow-sm hover:bg-[#009fe3] transition-colors shrink-0"
+                className="group inline-flex items-center gap-2 rounded-full bg-slate-950 dark:bg-slate-800 px-7 py-3 text-sm font-bold text-white border border-transparent dark:border-slate-700 shadow-sm hover:bg-[#009fe3] transition-colors shrink-0"
               >
                 <span>Explore Services</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -2053,27 +2047,26 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50/50 to-sky-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 p-8 sm:p-12 shadow-xl space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-                <CheckCircle2 className="h-5 w-5" />
+            <div className="text-center max-w-3xl mx-auto flex flex-col items-center space-y-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                <CheckCircle2 className="h-6 w-6" />
               </div>
               <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
                 Honest About Our Capabilities
               </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
+                Trust Requires Accurate Claims
+              </h2>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
-              Trust Requires Accurate Claims
-            </h2>
-
-            <div className="space-y-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-              <p className="font-extrabold text-slate-950 dark:text-white text-base sm:text-lg">
+            <div className="space-y-4 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed max-w-3xl font-medium mx-auto text-center">
+              <p className="font-black text-slate-950 dark:text-white text-lg sm:text-xl">
                 IDGen does not describe every product as being manufactured 100% in-house.
               </p>
               <p>
                 Production methods can vary depending on the product and project. Our role is to manage the required identity-product customization, production workflow, assembly and quality requirements according to the agreed specification.
               </p>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-semibold pt-1">
+              <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-bold pt-1">
                 This allows us to communicate our capabilities accurately and transparently.
               </p>
             </div>
@@ -2086,7 +2079,7 @@ export default function WhyIdgenPage() {
         <section className="mt-20 pt-8">
           <div className="rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 sm:p-12 shadow-xl space-y-8">
             <div className="border-b border-slate-100 dark:border-slate-800 pb-6">
-              <SectionHead eyebrow="Our Commitment" title="What We Hold Ourselves To" />
+              <SectionHead align="center" eyebrow="Our Commitment" title="What We Hold Ourselves To" />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -2095,13 +2088,13 @@ export default function WhyIdgenPage() {
                   key={label}
                   className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/70 p-5 shadow-2xs hover:border-emerald-500/50 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md transition-all space-y-2.5"
                 >
-                  <div className="flex items-center gap-2">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
-                      <CheckCircle2 className="h-3.5 w-3.5" />
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+                      <CheckCircle2 className="h-4 w-4" />
                     </div>
-                    <h3 className="font-black text-slate-950 dark:text-white text-sm">{label}</h3>
+                    <h3 className="font-black text-slate-950 dark:text-white text-base">{label}</h3>
                   </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{body}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">{body}</p>
                 </div>
               ))}
             </div>
@@ -2118,38 +2111,38 @@ export default function WhyIdgenPage() {
                 <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
                   Who We Serve
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
                   Identification Solutions for Organizations
                 </h2>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 font-medium">
                   IDGen provides identification solutions for organizations including:
                 </p>
               </div>
 
               <Link
                 href="/services/"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-5 py-2 text-xs font-bold text-white shadow-sm hover:bg-[#38bdf8] transition-colors shrink-0"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-[#38bdf8] transition-colors shrink-0"
               >
                 <span>Explore Services</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
               {whoWeServe.map((org) => (
                 <div
                   key={org}
-                  className="group flex items-center gap-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/70 px-4 py-3 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]/50 dark:hover:border-cyan-500/50 hover:bg-white dark:hover:bg-slate-800 hover:text-[#009fe3] dark:hover:text-cyan-400 hover:shadow-sm transition-all"
+                  className="group flex items-center gap-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/70 px-4 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]/50 dark:hover:border-cyan-500/50 hover:bg-white dark:hover:bg-slate-800 hover:text-[#009fe3] dark:hover:text-cyan-400 hover:shadow-sm transition-all"
                 >
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#009fe3]/10 dark:bg-cyan-950 text-[#009fe3] dark:text-cyan-400 group-hover:bg-[#009fe3] group-hover:text-white transition-colors">
-                    <Building2 className="h-3.5 w-3.5" />
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#009fe3]/10 dark:bg-cyan-950 text-[#009fe3] dark:text-cyan-400 group-hover:bg-[#009fe3] group-hover:text-white transition-colors">
+                    <Building2 className="h-4 w-4" />
                   </div>
                   <span className="truncate">{org}</span>
                 </div>
               ))}
             </div>
 
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium border-t border-slate-100 dark:border-slate-800 pt-4">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-semibold border-t border-slate-100 dark:border-slate-800 pt-4">
               Detailed requirements are covered on the relevant service pages rather than repeated here.
             </p>
           </div>
@@ -2160,49 +2153,49 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <div className="rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 sm:p-12 shadow-xl space-y-8">
-            <div>
-              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="text-center max-w-3xl mx-auto flex flex-col items-center space-y-2">
+              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
                 Service Area
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
                 Serving Assam &amp; Northeast India
               </h2>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed max-w-3xl font-medium text-center mx-auto">
               IDGen is based in Guwahati, Assam and serves organizations across Assam and the wider Northeast India market.
             </p>
 
-            <div className="space-y-3">
-              <p className="text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
+            <div className="space-y-3.5">
+              <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
                 Our regional focus includes:
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {neStates.map((state) => (
                   <div
                     key={state}
-                    className="flex items-center gap-2.5 rounded-2xl bg-sky-50/70 dark:bg-slate-800/80 border border-sky-200/80 dark:border-slate-700 px-4 py-2.5 text-xs font-extrabold text-[#009fe3] dark:text-cyan-400 shadow-2xs"
+                    className="flex items-center gap-3 rounded-2xl bg-sky-50/70 dark:bg-slate-800/80 border border-sky-200/80 dark:border-slate-700 px-4 py-3 text-sm font-black text-[#009fe3] dark:text-cyan-400 shadow-2xs"
                   >
-                    <div className="h-2 w-2 rounded-full bg-[#009fe3]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#009fe3]" />
                     <span>{state}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-5 border-t border-slate-100 dark:border-slate-800">
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
                 Our service-area pages provide more specific information for locations where dedicated local content is useful.
               </p>
 
-              <div className="flex gap-4 flex-wrap text-xs font-extrabold text-[#009fe3] dark:text-cyan-400">
+              <div className="flex gap-4 flex-wrap text-sm font-black text-[#009fe3] dark:text-cyan-400">
                 <Link href="/service-areas/assam/" className="hover:underline flex items-center gap-1.5">
                   <span>ID Card Printing in Assam</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link href="/service-areas/assam/guwahati/" className="hover:underline flex items-center gap-1.5">
                   <span>ID Card Printing in Guwahati</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -2214,11 +2207,11 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <div className="rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 sm:p-12 shadow-xl space-y-8">
-            <div className="border-b border-slate-100 dark:border-slate-800 pb-6">
-              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="text-center max-w-3xl mx-auto flex flex-col items-center border-b border-slate-100 dark:border-slate-800 pb-6 space-y-2">
+              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
                 Timeline
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
                 Our Journey
               </h2>
             </div>
@@ -2235,8 +2228,8 @@ export default function WhyIdgenPage() {
                     </span>
                     <div className="h-2 w-2 rounded-full bg-[#009fe3] group-hover:scale-150 transition-transform" />
                   </div>
-                  <h3 className="font-black text-slate-950 dark:text-white text-base">{item.label}</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{item.body}</p>
+                  <h3 className="font-black text-slate-950 dark:text-white text-lg">{item.label}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -2248,28 +2241,28 @@ export default function WhyIdgenPage() {
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-20 pt-8">
           <div className="rounded-[2.5rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 sm:p-12 shadow-xl space-y-8">
-            <div>
-              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="text-center max-w-3xl mx-auto flex flex-col items-center space-y-2">
+              <span className="inline-block rounded-full bg-[#009fe3]/10 dark:bg-cyan-950/60 border border-[#009fe3]/25 dark:border-cyan-800/50 px-4 py-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
                 The Future
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
                 Building IDGen for the Future
               </h2>
             </div>
 
-            <p className="text-base font-black text-slate-950 dark:text-white">
+            <p className="text-lg font-black text-slate-950 dark:text-white text-center">
               Identification is changing.
             </p>
 
-            <div className="space-y-3">
-              <p className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+            <div className="space-y-3.5">
+              <p className="text-xs sm:text-sm font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
                 Organizations increasingly expect:
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
                 {futureExpectations.map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/80 px-4 py-3 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs"
+                    className="flex items-center gap-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/80 px-4 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs"
                   >
                     <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0" />
                     <span>{item}</span>
@@ -2278,14 +2271,14 @@ export default function WhyIdgenPage() {
               </div>
             </div>
 
-            <div className="space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div className="space-y-2 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed pt-5 border-t border-slate-100 dark:border-slate-800 font-medium">
               <p>
                 IDGen is building its systems around these changing requirements.
               </p>
               <p>
                 The objective is not simply to print more cards.
               </p>
-              <p className="font-black text-slate-950 dark:text-white text-base sm:text-lg pt-1 text-[#009fe3] dark:text-cyan-400">
+              <p className="font-black text-slate-950 dark:text-white text-lg sm:text-xl pt-1 text-[#009fe3] dark:text-cyan-400">
                 It is to make the entire identification process easier to manage.
               </p>
             </div>
@@ -2306,16 +2299,16 @@ export default function WhyIdgenPage() {
             23. IDGEN IN ONE SENTENCE (Sleek Compact Luxury Quote Card)
         ───────────────────────────────────────────────────────────── */}
         <section className="mt-14 pt-4">
-          <div className="relative overflow-hidden rounded-[2rem] border border-sky-200/70 dark:border-slate-800 bg-sky-50/60 dark:bg-slate-900 p-6 sm:p-8 shadow-sm">
-            <div className="relative z-10 max-w-2xl mx-auto text-center space-y-3">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3.5 py-1 text-[11px] font-extrabold text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider shadow-2xs">
-                <Sparkles className="h-3 w-3" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-sky-200/70 dark:border-slate-800 bg-sky-50/60 dark:bg-slate-900 p-8 sm:p-10 shadow-sm">
+            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-1 text-xs font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider shadow-2xs">
+                <Sparkles className="h-3.5 w-3.5" />
                 <span>IDGen in One Sentence</span>
               </div>
 
-              <div className="relative pt-1 pb-1">
-                <Quote className="absolute -top-1 -left-2 h-6 w-6 text-[#009fe3]/20 dark:text-cyan-400/20 -scale-x-100 pointer-events-none" />
-                <blockquote className="text-xs sm:text-sm md:text-base font-bold text-slate-900 dark:text-slate-100 leading-relaxed px-4">
+              <div className="relative pt-2 pb-2">
+                <Quote className="absolute -top-2 -left-2 h-8 w-8 text-[#009fe3]/20 dark:text-cyan-400/20 -scale-x-100 pointer-events-none" />
+                <blockquote className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 dark:text-slate-100 leading-relaxed px-4">
                   &ldquo;IDGen is an identity-solutions brand built on identification experience dating back to 2014, helping organizations across Northeast India manage personalized identification through products, digital workflows and structured production—with responsible handling of customer-provided identification data.&rdquo;
                 </blockquote>
               </div>
@@ -2326,59 +2319,59 @@ export default function WhyIdgenPage() {
         {/* ─────────────────────────────────────────────────────────────
             24. NEED AN IDENTITY SOLUTION? (Compact Premium CTA Banner)
         ───────────────────────────────────────────────────────────── */}
-        <section className="mt-8 pt-2">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-8 px-6 sm:py-9 sm:px-10 text-white shadow-xl border border-slate-800">
+        <section className="mt-10 pt-2">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-10 px-6 sm:py-12 sm:px-12 text-white shadow-2xl border border-slate-800">
             {/* Subtle Accent Glows */}
-            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#009fe3]/15 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-cyan-500/10 blur-3xl" />
+            <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#009fe3]/15 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
 
-            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
-              <span className="inline-block rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[11px] font-extrabold text-cyan-300 uppercase tracking-wider backdrop-blur-md">
+            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-5">
+              <span className="inline-block rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-black text-cyan-300 uppercase tracking-wider backdrop-blur-md">
                 Need an Identity Solution?
               </span>
 
-              <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
                 Tell Us What Your Organization Needs
               </h2>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-medium">
                 Whether you require student identification, employee cards, event badges, RFID cards, custom lanyards or a complete identification project, IDGen can help you determine the appropriate products and workflow.
               </p>
 
               {/* Start With Your Requirement */}
-              <div className="space-y-1.5 max-w-xl mx-auto pt-1">
-                <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
+              <div className="space-y-2 max-w-2xl mx-auto pt-1">
+                <p className="text-xs font-black uppercase tracking-wider text-cyan-400">
                   Start With Your Requirement
                 </p>
-                <div className="rounded-xl border border-white/10 bg-white/5 py-2 px-3 text-[11px] text-slate-300 font-semibold backdrop-blur-md">
+                <div className="rounded-xl border border-white/10 bg-white/5 py-2.5 px-4 text-xs sm:text-sm text-slate-200 font-bold backdrop-blur-md">
                   Requirement → Data → Design → Preview → Approval → Production → Quality Check → Dispatch
                 </div>
               </div>
 
               {/* Compact CTA Buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
                 <Link
                   href="/request-a-quote/"
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-[#009fe3]/30 transition-all hover:bg-[#38bdf8] hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-7 py-3 text-sm font-bold text-white shadow-md shadow-[#009fe3]/30 transition-all hover:bg-[#38bdf8] hover:-translate-y-0.5"
                 >
                   <span>Request a Quote</span>
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/services/"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5"
                 >
                   <span>Explore Services</span>
                 </Link>
                 <Link
                   href="/idgen-studio/"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5"
                 >
                   <span>Explore IDGen Studio</span>
                 </Link>
                 <Link
                   href="/contact-us/"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5"
                 >
                   <span>Contact IDGen</span>
                 </Link>
@@ -2390,14 +2383,14 @@ export default function WhyIdgenPage() {
         {/* ─────────────────────────────────────────────────────────────
             25. IDGEN — IDENTITY SOLUTIONS SIMPLIFIED (Footer Closing Banner)
         ───────────────────────────────────────────────────────────── */}
-        <section className="mt-16 mb-10 text-center space-y-2.5">
-          <h2 className="text-lg font-black text-slate-950 dark:text-white tracking-tight">
+        <section className="mt-16 mb-12 text-center space-y-3">
+          <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tight">
             IDGen — Identity Solutions Simplified
           </h2>
-          <p className="text-xs font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
+          <p className="text-xs sm:text-sm font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
             Built on Identification Experience Since 2014
           </p>
-          <p className="text-xs text-slate-500 font-medium">
+          <p className="text-xs sm:text-sm text-slate-500 font-semibold">
             Experience + Technology + Products + Production • Serving Organizations Across Northeast India
           </p>
         </section>

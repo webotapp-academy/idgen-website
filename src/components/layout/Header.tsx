@@ -192,12 +192,12 @@ export function Header() {
 
             <button
               type="button"
-              className="flex items-center justify-center rounded-full p-2 text-white hover:bg-white/10 hover:text-cyan-300 transition-colors lg:hidden"
+              className="flex items-center justify-center rounded-full p-2 text-foreground hover:bg-surface hover:text-accent transition-colors lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
