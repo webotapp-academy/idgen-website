@@ -4,7 +4,7 @@ export function FlowChain({ steps, dark = false }: { steps: string[]; dark?: boo
   return (
     <div className="flex flex-wrap items-center gap-2">
       {steps.map((step, i) => (
-        <div key={step} className="flex items-center gap-2">
+        <div key={`${step}-${i}`} className="flex items-center gap-2">
           <span
             className={`rounded-full border px-3.5 py-1.5 text-xs font-bold sm:text-sm ${
               dark

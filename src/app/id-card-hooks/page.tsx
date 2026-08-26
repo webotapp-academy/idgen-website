@@ -1,43 +1,97 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Link2, ShieldCheck, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import {
+  Link2,
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+  HelpCircle,
+  Clock,
+  Truck,
+  Boxes,
+  GraduationCap,
+  Briefcase,
+  Ticket,
+  Hospital,
+  Users,
+  Anchor,
+  FileCheck2,
+  Lock,
+  Eye,
+  Sliders,
+  ChevronRight,
+  Shield,
+  Zap,
+  Check,
+  PackageCheck,
+  PhoneCall,
+  MessageSquare,
+  RotateCw,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
-import { FlowChain } from "@/components/ui/FlowChain";
-import { WorkflowSteps } from "@/components/ui/WorkflowSteps";
 import { FaqList } from "@/components/ui/FaqList";
-import { CtaBand } from "@/components/ui/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { HookHeroShowcase } from "@/components/id-card-hooks/HookHeroShowcase";
+import { QuickHookSelectionMatrix } from "@/components/id-card-hooks/QuickHookSelectionMatrix";
+import { HookAssemblyEcosystem } from "@/components/id-card-hooks/HookAssemblyEcosystem";
+import { HookRangeMasterShowcase } from "@/components/id-card-hooks/HookRangeMasterShowcase";
+import { HookEngineeringGuide } from "@/components/id-card-hooks/HookEngineeringGuide";
+import { HookApplicationsGrid } from "@/components/id-card-hooks/HookApplicationsGrid";
+import { HookWorkflowAndDispatch } from "@/components/id-card-hooks/HookWorkflowAndDispatch";
 import type { Faq } from "@/data/types";
 
+/* ─────────────────────────────────────────────────────────────
+   SEO METADATA (Strictly from document)
+   ───────────────────────────────────────────────────────────── */
 export const metadata = pageMetadata({
   title: "ID Card Hooks & Fish Hook Attachments for Lanyards | IDGen",
-  description: "ID card hooks and fish hook attachments for ID card holders, badges and lanyards. IDGen supplies compatible attachment options for schools, companies, institutions and events.",
+  description:
+    "ID card hooks and fish hook attachments for ID card holders, badges and lanyards. IDGen supplies compatible attachment options for schools, companies, institutions and events.",
   path: "/id-card-hooks/",
 });
 
-const hookModels = [
-  { name: "Chrome Swivel Dog Hook", material: "Nickel-Plated Zinc Alloy", pullStrength: "25 kg Tensile", img: "/images/Lanyard with Hook Samples/Sample 17 .jpg", desc: "Heavy-duty spring lever snap with 360° free rotation to prevent lanyard twists." },
-  { name: "Classic Fish Hook Attachment", material: "Hardened Steel Wire", pullStrength: "15 kg Tensile", img: "/images/Lanyard with Hook Samples/Sample 18 .jpg", desc: "Lightweight, reliable wire snap hook designed for daily school badge loops." },
-  { name: "Dual-Hook Conference Clip", material: "Twin Swivel Carabiners", pullStrength: "30 kg Tensile", img: "/images/Lanyard with Hook Samples/Sample 19 .jpg", desc: "Anchors oversized convention credentials at both corners to eliminate badge flip." },
-  { name: "Safety Breakaway Clip", material: "Molded POM Polymer", pullStrength: "5 kg Auto-Release", img: "/images/Lanyard with Hook Samples/Sample 23 .jpg", desc: "Emergency release buckle positioned at the neck nape for workshop & hospital safety." },
-];
-
-const orderingSteps = [
-  { title: "1. Specify Hook Model", body: "Select Dog Hook, Fish Hook, Crocodile Clip, or Safety Breakaway." },
-  { title: "2. Choose Finish & Material", body: "Opt for mirror chrome, matte black, or heavy-duty zinc alloy." },
-  { title: "3. Match Lanyard Ribbon Width", body: "Available in 12mm, 16mm, 20mm, and 25mm inner loop apertures." },
-  { title: "4. Bulk Factory Delivery", body: "Packaged in poly-bags of 100 with immediate dispatch from our Guwahati warehouse." },
-];
-
+/* ─────────────────────────────────────────────────────────────
+   FAQS (Strictly from document)
+   ───────────────────────────────────────────────────────────── */
 const faqs: Faq[] = [
-  { q: "What is the difference between a Dog Hook and a Fish Hook?", a: "A Dog Hook features a spring-loaded trigger lever with a 360-degree swivel base that prevents lanyard tangling. A Fish Hook is a simpler curved steel snap clip favored for economical student lanyard sets." },
-  { q: "Are IDGen hooks rust-resistant?", a: "Yes. All our metallic hooks are electroplated with anti-corrosion nickel/chrome layers that resist humidity, sweat, and tarnishing." },
-  { q: "Can I buy hooks separately without lanyards?", a: "Yes. We supply individual hardware attachments and clips in bulk wholesale quantities for printing businesses and institutional inventory." },
+  {
+    q: "What is an ID card hook?",
+    a: "An ID card hook is an attachment used to connect an ID card holder or badge to a lanyard.",
+  },
+  {
+    q: "What is a fish hook for an ID card?",
+    a: "A fish hook is an attachment used to connect a compatible ID card holder or badge to a lanyard.",
+  },
+  {
+    q: "Can an ID card hook be used with an ID card holder?",
+    a: "Yes. A compatible hook can connect an ID card holder to a lanyard.",
+  },
+  {
+    q: "Can I use a hook with a custom printed lanyard?",
+    a: "Yes. A suitable hook can be used with a compatible custom printed lanyard.",
+  },
+  {
+    q: "Can IDGen supply hooks with ID card holders?",
+    a: "Yes. Hooks can be supplied as part of the required identification configuration.",
+  },
+  {
+    q: "Can I order hooks in bulk?",
+    a: "Yes. ID card hooks can be supplied for institutional, organizational and event requirements, subject to availability and specifications.",
+  },
+  {
+    q: "Do I need one or two hooks?",
+    a: "That depends on the card/holder and lanyard configuration. If your setup requires two attachment points, a two-hook configuration can be used.",
+  },
+  {
+    q: "How do I choose the correct ID card hook?",
+    a: "Provide the card size, holder model, lanyard type and intended application so the compatible attachment can be identified.",
+  },
 ];
 
 export default function IdCardHooksPage() {
@@ -45,147 +99,198 @@ export default function IdCardHooksPage() {
     <>
       <JsonLd
         data={productSchema({
-          name: "ID Card & Lanyard Hooks",
-          description: "Fish hooks and attachment components connecting card holders to lanyards.",
+          name: "ID Card Hooks & Attachments",
+          description:
+            "ID card hooks and fish hook attachments for ID card holders, badges and lanyards. IDGen supplies compatible attachment options for schools, companies, institutions and events.",
           path: "/id-card-hooks/",
         })}
       />
-      
-      <PageHero
-        eyebrow="Hardware & Attachments"
-        icon={Link2}
-        title="Heavy-Duty Chrome Swivel Hooks & Attachment Hardware"
-        lede="Engineered for high-tension durability and effortless 360° rotation. Nickel-plated dog hooks, classic fish hooks, and safety breakaway buckles manufactured for reliable everyday badge wear."
-        stats={[
-          { label: "Material", value: "Nickel-Plated Zinc" },
-          { label: "Rotation", value: "360° Free Swivel" },
-          { label: "Tensile Rating", value: "Up to 25 kg" },
-          { label: "Dispatch", value: "Immediate Stock" },
-        ]}
-        visual={
-          <div className="relative h-[400px] w-full">
-            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
-            <div className="relative h-full w-full">
-              {/* Primary Hook Product Photo */}
-              <div className="absolute top-0 right-0 h-60 w-[70%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
-                <Image
-                  src="/images/Lanyard with Hook Samples/Sample 17 .jpg"
-                  alt="Chrome Swivel Dog Hook for Lanyards"
-                  fill
-                  priority
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-4">
-                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Chrome Swivel</span>
-                </div>
-              </div>
 
-              {/* Secondary Fish Hook Sample */}
-              <div className="absolute bottom-4 left-0 h-48 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
-                <Image
-                  src="/images/Lanyard with Hook Samples/Sample 18 .jpg"
-                  alt="Steel Wire Fish Hook Attachment"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+      {/* ─────────────────────────────────────────────────────────────
+          1. ULTRA-PREMIUM LIGHT/DARK HERO SECTION (ID Card Hooks)
+      ───────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-8 lg:pt-10 lg:pb-10 transition-colors">
+        {/* Ambient background lighting */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.12),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.2),rgba(7,13,24,0))] pointer-events-none" />
+        <div
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08] pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, #009fe3 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
 
-              {/* Lanyard Set Accent */}
-              <div className="absolute -bottom-2 right-12 h-32 w-32 rounded-full overflow-hidden border-4 border-[#0B1320] shadow-2xl z-30 hover:scale-110 transition-all duration-500">
-                <Image
-                  src="/images/Lanyard with Hook Samples/Sample 19 .jpg"
-                  alt="Lanyard Hardware Assembly"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+        <Container className="relative z-10">
+          {/* Breadcrumb row */}
+          <div className="mb-6">
+            <Breadcrumbs
+              items={[
+                { name: "Home", path: "/" },
+                { name: "Products", path: "/products/" },
+                { name: "ID Card Hooks", path: "/id-card-hooks/" },
+              ]}
+            />
           </div>
-        }
-      />
 
-      <Container className="py-14">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Products", path: "/products/" }, { name: "ID Card Hooks", path: "/id-card-hooks/" }]} />
-
-        {/* Real Hardware Specimen Grid */}
-        <div className="mt-8">
-          <SectionHead
-            eyebrow="Hardware Models"
-            title="Industrial-Grade ID Card Hooks & Fasteners"
-            lede="Tested to withstand continuous daily pull resistance without bending, snapping, or tarnishing."
-          />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {hookModels.map((hm) => (
-              <div key={hm.name} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-xl hover:border-accent/40">
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950 img-shine">
-                  <Image
-                    src={hm.img}
-                    alt={hm.name}
-                    fill
-                    className="img-zoom object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
-                    {hm.pullStrength}
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                {/* Pill Badge */}
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white dark:from-cyan-950/60 dark:via-slate-900 dark:to-slate-800 px-4 py-1.5 shadow-2xs">
+                  <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
+                  <span className="text-xs font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
+                    ID Card Hooks &amp; Attachments
+                  </span>
+                  <span className="h-3 w-px bg-[#009fe3]/30" />
+                  <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                    Direct Factory Supply
                   </span>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-foreground text-sm">{hm.name}</h3>
-                  <p className="mt-1.5 text-xs text-muted leading-relaxed">{hm.desc}</p>
-                  <div className="mt-3 flex items-center gap-1 text-[11px] text-accent font-semibold">
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    <span>{hm.material}</span>
+
+                {/* Main Heading */}
+                <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.1]">
+                  ID Card Hooks &amp; Attachments for{" "}
+                  <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
+                    Lanyards and ID Cards
+                  </span>
+                </h1>
+
+                {/* Subtitle / Lede */}
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                  IDGen provides ID card hooks and attachment components used to connect identification cards, holders and badges to lanyards. The appropriate hook depends on the holder, card configuration, lanyard and intended application.
+                </p>
+              </div>
+
+              {/* Typical Configuration Flow Block */}
+              <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3.5 shadow-2xs space-y-1">
+                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">
+                  Typical Configuration
+                </span>
+                <p className="text-xs font-extrabold text-slate-900 dark:text-white">
+                  ID Card → Holder → Hook → Lanyard
+                </p>
+              </div>
+
+              {/* Feature Spec Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <ShieldCheck className="h-4 w-4 text-[#009fe3]" />
+                    <span>Secure Hold</span>
                   </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Compatible attachment</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <Link2 className="h-4 w-4 text-[#009fe3]" />
+                    <span>1 or 2 Hooks</span>
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Flexible configuration</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <Sliders className="h-4 w-4 text-[#009fe3]" />
+                    <span>20 mm Fit</span>
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Standard lanyard width</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <Truck className="h-4 w-4 text-[#009fe3]" />
+                    <span>72-Hour</span>
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Dispatch commitment</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Connection Flow Diagram */}
-        <div className="mt-20 rounded-3xl border border-surface-border bg-surface p-8 sm:p-10">
-          <span className="text-xs font-bold tracking-widest text-accent uppercase">Component Ecosystem</span>
-          <h2 className="mt-2 text-2xl font-extrabold text-foreground sm:text-3xl">
-            How IDGen Hardware Pairs Together
-          </h2>
-          <p className="mt-3 text-sm text-muted max-w-2xl">
-            A secure, comfortable ID setup combines high-grade PVC cards with protective cases and swivel hooks:
-          </p>
-          <div className="mt-8">
-            <FlowChain steps={["30-Mil PVC ID Card", "Crystal Acrylic Holder", "Chrome Swivel Hook", "20mm Satin Lanyard"]} />
-          </div>
-        </div>
+              {/* Action CTAs */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <Link
+                  href="/request-a-quote/"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
+                >
+                  <span>Request a Quote</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href="/id-card-holders/"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
+                >
+                  <span>Explore ID Card Holders</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/custom-printed-lanyard-printing/"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-3.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                >
+                  <span>Custom Lanyards</span>
+                </Link>
+              </div>
 
-        {/* Workflow */}
-        <div className="mt-20">
-          <SectionHead eyebrow="Ordering Guide" title="How to Order Lanyard Hooks in Bulk" />
-          <div className="mt-8">
-            <WorkflowSteps steps={orderingSteps} />
-          </div>
-        </div>
+              {/* Trust Badge Bar */}
+              <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs font-medium text-slate-500 dark:text-slate-400">
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  <span>Wholesale Factory Supply</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  <span>Compatible Attachment</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  <span>Ready Stock in Guwahati</span>
+                </div>
+              </div>
+            </div>
 
-        {/* FAQ */}
-        <div className="mt-20">
-          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About ID Card Hooks" />
-          <div className="mt-8">
-            <FaqList faqs={faqs} />
+            {/* Right Column: Visual Showcase */}
+            <div className="lg:col-span-5 flex flex-col">
+              <HookHeroShowcase />
+            </div>
           </div>
-        </div>
+        </Container>
+      </section>
 
-        {/* Closing CTA */}
-        <div className="mt-16">
-          <CtaBand
-            title="Looking for wholesale hardware supplies?"
-            body="Get in touch with our Guwahati distribution warehouse for carton pricing on dog hooks, fish hooks, and alligator clips."
-            links={[
-              { label: "Request Hardware Quote", href: "/request-a-quote/", primary: true },
-              { label: "Explore ID Card Holders", href: "/id-card-holders/" },
-              { label: "Custom Printed Lanyards", href: "/custom-printed-lanyard-printing/" },
-            ]}
-          />
-        </div>
-      </Container>
+      <div className="bg-slate-50/60 dark:bg-slate-950/20">
+        <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
+          {/* Quick Selection Matrix */}
+          <div>
+            <QuickHookSelectionMatrix />
+          </div>
+
+          {/* What Is an ID Card Hook? Section */}
+          <div className="mt-16 sm:mt-20">
+            <HookAssemblyEcosystem />
+          </div>
+
+          {/* ID Card Hook Setups & Range Master Showcase */}
+          <HookRangeMasterShowcase />
+
+          {/* Choosing the Right ID Card Hook & Quality & Compatibility */}
+          <HookEngineeringGuide />
+
+          {/* ID Card Hook Uses Across Applications */}
+          <HookApplicationsGrid />
+
+          {/* Complete Sets, Bulk Orders, How to Order, 72-Hour Dispatch & Closing CTA */}
+          <HookWorkflowAndDispatch />
+
+          {/* Frequently Asked Questions Section */}
+          <div className="mt-16 sm:mt-20">
+            <SectionHead
+              eyebrow="FAQ"
+              title="Frequently Asked Questions"
+              lede="Common questions regarding ID card hooks, fish hook attachments, configurations, and ordering:"
+            />
+
+            <div className="mt-8">
+              <FaqList faqs={faqs} />
+            </div>
+          </div>
+        </Container>
+      </div>
     </>
   );
 }

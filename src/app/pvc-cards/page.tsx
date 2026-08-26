@@ -1,46 +1,68 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CreditCard, ShieldCheck, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import {
+  CreditCard,
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+  Truck,
+  Boxes,
+  Layers,
+  Radio,
+  HelpCircle,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
-import { WorkflowSteps } from "@/components/ui/WorkflowSteps";
 import { FaqList } from "@/components/ui/FaqList";
-import { CtaBand } from "@/components/ui/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { PvcHeroShowcase } from "@/components/pvc-cards/PvcHeroShowcase";
+import { QuickPvcSelectionMatrix } from "@/components/pvc-cards/QuickPvcSelectionMatrix";
+import { PvcAnatomyEcosystem } from "@/components/pvc-cards/PvcAnatomyEcosystem";
+import { PvcRangeMasterShowcase } from "@/components/pvc-cards/PvcRangeMasterShowcase";
+import { PvcEngineeringGuide } from "@/components/pvc-cards/PvcEngineeringGuide";
+import { PvcApplicationsGrid } from "@/components/pvc-cards/PvcApplicationsGrid";
+import { PvcWorkflowAndDispatch } from "@/components/pvc-cards/PvcWorkflowAndDispatch";
 import type { Faq } from "@/data/types";
 
+/* ─────────────────────────────────────────────────────────────
+   SEO METADATA (Strictly from document)
+   ───────────────────────────────────────────────────────────── */
 export const metadata = pageMetadata({
   title: "30-Mil CR80 PVC Smart Cards | Virgin PVC Core Cards | IDGen",
-  description: "Bank-grade 30-mil (0.76mm) CR80 virgin PVC smart cards manufactured for enterprise employee badges, student ID cards, RFID access cards, and membership programs across Northeast India.",
+  description:
+    "Bank-grade 30-mil (0.76mm) CR80 virgin PVC smart cards manufactured for enterprise employee badges, student ID cards, RFID access cards, and membership programs across Northeast India.",
   path: "/pvc-cards/",
 });
 
-const pvcPhotos = [
-  { title: "High-Definition Dye Sublimation PVC Card", code: "PVC-01", img: "/images/PVC Cards Samples/Sample 1.jpg" },
-  { title: "Overlaminated Scratch-Proof Enterprise PVC Card", code: "PVC-02", img: "/images/PVC Cards Samples/Sample 3.jpg" },
-];
-
-const pvcSpecs = [
-  { model: "CR80 30-Mil Standard PVC", material: "Virgin Polyvinyl Chloride", dimensions: "85.6mm × 54mm (0.76mm)", print: "Thermal Transfer & Dye Sublimation", durability: "5+ Years UV Resistance" },
-  { model: "Mifare 1K RFID PVC Card", material: "PVC + Embedded 13.56MHz Chip", dimensions: "CR80 Standard (30-mil)", print: "Edge-to-Edge HD Print", durability: "100,000 Read/Write Cycles" },
-  { model: "TK4100 Proximity Card", material: "PVC + 125kHz Low Frequency Chip", dimensions: "CR80 Standard (30-mil)", print: "High Gloss Protective Laminate", durability: "Contactless Access Control" },
-  { model: "Magnetic Stripe PVC Card", material: "PVC + HiCo / LoCo MagStripe", dimensions: "CR80 ISO 7811 Standard", print: "Variable Barcode / QR / Mag", durability: "Bank / Loyalty Standard" },
-];
-
-const orderingSteps = [
-  { title: "1. Select PVC Chip / Spec", body: "Choose standard plain PVC, 13.56MHz Mifare 1K smart card, or 125kHz TK4100 proximity card." },
-  { title: "2. Provide Data & Student / Staff Roster", body: "Send data sheet along with individual photograph filenames for seamless automated batch printing." },
-  { title: "3. Precision Thermal Sublimation", body: "300 DPI edge-to-edge printing with protective overlay lamination against wear and moisture." },
-  { title: "4. Rapid Guwahati Dispatch", body: "Card batches packed in anti-static trays and dispatched in 24–48h across all 8 NE states." },
-];
-
+/* ─────────────────────────────────────────────────────────────
+   FAQS (Document Content)
+   ───────────────────────────────────────────────────────────── */
 const faqs: Faq[] = [
-  { q: "What is the difference between virgin PVC and recycled PVC cards?", a: "Virgin PVC cards feature pure white core plastic without imperfections, ensuring card printer printheads do not snag or cause white speckles. They also offer 3x higher resistance to snapping or delamination." },
-  { q: "Can we print metallic foil, holographic overlays, or UV security text on PVC cards?", a: "Yes! IDGen offers security overlays including high-resolution 3D custom holograms, invisible UV microtext, and gold/silver foil stamping." },
+  {
+    q: "What is the difference between virgin PVC and recycled PVC cards?",
+    a: "Virgin PVC cards feature pure white core plastic without imperfections, ensuring card printer printheads do not snag or cause white speckles. They also offer 3x higher resistance to snapping or delamination.",
+  },
+  {
+    q: "Can we print metallic foil, holographic overlays, or UV security text on PVC cards?",
+    a: "Yes! IDGen offers security overlays including high-resolution 3D custom holograms, invisible UV microtext, and gold/silver foil stamping.",
+  },
+  {
+    q: "What is the standard dimension and thickness of CR80 cards?",
+    a: "CR80 is the international credit-card size standard measuring exactly 85.6 mm × 54.0 mm with a standard 30-mil (0.76 mm) thickness compliant with ISO/IEC 7810.",
+  },
+  {
+    q: "Are IDGen PVC cards compatible with RFID smart chips and access systems?",
+    a: "Yes, our cards are available with embedded 13.56MHz Mifare 1K chips, 125kHz TK4100 proximity inlays, or high-coercivity (2750 Oe) magnetic stripes.",
+  },
+  {
+    q: "What is the dispatch turnaround for custom printed PVC cards?",
+    a: "Standard batches with approved data rosters are produced and dispatched in 24–48 hours from our Guwahati factory across Assam and all 8 Northeast states.",
+  },
 ];
 
 export default function PvcCardsPage() {
@@ -49,160 +71,183 @@ export default function PvcCardsPage() {
       <JsonLd
         data={productSchema({
           name: "30-Mil CR80 PVC Smart Cards",
-          description: "Bank-grade 30-mil CR80 virgin PVC smart cards for ID badges and access control.",
+          description:
+            "Bank-grade 30-mil CR80 virgin PVC smart cards for ID badges and access control.",
           path: "/pvc-cards/",
         })}
       />
 
-      <PageHero
-        eyebrow="Core Media & Credentials"
-        icon={CreditCard}
-        title="30-Mil CR80 Virgin PVC Smart Cards"
-        lede="The gold standard for identity credentials. IDGen supplies bank-grade 30-mil (0.76mm) CR80 virgin PVC cards with high-definition dye sublimation printing, protective overlaminate, and embedded RFID smart chips."
-        stats={[
-          { label: "Card Format", value: "CR80 (85.6x54mm)" },
-          { label: "Thickness", value: "30-Mil (0.76mm)" },
-          { label: "Core Quality", value: "100% Virgin PVC" },
-          { label: "Dispatch", value: "24–48h Factory" },
-        ]}
-        visual={
-          <div className="relative h-[430px] w-full">
-            <div className="absolute inset-0 bg-cyan-500/20 blur-[90px] rounded-full" />
-            <div className="relative h-full w-full">
-              {/* Primary PVC Card Sample */}
-              <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
-                <Image
-                  src="/images/PVC Cards Samples/Sample 1.jpg"
-                  alt="Virgin PVC Smart Card Printing Sample"
-                  fill
-                  priority
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-4">
-                  <span className="rounded-full bg-cyan-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-950">Virgin PVC</span>
-                </div>
-              </div>
+      {/* ─────────────────────────────────────────────────────────────
+          1. ULTRA-PREMIUM LIGHT/DARK HERO SECTION (PVC Cards Hub)
+      ───────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-8 lg:pt-10 lg:pb-10 transition-colors">
+        {/* Ambient background lighting */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.12),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.2),rgba(7,13,24,0))] pointer-events-none" />
+        <div
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08] pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, #009fe3 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
 
-              {/* Overlapping Secondary Card Sample */}
-              <div className="absolute bottom-4 left-0 h-52 w-[60%] rounded-2xl overflow-hidden border border-white/20 shadow-2xl z-20 hover:scale-105 transition-all duration-500">
-                <Image
-                  src="/images/PVC Cards Samples/Sample 3.jpg"
-                  alt="Overlaminated Scratch Proof PVC Card"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+        <Container className="relative z-10">
+          {/* Breadcrumbs */}
+          <div className="mb-6">
+            <Breadcrumbs
+              items={[
+                { name: "Home", path: "/" },
+                { name: "Products", path: "/products/" },
+                { name: "PVC Cards", path: "/pvc-cards/" },
+              ]}
+            />
           </div>
-        }
-      />
 
-      <Container className="py-14">
-        <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Products", path: "/products/" }, { name: "PVC Cards", path: "/pvc-cards/" }]} />
-
-        {/* Specimen Gallery */}
-        <div className="mt-8">
-          <SectionHead
-            eyebrow="Specimen Gallery"
-            title="Real Production Specimen Cards"
-            lede="Vibrant dye sublimation colors, crisp barcodes, and edge-to-edge clarity."
-          />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl">
-            {pvcPhotos.map((pp) => (
-              <div key={pp.code} className="group overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm transition hover:shadow-xl hover:border-accent/40">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 img-shine">
-                  <Image
-                    src={pp.img}
-                    alt={pp.title}
-                    fill
-                    className="img-zoom object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute top-3 right-3 rounded-full bg-slate-900/80 px-2.5 py-0.5 text-[10px] font-bold text-cyan-300 backdrop-blur-md">
-                    {pp.code}
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                {/* Pill Badge */}
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white dark:from-cyan-950/60 dark:via-slate-900 dark:to-slate-800 px-4 py-1.5 shadow-2xs">
+                  <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
+                  <span className="text-xs font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
+                    Core Media &amp; Credentials
+                  </span>
+                  <span className="h-3 w-px bg-[#009fe3]/30" />
+                  <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                    100% Virgin White Core
                   </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-foreground text-sm">{pp.title}</h3>
-                  <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-400 font-semibold">
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    <span>Bank Grade PVC</span>
+
+                {/* Main Heading */}
+                <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.1]">
+                  30-Mil CR80 Virgin PVC{" "}
+                  <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
+                    Smart Cards
+                  </span>
+                </h1>
+
+                {/* Subtitle / Lede */}
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                  The gold standard for identity credentials. IDGen supplies bank-grade 30-mil (0.76mm) CR80 virgin PVC cards with high-definition dye sublimation printing, protective overlaminate, and embedded RFID smart chips.
+                </p>
+              </div>
+
+              {/* Feature Spec Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <CreditCard className="h-4 w-4 text-[#009fe3]" />
+                    <span>CR80 Format</span>
                   </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">85.6 × 54.0 mm</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <Layers className="h-4 w-4 text-[#009fe3]" />
+                    <span>30-Mil Depth</span>
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">0.76mm bank grade</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <Sparkles className="h-4 w-4 text-[#009fe3]" />
+                    <span>300 DPI</span>
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Dye sublimation</p>
+                </div>
+                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                    <Truck className="h-4 w-4 text-[#009fe3]" />
+                    <span>24–48h</span>
+                  </div>
+                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Factory dispatch</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Specs Table */}
-        <div className="mt-20">
-          <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-accent uppercase">
-            <ShieldCheck className="h-4 w-4" />
-            <span>Industrial Specifications</span>
-          </div>
-          <h2 className="mt-1 text-2xl font-extrabold text-foreground sm:text-3xl">
-            PVC Smart Card Options & Technical Specs
-          </h2>
-          <p className="mt-2 text-sm text-muted max-w-2xl">
-            Built for enterprise attendance tracking, access control barriers, and university registration.
-          </p>
+              {/* Action CTAs */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <Link
+                  href="/request-a-quote/"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
+                >
+                  <span>Request a Quote</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href="#selection-matrix"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
+                >
+                  <span>Explore Card Models</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link
+                  href="/id-card-holders/"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-3.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                >
+                  <span>Compatible Holders</span>
+                </Link>
+              </div>
 
-          <div className="mt-8 overflow-x-auto rounded-2xl border border-surface-border bg-surface shadow-sm">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b border-surface-border bg-background/80 text-xs font-bold text-muted uppercase">
-                <tr>
-                  <th className="px-5 py-4">Card Type</th>
-                  <th className="px-5 py-4">Material Structure</th>
-                  <th className="px-5 py-4">Dimensions</th>
-                  <th className="px-5 py-4">Printing Capability</th>
-                  <th className="px-5 py-4">Durability</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-surface-border">
-                {pvcSpecs.map((spec) => (
-                  <tr key={spec.model} className="hover:bg-background/50 transition-colors">
-                    <td className="px-5 py-4 font-bold text-foreground">{spec.model}</td>
-                    <td className="px-5 py-4 text-muted">{spec.material}</td>
-                    <td className="px-5 py-4 text-muted">{spec.dimensions}</td>
-                    <td className="px-5 py-4 text-muted">{spec.print}</td>
-                    <td className="px-5 py-4 font-mono text-xs font-semibold text-cyan-400">{spec.durability}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+              {/* Trust Badge Bar */}
+              <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs font-medium text-slate-500 dark:text-slate-400">
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  <span>100% Virgin Polymer Core</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  <span>Guwahati Factory Direct</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  <span>Mifare &amp; TK4100 RFID Ready</span>
+                </div>
+              </div>
+            </div>
 
-        {/* Workflow */}
-        <div className="mt-20">
-          <SectionHead eyebrow="Ordering Workflow" title="How to Order PVC Cards in Bulk" />
-          <div className="mt-8">
-            <WorkflowSteps steps={orderingSteps} />
+            {/* Right Column: Visual Hero Showcase */}
+            <div className="lg:col-span-5 flex flex-col">
+              <PvcHeroShowcase />
+            </div>
           </div>
-        </div>
+        </Container>
+      </section>
 
-        {/* FAQ */}
-        <div className="mt-20">
-          <SectionHead eyebrow="FAQ" title="Frequently Asked Questions About PVC Cards" />
-          <div className="mt-8">
-            <FaqList faqs={faqs} />
+      <div className="bg-slate-50/60 dark:bg-slate-950/20">
+        <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
+          {/* Quick PVC Selection & Model Matrix */}
+          <QuickPvcSelectionMatrix />
+
+          {/* PVC Card Anatomy & Multi-Layer Engineering */}
+          <PvcAnatomyEcosystem />
+
+          {/* Master Hardware Showcase */}
+          <PvcRangeMasterShowcase />
+
+          {/* Formulation Comparison & Decision Guide */}
+          <PvcEngineeringGuide />
+
+          {/* Sector Applications Grid */}
+          <PvcApplicationsGrid />
+
+          {/* Ordering Workflow, Packaging & Dispatch */}
+          <PvcWorkflowAndDispatch />
+
+          {/* Frequently Asked Questions */}
+          <div className="mt-16 sm:mt-20">
+            <SectionHead
+              eyebrow="FAQ"
+              title="Frequently Asked Questions About PVC Cards"
+              lede="Direct answers regarding virgin vs recycled PVC, security overlays, CR80 standards, and chip compatibility:"
+            />
+
+            <div className="mt-8">
+              <FaqList faqs={faqs} />
+            </div>
           </div>
-        </div>
-
-        {/* Closing CTA */}
-        <div className="mt-16">
-          <CtaBand
-            title="Need printed PVC cards or blank smart card stock?"
-            body="We supply both fully printed identity cards and blank virgin RFID card stock across Northeast India."
-            links={[
-              { label: "Request a Free Quote", href: "/request-a-quote/", primary: true },
-              { label: "RFID Card Printing", href: "/rfid-card-printing/" },
-              { label: "Explore Products Catalog", href: "/products/" },
-            ]}
-          />
-        </div>
-      </Container>
+        </Container>
+      </div>
     </>
   );
 }
