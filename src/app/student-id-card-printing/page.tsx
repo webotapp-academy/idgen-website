@@ -33,6 +33,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { StudentHeroCarousel } from "@/components/student-id-card-printing/StudentHeroCarousel";
 import { StudentOrgCarousel } from "@/components/student-id-card-printing/StudentOrgCarousel";
 import { StudentWorkflowCarousel } from "@/components/student-id-card-printing/StudentWorkflowCarousel";
 import { StudentCardAnatomy } from "@/components/student-id-card-printing/StudentCardAnatomy";
@@ -326,7 +327,10 @@ export default function StudentIdCardPrintingPage() {
                 {/* Main Titles */}
                 <div className="space-y-2.5">
                   <h1 className="text-3xl font-black sm:text-4xl lg:text-[2.65rem] leading-[1.12] tracking-tight text-slate-900 dark:text-white">
-                    Student ID Card Printing
+                    <span>Student ID Card Printing </span>
+                    <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
+                      Services
+                    </span>
                   </h1>
                   <p className="text-base sm:text-lg font-extrabold text-[#009fe3] dark:text-cyan-400">
                     Student ID Cards for Schools, Colleges, Universities &amp; Educational Institutions
@@ -377,49 +381,9 @@ export default function StudentIdCardPrintingPage() {
               </div>
             </div>
 
-            {/* Right Column: Big A4 Portrait Generated Showcase Image (Taller & Equal Alignment) */}
-            <div className="lg:col-span-6 flex items-center justify-center">
-              <div className="relative mx-auto w-full h-full min-h-[500px] lg:min-h-[560px]">
-                {/* Backlight glow */}
-                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#009fe3]/25 via-cyan-500/15 to-blue-600/25 blur-2xl opacity-70" />
-
-                {/* Showcase Container */}
-                <div className="relative h-full w-full rounded-3xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group flex flex-col justify-between">
-                  <div className="relative h-full min-h-[480px] w-full overflow-hidden">
-                    <Image
-                      src="/images/student-id-card-printing-hero-v2.jpg"
-                      alt="Custom student ID card printing for schools colleges and universities by IDGen"
-                      fill
-                      priority
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
-
-                    {/* Top Badges */}
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <GraduationCap className="h-3.5 w-3.5 text-cyan-400" />
-                        <span>Education Solution</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3.5 py-1 text-xs font-black text-white shadow-md">
-                        Guwahati Factory Direct
-                      </span>
-                    </div>
-
-                    {/* Bottom Info Bar */}
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/85 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">Institutional ID Production</p>
-                          <p className="text-xs sm:text-sm font-black text-white">Full Personalization &amp; Assembly</p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">30-Mil CR80 PVC</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Right Column: Dynamic Sliding Showcase Carousel */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <StudentHeroCarousel />
             </div>
           </div>
 

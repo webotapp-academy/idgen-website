@@ -94,7 +94,7 @@ export function HookAssemblyEcosystem() {
   const activeLayer = assemblyLayers[activeLayerIndex];
 
   return (
-    <section className="mt-16 sm:mt-20">
+    <section className="mt-16 sm:mt-20 scroll-mt-28" id="hook-assembly-ecosystem">
       {/* ── Header ── */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200/90 dark:border-slate-800">
         <div>

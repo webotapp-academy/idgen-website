@@ -43,7 +43,7 @@ export const NAV: NavItem[] = [
   { label: "Why IDGen", href: "/why-idgen/" },
   {
     label: "Services",
-    href: "/services/",
+    href: "#",
     children: [
       { label: "ID Card Printing", href: "/id-card-printing/" },
       { label: "Student ID Cards", href: "/student-id-card-printing/" },
@@ -57,7 +57,7 @@ export const NAV: NavItem[] = [
   },
   {
     label: "Products",
-    href: "/products/",
+    href: "#",
     children: [
       { label: "ID Card Holders", href: "/id-card-holders/" },
       { label: "ID Card & Lanyard Hooks", href: "/id-card-hooks/" },
@@ -85,7 +85,7 @@ export const NAV: NavItem[] = [
   { label: "Pricing", href: "/pricing/" },
   {
     label: "Resources",
-    href: "/resources/",
+    href: "#",
     children: [
       { label: "Guides", href: "/resources/guides/" },
       { label: "FAQ", href: "/faq/" },

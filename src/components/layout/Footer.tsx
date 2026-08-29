@@ -76,7 +76,7 @@ export function Footer() {
                 </Link>
               </li>
               <li className="pt-1">
-                <Link href="/products/" className="font-bold text-cyan-300 hover:underline inline-flex items-center gap-1">
+                <Link href="#" className="font-bold text-cyan-300 hover:underline inline-flex items-center gap-1">
                   View All Products →
                 </Link>
               </li>
@@ -121,7 +121,7 @@ export function Footer() {
                 </Link>
               </li>
               <li className="pt-1">
-                <Link href="/services/" className="font-bold text-cyan-300 hover:underline inline-flex items-center gap-1">
+                <Link href="#" className="font-bold text-cyan-300 hover:underline inline-flex items-center gap-1">
                   View All Services →
                 </Link>
               </li>

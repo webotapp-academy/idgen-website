@@ -24,7 +24,7 @@ export interface ProductItem {
   id: string;
   slug: string;
   name: string;
-  category: "holders" | "hardware" | "lanyards" | "badges" | "medals" | "cards";
+  category: "holders" | "hardware" | "lanyards" | "badges" | "medals" | "cards" | "pricing";
   categoryLabel: string;
   imageSrc: string;
   imageAlt: string;
@@ -37,6 +37,21 @@ export interface ProductItem {
 }
 
 const products: ProductItem[] = [
+  {
+    id: "identity-pricing",
+    slug: "pricing",
+    name: "Identity Product Pricing",
+    category: "pricing",
+    categoryLabel: "Transparent Rates",
+    imageSrc: "/images/idgen-id-card-printing-pricing.jpg",
+    imageAlt: "IDGen Transparent Reference Pricing and Quotations for ID Cards, Lanyards and RFID",
+    tag: "From ₹15 / Card",
+    badge: "Direct Rates",
+    badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
+    shortDescription: "Transparent factory-direct reference pricing for single/double-side PVC ID cards, 20mm custom printed lanyards, event badges, and RFID smart cards.",
+    spec: "PVC from ₹15 • Lanyards from ₹15 • RFID ₹45",
+    highlights: ["Transparent Factory-Direct Rates", "Tiered Wholesale Project Discounts", "Instant Customized Quotations"],
+  },
   {
     id: "id-card-holders",
     slug: "id-card-holders",
@@ -356,7 +371,7 @@ export function ProductShowcaseCarousel() {
                     href={`/${product.slug}/`}
                     className="inline-flex items-center gap-1.5 rounded-xl bg-accent/10 border border-accent/20 px-4 py-2.5 text-xs font-bold text-accent transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-md hover:shadow-accent/20"
                   >
-                    <span>View Specifications</span>
+                    <span>{product.slug === "pricing" ? "View Pricing Guide" : "View Specifications"}</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   GraduationCap,
@@ -11,42 +12,64 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
+  Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 
-export const orgApplicationsData = [
+export interface OrgApplicationItem {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  body: string;
+  href?: string;
+  badge: string;
+  imageSrc: string;
+  spec: string;
+}
+
+export const orgApplicationsData: OrgApplicationItem[] = [
   {
     icon: GraduationCap,
     title: "Student ID Cards",
-    body: "For student identification in educational institutions.",
+    body: "For student identification in educational institutions, schools, colleges, and universities.",
     href: "/student-id-card-printing/",
     badge: "Schools & Colleges",
+    imageSrc: "/images/org-app-student-id-cards.jpg",
+    spec: "Photo ID • Roll Number • QR Code",
   },
   {
     icon: Building2,
     title: "Employee & Staff ID Cards",
-    body: "For companies, offices, institutions and organizations.",
+    body: "For companies, corporate offices, institutions, and government organizations.",
     href: "/employee-id-card-printing/",
     badge: "Corporate & Govt",
+    imageSrc: "/images/org-app-employee-id-cards.jpg",
+    spec: "Executive Badge • Contactless Chip",
   },
   {
     icon: Ticket,
     title: "Event Cards",
-    body: "For conferences, exhibitions, seminars, workshops and other events.",
+    body: "For conferences, exhibitions, summits, seminars, workshops and VIP delegate passes.",
     href: "/event-card-printing/",
     badge: "Conferences & Summits",
+    imageSrc: "/images/org-app-event-cards.jpg",
+    spec: "VIP Delegate Pass • Swivel Hooks",
   },
   {
     icon: Wifi,
     title: "RFID Cards",
-    body: "For applications requiring compatible RFID technology.",
+    body: "For security applications requiring 13.56 MHz Mifare or 125 kHz proximity RFID technology.",
     href: "/rfid-card-printing/",
     badge: "Access Control",
+    imageSrc: "/images/org-app-rfid-cards.jpg",
+    spec: "13.56 MHz Smart • Turnstile Sync",
   },
   {
     icon: Users,
     title: "Visitor & Institutional Identification",
-    body: "For organizations requiring visitor, contractor, member or other identification cards.",
+    body: "For organizations requiring visitor, contractor, temporary member or institutional passes.",
     badge: "Visitors & Members",
+    imageSrc: "/images/org-app-visitor-institutional-cards.jpg",
+    spec: "Acrylic Holder Clip • Quick Barcode",
   },
 ];
 
@@ -90,7 +113,7 @@ export function OrgApplicationsCarousel() {
 
   return (
     <div
-      className="relative space-y-6"
+      className="relative space-y-6 select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -134,41 +157,78 @@ export function OrgApplicationsCarousel() {
             return (
               <div
                 key={item.title}
-                className="shrink-0 w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] flex flex-col justify-between rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:shadow-xl hover:border-[#009fe3] dark:hover:border-cyan-500/50 transition-all duration-300 group"
+                className="shrink-0 w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] flex flex-col justify-between rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm hover:shadow-2xl hover:border-[#009fe3] dark:hover:border-cyan-500/50 transition-all duration-300 group"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 dark:bg-slate-800 text-[#009fe3] dark:text-cyan-400 border border-sky-100 dark:border-slate-700 transition-colors group-hover:bg-[#009fe3] group-hover:text-white group-hover:border-[#009fe3]">
-                      <IconComponent className="h-6 w-6" />
-                    </div>
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200/60 dark:border-slate-700/60">
-                      {item.badge}
+                {/* Category Image Header with Top and Bottom Badges */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.title}
+                    fill
+                    unoptimized
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20" />
+
+                  {/* Top Floating Badge with Category Pill & iDGen Tag */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold text-cyan-300 border border-white/15 shadow-sm">
+                      <Sparkles className="h-3 w-3 text-cyan-400" />
+                      <span>{item.badge}</span>
+                    </span>
+                    <span className="rounded-full bg-[#009fe3] px-2.5 py-0.5 text-[10px] font-black text-white shadow-md">
+                      iDGen
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-[#009fe3] dark:group-hover:text-cyan-400 transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed min-h-[40px]">
-                    {item.body}
-                  </p>
+                  {/* Bottom Image Spec Bar */}
+                  <div className="absolute bottom-3 left-3 right-3 z-10">
+                    <div className="rounded-xl border border-white/15 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 shadow-md flex items-center gap-2">
+                      <ShieldCheck className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                      <span className="text-[11px] font-bold text-slate-100 truncate">
+                        {item.spec}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 mt-4">
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 group-hover:translate-x-1 transition-transform"
-                    >
-                      <span>Explore {item.title}</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  ) : (
-                    <span className="text-xs font-bold text-slate-400 dark:text-slate-500">
-                      Custom Application
+                {/* Card Content Body */}
+                <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 space-y-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 dark:bg-slate-800 text-[#009fe3] dark:text-cyan-400 border border-sky-100 dark:border-slate-700 group-hover:bg-[#009fe3] group-hover:text-white transition-colors shrink-0">
+                        <IconComponent className="h-4 w-4" />
+                      </div>
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-[#009fe3] dark:group-hover:text-cyan-400 transition-colors leading-snug">
+                        {item.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed min-h-[38px]">
+                      {item.body}
+                    </p>
+                  </div>
+
+                  <div className="pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 group-hover:translate-x-1 transition-transform"
+                      >
+                        <span>Explore {item.title}</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    ) : (
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500">
+                        Custom Application
+                      </span>
+                    )}
+
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800/80 px-2 py-0.5 rounded-md">
+                      Guwahati
                     </span>
-                  )}
+                  </div>
                 </div>
               </div>
             );
@@ -183,7 +243,7 @@ export function OrgApplicationsCarousel() {
             key={idx}
             onClick={() => setCurrentIndex(idx)}
             aria-label={`Go to slide ${idx + 1}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
               currentIndex === idx
                 ? "w-8 bg-[#009fe3]"
                 : "w-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"

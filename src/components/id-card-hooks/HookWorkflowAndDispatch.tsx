@@ -67,7 +67,7 @@ export const bulkRequirementsList = [
 
 export function HookWorkflowAndDispatch() {
   return (
-    <div className="space-y-16 sm:space-y-20 mt-16 sm:mt-20">
+    <div className="space-y-16 sm:space-y-20 mt-16 sm:mt-20 scroll-mt-28" id="hook-workflow-dispatch">
       {/* ═════════════════════════════════════════════════════════════
           1. HOOKS FOR COMPLETE IDENTIFICATION SETS
           ═════════════════════════════════════════════════════════════ */}

@@ -77,7 +77,7 @@ export const applicationsList = [
 
 export function HolderApplicationsGrid() {
   return (
-    <section className="mt-16 sm:mt-20">
+    <section className="mt-16 sm:mt-20 scroll-mt-28" id="applications">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">

@@ -414,7 +414,7 @@ export function QuickHolderSelectionMatrix() {
   }, [isPaused, handleNext, viewMode]);
 
   return (
-    <section className="relative overflow-hidden pt-0 pb-8" id="quick-selection">
+    <section className="relative overflow-hidden pt-0 pb-8 scroll-mt-28" id="quick-holder-selection-system">
       {/* ── Background Glow & Grid Accents ── */}
       <div className="pointer-events-none absolute -top-24 left-1/2 h-[450px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-400/10 via-[#009fe3]/15 to-transparent blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 right-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" />

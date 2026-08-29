@@ -186,7 +186,7 @@ export function QuickHookSelectionMatrix() {
   });
 
   return (
-    <section className="mt-10 sm:mt-14" id="selection-matrix">
+    <section className="mt-10 sm:mt-14 scroll-mt-28" id="quick-hook-selection-system">
       {/* ── Header ── */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200/90 dark:border-slate-800">
         <div>

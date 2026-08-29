@@ -39,6 +39,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { EmployeeHeroCarousel } from "@/components/employee-id-card-printing/EmployeeHeroCarousel";
 import { EmployeeSolutionsCarousel } from "@/components/employee-id-card-printing/EmployeeSolutionsCarousel";
 import { EmployeeCardAnatomy } from "@/components/employee-id-card-printing/EmployeeCardAnatomy";
 import type { Faq } from "@/data/types";
@@ -296,10 +297,10 @@ export default function EmployeeIdCardPrintingPage() {
                   <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">Corporate &amp; Staff</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[3.2rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.1]">
-                  Custom Employee ID Cards for{" "}
+                <h1 className="text-3xl sm:text-4xl lg:text-[3.2rem] font-black tracking-tight leading-[1.1]">
+                  <span className="text-slate-950 dark:text-white">Custom Employee ID Cards </span>
                   <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
-                    Companies, Offices &amp; Organizations
+                    for Companies, Offices &amp; Organizations
                   </span>
                 </h1>
 
@@ -354,82 +355,9 @@ export default function EmployeeIdCardPrintingPage() {
               </div>
             </div>
 
-            {/* Right Hero Visual Showcase */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
-              <div className="relative rounded-[2rem] overflow-hidden border-2 border-white dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl flex-1 min-h-[380px] sm:min-h-[420px] flex flex-col">
-                <div className="relative flex-1 w-full overflow-hidden bg-slate-950">
-                  <Image
-                    src="/images/employee-id-card-printing-idgen.jpg"
-                    alt="Custom employee ID card printing for companies by IDGen"
-                    fill
-                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/20" />
-
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-bold text-white border border-white/15 shadow-md">
-                      <Sparkles className="h-3 w-3 text-cyan-300 animate-pulse" />
-                      <span>Corporate &amp; Staff Credentials</span>
-                    </div>
-                    <div className="rounded-full bg-[#009fe3] px-3 py-1 text-[11px] font-black text-white shadow-md">
-                      Direct Hub
-                    </div>
-                  </div>
-
-                  {/* Bottom Image Overlay Label */}
-                  <div className="absolute bottom-4 left-5 right-5 text-white z-10">
-                    <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-0.5">
-                      Guwahati, Assam • Direct Factory Printing
-                    </p>
-                    <p className="text-sm font-extrabold text-white leading-snug">
-                      Custom Employee Cards + Holders + Satin Lanyards
-                    </p>
-                  </div>
-                </div>
-
-                {/* Sub-Card Indicators */}
-                <div className="p-3 bg-white dark:bg-slate-900 grid grid-cols-2 gap-2 border-t border-slate-100 dark:border-slate-800">
-                  <div className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 p-2 border border-slate-100 dark:border-slate-700/80">
-                    <div className="h-7 w-7 rounded-lg bg-[#009fe3]/10 dark:bg-cyan-950 text-[#009fe3] dark:text-cyan-400 flex items-center justify-center shrink-0">
-                      <Briefcase className="h-4 w-4" />
-                    </div>
-                    <div className="truncate">
-                      <p className="text-[11px] font-bold text-slate-900 dark:text-slate-100 leading-tight">Corporate Standard</p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">30-Mil PVC Quality</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 p-2 border border-slate-100 dark:border-slate-700/80">
-                    <div className="h-7 w-7 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                      <ShieldCheck className="h-4 w-4" />
-                    </div>
-                    <div className="truncate">
-                      <p className="text-[11px] font-bold text-slate-900 dark:text-slate-100 leading-tight">Zero Errors</p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">Preview &amp; Verified</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Summary Micro-Bar */}
-              <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 shadow-2xs flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#009fe3]/10 dark:bg-cyan-950 text-[#009fe3] dark:text-cyan-400">
-                    <Database className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-900 dark:text-slate-100">IDGen Studio HR Workflow</p>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400">Employee Data &amp; Photo Collection</p>
-                  </div>
-                </div>
-                <Link
-                  href="/idgen-studio/"
-                  className="shrink-0 text-xs font-bold text-[#009fe3] dark:text-cyan-400 hover:underline flex items-center gap-1"
-                >
-                  Explore <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
+            {/* Right Column: Dynamic Sliding Showcase Carousel */}
+            <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
+              <EmployeeHeroCarousel />
             </div>
           </div>
         </Container>

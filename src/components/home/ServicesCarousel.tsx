@@ -14,12 +14,16 @@ import {
   CreditCard,
   Layers,
   CalendarDays,
-  Radio
+  Radio,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
 export interface ServiceCardItem {
+  id: string;
   title: string;
+  slug: string;
+  categoryLabel: string;
+  serviceCode: string;
   body: string;
   href: string;
   imageSrc: string;
@@ -27,48 +31,90 @@ export interface ServiceCardItem {
   tag: string;
   badge: string;
   badgeColor?: string;
+  spec: string;
+  highlights: string[];
 }
 
 const services: ServiceCardItem[] = [
   {
+    id: "id-card-printing",
     title: "ID Card Printing",
-    body: "PVC ID cards for schools, colleges, companies, hospitals and institutions.",
+    slug: "id-card-printing",
+    categoryLabel: "Card Printing",
+    serviceCode: "SRV: IDG-CARD",
+    body: "PVC ID cards for schools, colleges, companies, hospitals and institutions with single or double-sided high-definition printing.",
     href: "/id-card-printing/",
     imageSrc: "/images/service-pvc-id-card-printing-v3.jpg",
     imageAlt: "Custom PVC ID card printing by IDGen with 2 cards and clear IDGen branding",
     tag: "30-Mil CR80 PVC",
     badge: "Core Service",
     badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
+    spec: "30-Mil Solid Core PVC • 1200 DPI High-Def",
+    highlights: [
+      "Single or Double-Side Thermal Print",
+      "Dynamic QR & Barcode Variable Data",
+      "High-Durability Scratch-Resistant Core",
+    ],
   },
   {
+    id: "custom-printed-lanyards",
     title: "Custom Printed Lanyards",
-    body: "Branded 20 mm lanyards with logos, colors and custom artwork.",
+    slug: "custom-printed-lanyard-printing",
+    categoryLabel: "Ribbon Branding",
+    serviceCode: "SRV: IDG-LANY",
+    body: "Branded 20 mm satin lanyards produced with organization logos, approved Pantone colours, and ultrasonic sealed loops.",
     href: "/custom-printed-lanyard-printing/",
     imageSrc: "/images/service-custom-printed-lanyards.jpg",
     imageAlt: "Custom printed ID card lanyards by IDGen",
     tag: "20 mm Satin",
     badge: "Bestseller",
     badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-400/30",
+    spec: "20mm Multi-Color Satin • Ultrasonic Sealed",
+    highlights: [
+      "Zero-Fray Ultrasonic Welded Ends",
+      "True-to-Life Pantone Matching",
+      "Chrome Swivel Hook & Safety Breakaways",
+    ],
   },
   {
+    id: "event-card-printing",
     title: "Event Card Printing",
-    body: "Conference badges, delegate cards and event identification solutions.",
+    slug: "event-card-printing",
+    categoryLabel: "Conferences & Summits",
+    serviceCode: "SRV: IDG-EVNT",
+    body: "Conference badges, delegate cards and event identification solutions paired with single or dual-hook custom lanyards.",
     href: "/event-card-printing/",
     imageSrc: "/images/service-event-card-printing-v3.jpg",
     imageAlt: "Custom event cards with clear IDGen logo and branded lanyards",
     tag: "Conferences & Summits",
     badge: "Express 48h",
     badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
+    spec: "Oversized CR100/Custom • Dual Hook Ready",
+    highlights: [
+      "Tiered Access Color-Coding Systems",
+      "High-Speed Express Batch Turnaround",
+      "Anti-Twist Double-Clip Lanyard Pairing",
+    ],
   },
   {
+    id: "rfid-card-printing",
     title: "RFID Card Printing",
-    body: "Customized RFID cards compatible with attendance and access systems.",
+    slug: "rfid-card-printing",
+    categoryLabel: "Smart Contactless",
+    serviceCode: "SRV: IDG-RFID",
+    body: "Customized contactless smart RFID cards pre-encoded and compatible with automated attendance and turnstile access systems.",
     href: "/rfid-card-printing/",
     imageSrc: "/images/service-rfid-card-printing-v3.jpg",
     imageAlt: "Man tapping IDGen branded RFID smart card at electronic turnstile door sensor",
     tag: "13.56 MHz / NFC",
     badge: "Smart Contactless",
     badgeColor: "text-blue-400 bg-blue-500/10 border-blue-400/30",
+    spec: "13.56 MHz Mifare / 125 kHz • Turnstile Ready",
+    highlights: [
+      "Mifare 1K / TK4100 / NTAG Chip Integration",
+      "Pre-Encoded UID & Turnstile Compatibility",
+      "High-Frequency Contactless Access Cards",
+    ],
   },
 ];
 
@@ -249,30 +295,64 @@ export function ServicesCarousel() {
                       {service.tag}
                     </span>
                   </div>
+
+                  {/* Bottom Spec Floating Bar */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-medium backdrop-blur-md bg-slate-950/85 px-3 py-1.5 rounded-xl border border-white/15">
+                    <span className="truncate text-slate-200">{service.spec}</span>
+                    <Sparkles className="h-3.5 w-3.5 text-accent shrink-0 ml-1.5" />
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div>
-                  <h3 className="text-xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
-                    {service.title}
-                  </h3>
+                {/* Content Header & Body */}
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    {/* Category Header + SKU / Code */}
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-accent">
+                        {service.categoryLabel}
+                      </span>
+                      <span className="text-[10px] font-mono text-muted">{service.serviceCode}</span>
+                    </div>
 
-                  <p className="text-sm text-muted leading-relaxed mt-2">
-                    {service.body}
-                  </p>
+                    {/* Title */}
+                    <h3 className="text-xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors mt-1">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-[13px] text-muted leading-relaxed mt-2 line-clamp-2">
+                      {service.body}
+                    </p>
+
+                    {/* Highlights Bullet Points with CheckCircle2 */}
+                    <ul className="mt-3.5 space-y-1.5 pt-3 border-t border-surface-border">
+                      {service.highlights.map((point, hIdx) => (
+                        <li key={hIdx} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0" />
+                          <span className="truncate">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-5 mt-4 border-t border-surface-border flex items-center justify-between">
+              {/* Action Button & Quote Link */}
+              <div className="pt-4 mt-4 border-t border-surface-border flex items-center justify-between gap-3">
                 <Link
                   href={service.href}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-accent hover:underline group-hover:translate-x-0.5 transition-transform"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-accent/10 border border-accent/20 px-4 py-2.5 text-xs font-bold text-accent transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-md hover:shadow-accent/20"
                 >
                   <span>Explore Service</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </Link>
-                <span className="text-xs font-mono font-bold text-muted/60">0{idx + 1}</span>
+
+                <Link
+                  href="/request-a-quote/"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-muted hover:text-foreground transition-colors"
+                >
+                  <span>Get Quote</span>
+                </Link>
               </div>
             </div>
           ))}

@@ -37,13 +37,14 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
-import { HookHeroShowcase } from "@/components/id-card-hooks/HookHeroShowcase";
+import { HookHeroCarousel } from "@/components/id-card-hooks/HookHeroCarousel";
 import { QuickHookSelectionMatrix } from "@/components/id-card-hooks/QuickHookSelectionMatrix";
 import { HookAssemblyEcosystem } from "@/components/id-card-hooks/HookAssemblyEcosystem";
 import { HookRangeMasterShowcase } from "@/components/id-card-hooks/HookRangeMasterShowcase";
 import { HookEngineeringGuide } from "@/components/id-card-hooks/HookEngineeringGuide";
 import { HookApplicationsGrid } from "@/components/id-card-hooks/HookApplicationsGrid";
 import { HookWorkflowAndDispatch } from "@/components/id-card-hooks/HookWorkflowAndDispatch";
+import { HookScrollSpyNav, SectionAnchorButton } from "@/components/id-card-hooks/HookScrollSpy";
 import type { Faq } from "@/data/types";
 
 /* ─────────────────────────────────────────────────────────────
@@ -109,7 +110,7 @@ export default function IdCardHooksPage() {
       {/* ─────────────────────────────────────────────────────────────
           1. ULTRA-PREMIUM LIGHT/DARK HERO SECTION (ID Card Hooks)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-8 lg:pt-10 lg:pb-10 transition-colors">
+      <section id="overview" className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-8 lg:pt-10 lg:pb-10 transition-colors scroll-mt-28">
         {/* Ambient background lighting */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.12),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(0,159,227,0.2),rgba(7,13,24,0))] pointer-events-none" />
         <div
@@ -132,9 +133,9 @@ export default function IdCardHooksPage() {
             />
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+          <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 {/* Pill Badge */}
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white dark:from-cyan-950/60 dark:via-slate-900 dark:to-slate-800 px-4 py-1.5 shadow-2xs">
@@ -245,13 +246,16 @@ export default function IdCardHooksPage() {
               </div>
             </div>
 
-            {/* Right Column: Visual Showcase */}
-            <div className="lg:col-span-5 flex flex-col">
-              <HookHeroShowcase />
+            {/* Right Column: Hero Visual Slider Showcase */}
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
+              <HookHeroCarousel />
             </div>
           </div>
         </Container>
       </section>
+
+      {/* Dynamic Scroll Spy & Sticky Table of Contents Navigation Bar */}
+      <HookScrollSpyNav />
 
       <div className="bg-slate-50/60 dark:bg-slate-950/20">
         <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
@@ -278,12 +282,15 @@ export default function IdCardHooksPage() {
           <HookWorkflowAndDispatch />
 
           {/* Frequently Asked Questions Section */}
-          <div className="mt-16 sm:mt-20">
-            <SectionHead
-              eyebrow="FAQ"
-              title="Frequently Asked Questions"
-              lede="Common questions regarding ID card hooks, fish hook attachments, configurations, and ordering:"
-            />
+          <div id="faq" className="mt-16 sm:mt-20 scroll-mt-28">
+            <div className="flex items-center justify-between">
+              <SectionHead
+                eyebrow="FAQ"
+                title="Frequently Asked Questions"
+                lede="Common questions regarding ID card hooks, fish hook attachments, configurations, and ordering:"
+              />
+              <SectionAnchorButton id="faq" title="FAQ" />
+            </div>
 
             <div className="mt-8">
               <FaqList faqs={faqs} />

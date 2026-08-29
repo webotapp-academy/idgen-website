@@ -26,6 +26,9 @@ import {
   Calculator,
   MessageSquare,
   Truck,
+  Award,
+  Anchor,
+  CreditCard,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -38,6 +41,8 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { PricingHeroCarousel } from "@/components/pricing/PricingHeroCarousel";
+import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import type { Faq } from "@/data/types";
 
 /* ── SEO Metadata (Strictly from document) ── */
@@ -54,6 +59,10 @@ const quickPricingTable = [
   { service: "PVC ID Card - Single Side", price: "₹15 / card", path: "/id-card-printing/" },
   { service: "PVC ID Card - Double Side", price: "₹16 / card", path: "/id-card-printing/" },
   { service: "20 mm Custom Printed Lanyard", price: "₹15 / piece", path: "/custom-printed-lanyard-printing/" },
+  { service: "Polycarbonate ID Card Holder (V-1 / H-1 / V-2)", price: "₹6 / piece", path: "/id-card-holders/" },
+  { service: "Swivel Fish Hook & Attachment Clip", price: "₹3 / piece", path: "/id-card-hooks/" },
+  { service: "Custom Acrylic Name Badge & Pins", price: "₹45 / badge", path: "/acrylic-badges/" },
+  { service: "Die-Cast Zinc Medal & Satin Ribbon", price: "₹65 / medal", path: "/zinc-medals/" },
   { service: "Event Card", price: "₹35 / card", path: "/event-card-printing/" },
   { service: "RFID ID Card", price: "₹45 / card", path: "/rfid-card-printing/" },
 ];
@@ -270,8 +279,11 @@ export default function PricingPage() {
                   <span>IDGen Pricing</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
-                  ID Card, Lanyard &amp; Identity Product Pricing
+                <h1 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.12]">
+                  ID Card, Lanyard &amp;{" "}
+                  <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
+                    Identity Product Pricing
+                  </span>
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
@@ -310,51 +322,16 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Showcase */}
-            <div className="lg:col-span-5 flex flex-col">
-              <div className="relative h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] w-full rounded-3xl overflow-hidden border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-xl group flex flex-col justify-between">
-                <Image
-                  src="/images/idgen-id-card-printing-pricing.jpg"
-                  alt="IDGen ID card printing and identity product pricing"
-                  fill
-                  priority
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent pointer-events-none" />
-
-                {/* Top Floating Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                    <Sparkles className="h-3 w-3 text-cyan-400" />
-                    <span>Direct Factory Rates</span>
-                  </span>
-                  <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                    IDGen
-                  </span>
-                </div>
-
-                {/* Bottom Floating Info Badge */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                        Institutional Wholesale
-                      </p>
-                      <p className="text-xs sm:text-sm font-black text-white">
-                        Cards, Lanyards &amp; RFID Credentials
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                      Guwahati Hub
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Right Column: Hero Visual Slider Showcase */}
+            <div className="lg:col-span-5 flex flex-col justify-center">
+              <PricingHeroCarousel />
             </div>
           </div>
         </Container>
       </section>
+
+      {/* ── 2. PRODUCT SHOWCASE CAROUSEL (Explore Our Complete Product Catalog) ── */}
+      <ProductShowcaseCarousel />
 
       <Container className="pb-14 pt-6 sm:pt-10">
         {/* ── 2. QUICK PRICING GUIDE (REFERENCE TABLE) ── */}
@@ -554,6 +531,124 @@ export default function PricingPage() {
                 </Link>
               </div>
             </div>
+
+            {/* ID Card Holder & Hook Price */}
+            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
+                  <Boxes className="h-5 w-5" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                    ID Card Holders &amp; Hooks Price
+                  </h3>
+                  <span className="text-lg font-black text-[#009fe3]">Holders ₹6 • Hooks ₹3</span>
+                </div>
+                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+                  100% Virgin Polycarbonate hard holders (V-1, V-2, H-1, H-2) and anti-rust chrome swivel fish hook clips designed for CR80 cards.
+                </p>
+
+                <div className="grid gap-3 sm:grid-cols-2 pt-2">
+                  <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3.5 space-y-1">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase">Polycarbonate Holders</span>
+                    <p className="text-lg font-black text-[#009fe3]">₹6 / piece</p>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400">Vertical / Horizontal 4-side lock.</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3.5 space-y-1">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase">Swivel Fish Hook Clips</span>
+                    <p className="text-lg font-black text-[#009fe3]">₹3 / piece</p>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400">Chrome alloy 360° rotation.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <Link href="/id-card-holders/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
+                  <span>Explore ID Card Holders</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+                <Link href="/id-card-hooks/" className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-[#009fe3]">
+                  <span>Explore Hooks</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Custom Acrylic Badges Price */}
+            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
+                  <BadgeCheck className="h-5 w-5" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                    Custom Acrylic Badges &amp; Pins Price
+                  </h3>
+                  <span className="text-lg font-black text-[#009fe3]">₹45 / badge</span>
+                </div>
+                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+                  Precision laser-cut PMMA optical crystal acrylic badges with triple neodymium magnetic backings or safety pins for doctors, staff, and VIP summits.
+                </p>
+
+                <div className="pt-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
+                    Feature Highlights:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Triple Neodymium Magnet", "Diamond-Polished Bevels", "1200 DPI High-Def Print", "Zero Garment Damage"].map((item) => (
+                      <span key={item} className="rounded-md border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+                <Link href="/acrylic-badges/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
+                  <span>Explore Acrylic Badges</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Die-Cast Zinc Medals Price */}
+            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
+                  <Award className="h-5 w-5" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                    Die-Cast Zinc Medals &amp; Ribbons Price
+                  </h3>
+                  <span className="text-lg font-black text-[#009fe3]">₹65 / medal</span>
+                </div>
+                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+                  3D high-relief die-cast metal medals in antique gold, silver, and bronze finishes paired with full-color custom satin neck ribbons for tournaments and honors.
+                </p>
+
+                <div className="pt-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
+                    Feature Highlights:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["3D Sculpted Metal Alloy", "Antique Gold / Silver / Bronze", "Matching Satin V-Cut Ribbon", "Custom Crest Molding"].map((item) => (
+                      <span key={item} className="rounded-md border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+                <Link href="/zinc-medals/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
+                  <span>Explore Die-Cast Zinc Medals</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -575,82 +670,7 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* ── 5. COMPLETE ID CARD SETUP (4 TIERS) ── */}
-        <section className="mt-20">
-          {/* Component visual photo showcase */}
-          <div className="mb-10">
-            <div className="relative mx-auto w-full max-w-4xl">
-              <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                <div className="relative aspect-[16/9] w-full overflow-hidden">
-                  <Image
-                    src="/images/idgen-id-card-lanyard-holder-hook-pricing.jpg"
-                    alt="ID card, custom lanyard, holder and hook pricing components"
-                    fill
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 1200px) 100vw, 1200px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
-                  <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-4 text-white z-10">
-                    <div>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                        Complete Component Assembly
-                      </span>
-                      <p className="text-lg font-black text-white mt-1">
-                        Card + Holder + Hook + Lanyard + Ultrasonic Sealing
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <SectionHead
-            eyebrow="Configuration Packages"
-            title="Complete ID Card Setup"
-            lede="Customers do not always need only the card. A complete identification setup can combine multiple components."
-          />
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {setupTiers.map((tier) => (
-              <div
-                key={tier.title}
-                className="group flex flex-col justify-between rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md transition-all duration-300 hover:border-[#009fe3] hover:shadow-xl"
-              >
-                <div>
-                  <span className="rounded-full bg-sky-100 dark:bg-cyan-950/60 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 border border-sky-200 dark:border-cyan-800/50">
-                    {tier.badge}
-                  </span>
-                  <h3 className="mt-4 font-extrabold text-slate-900 dark:text-white text-base">
-                    {tier.title}
-                  </h3>
-                  <div className="mt-4 pt-1">
-                    <FlowChain steps={tier.formula} />
-                  </div>
-                  <p className="mt-4 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-                    {tier.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/id-card-holders/" className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-5 py-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]">
-              <span>Explore ID Card Holders</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-            <Link href="/id-card-hooks/" className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-5 py-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]">
-              <span>Explore ID Card Hooks</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-            <Link href="/ultrasonic-sealing/" className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-5 py-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-[#009fe3]">
-              <span>Explore Ultrasonic Sealing</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-        </section>
 
         {/* ── 6. USE-CASE DEEP DIVES (STUDENT, EMPLOYEE, BULK) ── */}
         <section className="mt-20">

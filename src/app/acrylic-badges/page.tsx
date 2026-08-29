@@ -20,7 +20,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
-import { BadgeHeroShowcase } from "@/components/acrylic-badges/BadgeHeroShowcase";
+import { BadgeHeroCarousel } from "@/components/acrylic-badges/BadgeHeroCarousel";
 import { QuickBadgeSelectionMatrix } from "@/components/acrylic-badges/QuickBadgeSelectionMatrix";
 import { BadgeAnatomyEcosystem } from "@/components/acrylic-badges/BadgeAnatomyEcosystem";
 import { BadgeRangeMasterShowcase } from "@/components/acrylic-badges/BadgeRangeMasterShowcase";
@@ -103,9 +103,9 @@ export default function AcrylicBadgesPage() {
             />
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+          <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 {/* Pill Badge */}
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white dark:from-cyan-950/60 dark:via-slate-900 dark:to-slate-800 px-4 py-1.5 shadow-2xs">
@@ -206,9 +206,9 @@ export default function AcrylicBadgesPage() {
               </div>
             </div>
 
-            {/* Right Column: Visual Hero Showcase */}
-            <div className="lg:col-span-5 flex flex-col">
-              <BadgeHeroShowcase />
+            {/* Right Column: Hero Visual Slider Showcase */}
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
+              <BadgeHeroCarousel />
             </div>
           </div>
         </Container>

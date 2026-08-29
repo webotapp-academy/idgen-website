@@ -27,9 +27,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
 import { CaseStudiesHeroShowcase } from "@/components/case-studies/CaseStudiesHeroShowcase";
 import { RealProjectShowcaseGallery } from "@/components/case-studies/RealProjectShowcaseGallery";
-import { CaseStudyFormatTimeline } from "@/components/case-studies/CaseStudyFormatTimeline";
-import { CaseStudyCategoriesGrid } from "@/components/case-studies/CaseStudyCategoriesGrid";
-import { TrustRuleStandardsBanner } from "@/components/case-studies/TrustRuleStandardsBanner";
 
 /* ─────────────────────────────────────────────────────────────
    SEO METADATA (Strictly from document)
@@ -195,15 +192,6 @@ export default function CaseStudiesPage() {
         <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
           {/* Real Delivered Projects Gallery */}
           <RealProjectShowcaseGallery />
-
-          {/* Standardized 8-Step Case Study Format */}
-          <CaseStudyFormatTimeline />
-
-          {/* Case Study Sector Categories */}
-          <CaseStudyCategoriesGrid />
-
-          {/* Important Trust Rule & Integrity Standards Banner */}
-          <TrustRuleStandardsBanner />
 
           {/* Ultra-Luxury Closing CTA Banner */}
           <div className="mt-16 sm:mt-20">

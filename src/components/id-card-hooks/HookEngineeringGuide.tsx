@@ -61,7 +61,7 @@ export function HookEngineeringGuide() {
   ];
 
   return (
-    <section className="mt-16 sm:mt-20">
+    <section className="mt-16 sm:mt-20 scroll-mt-28" id="hook-engineering-guide">
       {/* ── Section 1: Choosing the Right ID Card Hook (4 Factors) ── */}
       <div className="rounded-3xl border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 lg:p-10 shadow-2xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">

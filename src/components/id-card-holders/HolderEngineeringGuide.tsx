@@ -56,7 +56,7 @@ export function HolderEngineeringGuide() {
   ];
 
   return (
-    <section className="mt-16 sm:mt-20">
+    <section className="mt-16 sm:mt-20 scroll-mt-28" id="engineering-guide">
       {/* ── Visual Comparison: Orientation & Locking ── */}
       <div className="grid gap-8 lg:grid-cols-2">
         {/* ── CARD 1: Vertical vs Horizontal ── */}

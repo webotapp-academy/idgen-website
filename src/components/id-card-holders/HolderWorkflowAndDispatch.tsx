@@ -70,7 +70,7 @@ export const qualityPoints = [
 
 export function HolderWorkflowAndDispatch() {
   return (
-    <div className="space-y-16 sm:space-y-20 mt-16 sm:mt-20">
+    <div className="space-y-16 sm:space-y-20 mt-16 sm:mt-20 scroll-mt-28" id="workflow-dispatch">
       {/* ═════════════════════════════════════════════════════════════
           SECTION 1: WEARABLE COMBINATIONS (BASIC VS FULL SET)
           ═════════════════════════════════════════════════════════════ */}

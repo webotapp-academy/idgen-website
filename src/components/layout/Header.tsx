@@ -20,7 +20,11 @@ import {
   MessageSquare,
   Award,
   CreditCard,
-  Shield
+  Shield,
+  FileSpreadsheet,
+  FileText,
+  HelpCircle,
+  Briefcase
 } from "lucide-react";
 import { NAV } from "@/data/site";
 import { IdgenLogo } from "@/components/ui/IdgenLogo";
@@ -40,6 +44,10 @@ const SERVICE_ICONS: Record<string, typeof Layers> = {
   "/acrylic-badges/": Shield,
   "/zinc-medals/": Award,
   "/pvc-cards/": CreditCard,
+  "/resources/guides/": FileText,
+  "/faq/": HelpCircle,
+  "/case-studies/": Briefcase,
+  "/templates/": FileSpreadsheet,
 };
 
 export function Header() {
@@ -92,34 +100,37 @@ export function Header() {
             : "border-surface-border bg-background/90 backdrop-blur-xl text-foreground"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 xl:gap-4 px-3 sm:px-6 py-2.5 sm:py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 xl:gap-3 px-3 sm:px-6 py-2.5 sm:py-3">
           {/* Left Side: Brand Logo + Desktop Navigation Links */}
-          <div className="flex items-center gap-3 xl:gap-6 min-w-0">
+          <div className="flex items-center gap-2 xl:gap-4 min-w-0 shrink-0">
             <Link href="/" className="flex items-center shrink-0 group transition-transform duration-200 hover:scale-[1.02]" onClick={() => setOpen(false)}>
               <IdgenLogo size="md" variant="auto" withTagline={true} />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden items-center gap-0.5 xl:gap-1 text-[11px] xl:text-xs font-semibold lg:flex">
+            <nav key="desktop-navigation-bar" className="hidden items-center gap-0.5 xl:gap-1 text-[11px] xl:text-xs font-semibold lg:flex flex-nowrap shrink-0">
               {NAV.map((item) =>
                 item.children ? (
                   <div
-                    key={item.href}
-                    className="relative"
-                    onMouseEnter={() => setOpenDropdown(item.href)}
+                    key={`nav-group-${item.label}`}
+                    className="relative shrink-0"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <Link
                       href={item.href}
-                      className="flex items-center gap-1 whitespace-nowrap rounded-full px-2 xl:px-2 py-1.5 text-slate-800 dark:text-white font-semibold transition-all duration-200 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-accent"
+                      onClick={(e) => {
+                        if (item.href === "#") e.preventDefault();
+                      }}
+                      className="flex items-center gap-1 whitespace-nowrap rounded-full px-2 xl:px-2.5 py-1.5 text-slate-800 dark:text-white font-semibold transition-all duration-200 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-accent"
                     >
                       {item.label}
-                      <ChevronDown className={`h-3 w-3 shrink-0 transition-transform duration-200 ${openDropdown === item.href ? "rotate-180 text-accent" : "opacity-60"}`} />
+                      <ChevronDown className={`h-3 w-3 shrink-0 transition-transform duration-200 ${openDropdown === item.label ? "rotate-180 text-accent" : "opacity-60"}`} />
                     </Link>
 
                     {/* Mega Dropdown Menu */}
-                    {openDropdown === item.href && (
-                      <div className="absolute left-0 top-full pt-2 animate-fade-in-scale">
+                    {openDropdown === item.label && (
+                      <div className="absolute left-0 top-full pt-2 animate-fade-in-scale z-50">
                         <div className="w-72 rounded-2xl border border-surface-border bg-background/98 p-2.5 shadow-2xl backdrop-blur-2xl text-foreground">
                           <div className="px-3 py-1.5 mb-1 border-b border-surface-border text-[10px] font-bold uppercase tracking-wider text-accent">
                             {item.label} Directory
@@ -145,9 +156,9 @@ export function Header() {
                   </div>
                 ) : (
                   <Link
-                    key={item.href}
+                    key={`nav-link-${item.label}`}
                     href={item.href}
-                    className="whitespace-nowrap rounded-full px-2 xl:px-2 py-1.5 text-slate-800 dark:text-white font-semibold transition-all duration-200 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-accent"
+                    className="whitespace-nowrap shrink-0 rounded-full px-2 xl:px-2.5 py-1.5 text-slate-800 dark:text-white font-semibold transition-all duration-200 hover:bg-slate-100 dark:hover:bg-white/10 hover:text-accent"
                   >
                     {item.label}
                   </Link>
@@ -207,11 +218,17 @@ export function Header() {
           <nav className="border-t border-white/10 bg-[#091322]/98 backdrop-blur-2xl px-5 pb-6 lg:hidden animate-fade-in-up text-white">
             <ul className="flex flex-col gap-1 pt-3 text-sm">
               {NAV.map((item) => (
-                <li key={item.href}>
+                <li key={`mobile-${item.label}`}>
                   <Link
                     href={item.href}
                     className="block rounded-xl px-3 py-2.5 font-semibold text-slate-200 transition-all hover:bg-white/10 hover:text-cyan-300 hover:translate-x-1"
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => {
+                      if (item.href === "#") {
+                        e.preventDefault();
+                      } else {
+                        setOpen(false);
+                      }
+                    }}
                   >
                     {item.label}
                   </Link>

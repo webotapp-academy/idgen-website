@@ -8,18 +8,22 @@ import {
   ChevronRight,
   Sparkles,
   ArrowRight,
+  CheckCircle2,
   Pause,
   Play,
   GraduationCap,
   Building2,
   CalendarDays,
-  Award
+  Award,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
 export interface SolutionCardItem {
+  id: string;
   icon: any;
   title: string;
+  categoryLabel: string;
+  orgCode: string;
   body: string;
   href: string;
   imageSrc: string;
@@ -27,52 +31,90 @@ export interface SolutionCardItem {
   tag: string;
   badge: string;
   badgeColor?: string;
+  spec: string;
+  highlights: string[];
 }
 
 const orgSolutions: SolutionCardItem[] = [
   {
+    id: "students",
     icon: GraduationCap,
-    title: "Students",
-    body: "School, college and university identification with bulk personalization.",
+    title: "Students & Academics",
+    categoryLabel: "Academic Sector",
+    orgCode: "SOL: IDG-ACAD",
+    body: "School, college, and university identification batches with bulk personalization, photo matching, and custom printed lanyards.",
     href: "/student-id-card-printing/",
     imageSrc: "/images/sol-students-idgen-v2.jpg",
     imageAlt: "Student and University ID Card Printing with clear IDGen branding",
     tag: "Education",
     badge: "Schools & Colleges",
     badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
+    spec: "CR80 PVC • Custom Lanyards • Barcodes",
+    highlights: [
+      "Bulk Photo & Student Roster Matching",
+      "School Branded Satin Lanyards & Holders",
+      "Barcode & QR Attendance Integration",
+    ],
   },
   {
+    id: "companies",
     icon: Building2,
-    title: "Companies",
-    body: "Employee, staff and visitor identification with branded accessories.",
+    title: "Companies & Enterprises",
+    categoryLabel: "Corporate Sector",
+    orgCode: "SOL: IDG-CORP",
+    body: "Employee, staff, and visitor identification setups with metallic badge reels, security chips, and custom organization branding.",
     href: "/employee-id-card-printing/",
     imageSrc: "/images/sol-companies-idgen-v2.jpg",
     imageAlt: "Employee and Staff Corporate ID Cards with metallic badge reels and clear IDGen branding",
     tag: "Corporate",
     badge: "Enterprises",
     badgeColor: "text-blue-400 bg-blue-500/10 border-blue-400/30",
+    spec: "Staff IDs • Retractable Reels • RFID",
+    highlights: [
+      "Department & Designation Hierarchy",
+      "RFID Smart Turnstile & Access Security",
+      "Executive Badge Reels & Hard Holders",
+    ],
   },
   {
+    id: "events",
     icon: CalendarDays,
-    title: "Events",
-    body: "Conference badges, delegate cards and one- or two-hook lanyard configurations.",
+    title: "Events & Summits",
+    categoryLabel: "Conferences & Summits",
+    orgCode: "SOL: IDG-EVNT",
+    body: "Conference passes, delegate credentials, and VIP identification solutions with anti-twist one- or two-hook lanyard configurations.",
     href: "/event-card-printing/",
     imageSrc: "/images/sol-events-idgen.png",
     imageAlt: "Event VIP Badges and Delegate Passes with clear IDGen branding",
     tag: "Events & Summits",
     badge: "Conferences",
     badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
+    spec: "Oversized Passes • Double Hook • VIP",
+    highlights: [
+      "Color-Coded Delegate & VIP Badges",
+      "Anti-Twist Dual-Hook Lanyard Systems",
+      "Express 48h Batch Dispatch for Events",
+    ],
   },
   {
+    id: "institutions",
     icon: Award,
-    title: "Institutions",
-    body: "Hospitals, NGOs, government organizations and membership programmes.",
+    title: "Institutions & Hospitals",
+    categoryLabel: "Healthcare & NGO",
+    orgCode: "SOL: IDG-INST",
+    body: "Hospitals, NGOs, government departments, and institutional membership passes with tamper-proof security and durable hardware.",
     href: "/membership-card-printing/",
     imageSrc: "/images/sol-institutions-idgen.png",
     imageAlt: "Institutional and Hospital Identity Cards with clear IDGen branding",
     tag: "Institutional",
     badge: "Hospitals & NGOs",
     badgeColor: "text-purple-400 bg-purple-500/10 border-purple-400/30",
+    spec: "Official Credentials • Sealing • Security",
+    highlights: [
+      "Neodymium Magnetic Doctor Name Badges",
+      "Tamper-Proof Holographic Overlays",
+      "Waterproof Four-Side Lock Polycarbonate Cases",
+    ],
   },
 ];
 
@@ -253,30 +295,64 @@ export function SolutionsCarousel() {
                       {org.tag}
                     </span>
                   </div>
+
+                  {/* Bottom Spec Floating Bar */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-medium backdrop-blur-md bg-slate-950/85 px-3 py-1.5 rounded-xl border border-white/15">
+                    <span className="truncate text-slate-200">{org.spec}</span>
+                    <Sparkles className="h-3.5 w-3.5 text-accent shrink-0 ml-1.5" />
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div>
-                  <h3 className="text-xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
-                    {org.title}
-                  </h3>
+                {/* Content Header & Body */}
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    {/* Category Header + SKU / Code */}
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-accent">
+                        {org.categoryLabel}
+                      </span>
+                      <span className="text-[10px] font-mono text-muted">{org.orgCode}</span>
+                    </div>
 
-                  <p className="text-sm text-muted leading-relaxed mt-2">
-                    {org.body}
-                  </p>
+                    {/* Title */}
+                    <h3 className="text-xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors mt-1">
+                      {org.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-[13px] text-muted leading-relaxed mt-2 line-clamp-2">
+                      {org.body}
+                    </p>
+
+                    {/* Highlights Bullet Points with CheckCircle2 */}
+                    <ul className="mt-3.5 space-y-1.5 pt-3 border-t border-surface-border">
+                      {org.highlights.map((point, hIdx) => (
+                        <li key={hIdx} className="flex items-center gap-2 text-xs text-foreground/90 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0" />
+                          <span className="truncate">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-5 mt-4 border-t border-surface-border flex items-center justify-between">
+              {/* Action Button & Quote Link */}
+              <div className="pt-4 mt-4 border-t border-surface-border flex items-center justify-between gap-3">
                 <Link
                   href={org.href}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-accent hover:underline group-hover:translate-x-0.5 transition-transform"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-accent/10 border border-accent/20 px-4 py-2.5 text-xs font-bold text-accent transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-md hover:shadow-accent/20"
                 >
                   <span>Explore Solution</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </Link>
-                <span className="text-xs font-mono font-bold text-muted/60">0{idx + 1}</span>
+
+                <Link
+                  href="/request-a-quote/"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-muted hover:text-foreground transition-colors"
+                >
+                  <span>Get Quote</span>
+                </Link>
               </div>
             </div>
           ))}

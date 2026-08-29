@@ -99,7 +99,7 @@ export function HolderAssemblyEcosystem() {
   const activeLayer = assemblyLayers[activeLayerIndex];
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border-2 border-sky-200/80 dark:border-sky-800/60 bg-gradient-to-b from-white via-sky-50/25 to-white dark:from-slate-900 dark:via-slate-900/95 dark:to-slate-950 p-6 sm:p-8 lg:p-12 shadow-xl shadow-sky-500/5">
+    <div className="relative overflow-hidden rounded-3xl border-2 border-sky-200/80 dark:border-sky-800/60 bg-gradient-to-b from-white via-sky-50/25 to-white dark:from-slate-900 dark:via-slate-900/95 dark:to-slate-950 p-6 sm:p-8 lg:p-12 shadow-xl shadow-sky-500/5 scroll-mt-28" id="holder-assembly-ecosystem">
       {/* Background Ambient Glows */}
       <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-[#009fe3]/15 dark:bg-cyan-500/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />

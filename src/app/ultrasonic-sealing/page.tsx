@@ -35,6 +35,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { UltrasonicHeroCarousel } from "@/components/ultrasonic-sealing/UltrasonicHeroCarousel";
 import type { Faq } from "@/data/types";
 
 /* ── SEO Metadata (Strictly from document) ── */
@@ -314,9 +315,9 @@ export default function UltrasonicSealingPage() {
         <div className="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-sky-400/10 dark:bg-cyan-500/10 blur-[100px] pointer-events-none" />
 
         <Container className="relative z-10">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+          <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Column: Eyebrow + Heading + Paragraph + Workflow Card + CTAs */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 dark:border-cyan-800/50 bg-sky-50 dark:bg-cyan-950/60 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#009fe3] dark:text-cyan-400 shadow-2xs">
                   <Waves className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
@@ -324,7 +325,10 @@ export default function UltrasonicSealingPage() {
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
-                  A Cleaner Way to Attach Lanyards to ID Card Holders
+                  A Cleaner Way to Attach{" "}
+                  <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
+                    Lanyards to ID Card Holders
+                  </span>
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
@@ -380,47 +384,9 @@ export default function UltrasonicSealingPage() {
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Showcase */}
-            <div className="lg:col-span-5 flex flex-col">
-              <div className="relative h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] w-full rounded-3xl overflow-hidden border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-xl group flex flex-col justify-between">
-                <Image
-                  src="/images/idgen-ultrasonic-lanyard-sealing.jpg"
-                  alt="Ultrasonic sealing of ID card lanyard attachment by IDGen"
-                  fill
-                  priority
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent pointer-events-none" />
-
-                {/* Top Floating Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                    <Sparkles className="h-3 w-3 text-cyan-400" />
-                    <span>Acoustic Fusion</span>
-                  </span>
-                  <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                    IDGen
-                  </span>
-                </div>
-
-                {/* Bottom Floating Info Badge */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                        Integrated Attachment
-                      </p>
-                      <p className="text-xs sm:text-sm font-black text-white">
-                        Zero Exposed Sharp Staples
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                      Guwahati Hub
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Right Column: Hero Visual Slider Showcase */}
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
+              <UltrasonicHeroCarousel />
             </div>
           </div>
         </Container>

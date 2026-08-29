@@ -321,7 +321,7 @@ export function HolderRangeMasterShowcase() {
   }, [isPaused, handleNext, displayMode]);
 
   return (
-    <section className="relative mt-16 sm:mt-20" id="product-range">
+    <section className="relative mt-16 sm:mt-20 scroll-mt-28" id="holder-catalog">
       {/* ── Section Header ── */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div className="space-y-2">

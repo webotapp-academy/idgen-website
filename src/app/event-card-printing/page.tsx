@@ -34,6 +34,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { EventHeroCarousel } from "@/components/event-card-printing/EventHeroCarousel";
 import type { Faq } from "@/data/types";
 
 /* ── SEO Metadata (Strictly from document) ── */
@@ -382,8 +383,11 @@ export default function EventCardPrintingPage() {
                   <span>Event Card Printing</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
-                  Custom Event Cards &amp; Badges for Conferences, Exhibitions, Seminars &amp; Events
+                <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight leading-[1.15]">
+                  <span className="text-slate-950 dark:text-white">Custom Event Cards &amp; Badges </span>
+                  <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
+                    for Conferences, Exhibitions, Seminars &amp; Events
+                  </span>
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
@@ -436,47 +440,9 @@ export default function EventCardPrintingPage() {
               </div>
             </div>
 
-            {/* Right Column: Hero Image with Visible IDGen Brand */}
-            <div className="lg:col-span-5 flex flex-col">
-              <div className="relative h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] w-full rounded-3xl overflow-hidden border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-xl group flex flex-col justify-between">
-                <Image
-                  src="/images/idgen-custom-event-card-printing.jpg"
-                  alt="Custom event card printing with lanyard and hook by IDGen"
-                  fill
-                  priority
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent pointer-events-none" />
-
-                {/* Top Floating Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                    <Sparkles className="h-3 w-3 text-cyan-400" />
-                    <span>Conference Pass</span>
-                  </span>
-                  <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                    IDGen
-                  </span>
-                </div>
-
-                {/* Bottom Floating Info Badge */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                        Accreditation Solutions
-                      </p>
-                      <p className="text-xs sm:text-sm font-black text-white">
-                        Full-Color Personalized Badges
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                      IDGen Guwahati
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Right Column: Dynamic Sliding Showcase Carousel */}
+            <div className="lg:col-span-5 flex flex-col justify-center">
+              <EventHeroCarousel />
             </div>
           </div>
         </Container>

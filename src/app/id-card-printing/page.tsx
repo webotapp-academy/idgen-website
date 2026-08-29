@@ -3,6 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { OrgApplicationsCarousel } from "@/components/id-card-printing/OrgApplicationsCarousel";
 import { WorkflowCarousel } from "@/components/id-card-printing/WorkflowCarousel";
+import { IdCardHeroCarousel } from "@/components/id-card-printing/IdCardHeroCarousel";
+import {
+  IdCardScrollSpyNav,
+  SectionAnchorButton,
+} from "@/components/id-card-printing/IdCardScrollSpy";
 import {
   IdCard,
   GraduationCap,
@@ -216,16 +221,16 @@ export default function IdCardPrintingPage() {
       />
 
       {/* ── ULTRA-PREMIUM LIGHT HERO SECTION ── */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-14 lg:pt-12 lg:pb-16 transition-colors">
+      <section id="overview" className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-14 lg:pt-12 lg:pb-16 transition-colors scroll-mt-28">
         {/* Ambient background glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,159,227,0.08),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,159,227,0.18),rgba(255,255,255,0))] pointer-events-none" />
         <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-[#009fe3]/10 dark:bg-[#009fe3]/15 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-sky-400/10 dark:bg-cyan-500/10 blur-[100px] pointer-events-none" />
 
         <Container className="relative z-10">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
+          <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Column: Eyebrow + Heading + Paragraph + Workflow Card + CTAs */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 dark:border-cyan-800/50 bg-sky-50 dark:bg-cyan-950/60 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#009fe3] dark:text-cyan-400 shadow-2xs">
                   <IdCard className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
@@ -233,7 +238,10 @@ export default function IdCardPrintingPage() {
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
-                  Custom PVC ID Card Printing for Organizations
+                  Custom PVC ID Card Printing{" "}
+                  <span className="bg-gradient-to-r from-[#009fe3] via-cyan-400 to-blue-600 bg-clip-text text-transparent">
+                    for Organizations
+                  </span>
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
@@ -290,55 +298,26 @@ export default function IdCardPrintingPage() {
               </div>
             </div>
 
-            {/* Right Column: Single Ultra-Premium Branded Card Showcase Image Symmetrically Aligned */}
-            <div className="lg:col-span-5 flex flex-col">
-              <div className="relative h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] w-full rounded-3xl overflow-hidden border-2 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-xl group flex flex-col justify-between">
-                <Image
-                  src="/images/PVC-ID-Card-Printing-for-Organizations.png"
-                  alt="Custom PVC ID cards printed by IDGen for organizational identification"
-                  fill
-                  priority
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                {/* Subtle gradient overlay for badge readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-
-                {/* Top Floating Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                    <Sparkles className="h-3 w-3 text-cyan-400" />
-                    <span>Custom PVC Cards</span>
-                  </span>
-                  <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                    IDGen
-                  </span>
-                </div>
-
-                {/* Bottom Floating Info Badge */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">Precision Personalization</p>
-                      <p className="text-xs sm:text-sm font-black text-white">Full-Color PVC Identity Cards</p>
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">Guwahati Central</span>
-                  </div>
-                </div>
-              </div>
+            {/* Right Column: Sliding Showcase Carousel */}
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
+              <IdCardHeroCarousel />
             </div>
           </div>
         </Container>
       </section>
 
+      {/* Dynamic Scroll Spy & Sticky Table of Contents Navigation Bar */}
+      <IdCardScrollSpyNav />
+
       <Container className="pb-14 pt-4 sm:pt-6">
         {/* ── 2. CUSTOM PVC ID CARD PRINTING ── */}
-        <section className="mt-0">
+        <section id="custom-pvc-cards" className="mt-0 scroll-mt-28">
           <div className="w-full">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
               <p className="text-xs font-bold tracking-widest text-[#009fe3] uppercase">Custom PVC ID Card Printing</p>
               <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+              <SectionAnchorButton id="custom-pvc-cards" title="Custom PVC ID Card Printing" />
             </div>
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.15rem] leading-[1.15] tracking-tighter w-full md:whitespace-nowrap">
               A professional ID card does more than display a person's name
@@ -435,19 +414,31 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 3. ID CARDS FOR DIFFERENT ORGANIZATIONS (CAROUSEL) ── */}
-        <section className="mt-20">
-          <SectionHead
-            eyebrow="Applications"
-            title="ID Cards for Different Organizations"
-            lede="The same core ID card printing service can support different identification requirements."
-          />
+        <section id="applications" className="mt-20 scroll-mt-28">
+          <div className="w-full space-y-2">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
+              <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Applications</p>
+              <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+              <SectionAnchorButton id="applications" title="ID Cards for Different Organizations" />
+            </div>
+            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
+              ID Cards{" "}
+              <span className="bg-gradient-to-r from-[#009fe3] via-cyan-400 to-blue-600 bg-clip-text text-transparent">
+                for Different Organizations
+              </span>
+            </h2>
+            <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+              The same core ID card printing service can support different identification requirements.
+            </p>
+          </div>
           <div className="mt-8">
             <OrgApplicationsCarousel />
           </div>
         </section>
 
         {/* ── 4. BULK ID CARD PRINTING ── */}
-        <section className="mt-20">
+        <section id="bulk-printing" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
@@ -455,6 +446,7 @@ export default function IdCardPrintingPage() {
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Bulk ID Card Printing</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="bulk-printing" title="Large-Volume ID Card Printing for Institutions" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
                 Large-Volume ID Card Printing for Institutions
@@ -553,19 +545,22 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 5. ONE ID CARD PRINTING WORKFLOW (INTERACTIVE 9-STAGE CAROUSEL) ── */}
-        <section className="mt-20">
-          <SectionHead
-            eyebrow="Production Workflow"
-            title="One ID Card Printing Workflow"
-            lede="From Data to Finished Card"
-          />
+        <section id="production-workflow" className="mt-20 scroll-mt-28">
+          <div className="flex items-center justify-between">
+            <SectionHead
+              eyebrow="Production Workflow"
+              title="One ID Card Printing Workflow"
+              lede="From Data to Finished Card"
+            />
+            <SectionAnchorButton id="production-workflow" title="One ID Card Printing Workflow" />
+          </div>
           <div className="mt-8">
             <WorkflowCarousel />
           </div>
         </section>
 
         {/* ── 6. WHAT INFORMATION CAN BE PRINTED ── */}
-        <section className="mt-20">
+        <section id="card-information" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
@@ -573,6 +568,7 @@ export default function IdCardPrintingPage() {
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Card Personalization</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="card-information" title="What Information Can Be Printed on an ID Card?" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
                 What Information Can Be Printed on an ID Card?
@@ -658,12 +654,15 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 7. ID CARD DESIGN & BRANDING ── */}
-        <section className="mt-20">
-          <SectionHead
-            eyebrow="Design & Branding"
-            title="ID Card Design & Branding"
-            lede="Your ID card can be designed around your organization's visual identity."
-          />
+        <section id="design-branding" className="mt-20 scroll-mt-28">
+          <div className="flex items-center justify-between">
+            <SectionHead
+              eyebrow="Design & Branding"
+              title="ID Card Design & Branding"
+              lede="Your ID card can be designed around your organization's visual identity."
+            />
+            <SectionAnchorButton id="design-branding" title="ID Card Design & Branding" />
+          </div>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center">
             {/* Left Side: Premium Branded Image */}
@@ -753,7 +752,7 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 8. BULK PERSONALIZED DATA ── */}
-        <section className="mt-20">
+        <section id="bulk-data" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
@@ -761,6 +760,7 @@ export default function IdCardPrintingPage() {
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Data-Driven Production</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="bulk-data" title="ID Card Printing for Bulk Personalized Data" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
                 ID Card Printing for Bulk Personalized Data
@@ -863,7 +863,7 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 9. IDGEN STUDIO FOR DATA COLLECTION ── */}
-        <section className="mt-20">
+        <section id="idgen-studio" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
@@ -871,6 +871,7 @@ export default function IdCardPrintingPage() {
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Digital Workflow</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="idgen-studio" title="IDGen Studio for ID Card Data Collection" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
                 IDGen Studio for ID Card Data Collection
@@ -995,13 +996,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 10. COMPLETE IDENTIFICATION SETUP ── */}
-        <section className="mt-20">
+        <section id="complete-setup" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Configuration Options</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="complete-setup" title="ID Card Printing + Complete Identification Setup" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 ID Card Printing + Complete Identification Setup
@@ -1038,13 +1040,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 11. CHOOSING THE RIGHT CONFIGURATION ── */}
-        <section className="mt-20">
+        <section id="configurations" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Setup Guide</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="configurations" title="Choosing the Right ID Card Configuration" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 Choosing the Right ID Card Configuration
@@ -1071,13 +1074,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 12. ID CARD PRINTING FOR INSTITUTIONS ── */}
-        <section className="mt-20">
+        <section id="institutions" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Institutional Applications</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="institutions" title="ID Card Printing for Institutions" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 ID Card Printing for Institutions
@@ -1104,13 +1108,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 13. WHY BULK NEEDS STRUCTURED PROCESS ── */}
-        <section className="mt-20">
+        <section id="structured-process" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 dark:from-slate-950 dark:via-slate-900 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-cyan-400" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-cyan-400 uppercase">Bulk Process</p>
                 <span className="h-px w-6 bg-cyan-400/40" aria-hidden="true" />
+                <SectionAnchorButton id="structured-process" title="Why Bulk ID Card Printing Needs a Structured Process" />
               </div>
               <h2 className="text-2xl font-extrabold text-white sm:text-3xl leading-tight tracking-tight">
                 Why Bulk ID Card Printing Needs a Structured Process
@@ -1157,13 +1162,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 14. QUALITY CHECKS ── */}
-        <section className="mt-20">
+        <section id="quality-checks" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Quality Assurance</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="quality-checks" title="ID Card Quality Checks" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 ID Card Quality Checks
@@ -1194,13 +1200,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 15. NEW & RENEWAL PROJECTS ── */}
-        <section className="mt-20">
+        <section id="new-and-renewals" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Project Types</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="new-and-renewals" title="ID Card Printing for New & Renewal Projects" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 ID Card Printing for New &amp; Renewal Projects
@@ -1248,13 +1255,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 16. WHEN YOU NEED MORE ── */}
-        <section className="mt-20">
+        <section id="flexible-options" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Flexible Options</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="flexible-options" title="When You Need More Than ID Card Printing" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 When You Need More Than ID Card Printing
@@ -1300,7 +1308,7 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 17. ASSAM & NORTHEAST INDIA ── */}
-        <section className="mt-20">
+        <section id="service-coverage" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-[#009fe3]/30 dark:border-sky-800/40 bg-gradient-to-br from-sky-600 via-[#009fe3] to-sky-500 p-6 sm:p-8 md:p-10 shadow-2xl space-y-8 relative overflow-hidden">
             {/* Decorative background dots */}
             <div className="absolute inset-0 opacity-10">
@@ -1312,6 +1320,7 @@ export default function IdCardPrintingPage() {
                 <span className="h-px w-6 bg-white/70" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-white/80 uppercase">Service Coverage</p>
                 <span className="h-px w-6 bg-white/40" aria-hidden="true" />
+                <SectionAnchorButton id="service-coverage" title="ID Card Printing Across Assam & Northeast India" />
               </div>
               <h2 className="text-2xl font-extrabold text-white sm:text-3xl leading-tight tracking-tight">
                 ID Card Printing Across Assam &amp; Northeast India
@@ -1335,13 +1344,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 18. WHY CHOOSE IDGEN ── */}
-        <section className="mt-20">
+        <section id="why-idgen" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Why IDGen</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="why-idgen" title="Why Choose IDGen for ID Card Printing?" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 Why Choose IDGen for ID Card Printing?
@@ -1370,13 +1380,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 19. HOW TO ORDER ── */}
-        <section className="mt-20">
+        <section id="how-to-order" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Ordering Process</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="how-to-order" title="How to Order ID Cards" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 How to Order ID Cards
@@ -1392,13 +1403,14 @@ export default function IdCardPrintingPage() {
         </section>
 
         {/* ── 20. FAQ ── */}
-        <section className="mt-20">
+        <section id="faq" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
                 <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">FAQ</p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
+                <SectionAnchorButton id="faq" title="Frequently Asked Questions" />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
                 Frequently Asked Questions
