@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, Send, MapPin, Clock, MessageSquare, ShieldCheck, ArrowRight, Building2, Truck } from "lucide-react";
+import { Phone, Mail, Send, MapPin, Clock, MessageSquare, ShieldCheck, ArrowRight, Building2, Truck, Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -79,7 +79,7 @@ export default function ContactUsPage() {
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us/" }]} />
 
         {/* Contact Channels Grid */}
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           
           {/* Phone / Hotline */}
           <div className="group rounded-3xl border border-surface-border bg-surface p-6 shadow-sm transition hover:border-accent/40 hover:shadow-md">
@@ -143,6 +143,72 @@ export default function ContactUsPage() {
             )}
           </div>
 
+          {/* Official Social Channels & GBP Review */}
+          <div className="group rounded-3xl border border-amber-500/20 bg-amber-500/5 p-6 shadow-sm transition hover:border-amber-500/40 hover:shadow-md flex flex-col justify-between">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-500">
+                <Star className="h-6 w-6 fill-amber-500 text-amber-500" />
+              </div>
+              <h3 className="mt-4 font-bold text-foreground text-lg">Social &amp; Reviews</h3>
+              <p className="mt-1 text-xs text-muted leading-relaxed">
+                Follow our official channels, join our WhatsApp broadcast, and view verified Google customer reviews.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-amber-500/20 flex flex-wrap gap-2 text-xs">
+              {SITE.social.gbpReview && (
+                <a
+                  href={SITE.social.gbpReview}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 transition"
+                >
+                  <Star className="h-3.5 w-3.5 fill-slate-950" />
+                  <span>Google Review</span>
+                </a>
+              )}
+              {SITE.social.whatsappChannel && (
+                <a
+                  href={SITE.social.whatsappChannel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#128C7E] text-white font-bold hover:opacity-90 transition"
+                >
+                  <span>WA Channel</span>
+                </a>
+              )}
+              {SITE.social.threads && (
+                <a
+                  href={SITE.social.threads}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-700 text-white font-bold hover:bg-black transition"
+                >
+                  <span>Threads</span>
+                </a>
+              )}
+              {SITE.social.pinterest && (
+                <a
+                  href={SITE.social.pinterest}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E60023] text-white font-bold hover:opacity-90 transition"
+                >
+                  <span>Pinterest</span>
+                </a>
+              )}
+              {SITE.social.twitter && (
+                <a
+                  href={SITE.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black border border-slate-700 text-white font-bold hover:bg-slate-900 transition"
+                >
+                  <span>X / Twitter</span>
+                </a>
+              )}
+            </div>
+          </div>
+
         </div>
 
         {/* Factory Location & Visit Info */}
@@ -180,7 +246,7 @@ export default function ContactUsPage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/service-areas/"
+                href="/service-areas/assam/"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-surface-border bg-surface px-6 py-3.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent"
               >
                 <span>View Northeast Delivery Network</span>

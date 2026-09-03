@@ -67,6 +67,165 @@ const quickPricingTable = [
   { service: "RFID ID Card", price: "₹45 / card", path: "/rfid-card-printing/" },
 ];
 
+interface ProductSpecItem {
+  id: string;
+  name: string;
+  category: string;
+  price: string;
+  imageSrc: string;
+  alt: string;
+  pageHref: string;
+  specs: { label: string; value: string }[];
+  highlights: string[];
+}
+
+const productSpecifications: ProductSpecItem[] = [
+  {
+    id: "pvc-id-cards",
+    name: "PVC ID Cards (Standard CR-80)",
+    category: "Identity Cards",
+    price: "₹15 – ₹16 / card",
+    imageSrc: "/images/product-pvc-cards.jpg",
+    alt: "Standard CR80 PVC ID Card printing specifications",
+    pageHref: "/id-card-printing/",
+    specs: [
+      { label: "Dimensions", value: "85.6 mm × 53.98 mm (CR-80 ISO 7810)" },
+      { label: "Thickness", value: "30 Mil (0.76 mm) Standard Gauge" },
+      { label: "Material", value: "100% Solid Virgin Polyvinyl Chloride" },
+      { label: "Finish", value: "High-Gloss Mirror / Satin Matte UV Shield" },
+      { label: "Printing Process", value: "Thermal Retransfer / Digital Dye-Sublimation" },
+      { label: "Personalization", value: "Photos, 1D/2D Barcodes, QR Codes, Serial Numbers" },
+    ],
+    highlights: ["Water-Proof Solid Core", "Zero Corner De-lamination", "Edge-to-Edge 300+ DPI Print", "Scratch-Resistant Surface"],
+  },
+  {
+    id: "custom-lanyards",
+    name: "Custom Printed Satin Lanyards",
+    category: "Wearable Credentials",
+    price: "₹15 / piece",
+    imageSrc: "/images/product-satin-lanyards.jpg",
+    alt: "20mm Custom Printed Satin Lanyard specifications",
+    pageHref: "/custom-printed-lanyard-printing/",
+    specs: [
+      { label: "Available Widths", value: "20 mm (Standard), 16 mm, 12 mm" },
+      { label: "Length", value: "90 cm Total Loop (45 cm Hanging Drop)" },
+      { label: "Material", value: "Premium Soft Fine-Woven Satin Polyester" },
+      { label: "Print Technology", value: "Continuous Multi-Color Dye-Sublimation" },
+      { label: "Joint Sealing", value: "Ultrasonic Acoustic Welding (Thread-Free)" },
+      { label: "Standard Clip", value: "Anti-Rust Chrome Swivel Fish Hook" },
+    ],
+    highlights: ["Skin-Friendly Soft Weave", "Fray-Proof Ultrasonic Sealing", "Washable Fade-Resistant Colors", "High Tensile Durability"],
+  },
+  {
+    id: "rfid-smart-cards",
+    name: "RFID & Smart Access Cards",
+    category: "Smart Access",
+    price: "₹45 / card",
+    imageSrc: "/images/rfid-nfc-credentials.jpg",
+    alt: "RFID and Smartcard Contactless Chip specifications",
+    pageHref: "/rfid-card-printing/",
+    specs: [
+      { label: "Frequencies", value: "13.56 MHz (HF) / 125 kHz (LF)" },
+      { label: "Supported Chips", value: "Mifare 1K, NTAG213, EM4100, TK4100" },
+      { label: "Read Distance", value: "2.5 cm – 10 cm (Sensor Dependent)" },
+      { label: "Antenna Coil", value: "Embedded Copper Coil with PVC Lamination" },
+      { label: "Data Retention", value: "10+ Years / 100,000 Read-Write Cycles" },
+      { label: "Standard Size", value: "85.6 mm × 53.98 mm × 0.84 mm (ISO 14443A)" },
+    ],
+    highlights: ["Turnstile & Door Lock Ready", "Tamper-Proof Embedded Chip", "High-Speed Contactless Scan", "Dual Frequency Custom Inlays"],
+  },
+  {
+    id: "event-badges",
+    name: "Event & Conference VIP Badges",
+    category: "Event Credentials",
+    price: "₹35 / card",
+    imageSrc: "/images/idgen-custom-event-card-printing.jpg",
+    alt: "Large format event card and VIP summit badge specifications",
+    pageHref: "/event-card-printing/",
+    specs: [
+      { label: "Available Formats", value: "3.5\" × 5.5\" (Jumbo), 4\" × 6\" (Summit), CR-100" },
+      { label: "Card Material", value: "350+ GSM Tear-Proof Polyvinyl / 30-Mil PVC" },
+      { label: "Punching Formats", value: "Center Oval Slot / Dual Anti-Twist Holes" },
+      { label: "Lanyard Compatibility", value: "One-Hook or Two-Hook No-Flip Lanyards" },
+      { label: "Security Badging", value: "Foil Accents, Access Zoning, Dynamic QR Codes" },
+      { label: "Surface Lamination", value: "Thermal Gloss / Matte Velvet Touch" },
+    ],
+    highlights: ["High-Visibility Oversized Layout", "Anti-Twist Dual Hook Support", "Multi-Day Conference Durable", "Quick-Scan Delegate QR"],
+  },
+  {
+    id: "pc-holders",
+    name: "Polycarbonate ID Card Holders",
+    category: "Protective Holders",
+    price: "₹6 / piece",
+    imageSrc: "/images/product-id-holders.jpg",
+    alt: "Polycarbonate rigid card holder specifications",
+    pageHref: "/id-card-holders/",
+    specs: [
+      { label: "Available Models", value: "V-1 (Vertical Single), H-1 (Horizontal), V-2 (Dual-Card)" },
+      { label: "Material", value: "100% Virgin Optical Grade Polycarbonate" },
+      { label: "Card Fit", value: "Standard CR-80 (85.6 mm × 54 mm)" },
+      { label: "Extraction Slot", value: "Ergonomic Curved Thumb Slide-Out Groove" },
+      { label: "Hole Punch Fit", value: "Universal Euro Slot + Dual Chain Holes" },
+      { label: "Impact Resistance", value: "Shatter-Proof, UV-Stabilized Anti-Yellowing" },
+    ],
+    highlights: ["Crystal Clear Transparency", "4-Corner Edge Guard Protection", "Thumb Slot Card Removal", "Prevents Bending & Snapping"],
+  },
+  {
+    id: "metal-hooks",
+    name: "Swivel Fish Hooks & Clips",
+    category: "Hardware Attachments",
+    price: "₹3 / piece",
+    imageSrc: "/images/product-hooks-hardware.jpg",
+    alt: "Metal swivel hooks and attachment clips specifications",
+    pageHref: "/id-card-hooks/",
+    specs: [
+      { label: "Attachment Types", value: "Swivel Fish Hook, Dog Hook, Alligator Clip, Lobster Clasp" },
+      { label: "Material", value: "Die-Cast Zinc Alloy Metal" },
+      { label: "Plating Finish", value: "Mirror Polish Nickel-Chrome Electroplated" },
+      { label: "Swivel Mechanism", value: "360-Degree Smooth Silent Rotation" },
+      { label: "Pull Strength", value: "Tested up to 15 kg Tensile Pull Force" },
+      { label: "Compatibility", value: "Fits 12 mm, 16 mm & 20 mm Lanyard Loops" },
+    ],
+    highlights: ["100% Rust-Proof & Anti-Corrosion", "360° Free Rotation", "Heavy-Duty Spring Return", "Snag-Free Smooth Edges"],
+  },
+  {
+    id: "acrylic-badges",
+    name: "Custom Acrylic Name Badges",
+    category: "Executive Badges",
+    price: "₹45 / badge",
+    imageSrc: "/images/product-acrylic-badges.jpg",
+    alt: "Custom acrylic name badges and magnetic pins specifications",
+    pageHref: "/acrylic-badges/",
+    specs: [
+      { label: "Material", value: "Precision Laser-Cut Optical Cast Acrylic (PMMA)" },
+      { label: "Thickness", value: "3.0 mm – 4.0 mm Crystal Clear" },
+      { label: "Edge Finishing", value: "Diamond-Polished Beveled Crystal Borders" },
+      { label: "Fastener Options", value: "Triple Neodymium Magnet / Steel Safety Pin" },
+      { label: "Printing Quality", value: "1200 DPI Subsurface UV Print with White Opaque Layer" },
+      { label: "Custom Shapes", value: "Rectangular, Oval, Crest & Custom Contours" },
+    ],
+    highlights: ["Clothing-Safe Magnetic Clasp", "Zero Pin Hole Damage", "Glass-Like Depth & Gloss", "Personalized Names & Titles"],
+  },
+  {
+    id: "zinc-medals",
+    name: "Die-Cast Zinc Medals & Ribbons",
+    category: "Awards & Trophies",
+    price: "₹65 / medal",
+    imageSrc: "/images/product-zinc-medals.jpg",
+    alt: "Die-cast zinc medals and custom satin ribbons specifications",
+    pageHref: "/zinc-medals/",
+    specs: [
+      { label: "Diameters Available", value: "50 mm / 60 mm / 70 mm Custom 3D Cast" },
+      { label: "Metal Material", value: "High-Density Solid Zinc Alloy" },
+      { label: "Plating Finishes", value: "Antique Gold, Antique Silver, Antique Bronze, Mirror Gold" },
+      { label: "Ribbon Dimensions", value: "25 mm – 32 mm Width × 80 cm Loop" },
+      { label: "Ribbon Material", value: "Full-Color Sublimated V-Cut Neck Ribbon" },
+      { label: "Attachment", value: "Heavy-Duty Jump Ring with Ultrasonic Stitch" },
+    ],
+    highlights: ["3D High-Relief Sculpted Artwork", "Heavy Premium Weight in Hand", "Custom Event & Institute Crest", "Matching Themed Satin Ribbon"],
+  },
+];
+
 const lanyardSuitableFor = [
   "Student identification",
   "Employee identification",
@@ -649,6 +808,113 @@ export default function PricingPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── 3b. PRODUCT SPECIFICATIONS SECTION (WITH IMAGES & DETAILED SPECS) ── */}
+        <section id="product-specifications" className="mt-20 scroll-mt-20">
+          <SectionHead
+            eyebrow="Technical Specifications"
+            title="Product Specifications & Engineering Details"
+            lede="Comprehensive technical specifications, dimensions, materials, durability standards, and hardware compatibility for all IDGen products."
+          />
+
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            {productSpecifications.map((prod) => (
+              <div
+                key={prod.id}
+                className="group rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-7 shadow-lg transition-all duration-300 hover:border-[#009fe3]/60 hover:shadow-xl flex flex-col justify-between space-y-6"
+              >
+                <div className="space-y-5">
+                  {/* Top Header: Image + Name + Price Badge */}
+                  <div className="flex flex-col sm:flex-row gap-5 items-start">
+                    <div className="relative h-36 w-full sm:w-36 shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
+                      <Image
+                        src={prod.imageSrc}
+                        alt={prod.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 150px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                      <span className="absolute bottom-2 left-2 rounded bg-slate-950/80 backdrop-blur-xs px-2 py-0.5 text-[10px] font-black text-cyan-300 border border-white/10">
+                        {prod.category}
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <span className="rounded-full bg-sky-50 dark:bg-cyan-950/60 border border-sky-200 dark:border-cyan-800/40 px-2.5 py-0.5 text-[11px] font-bold text-[#009fe3] dark:text-cyan-400">
+                          {prod.category}
+                        </span>
+                        <span className="font-mono text-sm font-black text-[#009fe3] dark:text-cyan-400 bg-sky-50 dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-sky-100 dark:border-slate-700">
+                          {prod.price}
+                        </span>
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                        {prod.name}
+                      </h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        Direct factory manufactured &amp; quality inspected at IDGen cleanrooms.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Specifications Table */}
+                  <div className="overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/60">
+                    <table className="w-full text-left text-xs">
+                      <tbody className="divide-y divide-slate-200/60 dark:divide-slate-800/60">
+                        {prod.specs.map((spec) => (
+                          <tr key={spec.label} className="hover:bg-white/60 dark:hover:bg-white/[0.02] transition">
+                            <td className="px-3.5 py-2 font-bold text-slate-600 dark:text-slate-400 w-1/3">
+                              {spec.label}
+                            </td>
+                            <td className="px-3.5 py-2 font-medium text-slate-900 dark:text-slate-100">
+                              {spec.value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Key Highlights */}
+                  <div className="space-y-1.5 pt-1">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
+                      Key Highlights:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {prod.highlights.map((h) => (
+                        <span
+                          key={h}
+                          className="inline-flex items-center gap-1 rounded-lg border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 px-2.5 py-1 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-2xs"
+                        >
+                          <CheckCircle2 className="h-3 w-3 text-[#009fe3] shrink-0" />
+                          <span>{h}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Action Link */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                  <Link
+                    href={prod.pageHref}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3] hover:underline"
+                  >
+                    <span>View Full {prod.name} Page</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <Link
+                    href="/request-a-quote/"
+                    className="rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3.5 py-1.5 text-xs font-bold shadow hover:opacity-90 transition"
+                  >
+                    Get Quote
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

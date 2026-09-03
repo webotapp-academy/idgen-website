@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lead-1",
+    "type": "quote",
+    "name": "Debashis Sharma",
+    "organization": "Assam Engineering College",
+    "email": "d.sharma@aec.ac.in",
+    "phone": "+91 98640 12345",
+    "service": "student-id-card-printing",
+    "city": "Guwahati",
+    "quantity": "2,400 ID Cards + Lanyards",
+    "message": "Need quote for upcoming academic year student RFID identity cards and customized 20mm satin lanyards.",
+    "sourcePage": "/service-areas/assam/guwahati/",
+    "status": "new",
+    "createdAt": "2026-09-01T03:24:06.607Z"
+  },
+  {
+    "id": "lead-2",
+    "type": "quote",
+    "name": "Priyanka Baruah",
+    "organization": "Downtown Hospitals Ltd",
+    "email": "hr@downtownhospitals.in",
+    "phone": "+91 94350 87654",
+    "service": "employee-id-card-printing",
+    "city": "Guwahati",
+    "quantity": "650 Badges",
+    "message": "Urgent requirements for medical staff & consultant access badges with ultrasonic sealed lamination.",
+    "sourcePage": "/employee-id-card-printing/",
+    "status": "in_review",
+    "createdAt": "2026-08-31T07:24:06.608Z"
+  },
+  {
+    "id": "lead-3",
+    "type": "partner",
+    "name": "Ranjan Kalita",
+    "organization": "Kalita Office Solutions (Tezpur)",
+    "email": "sales@kalitasolutions.com",
+    "phone": "+91 97060 45678",
+    "city": "Tezpur",
+    "message": "Interested in becoming an IDGen regional distribution and channel partner for Sonitpur district.",
+    "status": "contacted",
+    "createdAt": "2026-08-30T07:24:06.608Z"
+  }
+]

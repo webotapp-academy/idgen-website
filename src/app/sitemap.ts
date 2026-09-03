@@ -33,7 +33,6 @@ const staticPaths = [
   "/services/",
   "/products/",
   "/idgen-studio/",
-  "/service-areas/",
   "/pricing/",
   "/partners/",
   "/resources/",

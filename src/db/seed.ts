@@ -1,4 +1,5 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
 import { eq } from "drizzle-orm";
 import { getDb } from "./db";
 import { services as servicesTable, products as productsTable, states as statesTable, cities as citiesTable } from "./schema";

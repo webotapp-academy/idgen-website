@@ -1,22 +1,30 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import {
+  MapPin,
+  ArrowRight,
+  Building2,
+  ShieldCheck,
+  Sparkles,
+  Phone,
+  MessageSquare,
+  CheckCircle2,
+  Truck,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
+import { HeroShowcaseVisual } from "@/components/ui/HeroShowcaseVisual";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { states, getState } from "@/data/locations";
-import { services } from "@/data/services";
+import { getState, getAllStates } from "@/lib/dynamic-locations";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
 
-export function generateStaticParams() {
-  return states.map((s) => ({ state: s.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ state: string }> }): Promise<Metadata> {
   const { state: stateSlug } = await params;
@@ -24,8 +32,8 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   if (!state) return {};
   const url = `${SITE_URL}/service-areas/${state.slug}/`;
   return {
-    title: state.metaTitle,
-    description: state.metaDescription,
+    title: state.metaTitle || `ID Card Printing & Identity Solutions in ${state.name} | IDGen`,
+    description: state.metaDescription || `IDGen provides ID card printing and identity solutions across ${state.name}.`,
     alternates: { canonical: url },
     openGraph: { title: state.metaTitle, description: state.metaDescription, url },
     ...(state.indexed === false ? { robots: { index: false, follow: true } } : {}),
@@ -38,152 +46,215 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   if (!state) notFound();
 
   const faqs: Faq[] = [
-    { q: `Does IDGen provide ID card printing in ${state.name}?`, a: `Yes. IDGen provides customized and bulk ID card printing and identity solutions across ${state.name}.` },
+    {
+      q: `Does IDGen provide ID card printing in ${state.name}?`,
+      a: `Yes. IDGen provides customized and bulk ID card printing and identity solutions across ${state.name}.`,
+    },
     { q: "Where is IDGen based?", a: `IDGen is based in ${SITE.hqCity}, ${SITE.hqState}, India.` },
-    { q: `Which ${state.name} cities does IDGen serve?`, a: `Priority markets include ${state.cities.map((c) => c.name).join(", ")}. IDGen can also evaluate requirements from other locations in ${state.name} on request.` },
-    { q: "Can schools order student ID cards?", a: "Yes. Schools, colleges and universities can request customized student ID cards." },
-    { q: "Can companies order employee ID cards?", a: "Yes. Companies, offices, hospitals and institutions can request customized employee and staff ID cards." },
-    { q: "Does IDGen provide bulk ID card printing?", a: "Yes, subject to product and project specifications." },
-    { q: "Can organizations collect student or employee information online?", a: "Yes, via IDGen Studio for suitable projects." },
-    { q: "Is customer identification data handled confidentially?", a: "Yes. IDGen treats customer-provided identification information as confidential project information and uses it for the agreed identification-related purpose." },
+    {
+      q: `Which ${state.name} cities does IDGen serve?`,
+      a: `Priority markets include ${state.cities.map((c) => c.name).join(", ")}. IDGen also delivers door-to-door to institutions across all districts in ${state.name}.`,
+    },
+    { q: "Can schools order student ID cards?", a: "Yes. Schools, colleges and universities can request customized student ID cards with lanyards and crystal holders." },
+    { q: "Can companies order employee ID cards?", a: "Yes. Companies, offices, hospitals and institutions can request customized employee and staff ID cards with RFID chips." },
+    { q: "Does IDGen provide bulk ID card printing?", a: "Yes, supporting institutional batches from 50 to 50,000+ units." },
+    { q: "Can organizations collect student or employee information online?", a: "Yes, via IDGen Studio digital portal for photo and data verification." },
+    { q: "Is customer identification data handled confidentially?", a: "Yes. IDGen treats customer-provided identification information as confidential project information under strict data protection protocols." },
   ];
 
   return (
     <>
       <PageHero
-        eyebrow="Service Area"
+        eyebrow="Regional Service Area"
         icon={MapPin}
-        title={`ID Card Printing & Identity Solutions in ${state.name}`}
+        title={
+          <>
+            <span>ID Card Printing &amp; </span>
+            <span className="gradient-text">Identity Solutions</span>
+            <span> in {state.name}</span>
+          </>
+        }
         lede={state.heroIntro}
-        stats={[
-          { label: "Based In", value: `${SITE.hqCity}, ${SITE.hqState}` },
-          { label: "Experience", value: `Since ${SITE.foundedYear}` },
-          { label: "Digital Workflow", value: "IDGen Studio" },
-        ]}
-      />
-      <Container className="py-14">
-        <Breadcrumbs
-          items={[
-            { name: "Home", path: "/" },
-            { name: "Service Areas", path: "/service-areas/" },
-            { name: state.name, path: `/service-areas/${state.slug}/` },
-          ]}
-        />
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/request-a-quote/" className="rounded-full bg-navy px-6 py-2.5 text-sm font-bold text-white transition hover:bg-navy-deep">
-            Request a {state.name} Quote
-          </Link>
-          <Link href="/id-card-printing/" className="rounded-full border border-surface-border px-6 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent hover:text-accent">
-            Explore ID Card Printing
-          </Link>
-        </div>
-
-        {/* Cities */}
-        <div className="mt-16">
-          <SectionHead
-            eyebrow="Major & Priority Markets"
-            title={`${state.name} service network`}
-            lede="These locations represent priority service markets rather than a claim that IDGen maintains a physical office or branch in every location."
+        visual={<HeroShowcaseVisual cityName={state.cities[0]?.name || state.name} stateName={state.name} />}
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Service Areas", path: "/service-areas/assam/" },
+              { name: state.name, path: `/service-areas/${state.slug}/` },
+            ]}
           />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        }
+      >
+        <div className="mt-5 space-y-4 pt-4 border-t border-slate-200/80 dark:border-white/10">
+          <div className="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-3.5 sm:p-4 backdrop-blur-sm shadow-2xs border-l-3 border-l-accent">
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300 font-normal">
+              Direct factory printing, RFID smart credentials, and custom printed lanyards engineered for institutions across {state.name} with insured door-to-door dispatch.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <Link
+              href="/request-a-quote/"
+              className="rounded-full bg-accent px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-cyan-500/25 transition hover:bg-accent-hover btn-glow flex items-center gap-2"
+            >
+              <span>Request a {state.name} Quote</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/contact-us/"
+              className="rounded-full border border-slate-300 dark:border-white/20 bg-white/80 dark:bg-white/5 px-5 py-3 text-xs sm:text-sm font-semibold text-slate-900 dark:text-white transition hover:border-accent hover:text-accent flex items-center gap-2 shadow-2xs"
+            >
+              <Phone className="h-4 w-4 text-accent" />
+              <span>Call / WhatsApp IDGen</span>
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-muted pt-1">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+              <span>Free Pre-Production Physical Sample</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+              <span>100% Optical Quality Check</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+              <span>Doorstep Dispatch Across {state.name}</span>
+            </span>
+          </div>
+        </div>
+      </PageHero>
+
+      <Container className="py-14 space-y-16">
+        {/* Dynamic Sub-Category Cities Grid */}
+        <div>
+          <SectionHead
+            eyebrow="Operational Network"
+            title={`${state.name} Priority Service Hubs`}
+            lede={`Explore local identity solutions, institutional delivery timelines, and nearby coverage areas across ${state.name}.`}
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {state.cities.map((c) => (
               <Link
                 key={c.slug}
                 href={`/service-areas/${state.slug}/${c.slug}/`}
-                className="rounded-2xl border border-surface-border bg-surface p-5 transition hover:border-accent hover:shadow-sm"
+                className="group relative rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white/80 dark:bg-[#0e1726]/80 p-6 backdrop-blur-xl shadow-sm transition-all duration-300 hover:border-accent hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
               >
-                <h3 className="font-semibold text-foreground">{c.name}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{c.heroIntro}</p>
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent-soft/60 dark:bg-accent/15 text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                        <MapPin className="h-4 w-4" />
+                      </div>
+                      <h3 className="font-bold text-base text-foreground group-hover:text-accent transition">
+                        {c.name}
+                      </h3>
+                    </div>
+                    {c.isPrimary && (
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-accent-soft text-accent border border-accent/20">
+                        Primary Base
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-muted line-clamp-2">{c.heroIntro}</p>
+
+                  {c.nearbyAreas && c.nearbyAreas.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {c.nearbyAreas.slice(0, 4).map((area) => (
+                        <span
+                          key={area}
+                          className="text-[10px] font-medium px-2.5 py-0.5 rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-foreground"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                      {c.nearbyAreas.length > 4 && (
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 text-accent">
+                          +{c.nearbyAreas.length - 4} more
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-slate-200/60 dark:border-white/10 flex items-center justify-between text-xs font-bold text-accent">
+                  <span>Explore {c.name} Solutions</span>
+                  <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition" />
+                </div>
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Organizations we serve — honest placeholder */}
-        <div className="mt-16 rounded-2xl border border-dashed border-surface-border bg-surface p-6">
-          <h2 className="text-lg font-bold text-foreground">Organizations we serve across {state.name}</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Real customer logos, organization names and project photographs will be added here once customer
-            permission is confirmed for {state.name} projects — we don&apos;t display placeholder evidence as
-            if it were real.
-          </p>
-        </div>
-
-        {/* Complete identification products */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Configurations" title="Complete identification products" />
+        {/* Configurations Overview */}
+        <div>
+          <SectionHead eyebrow="Configurations" title="Complete Identification Products" />
           <div className="mt-6 flex flex-wrap gap-3">
-            <FlowChain steps={["Card Only", "Card + Holder", "Card + Holder + Hook + Lanyard"]} />
-          </div>
-          <p className="mt-3 text-sm text-muted">
-            A complete wearable setup can also include ultrasonic sealing, or an RFID card with the required
-            identification accessories. See{" "}
-            <Link href="/id-card-holders/" className="font-semibold text-accent hover:underline">ID Card Holders</Link>,{" "}
-            <Link href="/id-card-hooks/" className="font-semibold text-accent hover:underline">ID Card Hooks</Link> and{" "}
-            <Link href="/ultrasonic-sealing/" className="font-semibold text-accent hover:underline">Ultrasonic Sealing</Link>.
-          </p>
-        </div>
-
-        {/* What we provide */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Services" title={`What IDGen provides in ${state.name}`} />
-          <div className="mt-6 flex flex-wrap gap-2">
-            {services.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/${s.slug}/`}
-                className="rounded-full border border-surface-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
-              >
-                {s.name}
-              </Link>
-            ))}
+            <FlowChain
+              steps={[
+                "Card Only",
+                "Card + Holder",
+                "Card + Holder + Hook + Lanyard",
+                "Ultrasonic Sealed Setup",
+              ]}
+            />
           </div>
         </div>
 
-        {/* Why choose — short */}
-        <div className="mt-16 rounded-2xl border border-surface-border bg-surface p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-foreground">Why {state.name} organizations choose IDGen</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Experience since {SITE.foundedYear}, {SITE.hqCity}-based, regional reach, organizational focus, a
-            complete identification ecosystem, and a digital workflow through IDGen Studio. The full story is
-            on{" "}
-            <Link href="/why-idgen/" className="font-semibold text-accent hover:underline">Why IDGen</Link>.
-          </p>
-        </div>
+        {/* Elevated FAQ Section */}
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-white/10 bg-gradient-to-br from-white via-slate-50/60 to-white dark:from-[#0b1320] dark:via-[#0e1726] dark:to-[#070d18] p-6 sm:p-9 lg:p-10 shadow-2xl shadow-slate-900/5 dark:shadow-black/60 backdrop-blur-xl space-y-8">
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+            <div className="lg:w-1/3 space-y-4">
+              <div className="inline-flex items-center gap-2 mb-1">
+                <span className="h-px w-6 bg-accent" aria-hidden="true" />
+                <p className="text-xs font-bold tracking-widest text-accent uppercase">
+                  FAQ &amp; Knowledge Base
+                </p>
+                <span className="h-px w-6 bg-accent/40" aria-hidden="true" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+                Frequently Asked Questions in {state.name}
+              </h2>
+              <p className="text-sm text-muted leading-relaxed">
+                Key answers regarding ID card printing, batch timelines, accessories, and delivery across {state.name}.
+              </p>
 
-        {/* Data confidentiality */}
-        <p className="mt-8 max-w-3xl text-sm leading-relaxed text-muted">
-          ID card projects in {state.name} can involve personal information such as names, photographs, ID
-          numbers, departments, designations, classes, courses and membership information. IDGen treats
-          customer-provided identification information as confidential project information and uses it for
-          the agreed identification-related purpose.
-        </p>
+              <div className="rounded-2xl border border-accent/20 bg-accent-soft/30 dark:bg-accent/10 p-5 space-y-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-wider">
+                  <MessageSquare className="h-4 w-4" />
+                  <span>Have Specific Questions?</span>
+                </div>
+                <p className="text-xs text-muted leading-relaxed">
+                  Need help with volume pricing or RFID frequencies for {state.name} institutions? Our production engineers are ready to assist.
+                </p>
+                <div className="pt-1 flex flex-col gap-2">
+                  <Link
+                    href="/contact-us/"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-accent-hover transition shadow-xs"
+                  >
+                    <Phone className="h-3.5 w-3.5" />
+                    <span>Talk to Production Team</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
 
-        {/* How to start */}
-        <div className="mt-16">
-          <SectionHead eyebrow="Process" title={`How to start a ${state.name} ID card project`} />
-          <div className="mt-6">
-            <FlowChain steps={["Requirement", "Specification", "Data", "Review", "Approval", "Production", "Quality Check", "Dispatch"]} />
-          </div>
-        </div>
-
-        {/* FAQ */}
-        <div className="mt-16">
-          <SectionHead eyebrow="FAQ" title="Frequently asked questions" />
-          <div className="mt-6 max-w-3xl">
-            <FaqList faqs={faqs} />
+            <div className="lg:w-2/3">
+              <FaqList faqs={faqs} />
+            </div>
           </div>
         </div>
 
         {/* Closing CTA */}
-        <div className="mt-16">
+        <div className="mt-8">
           <CtaBand
-            title={`Ready to order identification products in ${state.name}?`}
-            body="Tell IDGen your organization, product, quantity and location."
+            title={`Need ID cards for your organization in ${state.name}?`}
+            body="Tell IDGen your organization name, target card quantity, and required accessories for an immediate proposal."
             links={[
-              { label: "Request a Quote", href: "/request-a-quote/", primary: true },
-              { label: "Contact IDGen", href: "/contact-us/" },
+              { label: `Request a ${state.name} Quote`, href: "/request-a-quote/", primary: true },
+              { label: "Contact IDGen Engineering Desk", href: "/contact-us/" },
             ]}
           />
         </div>

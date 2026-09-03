@@ -31,6 +31,7 @@ import {
   HeartHandshake,
   Layout,
   Palette,
+  Gamepad2,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -102,6 +103,11 @@ const customCardElements = [
 
 const orgTypesSectors = [
   {
+    title: "Gameszone & Gaming Arenas",
+    desc: "Rechargeable play passes, VIP gaming cards, time-tracking credentials, and access cards for gamezones, VR lounges, arcade parlours, and entertainment centers.",
+    items: ["Gamezone Play Cards", "Rechargeable Arcade Passes", "VR Arena Credentials", "VIP Gamer Passes", "Time-Tracking Cards", "Amusement Park Passes"],
+  },
+  {
     title: "Clubs",
     desc: "Membership cards for sports clubs, social clubs, cultural clubs, recreation clubs, country clubs, hobby clubs, and community clubs.",
     items: ["Sports clubs", "Social clubs", "Cultural clubs", "Recreation clubs", "Country clubs", "Hobby clubs", "Community clubs"],
@@ -125,11 +131,6 @@ const orgTypesSectors = [
     title: "NGOs & Community Organizations",
     desc: "Cards to identify members, volunteers, coordinators, field teams, and registered participants.",
     items: ["Members", "Volunteers", "Coordinators", "Field teams", "Registered participants"],
-  },
-  {
-    title: "Professional Organizations",
-    desc: "Cards to identify registered members and display their membership category, number, and validity.",
-    items: ["Registered members", "Membership category", "Member number", "Validity period"],
   },
 ];
 
@@ -309,7 +310,7 @@ const internalLinks = [
   { topic: "Digital data collection", href: "/idgen-studio/" },
   { topic: "Why IDGen", href: "/why-idgen/" },
   { topic: "Pricing", href: "/pricing/" },
-  { topic: "Service Areas", href: "/service-areas/" },
+  { topic: "Service Areas", href: "/service-areas/assam/" },
   { topic: "Request a Quote", href: "/request-a-quote/" },
 ];
 
@@ -345,12 +346,12 @@ export default function MembershipCardPrintingPage() {
                 <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
                   Custom Membership ID Card Printing for{" "}
                   <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
-                    Clubs, Gyms, Associations &amp; Organizations
+                    Gameszones, Clubs, Gyms, Associations &amp; Organizations
                   </span>
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                  IDGen provides custom membership card printing for clubs, associations, NGOs, gyms, sports clubs, hotels, resorts, recreational organizations, professional bodies, institutions and other membership-based organizations.
+                  IDGen provides custom membership card printing for gameszones, gaming arenas, arcade parlours, clubs, associations, NGOs, gyms, sports clubs, hotels, resorts, recreational organizations, professional bodies, institutions and other membership-based organizations.
                 </p>
               </div>
 
@@ -605,12 +606,12 @@ export default function MembershipCardPrintingPage() {
           </div>
         </section>
 
-        {/* ── 6. MEMBERSHIP CARDS FOR DIFFERENT ORGANIZATIONS (6 Sectors) ── */}
+        {/* ── 6. MEMBERSHIP CARDS FOR GAMESZONE & DIFFERENT ORGANIZATIONS (6 Sectors) ── */}
         <section className="mt-20">
           <SectionHead
             eyebrow="Industry Adaptability"
-            title="Membership Cards for Different Organizations"
-            lede="One membership-card service can support different types of organizations while maintaining each organization's branding."
+            title="Membership Cards for Gameszone & Different Organizations"
+            lede="One membership-card service can support gameszones, clubs, gyms, and different types of organizations while maintaining each organization's branding."
           />
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -639,6 +640,81 @@ export default function MembershipCardPrintingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ── 6b. DEDICATED GAMESZONE & GAMING ARENA SECTION ── */}
+        <section className="mt-20">
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan-500/30 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-8 sm:p-12 text-white shadow-2xl space-y-8">
+            {/* Ambient Background Glow */}
+            <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-purple-500/15 blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div className="space-y-3 max-w-3xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-bold text-cyan-400 backdrop-blur-md">
+                  <Gamepad2 className="h-4 w-4" />
+                  <span>Gaming &amp; Entertainment Solutions</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+                  Gameszone &amp; Gaming Arena <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">Membership Cards</span>
+                </h2>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  IDGen produces custom PVC play cards, rechargeable arcade credentials, RFID contactless passes, and VIP gamer cards tailored specifically for gameszones, VR lounges, esports arenas, arcade parlours, and amusement centers.
+                </p>
+              </div>
+
+              <Link
+                href="/request-a-quote/"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-xs font-extrabold text-white shadow-lg shadow-cyan-500/25 transition hover:scale-105 active:scale-95 shrink-0"
+              >
+                <span>Request Gameszone Quote</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* 4 Key Gameszone Features Grid */}
+            <div className="relative z-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md space-y-2.5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+                  <RefreshCw className="h-5 w-5" />
+                </div>
+                <h3 className="text-sm font-bold text-white">Rechargeable Play Passes</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  High-durability cards designed for repeated balance recharges and tap-to-play system integration.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md space-y-2.5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                  <Radio className="h-5 w-5" />
+                </div>
+                <h3 className="text-sm font-bold text-white">RFID Contactless Smartcards</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  13.56MHz Mifare &amp; 125kHz Proximity chip credentials for instant turnstile and simulator access.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md space-y-2.5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                  <Award className="h-5 w-5" />
+                </div>
+                <h3 className="text-sm font-bold text-white">VIP &amp; Tiered Member Cards</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Gold, Platinum, and Elite Gamer cards with custom metallic finishes and loyalty perk tracking.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md space-y-2.5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <QrCode className="h-5 w-5" />
+                </div>
+                <h3 className="text-sm font-bold text-white">QR Code &amp; Time Passes</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Scannable QR codes for hourly session tracking, VR simulator booking, and member verification.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

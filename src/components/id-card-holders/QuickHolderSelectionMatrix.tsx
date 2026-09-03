@@ -32,6 +32,7 @@ import {
   CreditCard,
   Grid,
   List,
+  Copy,
 } from "lucide-react";
 
 export interface HolderItem {
@@ -332,6 +333,34 @@ export function QuickHolderSelectionMatrix() {
   const [activeTab, setActiveTab] = useState<"all" | "vertical" | "horizontal" | "executive" | "attachment">("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [selectedHolder, setSelectedHolder] = useState<HolderItem | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Reset copied status on holder change
+  useEffect(() => {
+    setCopied(false);
+  }, [selectedHolder]);
+
+  // Check URL query parameters on mount to open specific holder popup
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const holderCode = params.get("holder");
+      if (holderCode) {
+        const found = holderCatalog.find(
+          (h) => h.code.toLowerCase() === holderCode.toLowerCase()
+        );
+        if (found) {
+          setSelectedHolder(found);
+          setTimeout(() => {
+            const el = document.getElementById("quick-holder-selection-system");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+      }
+    }
+  }, []);
 
   // Interactive Recommender Wizard State
   const [wizardOrientation, setWizardOrientation] = useState<"vertical" | "horizontal" | "executive">("vertical");
@@ -412,6 +441,16 @@ export function QuickHolderSelectionMatrix() {
     }, 4000);
     return () => clearInterval(interval);
   }, [isPaused, handleNext, viewMode]);
+
+  const handleCopyLink = () => {
+    if (typeof window !== "undefined" && selectedHolder) {
+      const shareUrl = `${window.location.origin}${window.location.pathname}?holder=${selectedHolder.code}#quick-holder-selection-system`;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
 
   return (
     <section className="relative overflow-hidden pt-0 pb-8 scroll-mt-28" id="quick-holder-selection-system">
@@ -1284,6 +1323,19 @@ export function QuickHolderSelectionMatrix() {
                 className="rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-2.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 Close
+              </button>
+
+              <button
+                type="button"
+                onClick={handleCopyLink}
+                className={`inline-flex items-center gap-1.5 rounded-xl border px-4 py-2.5 text-xs font-bold transition-all ${
+                  copied
+                    ? "bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-950/40 dark:border-emerald-800/85 dark:text-emerald-400"
+                    : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700"
+                }`}
+              >
+                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                <span>{copied ? "Link Copied!" : "Copy Link"}</span>
               </button>
 
               <a

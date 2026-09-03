@@ -179,7 +179,7 @@ export const faqDataCategories: CategorizedFaqSection[] = [
   {
     name: "Service Areas",
     badge: "Regional Coverage",
-    relatedHref: "/service-areas/",
+    relatedHref: "/service-areas/assam/",
     relatedLabel: "Explore Service Areas",
     faqs: [
       {

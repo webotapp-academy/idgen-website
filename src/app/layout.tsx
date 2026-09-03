@@ -5,9 +5,10 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema-org";
-import { SITE, SITE_URL } from "@/data/site";
+import { SITE, SITE_URL, NAV, NavItem } from "@/data/site";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Inter } from "next/font/google";
+import { getAllStates } from "@/lib/dynamic-locations";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +65,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <JsonLd data={organizationSchema()} />
           <JsonLd data={websiteSchema()} />
-          <Header />
+          {(() => {
+            const states = getAllStates();
+            const dynamicNav: NavItem[] = NAV.map(item => {
+              if (item.label === "Service Areas") {
+                return {
+                  ...item,
+                  children: states.map(state => ({
+                      label: state.name,
+                      href: `/service-areas/${state.slug}/`,
+                      children: state.cities.map(city => ({
+                        label: city.name,
+                        href: `/service-areas/${state.slug}/${city.slug}/`
+                      }))
+                    }))
+                };
+              }
+              return item;
+            });
+            return <Header navItems={dynamicNav} />;
+          })()}
           <main className="flex-1 w-full overflow-x-hidden">{children}</main>
           <Footer />
           <FloatingContact />

@@ -50,7 +50,10 @@ const SERVICE_ICONS: Record<string, typeof Layers> = {
   "/templates/": FileSpreadsheet,
 };
 
-export function Header() {
+import type { NavItem } from "@/data/site";
+
+export function Header({ navItems }: { navItems?: NavItem[] }) {
+  const currentNav = navItems || NAV;
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -109,7 +112,7 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav key="desktop-navigation-bar" className="hidden items-center gap-0.5 xl:gap-1 text-[11px] xl:text-xs font-semibold lg:flex flex-nowrap shrink-0">
-              {NAV.map((item) =>
+              {currentNav.map((item) =>
                 item.children ? (
                   <div
                     key={`nav-group-${item.label}`}
@@ -138,16 +141,39 @@ export function Header() {
                           {item.children.map((child) => {
                             const IconComponent = SERVICE_ICONS[child.href] || Layers;
                             return (
-                              <Link
-                                key={child.href}
-                                href={child.href}
-                                className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-medium text-foreground transition-all duration-150 hover:bg-accent-soft hover:text-accent hover:translate-x-1 group"
-                              >
-                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-surface-border text-accent group-hover:bg-accent group-hover:text-white transition-colors">
-                                  <IconComponent className="h-3.5 w-3.5" />
-                                </div>
-                                <span className="truncate">{child.label}</span>
-                              </Link>
+                              <div key={child.href} className="relative group/sub">
+                                <Link
+                                  href={child.href}
+                                  className="flex items-center justify-between rounded-xl px-3 py-2 text-xs font-medium text-foreground transition-all duration-150 hover:bg-accent-soft hover:text-accent hover:translate-x-1"
+                                >
+                                  <div className="flex items-center gap-2.5">
+                                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-surface-border text-accent group-hover/sub:bg-accent group-hover/sub:text-white transition-colors">
+                                      <IconComponent className="h-3.5 w-3.5" />
+                                    </div>
+                                    <span className="truncate">{child.label}</span>
+                                  </div>
+                                  {child.children && (
+                                    <ChevronDown className="h-3 w-3 -rotate-90 opacity-50 shrink-0" />
+                                  )}
+                                </Link>
+
+                                {/* 3rd Level Flyout */}
+                                {child.children && child.children.length > 0 && (
+                                  <div className="absolute left-full top-0 hidden w-48 pl-2 group-hover/sub:block z-50">
+                                    <div className="rounded-xl border border-surface-border bg-background/98 p-1.5 shadow-xl backdrop-blur-2xl">
+                                      {child.children.map(sub => (
+                                        <Link
+                                          key={sub.href}
+                                          href={sub.href}
+                                          className="block rounded-lg px-3 py-2 text-[11px] font-medium text-foreground transition-all duration-150 hover:bg-accent-soft hover:text-accent hover:translate-x-1"
+                                        >
+                                          {sub.label}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
                             );
                           })}
                         </div>
@@ -217,7 +243,7 @@ export function Header() {
         {open && (
           <nav className="border-t border-white/10 bg-[#091322]/98 backdrop-blur-2xl px-5 pb-6 lg:hidden animate-fade-in-up text-white">
             <ul className="flex flex-col gap-1 pt-3 text-sm">
-              {NAV.map((item) => (
+              {currentNav.map((item) => (
                 <li key={`mobile-${item.label}`}>
                   <Link
                     href={item.href}
@@ -235,14 +261,31 @@ export function Header() {
                   {item.children && (
                     <ul className="ml-3 flex flex-col gap-0.5 border-l-2 border-cyan-400/30 pl-3">
                       {item.children.map((child) => (
-                        <li key={child.href}>
+                        <li key={child.href} className="flex flex-col">
                           <Link
                             href={child.href}
                             className="block rounded-lg px-3 py-1.5 text-xs text-slate-400 transition-all hover:bg-white/10 hover:text-cyan-300"
-                            onClick={() => setOpen(false)}
+                            onClick={() => {
+                              if (!child.children) setOpen(false);
+                            }}
                           >
                             {child.label}
                           </Link>
+                          {child.children && child.children.length > 0 && (
+                            <ul className="ml-4 flex flex-col gap-0.5 border-l border-cyan-400/20 pl-2 mt-0.5">
+                              {child.children.map(sub => (
+                                <li key={sub.href}>
+                                  <Link
+                                    href={sub.href}
+                                    className="block rounded-md px-2 py-1.5 text-[11px] text-slate-500 transition-all hover:text-cyan-300"
+                                    onClick={() => setOpen(false)}
+                                  >
+                                    {sub.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </li>
                       ))}
                     </ul>

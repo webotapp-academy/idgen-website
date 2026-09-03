@@ -20,6 +20,7 @@ import {
   Grid,
   List,
   Link2,
+  Copy,
 } from "lucide-react";
 
 export interface HookSelectionItem {
@@ -161,6 +162,44 @@ export function QuickHookSelectionMatrix() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [selectedModalHook, setSelectedModalHook] = useState<HookSelectionItem | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Reset copied state on hook change
+  useEffect(() => {
+    setCopied(false);
+  }, [selectedModalHook]);
+
+  // Check URL query parameters on mount to open specific hook popup
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const hookCode = params.get("hook");
+      if (hookCode) {
+        const found = hookSelectionCatalog.find(
+          (h) => h.code.toLowerCase() === hookCode.toLowerCase()
+        );
+        if (found) {
+          setSelectedModalHook(found);
+          setTimeout(() => {
+            const el = document.getElementById("quick-hook-selection-system");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+      }
+    }
+  }, []);
+
+  const handleCopyLink = () => {
+    if (typeof window !== "undefined" && selectedModalHook) {
+      const shareUrl = `${window.location.origin}${window.location.pathname}?hook=${selectedModalHook.code}#quick-hook-selection-system`;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") setSelectedModalHook(null);
@@ -442,20 +481,37 @@ export function QuickHookSelectionMatrix() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
-              <Link
-                href="/request-a-quote/"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#009fe3] hover:bg-[#008bc9] text-white px-6 py-3 text-xs font-extrabold shadow-md transition"
-              >
-                <span>Request a Quote</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/id-card-holders/"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-3 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
-              >
-                <span>Explore ID Card Holders</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </Link>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopyLink}
+                  className={`inline-flex items-center gap-1.5 rounded-xl border px-4 py-3 text-xs font-bold transition-all ${
+                    copied
+                      ? "bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-950/40 dark:border-emerald-800/85 dark:text-emerald-400"
+                      : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700"
+                  }`}
+                >
+                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  <span>{copied ? "Link Copied!" : "Copy Link"}</span>
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Link
+                  href="/request-a-quote/"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#009fe3] hover:bg-[#008bc9] text-white px-6 py-3 text-xs font-extrabold shadow-md transition"
+                >
+                  <span>Request a Quote</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/id-card-holders/"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-3 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
+                >
+                  <span>Explore ID Card Holders</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

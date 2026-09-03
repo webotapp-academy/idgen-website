@@ -15,7 +15,7 @@ export function getDb() {
   if (!url) {
     throw new Error("DATABASE_URL is not set — see .env.example.");
   }
-  const client = postgres(url, { ssl: "require" });
+  const client = postgres(url, { ssl: url.includes("sslmode=require") || url.includes("neon") || url.includes("supabase") ? "require" : false });
   _db = drizzle(client, { schema });
   return _db;
 }

@@ -33,6 +33,11 @@ export const SITE = {
     facebook: "https://www.facebook.com/iDGenGuwahati",
     linkedin: "",
     youtube: "https://www.youtube.com/@iDGenguwahati",
+    threads: "https://www.threads.com/@idgenguwahati",
+    gbpReview: "https://g.page/r/CVteiJnim09XEBM/review",
+    whatsappChannel: "https://whatsapp.com/channel/0029Vb8KpEP84Om3Z1aBVB2W",
+    pinterest: "https://in.pinterest.com/iDGenGuwahati/",
+    twitter: "https://x.com/iDGenGuwahati",
   },
 };
 
@@ -69,9 +74,8 @@ export const NAV: NavItem[] = [
   { label: "IDGen Studio", href: "/idgen-studio/" },
   {
     label: "Service Areas",
-    href: "/service-areas/",
+    href: "/service-areas/assam/",
     children: [
-      { label: "All Service Areas", href: "/service-areas/" },
       { label: "Assam (Guwahati)", href: "/service-areas/assam/" },
       { label: "Arunachal Pradesh (Itanagar)", href: "/service-areas/arunachal-pradesh/" },
       { label: "Meghalaya (Shillong)", href: "/service-areas/meghalaya/" },
