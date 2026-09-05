@@ -13,10 +13,119 @@
         "name": "Guwahati",
         "isPrimary": true,
         "indexed": true,
+        "heroEyebrow": "Assam Service Area",
         "heroHeadline": "Professional ID Cards & Identification Solutions for Organizations in Guwahati",
         "heroIntro": "IDGen is a Guwahati-based identity solutions company providing customized and bulk identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, industries, events and other organizations.",
         "heroSubtext": "Our identification-product experience dates back to 2014, and today that experience is brought together under the IDGen Identity Solutions brand. From a simple card requirement to a complete identification setup, we help organizations coordinate the products and production process they need.",
+        "heroImage": "/images/idgen-hero-cards-mockup.png",
+        "heroWorkflowSteps": [
+          "Requirement",
+          "Design",
+          "Approval",
+          "Production",
+          "Quality Check",
+          "Dispatch"
+        ],
+        "heroTrustBadges": [
+          "Free Pre-Production Physical Sample",
+          "100% Optical Inspection",
+          "Direct Cleanroom Manufacturing"
+        ],
+        "heroCtaText": "Request a Guwahati Quote",
+        "heroSecondaryCtaText": "Call / WhatsApp IDGen",
+        "heroShowcaseBadge": "Guwahati Direct Supply",
+        "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
+        "heroShowcaseChip2": "Verified Cleanroom",
+        "localPresenceBadge": "Central Manufacturing Hub • Guwahati Cleanroom",
+        "localPresenceSubBadge": "Direct Factory Access",
+        "localPresenceTitle": "IDGen in Guwahati: A Local Identity Solutions Partner",
         "localColor": "IDGen is based in Guwahati, Assam, allowing us to work closely with organizations in one of Assam's major educational, commercial and institutional markets.",
+        "localAdvantagePills": [
+          "Guwahati Primary Cleanroom",
+          "24–48h Priority Batch Dispatch",
+          "Pre-Production Physical Proofing",
+          "100% Optical Quality Check"
+        ],
+        "audiencesTitle": "Organizations in Guwahati require identity products for:",
+        "audiencesSubtitle": "Tailored credential architectures mapped to specific access requirements in Guwahati.",
+        "audiencesNote": "Single & dual-sided thermal, RFID & ultrasonic sealed credentials",
+        "targetAudiences": [
+          {
+            "name": "Students & Scholars",
+            "category": "Schools, Colleges & Universities",
+            "badge": "Academic"
+          },
+          {
+            "name": "Employees & Executives",
+            "category": "Corporate, Startups & Tech Offices",
+            "badge": "Corporate"
+          },
+          {
+            "name": "Faculty & Teaching Staff",
+            "category": "Professors, Lecturers & Teachers",
+            "badge": "Faculty"
+          },
+          {
+            "name": "Visitors & Contractors",
+            "category": "Temporary Badges & Escorted Passes",
+            "badge": "Security"
+          },
+          {
+            "name": "Club & Association Members",
+            "category": "Societies, Alumni & Sports Guilds",
+            "badge": "Membership"
+          },
+          {
+            "name": "Event Participants",
+            "category": "Summits, Trade Expos & Festivals",
+            "badge": "Events"
+          },
+          {
+            "name": "Conference Delegates",
+            "category": "Keynote Speakers & VIP Badges",
+            "badge": "Conferences"
+          },
+          {
+            "name": "Institutional Access Users",
+            "category": "RFID Turnstile & Door Smartcards",
+            "badge": "Smart RFID"
+          }
+        ],
+        "organizationsTitle": "Typical Organizations We Serve in Guwahati:",
+        "organizationsSubtitle": "Institutions, healthcare bodies, government offices & enterprises across Guwahati.",
+        "organizationsServed": [
+          "Schools",
+          "Colleges",
+          "Universities",
+          "Companies",
+          "Corporate offices",
+          "Hospitals",
+          "Hotels",
+          "Institutions",
+          "Government organizations",
+          "NGOs",
+          "Industries",
+          "Events",
+          "Clubs",
+          "Associations",
+          "dedw"
+        ],
+        "localAdvantageTitle": "Guwahati Local Production Advantage",
+        "localAdvantageDesc": "Direct cleanroom manufacturing in Guwahati ensures fast physical proofs, immediate design sign-off, and priority local dispatch.",
+        "localAdvantageCta": "Quote →",
+        "deliveryRoutesTitle": "Direct Doorstep Delivery & Pickup Routes Across Guwahati:",
+        "deliveryRoutesSubtitle": "Rapid fulfillment across all major institutional & commercial zones in Guwahati",
+        "coverageEyebrow": "Guwahati Service Coverage",
+        "coverageTitle": "Guwahati Service Coverage",
+        "coverageIntro": "IDGen is based in Guwahati and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.",
+        "coverageNotice": "We should not create separate pages for every Guwahati locality just for SEO.",
+        "coverageExamples": [
+          "/service-areas/assam/guwahati/dispur/",
+          "/service-areas/assam/guwahati/beltola/",
+          "/service-areas/assam/guwahati/khanapara/"
+        ],
+        "coveragePolicy": "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
+        "coverageFooterNote": "This follows the existing architecture rule in your website source.",
         "nearbyAreas": [
           "Dispur",
           "Paltan Bazaar",
@@ -36,174 +145,6 @@
           "Mirza",
           "Azara"
         ],
-        "organizationsServed": [
-          "Schools",
-          "Colleges",
-          "Universities",
-          "Companies",
-          "Corporate offices",
-          "Hospitals",
-          "Hotels",
-          "Institutions",
-          "Government organizations",
-          "NGOs",
-          "Industries",
-          "Events",
-          "Clubs",
-          "Associations",
-          "dedw"
-        ],
-        "completeSetups": [
-          {
-            "title": "Card Only",
-            "subtitle": "For organizations that already have their own accessories.",
-            "items": [
-              "CR80 PVC Card",
-              "High-Resolution Front & Back Print",
-              "Standard Lamination"
-            ]
-          },
-          {
-            "title": "Card + Holder",
-            "subtitle": "For protected and professional card presentation.",
-            "items": [
-              "CR80 PVC Card",
-              "Crystal / Matte Rigid Card Holder",
-              "Thumb Slot Release"
-            ]
-          },
-          {
-            "title": "Card + Holder + Hook + Lanyard",
-            "subtitle": "For everyday wearable identification.",
-            "items": [
-              "CR80 PVC Card",
-              "Rigid Card Holder",
-              "Metal Dog / Swivel Hook",
-              "Custom Satin Lanyard"
-            ],
-            "recommended": true
-          },
-          {
-            "title": "Complete Identification Setup",
-            "subtitle": "Full tamper-evident organizational protection.",
-            "items": [
-              "CR80 PVC Card",
-              "Ultrasonic Sealing Lamination",
-              "Rigid / Soft ID Holder",
-              "Custom Breakaway Hook",
-              "Multi-Color Sublimation Lanyard"
-            ]
-          }
-        ],
-        "whyChoosePoints": [
-          {
-            "title": "Guwahati-Based Manufacturing",
-            "desc": "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 48–72h fast dispatch across Assam."
-          },
-          {
-            "title": "Experience Since 2014",
-            "desc": "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, and data integrity."
-          },
-          {
-            "title": "Organizational Focus",
-            "desc": "Engineered specifically for institutional and enterprise workflows rather than basic retail single-card printing."
-          },
-          {
-            "title": "Complete Identification Ecosystem",
-            "desc": "One-stop integration of PVC cards, RFID chips, custom lanyards, crystal holders, clips, and ultrasonic edge sealing."
-          },
-          {
-            "title": "IDGen Studio Digital Portal",
-            "desc": "Collect student/employee photos, biometrics, and approve proofs online without paperwork or data confusion."
-          }
-        ],
-        "orderSteps": [
-          {
-            "step": "01",
-            "title": "Tell Us Your Requirement",
-            "description": "Share your organization name, target card type, estimated quantity, and delivery timeline."
-          },
-          {
-            "step": "02",
-            "title": "Share Your Data",
-            "description": "Provide student/employee Excel records and high-res photos (or use IDGen Studio digital portal)."
-          },
-          {
-            "step": "03",
-            "title": "Confirm the Design",
-            "description": "Submit your institution's template or have our design team craft a custom high-definition layout."
-          },
-          {
-            "step": "04",
-            "title": "Review & Proofing",
-            "description": "Review digital PDF proofs or request physical pre-production sample specimens for institutional approval."
-          },
-          {
-            "step": "05",
-            "title": "Approval",
-            "description": "Formal sign-off on design, data spelling, and accessory specifications before mass production."
-          },
-          {
-            "step": "06",
-            "title": "Production",
-            "description": "Thermal transfer / retransfer card printing, RFID encoding, and ultrasonic lanyard welding in our cleanroom."
-          },
-          {
-            "step": "07",
-            "title": "Quality Check",
-            "description": "100% optical inspection for print alignment, barcode legibility, chip frequency, and edge lamination."
-          },
-          {
-            "step": "08",
-            "title": "Dispatch",
-            "description": "Secure sorted packaging and hand-delivery in Guwahati or priority courier dispatch across Assam."
-          }
-        ],
-        "faqs": [
-          {
-            "q": "Where is IDGen located?",
-            "a": "IDGen is based in Guwahati, Assam, India, with centralized manufacturing facilities serving local institutions and the wider Northeast region."
-          },
-          {
-            "q": "Does IDGen provide ID card printing in Guwahati?",
-            "a": "Yes. IDGen provides customized and bulk ID card printing and identification products for schools, universities, companies, hospitals, and events in Guwahati."
-          },
-          {
-            "q": "Does IDGen print student ID cards in Guwahati?",
-            "a": "Yes. Student ID card projects are handled for schools, junior colleges, universities, and professional institutions with complete accessories."
-          },
-          {
-            "q": "Does IDGen print employee ID cards in Guwahati?",
-            "a": "Yes. IDGen provides customized employee and staff ID cards for corporate enterprises, healthcare hospitals, government departments, and institutions."
-          },
-          {
-            "q": "Can I order bulk ID cards in Guwahati?",
-            "a": "Yes. IDGen specializes in institutional and high-volume identification requirements, supporting batches from 50 to 50,000+ cards with tiered bulk pricing."
-          },
-          {
-            "q": "Can ID cards be supplied with lanyards and holders?",
-            "a": "Yes. Cards can be combined with custom multicolor satin lanyards, crystal/rigid holders, metallic hooks, and ultrasonic edge sealing for a complete wearable setup."
-          },
-          {
-            "q": "Does IDGen provide RFID cards in Guwahati?",
-            "a": "Yes. RFID and smart cards can be produced with 13.56 MHz Mifare 1K, 125 kHz Proximity, UHF, or dual-frequency chips compatible with your access control or attendance readers."
-          },
-          {
-            "q": "Can IDGen collect student or employee information digitally?",
-            "a": "Yes. For suitable projects, IDGen Studio supports cloud-based data collection, webcam photo capture, auto background cleanup, and digital preview/approval workflows."
-          },
-          {
-            "q": "Does IDGen serve areas outside central Guwahati?",
-            "a": "Yes. IDGen provides doorstep delivery and priority courier services across all areas of Guwahati (Dispur, Khanapara, Jalukbari, Beltola, Amingaon, etc.) and across Assam."
-          },
-          {
-            "q": "How does IDGen handle identification data & confidentiality?",
-            "a": "IDGen treats customer-provided identification data and photos as strictly confidential project information. Data is used solely for the authorized printing project under strict privacy standards."
-          }
-        ],
-        "quickAnswer": "IDGen is a Guwahati-based identity solutions company providing customized and bulk ID card printing for schools, colleges, universities, companies, hospitals, institutions, events and other organizations. Services include student ID cards, employee ID cards, event cards, RFID cards, custom printed lanyards, ID card holders and hooks. IDGen's identification-product experience dates back to 2014 and its service coverage extends across Assam and the wider Northeast India market.",
-        "metaTitle": "ID Card Printing in Guwahati | IDGen Identity Solutions",
-        "metaDescription": "IDGen provides ID card printing and identity solutions in Guwahati, Assam, including student, employee, event and RFID cards, lanyards and accessories.",
         "services": [
           {
             "id": "student-id",
@@ -301,7 +242,295 @@
               "Weatherproof Multi-Year Protection"
             ]
           }
-        ]
+        ],
+        "setupsEyebrow": "Configurations",
+        "setupsTitle": "Complete ID Card Solutions & Packages in Guwahati",
+        "setupsSubtitle": "Not every organization needs the same identification setup. Select the exact packaging that matches your project requirements.",
+        "completeSetups": [
+          {
+            "title": "Card Only",
+            "subtitle": "For organizations that already have their own accessories.",
+            "items": [
+              "CR80 PVC Card",
+              "High-Resolution Front & Back Print",
+              "Standard Lamination"
+            ]
+          },
+          {
+            "title": "Card + Holder",
+            "subtitle": "For protected and professional card presentation.",
+            "items": [
+              "CR80 PVC Card",
+              "Crystal / Matte Rigid Card Holder",
+              "Thumb Slot Release"
+            ]
+          },
+          {
+            "title": "Card + Holder + Hook + Lanyard",
+            "subtitle": "For everyday wearable identification.",
+            "items": [
+              "CR80 PVC Card",
+              "Rigid Card Holder",
+              "Metal Dog / Swivel Hook",
+              "Custom Satin Lanyard"
+            ],
+            "recommended": true
+          },
+          {
+            "title": "Complete Identification Setup",
+            "subtitle": "Full tamper-evident organizational protection.",
+            "items": [
+              "CR80 PVC Card",
+              "Ultrasonic Sealing Lamination",
+              "Rigid / Soft ID Holder",
+              "Custom Breakaway Hook",
+              "Multi-Color Sublimation Lanyard"
+            ]
+          }
+        ],
+        "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
+        "bulkTitle": "Bulk ID Card Printing in Guwahati",
+        "bulkDesc": "Direct cleanroom manufacturing in Guwahati ensuring high-capacity production, precise color calibration, and priority dispatch across Assam.",
+        "whyChooseEyebrow": "Why Choose Us",
+        "whyChooseTitle": "Why Choose IDGen in Guwahati?",
+        "whyChooseSubtitle": "Guwahati-based manufacturing cleanroom, experience dating back to 2014, organizational focus, and an integrated digital workflow.",
+        "whyChoosePoints": [
+          {
+            "title": "Guwahati-Based Manufacturing",
+            "desc": "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 24–48h fast dispatch across Assam.",
+            "image": "/images/service-guwahati-hub.jpg",
+            "badge": "Direct Cleanroom Hub",
+            "stat": "24–48h Local Delivery"
+          },
+          {
+            "title": "Experience Since 2014",
+            "desc": "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
+            "image": "/images/why-idgen-more-than-brand.jpg",
+            "badge": "10+ Years Proven",
+            "stat": "Since 2014"
+          },
+          {
+            "title": "Organizational Focus",
+            "desc": "Engineered specifically for institutional and enterprise workflows rather than basic retail single-card printing.",
+            "image": "/images/sol-institutions-idgen-v1.jpg",
+            "badge": "Institutional Grade",
+            "stat": "Bulk & Enterprise"
+          },
+          {
+            "title": "Complete Identification Ecosystem",
+            "desc": "One-stop integration of PVC cards, RFID chips, custom lanyards, crystal holders, clips, and ultrasonic edge sealing.",
+            "image": "/images/why-idgen-complete-ecosystem-branded.jpg",
+            "badge": "Turnkey Packages",
+            "stat": "Cards + Lanyards + Holders"
+          },
+          {
+            "title": "Structured 8-Stage Workflow",
+            "desc": "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
+            "image": "/images/why-idgen-production-batches-branded.jpg",
+            "badge": "Quality Assured",
+            "stat": "Zero-Defect Standard"
+          },
+          {
+            "title": "IDGen Studio Digital Portal",
+            "desc": "Collect student/employee photos, biometrics, and approve proofs online without paperwork or data confusion.",
+            "image": "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+            "badge": "Cloud Automation",
+            "stat": "Digital Previews"
+          }
+        ],
+        "workflowEyebrow": "Standard Workflow",
+        "workflowTitle": "How to Order ID Cards in Guwahati",
+        "workflowSubtitle": "An institutional-grade 8-stage production flow engineered for data integrity, zero defects, and doorstep fulfillment in Guwahati.",
+        "orderSteps": [
+          {
+            "step": "01",
+            "title": "Tell Us Your Requirement",
+            "description": "Share your organization name, target card type, estimated quantity, and delivery timeline."
+          },
+          {
+            "step": "02",
+            "title": "Share Your Data",
+            "description": "Provide student/employee Excel records and high-res photos (or use IDGen Studio digital portal)."
+          },
+          {
+            "step": "03",
+            "title": "Confirm the Design",
+            "description": "Submit your institution's template or have our design team craft a custom high-definition layout."
+          },
+          {
+            "step": "04",
+            "title": "Review & Proofing",
+            "description": "Review digital PDF proofs or request physical pre-production sample specimens for institutional approval."
+          },
+          {
+            "step": "05",
+            "title": "Approval",
+            "description": "Formal sign-off on design, data spelling, and accessory specifications before mass production."
+          },
+          {
+            "step": "06",
+            "title": "Production",
+            "description": "Thermal transfer / retransfer card printing, RFID encoding, and ultrasonic lanyard welding in our cleanroom."
+          },
+          {
+            "step": "07",
+            "title": "Quality Check",
+            "description": "100% optical inspection for print alignment, barcode legibility, chip frequency, and edge lamination."
+          },
+          {
+            "step": "08",
+            "title": "Dispatch",
+            "description": "Secure sorted packaging and hand-delivery in Guwahati or priority courier dispatch across Assam."
+          }
+        ],
+        "faqsTitle": "Frequently Asked Questions in Guwahati",
+        "faqsSubtitle": "Key answers regarding ID card printing, batch timelines, accessories, and delivery in Guwahati.",
+        "faqsHelpTitle": "Have Specific Questions?",
+        "faqsHelpText": "Need guidance on custom RFID chip frequencies, lanyard branding, or batch approvals? Our Guwahati production desk is here to help.",
+        "faqs": [
+          {
+            "q": "Where is IDGen located?",
+            "a": "IDGen is based in Guwahati, Assam, India, with centralized manufacturing facilities serving local institutions and the wider Northeast region."
+          },
+          {
+            "q": "Does IDGen provide ID card printing in Guwahati?",
+            "a": "Yes. IDGen provides customized and bulk ID card printing and identification products for schools, universities, companies, hospitals, and events in Guwahati."
+          },
+          {
+            "q": "Does IDGen print student ID cards in Guwahati?",
+            "a": "Yes. Student ID card projects are handled for schools, junior colleges, universities, and professional institutions with complete accessories."
+          },
+          {
+            "q": "Does IDGen print employee ID cards in Guwahati?",
+            "a": "Yes. IDGen provides customized employee and staff ID cards for corporate enterprises, healthcare hospitals, government departments, and institutions."
+          },
+          {
+            "q": "Can I order bulk ID cards in Guwahati?",
+            "a": "Yes. IDGen specializes in institutional and high-volume identification requirements, supporting batches from 50 to 50,000+ cards with tiered bulk pricing."
+          },
+          {
+            "q": "Can ID cards be supplied with lanyards and holders?",
+            "a": "Yes. Cards can be combined with custom multicolor satin lanyards, crystal/rigid holders, metallic hooks, and ultrasonic edge sealing for a complete wearable setup."
+          },
+          {
+            "q": "Does IDGen provide RFID cards in Guwahati?",
+            "a": "Yes. RFID and smart cards can be produced with 13.56 MHz Mifare 1K, 125 kHz Proximity, UHF, or dual-frequency chips compatible with your access control or attendance readers."
+          },
+          {
+            "q": "Can IDGen collect student or employee information digitally?",
+            "a": "Yes. For suitable projects, IDGen Studio supports cloud-based data collection, webcam photo capture, auto background cleanup, and digital preview/approval workflows."
+          },
+          {
+            "q": "Does IDGen serve areas outside central Guwahati?",
+            "a": "Yes. IDGen provides doorstep delivery and priority courier services across all areas of Guwahati (Dispur, Khanapara, Jalukbari, Beltola, Amingaon, etc.) and across Assam."
+          },
+          {
+            "q": "How does IDGen handle identification data & confidentiality?",
+            "a": "IDGen treats customer-provided identification data and photos as strictly confidential project information. Data is used solely for the authorized printing project under strict privacy standards."
+          }
+        ],
+        "quickAnswer": "IDGen is a Guwahati-based identity solutions company providing customized and bulk ID card printing for schools, colleges, universities, companies, hospitals, institutions, events and other organizations. Services include student ID cards, employee ID cards, event cards, RFID cards, custom printed lanyards, ID card holders and hooks. IDGen's identification-product experience dates back to 2014 and its service coverage extends across Assam and the wider Northeast India market.",
+        "metaTitle": "ID Card Printing in Guwahati | IDGen Identity Solutions",
+        "metaDescription": "IDGen provides ID card printing and identity solutions in Guwahati, Assam, including student, employee, event and RFID cards, lanyards and accessories.",
+        "bulkSubBadge": "Guwahati Direct Hub",
+        "bulkHighlights": [
+          "Up to 10,000+ IDs / Day",
+          "100% Optical Quality Check",
+          "Free Pre-Production Physical Sample"
+        ],
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Guwahati:",
+        "bulkInputsDesc": "Provide these four details to receive an instant, accurate quotation tailored to your timeline.",
+        "bulkInputsStepTag": "Step 1 of 4 Preparation",
+        "bulkInputs": [
+          {
+            "step": "01",
+            "title": "Target Quantity",
+            "description": "50 to 50,000+ units with batch-wise staggered production for Guwahati institutions.",
+            "badge": "Scalable Volume"
+          },
+          {
+            "step": "02",
+            "title": "Card & RFID Type",
+            "description": "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.",
+            "badge": "Credential Spec"
+          },
+          {
+            "step": "03",
+            "title": "Data & Photographs",
+            "description": "Spreadsheet records, photo archives, or live IDGen Studio digital portal.",
+            "badge": "Data Processing"
+          },
+          {
+            "step": "04",
+            "title": "Accessories & Delivery",
+            "description": "Custom printed lanyards, card holders & express doorstep dispatch to Guwahati.",
+            "badge": "Full Ecosystem"
+          }
+        ],
+        "bulkBottomNote": "Actual production capacity is matched to product and project specifications for Guwahati. Qualified bulk projects receive physical pre-production sample proofs for institutional sign-off.",
+        "bulkCta1Text": "Talk to Specialist",
+        "bulkCta2Text": "Request a Guwahati Bulk Quote",
+        "projectsBadge": "Verified Institutional Deployments",
+        "projectsSubBadge": "Active Regional Partnerships • Zero Fabricated Claims",
+        "projectsTitle": "Organizations & Projects in Guwahati",
+        "projectsDesc": "IDGen partners with leading academic institutions, corporate offices, and government departments across Guwahati. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.",
+        "verifiedClients": [
+          {
+            "name": "Don Bosco Hr Sec School",
+            "logo": "/images/clint logo/1.png",
+            "location": "Gojapara, Assam",
+            "tag": "Guwahati"
+          },
+          {
+            "name": "Jorhat Kendriya Vidyalaya",
+            "logo": "/images/clint logo/2.png",
+            "location": "Jorhat, Assam",
+            "tag": "Jorhat"
+          },
+          {
+            "name": "CKB College",
+            "logo": "/images/clint logo/3.png",
+            "location": "Jorhat, Assam",
+            "tag": "Dibrugarh"
+          },
+          {
+            "name": "DBS Itanagar",
+            "logo": "/images/clint logo/4.png",
+            "location": "Arunachal Pradesh",
+            "tag": "Silchar"
+          },
+          {
+            "name": "Rayburn College",
+            "logo": "/images/clint logo/5.png",
+            "location": "Churachandpur, Manipur",
+            "tag": "Tezpur"
+          },
+          {
+            "name": "Nathan Brown Academy",
+            "logo": "/images/clint logo/6.png",
+            "location": "Namrup, Assam",
+            "tag": "Nagaon"
+          },
+          {
+            "name": "Ardalivia English School",
+            "logo": "/images/clint logo/7.png",
+            "location": "Assam",
+            "tag": "Tinsukia"
+          },
+          {
+            "name": "Assam Govt Departments",
+            "logo": "/images/clint logo/8.png",
+            "location": "Guwahati Hub",
+            "tag": "Sivasagar"
+          }
+        ],
+        "workflowBadge": "Local Turnaround: 24–48h",
+        "workflowNote": "Guwahati Hub Advantage: Free physical pre-production sample & priority 24–48h local delivery available.",
+        "workflowCta1Text": "Call / WhatsApp IDGen",
+        "workflowCta2Text": "Start at Step 01: Request Quote",
+        "confidentialityTitle": "Identification Data & Confidentiality",
+        "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
+        "confidentialityCta": "Explore IDGen Studio →"
       },
       {
         "slug": "jorhat",

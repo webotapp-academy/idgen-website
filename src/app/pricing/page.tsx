@@ -42,14 +42,17 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import { PricingHeroCarousel } from "@/components/pricing/PricingHeroCarousel";
+import { QuickPricingGuide } from "@/components/pricing/QuickPricingGuide";
+import { CategoryBreakdownSection } from "@/components/pricing/CategoryBreakdownSection";
 import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
+import { getAllPricingItems } from "@/lib/dynamic-pricing";
 import type { Faq } from "@/data/types";
 
 /* ── SEO Metadata (Strictly from document) ── */
 export const metadata = pageMetadata({
   title: "ID Card Printing Price & Lanyard Pricing | IDGen",
   description:
-    "Check IDGen reference pricing for PVC ID cards, custom printed lanyards, event cards and RFID cards. Get a customized quote for bulk identity requirements.",
+    "Check IDGen reference pricing for PVC ID cards, custom printed lanyards, ID card holders (V-1, H-1, V-2), event cards and RFID cards. Get a customized quote for bulk identity requirements.",
   path: "/pricing/",
 });
 
@@ -59,7 +62,9 @@ const quickPricingTable = [
   { service: "PVC ID Card - Single Side", price: "₹15 / card", path: "/id-card-printing/" },
   { service: "PVC ID Card - Double Side", price: "₹16 / card", path: "/id-card-printing/" },
   { service: "20 mm Custom Printed Lanyard", price: "₹15 / piece", path: "/custom-printed-lanyard-printing/" },
-  { service: "Polycarbonate ID Card Holder (V-1 / H-1 / V-2)", price: "₹6 / piece", path: "/id-card-holders/" },
+  { service: "Polycarbonate ID Card Holder - V-1 (Vertical Standard)", price: "₹6 / piece", path: "/id-card-holders/" },
+  { service: "Polycarbonate ID Card Holder - H-1 (Horizontal Standard)", price: "₹6 / piece", path: "/id-card-holders/" },
+  { service: "Polycarbonate ID Card Holder - V-2 (Vertical 4-Side Lock)", price: "₹7 / piece", path: "/id-card-holders/" },
   { service: "Swivel Fish Hook & Attachment Clip", price: "₹3 / piece", path: "/id-card-hooks/" },
   { service: "Custom Acrylic Name Badge & Pins", price: "₹45 / badge", path: "/acrylic-badges/" },
   { service: "Die-Cast Zinc Medal & Satin Ribbon", price: "₹65 / medal", path: "/zinc-medals/" },
@@ -154,14 +159,14 @@ const productSpecifications: ProductSpecItem[] = [
   },
   {
     id: "pc-holders",
-    name: "Polycarbonate ID Card Holders",
+    name: "Polycarbonate ID Card Holders (V-1 / H-1 / V-2)",
     category: "Protective Holders",
-    price: "₹6 / piece",
+    price: "₹6 – ₹7 / piece",
     imageSrc: "/images/product-id-holders.jpg",
-    alt: "Polycarbonate rigid card holder specifications",
+    alt: "Polycarbonate rigid card holder specifications for V-1, H-1, V-2",
     pageHref: "/id-card-holders/",
     specs: [
-      { label: "Available Models", value: "V-1 (Vertical Single), H-1 (Horizontal), V-2 (Dual-Card)" },
+      { label: "Available Models", value: "V-1 (Vertical Standard: ₹6), H-1 (Horizontal: ₹6), V-2 (4-Side Lock: ₹7), H-2 (Landscape Lock: ₹7)" },
       { label: "Material", value: "100% Virgin Optical Grade Polycarbonate" },
       { label: "Card Fit", value: "Standard CR-80 (85.6 mm × 54 mm)" },
       { label: "Extraction Slot", value: "Ergonomic Curved Thumb Slide-Out Groove" },
@@ -410,6 +415,8 @@ const internalLinks = [
 ];
 
 export default function PricingPage() {
+  const dynamicPricingItems = getAllPricingItems();
+
   return (
     <>
       <JsonLd
@@ -458,7 +465,7 @@ export default function PricingPage() {
                 </div>
 
                 <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">
-                  PVC ID Cards from <span className="text-[#009fe3] font-bold">₹15/card</span> • 20 mm Lanyards from <span className="text-[#009fe3] font-bold">₹15/pc</span> • Event Cards from <span className="text-[#009fe3] font-bold">₹35/card</span> • RFID Cards from <span className="text-[#009fe3] font-bold">₹45/card</span>
+                  PVC ID Cards from <span className="text-[#009fe3] font-bold">₹15/card</span> • 20 mm Lanyards from <span className="text-[#009fe3] font-bold">₹15/pc</span> • Holders (<span className="text-[#009fe3] font-bold">V-1 / H-1: ₹6</span>, <span className="text-[#009fe3] font-bold">V-2: ₹7</span>) • Event Cards from <span className="text-[#009fe3] font-bold">₹35/card</span> • RFID Cards from <span className="text-[#009fe3] font-bold">₹45/card</span>
                 </p>
               </div>
 
@@ -493,323 +500,11 @@ export default function PricingPage() {
       <ProductShowcaseCarousel />
 
       <Container className="pb-14 pt-6 sm:pt-10">
-        {/* ── 2. QUICK PRICING GUIDE (REFERENCE TABLE) ── */}
-        <section className="mt-0">
-          <div className="w-full">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-              <p className="text-xs font-bold tracking-widest text-[#009fe3] uppercase">
-                Reference Rates
-              </p>
-              <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-            </div>
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.15rem] leading-[1.15] tracking-tighter w-full">
-              Quick Pricing Guide
-            </h2>
-          </div>
+        {/* ── 2. QUICK PRICING GUIDE (DYNAMIC REAL-TIME MATRIX & SEPARATE V-1/H-1/V-2 PRICING) ── */}
+        <QuickPricingGuide initialItems={dynamicPricingItems} />
 
-          <div className="mt-8 overflow-x-auto rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-lg">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs font-bold text-slate-500 uppercase">
-                <tr>
-                  <th className="px-6 py-4">Service / Product</th>
-                  <th className="px-6 py-4 text-right">Reference Price</th>
-                  <th className="px-6 py-4 text-center">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {quickPricingTable.map((row) => (
-                  <tr key={row.service} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/50 transition">
-                    <td className="px-6 py-4 font-bold text-slate-900 dark:text-white">{row.service}</td>
-                    <td className="px-6 py-4 font-mono font-bold text-[#009fe3] dark:text-cyan-400 text-right">{row.price}</td>
-                    <td className="px-6 py-4 text-center">
-                      <Link href={row.path} className="inline-flex items-center gap-1 text-xs font-bold text-[#009fe3] hover:underline">
-                        <span>Details</span>
-                        <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 italic">
-            Prices shown are reference prices and may vary according to quantity, specifications, customization, data requirements and applicable order conditions.
-          </p>
-        </section>
-
-        {/* ── 3. DETAILED PRODUCT REFERENCE PRICING CARDS ── */}
-        <section className="mt-20">
-          <SectionHead
-            eyebrow="Category Breakdown"
-            title="Product &amp; Service Pricing Deep-Dives"
-          />
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-2">
-            {/* PVC ID Card Printing Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <CreditCardIcon className="h-5 w-5" />
-                </div>
-                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                  PVC ID Card Printing Price
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  Standard PVC ID Cards. IDGen provides customized PVC ID card printing for organizational identification requirements.
-                </p>
-
-                <div className="grid gap-3 sm:grid-cols-2 pt-2">
-                  <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3.5 space-y-1">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase">Single-Side Printing</span>
-                    <p className="text-lg font-black text-[#009fe3]">₹15 / card</p>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-400">Printed on one side.</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3.5 space-y-1">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase">Double-Side Printing</span>
-                    <p className="text-lg font-black text-[#009fe3]">₹16 / card</p>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-400">Printed on both sides.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/id-card-printing/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore ID Card Printing</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Custom Printed Lanyard Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <Layers className="h-5 w-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                    Custom Printed Lanyard Price
-                  </h3>
-                  <span className="text-lg font-black text-[#009fe3]">₹15 / lanyard</span>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  20 mm Custom Printed Lanyard. Produced with organization branding, names, logos, colours and repeating artwork according to approved design.
-                </p>
-
-                <div className="pt-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-                    Suitable for:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {lanyardSuitableFor.map((item) => (
-                      <span key={item} className="rounded-md border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/custom-printed-lanyard-printing/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore Custom Printed Lanyard Printing</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Event Card Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <Ticket className="h-5 w-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                    Event Card Price
-                  </h3>
-                  <span className="text-lg font-black text-[#009fe3]">₹35 / card</span>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  Customized Event Card. Customized for conferences, seminars, exhibitions, institutional programmes and other events.
-                </p>
-
-                <div className="pt-2 space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#009fe3] block">
-                    Supported Formats:
-                  </span>
-                  <FlowChain steps={["Event Card", "One Hook", "Lanyard"]} />
-                  <FlowChain steps={["Event Card", "Two Hooks", "Lanyard"]} />
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/event-card-printing/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore Event Card Printing</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* RFID ID Card Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <Radio className="h-5 w-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                    RFID ID Card Price
-                  </h3>
-                  <span className="text-lg font-black text-[#009fe3]">₹45 / card</span>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  Customized RFID ID Card. Pricing depends on selected RFID technology, card specification and system compatibility requirements.
-                </p>
-
-                <div className="pt-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-                    Before confirming, verify:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {rfidChecklist.map((item) => (
-                      <span key={item} className="rounded-md border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/rfid-card-printing/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore RFID Card Printing</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* ID Card Holder & Hook Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <Boxes className="h-5 w-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                    ID Card Holders &amp; Hooks Price
-                  </h3>
-                  <span className="text-lg font-black text-[#009fe3]">Holders ₹6 • Hooks ₹3</span>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  100% Virgin Polycarbonate hard holders (V-1, V-2, H-1, H-2) and anti-rust chrome swivel fish hook clips designed for CR80 cards.
-                </p>
-
-                <div className="grid gap-3 sm:grid-cols-2 pt-2">
-                  <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3.5 space-y-1">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase">Polycarbonate Holders</span>
-                    <p className="text-lg font-black text-[#009fe3]">₹6 / piece</p>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-400">Vertical / Horizontal 4-side lock.</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3.5 space-y-1">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase">Swivel Fish Hook Clips</span>
-                    <p className="text-lg font-black text-[#009fe3]">₹3 / piece</p>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-400">Chrome alloy 360° rotation.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <Link href="/id-card-holders/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore ID Card Holders</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-                <Link href="/id-card-hooks/" className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-[#009fe3]">
-                  <span>Explore Hooks</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Custom Acrylic Badges Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <BadgeCheck className="h-5 w-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                    Custom Acrylic Badges &amp; Pins Price
-                  </h3>
-                  <span className="text-lg font-black text-[#009fe3]">₹45 / badge</span>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  Precision laser-cut PMMA optical crystal acrylic badges with triple neodymium magnetic backings or safety pins for doctors, staff, and VIP summits.
-                </p>
-
-                <div className="pt-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-                    Feature Highlights:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {["Triple Neodymium Magnet", "Diamond-Polished Bevels", "1200 DPI High-Def Print", "Zero Garment Damage"].map((item) => (
-                      <span key={item} className="rounded-md border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/acrylic-badges/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore Acrylic Badges</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Die-Cast Zinc Medals Price */}
-            <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-7 shadow-md flex flex-col justify-between space-y-5">
-              <div className="space-y-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-cyan-950/50 text-[#009fe3]">
-                  <Award className="h-5 w-5" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                    Die-Cast Zinc Medals &amp; Ribbons Price
-                  </h3>
-                  <span className="text-lg font-black text-[#009fe3]">₹65 / medal</span>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                  3D high-relief die-cast metal medals in antique gold, silver, and bronze finishes paired with full-color custom satin neck ribbons for tournaments and honors.
-                </p>
-
-                <div className="pt-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-                    Feature Highlights:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {["3D Sculpted Metal Alloy", "Antique Gold / Silver / Bronze", "Matching Satin V-Cut Ribbon", "Custom Crest Molding"].map((item) => (
-                      <span key={item} className="rounded-md border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/zinc-medals/" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3]">
-                  <span>Explore Die-Cast Zinc Medals</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* ── 3. DETAILED PRODUCT REFERENCE PRICING CARDS (DYNAMIC CATEGORY BREAKDOWN) ── */}
+        <CategoryBreakdownSection initialItems={dynamicPricingItems} />
 
         {/* ── 3b. PRODUCT SPECIFICATIONS SECTION (WITH IMAGES & DETAILED SPECS) ── */}
         <section id="product-specifications" className="mt-20 scroll-mt-20">

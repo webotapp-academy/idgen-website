@@ -8,7 +8,7 @@ export function Breadcrumbs({ items }: { items: { name: string; path: string }[]
       <JsonLd data={breadcrumbSchema(items)} />
       <ol className="flex flex-wrap items-center gap-1.5">
         {items.map((item, i) => (
-          <li key={item.path} className="flex items-center gap-1.5">
+          <li key={`${item.path}-${i}`} className="flex items-center gap-1.5">
             {i > 0 && <span aria-hidden="true">/</span>}
             {i === items.length - 1 ? (
               <span className="font-medium text-foreground">{item.name}</span>

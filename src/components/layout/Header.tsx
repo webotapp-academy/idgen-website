@@ -24,7 +24,8 @@ import {
   FileSpreadsheet,
   FileText,
   HelpCircle,
-  Briefcase
+  Briefcase,
+  Newspaper
 } from "lucide-react";
 import { NAV } from "@/data/site";
 import { IdgenLogo } from "@/components/ui/IdgenLogo";
@@ -44,6 +45,7 @@ const SERVICE_ICONS: Record<string, typeof Layers> = {
   "/acrylic-badges/": Shield,
   "/zinc-medals/": Award,
   "/pvc-cards/": CreditCard,
+  "/resources/blogs/": Newspaper,
   "/resources/guides/": FileText,
   "/faq/": HelpCircle,
   "/case-studies/": Briefcase,

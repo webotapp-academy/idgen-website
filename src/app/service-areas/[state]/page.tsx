@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   MapPin,
@@ -21,6 +22,7 @@ import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { getState, getAllStates } from "@/lib/dynamic-locations";
+import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
 
@@ -44,6 +46,17 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   const { state: stateSlug } = await params;
   const state = getState(stateSlug);
   if (!state) notFound();
+
+  const verifiedClients = [
+    { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+    { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+    { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+    { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+    { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+    { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+    { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+    { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+  ];
 
   const faqs: Faq[] = [
     {
@@ -127,6 +140,9 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
         </div>
       </PageHero>
 
+      {/* Complete Product Catalog Showcase */}
+      <ProductShowcaseCarousel />
+
       <Container className="py-14 space-y-16">
         {/* Dynamic Sub-Category Cities Grid */}
         <div>
@@ -202,6 +218,64 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
             />
           </div>
         </div>
+      </Container>
+
+      {/* Real Organizations & Projects Showcase (Container Fluid / Full Viewport Width) */}
+      <div className="my-14 relative z-10 w-full">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+              <ShieldCheck className="h-4 w-4" />
+              <span>Verified Institutional Deployments</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
+              Organizations &amp; Projects in {state.name}
+            </h2>
+            <p className="text-sm text-muted max-w-3xl leading-relaxed">
+              IDGen partners with leading academic institutions, corporate offices, and government departments across {state.name} and Northeast India. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.
+            </p>
+          </div>
+        </Container>
+
+        {/* Clean Seamless Colorful Infinite Auto-Sliding Logo Ticker (Fluid Width) */}
+        <div className="relative w-full overflow-hidden py-8 bg-surface/30 dark:bg-white/[0.01] border-y border-surface-border/80 dark:border-white/10 backdrop-blur-md transition-colors duration-300">
+          {/* Fade masks for smooth left/right edges */}
+          <div className="absolute inset-y-0 left-0 w-16 sm:w-36 bg-gradient-to-r from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+          <div className="absolute inset-y-0 right-0 w-16 sm:w-36 bg-gradient-to-l from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+
+          <div className="animate-marquee flex items-center gap-10 sm:gap-14">
+            {[...verifiedClients, ...verifiedClients].map((client, idx) => (
+              <div
+                key={idx}
+                className="group flex flex-col items-center justify-center shrink-0 w-36 sm:w-44 transition-all duration-300 hover:scale-105"
+              >
+                {/* Clean Large Floating Logo without Box */}
+                <div className="relative h-20 sm:h-24 w-full flex items-center justify-center overflow-hidden mb-2">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    className="object-contain drop-shadow-sm filter dark:brightness-105 group-hover:drop-shadow-md transition-all duration-300"
+                    sizes="(max-width: 640px) 144px, 176px"
+                  />
+                </div>
+
+                {/* Bottom Client Name & Category Tag */}
+                <div className="text-center w-full min-w-0">
+                  <h4 className="text-xs sm:text-[13px] font-extrabold text-foreground dark:text-white group-hover:text-accent dark:group-hover:text-cyan-300 transition-colors truncate">
+                    {client.name}
+                  </h4>
+                  <p className="text-[10px] font-bold text-accent dark:text-cyan-400 truncate mt-0.5">
+                    {client.tag || client.location}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <Container className="pb-14 space-y-16">
 
         {/* Elevated FAQ Section */}
         <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-white/10 bg-gradient-to-br from-white via-slate-50/60 to-white dark:from-[#0b1320] dark:via-[#0e1726] dark:to-[#070d18] p-6 sm:p-9 lg:p-10 shadow-2xl shadow-slate-900/5 dark:shadow-black/60 backdrop-blur-xl space-y-8">

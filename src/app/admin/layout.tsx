@@ -10,6 +10,8 @@ import {
   LogOut,
   ShieldCheck,
   Building2,
+  IndianRupee,
+  Newspaper,
 } from "lucide-react";
 
 export const metadata = {
@@ -53,12 +55,38 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </Link>
 
           <Link
+            href="/admin/pricing"
+            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/80 transition group"
+          >
+            <IndianRupee className="h-4 w-4 text-teal-400 group-hover:scale-110 transition" />
+            <div className="flex-1 flex items-center justify-between">
+              <span>Pricing Engine</span>
+              <span className="text-[10px] bg-teal-950 text-teal-300 px-1.5 py-0.5 rounded-full border border-teal-800/40">
+                Dynamic
+              </span>
+            </div>
+          </Link>
+
+          <Link
             href="/admin/service-areas"
             className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/80 transition group"
           >
             <MapPin className="h-4 w-4 text-teal-400 group-hover:scale-110 transition" />
             <div className="flex-1 flex items-center justify-between">
               <span>Service Areas</span>
+              <span className="text-[10px] bg-teal-950 text-teal-300 px-1.5 py-0.5 rounded-full border border-teal-800/40">
+                Dynamic
+              </span>
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/blogs"
+            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/80 transition group"
+          >
+            <Newspaper className="h-4 w-4 text-teal-400 group-hover:scale-110 transition" />
+            <div className="flex-1 flex items-center justify-between">
+              <span>Blogs &amp; Articles</span>
               <span className="text-[10px] bg-teal-950 text-teal-300 px-1.5 py-0.5 rounded-full border border-teal-800/40">
                 Dynamic
               </span>
@@ -86,9 +114,19 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               Live Preview
             </span>
             <Link
-              href="/service-areas/assam/guwahati/"
+              href="/pricing/"
               target="_blank"
               className="mt-2 flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 transition group"
+            >
+              <IndianRupee className="h-4 w-4 text-slate-500 group-hover:text-teal-400 transition" />
+              <span>Public Pricing Page</span>
+              <ExternalLink className="h-3 w-3 ml-auto opacity-60" />
+            </Link>
+
+            <Link
+              href="/service-areas/assam/guwahati/"
+              target="_blank"
+              className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800/50 transition group"
             >
               <Building2 className="h-4 w-4 text-slate-500 group-hover:text-teal-400 transition" />
               <span>Guwahati City Live</span>

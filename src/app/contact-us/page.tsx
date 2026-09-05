@@ -176,6 +176,16 @@ export default function ContactUsPage() {
                   <span>WA Channel</span>
                 </a>
               )}
+              {SITE.social.linkedin && (
+                <a
+                  href={SITE.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0A66C2] text-white font-bold hover:opacity-90 transition"
+                >
+                  <span>LinkedIn</span>
+                </a>
+              )}
               {SITE.social.threads && (
                 <a
                   href={SITE.social.threads}

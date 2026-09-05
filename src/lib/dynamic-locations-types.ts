@@ -27,10 +27,12 @@ export interface TargetAudienceItem {
 }
 
 export interface WhyChoosePointItem {
+  id?: string;
   title: string;
   desc: string;
   badge?: string;
   stat?: string;
+  image?: string;
 }
 
 export interface BulkInputItem {
@@ -44,6 +46,7 @@ export interface VerifiedClientItem {
   name: string;
   location: string;
   logo: string;
+  tag?: string;
 }
 
 export interface OrderStepItem {
@@ -92,6 +95,17 @@ export interface CityData {
   deliveryRoutesTitle?: string;
   deliveryRoutesSubtitle?: string;
   nearbyAreas: string[];
+
+  // 2b. Service Coverage & Regional Delivery
+  coverageEyebrow?: string;
+  coverageTitle?: string;
+  coverageIntro?: string;
+  coverageHubTitle?: string;
+  coverageHubSubtitle?: string;
+  coverageNotice?: string;
+  coverageExamples?: string[];
+  coveragePolicy?: string;
+  coverageFooterNote?: string;
 
   // 3. Products & Services Carousel
   services?: CityServiceItem[];
@@ -270,3 +284,55 @@ export function getDefaultCityServices(cityName: string): CityServiceItem[] {
     },
   ];
 }
+
+export function getDefaultWhyChoosePoints(cityName?: string, stateName?: string, isGuwahati?: boolean): WhyChoosePointItem[] {
+  const cName = cityName || "Your City";
+  const sName = stateName || "the region";
+  return [
+    {
+      title: isGuwahati ? "Guwahati-Based Manufacturing" : `${cName} Direct Regional Fulfillment`,
+      desc: isGuwahati
+        ? "Local presence in Guwahati ensures direct factory communication, rapid physical proofs, and 24–48h fast dispatch across Assam."
+        : `Direct logistical coordination from our regional manufacturing cleanroom with doorstep delivery across ${cName} and ${sName}.`,
+      image: isGuwahati ? "/images/service-guwahati-hub.jpg" : "/images/idgen-id-card-solutions-guwahati-assam.jpg",
+      badge: isGuwahati ? "Direct Cleanroom Hub" : "Regional Priority",
+      stat: isGuwahati ? "24–48h Local Delivery" : "Fast Doorstep Dispatch",
+    },
+    {
+      title: "Experience Since 2014",
+      desc: "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
+      image: "/images/why-idgen-more-than-brand.jpg",
+      badge: "10+ Years Proven",
+      stat: "Since 2014",
+    },
+    {
+      title: "Organizational & Institutional Focus",
+      desc: `Engineered specifically for schools, colleges, corporate offices, and government bodies in ${cName} rather than basic retail single-card prints.`,
+      image: "/images/sol-institutions-idgen-v1.jpg",
+      badge: "Institutional Grade",
+      stat: "Bulk & Enterprise",
+    },
+    {
+      title: "Complete Identification Ecosystem",
+      desc: "One-stop coordinated supply of premium CR80 PVC cards, RFID chips, custom satin lanyards, crystal holders, and ultrasonic tamper-evident sealing.",
+      image: "/images/why-idgen-complete-ecosystem-branded.jpg",
+      badge: "Turnkey Packages",
+      stat: "Cards + Lanyards + Holders",
+    },
+    {
+      title: "Structured 8-Stage Workflow",
+      desc: "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
+      image: "/images/why-idgen-production-batches-branded.jpg",
+      badge: "Quality Assured",
+      stat: "Zero-Defect Standard",
+    },
+    {
+      title: "IDGen Studio Digital Portal",
+      desc: "Cloud platform for online student and employee photo collection, background removal, and batch approvals without spreadsheet chaos.",
+      image: "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+      badge: "Cloud Automation",
+      stat: "Digital Previews",
+    },
+  ];
+}
+

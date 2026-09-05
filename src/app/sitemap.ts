@@ -4,6 +4,7 @@ import { SITE_URL } from "@/data/site";
 import { services } from "@/data/services";
 import { products } from "@/data/products";
 import { indexedStates, indexedCities } from "@/data/locations";
+import { BLOG_POSTS } from "@/data/blogs";
 
 // Real per-file last-commit date instead of a single build timestamp
 // stamped on every URL — Google discounts sitemaps where lastmod is
@@ -36,6 +37,7 @@ const staticPaths = [
   "/pricing/",
   "/partners/",
   "/resources/",
+  "/resources/blogs/",
   "/resources/guides/",
   "/faq/",
   "/case-studies/",
@@ -85,6 +87,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: gitLastModified("src/app/service-areas/[state]/[city]/page.tsx"),
       changeFrequency: "monthly",
       priority: 0.7,
+    });
+  }
+
+  for (const post of BLOG_POSTS) {
+    entries.push({
+      url: `${SITE_URL}/resources/blogs/${post.slug}/`,
+      lastModified: new Date(post.publishedDate),
+      changeFrequency: "monthly",
+      priority: 0.8,
     });
   }
 

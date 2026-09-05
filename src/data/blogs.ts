@@ -1,0 +1,537 @@
+export interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  category: "Security & Smart Access" | "Lanyard Engineering" | "Hardware & Accessories" | "Digital Workflow" | "Event Credentials";
+  readTime: string;
+  publishedDate: string;
+  formattedDate: string;
+  author: {
+    name: string;
+    role: string;
+    avatar: string;
+  };
+  featuredImage: string;
+  alt: string;
+  isFeatured?: boolean;
+  tags: string[];
+  tableOfContents: { id: string; title: string }[];
+  keyTakeaways: string[];
+  content: {
+    lead: string;
+    sections: {
+      id: string;
+      heading: string;
+      body: string[];
+      tipBox?: { title: string; text: string };
+      specsTable?: { label: string; value: string }[];
+    }[];
+  };
+  relatedSlugs: string[];
+}
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "modern-id-card-security-guide",
+    title: "The Complete Guide to Modern Institutional ID Card Security: From Holographic Overlays to 13.56 MHz RFID",
+    subtitle: "How modern schools, universities, and healthcare facilities are phasing out basic paper badges in favor of solid 30-mil virgin PVC, encrypted contactless chips, and tamper-proof finishes.",
+    excerpt: "Discover essential security layers for institutional identity badges: edge-to-edge dye retransfer, micro-text, holographic laminate foils, and high-frequency RFID chips.",
+    category: "Security & Smart Access",
+    readTime: "6 min read",
+    publishedDate: "2026-02-18",
+    formattedDate: "February 18, 2026",
+    author: {
+      name: "Pranab Jyoti Das",
+      role: "Head of Credential Engineering, IDGen",
+      avatar: "/images/idgen-hero-cards-mockup.png",
+    },
+    featuredImage: "/images/PVC Cards Samples/Sample 1.jpg",
+    alt: "Institutional security PVC ID cards and RFID contactless credentials",
+    isFeatured: true,
+    tags: ["CR80 PVC", "RFID / NFC", "Campus Security", "Tamper Proofing", "Retransfer Print"],
+    tableOfContents: [
+      { id: "vulnerabilities", title: "1. The Hidden Risks of Paper & Cheap Laminated IDs" },
+      { id: "physical-layers", title: "2. Core Physical Security: 30-Mil Virgin PVC" },
+      { id: "visual-deterrents", title: "3. Holographic Overlays & Micro-Text Printing" },
+      { id: "smart-rfid", title: "4. Transitioning to 13.56 MHz Mifare & NFC Chips" },
+      { id: "cleanroom-protocol", title: "5. IDGen's Guwahati Cleanroom Quality Standard" },
+    ],
+    keyTakeaways: [
+      "Standard paper laminations peel within 3–6 months and can be cloned using standard office printers.",
+      "Solid virgin PVC cards (CR80, 0.76mm) provide moisture-impermeable longevity with zero corner de-lamination.",
+      "Combining UV subsurface print with holographic overlay shields credentials against physical scraping.",
+      "13.56 MHz Mifare 1K encrypted contactless cards bridge campus attendance, library loans, and gate turnstiles.",
+    ],
+    content: {
+      lead: "In an era of heightened institutional governance and automated turnstiles, an identification card is no longer just a photographic nametag. It is the frontline firewall for physical campus access, automated student attendance, and asset protection. Yet hundreds of institutes still issue low-grade paper cards sealed in heat-press pouches that invite effortless forgery.",
+      sections: [
+        {
+          id: "vulnerabilities",
+          heading: "1. The Hidden Risks of Paper & Cheap Laminated IDs",
+          body: [
+            "Traditional thermal pouch lamination introduces severe vulnerabilities. Humidity and skin oils penetrate the cut paper edges within 90 days, causing cloudy discoloration, ink bleeding, and edge splitting.",
+            "More critically, pouch laminates possess zero anti-counterfeiting features. Anyone with a mid-range photo printer can scan, alter an admission number or designation, and print a convincing counterfeit pass.",
+          ],
+          tipBox: {
+            title: "Security Risk Alert",
+            text: "Over 82% of campus credential breaches originate from visually duplicated low-grade laminated cards that gatekeepers cannot distinguish at a distance.",
+          },
+        },
+        {
+          id: "physical-layers",
+          heading: "2. Core Physical Security: 30-Mil Virgin PVC",
+          body: [
+            "The international benchmark for institutional identity is ISO/IEC 7810 ID-1 (CR-80), measuring exactly 85.60 mm × 53.98 mm with a calibrated thickness of 30 Mil (0.76 mm).",
+            "At IDGen, our cards are injection-molded from 100% virgin polyvinyl chloride. Unlike recycled PVC blends that snap in winter temperatures, virgin PVC provides exceptional tensile elasticity, flat dimensional stability, and crisp mirror-gloss or satin matte UV-cured surfaces.",
+          ],
+          specsTable: [
+            { label: "Standard Format", value: "CR-80 (ISO 7810 Spec)" },
+            { label: "Thickness", value: "30 Mil / 0.76 mm solid core" },
+            { label: "Print Technology", value: "Thermal Retransfer 300+ DPI" },
+            { label: "Surface Finish", value: "UV Scratch Shield Gloss / Matte" },
+          ],
+        },
+        {
+          id: "visual-deterrents",
+          heading: "3. Holographic Overlays & Micro-Text Printing",
+          body: [
+            "Visual authentication allows security personnel to verify credentials at a glance under ambient light. We integrate dual-layer security elements that cannot be replicated by commercial flatbed printers.",
+            "Custom holographic metallic foils refract varying optical spectrums at tilted angles, while 0.5pt micro-text borders integrated into the guilloche background patterns appear as solid lines to the naked eye but resolve into razor-sharp institutional mottos under a 10x magnifier.",
+          ],
+        },
+        {
+          id: "smart-rfid",
+          heading: "4. Transitioning to 13.56 MHz Mifare & NFC Chips",
+          body: [
+            "For modern campuses operating biometric speed gates, library tracking, and cashless cafeterias, embedding a contactless RFID antenna between the PVC core layers is the gold standard.",
+            "While legacy 125 kHz Proximity cards broadcast an unencrypted 26-bit facility code, modern 13.56 MHz Mifare 1K (ISO 14443A) chips feature 16 independent password-protected sectors. Each sector can be dedicated to distinct applications — turnstiles, attendance clocks, and automated barrier gates.",
+          ],
+          tipBox: {
+            title: "Engineering Tip",
+            text: "When selecting RFID cards, always confirm reader sensor frequency with your hardware vendor. IDGen provides sample credential testing packs prior to full production runs.",
+          },
+        },
+        {
+          id: "cleanroom-protocol",
+          heading: "5. IDGen's Guwahati Cleanroom Quality Standard",
+          body: [
+            "Every IDGen credential batch undergoes a rigorous 5-stage optical quality protocol in our centralized Guwahati cleanroom. Print registration, barcode readability, chip resonant frequency, and edge lamination are inspected with zero tolerance for color drift.",
+            "With over a decade of regional experience across Assam and the Northeast, we deliver institutional security that withstands years of daily campus wear.",
+          ],
+        },
+      ],
+    },
+    relatedSlugs: ["rfid-frequency-comparison-guide", "holder-v1-v2-h1-comparison-guide", "ultrasonic-lanyard-sealing-revolution"],
+  },
+  {
+    slug: "ultrasonic-lanyard-sealing-revolution",
+    title: "Why Ultrasonic Sealing is Revolutionizing Corporate & Institutional Lanyards",
+    subtitle: "Thread-stitched lanyard joints break and fray within months. Discover how high-frequency acoustic molecular welding delivers 15+ kg tensile strength without unsightly staples or threads.",
+    excerpt: "Traditional thread stitching and metal staples fail quickly on daily student lanyards. Ultrasonic acoustic sealing fuses satin fibers at the molecular level for fray-proof longevity.",
+    category: "Lanyard Engineering",
+    readTime: "4 min read",
+    publishedDate: "2026-02-10",
+    formattedDate: "February 10, 2026",
+    author: {
+      name: "Kabir Bora",
+      role: "Production Lead, IDGen Cleanroom",
+      avatar: "/images/idgen-hero-cards-mockup.png",
+    },
+    featuredImage: "/images/Lanyard with Hook Samples/Sample 1.jpeg",
+    alt: "Ultrasonic welded custom printed satin lanyards",
+    tags: ["Ultrasonic Sealing", "Satin Lanyards", "Durability", "Zero-Thread", "Tensile Strength"],
+    tableOfContents: [
+      { id: "stitching-failure", title: "1. The Anatomy of Stitching & Staple Failure" },
+      { id: "acoustic-welding", title: "2. The Science of Ultrasonic Acoustic Fusion" },
+      { id: "comfort-advantage", title: "3. Ergonomics & Zero Neck Irritation" },
+      { id: "durability-benchmarks", title: "4. Tensile Testing: 15+ kg Pull Force" },
+    ],
+    keyTakeaways: [
+      "Stitched joints rely on thread tension which snaps under sudden tugs or washing machine exposure.",
+      "Ultrasonic acoustic welders vibrate polyester polymer chains at 20,000 Hz to create a permanent monolithic weld.",
+      "Ultrasonic welds eliminate jagged staples and bulky thread bumps that cause nape friction and rashes.",
+      "Available across all standard 20 mm, 16 mm, and 12 mm IDGen custom printed satin lanyards.",
+    ],
+    content: {
+      lead: "For decades, custom printed lanyards relied on cheap wire staples or machine lock-stitching to attach metal swivel hooks. Anyone who has managed high-school students or factory workers knows the inevitable outcome: within months, thread breaks, hooks slip off, and loose staples scratch delicate garments.",
+      sections: [
+        {
+          id: "stitching-failure",
+          heading: "1. The Anatomy of Stitching & Staple Failure",
+          body: [
+            "A stitched seam is only as strong as its weakest needle hole. Every needle penetration punctures the finely woven satin fabric, creating miniature tear points.",
+            "Under repeated tension — such as swiping cards at RFID turnstiles — the threads stretch and eventually shear, dropping credentials onto hard floors.",
+          ],
+        },
+        {
+          id: "acoustic-welding",
+          heading: "2. The Science of Ultrasonic Acoustic Fusion",
+          body: [
+            "Ultrasonic welding replaces mechanical threads with high-frequency acoustic energy. Our pneumatic horns channel 20 kHz acoustic vibrations into the overlapping satin polyester ribbon.",
+            "Friction between the molecular polyester chains converts acoustic energy into localized thermal melt in less than 0.4 seconds, fusing the fabric layers into a unified, monolithic matrix.",
+          ],
+          tipBox: {
+            title: "Factory Fact",
+            text: "Ultrasonic joints require zero adhesives, glues, or foreign threads. The welded zone is 100% recyclable virgin polyester.",
+          },
+        },
+        {
+          id: "comfort-advantage",
+          heading: "3. Ergonomics & Zero Neck Irritation",
+          body: [
+            "Conventional metal crimps and heavy stitched folds create bulky pressure points that rub uncomfortably against the back of the neck during 8-hour shifts.",
+            "In contrast, ultrasonic sealed joints produce an ultra-flat, flexible profile with smooth rounded edges that rest flush against skin or collared shirts without chafing.",
+          ],
+        },
+        {
+          id: "durability-benchmarks",
+          heading: "4. Tensile Testing: 15+ kg Pull Force",
+          body: [
+            "In calibrated cleanroom pull tests, our ultrasonically welded lanyard assemblies withstand up to 15 kg of direct tensile load — exceeding international standards for student and corporate lanyard attachments.",
+            "Combined with anti-rust chrome swivel fish hooks, IDGen custom lanyards remain pristine through full multi-year academic cycles.",
+          ],
+        },
+      ],
+    },
+    relatedSlugs: ["modern-id-card-security-guide", "holder-v1-v2-h1-comparison-guide", "event-badging-best-practices"],
+  },
+  {
+    slug: "holder-v1-v2-h1-comparison-guide",
+    title: "V-1 vs V-2 vs H-1: Choosing the Right Polycarbonate Card Holder for Your Workforce",
+    subtitle: "Drop-in standard open slots or four-side perimeter locking clips? A technical comparison of portrait V-1 vs heavy-movement V-2 and landscape H-1 frames.",
+    excerpt: "Selecting the wrong holder causes bent cards and accidental drop-outs. Compare benchmark V-1 portrait, H-1 landscape, and V-2 4-side lock holders.",
+    category: "Hardware & Accessories",
+    readTime: "5 min read",
+    publishedDate: "2026-02-05",
+    formattedDate: "February 5, 2026",
+    author: {
+      name: "Pranab Jyoti Das",
+      role: "Head of Credential Engineering, IDGen",
+      avatar: "/images/idgen-hero-cards-mockup.png",
+    },
+    featuredImage: "/images/product-id-holders.jpg",
+    alt: "Polycarbonate rigid ID card holders V-1, V-2, H-1 models",
+    tags: ["V-1 Standard", "V-2 4-Side Lock", "H-1 Landscape", "CR80 Protection", "Optical Polycarbonate"],
+    tableOfContents: [
+      { id: "holder-importance", title: "1. Why Raw PVC Cards Need Rigid Protection" },
+      { id: "model-v1", title: "2. Model V-1: The Benchmark Portrait Drop-In (₹6)" },
+      { id: "model-h1", title: "3. Model H-1: Balanced Landscape Presentation (₹6)" },
+      { id: "model-v2", title: "4. Model V-2: High-Security 4-Side Lock (₹7)" },
+      { id: "decision-matrix", title: "5. Workforce Decision Matrix" },
+    ],
+    keyTakeaways: [
+      "Soft vinyl pouches yellow and stick to card ink; optical polycarbonate preserves clarity indefinitely.",
+      "The V-1 portrait holder is the benchmark for students, office employees, and standard desk workers.",
+      "The H-1 horizontal holder provides balanced center-weight suspension for landscape credentials.",
+      "The V-2 features integrated 4-side perimeter clips that lock cards tightly during physical motion.",
+    ],
+    content: {
+      lead: "Even the highest-grade 30-mil PVC card will bend or snap if carried loose in a pocket or suspended by a single punched hole without a protective housing. Rigid card holders are the mechanical armor of your identification ecosystem — but picking the wrong orientation or retention mechanism leads to lost badges.",
+      sections: [
+        {
+          id: "holder-importance",
+          heading: "1. Why Raw PVC Cards Need Rigid Protection",
+          body: [
+            "Punching a slot directly into a PVC card compromises its solid core. Repeated lanyard movement causes micro-fractures radiating from the punch hole, eventually snapping the top edge.",
+            "A molded 100% virgin optical polycarbonate holder absorbs all mechanical lanyard tension, shielding corners from chipping and preventing RFID copper antenna coils from delaminating.",
+          ],
+        },
+        {
+          id: "model-v1",
+          heading: "2. Model V-1: The Benchmark Portrait Drop-In (₹6)",
+          body: [
+            "The V-1 is IDGen's most popular portrait model. Designed specifically for vertical CR80 credentials (86 × 54 mm), it features an open top slip-in slot and a contoured bottom thumb groove for fast card extraction.",
+            "It is ideal for academic campuses, office desks, and environments where cards must be periodically removed for manual verification or magnetic stripe swiping.",
+          ],
+        },
+        {
+          id: "model-h1",
+          heading: "3. Model H-1: Balanced Landscape Presentation (₹6)",
+          body: [
+            "When corporate credentials feature wide landscape layouts (such as dual logos, emergency contacts, or long employee titles), the H-1 provides optical-grade clarity without tilting.",
+            "Equipped with a precision-centered 20 mm lanyard slot and dual side chain holes, the H-1 hangs completely level against the chest.",
+          ],
+        },
+        {
+          id: "model-v2",
+          heading: "4. Model V-2: High-Security 4-Side Lock (₹7)",
+          body: [
+            "For field engineers, factory floor operators, logistics teams, and active personnel, cards sliding out during physical bending is a major liability.",
+            "The V-2 solves this with four precision snap-fit perimeter clips that lock around all four edges of the card. Once snapped inside, the card cannot fall out accidentally under vigorous shaking or jumping.",
+          ],
+          tipBox: {
+            title: "Pro Recommendation",
+            text: "Specify V-2 holders for university sports departments, industrial plant workers, and event security personnel where card loss must be eliminated.",
+          },
+        },
+        {
+          id: "decision-matrix",
+          heading: "5. Workforce Decision Matrix",
+          body: [
+            "Review this quick guideline when ordering your institutional setup:",
+            "• Students & School Staff: Model V-1 (Vertical Standard, ₹6/pc)",
+            "• Corporate Executives & Horizontal Formats: Model H-1 (Horizontal Standard, ₹6/pc)",
+            "• Field Staff, Hospital Nurses & Technicians: Model V-2 (4-Side Lock, ₹7/pc)",
+            "• VIP Delegates & Directors: Model CV-1 Crystal Acrylic Beveled Case (₹25/pc)",
+          ],
+        },
+      ],
+    },
+    relatedSlugs: ["modern-id-card-security-guide", "rfid-frequency-comparison-guide", "ultrasonic-lanyard-sealing-revolution"],
+  },
+  {
+    slug: "rfid-frequency-comparison-guide",
+    title: "RFID Frequency Breakdown: 125 kHz Proximity vs 13.56 MHz Mifare 1K & NFC",
+    subtitle: "A technical comparison of legacy low-frequency turnstiles versus high-frequency encrypted contactless smart cards for automated campus attendance.",
+    excerpt: "Confused between 125 kHz Proximity and 13.56 MHz Mifare RFID? Learn antenna differences, read ranges, encryption standards, and reader compatibility.",
+    category: "Security & Smart Access",
+    readTime: "7 min read",
+    publishedDate: "2026-01-28",
+    formattedDate: "January 28, 2026",
+    author: {
+      name: "Pranab Jyoti Das",
+      role: "Head of Credential Engineering, IDGen",
+      avatar: "/images/idgen-hero-cards-mockup.png",
+    },
+    featuredImage: "/images/rfid-nfc-credentials.jpg",
+    alt: "Contactless RFID smart cards 13.56MHz and 125kHz coil inlays",
+    tags: ["RFID 125kHz", "Mifare 1K", "NFC Turnstiles", "Access Control", "Contactless"],
+    tableOfContents: [
+      { id: "rfid-fundamentals", title: "1. How Contactless RFID Cards Actually Work" },
+      { id: "lf-proximity", title: "2. 125 kHz Low Frequency (LF) Proximity Cards" },
+      { id: "hf-mifare", title: "3. 13.56 MHz High Frequency (HF) Mifare & NFC" },
+      { id: "dual-frequency", title: "4. The Hybrid Bridge: Dual-Frequency Inlays" },
+      { id: "checklist", title: "5. Verification Checklist Before Ordering" },
+    ],
+    keyTakeaways: [
+      "125 kHz cards broadcast a static unencrypted facility ID, making them prone to hand-held cloner devices.",
+      "13.56 MHz Mifare 1K smart cards support read/write data storage and cryptographic handshakes.",
+      "Dual-frequency inlays house both copper coils in one card, enabling phased campus reader upgrades.",
+      "Always scan reader specifications or request sample chip verification from IDGen prior to bulk printing.",
+    ],
+    content: {
+      lead: "Automating attendance and turnstile access is now standard practice across Northeast colleges and commercial facilities. However, selecting the incorrect RFID chip standard results in expensive project failures where cards refuse to register on newly installed biometric door readers.",
+      sections: [
+        {
+          id: "rfid-fundamentals",
+          heading: "1. How Contactless RFID Cards Actually Work",
+          body: [
+            "Contactless identity cards contain no batteries. They derive power electromagnetically when held within the reader's radio-frequency field.",
+            "An embedded copper wire loop antenna resonates, powering the microchip to transmit its programmed credential token back to the turnstile controller in milliseconds.",
+          ],
+        },
+        {
+          id: "lf-proximity",
+          heading: "2. 125 kHz Low Frequency (LF) Proximity Cards",
+          body: [
+            "Low-frequency technology (typically EM4100, TK4100, or HID Prox) uses a large wound wire coil operating at 125 kHz.",
+            "While reliable for basic employee punch clocks, LF cards broadcast their serial number in open, unencrypted text. Cheap pocket-sized RFID duplicators can clone these cards in under two seconds.",
+          ],
+        },
+        {
+          id: "hf-mifare",
+          heading: "3. 13.56 MHz High Frequency (HF) Mifare & NFC",
+          body: [
+            "High-frequency technology (Mifare Classic 1K, NTAG213, Desfire) operates at 13.56 MHz under ISO/IEC 14443 Type A protocols.",
+            "Mifare chips feature 1,024 bytes of organized memory segmented into 16 distinct sectors, each protected by dual 48-bit encryption keys. Beyond door access, they can store student library credits, cafeteria balances, and encrypted transport passes.",
+          ],
+          tipBox: {
+            title: "Future-Proofing Note",
+            text: "NFC-enabled smartphones can interact natively with 13.56 MHz NTAG credentials, enabling instant URL redirection or digital student verification on mobile devices.",
+          },
+        },
+        {
+          id: "dual-frequency",
+          heading: "4. The Hybrid Bridge: Dual-Frequency Inlays",
+          body: [
+            "Institutions often face a migration challenge: the older hostel gates operate on 125 kHz, while the new library turnstiles require 13.56 MHz Mifare.",
+            "IDGen manufactures dual-frequency smart cards featuring both antennas isolated inside a single CR80 PVC housing, enabling seamless single-card access across legacy and modern readers.",
+          ],
+        },
+        {
+          id: "checklist",
+          heading: "5. Verification Checklist Before Ordering",
+          body: [
+            "Confirm the following 5 parameters with your software team before ordering:",
+            "1. Operating Frequency: 125 kHz or 13.56 MHz?",
+            "2. Specific Chipset: Mifare Classic, Ultralight, EM4100, or NTAG?",
+            "3. Output Format: 26-Bit Wiegand, 34-Bit, or Raw Chip UID?",
+            "4. Encoding: Do you require matching printed barcodes / laser serial numbers?",
+            "5. Batch Test: Request a 5-card test sample from IDGen to validate turnstiles.",
+          ],
+        },
+      ],
+    },
+    relatedSlugs: ["modern-id-card-security-guide", "holder-v1-v2-h1-comparison-guide", "idgen-studio-digital-onboarding"],
+  },
+  {
+    slug: "idgen-studio-digital-onboarding",
+    title: "Eliminating Photo Chaos: How IDGen Studio Streamlines Bulk Student Identity Collection",
+    subtitle: "Collecting 5,000 student photographs and spelling details across dozens of departments traditionally took weeks of manual file renaming. See how self-service student portals automate cleanups and digital proof sign-offs.",
+    excerpt: "Say goodbye to mismatched Excel rows and blurry WhatsApp photos. Learn how IDGen Studio's digital portal automates cloud photo capture and pre-production proofs.",
+    category: "Digital Workflow",
+    readTime: "5 min read",
+    publishedDate: "2026-01-15",
+    formattedDate: "January 15, 2026",
+    author: {
+      name: "Rituraj Saikia",
+      role: "Digital Solutions Team, IDGen",
+      avatar: "/images/idgen-hero-cards-mockup.png",
+    },
+    featuredImage: "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+    alt: "IDGen Studio digital student photo collection and proof approval portal",
+    tags: ["IDGen Studio", "Student Onboarding", "Cloud Proofing", "Zero Errors", "Automated Crop"],
+    tableOfContents: [
+      { id: "traditional-bottleneck", title: "1. The Traditional Data Collection Bottleneck" },
+      { id: "idgen-studio-solution", title: "2. The IDGen Studio Cloud Workflow" },
+      { id: "ai-cropping", title: "3. Automated Face Detection & Background Whitening" },
+      { id: "proofing-approval", title: "4. Student & Departmental Digital Sign-Off" },
+    ],
+    keyTakeaways: [
+      "Manual photo collection results in a 12–15% spelling error rate and countless uncropped, blurry images.",
+      "IDGen Studio provides branded student links for instant smartphone photo submission with real-time feedback.",
+      "Automated face centering crops portrait photos to precise 300 DPI CR80 passport ratios.",
+      "Students approve their own digital proof before mass printing, completely eliminating reprinting costs.",
+    ],
+    content: {
+      lead: "Every academic year across Assam, college administrative teams face the same logistical nightmare: chasing hundreds of newly enrolled students for passport photos, deciphering handwritten admission slips, and manually renaming JPG files. A single misnamed photo shifts an entire batch of ID cards out of sequence.",
+      sections: [
+        {
+          id: "traditional-bottleneck",
+          heading: "1. The Traditional Data Collection Bottleneck",
+          body: [
+            "In conventional workflows, class teachers collect physical photos, tape them to index cards, or receive uncompressed image dumps over WhatsApp.",
+            "Photos arrive in wildly inconsistent lighting, horizontal crops, and uneven resolutions. Staff spend days in Photoshop manually cutting backgrounds — a tedious task prone to severe human error.",
+          ],
+        },
+        {
+          id: "idgen-studio-solution",
+          heading: "2. The IDGen Studio Cloud Workflow",
+          body: [
+            "IDGen Studio replaces this friction with an automated institutional portal. Each college or department receives a secure link or QR code distributed during admission.",
+            "Students open the link on their smartphones, enter their roll number, verify their name spelling, and snap a live passport photo using their phone camera.",
+          ],
+        },
+        {
+          id: "ai-cropping",
+          heading: "3. Automated Face Detection & Background Whitening",
+          body: [
+            "The portal's integrated computer vision engine detects eye-line alignment, flags tilted or low-resolution images, and automatically crops the face to strict 3:4 passport proportions.",
+            "Distracting shadows and patterned walls are automatically cleared to institutional neutral white backgrounds, guaranteeing uniform card aesthetic across thousands of badges.",
+          ],
+          tipBox: {
+            title: "Zero Retyping",
+            text: "Student-verified data feeds directly into our variable-data thermal retransfer printing queues, eliminating manual copy-pasting.",
+          },
+        },
+        {
+          id: "proofing-approval",
+          heading: "4. Student & Departmental Digital Sign-Off",
+          body: [
+            "Before an order enters physical cleanroom production, the student previews a watermarked digital mockup of their finished card.",
+            "Once the departmental head approves the finalized class batch, printing executes with 100% data fidelity — ensuring zero discarded plastic and rapid 72-hour turnaround.",
+          ],
+        },
+      ],
+    },
+    relatedSlugs: ["modern-id-card-security-guide", "event-badging-best-practices", "rfid-frequency-comparison-guide"],
+  },
+  {
+    slug: "event-badging-best-practices",
+    title: "Planning High-Impact Badging for Summits, Expos & International Conferences",
+    subtitle: "How oversized 3.5×5.5\" and 4×6\" tear-proof badges paired with dual-hook non-twist lanyards and color-coded zoning transform attendee flow at corporate conventions.",
+    excerpt: "Ensure effortless crowd control and sponsor visibility with jumbo summit cards, dual anti-twist lanyard hooks, and instant-scan dynamic QR badges.",
+    category: "Event Credentials",
+    readTime: "4 min read",
+    publishedDate: "2026-02-01",
+    formattedDate: "February 1, 2026",
+    author: {
+      name: "Kabir Bora",
+      role: "Event Production Desk, IDGen",
+      avatar: "/images/idgen-hero-cards-mockup.png",
+    },
+    featuredImage: "/images/idgen-custom-event-card-printing.jpg",
+    alt: "Large format summit event badge with dual hook lanyard",
+    tags: ["Jumbo 4x6\"", "VIP Badges", "Dual-Hook Anti-Twist", "Dynamic QR", "Event Security"],
+    tableOfContents: [
+      { id: "size-matters", title: "1. Why Standard CR80 Fails at Large Summits" },
+      { id: "anti-twist", title: "2. The Dual-Hook No-Flip Lanyard Architecture" },
+      { id: "zoning-design", title: "3. High-Contrast Zoning: VIPs, Speakers & Delegates" },
+      { id: "dynamic-qr", title: "4. Rapid Gate Scanning with Dynamic QR Codes" },
+    ],
+    keyTakeaways: [
+      "Oversized cards (3.5×5.5\" or 4×6\") allow room for event agendas, sponsors, and readable delegate names.",
+      "Single-hook lanyards constantly flip backward, hiding attendee credentials; dual-hook lanyards stay facing forward.",
+      "Distinct color-blocked banner headers allow security staff to verify access zones from 15 meters away.",
+      "Tear-proof composite polyvinyl materials withstand multi-day rain, moisture, and conference friction.",
+    ],
+    content: {
+      lead: "At multi-day industry summits, medical expos, and cultural festivals, credentials must do more than identify an individual. They manage security access zones, showcase key sponsors, and facilitate networking between delegates from across the globe.",
+      sections: [
+        {
+          id: "size-matters",
+          heading: "1. Why Standard CR80 Fails at Large Summits",
+          body: [
+            "A standard bank-card-sized CR80 badge (86 × 54 mm) is too small for conference security guards to read at a distance. If an usher must squint to read 'VIP SPEAKER', entrance choke-points form immediately.",
+            "Oversized formats — such as 3.5\" × 5.5\" (Jumbo) or 4\" × 6\" (Summit) — provide generous typographic space for bold attendee names, organization titles, session itineraries on the reverse, and sponsor logo lockups.",
+          ],
+        },
+        {
+          id: "anti-twist",
+          heading: "2. The Dual-Hook No-Flip Lanyard Architecture",
+          body: [
+            "The number one frustration for conference attendees is the 'flipping badge'. A single central clip rotates with movement, leaving the blank back side facing forward.",
+            "IDGen's summit setup integrates dual round hole punches on the badge's top corners paired with a two-hook custom lanyard. This two-point suspension locks the badge flat against the chest, guaranteeing 100% forward visibility at all times.",
+          ],
+          tipBox: {
+            title: "Sponsorship Value",
+            text: "Dual-point forward-facing badges maximize sponsor logo impressions in keynote photography and media broadcasts.",
+          },
+        },
+        {
+          id: "zoning-design",
+          heading: "3. High-Contrast Zoning: VIPs, Speakers & Delegates",
+          body: [
+            "We employ color-blocked header bands visible from 15 meters away: Gold for Keynote Speakers, Royal Blue for Delegates, Deep Emerald for Exhibitors, and Crimson for Media Access.",
+            "This empowers stage managers and security personnel to control backstage and green-room access without touching or interrogating guests.",
+          ],
+        },
+        {
+          id: "dynamic-qr",
+          heading: "4. Rapid Gate Scanning with Dynamic QR Codes",
+          body: [
+            "Every summit badge printed at IDGen can feature a unique high-contrast QR code linked to your conference registration system.",
+            "Turnstile staff scan credentials in under 0.5 seconds for instant lunch token redemption, CPD attendance logging, and digital lead retrieval between exhibitors.",
+          ],
+        },
+      ],
+    },
+    relatedSlugs: ["ultrasonic-lanyard-sealing-revolution", "modern-id-card-security-guide", "idgen-studio-digital-onboarding"],
+  },
+];
+
+export function getAllBlogPosts(): BlogPost[] {
+  return BLOG_POSTS;
+}
+
+export function getBlogPost(slug: string): BlogPost | undefined {
+  return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function getFeaturedBlogPost(): BlogPost {
+  return BLOG_POSTS.find((p) => p.isFeatured) || BLOG_POSTS[0];
+}
+
+export function getRelatedBlogPosts(slugs: string[]): BlogPost[] {
+  return BLOG_POSTS.filter((p) => slugs.includes(p.slug));
+}
+
+export const BLOG_CATEGORIES = [
+  "All Articles",
+  "Security & Smart Access",
+  "Lanyard Engineering",
+  "Hardware & Accessories",
+  "Digital Workflow",
+  "Event Credentials",
+] as const;

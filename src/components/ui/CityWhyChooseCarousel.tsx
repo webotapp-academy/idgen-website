@@ -17,7 +17,7 @@ import {
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
-import type { CityData, StateData } from "@/lib/dynamic-locations";
+import { type CityData, type StateData, getDefaultWhyChoosePoints } from "@/lib/dynamic-locations-types";
 
 export interface WhyChooseSlide {
   id: string;
@@ -36,66 +36,25 @@ interface CityWhyChooseCarouselProps {
 
 export function CityWhyChooseCarousel({ city, state }: CityWhyChooseCarouselProps) {
   const isGuwahati = city.slug === "guwahati" || city.isPrimary;
+  const defaultSlides = getDefaultWhyChoosePoints(city.name, state.name, isGuwahati);
 
-  // Dynamic slides based on city
-  const slides: WhyChooseSlide[] = [
-    {
-      id: "hub-manufacturing",
-      title: isGuwahati ? "Guwahati-Based Manufacturing" : `${city.name} Direct Regional Fulfillment`,
-      desc: isGuwahati
-        ? "Local presence in Guwahati ensures direct factory communication, rapid physical proofs, and 24–48h fast dispatch across Assam."
-        : `Direct logistical coordination from our regional manufacturing cleanroom with doorstep delivery across ${city.name} and ${state.name}.`,
-      image: isGuwahati ? "/images/service-guwahati-hub.jpg" : "/images/idgen-id-card-solutions-guwahati-assam.jpg",
-      badge: isGuwahati ? "Direct Cleanroom Hub" : "Regional Priority",
-      stat: isGuwahati ? "24–48h Local Delivery" : "Fast Doorstep Dispatch",
-      icon: MapPin,
-    },
-    {
-      id: "experience-2014",
-      title: "Experience Since 2014",
-      desc: "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
-      image: "/images/why-idgen-more-than-brand.jpg",
-      badge: "10+ Years Proven",
-      stat: "Since 2014",
-      icon: Award,
-    },
-    {
-      id: "organizational-focus",
-      title: "Organizational & Institutional Focus",
-      desc: `Engineered specifically for schools, colleges, corporate offices, and government bodies in ${city.name} rather than basic retail single-card prints.`,
-      image: "/images/sol-institutions-idgen-v1.jpg",
-      badge: "Institutional Grade",
-      stat: "Bulk & Enterprise",
-      icon: Building2,
-    },
-    {
-      id: "complete-ecosystem",
-      title: "Complete Identification Ecosystem",
-      desc: "One-stop coordinated supply of premium CR80 PVC cards, RFID chips, custom satin lanyards, crystal holders, and ultrasonic tamper-evident sealing.",
-      image: "/images/why-idgen-complete-ecosystem-branded.jpg",
-      badge: "Turnkey Packages",
-      stat: "Cards + Lanyards + Holders",
-      icon: PackageCheck,
-    },
-    {
-      id: "structured-workflow",
-      title: "Structured 8-Stage Workflow",
-      desc: "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
-      image: "/images/why-idgen-production-batches-branded.jpg",
-      badge: "Quality Assured",
-      stat: "Zero-Defect Standard",
-      icon: Workflow,
-    },
-    {
-      id: "idgen-studio",
-      title: "IDGen Studio Digital Portal",
-      desc: "Cloud platform for online student and employee photo collection, background removal, and batch approvals without spreadsheet chaos.",
-      image: "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
-      badge: "Cloud Automation",
-      stat: "Digital Previews",
-      icon: Layers,
-    },
-  ];
+  const iconOptions = [MapPin, Award, Building2, PackageCheck, Workflow, Layers, ShieldCheck, CheckCircle2, Sparkles];
+
+  // Dynamic slides based on city configured points or defaults
+  const rawPoints = city.whyChoosePoints && city.whyChoosePoints.length > 0 ? city.whyChoosePoints : defaultSlides;
+
+  const slides: WhyChooseSlide[] = rawPoints.map((pt, idx) => {
+    const fallback = defaultSlides[idx % defaultSlides.length] || defaultSlides[0];
+    return {
+      id: pt.id || `why-choose-${idx}-${(pt.title || "").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      title: pt.title || fallback.title,
+      desc: pt.desc || fallback.desc,
+      image: pt.image || fallback.image || "/images/why-idgen-more-than-brand.jpg",
+      badge: pt.badge || fallback.badge || "IDGen Advantage",
+      stat: pt.stat || fallback.stat || `${city.name} Verified`,
+      icon: iconOptions[idx % iconOptions.length],
+    };
+  });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);

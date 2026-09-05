@@ -7,11 +7,13 @@ import {
   type CityServiceItem,
   type CityData,
   type StateData,
+  type WhyChoosePointItem,
   getDefaultCityServices,
+  getDefaultWhyChoosePoints,
 } from "./dynamic-locations-types";
 
-export type { SetupPackage, CityServiceItem, CityData, StateData };
-export { getDefaultCityServices };
+export type { SetupPackage, CityServiceItem, CityData, StateData, WhyChoosePointItem };
+export { getDefaultCityServices, getDefaultWhyChoosePoints };
 
 const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-locations.json");
 
@@ -87,6 +89,19 @@ export const richGuwahatiData: CityData = {
   localAdvantageCta: "Quote →",
   deliveryRoutesTitle: "Direct Doorstep Delivery & Pickup Routes Across Guwahati:",
   deliveryRoutesSubtitle: "Rapid fulfillment across all major institutional & commercial zones in Guwahati",
+  coverageEyebrow: "Guwahati Service Coverage",
+  coverageTitle: "Guwahati Service Coverage",
+  coverageIntro:
+    "IDGen is based in Guwahati and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.",
+  coverageNotice: "We should not create separate pages for every Guwahati locality just for SEO.",
+  coverageExamples: [
+    "/service-areas/assam/guwahati/dispur/",
+    "/service-areas/assam/guwahati/beltola/",
+    "/service-areas/assam/guwahati/khanapara/",
+  ],
+  coveragePolicy:
+    "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
+  coverageFooterNote: "This follows the existing architecture rule in your website source.",
   nearbyAreas: [
     "Dispur",
     "Paltan Bazaar",
@@ -159,23 +174,45 @@ export const richGuwahatiData: CityData = {
   whyChoosePoints: [
     {
       title: "Guwahati-Based Manufacturing",
-      desc: "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 48–72h fast dispatch across Assam.",
+      desc: "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 24–48h fast dispatch across Assam.",
+      image: "/images/service-guwahati-hub.jpg",
+      badge: "Direct Cleanroom Hub",
+      stat: "24–48h Local Delivery",
     },
     {
       title: "Experience Since 2014",
-      desc: "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, and data integrity.",
+      desc: "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
+      image: "/images/why-idgen-more-than-brand.jpg",
+      badge: "10+ Years Proven",
+      stat: "Since 2014",
     },
     {
       title: "Organizational Focus",
       desc: "Engineered specifically for institutional and enterprise workflows rather than basic retail single-card printing.",
+      image: "/images/sol-institutions-idgen-v1.jpg",
+      badge: "Institutional Grade",
+      stat: "Bulk & Enterprise",
     },
     {
       title: "Complete Identification Ecosystem",
       desc: "One-stop integration of PVC cards, RFID chips, custom lanyards, crystal holders, clips, and ultrasonic edge sealing.",
+      image: "/images/why-idgen-complete-ecosystem-branded.jpg",
+      badge: "Turnkey Packages",
+      stat: "Cards + Lanyards + Holders",
+    },
+    {
+      title: "Structured 8-Stage Workflow",
+      desc: "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
+      image: "/images/why-idgen-production-batches-branded.jpg",
+      badge: "Quality Assured",
+      stat: "Zero-Defect Standard",
     },
     {
       title: "IDGen Studio Digital Portal",
       desc: "Collect student/employee photos, biometrics, and approve proofs online without paperwork or data confusion.",
+      image: "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+      badge: "Cloud Automation",
+      stat: "Digital Previews",
     },
   ],
 

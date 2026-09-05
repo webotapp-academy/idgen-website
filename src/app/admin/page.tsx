@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getAllStates, getAllCities } from "@/lib/dynamic-locations";
+import { getAllPricingItems } from "@/lib/dynamic-pricing";
 import { getAdminSession } from "@/lib/auth";
 import {
   MapPin,
@@ -12,15 +13,19 @@ import {
   Sparkles,
   ExternalLink,
   ShieldCheck,
+  IndianRupee,
+  Boxes,
 } from "lucide-react";
 
 export default async function AdminDashboardPage() {
   const session = await getAdminSession();
   const states = getAllStates();
   const allCitiesList = getAllCities();
+  const pricingItems = getAllPricingItems(true);
 
   const primaryCities = allCitiesList.filter((item) => item.city.isPrimary);
   const totalFaqs = allCitiesList.reduce((acc, curr) => acc + (curr.city.faqs?.length || 0), 0);
+  const activePricingCount = pricingItems.filter((i) => i.isActive).length;
 
   return (
     <div className="max-w-7xl mx-auto space-y-8">
@@ -37,25 +42,24 @@ export default async function AdminDashboardPage() {
               Welcome back, {session?.username || "Administrator"}
             </h1>
             <p className="mt-1.5 text-sm text-slate-400 max-w-2xl">
-              Control dynamic service area categories, manage cities like Guwahati, and track incoming institutional quote requests in real time.
+              Control dynamic pricing &amp; holder models (V-1, H-1, V-2), manage dynamic service areas, and track institutional quote requests in real time.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="/admin/service-areas"
+              href="/admin/pricing"
               className="px-5 py-2.5 rounded-xl bg-teal-500 text-slate-950 font-bold text-xs hover:bg-teal-400 shadow-lg shadow-teal-500/20 transition flex items-center gap-2"
             >
-              <MapPin className="h-4 w-4" />
-              <span>Manage Service Areas</span>
+              <IndianRupee className="h-4 w-4" />
+              <span>Manage Pricing Engine</span>
             </Link>
             <Link
-              href="/service-areas/assam/guwahati/"
-              target="_blank"
+              href="/admin/service-areas"
               className="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-200 font-semibold text-xs hover:bg-slate-700 transition flex items-center gap-1.5 border border-slate-700"
             >
-              <span>Live Guwahati</span>
-              <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+              <MapPin className="h-4 w-4 text-teal-400" />
+              <span>Service Areas</span>
             </Link>
           </div>
         </div>
@@ -63,6 +67,19 @@ export default async function AdminDashboardPage() {
 
       {/* Metrics Row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="p-5 rounded-2xl bg-slate-900/80 border border-teal-800/40 shadow-sm bg-gradient-to-br from-slate-900 to-teal-950/20">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold text-teal-300">Dynamic Pricing Rates</span>
+            <div className="h-8 w-8 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center">
+              <IndianRupee className="h-4 w-4" />
+            </div>
+          </div>
+          <p className="mt-3 text-2xl sm:text-3xl font-black text-white">{activePricingCount} Live</p>
+          <Link href="/admin/pricing" className="mt-1 text-[11px] text-teal-300 hover:underline flex items-center gap-1">
+            <span>V-1, H-1, V-2 Models active →</span>
+          </Link>
+        </div>
+
         <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-sm">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-400">State Categories</span>
@@ -101,17 +118,6 @@ export default async function AdminDashboardPage() {
           <Link href="/admin/quotes" className="mt-1 text-[11px] text-cyan-400 hover:underline inline-block">
             View recent leads →
           </Link>
-        </div>
-
-        <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-sm">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400">Total City FAQs</span>
-            <div className="h-8 w-8 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center">
-              <Sparkles className="h-4 w-4" />
-            </div>
-          </div>
-          <p className="mt-3 text-2xl sm:text-3xl font-black text-white">{totalFaqs}</p>
-          <p className="mt-1 text-[11px] text-slate-400">Search-optimized schema items</p>
         </div>
       </div>
 

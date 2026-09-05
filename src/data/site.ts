@@ -31,7 +31,7 @@ export const SITE = {
   social: {
     instagram: "https://www.instagram.com/idgenguwahati/",
     facebook: "https://www.facebook.com/iDGenGuwahati",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/company/144808592/",
     youtube: "https://www.youtube.com/@iDGenguwahati",
     threads: "https://www.threads.com/@idgenguwahati",
     gbpReview: "https://g.page/r/CVteiJnim09XEBM/review",
@@ -89,8 +89,9 @@ export const NAV: NavItem[] = [
   { label: "Pricing", href: "/pricing/" },
   {
     label: "Resources",
-    href: "#",
+    href: "/resources/",
     children: [
+      { label: "Blogs & Insights", href: "/resources/blogs/" },
       { label: "Guides", href: "/resources/guides/" },
       { label: "FAQ", href: "/faq/" },
       { label: "Case Studies", href: "/case-studies/" },

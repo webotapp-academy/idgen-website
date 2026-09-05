@@ -381,7 +381,7 @@ export function HolderHeroShowcase() {
               <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
                 <div className="h-6 w-20 relative bg-white/90 backdrop-blur-md rounded-lg px-2 py-1 shadow-md">
                   <Image
-                    src="/images/logo-light-theme.svg"
+                    src="/images/finallogolight.svg"
                     alt="IDGen Logo"
                     fill
                     className="object-contain p-0.5"

@@ -36,7 +36,7 @@ import type {
   OrderStepItem,
   SetupPackage,
 } from "@/lib/dynamic-locations-types";
-import { getDefaultCityServices } from "@/lib/dynamic-locations-types";
+import { getDefaultCityServices, getDefaultWhyChoosePoints } from "@/lib/dynamic-locations-types";
 
 export default function AdminServiceAreasPage() {
   const [states, setStates] = useState<StateData[]>([]);
@@ -71,23 +71,44 @@ export default function AdminServiceAreasPage() {
     quickAnswer: "",
     metaTitle: "",
     metaDescription: "",
+    coverageEyebrow: "",
+    coverageTitle: "",
+    coverageIntro: "",
+    coverageHubTitle: "",
+    coverageHubSubtitle: "",
   });
 
   // Active tab in City Editor modal
   const [cityActiveTab, setCityActiveTab] = useState<
-    "general" | "local" | "services" | "packages" | "whyChoose" | "faqs" | "seo"
+    "general" | "local" | "services" | "packages" | "whyChoose" | "clients" | "faqs" | "seo"
   >("general");
 
   // Helper inputs for tags and list additions
   const [nearbyAreaInput, setNearbyAreaInput] = useState("");
+  const [coverageExampleInput, setCoverageExampleInput] = useState("");
   const [orgInput, setOrgInput] = useState("");
   const [workflowStepInput, setWorkflowStepInput] = useState("");
   const [trustBadgeInput, setTrustBadgeInput] = useState("");
   const [audienceNameInput, setAudienceNameInput] = useState("");
   const [audienceCategoryInput, setAudienceCategoryInput] = useState("");
+  const [uploadingImage, setUploadingImage] = useState(false);
+
+  // Helper inputs for why choose points
   const [whyChooseTitleInput, setWhyChooseTitleInput] = useState("");
   const [whyChooseDescInput, setWhyChooseDescInput] = useState("");
-  const [uploadingImage, setUploadingImage] = useState(false);
+  const [whyChooseBadgeInput, setWhyChooseBadgeInput] = useState("");
+  const [whyChooseStatInput, setWhyChooseStatInput] = useState("");
+  const [whyChooseImageInput, setWhyChooseImageInput] = useState("");
+  const [uploadingWhyChooseIdx, setUploadingWhyChooseIdx] = useState<number | null>(null);
+  const [uploadingNewWhyChooseImg, setUploadingNewWhyChooseImg] = useState(false);
+
+  // Helper inputs for verified client logos
+  const [clientNameInput, setClientNameInput] = useState("");
+  const [clientLocationInput, setClientLocationInput] = useState("");
+  const [clientTagInput, setClientTagInput] = useState("");
+  const [clientLogoInput, setClientLogoInput] = useState("");
+  const [uploadingClientLogoIdx, setUploadingClientLogoIdx] = useState<number | null>(null);
+  const [uploadingNewClientLogo, setUploadingNewClientLogo] = useState(false);
 
   useEffect(() => {
     fetchStates();
@@ -189,6 +210,108 @@ export default function AdminServiceAreasPage() {
       console.error(err);
       setMessage({ type: "error", text: "Error reading file." });
       setUploadingImage(false);
+    }
+  }
+
+  async function handleClientLogoUpload(file: File, targetIndex?: number) {
+    if (!file) return;
+    try {
+      if (typeof targetIndex === "number") {
+        setUploadingClientLogoIdx(targetIndex);
+      } else {
+        setUploadingNewClientLogo(true);
+      }
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const base64Image = reader.result as string;
+          const res = await fetch("/api/admin/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image: base64Image, filename: file.name }),
+          });
+          const data = await res.json();
+          if (data.success && data.url) {
+            if (typeof targetIndex === "number") {
+              setCityForm((prev) => {
+                const updated = [...(prev.verifiedClients || [])];
+                if (updated[targetIndex]) {
+                  updated[targetIndex].logo = data.url;
+                }
+                return { ...prev, verifiedClients: updated };
+              });
+            } else {
+              setClientLogoInput(data.url);
+            }
+            setMessage({ type: "success", text: "Client logo uploaded successfully!" });
+          } else {
+            setMessage({ type: "error", text: data.error || "Failed to upload logo." });
+          }
+        } catch (err) {
+          console.error(err);
+          setMessage({ type: "error", text: "Failed to process logo upload." });
+        } finally {
+          setUploadingClientLogoIdx(null);
+          setUploadingNewClientLogo(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: "error", text: "Error reading logo file." });
+      setUploadingClientLogoIdx(null);
+      setUploadingNewClientLogo(false);
+    }
+  }
+
+  async function handleWhyChooseImageUpload(file: File, targetIndex?: number) {
+    if (!file) return;
+    try {
+      if (typeof targetIndex === "number") {
+        setUploadingWhyChooseIdx(targetIndex);
+      } else {
+        setUploadingNewWhyChooseImg(true);
+      }
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const base64Image = reader.result as string;
+          const res = await fetch("/api/admin/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image: base64Image, filename: file.name }),
+          });
+          const data = await res.json();
+          if (data.success && data.url) {
+            if (typeof targetIndex === "number") {
+              setCityForm((prev) => {
+                const updated = [...(prev.whyChoosePoints || [])];
+                if (updated[targetIndex]) {
+                  updated[targetIndex] = { ...updated[targetIndex], image: data.url };
+                }
+                return { ...prev, whyChoosePoints: updated };
+              });
+            } else {
+              setWhyChooseImageInput(data.url);
+            }
+            setMessage({ type: "success", text: "Advantage card image uploaded successfully!" });
+          } else {
+            setMessage({ type: "error", text: data.error || "Failed to upload image." });
+          }
+        } catch (err) {
+          console.error(err);
+          setMessage({ type: "error", text: "Failed to process image upload." });
+        } finally {
+          setUploadingWhyChooseIdx(null);
+          setUploadingNewWhyChooseImg(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: "error", text: "Error reading image file." });
+      setUploadingWhyChooseIdx(null);
+      setUploadingNewWhyChooseImg(false);
     }
   }
 
@@ -320,12 +443,34 @@ export default function AdminServiceAreasPage() {
         localAdvantageDesc:
           city.localAdvantageDesc ||
           `Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch across ${city.name}.`,
-        localAdvantageCta: city.localAdvantageCta || "Quote →",
         deliveryRoutesTitle:
           city.deliveryRoutesTitle || `Direct Doorstep Delivery & Pickup Routes Across ${city.name}:`,
         deliveryRoutesSubtitle:
           city.deliveryRoutesSubtitle ||
           `Rapid fulfillment across all major institutional & commercial zones in ${city.name}`,
+        coverageEyebrow: city.coverageEyebrow || `${city.name} Service Coverage`,
+        coverageTitle: city.coverageTitle || `${city.name} Service Coverage`,
+        coverageIntro:
+          city.coverageIntro ||
+          `IDGen is based in ${city.name} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`,
+        coverageHubTitle: city.coverageHubTitle || (city.isPrimary || city.slug === "guwahati" ? "Guwahati Direct Hub" : "Direct City Hub"),
+        coverageHubSubtitle: city.coverageHubSubtitle || `Full ${city.name} & Regional Reach`,
+        coverageNotice:
+          city.coverageNotice ||
+          `We should not create separate pages for every ${city.name} locality just for SEO.`,
+        coverageExamples:
+          city.coverageExamples && city.coverageExamples.length > 0
+            ? city.coverageExamples
+            : [
+                `/service-areas/${stateSlug || "assam"}/${city.slug}/dispur/`,
+                `/service-areas/${stateSlug || "assam"}/${city.slug}/beltola/`,
+                `/service-areas/${stateSlug || "assam"}/${city.slug}/khanapara/`,
+              ],
+        coveragePolicy:
+          city.coveragePolicy ||
+          "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
+        coverageFooterNote:
+          city.coverageFooterNote || "This follows the existing architecture rule in your website source.",
         setupsEyebrow: city.setupsEyebrow || "Configurations",
         setupsTitle: city.setupsTitle || `Complete ID Card Solutions & Packages in ${city.name}`,
         setupsSubtitle:
@@ -418,6 +563,19 @@ export default function AdminServiceAreasPage() {
         projectsDesc:
           city.projectsDesc ||
           `IDGen partners with leading academic institutions, corporate offices, and government departments across ${city.name}. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.`,
+        verifiedClients:
+          city.verifiedClients && city.verifiedClients.length > 0
+            ? city.verifiedClients
+            : [
+                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: city.name || "Guwahati" },
+                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+              ],
         whyChooseEyebrow: city.whyChooseEyebrow || "Why Choose Us",
         whyChooseTitle: city.whyChooseTitle || `Why Choose IDGen in ${city.name}?`,
         whyChooseSubtitle:
@@ -425,25 +583,17 @@ export default function AdminServiceAreasPage() {
           "Direct regional manufacturing, experience dating back to 2014, organizational focus, and an integrated digital workflow.",
         whyChoosePoints:
           city.whyChoosePoints && city.whyChoosePoints.length > 0
-            ? city.whyChoosePoints
-            : [
-                {
-                  title: `${city.name} Manufacturing / Regional Base`,
-                  desc: `Direct cleanroom production and rapid doorstep delivery across ${city.name}.`,
-                },
-                {
-                  title: "Experience Since 2014",
-                  desc: "Over a decade of high-volume identification expertise.",
-                },
-                {
-                  title: "Organizational & Institutional Focus",
-                  desc: `Engineered specifically for schools, hospitals, and enterprises in ${city.name}.`,
-                },
-                {
-                  title: "Complete Identification Ecosystem",
-                  desc: "Cards, RFID chips, custom satin lanyards, and crystal holders under one roof.",
-                },
-              ],
+            ? city.whyChoosePoints.map((pt, i) => {
+                const defaults = getDefaultWhyChoosePoints(city.name, undefined, city.isPrimary || city.slug === "guwahati");
+                const fallback = defaults[i % defaults.length] || defaults[0];
+                return {
+                  ...pt,
+                  image: pt.image || fallback.image,
+                  badge: pt.badge || fallback.badge,
+                  stat: pt.stat || fallback.stat,
+                };
+              })
+            : getDefaultWhyChoosePoints(city.name, undefined, city.isPrimary || city.slug === "guwahati"),
         workflowEyebrow: city.workflowEyebrow || "Step-by-Step Production Process • Factory Quality Standard",
         workflowBadge: city.workflowBadge || (city.isPrimary ? "Local Turnaround: 24–48h" : "Priority Turnaround"),
         workflowTitle: city.workflowTitle || `How to Order ID Cards in ${city.name}`,
@@ -575,9 +725,21 @@ export default function AdminServiceAreasPage() {
         localAdvantageTitle: "Local Production Advantage",
         localAdvantageDesc:
           "Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch.",
-        localAdvantageCta: "Quote →",
         deliveryRoutesTitle: "Direct Doorstep Delivery & Pickup Routes:",
         deliveryRoutesSubtitle: "Rapid fulfillment across all major institutional & commercial zones",
+        coverageEyebrow: "Service Coverage",
+        coverageTitle: "Service Coverage",
+        coverageIntro:
+          "IDGen can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.",
+        coverageNotice: "We should not create separate pages for every locality just for SEO.",
+        coverageExamples: [
+          "/service-areas/state/city/dispur/",
+          "/service-areas/state/city/beltola/",
+          "/service-areas/state/city/khanapara/",
+        ],
+        coveragePolicy:
+          "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
+        coverageFooterNote: "This follows the existing architecture rule in your website source.",
         nearbyAreas: [],
         services: getDefaultCityServices(cityName),
         setupsEyebrow: "Configurations",
@@ -634,14 +796,21 @@ export default function AdminServiceAreasPage() {
         projectsSubBadge: "Active Regional Partnerships • Zero Fabricated Claims",
         projectsTitle: "Organizations & Projects",
         projectsDesc: "IDGen partners with leading academic institutions, corporate offices, and government departments.",
+        verifiedClients: [
+          { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+          { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+          { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+          { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+          { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+          { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+          { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+          { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+        ],
         whyChooseEyebrow: "Why Choose Us",
         whyChooseTitle: "Why Choose IDGen?",
         whyChooseSubtitle:
           "Direct regional manufacturing, experience dating back to 2014, organizational focus, and an integrated digital workflow.",
-        whyChoosePoints: [
-          { title: "Direct Manufacturing Base", desc: "Fast regional turnaround and 48–72h delivery." },
-          { title: "Experience Since 2014", desc: "Over a decade of high-volume identification expertise." },
-        ],
+        whyChoosePoints: getDefaultWhyChoosePoints("Your City", undefined, false),
         workflowEyebrow: "Step-by-Step Production Process • Factory Quality Standard",
         workflowBadge: "Priority Turnaround",
         workflowTitle: "How to Order ID Cards",
@@ -1031,7 +1200,7 @@ export default function AdminServiceAreasPage() {
                   {cityForm.slug ? `Edit ${cityForm.name} Dynamic Content` : `Add City in ${editingStateSlug}`}
                 </h3>
                 <p className="text-xs text-slate-400">
-                  Manage all 7 sections: Hero, Local Presence, Products, Setups &amp; Workflow, Bulk &amp; Why Choose, FAQs, and SEO.
+                  Manage all 8 sections: Hero, Local Presence, Products, Setups &amp; Workflow, Bulk &amp; Why Choose, Client Logos &amp; Coverage, FAQs, and SEO.
                 </p>
               </div>
               <button onClick={() => setIsCityModalOpen(false)} className="text-slate-400 hover:text-white">
@@ -1039,7 +1208,7 @@ export default function AdminServiceAreasPage() {
               </button>
             </div>
 
-            {/* 7 Section Navigation Tabs */}
+            {/* 8 Section Navigation Tabs */}
             <div className="flex items-center gap-1.5 border-b border-slate-800 pb-2 shrink-0 overflow-x-auto scrollbar-thin">
               <button
                 type="button"
@@ -1061,7 +1230,7 @@ export default function AdminServiceAreasPage() {
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
                 }`}
               >
-                2. Local Presence &amp; Coverage
+                2. Local Presence &amp; Audiences
               </button>
               <button
                 type="button"
@@ -1094,7 +1263,18 @@ export default function AdminServiceAreasPage() {
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
                 }`}
               >
-                5. Why Choose &amp; Bulk
+                5. Why Choose &amp; Bulk ({cityForm.whyChoosePoints?.length || 0})
+              </button>
+              <button
+                type="button"
+                onClick={() => setCityActiveTab("clients")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
+                  cityActiveTab === "clients"
+                    ? "bg-teal-500 text-slate-950"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                6. Client Logos &amp; Coverage ({cityForm.verifiedClients?.length || 0})
               </button>
               <button
                 type="button"
@@ -1105,7 +1285,7 @@ export default function AdminServiceAreasPage() {
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
                 }`}
               >
-                6. FAQs ({cityForm.faqs?.length || 0})
+                7. FAQs ({cityForm.faqs?.length || 0})
               </button>
               <button
                 type="button"
@@ -1116,7 +1296,7 @@ export default function AdminServiceAreasPage() {
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
                 }`}
               >
-                7. SEO &amp; AI Summary
+                8. SEO &amp; AI Summary
               </button>
             </div>
 
@@ -1779,95 +1959,6 @@ export default function AdminServiceAreasPage() {
                       />
                     </div>
                   </div>
-
-                  {/* Direct Doorstep Delivery Routes & Zones */}
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
-                    <span className="text-xs font-bold text-teal-400 uppercase tracking-wider block">
-                      Direct Doorstep Delivery &amp; Pickup Routes ({cityForm.nearbyAreas?.length || 0} areas)
-                    </span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div>
-                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Routes Heading</label>
-                        <input
-                          type="text"
-                          placeholder={`Direct Doorstep Delivery & Pickup Routes Across ${cityForm.name || "City"}:`}
-                          value={cityForm.deliveryRoutesTitle || ""}
-                          onChange={(e) => setCityForm({ ...cityForm, deliveryRoutesTitle: e.target.value })}
-                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Routes Subtitle</label>
-                        <input
-                          type="text"
-                          placeholder={`Rapid fulfillment across all major institutional & commercial zones in ${cityForm.name || "City"}`}
-                          value={cityForm.deliveryRoutesSubtitle || ""}
-                          onChange={(e) => setCityForm({ ...cityForm, deliveryRoutesSubtitle: e.target.value })}
-                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        placeholder="e.g. Dispur, Paltan Bazaar, GS Road, Khanapara"
-                        value={nearbyAreaInput}
-                        onChange={(e) => setNearbyAreaInput(e.target.value)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            e.preventDefault();
-                            if (nearbyAreaInput.trim()) {
-                              setCityForm({
-                                ...cityForm,
-                                nearbyAreas: [...(cityForm.nearbyAreas || []), nearbyAreaInput.trim()],
-                              });
-                              setNearbyAreaInput("");
-                            }
-                          }
-                        }}
-                        className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => {
-                          if (nearbyAreaInput.trim()) {
-                            setCityForm({
-                              ...cityForm,
-                              nearbyAreas: [...(cityForm.nearbyAreas || []), nearbyAreaInput.trim()],
-                            });
-                            setNearbyAreaInput("");
-                          }
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-teal-500 text-slate-950 text-xs font-bold hover:bg-teal-400"
-                      >
-                        Add Area
-                      </button>
-                    </div>
-
-                    <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-2 bg-slate-900 border border-slate-800 rounded-xl">
-                      {(cityForm.nearbyAreas || []).map((area, idx) => (
-                        <span
-                          key={idx}
-                          className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-slate-950 border border-slate-800 text-slate-300"
-                        >
-                          <span>{area}</span>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setCityForm({
-                                ...cityForm,
-                                nearbyAreas: cityForm.nearbyAreas.filter((_, i) => i !== idx),
-                              });
-                            }}
-                            className="text-slate-500 hover:text-rose-400"
-                          >
-                            ×
-                          </button>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               )}
 
@@ -2314,11 +2405,33 @@ export default function AdminServiceAreasPage() {
               {/* TAB 5: WHY CHOOSE & BULK */}
               {cityActiveTab === "whyChoose" && (
                 <div className="space-y-6">
-                  {/* Why Choose Section */}
-                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
-                    <span className="text-xs font-bold text-teal-400 uppercase tracking-wider block">
-                      Why Choose IDGen Section
-                    </span>
+                  {/* Why Choose Section & Advantage Pillars */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-4">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <Sparkles className="h-4 w-4" />
+                        <span>Why Choose IDGen Advantage Section &amp; Carousel Cards</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCityForm({
+                            ...cityForm,
+                            whyChoosePoints: getDefaultWhyChoosePoints(
+                              cityForm.name || "Guwahati",
+                              undefined,
+                              cityForm.isPrimary || cityForm.slug === "guwahati"
+                            ),
+                          });
+                          setMessage({ type: "success", text: "Reset to 6 default advantage cards with images." });
+                        }}
+                        className="text-[11px] text-teal-400 hover:underline flex items-center gap-1"
+                      >
+                        <Sparkles className="h-3 w-3" />
+                        <span>Reset Default 6 Advantage Cards</span>
+                      </button>
+                    </div>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
@@ -2334,7 +2447,7 @@ export default function AdminServiceAreasPage() {
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
-                          Section Title
+                          Section Headline / Title
                         </label>
                         <input
                           type="text"
@@ -2346,22 +2459,101 @@ export default function AdminServiceAreasPage() {
                       </div>
                     </div>
 
-                    {/* Add point */}
-                    <div className="flex gap-2 pt-2 border-t border-slate-900">
-                      <input
-                        type="text"
-                        placeholder="Feature Title (e.g. Local Manufacturing Base)"
-                        value={whyChooseTitleInput}
-                        onChange={(e) => setWhyChooseTitleInput(e.target.value)}
-                        className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Section Subtitle / Lede
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={cityForm.whyChooseSubtitle || ""}
+                        onChange={(e) => setCityForm({ ...cityForm, whyChooseSubtitle: e.target.value })}
+                        placeholder="Direct regional manufacturing, experience dating back to 2014, organizational focus, and an integrated digital workflow."
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
                       />
-                      <input
-                        type="text"
-                        placeholder="Feature Description"
+                    </div>
+                  </div>
+
+                  {/* Add New Why Choose Card */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                      <Plus className="h-4 w-4 text-teal-400" />
+                      <span>Add New Why Choose Advantage Card</span>
+                    </span>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Card Title *</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Local Manufacturing Base"
+                          value={whyChooseTitleInput}
+                          onChange={(e) => setWhyChooseTitleInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Top Badge</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Direct Cleanroom Hub"
+                          value={whyChooseBadgeInput}
+                          onChange={(e) => setWhyChooseBadgeInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Bottom Stat / Highlight</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. 24–48h Local Delivery"
+                          value={whyChooseStatInput}
+                          onChange={(e) => setWhyChooseStatInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Image URL & Upload */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                      <div className="flex-1 w-full">
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Card Image URL or Path *</label>
+                        <input
+                          type="text"
+                          placeholder="/images/service-guwahati-hub.jpg or https://..."
+                          value={whyChooseImageInput}
+                          onChange={(e) => setWhyChooseImageInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div className="shrink-0 flex items-center gap-2 pt-4">
+                        <label className="cursor-pointer px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-bold text-teal-300 flex items-center gap-1.5 transition">
+                          <Upload className="h-3.5 w-3.5" />
+                          <span>{uploadingNewWhyChooseImg ? "Uploading..." : "Upload Image"}</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const f = e.target.files?.[0];
+                              if (f) handleWhyChooseImageUpload(f);
+                            }}
+                          />
+                        </label>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-bold text-slate-400 mb-1">Card Description</label>
+                      <textarea
+                        rows={2}
                         value={whyChooseDescInput}
                         onChange={(e) => setWhyChooseDescInput(e.target.value)}
-                        className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        placeholder="Detail the advantage, technology, or institutional commitment..."
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
                       />
+                    </div>
+
+                    <div className="flex justify-end pt-1">
                       <button
                         type="button"
                         onClick={() => {
@@ -2372,60 +2564,204 @@ export default function AdminServiceAreasPage() {
                                 ...(cityForm.whyChoosePoints || []),
                                 {
                                   title: whyChooseTitleInput.trim(),
+                                  badge: whyChooseBadgeInput.trim() || "IDGen Advantage",
+                                  stat: whyChooseStatInput.trim() || "Quality Assured",
+                                  image: whyChooseImageInput.trim() || "/images/why-idgen-more-than-brand.jpg",
                                   desc: whyChooseDescInput.trim() || "Experience and quality manufacturing.",
                                 },
                               ],
                             });
                             setWhyChooseTitleInput("");
+                            setWhyChooseBadgeInput("");
+                            setWhyChooseStatInput("");
+                            setWhyChooseImageInput("");
                             setWhyChooseDescInput("");
+                            setMessage({ type: "success", text: "Added new Why Choose advantage card!" });
+                          } else {
+                            setMessage({ type: "error", text: "Please enter a Card Title." });
                           }
                         }}
-                        className="px-3 py-1.5 rounded-lg bg-teal-500 text-slate-950 text-xs font-bold hover:bg-teal-400"
+                        className="px-4 py-2 rounded-xl bg-teal-500 text-slate-950 text-xs font-bold hover:bg-teal-400 flex items-center gap-1.5 shadow-md shadow-teal-500/20"
                       >
-                        Add Point
+                        <Plus className="h-3.5 w-3.5" />
+                        <span>Add Advantage Card</span>
                       </button>
                     </div>
+                  </div>
 
-                    <div className="space-y-2 max-h-52 overflow-y-auto pr-1">
+                  {/* Why Choose Cards List with Thumbnails & Live Controls */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-slate-300">
+                        Configured Advantage Carousel Cards ({(cityForm.whyChoosePoints || []).length})
+                      </span>
+                      <span className="text-[11px] text-slate-500">
+                        Direct image uploads &amp; live slides in carousel
+                      </span>
+                    </div>
+
+                    <div className="space-y-3 max-h-[500px] overflow-y-auto pr-1">
                       {(cityForm.whyChoosePoints || []).map((pt, idx) => (
                         <div
                           key={idx}
-                          className="p-2.5 bg-slate-900 border border-slate-800 rounded-xl flex items-start justify-between gap-2"
+                          className="p-3 bg-slate-900/90 border border-slate-800 rounded-xl flex flex-col sm:flex-row items-start gap-3 hover:border-slate-700 transition"
                         >
-                          <div className="flex-1 min-w-0">
-                            <input
-                              type="text"
-                              value={pt.title}
-                              onChange={(e) => {
-                                const updated = [...(cityForm.whyChoosePoints || [])];
-                                updated[idx].title = e.target.value;
-                                setCityForm({ ...cityForm, whyChoosePoints: updated });
-                              }}
-                              className="w-full px-2 py-0.5 bg-slate-950 border border-slate-800 rounded text-xs font-bold text-white mb-1"
-                            />
-                            <textarea
-                              rows={1}
-                              value={pt.desc}
-                              onChange={(e) => {
-                                const updated = [...(cityForm.whyChoosePoints || [])];
-                                updated[idx].desc = e.target.value;
-                                setCityForm({ ...cityForm, whyChoosePoints: updated });
-                              }}
-                              className="w-full px-2 py-0.5 bg-slate-950 border border-slate-800 rounded text-xs text-slate-300"
-                            />
+                          {/* Image Thumbnail & Upload Button */}
+                          <div className="relative h-20 w-24 sm:w-28 shrink-0 rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex flex-col items-center justify-center group/img">
+                            {pt.image ? (
+                              <Image
+                                src={pt.image}
+                                alt={pt.title}
+                                fill
+                                className="object-cover object-center"
+                                sizes="120px"
+                              />
+                            ) : (
+                              <ImageIcon className="h-6 w-6 text-slate-600" />
+                            )}
+                            <label className="absolute inset-0 bg-slate-950/70 opacity-0 group-hover/img:opacity-100 flex flex-col items-center justify-center cursor-pointer transition text-[9px] font-bold text-teal-300 text-center p-1">
+                              <Upload className="h-3.5 w-3.5 mb-0.5" />
+                              <span>{uploadingWhyChooseIdx === idx ? "Uploading..." : "Change Image"}</span>
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                  const f = e.target.files?.[0];
+                                  if (f) handleWhyChooseImageUpload(f, idx);
+                                }}
+                              />
+                            </label>
                           </div>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setCityForm({
-                                ...cityForm,
-                                whyChoosePoints: cityForm.whyChoosePoints?.filter((_, i) => i !== idx),
-                              });
-                            }}
-                            className="text-slate-500 hover:text-rose-400 p-1"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </button>
+
+                          {/* Inputs Grid */}
+                          <div className="flex-1 min-w-0 grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
+                            <div className="sm:col-span-2 flex items-center gap-2">
+                              <span className="text-[10px] font-mono text-teal-400 bg-teal-950/80 px-1.5 py-0.5 rounded border border-teal-800/60 font-bold shrink-0">
+                                #{String(idx + 1).padStart(2, "0")}
+                              </span>
+                              <input
+                                type="text"
+                                value={pt.title}
+                                placeholder="Title"
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.whyChoosePoints || [])];
+                                  updated[idx].title = e.target.value;
+                                  setCityForm({ ...cityForm, whyChoosePoints: updated });
+                                }}
+                                className="flex-1 px-2.5 py-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-bold text-white focus:border-teal-500"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[9px] font-semibold text-slate-400 mb-0.5">Top Badge</label>
+                              <input
+                                type="text"
+                                value={pt.badge || ""}
+                                placeholder="Badge (e.g. Turnkey Packages)"
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.whyChoosePoints || [])];
+                                  updated[idx].badge = e.target.value;
+                                  setCityForm({ ...cityForm, whyChoosePoints: updated });
+                                }}
+                                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded text-[11px] text-teal-300"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[9px] font-semibold text-slate-400 mb-0.5">Stat / Highlight</label>
+                              <input
+                                type="text"
+                                value={pt.stat || ""}
+                                placeholder="Stat (e.g. Since 2014)"
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.whyChoosePoints || [])];
+                                  updated[idx].stat = e.target.value;
+                                  setCityForm({ ...cityForm, whyChoosePoints: updated });
+                                }}
+                                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded text-[11px] text-slate-300"
+                              />
+                            </div>
+
+                            <div className="sm:col-span-2">
+                              <label className="block text-[9px] font-semibold text-slate-400 mb-0.5">Image Path / URL</label>
+                              <input
+                                type="text"
+                                value={pt.image || ""}
+                                placeholder="/images/... or https://..."
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.whyChoosePoints || [])];
+                                  updated[idx].image = e.target.value;
+                                  setCityForm({ ...cityForm, whyChoosePoints: updated });
+                                }}
+                                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded text-[11px] text-slate-300"
+                              />
+                            </div>
+
+                            <div className="sm:col-span-2">
+                              <label className="block text-[9px] font-semibold text-slate-400 mb-0.5">Description</label>
+                              <textarea
+                                rows={2}
+                                value={pt.desc}
+                                placeholder="Description"
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.whyChoosePoints || [])];
+                                  updated[idx].desc = e.target.value;
+                                  setCityForm({ ...cityForm, whyChoosePoints: updated });
+                                }}
+                                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-slate-300"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Reordering & Delete Controls */}
+                          <div className="shrink-0 flex sm:flex-col items-center gap-1.5 self-end sm:self-center">
+                            <button
+                              type="button"
+                              title="Move Up"
+                              disabled={idx === 0}
+                              onClick={() => {
+                                if (idx === 0) return;
+                                const updated = [...(cityForm.whyChoosePoints || [])];
+                                const temp = updated[idx - 1];
+                                updated[idx - 1] = updated[idx];
+                                updated[idx] = temp;
+                                setCityForm({ ...cityForm, whyChoosePoints: updated });
+                              }}
+                              className="p-1.5 rounded bg-slate-800 text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed text-xs font-bold"
+                            >
+                              ↑
+                            </button>
+                            <button
+                              type="button"
+                              title="Move Down"
+                              disabled={idx === (cityForm.whyChoosePoints || []).length - 1}
+                              onClick={() => {
+                                if (idx === (cityForm.whyChoosePoints || []).length - 1) return;
+                                const updated = [...(cityForm.whyChoosePoints || [])];
+                                const temp = updated[idx + 1];
+                                updated[idx + 1] = updated[idx];
+                                updated[idx] = temp;
+                                setCityForm({ ...cityForm, whyChoosePoints: updated });
+                              }}
+                              className="p-1.5 rounded bg-slate-800 text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed text-xs font-bold"
+                            >
+                              ↓
+                            </button>
+                            <button
+                              type="button"
+                              title="Delete Card"
+                              onClick={() => {
+                                setCityForm({
+                                  ...cityForm,
+                                  whyChoosePoints: cityForm.whyChoosePoints?.filter((_, i) => i !== idx),
+                                });
+                              }}
+                              className="p-1.5 rounded text-slate-500 hover:text-rose-400 transition"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -2599,7 +2935,573 @@ export default function AdminServiceAreasPage() {
                 </div>
               )}
 
-              {/* TAB 6: FAQS & HELP */}
+              {/* TAB 6: CLIENT LOGOS & ORGANIZATIONS SHOWCASE */}
+              {cityActiveTab === "clients" && (
+                <div className="space-y-6">
+                  {/* Section Settings */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <ShieldCheck className="h-4 w-4" />
+                        <span>Organizations &amp; Client Logos Showcase Section</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCityForm({
+                            ...cityForm,
+                            verifiedClients: [
+                              { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: cityForm.name || "Guwahati" },
+                              { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+                              { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+                              { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+                              { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+                              { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+                              { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+                              { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+                            ],
+                          });
+                          setMessage({ type: "success", text: "Reset to 8 default Northeast partner logos." });
+                        }}
+                        className="text-[11px] text-teal-400 hover:underline flex items-center gap-1"
+                      >
+                        <Sparkles className="h-3 w-3" />
+                        <span>Reset Default 8 Client Logos</span>
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Section Badge
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Verified Institutional Deployments"
+                          value={cityForm.projectsBadge || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, projectsBadge: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Section Sub-Badge (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Active Regional Partnerships • Zero Fabricated Claims"
+                          value={cityForm.projectsSubBadge || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, projectsSubBadge: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Section Headline / Title
+                      </label>
+                      <input
+                        type="text"
+                        placeholder={`Organizations & Projects in ${cityForm.name || "City"}`}
+                        value={cityForm.projectsTitle || ""}
+                        onChange={(e) => setCityForm({ ...cityForm, projectsTitle: e.target.value })}
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Section Description / Subtitle
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={cityForm.projectsDesc || ""}
+                        onChange={(e) => setCityForm({ ...cityForm, projectsDesc: e.target.value })}
+                        placeholder={`IDGen partners with leading academic institutions, corporate offices, and government departments across ${cityForm.name || "City"}.`}
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Add New Client Logo Card */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                      <Plus className="h-4 w-4 text-teal-400" />
+                      <span>Add New Client / Institutional Logo</span>
+                    </span>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Organization Name *</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Cotton University"
+                          value={clientNameInput}
+                          onChange={(e) => setClientNameInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">City / Regional Tag</label>
+                        <input
+                          type="text"
+                          placeholder={`e.g. ${cityForm.name || "Guwahati"}`}
+                          value={clientTagInput}
+                          onChange={(e) => setClientTagInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Location Details</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Panbazar, Assam"
+                          value={clientLocationInput}
+                          onChange={(e) => setClientLocationInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Logo Image URL & Upload */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                      <div className="flex-1 w-full">
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Logo Image URL or Path *</label>
+                        <input
+                          type="text"
+                          placeholder="/images/clint logo/1.png or https://..."
+                          value={clientLogoInput}
+                          onChange={(e) => setClientLogoInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div className="shrink-0 flex items-center gap-2 pt-4">
+                        <label className="cursor-pointer px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-bold text-teal-300 flex items-center gap-1.5 transition">
+                          <Upload className="h-3.5 w-3.5" />
+                          <span>{uploadingNewClientLogo ? "Uploading..." : "Upload Logo"}</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const f = e.target.files?.[0];
+                              if (f) handleClientLogoUpload(f);
+                            }}
+                          />
+                        </label>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (!clientNameInput.trim()) {
+                              alert("Please enter client/organization name.");
+                              return;
+                            }
+                            const newClient: VerifiedClientItem = {
+                              name: clientNameInput.trim(),
+                              location: clientLocationInput.trim() || clientTagInput.trim() || cityForm.name,
+                              tag: clientTagInput.trim() || cityForm.name,
+                              logo: clientLogoInput.trim() || "/images/clint logo/1.png",
+                            };
+                            setCityForm({
+                              ...cityForm,
+                              verifiedClients: [...(cityForm.verifiedClients || []), newClient],
+                            });
+                            setClientNameInput("");
+                            setClientLocationInput("");
+                            setClientTagInput("");
+                            setClientLogoInput("");
+                          }}
+                          className="px-4 py-1.5 bg-teal-500 hover:bg-teal-400 text-slate-950 text-xs font-bold rounded-lg flex items-center gap-1 transition"
+                        >
+                          <Plus className="h-3.5 w-3.5" />
+                          <span>Add Client</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Existing Clients List */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-300">
+                        Active Client Logos in Ticker ({cityForm.verifiedClients?.length || 0})
+                      </span>
+                      <span className="text-[11px] text-slate-500">
+                        Reorder or change logos • Saved directly to city data
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[45vh] overflow-y-auto pr-1">
+                      {(cityForm.verifiedClients || []).map((client, idx) => (
+                        <div
+                          key={idx}
+                          className="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-2 relative group hover:border-slate-700 transition"
+                        >
+                          <div className="flex items-center justify-between border-b border-slate-900 pb-1.5">
+                            <span className="text-[11px] font-bold text-teal-400">
+                              Client #{idx + 1}
+                            </span>
+                            <div className="flex items-center gap-1">
+                              {idx > 0 && (
+                                <button
+                                  type="button"
+                                  title="Move Left / Earlier"
+                                  onClick={() => {
+                                    const updated = [...(cityForm.verifiedClients || [])];
+                                    const temp = updated[idx - 1];
+                                    updated[idx - 1] = updated[idx];
+                                    updated[idx] = temp;
+                                    setCityForm({ ...cityForm, verifiedClients: updated });
+                                  }}
+                                  className="text-[10px] px-1.5 py-0.5 bg-slate-900 hover:bg-slate-800 rounded text-slate-400 hover:text-white"
+                                >
+                                  ▲
+                                </button>
+                              )}
+                              {idx < (cityForm.verifiedClients || []).length - 1 && (
+                                <button
+                                  type="button"
+                                  title="Move Right / Later"
+                                  onClick={() => {
+                                    const updated = [...(cityForm.verifiedClients || [])];
+                                    const temp = updated[idx + 1];
+                                    updated[idx + 1] = updated[idx];
+                                    updated[idx] = temp;
+                                    setCityForm({ ...cityForm, verifiedClients: updated });
+                                  }}
+                                  className="text-[10px] px-1.5 py-0.5 bg-slate-900 hover:bg-slate-800 rounded text-slate-400 hover:text-white"
+                                >
+                                  ▼
+                                </button>
+                              )}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const updated = (cityForm.verifiedClients || []).filter((_, i) => i !== idx);
+                                  setCityForm({ ...cityForm, verifiedClients: updated });
+                                }}
+                                className="text-rose-400 hover:text-rose-300 ml-1"
+                                title="Remove Client"
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-3">
+                            {/* Logo Thumbnail Preview */}
+                            <div className="relative h-14 w-20 shrink-0 bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center justify-center overflow-hidden">
+                              {client.logo ? (
+                                /* eslint-disable-next-line @next/next/no-img-element */
+                                <img
+                                  src={client.logo}
+                                  alt={client.name}
+                                  className="h-full w-full object-contain"
+                                  onError={(e) => {
+                                    (e.target as HTMLElement).style.display = "none";
+                                  }}
+                                />
+                              ) : (
+                                <ImageIcon className="h-6 w-6 text-slate-600" />
+                              )}
+                            </div>
+
+                            {/* Client Info Inputs */}
+                            <div className="flex-1 space-y-1 min-w-0">
+                              <input
+                                type="text"
+                                value={client.name}
+                                placeholder="Organization Name"
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.verifiedClients || [])];
+                                  updated[idx].name = e.target.value;
+                                  setCityForm({ ...cityForm, verifiedClients: updated });
+                                }}
+                                className="w-full px-2 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-bold text-white"
+                              />
+                              <div className="grid grid-cols-2 gap-1.5">
+                                <input
+                                  type="text"
+                                  value={client.tag || ""}
+                                  placeholder="Tag (e.g. Guwahati)"
+                                  onChange={(e) => {
+                                    const updated = [...(cityForm.verifiedClients || [])];
+                                    updated[idx].tag = e.target.value;
+                                    setCityForm({ ...cityForm, verifiedClients: updated });
+                                  }}
+                                  className="w-full px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-[11px] text-teal-300 font-semibold"
+                                />
+                                <input
+                                  type="text"
+                                  value={client.location || ""}
+                                  placeholder="Location"
+                                  onChange={(e) => {
+                                    const updated = [...(cityForm.verifiedClients || [])];
+                                    updated[idx].location = e.target.value;
+                                    setCityForm({ ...cityForm, verifiedClients: updated });
+                                  }}
+                                  className="w-full px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-[11px] text-slate-300"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Logo URL & Change Upload */}
+                          <div className="flex items-center gap-2 pt-1 border-t border-slate-900">
+                            <input
+                              type="text"
+                              value={client.logo}
+                              placeholder="Logo Path / URL"
+                              onChange={(e) => {
+                                const updated = [...(cityForm.verifiedClients || [])];
+                                updated[idx].logo = e.target.value;
+                                setCityForm({ ...cityForm, verifiedClients: updated });
+                              }}
+                              className="flex-1 px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-[10px] text-slate-400 font-mono"
+                            />
+                            <label className="cursor-pointer px-2 py-0.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded text-[10px] font-bold text-teal-300 flex items-center gap-1 shrink-0">
+                              <Upload className="h-3 w-3" />
+                              <span>{uploadingClientLogoIdx === idx ? "..." : "Change"}</span>
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                  const f = e.target.files?.[0];
+                                  if (f) handleClientLogoUpload(f, idx);
+                                }}
+                              />
+                            </label>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Section 2: City Service Coverage & Fulfilment Zones */}
+                  <div className="p-4 bg-slate-950 border border-teal-500/30 rounded-2xl space-y-4 shadow-lg">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <MapPin className="h-4 w-4" />
+                        <span>{cityForm.name || "Guwahati"} Service Coverage &amp; Delivery Zones</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const defaultAreas =
+                            cityForm.slug === "guwahati" || (cityForm.name && cityForm.name.toLowerCase().includes("guwahati"))
+                              ? [
+                                  "Dispur & Capital Complex",
+                                  "Beltola & Basistha",
+                                  "Khanapara & GS Road Corridor",
+                                  "Paltan Bazar & Panbazar",
+                                  "Fancy Bazar & Machkhowa",
+                                  "Ganeshguri & Christian Basti",
+                                  "Ulubari & Rehabari",
+                                  "Jalukbari & Guwahati University Zone",
+                                  "Borjhar & Airport Area",
+                                  "Noonmati & Chandmari",
+                                  "Six Mile & Panjabari",
+                                  "North Guwahati & IITG Zone",
+                                ]
+                              : [
+                                  `${cityForm.name || "City"} Central / Main Commercial Zone`,
+                                  `${cityForm.name || "City"} Industrial & Tech Corridor`,
+                                  `${cityForm.name || "City"} Institutional & Academic Belt`,
+                                  `${cityForm.name || "City"} Administrative & Secretariat Zone`,
+                                  `${cityForm.name || "City"} Regional Transit & Logistics Hub`,
+                                ];
+
+                          setCityForm({
+                            ...cityForm,
+                            coverageEyebrow: `${cityForm.name || "Guwahati"} Service Coverage`,
+                            coverageTitle: `${cityForm.name || "Guwahati"} Service Coverage`,
+                            coverageIntro: `IDGen is based in ${cityForm.name || "Guwahati"} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`,
+                            coverageHubTitle:
+                              cityForm.isPrimary || cityForm.slug === "guwahati"
+                                ? "Guwahati Direct Hub"
+                                : "Direct Regional Hub",
+                            coverageHubSubtitle: `Full ${cityForm.name || "Guwahati"} & Regional Reach`,
+                            nearbyAreas: defaultAreas,
+                          });
+                          setMessage({
+                            type: "success",
+                            text: `Reset Service Coverage & ${defaultAreas.length} delivery zones to defaults.`,
+                          });
+                        }}
+                        className="text-[11px] text-teal-400 hover:underline flex items-center gap-1"
+                      >
+                        <Sparkles className="h-3 w-3" />
+                        <span>Reset Coverage Defaults</span>
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Coverage Eyebrow
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={`${cityForm.name || "Guwahati"} Service Coverage`}
+                          value={cityForm.coverageEyebrow || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, coverageEyebrow: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Coverage Headline / Title
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={`${cityForm.name || "Guwahati"} Service Coverage`}
+                          value={cityForm.coverageTitle || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, coverageTitle: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Intro / Coverage Description
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={cityForm.coverageIntro || ""}
+                        onChange={(e) => setCityForm({ ...cityForm, coverageIntro: e.target.value })}
+                        placeholder={`IDGen is based in ${cityForm.name || "Guwahati"} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`}
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Hub Badge Title
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Direct City Hub"
+                          value={cityForm.coverageHubTitle || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, coverageHubTitle: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Hub Badge Subtitle
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={`Full ${cityForm.name || "Guwahati"} & Regional Reach`}
+                          value={cityForm.coverageHubSubtitle || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, coverageHubSubtitle: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Serviced Localities & Fulfillment Zones */}
+                    <div className="space-y-2.5 pt-2 border-t border-slate-800">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                        <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                          <MapPin className="h-3.5 w-3.5 text-teal-400" />
+                          <span>Active Serviced Localities &amp; Fulfillment Zones ({cityForm.nearbyAreas?.length || 0})</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (confirm("Clear all serviced localities?")) {
+                                setCityForm({ ...cityForm, nearbyAreas: [] });
+                              }
+                            }}
+                            className="text-[10px] text-rose-400 hover:underline"
+                          >
+                            Clear All
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <input
+                          type="text"
+                          placeholder="e.g. Dispur, Beltola, Khanapara, GS Road, Panbazar (or comma-separated list)"
+                          value={nearbyAreaInput}
+                          onChange={(e) => setNearbyAreaInput(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              e.preventDefault();
+                              if (nearbyAreaInput.trim()) {
+                                const parts = nearbyAreaInput.split(",").map((s) => s.trim()).filter(Boolean);
+                                setCityForm({
+                                  ...cityForm,
+                                  nearbyAreas: [...(cityForm.nearbyAreas || []), ...parts],
+                                });
+                                setNearbyAreaInput("");
+                              }
+                            }
+                          }}
+                          className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (nearbyAreaInput.trim()) {
+                              const parts = nearbyAreaInput.split(",").map((s) => s.trim()).filter(Boolean);
+                              setCityForm({
+                                ...cityForm,
+                                nearbyAreas: [...(cityForm.nearbyAreas || []), ...parts],
+                              });
+                              setNearbyAreaInput("");
+                            }
+                          }}
+                          className="px-3.5 py-1.5 rounded-lg bg-teal-500 text-slate-950 text-xs font-bold hover:bg-teal-400 flex items-center gap-1 shrink-0 transition"
+                        >
+                          <Plus className="h-3.5 w-3.5" />
+                          <span>Add Zone</span>
+                        </button>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 max-h-48 overflow-y-auto p-3 bg-slate-900/80 border border-slate-800/80 rounded-xl">
+                        {(cityForm.nearbyAreas || []).length === 0 ? (
+                          <p className="text-xs text-slate-500 italic py-1">
+                            No localities added yet. Type an area above or click &quot;Reset Coverage Defaults&quot;.
+                          </p>
+                        ) : (
+                          (cityForm.nearbyAreas || []).map((area, idx) => (
+                            <span
+                              key={idx}
+                              className="group inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 hover:border-teal-500/50 transition shadow-2xs"
+                            >
+                              <MapPin className="h-3 w-3 text-teal-400 shrink-0" />
+                              <span>{area}</span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setCityForm({
+                                    ...cityForm,
+                                    nearbyAreas: (cityForm.nearbyAreas || []).filter((_, i) => i !== idx),
+                                  });
+                                }}
+                                className="text-slate-500 hover:text-rose-400 ml-1 transition"
+                                title="Remove locality"
+                              >
+                                ×
+                              </button>
+                            </span>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 7: FAQS & HELP */}
               {cityActiveTab === "faqs" && (
                 <div className="space-y-4">
                   {/* FAQ Header Settings */}

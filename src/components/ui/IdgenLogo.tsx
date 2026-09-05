@@ -30,7 +30,7 @@ export function IdgenLogo({
       <div className={`relative flex items-center shrink-0 select-none ${sizeClasses[size]} ${className}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/logos/iDGen dark logo.svg"
+          src="/images/finallogowhite.svg"
           alt="iDGen Identity Solutions"
           className="w-full h-full object-contain"
         />
@@ -43,7 +43,7 @@ export function IdgenLogo({
       <div className={`relative flex items-center shrink-0 select-none ${sizeClasses[size]} ${className}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/logo-light-theme.svg"
+          src="/images/finallogolight.svg"
           alt="iDGen Identity Solutions"
           className="w-full h-full object-contain"
         />
@@ -56,13 +56,13 @@ export function IdgenLogo({
     <div className={`relative flex items-center shrink-0 select-none ${sizeClasses[size]} ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/logo-light-theme.svg"
+        src="/images/finallogolight.svg"
         alt="iDGen Identity Solutions"
         className="block dark:hidden w-full h-full object-contain"
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/logos/iDGen dark logo.svg"
+        src="/images/finallogowhite.svg"
         alt="iDGen Identity Solutions"
         className="hidden dark:block w-full h-full object-contain"
       />

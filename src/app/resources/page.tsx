@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, HelpCircle, Briefcase, FileText, CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
+import { BookOpen, HelpCircle, Briefcase, FileText, CheckCircle2, ArrowRight, ShieldCheck, Newspaper } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -12,11 +12,12 @@ import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
   title: "ID Card & Identity Solutions Resources | IDGen",
   description:
-    "Guides, FAQs, templates and case studies covering ID card printing, student ID cards, employee ID cards, lanyards, RFID and identity workflows by IDGen.",
+    "Guides, blogs, FAQs, templates and case studies covering ID card printing, student ID cards, employee ID cards, lanyards, RFID and identity workflows by IDGen.",
   path: "/resources/",
 });
 
 const categories = [
+  { icon: Newspaper, title: "Blogs & Technical Insights", body: "Deep dives on 30-mil virgin PVC security, ultrasonic lanyard welding, RFID chip architectures, and event badging.", href: "/resources/blogs/" },
   { icon: BookOpen, title: "Technical Guides", body: "Practical guides covering CR80 PVC specs, Pantone lanyard sublimation, and RFID frequency protocols.", href: "/resources/guides/" },
   { icon: HelpCircle, title: "Frequently Asked Questions", body: "Direct answers about volume pricing, sample kits, IDGen Studio, and Northeast delivery turnaround.", href: "/faq/" },
   { icon: Briefcase, title: "Delivered Case Studies", body: "Real identification projects for schools, colleges, and enterprise workforces across Assam and the Northeast.", href: "/case-studies/" },
@@ -94,10 +95,10 @@ export default function ResourcesPage() {
       <Container className="py-14">
         <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }]} />
 
-        {/* 4 Core Resource Pillars */}
+        {/* 5 Core Resource Pillars */}
         <div className="mt-8">
           <SectionHead eyebrow="Resource Pillars" title="Explore IDGen Knowledge Hub" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {categories.map((c) => (
               <FeatureCard key={c.title} icon={c.icon} title={c.title} body={c.body} href={c.href} />
             ))}

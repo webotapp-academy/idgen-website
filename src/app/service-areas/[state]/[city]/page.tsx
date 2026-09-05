@@ -29,6 +29,7 @@ import { CityLocalPresence } from "@/components/ui/CityLocalPresence";
 import { CityBulkPrinting } from "@/components/ui/CityBulkPrinting";
 import { CityWhyChooseCarousel } from "@/components/ui/CityWhyChooseCarousel";
 import { CityWorkflowSection } from "@/components/ui/CityWorkflowSection";
+import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FlowChain } from "@/components/ui/FlowChain";
@@ -78,14 +79,14 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
   const isGuwahati = city.slug === "guwahati";
 
   const verifiedClients = [
-    { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Assam" },
-    { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Assam" },
-    { name: "CKB College", logo: "/images/clint logo/3.png", location: "Assam" },
-    { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Northeast" },
-    { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Manipur" },
-    { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Assam" },
-    { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam" },
-    { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub" },
+    { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+    { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+    { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+    { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+    { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+    { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+    { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+    { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
   ];
 
   // Build FAQs
@@ -273,6 +274,9 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
         </div>
       </PageHero>
 
+      {/* Complete Product Catalog Showcase */}
+      <ProductShowcaseCarousel />
+
       <Container className="py-12 md:py-16 space-y-16">
 
         {/* IDGen in [City]: Premium Local Identity Solutions Partner */}
@@ -373,110 +377,130 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
           bulkCta1Text={city.bulkCta1Text}
           bulkCta2Text={city.bulkCta2Text}
         />
+      </Container>
 
-        {/* Real Organizations & Projects Showcase */}
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-white/10 bg-gradient-to-br from-white via-slate-50/60 to-white dark:from-[#0b1320] dark:via-[#0e1726] dark:to-[#070d18] p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-900/5 dark:shadow-black/60 backdrop-blur-xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+      {/* Real Organizations & Projects Showcase (Container Fluid / Full Viewport Width) */}
+      <div className="my-14 relative z-10 w-full">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
               <ShieldCheck className="h-4 w-4" />
               <span>{city.projectsBadge || "Verified Institutional Deployments"}</span>
             </div>
-            <span className="text-[11px] font-semibold text-muted">
-              {city.projectsSubBadge || "Active Regional Partnerships • Zero Fabricated Claims"}
-            </span>
-          </div>
-
-          <div className="space-y-2">
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
               {city.projectsTitle || `Organizations & Projects in ${city.name}`}
             </h2>
-            <p className="text-sm text-muted max-w-3xl leading-relaxed">
+            <p className="text-sm text-muted leading-relaxed">
               {city.projectsDesc ||
                 `IDGen partners with leading academic institutions, corporate offices, and government departments across ${city.name} and ${state.name}. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.`}
             </p>
           </div>
+        </Container>
 
-          {/* Client Logos Auto-Slider Marquee */}
-          <div className="relative w-full overflow-hidden py-3">
-            {/* Fade masks for smooth left/right edges */}
-            <div className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-white dark:from-[#0b1320] via-white/80 dark:via-[#0b1320]/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-white dark:from-[#0b1320] via-white/80 dark:via-[#0b1320]/80 to-transparent z-10 pointer-events-none" />
+        {/* Clean Seamless Colorful Infinite Auto-Sliding Logo Ticker (Fluid Width) */}
+        <div className="relative w-full overflow-hidden py-8 bg-surface/30 dark:bg-white/[0.01] border-y border-surface-border/80 dark:border-white/10 backdrop-blur-md transition-colors duration-300">
+          {/* Fade masks for smooth left/right edges */}
+          <div className="absolute inset-y-0 left-0 w-16 sm:w-36 bg-gradient-to-r from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
+          <div className="absolute inset-y-0 right-0 w-16 sm:w-36 bg-gradient-to-l from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
 
-            <div className="animate-marquee flex items-center gap-4 sm:gap-6">
-              {[
-                ...(city.verifiedClients && city.verifiedClients.length > 0 ? city.verifiedClients : verifiedClients),
-                ...(city.verifiedClients && city.verifiedClients.length > 0 ? city.verifiedClients : verifiedClients),
-              ].map((client, idx) => (
-                <div
-                  key={idx}
-                  className="group flex flex-col items-center justify-center shrink-0 w-44 sm:w-52 rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/90 dark:bg-white/[0.03] p-4 text-center transition-all duration-300 hover:border-accent hover:shadow-lg hover:scale-105"
-                >
-                  <div className="relative h-14 w-28 shrink-0 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src={client.logo}
-                      alt={`${client.name} ID Card Printing Partner`}
-                      fill
-                      sizes="120px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <p className="mt-2 text-xs font-bold text-foreground truncate w-full group-hover:text-accent transition-colors">
-                    {client.name}
-                  </p>
-                  <span className="text-[10px] text-muted">{client.location}</span>
+          <div className="animate-marquee flex items-center gap-10 sm:gap-14">
+            {[
+              ...(city.verifiedClients && city.verifiedClients.length > 0 ? city.verifiedClients : verifiedClients),
+              ...(city.verifiedClients && city.verifiedClients.length > 0 ? city.verifiedClients : verifiedClients),
+            ].map((client, idx) => (
+              <div
+                key={idx}
+                className="group flex flex-col items-center justify-center shrink-0 w-36 sm:w-44 transition-all duration-300 hover:scale-105"
+              >
+                {/* Clean Large Floating Logo without Box */}
+                <div className="relative h-20 sm:h-24 w-full flex items-center justify-center overflow-hidden mb-2">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    className="object-contain drop-shadow-sm filter dark:brightness-105 group-hover:drop-shadow-md transition-all duration-300"
+                    sizes="(max-width: 640px) 144px, 176px"
+                  />
                 </div>
-              ))}
-            </div>
+
+                {/* Bottom Client Name & Category Tag */}
+                <div className="text-center w-full min-w-0">
+                  <h4 className="text-xs sm:text-[13px] font-extrabold text-foreground dark:text-white group-hover:text-accent dark:group-hover:text-cyan-300 transition-colors truncate">
+                    {client.name}
+                  </h4>
+                  <p className="text-[10px] font-bold text-accent dark:text-cyan-400 truncate mt-0.5">
+                    {client.tag || client.location}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Nearby Coverage Areas */}
-        {city.nearbyAreas && city.nearbyAreas.length > 0 && (
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-white/10 bg-gradient-to-br from-white via-slate-50/60 to-white dark:from-[#0b1320] dark:via-[#0e1726] dark:to-[#070d18] p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-900/5 dark:shadow-black/60 backdrop-blur-xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+      <Container className="pb-12 md:pb-16 space-y-16">
+
+        {/* Geographic Service Coverage */}
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-white/10 bg-gradient-to-br from-white via-slate-50/60 to-white dark:from-[#0b1320] dark:via-[#0e1726] dark:to-[#070d18] p-6 sm:p-8 lg:p-10 shadow-xl shadow-slate-900/5 dark:shadow-black/60 backdrop-blur-xl space-y-6">
+          {/* Header Row */}
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+            <div className="space-y-2 max-w-3xl">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-px w-6 bg-accent" aria-hidden="true" />
+                <p className="text-xs font-bold tracking-widest text-accent uppercase">
+                  {city.coverageEyebrow || `${city.name} Service Coverage`}
+                </p>
+                <span className="h-px w-6 bg-accent/40" aria-hidden="true" />
+              </div>
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl tracking-tight">
+                {city.coverageTitle || `${city.name} Service Coverage`}
+              </h2>
+              <p className="text-sm sm:text-base text-muted leading-relaxed">
+                {city.coverageIntro ||
+                  `IDGen is based in ${city.name} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`}
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-3 rounded-2xl border border-accent/20 bg-accent-soft/40 dark:bg-accent/10 p-3.5 shrink-0 shadow-xs">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-white shadow-xs">
+                <MapPin className="h-4 w-4" />
+              </div>
               <div>
-                <div className="inline-flex items-center gap-2 mb-2">
-                  <span className="h-px w-6 bg-accent" aria-hidden="true" />
-                  <p className="text-xs font-bold tracking-widest text-accent uppercase">
-                    {city.deliveryRoutesTitle?.includes("Direct") ? "Local Delivery Routes" : "Coverage Routes"}
-                  </p>
-                  <span className="h-px w-6 bg-accent/40" aria-hidden="true" />
-                </div>
-                <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl tracking-tight">
-                  {city.deliveryRoutesTitle || `Service Coverage Areas Across ${city.name}`}
-                </h2>
-                <p className="mt-2 text-sm text-muted max-w-2xl leading-relaxed">
-                  {city.deliveryRoutesSubtitle ||
-                    `IDGen delivers identity solutions directly to educational campuses, industrial corridors, and commercial districts across ${city.name}.`}
+                <p className="text-xs font-bold text-foreground">
+                  {city.coverageHubTitle || (isGuwahati ? "Guwahati Direct Hub" : "Direct City Hub")}
+                </p>
+                <p className="text-[10px] text-muted">
+                  {city.coverageHubSubtitle || `Full ${city.name} & Regional Reach`}
                 </p>
               </div>
+            </div>
+          </div>
 
-              <div className="inline-flex items-center gap-2 rounded-2xl border border-accent/20 bg-accent-soft/40 dark:bg-accent/10 p-3 shrink-0">
-                <Truck className="h-5 w-5 text-accent" />
-                <div className="text-left">
-                  <p className="text-xs font-bold text-foreground">Scheduled Dispatch</p>
-                  <p className="text-[10px] text-muted">Doorstep delivery across all zones</p>
-                </div>
+          {/* Active Serviced Localities & Commercial Belts */}
+          {city.nearbyAreas && city.nearbyAreas.length > 0 && (
+            <div className="space-y-3 pt-2 border-t border-slate-200/60 dark:border-white/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-foreground">
+                  {city.name} Serviced Localities &amp; Fulfillment Zones:
+                </span>
+                <span className="text-[11px] text-muted">
+                  ({city.nearbyAreas.length} active delivery zones covered)
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {city.nearbyAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="group inline-flex items-center gap-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200/90 dark:border-white/10 px-3.5 py-1.5 text-xs font-semibold text-foreground hover:border-accent hover:text-accent hover:bg-accent-soft/30 dark:hover:bg-accent/20 transition-all cursor-default shadow-2xs"
+                  >
+                    <MapPin className="h-3 w-3 text-accent/70 group-hover:text-accent shrink-0" />
+                    <span>{area}</span>
+                  </span>
+                ))}
               </div>
             </div>
-
-            <div className="flex flex-wrap gap-2 pt-2">
-              {city.nearbyAreas.map((area) => (
-                <span
-                  key={area}
-                  className="group inline-flex items-center gap-1.5 rounded-xl bg-white dark:bg-white/10 border border-slate-200/90 dark:border-white/10 px-3.5 py-1.5 text-xs font-semibold text-foreground hover:border-accent hover:text-accent hover:bg-accent-soft/30 dark:hover:bg-accent/20 transition-all cursor-default shadow-2xs"
-                >
-                  <MapPin className="h-3 w-3 text-accent/70 group-hover:text-accent shrink-0" />
-                  <span>{area}</span>
-                </span>
-              ))}
-            </div>
-
-            <p className="pt-2 border-t border-slate-200/60 dark:border-white/10 text-xs text-muted">
-              These indicate local delivery route coverage and priority fulfillment zones across {city.name}.
-            </p>
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Why Choose IDGen in [City] (Dynamic Carousel) */}
         <div className="space-y-8">
