@@ -20,6 +20,22 @@ export interface CityServiceItem {
   highlights?: string[];
 }
 
+export interface CityProductItem {
+  id: string;
+  slug: string;
+  name: string;
+  category: "holders" | "hardware" | "badges" | "medals" | "cards" | string;
+  categoryLabel: string;
+  imageSrc: string;
+  imageAlt?: string;
+  tag: string;
+  badge: string;
+  badgeColor?: string;
+  shortDescription: string;
+  spec: string;
+  highlights: string[];
+}
+
 export interface TargetAudienceItem {
   name: string;
   category: string;
@@ -107,8 +123,14 @@ export interface CityData {
   coveragePolicy?: string;
   coverageFooterNote?: string;
 
-  // 3. Products & Services Carousel
+  // 3. Services Carousel (ID Card Printing Services)
   services?: CityServiceItem[];
+
+  // 3b. Product Catalog (Physical Hardware & Products - Holders, Hooks, Badges, Medals, Cards)
+  catalogEyebrow?: string;
+  catalogTitle?: string;
+  catalogSubtitle?: string;
+  products?: CityProductItem[];
 
   // 4. Complete ID Card Packages / Setups
   setupsEyebrow?: string;
@@ -335,4 +357,86 @@ export function getDefaultWhyChoosePoints(cityName?: string, stateName?: string,
     },
   ];
 }
+
+export function getDefaultCityProducts(cityName?: string): CityProductItem[] {
+  const cName = cityName || "Your City";
+  return [
+    {
+      id: "id-card-holders",
+      slug: "id-card-holders",
+      name: "ID Card Holders",
+      category: "holders",
+      categoryLabel: "Protection Cases",
+      imageSrc: "/images/product-id-holders.jpg",
+      imageAlt: `Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in ${cName}`,
+      tag: "Hard Acrylic / PMMA",
+      badge: "Protection",
+      badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
+      shortDescription: `Vertical, horizontal, four-side-lock, metal and crystal holders for every card orientation supplied to ${cName}.`,
+      spec: "UV-Stabilized Polycarbonate • 0.82mm CR80",
+      highlights: ["4-Side Snap Lock Mechanism", "Crystal Optical Transparency", "Moisture & Dust Resistant"],
+    },
+    {
+      id: "id-card-hooks",
+      slug: "id-card-hooks",
+      name: "ID Card & Lanyard Hooks",
+      category: "hardware",
+      categoryLabel: "Attachments",
+      imageSrc: "/images/product-hooks-hardware.jpg",
+      imageAlt: `Chrome Swivel Dog Hooks and Lanyard Hardware Clips in ${cName}`,
+      tag: "Chrome-Plated Metal",
+      badge: "Hardware",
+      badgeColor: "text-blue-400 bg-blue-500/10 border-blue-400/30",
+      shortDescription: `Fish hooks, swivel snap hooks, alligator clips and metal attachments for lanyards in ${cName}.`,
+      spec: "Anti-Rust Nickel Plating • 25kg Tensile",
+      highlights: ["360° Free Swivel Rotation", "High-Tension Spring Lever", "Quick Auto-Release Breakaway"],
+    },
+    {
+      id: "acrylic-badges",
+      slug: "acrylic-badges",
+      name: "Acrylic Badges & Pins",
+      category: "badges",
+      categoryLabel: "Executive Badges",
+      imageSrc: "/images/product-acrylic-badges.jpg",
+      imageAlt: `Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in ${cName}`,
+      tag: "Laser Cut PMMA",
+      badge: "Executive",
+      badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
+      shortDescription: `Laser-cut crystal acrylic badges with magnetic backing or safety pins for corporate staff in ${cName}.`,
+      spec: "Polished Bevel PMMA • Triple Neodymium",
+      highlights: ["No Garment Puncture or Tearing", "Diamond-Polished Bevel Edges", "High-Definition 1200 DPI Print"],
+    },
+    {
+      id: "zinc-medals",
+      slug: "zinc-medals",
+      name: "Custom Zinc Medals",
+      category: "medals",
+      categoryLabel: "Sports & Honors",
+      imageSrc: "/images/product-zinc-medals.jpg",
+      imageAlt: `3D Die-Cast Zinc Medals with Satin Ribbons in ${cName}`,
+      tag: "Die-Cast Metal",
+      badge: "Recognition",
+      badgeColor: "text-purple-400 bg-purple-500/10 border-purple-400/30",
+      shortDescription: `High-relief antique gold, silver & bronze medals with customized satin ribbons for sports & events across ${cName}.`,
+      spec: "3D Sculpted Zinc Alloy • Heavy Antique Finish",
+      highlights: ["Custom 3D Institutional Crests", "Tri-Tone Antique Gold/Silver/Bronze", "Matching V-Cut Satin Ribbon"],
+    },
+    {
+      id: "pvc-cards",
+      slug: "pvc-cards",
+      name: "30-Mil PVC Smart Cards",
+      category: "cards",
+      categoryLabel: "Card Media",
+      imageSrc: "/images/product-pvc-cards.jpg",
+      imageAlt: `Solid Virgin PVC Core ID Cards and Smart RFID Media for ${cName}`,
+      tag: "Virgin PVC Core",
+      badge: "Core Media",
+      badgeColor: "text-sky-400 bg-sky-500/10 border-sky-400/30",
+      shortDescription: `Bank-grade virgin PVC core cards with 300 DPI high-definition dye sublimation & overlaminate in ${cName}.`,
+      spec: "CR80 30-Mil Standard • 300 DPI Sublimation",
+      highlights: ["Bank-Grade 100% Virgin Core", "Integrated RFID & NFC Chips", "Scratch-Resistant Overlaminate"],
+    },
+  ];
+}
+
 

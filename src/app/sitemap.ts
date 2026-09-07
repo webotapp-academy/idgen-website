@@ -3,7 +3,7 @@ import { execSync } from "node:child_process";
 import { SITE_URL } from "@/data/site";
 import { services } from "@/data/services";
 import { products } from "@/data/products";
-import { indexedStates, indexedCities } from "@/data/locations";
+import { getAllStates, getAllCities } from "@/lib/dynamic-locations";
 import { BLOG_POSTS } from "@/data/blogs";
 
 // Real per-file last-commit date instead of a single build timestamp
@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     });
   }
-  for (const st of indexedStates()) {
+  for (const st of getAllStates().filter((s) => s.indexed !== false)) {
     entries.push({
       url: `${SITE_URL}/service-areas/${st.slug}/`,
       lastModified: gitLastModified("src/app/service-areas/[state]/page.tsx"),
@@ -81,7 +81,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     });
   }
-  for (const { state, city } of indexedCities()) {
+  for (const { state, city } of getAllCities().filter(
+    (item) => item.state.indexed !== false && item.city.indexed !== false
+  )) {
     entries.push({
       url: `${SITE_URL}/service-areas/${state.slug}/${city.slug}/`,
       lastModified: gitLastModified("src/app/service-areas/[state]/[city]/page.tsx"),

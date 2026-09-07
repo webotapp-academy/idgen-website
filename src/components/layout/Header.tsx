@@ -55,15 +55,49 @@ const SERVICE_ICONS: Record<string, typeof Layers> = {
 import type { NavItem } from "@/data/site";
 
 export function Header({ navItems }: { navItems?: NavItem[] }) {
-  const currentNav = navItems || NAV;
+  const [navState, setNavState] = useState<NavItem[]>(navItems || NAV);
+  const currentNav = navState;
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    if (navItems) setNavState(navItems);
+  }, [navItems]);
+
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/locations", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.states)) {
+          setNavState((prev) => {
+            const base = prev && prev.length > 0 ? prev : NAV;
+            return base.map((item) => {
+              if (item.label === "Service Areas") {
+                return {
+                  ...item,
+                  children: data.states.map((st: { name: string; slug: string; cities: { name: string; slug: string }[] }) => ({
+                    label: st.name,
+                    href: `/service-areas/${st.slug}/`,
+                    children: (st.cities || []).map((c) => ({
+                      label: c.name,
+                      href: `/service-areas/${st.slug}/${c.slug}/`,
+                    })),
+                  })),
+                };
+              }
+              return item;
+            });
+          });
+        }
+      })
+      .catch(() => {});
   }, []);
 
   return (

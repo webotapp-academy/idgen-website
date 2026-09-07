@@ -141,7 +141,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </PageHero>
 
       {/* Complete Product Catalog Showcase */}
-      <ProductShowcaseCarousel />
+      <ProductShowcaseCarousel cityName={state.name} />
 
       <Container className="py-14 space-y-16">
         {/* Dynamic Sub-Category Cities Grid */}

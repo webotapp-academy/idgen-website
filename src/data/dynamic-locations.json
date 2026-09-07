@@ -228,18 +228,118 @@
           },
           {
             "id": "ultrasonic-sealing",
-            "title": "Ultrasonic Sealing in Guwahati",
+            "title": "Membership ID Card Printing",
             "categoryLabel": "Advanced Engineering",
             "tag": "Tamper-Evident",
             "badge": "Industrial Grade",
             "imageSrc": "/images/complete-id-card-lanyard-ultrasonic-sealing.jpg",
-            "description": "Industrial tamper-evident edge sealing for multi-year cards and non-stitch ultrasonic lanyard joint welding in Guwahati.",
+            "description": "Custom Membership ID Card Printing for Gameszones, Clubs, Gyms, Associations & Organizations\n",
             "href": "/ultrasonic-sealing/",
             "spec": "High-Frequency Fusion • Non-Stitch Clean",
             "highlights": [
-              "High-Frequency Ultrasonic Fusion",
+              "High-Frequency ",
               "100% Stitchless Clean Finish",
               "Weatherproof Multi-Year Protection"
+            ]
+          }
+        ],
+        "catalogEyebrow": "Guwahati Hardware & Products",
+        "catalogTitle": "Explore Our Product Catalog in Guwahati",
+        "catalogSubtitle": "From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in Guwahati, Assam.",
+        "products": [
+          {
+            "id": "id-card-holders",
+            "slug": "id-card-holders",
+            "name": "ID Card Holders",
+            "category": "holders",
+            "categoryLabel": "Protection Cases",
+            "imageSrc": "/images/product-id-holders.jpg",
+            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Guwahati",
+            "tag": "Hard Acrylic / PMMA",
+            "badge": "Protection",
+            "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
+            "shortDescription": "Vertical, horizontal, four-side-lock, metal and crystal holders for every card orientation supplied to Guwahati.",
+            "spec": "UV-Stabilized Polycarbonate • 0.82mm CR80",
+            "highlights": [
+              "4-Side Snap Lock Mechanism",
+              "Crystal Optical Transparency",
+              "Moisture & Dust Resistant"
+            ]
+          },
+          {
+            "id": "id-card-hooks",
+            "slug": "id-card-hooks",
+            "name": "ID Card & Lanyard Hooks",
+            "category": "hardware",
+            "categoryLabel": "Attachments",
+            "imageSrc": "/images/product-hooks-hardware.jpg",
+            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Guwahati",
+            "tag": "Chrome-Plated Metal",
+            "badge": "Hardware",
+            "badgeColor": "text-blue-400 bg-blue-500/10 border-blue-400/30",
+            "shortDescription": "Fish hooks, swivel snap hooks, alligator clips and metal attachments for lanyards in Guwahati.",
+            "spec": "Anti-Rust Nickel Plating • 25kg Tensile",
+            "highlights": [
+              "360° Free Swivel Rotation",
+              "High-Tension Spring Lever",
+              "Quick Auto-Release Breakaway"
+            ]
+          },
+          {
+            "id": "acrylic-badges",
+            "slug": "acrylic-badges",
+            "name": "Acrylic Badges & Pins",
+            "category": "badges",
+            "categoryLabel": "Executive Badges",
+            "imageSrc": "/images/product-acrylic-badges.jpg",
+            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Guwahati",
+            "tag": "Laser Cut PMMA",
+            "badge": "Executive",
+            "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
+            "shortDescription": "Laser-cut crystal acrylic badges with magnetic backing or safety pins for corporate staff in Guwahati.",
+            "spec": "Polished Bevel PMMA • Triple Neodymium",
+            "highlights": [
+              "No Garment Puncture or Tearing",
+              "Diamond-Polished Bevel Edges",
+              "High-Definition 1200 DPI Print"
+            ]
+          },
+          {
+            "id": "zinc-medals",
+            "slug": "zinc-medals",
+            "name": "Custom Zinc Medals",
+            "category": "medals",
+            "categoryLabel": "Sports & Honors",
+            "imageSrc": "/images/product-zinc-medals.jpg",
+            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Guwahati",
+            "tag": "Die-Cast Metal",
+            "badge": "Recognition",
+            "badgeColor": "text-purple-400 bg-purple-500/10 border-purple-400/30",
+            "shortDescription": "High-relief antique gold, silver & bronze medals with customized satin ribbons for sports & events across Guwahati.",
+            "spec": "3D Sculpted Zinc Alloy • Heavy Antique Finish",
+            "highlights": [
+              "Custom 3D Institutional Crests",
+              "Tri-Tone Antique Gold/Silver/Bronze",
+              "Matching V-Cut Satin Ribbon"
+            ]
+          },
+          {
+            "id": "pvc-cards",
+            "slug": "pvc-cards",
+            "name": "30-Mil PVC Smart Cards",
+            "category": "cards",
+            "categoryLabel": "Card Media",
+            "imageSrc": "/images/product-pvc-cards.jpg",
+            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Guwahati",
+            "tag": "Virgin PVC Core",
+            "badge": "Core Media",
+            "badgeColor": "text-sky-400 bg-sky-500/10 border-sky-400/30",
+            "shortDescription": "Bank-grade virgin PVC core cards with 300 DPI high-definition dye sublimation & overlaminate in Guwahati.",
+            "spec": "CR80 30-Mil Standard • 300 DPI Sublimation",
+            "highlights": [
+              "Bank-Grade 100% Virgin Core",
+              "Integrated RFID & NFC Chips",
+              "Scratch-Resistant Overlaminate"
             ]
           }
         ],
@@ -530,7 +630,9 @@
         "workflowCta2Text": "Start at Step 01: Request Quote",
         "confidentialityTitle": "Identification Data & Confidentiality",
         "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
-        "confidentialityCta": "Explore IDGen Studio →"
+        "confidentialityCta": "Explore IDGen Studio →",
+        "coverageHubTitle": "Guwahati Direct Hub",
+        "coverageHubSubtitle": "Full Guwahati & Regional Reach"
       },
       {
         "slug": "jorhat",
@@ -2157,6 +2259,478 @@
             ]
           }
         ]
+      },
+      {
+        "slug": "managa",
+        "name": "managa",
+        "isPrimary": false,
+        "heroEyebrow": "ASSAM SERVICE AREA",
+        "heroHeadline": "dgdtgertg",
+        "heroIntro": "IDGen provides customized ID card printing and identity solutions for organizations in managa.",
+        "heroSubtext": "",
+        "heroWorkflowSteps": [
+          "Requirement",
+          "Design",
+          "Approval",
+          "Production",
+          "Quality Check",
+          "Dispatch"
+        ],
+        "heroTrustBadges": [
+          "Free Pre-Production Physical Sample",
+          "100% Optical Inspection",
+          "Direct Cleanroom Manufacturing"
+        ],
+        "heroCtaText": "Request a Quote",
+        "heroSecondaryCtaText": "Call / WhatsApp IDGen",
+        "heroShowcaseBadge": "Direct Supply",
+        "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
+        "heroShowcaseChip2": "Verified Cleanroom",
+        "localColor": "",
+        "localPresenceBadge": "Local Identity Solutions",
+        "localPresenceSubBadge": "Direct Doorstep Logistics",
+        "localPresenceTitle": "IDGen: A Local Identity Solutions Partner",
+        "localAdvantagePills": [
+          "Primary Cleanroom",
+          "24–48h Priority Batch Dispatch",
+          "Pre-Production Physical Proofing",
+          "100% Optical Quality Check"
+        ],
+        "audiencesTitle": "Organizations require identity products for:",
+        "audiencesSubtitle": "Tailored credential architectures mapped to specific access requirements.",
+        "audiencesNote": "Single & dual-sided thermal, RFID & ultrasonic sealed credentials",
+        "targetAudiences": [
+          {
+            "name": "Students & Scholars",
+            "category": "Schools, Colleges & Universities",
+            "badge": "Academic"
+          },
+          {
+            "name": "Employees & Executives",
+            "category": "Corporate, Startups & Tech Offices",
+            "badge": "Corporate"
+          },
+          {
+            "name": "Faculty & Teaching Staff",
+            "category": "Professors, Lecturers & Teachers",
+            "badge": "Faculty"
+          },
+          {
+            "name": "Visitors & Contractors",
+            "category": "Temporary Badges & Escorted Passes",
+            "badge": "Security"
+          },
+          {
+            "name": "Club & Association Members",
+            "category": "Societies, Alumni & Sports Guilds",
+            "badge": "Membership"
+          },
+          {
+            "name": "Event Participants",
+            "category": "Summits, Trade Expos & Festivals",
+            "badge": "Events"
+          },
+          {
+            "name": "Conference Delegates",
+            "category": "Keynote Speakers & VIP Badges",
+            "badge": "Conferences"
+          },
+          {
+            "name": "Institutional Access Users",
+            "category": "RFID Turnstile & Door Smartcards",
+            "badge": "Smart RFID"
+          }
+        ],
+        "organizationsTitle": "Typical Organizations We Serve:",
+        "organizationsSubtitle": "Institutions, healthcare bodies, government offices & enterprises.",
+        "organizationsServed": [
+          "Schools",
+          "Colleges",
+          "Hospitals",
+          "Corporate Offices",
+          "Institutions"
+        ],
+        "localAdvantageTitle": "Local Production Advantage",
+        "localAdvantageDesc": "Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch.",
+        "deliveryRoutesTitle": "Direct Doorstep Delivery & Pickup Routes:",
+        "deliveryRoutesSubtitle": "Rapid fulfillment across all major institutional & commercial zones",
+        "coverageEyebrow": "Service Coverage",
+        "coverageTitle": "Service Coverage",
+        "coverageIntro": "IDGen can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.",
+        "coverageNotice": "We should not create separate pages for every locality just for SEO.",
+        "coverageExamples": [
+          "/service-areas/state/city/dispur/",
+          "/service-areas/state/city/beltola/",
+          "/service-areas/state/city/khanapara/"
+        ],
+        "coveragePolicy": "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
+        "coverageFooterNote": "This follows the existing architecture rule in your website source.",
+        "nearbyAreas": [],
+        "services": [
+          {
+            "id": "student-id",
+            "title": "Student ID Card Printing in Your City",
+            "categoryLabel": "Educational Institutions",
+            "tag": "Schools & Universities",
+            "badge": "Academic Priority",
+            "imageSrc": "/images/student-id-card-printing-idgen.jpg",
+            "description": "Personalized student identification for schools, colleges, and universities in Your City with digital photo collection via IDGen Studio.",
+            "href": "/student-id-card-printing/",
+            "spec": "30-Mil CR80 PVC • High-Res Photo Print",
+            "highlights": [
+              "Batch Photo Collection & Verification",
+              "Durable Waterproof CR80 PVC Material",
+              "Custom Institution Lanyards & Holders"
+            ]
+          },
+          {
+            "id": "employee-id",
+            "title": "Employee ID Card Printing in Your City",
+            "categoryLabel": "Corporate & Enterprises",
+            "tag": "Corporate Staff",
+            "badge": "Enterprise Core",
+            "imageSrc": "/images/employee-id-card-printing-idgen.jpg",
+            "description": "Personalized staff credentials with department, designation, employee code, barcode, and matching custom satin lanyards in Your City.",
+            "href": "/employee-id-card-printing/",
+            "spec": "Single / Dual Side • QR & Barcode Ready",
+            "highlights": [
+              "Single / Double-Sided High Def Print",
+              "Smart Barcode & QR Integration",
+              "Matching Crystal Holders & Clips"
+            ]
+          },
+          {
+            "id": "event-card",
+            "title": "Event Card Printing in Your City",
+            "categoryLabel": "Conferences & Seminars",
+            "tag": "Conferences & Summits",
+            "badge": "Express 48h",
+            "imageSrc": "/images/service-event-card-printing-v3.jpg",
+            "description": "Fast turnaround badge passes for delegates, speakers, exhibitors, VIPs, and organizers in Your City with custom event lanyards.",
+            "href": "/event-card-printing/",
+            "spec": "CR80 / Oversized • Dual-Hook Ready",
+            "highlights": [
+              "Oversized Passes & Delegate Badges",
+              "Dual-Hook Anti-Twist Lanyards",
+              "Fast Priority Event Dispatch"
+            ]
+          },
+          {
+            "id": "rfid-card",
+            "title": "RFID Card Printing in Your City",
+            "categoryLabel": "Smart Credentials",
+            "tag": "13.56 MHz / NFC",
+            "badge": "Turnstile Ready",
+            "imageSrc": "/images/service-rfid-card-printing-v3.jpg",
+            "description": "13.56 MHz Mifare 1K, 125 kHz Proximity, and UHF contactless credentials calibrated for door access & attendance systems across Your City.",
+            "href": "/rfid-card-printing/",
+            "spec": "Mifare 1K / 125 kHz • Turnstile Encoded",
+            "highlights": [
+              "Pre-Encoded UID Serial Numbers",
+              "Compatible with All Reader Brands",
+              "Embedded Contactless Smart Chips"
+            ]
+          },
+          {
+            "id": "custom-lanyards",
+            "title": "Custom Printed Lanyards in Your City",
+            "categoryLabel": "Wearable Branding",
+            "tag": "20mm Satin",
+            "badge": "Bestseller",
+            "imageSrc": "/images/service-custom-printed-lanyards.jpg",
+            "description": "High-density multicolor sublimation lanyards (16mm / 20mm) with durable metallic hooks and safety breakaways dispatched to Your City.",
+            "href": "/custom-printed-lanyard-printing/",
+            "spec": "20mm Satin • Ultrasonic Edge Sealed",
+            "highlights": [
+              "Zero-Fray Ultrasonic Sealed Ends",
+              "Pantone Accurate Color Matching",
+              "Chrome Dog / Swivel Metal Hooks"
+            ]
+          },
+          {
+            "id": "ultrasonic-sealing",
+            "title": "Ultrasonic Sealing in Your City",
+            "categoryLabel": "Advanced Engineering",
+            "tag": "Tamper-Evident",
+            "badge": "Industrial Grade",
+            "imageSrc": "/images/complete-id-card-lanyard-ultrasonic-sealing.jpg",
+            "description": "Industrial tamper-evident edge sealing for multi-year cards and non-stitch ultrasonic lanyard joint welding in Your City.",
+            "href": "/ultrasonic-sealing/",
+            "spec": "High-Frequency Fusion • Non-Stitch Clean",
+            "highlights": [
+              "High-Frequency Ultrasonic Fusion",
+              "100% Stitchless Clean Finish",
+              "Weatherproof Multi-Year Protection"
+            ]
+          }
+        ],
+        "setupsEyebrow": "Configurations",
+        "setupsTitle": "Complete ID Card Solutions & Packages",
+        "setupsSubtitle": "Not every organization needs the same identification setup. Select the exact packaging that matches your project requirements.",
+        "completeSetups": [
+          {
+            "title": "Card Only",
+            "subtitle": "For organizations that already have their own accessories.",
+            "items": [
+              "CR80 PVC Card",
+              "High-Resolution Front & Back Print",
+              "Standard Lamination"
+            ]
+          },
+          {
+            "title": "Card + Holder",
+            "subtitle": "For protected and professional card presentation.",
+            "items": [
+              "CR80 PVC Card",
+              "Crystal / Matte Rigid Card Holder",
+              "Thumb Slot Release"
+            ]
+          },
+          {
+            "title": "Card + Holder + Hook + Lanyard",
+            "subtitle": "For everyday wearable identification.",
+            "items": [
+              "CR80 PVC Card",
+              "Rigid Card Holder",
+              "Metal Dog / Swivel Hook",
+              "Custom Satin Lanyard"
+            ],
+            "recommended": true
+          },
+          {
+            "title": "Complete Identification Setup",
+            "subtitle": "Full tamper-evident organizational protection.",
+            "items": [
+              "CR80 PVC Card",
+              "Ultrasonic Sealing Lamination",
+              "Rigid / Soft ID Holder",
+              "Custom Breakaway Hook",
+              "Multi-Color Sublimation Lanyard"
+            ]
+          }
+        ],
+        "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
+        "bulkSubBadge": "Priority Route",
+        "bulkTitle": "Bulk ID Card Printing",
+        "bulkDesc": "IDGen supports institutional and high-volume identification requirements.",
+        "bulkHighlights": [
+          "Up to 10,000+ IDs / Day",
+          "100% Optical Quality Check",
+          "Free Pre-Production Physical Sample"
+        ],
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders:",
+        "bulkInputsDesc": "Provide these four details to receive an instant, accurate quotation tailored to your timeline.",
+        "bulkInputsStepTag": "Step 1 of 4 Preparation",
+        "bulkInputs": [
+          {
+            "step": "01",
+            "title": "Target Quantity",
+            "description": "50 to 50,000+ units with batch-wise staggered production.",
+            "badge": "Scalable Volume"
+          },
+          {
+            "step": "02",
+            "title": "Card & RFID Type",
+            "description": "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.",
+            "badge": "Credential Spec"
+          },
+          {
+            "step": "03",
+            "title": "Data & Photographs",
+            "description": "Spreadsheet records, photo archives, or live IDGen Studio digital portal.",
+            "badge": "Data Processing"
+          },
+          {
+            "step": "04",
+            "title": "Accessories & Delivery",
+            "description": "Custom printed lanyards, card holders & express doorstep dispatch.",
+            "badge": "Full Ecosystem"
+          }
+        ],
+        "bulkBottomNote": "Actual production capacity is matched to product and project specifications.",
+        "bulkCta1Text": "Talk to Specialist",
+        "bulkCta2Text": "Request a Bulk Quote",
+        "projectsBadge": "Verified Institutional Deployments",
+        "projectsSubBadge": "Active Regional Partnerships • Zero Fabricated Claims",
+        "projectsTitle": "Organizations & Projects",
+        "projectsDesc": "IDGen partners with leading academic institutions, corporate offices, and government departments.",
+        "verifiedClients": [
+          {
+            "name": "Don Bosco Hr Sec School",
+            "logo": "/images/clint logo/1.png",
+            "location": "Gojapara, Assam",
+            "tag": "Guwahati"
+          },
+          {
+            "name": "Jorhat Kendriya Vidyalaya",
+            "logo": "/images/clint logo/2.png",
+            "location": "Jorhat, Assam",
+            "tag": "Jorhat"
+          },
+          {
+            "name": "CKB College",
+            "logo": "/images/clint logo/3.png",
+            "location": "Jorhat, Assam",
+            "tag": "Dibrugarh"
+          },
+          {
+            "name": "DBS Itanagar",
+            "logo": "/images/clint logo/4.png",
+            "location": "Arunachal Pradesh",
+            "tag": "Silchar"
+          },
+          {
+            "name": "Rayburn College",
+            "logo": "/images/clint logo/5.png",
+            "location": "Churachandpur, Manipur",
+            "tag": "Tezpur"
+          },
+          {
+            "name": "Nathan Brown Academy",
+            "logo": "/images/clint logo/6.png",
+            "location": "Namrup, Assam",
+            "tag": "Nagaon"
+          },
+          {
+            "name": "Ardalivia English School",
+            "logo": "/images/clint logo/7.png",
+            "location": "Assam",
+            "tag": "Tinsukia"
+          },
+          {
+            "name": "Assam Govt Departments",
+            "logo": "/images/clint logo/8.png",
+            "location": "Guwahati Hub",
+            "tag": "Sivasagar"
+          }
+        ],
+        "whyChooseEyebrow": "Why Choose Us",
+        "whyChooseTitle": "Why Choose IDGen?",
+        "whyChooseSubtitle": "Direct regional manufacturing, experience dating back to 2014, organizational focus, and an integrated digital workflow.",
+        "whyChoosePoints": [
+          {
+            "title": "Your City Direct Regional Fulfillment",
+            "desc": "Direct logistical coordination from our regional manufacturing cleanroom with doorstep delivery across Your City and the region.",
+            "image": "/images/idgen-id-card-solutions-guwahati-assam.jpg",
+            "badge": "Regional Priority",
+            "stat": "Fast Doorstep Dispatch"
+          },
+          {
+            "title": "Experience Since 2014",
+            "desc": "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
+            "image": "/images/why-idgen-more-than-brand.jpg",
+            "badge": "10+ Years Proven",
+            "stat": "Since 2014"
+          },
+          {
+            "title": "Organizational & Institutional Focus",
+            "desc": "Engineered specifically for schools, colleges, corporate offices, and government bodies in Your City rather than basic retail single-card prints.",
+            "image": "/images/sol-institutions-idgen-v1.jpg",
+            "badge": "Institutional Grade",
+            "stat": "Bulk & Enterprise"
+          },
+          {
+            "title": "Complete Identification Ecosystem",
+            "desc": "One-stop coordinated supply of premium CR80 PVC cards, RFID chips, custom satin lanyards, crystal holders, and ultrasonic tamper-evident sealing.",
+            "image": "/images/why-idgen-complete-ecosystem-branded.jpg",
+            "badge": "Turnkey Packages",
+            "stat": "Cards + Lanyards + Holders"
+          },
+          {
+            "title": "Structured 8-Stage Workflow",
+            "desc": "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
+            "image": "/images/why-idgen-production-batches-branded.jpg",
+            "badge": "Quality Assured",
+            "stat": "Zero-Defect Standard"
+          },
+          {
+            "title": "IDGen Studio Digital Portal",
+            "desc": "Cloud platform for online student and employee photo collection, background removal, and batch approvals without spreadsheet chaos.",
+            "image": "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+            "badge": "Cloud Automation",
+            "stat": "Digital Previews"
+          }
+        ],
+        "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
+        "workflowBadge": "Priority Turnaround",
+        "workflowTitle": "How to Order ID Cards",
+        "workflowSubtitle": "An institutional-grade 8-stage production flow engineered for data integrity, zero defects, and doorstep fulfillment.",
+        "workflowNote": "Doorstep express delivery with rigorous optical quality verification before dispatch.",
+        "workflowCta1Text": "Call / WhatsApp IDGen",
+        "workflowCta2Text": "Start at Step 01: Request Quote",
+        "orderSteps": [
+          {
+            "step": "01",
+            "title": "Tell Us Your Requirement",
+            "description": "Share: Organization + Product + Quantity + Delivery Requirement.",
+            "phase": "Intake"
+          },
+          {
+            "step": "02",
+            "title": "Share Your Data",
+            "description": "Provide the required records and photos (or use IDGen Studio).",
+            "phase": "Data Intake"
+          },
+          {
+            "step": "03",
+            "title": "Confirm the Design",
+            "description": "Use your existing design or discuss a custom template.",
+            "phase": "Artwork"
+          },
+          {
+            "step": "04",
+            "title": "Review & Proofing",
+            "description": "Review digital PDF proofs or request physical pre-production sample.",
+            "phase": "Proofing"
+          },
+          {
+            "step": "05",
+            "title": "Approval Sign-Off",
+            "description": "Formal sign-off on design, data, and accessory specs.",
+            "phase": "Sign-Off"
+          },
+          {
+            "step": "06",
+            "title": "Cleanroom Production",
+            "description": "Thermal printing, RFID encoding, and ultrasonic lamination.",
+            "phase": "Manufacturing"
+          },
+          {
+            "step": "07",
+            "title": "100% Quality Check",
+            "description": "100% optical inspection before dispatch.",
+            "phase": "Quality Audit"
+          },
+          {
+            "step": "08",
+            "title": "Doorstep Dispatch",
+            "description": "Prepared for dispatch and delivered directly to your doorstep.",
+            "phase": "Fulfillment"
+          }
+        ],
+        "faqsTitle": "Frequently Asked Questions",
+        "faqsSubtitle": "Key answers regarding ID card printing, batch timelines, accessories, and delivery.",
+        "faqsHelpTitle": "Have Specific Questions?",
+        "faqsHelpText": "Need guidance on custom RFID chip frequencies, lanyard branding, or batch approvals? Our production desk is here to help.",
+        "faqs": [
+          {
+            "q": "Where is IDGen located?",
+            "a": "Guwahati, Assam, India."
+          },
+          {
+            "q": "Does IDGen provide ID card printing here?",
+            "a": "Yes, customized and bulk identity products."
+          }
+        ],
+        "quickAnswer": "",
+        "metaTitle": "ID Card Printing in managa | IDGen Identity Solutions",
+        "metaDescription": "IDGen provides ID card printing and identity solutions in managa, including student, employee, event and RFID cards.",
+        "coverageHubTitle": "Direct City Hub",
+        "coverageHubSubtitle": "Full managa & Regional Reach",
+        "confidentialityTitle": "Identification Data & Confidentiality",
+        "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
+        "confidentialityCta": "Explore IDGen Studio →",
+        "heroImage": "/uploads/617505416_122189304842373556_5595338968449318736_n-1788764348527.jpg"
       }
     ]
   },

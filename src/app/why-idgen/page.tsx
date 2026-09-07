@@ -943,31 +943,38 @@ export default function WhyIdgenPage() {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
-                    {neStates.map((state, idx) => (
-                      <div
-                        key={state}
-                        className="group flex flex-col justify-between rounded-xl border border-slate-200/90 dark:border-slate-700 bg-white dark:bg-slate-900 p-2.5 shadow-2xs hover:border-[#009fe3]/50 hover:shadow-xs transition-all"
-                      >
-                        <span className="text-[10px] font-black text-[#009fe3]/70 dark:text-cyan-400/80 group-hover:text-[#009fe3] dark:group-hover:text-cyan-300 font-mono">
-                          0{idx + 1}
-                        </span>
-                        <span className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-[#009fe3] dark:group-hover:text-cyan-300 transition-colors truncate">
-                          {state}
-                        </span>
-                      </div>
-                    ))}
+                    {neStates.map((state, idx) => {
+                      const slug = state.toLowerCase().replace(/\s+/g, "-");
+                      return (
+                        <Link
+                          key={state}
+                          href={`/service-areas/${slug}/`}
+                          className="group flex flex-col justify-between rounded-xl border border-slate-200/90 dark:border-slate-700 bg-white dark:bg-slate-900 p-2.5 shadow-2xs hover:border-[#009fe3]/50 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer"
+                        >
+                          <span className="text-[10px] font-black text-[#009fe3]/70 dark:text-cyan-400/80 group-hover:text-[#009fe3] dark:group-hover:text-cyan-300 font-mono">
+                            0{idx + 1}
+                          </span>
+                          <span className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-[#009fe3] dark:group-hover:text-cyan-300 transition-colors truncate">
+                            {state}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
 
               {/* Guwahati Central Base Highlight */}
-              <div className="rounded-2xl border border-[#009fe3]/30 dark:border-cyan-800/50 bg-sky-50/80 dark:bg-slate-800/80 p-4 shadow-2xs flex items-start gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#009fe3] text-white shadow-md shadow-[#009fe3]/30">
+              <Link
+                href="/service-areas/assam/guwahati/"
+                className="group rounded-2xl border border-[#009fe3]/30 dark:border-cyan-800/50 bg-sky-50/80 dark:bg-slate-800/80 p-4 shadow-2xs hover:shadow-md hover:border-[#009fe3]/70 hover:-translate-y-0.5 transition-all flex items-start gap-3.5 cursor-pointer"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#009fe3] text-white shadow-md shadow-[#009fe3]/30 group-hover:scale-105 transition-transform">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
+                    <span className="text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 group-hover:underline">
                       Guwahati Central Base
                     </span>
                     <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -976,7 +983,7 @@ export default function WhyIdgenPage() {
                     IDGen is based in Guwahati, Assam, providing a central base for serving organizations across the region.
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Right Card: Our Journey (Connected Timeline) */}
@@ -2171,15 +2178,19 @@ export default function WhyIdgenPage() {
                 Our regional focus includes:
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {neStates.map((state) => (
-                  <div
-                    key={state}
-                    className="flex items-center gap-3 rounded-2xl bg-sky-50/70 dark:bg-slate-800/80 border border-sky-200/80 dark:border-slate-700 px-4 py-3 text-sm font-black text-[#009fe3] dark:text-cyan-400 shadow-2xs"
-                  >
-                    <div className="h-2.5 w-2.5 rounded-full bg-[#009fe3]" />
-                    <span>{state}</span>
-                  </div>
-                ))}
+                {neStates.map((state) => {
+                  const slug = state.toLowerCase().replace(/\s+/g, "-");
+                  return (
+                    <Link
+                      key={state}
+                      href={`/service-areas/${slug}/`}
+                      className="group flex items-center gap-3 rounded-2xl bg-sky-50/70 dark:bg-slate-800/80 border border-sky-200/80 dark:border-slate-700 px-4 py-3 text-sm font-black text-[#009fe3] dark:text-cyan-400 shadow-2xs hover:bg-white hover:border-[#009fe3]/60 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer"
+                    >
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#009fe3] group-hover:scale-125 transition-transform" />
+                      <span className="group-hover:underline">{state}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 

@@ -38,6 +38,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessSchema } from "@/lib/schema-org";
 import { getState, getCity, getAllCities, getDefaultCityServices } from "@/lib/dynamic-locations";
+import { renderDualColorHeadline } from "@/lib/render-headline";
 import { services } from "@/data/services";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
@@ -180,17 +181,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
       <PageHero
         eyebrow={city.heroEyebrow || `${state.name} Service Area`}
         icon={MapPin}
-        title={
-          city.heroHeadline ? (
-            <span>{city.heroHeadline}</span>
-          ) : (
-            <>
-              <span>ID Card Printing &amp; </span>
-              <span className="gradient-text">Identity Solutions</span>
-              <span> in {city.name}</span>
-            </>
-          )
-        }
+        title={renderDualColorHeadline(city.heroHeadline, city.name)}
         lede={city.heroIntro}
         visual={
           <HeroShowcaseVisual
@@ -260,10 +251,10 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
             {(city.heroTrustBadges && city.heroTrustBadges.length > 0
               ? city.heroTrustBadges
               : [
-                  "Free Pre-Production Physical Sample",
-                  "100% Optical Inspection",
-                  "Direct Cleanroom Manufacturing",
-                ]
+                "Free Pre-Production Physical Sample",
+                "100% Optical Inspection",
+                "Direct Cleanroom Manufacturing",
+              ]
             ).map((badge, idx) => (
               <span key={idx} className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
@@ -274,8 +265,15 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
         </div>
       </PageHero>
 
-      {/* Complete Product Catalog Showcase */}
-      <ProductShowcaseCarousel />
+      {/* Complete Product Catalog Showcase (Dynamic from Admin) */}
+      <ProductShowcaseCarousel
+        cityName={city.name}
+        stateName={state.name}
+        title={city.catalogTitle}
+        subtitle={city.catalogSubtitle}
+        eyebrow={city.catalogEyebrow}
+        products={city.products && city.products.length > 0 ? city.products : undefined}
+      />
 
       <Container className="py-12 md:py-16 space-y-16">
 
@@ -305,11 +303,10 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
             {completeSetups.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`relative flex flex-col justify-between rounded-3xl p-6 border transition ${
-                  pkg.recommended
-                    ? "border-accent bg-surface shadow-lg shadow-accent/5 ring-2 ring-accent/20"
-                    : "border-surface-border bg-surface shadow-sm"
-                }`}
+                className={`relative flex flex-col justify-between rounded-3xl p-6 border transition ${pkg.recommended
+                  ? "border-accent bg-surface shadow-lg shadow-accent/5 ring-2 ring-accent/20"
+                  : "border-surface-border bg-surface shadow-sm"
+                  }`}
               >
                 {pkg.recommended && (
                   <span className="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
@@ -333,11 +330,10 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
                 <div className="mt-6 pt-3 border-t border-surface-border">
                   <Link
                     href="/request-a-quote/"
-                    className={`block w-full text-center rounded-xl py-2 text-xs font-bold transition ${
-                      pkg.recommended
-                        ? "bg-accent text-white hover:bg-accent-hover shadow-sm"
-                        : "bg-background border border-surface-border text-foreground hover:border-accent hover:text-accent"
-                    }`}
+                    className={`block w-full text-center rounded-xl py-2 text-xs font-bold transition ${pkg.recommended
+                      ? "bg-accent text-white hover:bg-accent-hover shadow-sm"
+                      : "bg-background border border-surface-border text-foreground hover:border-accent hover:text-accent"
+                      }`}
                   >
                     Select {pkg.title}
                   </Link>

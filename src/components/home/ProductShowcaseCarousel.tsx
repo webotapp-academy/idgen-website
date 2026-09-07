@@ -19,39 +19,12 @@ import {
   Zap
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { renderDualColorHeadline } from "@/lib/render-headline";
+import type { CityProductItem } from "@/lib/dynamic-locations-types";
 
-export interface ProductItem {
-  id: string;
-  slug: string;
-  name: string;
-  category: "holders" | "hardware" | "lanyards" | "badges" | "medals" | "cards" | "pricing";
-  categoryLabel: string;
-  imageSrc: string;
-  imageAlt: string;
-  tag: string;
-  badge: string;
-  badgeColor: string;
-  shortDescription: string;
-  spec: string;
-  highlights: string[];
-}
+export type ProductItem = CityProductItem;
 
 const products: ProductItem[] = [
-  {
-    id: "identity-pricing",
-    slug: "pricing",
-    name: "Identity Product Pricing",
-    category: "pricing",
-    categoryLabel: "Transparent Rates",
-    imageSrc: "/images/idgen-id-card-printing-pricing.jpg",
-    imageAlt: "IDGen Transparent Reference Pricing and Quotations for ID Cards, Lanyards and RFID",
-    tag: "From ₹15 / Card",
-    badge: "Direct Rates",
-    badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
-    shortDescription: "Transparent factory-direct reference pricing for single/double-side PVC ID cards, 20mm custom printed lanyards, event badges, and RFID smart cards.",
-    spec: "PVC from ₹15 • Lanyards from ₹15 • RFID ₹45",
-    highlights: ["Transparent Factory-Direct Rates", "Tiered Wholesale Project Discounts", "Instant Customized Quotations"],
-  },
   {
     id: "id-card-holders",
     slug: "id-card-holders",
@@ -63,14 +36,14 @@ const products: ProductItem[] = [
     tag: "Hard Acrylic / PMMA",
     badge: "Protection",
     badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
-    shortDescription: "Crystal-clear vertical and horizontal hard cases, four-side-lock enclosures, and flexible PVC sleeves designed to protect CR80 cards.",
+    shortDescription: "Vertical, horizontal, four-side-lock, metal and crystal holders for every card orientation.",
     spec: "UV-Stabilized Polycarbonate • 0.82mm CR80",
     highlights: ["4-Side Snap Lock Mechanism", "Crystal Optical Transparency", "Moisture & Dust Resistant"],
   },
   {
     id: "id-card-hooks",
     slug: "id-card-hooks",
-    name: "Hooks & Hardware Clips",
+    name: "ID Card & Lanyard Hooks",
     category: "hardware",
     categoryLabel: "Attachments",
     imageSrc: "/images/product-hooks-hardware.jpg",
@@ -78,29 +51,14 @@ const products: ProductItem[] = [
     tag: "Chrome-Plated Metal",
     badge: "Hardware",
     badgeColor: "text-blue-400 bg-blue-500/10 border-blue-400/30",
-    shortDescription: "Heavy-duty chrome-plated swivel dog hooks, alligator clips, round carabiners, and safety breakaway clips for high-tension daily use.",
+    shortDescription: "Fish hooks, swivel snap hooks, alligator clips and metal attachments for lanyards.",
     spec: "Anti-Rust Nickel Plating • 25kg Tensile",
     highlights: ["360° Free Swivel Rotation", "High-Tension Spring Lever", "Quick Auto-Release Breakaway"],
   },
   {
-    id: "custom-printed-lanyards",
-    slug: "custom-printed-lanyard-printing",
-    name: "Custom Printed Lanyards",
-    category: "lanyards",
-    categoryLabel: "Ribbon Branding",
-    imageSrc: "/images/product-satin-lanyards.jpg",
-    imageAlt: "Custom Printed 20mm Satin Neck Lanyards with Ultrasonic Sealing",
-    tag: "20mm Satin Ribbon",
-    badge: "Bestseller",
-    badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-400/30",
-    shortDescription: "Branded 20mm satin finish neck lanyards featuring high-definition dye-sublimation artwork and ultrasonic sealed attachment loops.",
-    spec: "20mm Multi-Color Satin • Ultrasonic Sealed",
-    highlights: ["Zero-Fray Ultrasonic Welded Ends", "True-to-Life Pantone Matching", "Single or Double Hook Configs"],
-  },
-  {
     id: "acrylic-badges",
     slug: "acrylic-badges",
-    name: "Custom Acrylic Badges & Pins",
+    name: "Acrylic Badges & Pins",
     category: "badges",
     categoryLabel: "Executive Badges",
     imageSrc: "/images/product-acrylic-badges.jpg",
@@ -108,14 +66,14 @@ const products: ProductItem[] = [
     tag: "Laser Cut PMMA",
     badge: "Executive",
     badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
-    shortDescription: "Precision laser-cut crystal acrylic badges with triple neodymium magnetic backings or safety pins for corporate staff and doctors.",
+    shortDescription: "Laser-cut crystal acrylic badges with magnetic backing or safety pins for corporate staff.",
     spec: "Polished Bevel PMMA • Triple Neodymium",
     highlights: ["No Garment Puncture or Tearing", "Diamond-Polished Bevel Edges", "High-Definition 1200 DPI Print"],
   },
   {
     id: "zinc-medals",
     slug: "zinc-medals",
-    name: "Die-Cast Zinc Medals",
+    name: "Custom Zinc Medals",
     category: "medals",
     categoryLabel: "Sports & Honors",
     imageSrc: "/images/product-zinc-medals.jpg",
@@ -123,14 +81,14 @@ const products: ProductItem[] = [
     tag: "Die-Cast Metal",
     badge: "Recognition",
     badgeColor: "text-purple-400 bg-purple-500/10 border-purple-400/30",
-    shortDescription: "High-relief antique gold, silver, and bronze die-cast zinc medals paired with full-color satin neck ribbons for ceremonies and tournaments.",
+    shortDescription: "High-relief antique gold, silver & bronze medals with customized satin ribbons for sports & events.",
     spec: "3D Sculpted Zinc Alloy • Heavy Antique Finish",
     highlights: ["Custom 3D Institutional Crests", "Tri-Tone Antique Gold/Silver/Bronze", "Matching V-Cut Satin Ribbon"],
   },
   {
     id: "pvc-cards",
     slug: "pvc-cards",
-    name: "30-Mil CR80 PVC Smart Cards",
+    name: "30-Mil PVC Smart Cards",
     category: "cards",
     categoryLabel: "Card Media",
     imageSrc: "/images/product-pvc-cards.jpg",
@@ -138,22 +96,38 @@ const products: ProductItem[] = [
     tag: "Virgin PVC Core",
     badge: "Core Media",
     badgeColor: "text-sky-400 bg-sky-500/10 border-sky-400/30",
-    shortDescription: "Bank-grade 30-mil CR80 solid virgin PVC cards featuring 300 DPI dye-sublimation, contactless RFID chips, and edge-to-edge overlaminate.",
+    shortDescription: "Bank-grade virgin PVC core cards with 300 DPI high-definition dye sublimation & overlaminate.",
     spec: "CR80 30-Mil Standard • 300 DPI Sublimation",
     highlights: ["Bank-Grade 100% Virgin Core", "Integrated RFID & NFC Chips", "Scratch-Resistant Overlaminate"],
   },
 ];
 
-export function ProductShowcaseCarousel() {
+export function ProductShowcaseCarousel({
+  cityName,
+  stateName,
+  eyebrow,
+  title,
+  subtitle,
+  products: customProducts,
+}: {
+  cityName?: string;
+  stateName?: string;
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  products?: ProductItem[];
+} = {}) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
+  const displayProducts = customProducts || products;
+
   const filteredProducts = activeCategory === "all"
-    ? products
-    : products.filter((p) => p.category === activeCategory);
+    ? displayProducts
+    : displayProducts.filter((p) => p.category === activeCategory);
 
   const totalSlides = filteredProducts.length;
 
@@ -176,11 +150,13 @@ export function ProductShowcaseCarousel() {
   }, []);
 
   const handleNext = useCallback(() => {
+    if (totalSlides <= 1) return;
     const nextIdx = (currentIndex + 1) % totalSlides;
     scrollToIndex(nextIdx);
   }, [currentIndex, totalSlides, scrollToIndex]);
 
   const handlePrev = useCallback(() => {
+    if (totalSlides <= 1) return;
     const prevIdx = (currentIndex - 1 + totalSlides) % totalSlides;
     scrollToIndex(prevIdx);
   }, [currentIndex, totalSlides, scrollToIndex]);
@@ -233,15 +209,31 @@ export function ProductShowcaseCarousel() {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 dark:bg-accent/15 px-3.5 py-1.5 text-xs font-bold tracking-widest text-accent uppercase backdrop-blur-md">
               <Package className="h-3.5 w-3.5 text-accent" />
-              <span>Hardware &amp; Identity Products</span>
+              <span>{eyebrow || (cityName ? `${cityName} Hardware & Products` : "Hardware & Identity Products")}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-foreground tracking-tight leading-tight">
-              Explore Our Complete Product Catalog
+              {title ? (
+                renderDualColorHeadline(title, cityName)
+              ) : cityName ? (
+                <>
+                  <span>Explore Our </span>
+                  <span className="gradient-text">Product Catalog</span>
+                  <span> in {cityName}</span>
+                </>
+              ) : (
+                <>
+                  <span>Explore Our Complete </span>
+                  <span className="gradient-text">Product Catalog</span>
+                </>
+              )}
             </h2>
 
             <p className="text-sm sm:text-base text-muted leading-relaxed">
-              From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom satin lanyards and 30-mil virgin PVC smart cards, discover IDGen&apos;s direct factory products.
+              {subtitle ||
+                (cityName
+                  ? `From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in ${cityName}${stateName ? `, ${stateName}` : ""}.`
+                  : `From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's direct factory products.`)}
             </p>
           </div>
 
@@ -306,7 +298,7 @@ export function ProductShowcaseCarousel() {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-surface-border/80 img-shine mb-5">
                 <Image
                   src={product.imageSrc}
-                  alt={product.imageAlt}
+                  alt={product.imageAlt || product.name}
                   title={product.name}
                   fill
                   unoptimized
@@ -317,7 +309,7 @@ export function ProductShowcaseCarousel() {
 
                 {/* Top Badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                  <span className={`rounded-full border px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider backdrop-blur-md shadow-md ${product.badgeColor}`}>
+                  <span className={`rounded-full border px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider backdrop-blur-md shadow-md ${product.badgeColor || "text-accent bg-accent/10 border-accent/30"}`}>
                     {product.badge}
                   </span>
                 </div>
@@ -368,10 +360,10 @@ export function ProductShowcaseCarousel() {
                 {/* Card Bottom CTA Actions */}
                 <div className="pt-4 border-t border-surface-border flex items-center justify-between gap-3">
                   <Link
-                    href={`/${product.slug}/`}
+                    href={product.slug ? (product.slug.startsWith('/') ? product.slug : `/${product.slug.replace(/^\/+|\/+$/g, '')}/`) : '/products/'}
                     className="inline-flex items-center gap-1.5 rounded-xl bg-accent/10 border border-accent/20 px-4 py-2.5 text-xs font-bold text-accent transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-md hover:shadow-accent/20"
                   >
-                    <span>{product.slug === "pricing" ? "View Pricing Guide" : "View Specifications"}</span>
+                    <span>View Specifications</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
 
@@ -410,8 +402,16 @@ export function ProductShowcaseCarousel() {
               <Zap className="h-4 w-4" />
             </div>
             <div>
-              <p className="font-bold text-foreground text-sm">Custom Sizes &amp; Hardware Compatibility Available</p>
-              <p className="text-muted text-xs">Need custom dimensions, magnetic badge fittings, or specific clip attachments? We fabricate to your requirements.</p>
+              <p className="font-bold text-foreground text-sm">
+                {cityName
+                  ? `Custom Sizes & Hardware Compatibility for ${cityName} Organizations`
+                  : "Custom Sizes & Hardware Compatibility Available"}
+              </p>
+              <p className="text-muted text-xs">
+                {cityName
+                  ? `Need custom dimensions, magnetic badge fittings, or specific clip attachments for your ${cityName} project? We fabricate to your exact requirements.`
+                  : "Need custom dimensions, magnetic badge fittings, or specific clip attachments? We fabricate to your requirements."}
+              </p>
             </div>
           </div>
 
@@ -420,7 +420,7 @@ export function ProductShowcaseCarousel() {
               href="/request-a-quote/"
               className="font-bold text-accent hover:underline inline-flex items-center gap-1"
             >
-              <span>Request Hardware Specimen</span>
+              <span>{cityName ? `Request ${cityName} Hardware Specimen` : "Request Hardware Specimen"}</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>

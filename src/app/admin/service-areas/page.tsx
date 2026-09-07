@@ -29,6 +29,7 @@ import type {
   StateData,
   CityData,
   CityServiceItem,
+  CityProductItem,
   TargetAudienceItem,
   WhyChoosePointItem,
   BulkInputItem,
@@ -36,7 +37,7 @@ import type {
   OrderStepItem,
   SetupPackage,
 } from "@/lib/dynamic-locations-types";
-import { getDefaultCityServices, getDefaultWhyChoosePoints } from "@/lib/dynamic-locations-types";
+import { getDefaultCityServices, getDefaultCityProducts, getDefaultWhyChoosePoints } from "@/lib/dynamic-locations-types";
 
 export default function AdminServiceAreasPage() {
   const [states, setStates] = useState<StateData[]>([]);
@@ -66,6 +67,10 @@ export default function AdminServiceAreasPage() {
     nearbyAreas: [],
     organizationsServed: [],
     services: [],
+    catalogEyebrow: "",
+    catalogTitle: "",
+    catalogSubtitle: "",
+    products: [],
     faqs: [],
     whyChoosePoints: [],
     quickAnswer: "",
@@ -80,7 +85,7 @@ export default function AdminServiceAreasPage() {
 
   // Active tab in City Editor modal
   const [cityActiveTab, setCityActiveTab] = useState<
-    "general" | "local" | "services" | "packages" | "whyChoose" | "clients" | "faqs" | "seo"
+    "general" | "local" | "services" | "products" | "packages" | "whyChoose" | "clients" | "faqs" | "seo"
   >("general");
 
   // Helper inputs for tags and list additions
@@ -195,6 +200,49 @@ export default function AdminServiceAreasPage() {
               return { ...prev, services: updatedServices };
             });
             setMessage({ type: "success", text: "Product showcase image uploaded successfully!" });
+          } else {
+            setMessage({ type: "error", text: data.error || "Failed to upload product image." });
+          }
+        } catch (err) {
+          console.error(err);
+          setMessage({ type: "error", text: "Failed to upload product image." });
+        } finally {
+          setUploadingImage(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: "error", text: "Error reading file." });
+      setUploadingImage(false);
+    }
+  }
+
+  async function handleProductCatalogImageUpload(e: React.ChangeEvent<HTMLInputElement>, productIndex: number) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setUploadingImage(true);
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const base64Image = reader.result as string;
+          const res = await fetch("/api/admin/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image: base64Image, filename: file.name }),
+          });
+          const data = await res.json();
+          if (data.success && data.url) {
+            setCityForm((prev) => {
+              const updatedProducts = [...(prev.products || [])];
+              if (updatedProducts[productIndex]) {
+                updatedProducts[productIndex].imageSrc = data.url;
+              }
+              return { ...prev, products: updatedProducts };
+            });
+            setMessage({ type: "success", text: "Product image uploaded successfully!" });
           } else {
             setMessage({ type: "error", text: data.error || "Failed to upload product image." });
           }
@@ -392,10 +440,10 @@ export default function AdminServiceAreasPage() {
           city.heroTrustBadges && city.heroTrustBadges.length > 0
             ? city.heroTrustBadges
             : [
-                "Free Pre-Production Physical Sample",
-                "100% Optical Inspection",
-                "Direct Cleanroom Manufacturing",
-              ],
+              "Free Pre-Production Physical Sample",
+              "100% Optical Inspection",
+              "Direct Cleanroom Manufacturing",
+            ],
         heroCtaText: city.heroCtaText || `Request a ${city.name} Quote`,
         heroSecondaryCtaText: city.heroSecondaryCtaText || "Call / WhatsApp IDGen",
         heroShowcaseBadge: city.heroShowcaseBadge || `${city.name} Direct Supply`,
@@ -411,11 +459,11 @@ export default function AdminServiceAreasPage() {
           city.localAdvantagePills && city.localAdvantagePills.length > 0
             ? city.localAdvantagePills
             : [
-                `${city.name} Primary Cleanroom`,
-                "24–48h Priority Batch Dispatch",
-                "Pre-Production Physical Proofing",
-                "100% Optical Quality Check",
-              ],
+              `${city.name} Primary Cleanroom`,
+              "24–48h Priority Batch Dispatch",
+              "Pre-Production Physical Proofing",
+              "100% Optical Quality Check",
+            ],
         audiencesTitle: city.audiencesTitle || `Organizations in ${city.name} require identity products for:`,
         audiencesSubtitle:
           city.audiencesSubtitle ||
@@ -426,15 +474,15 @@ export default function AdminServiceAreasPage() {
           city.targetAudiences && city.targetAudiences.length > 0
             ? city.targetAudiences
             : [
-                { name: "Students & Scholars", category: "Schools, Colleges & Universities", badge: "Academic" },
-                { name: "Employees & Executives", category: "Corporate, Startups & Tech Offices", badge: "Corporate" },
-                { name: "Faculty & Teaching Staff", category: "Professors, Lecturers & Teachers", badge: "Faculty" },
-                { name: "Visitors & Contractors", category: "Temporary Badges & Escorted Passes", badge: "Security" },
-                { name: "Club & Association Members", category: "Societies, Alumni & Sports Guilds", badge: "Membership" },
-                { name: "Event Participants", category: "Summits, Trade Expos & Festivals", badge: "Events" },
-                { name: "Conference Delegates", category: "Keynote Speakers & VIP Badges", badge: "Conferences" },
-                { name: "Institutional Access Users", category: "RFID Turnstile & Door Smartcards", badge: "Smart RFID" },
-              ],
+              { name: "Students & Scholars", category: "Schools, Colleges & Universities", badge: "Academic" },
+              { name: "Employees & Executives", category: "Corporate, Startups & Tech Offices", badge: "Corporate" },
+              { name: "Faculty & Teaching Staff", category: "Professors, Lecturers & Teachers", badge: "Faculty" },
+              { name: "Visitors & Contractors", category: "Temporary Badges & Escorted Passes", badge: "Security" },
+              { name: "Club & Association Members", category: "Societies, Alumni & Sports Guilds", badge: "Membership" },
+              { name: "Event Participants", category: "Summits, Trade Expos & Festivals", badge: "Events" },
+              { name: "Conference Delegates", category: "Keynote Speakers & VIP Badges", badge: "Conferences" },
+              { name: "Institutional Access Users", category: "RFID Turnstile & Door Smartcards", badge: "Smart RFID" },
+            ],
         organizationsTitle: city.organizationsTitle || `Typical Organizations We Serve in ${city.name}:`,
         organizationsSubtitle:
           city.organizationsSubtitle ||
@@ -462,10 +510,10 @@ export default function AdminServiceAreasPage() {
           city.coverageExamples && city.coverageExamples.length > 0
             ? city.coverageExamples
             : [
-                `/service-areas/${stateSlug || "assam"}/${city.slug}/dispur/`,
-                `/service-areas/${stateSlug || "assam"}/${city.slug}/beltola/`,
-                `/service-areas/${stateSlug || "assam"}/${city.slug}/khanapara/`,
-              ],
+              `/service-areas/${stateSlug || "assam"}/${city.slug}/dispur/`,
+              `/service-areas/${stateSlug || "assam"}/${city.slug}/beltola/`,
+              `/service-areas/${stateSlug || "assam"}/${city.slug}/khanapara/`,
+            ],
         coveragePolicy:
           city.coveragePolicy ||
           "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
@@ -480,34 +528,34 @@ export default function AdminServiceAreasPage() {
           city.completeSetups && city.completeSetups.length > 0
             ? city.completeSetups
             : [
-                {
-                  title: "Card Only",
-                  subtitle: "For organizations that already have their own accessories.",
-                  items: ["CR80 PVC Card", "High-Resolution Front & Back Print", "Standard Lamination"],
-                },
-                {
-                  title: "Card + Holder",
-                  subtitle: "For protected and professional card presentation.",
-                  items: ["CR80 PVC Card", "Crystal / Matte Rigid Card Holder", "Thumb Slot Release"],
-                },
-                {
-                  title: "Card + Holder + Hook + Lanyard",
-                  subtitle: "For everyday wearable identification.",
-                  items: ["CR80 PVC Card", "Rigid Card Holder", "Metal Dog / Swivel Hook", "Custom Satin Lanyard"],
-                  recommended: true,
-                },
-                {
-                  title: "Complete Identification Setup",
-                  subtitle: "Full tamper-evident organizational protection.",
-                  items: [
-                    "CR80 PVC Card",
-                    "Ultrasonic Sealing Lamination",
-                    "Rigid / Soft ID Holder",
-                    "Custom Breakaway Hook",
-                    "Multi-Color Sublimation Lanyard",
-                  ],
-                },
-              ],
+              {
+                title: "Card Only",
+                subtitle: "For organizations that already have their own accessories.",
+                items: ["CR80 PVC Card", "High-Resolution Front & Back Print", "Standard Lamination"],
+              },
+              {
+                title: "Card + Holder",
+                subtitle: "For protected and professional card presentation.",
+                items: ["CR80 PVC Card", "Crystal / Matte Rigid Card Holder", "Thumb Slot Release"],
+              },
+              {
+                title: "Card + Holder + Hook + Lanyard",
+                subtitle: "For everyday wearable identification.",
+                items: ["CR80 PVC Card", "Rigid Card Holder", "Metal Dog / Swivel Hook", "Custom Satin Lanyard"],
+                recommended: true,
+              },
+              {
+                title: "Complete Identification Setup",
+                subtitle: "Full tamper-evident organizational protection.",
+                items: [
+                  "CR80 PVC Card",
+                  "Ultrasonic Sealing Lamination",
+                  "Rigid / Soft ID Holder",
+                  "Custom Breakaway Hook",
+                  "Multi-Color Sublimation Lanyard",
+                ],
+              },
+            ],
         bulkEyebrow: city.bulkEyebrow || "High-Capacity Production • Institutional Fulfillment",
         bulkSubBadge: city.bulkSubBadge || (city.isPrimary ? "Guwahati Direct Hub" : `${city.name} Priority Route`),
         bulkTitle: city.bulkTitle || `Bulk ID Card Printing in ${city.name}`,
@@ -527,31 +575,31 @@ export default function AdminServiceAreasPage() {
           city.bulkInputs && city.bulkInputs.length > 0
             ? city.bulkInputs
             : [
-                {
-                  step: "01",
-                  title: "Target Quantity",
-                  description: `50 to 50,000+ units with batch-wise staggered production for ${city.name} institutions.`,
-                  badge: "Scalable Volume",
-                },
-                {
-                  step: "02",
-                  title: "Card & RFID Type",
-                  description: "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.",
-                  badge: "Credential Spec",
-                },
-                {
-                  step: "03",
-                  title: "Data & Photographs",
-                  description: "Spreadsheet records, photo archives, or live IDGen Studio digital portal.",
-                  badge: "Data Processing",
-                },
-                {
-                  step: "04",
-                  title: "Accessories & Delivery",
-                  description: `Custom printed lanyards, card holders & express doorstep dispatch to ${city.name}.`,
-                  badge: "Full Ecosystem",
-                },
-              ],
+              {
+                step: "01",
+                title: "Target Quantity",
+                description: `50 to 50,000+ units with batch-wise staggered production for ${city.name} institutions.`,
+                badge: "Scalable Volume",
+              },
+              {
+                step: "02",
+                title: "Card & RFID Type",
+                description: "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.",
+                badge: "Credential Spec",
+              },
+              {
+                step: "03",
+                title: "Data & Photographs",
+                description: "Spreadsheet records, photo archives, or live IDGen Studio digital portal.",
+                badge: "Data Processing",
+              },
+              {
+                step: "04",
+                title: "Accessories & Delivery",
+                description: `Custom printed lanyards, card holders & express doorstep dispatch to ${city.name}.`,
+                badge: "Full Ecosystem",
+              },
+            ],
         bulkBottomNote:
           city.bulkBottomNote ||
           `Actual production capacity is matched to product and project specifications for ${city.name}. Qualified bulk projects receive physical pre-production sample proofs for institutional sign-off.`,
@@ -567,15 +615,15 @@ export default function AdminServiceAreasPage() {
           city.verifiedClients && city.verifiedClients.length > 0
             ? city.verifiedClients
             : [
-                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: city.name || "Guwahati" },
-                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
-                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
-                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
-                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
-                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
-                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
-                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
-              ],
+              { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: city.name || "Guwahati" },
+              { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+              { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+              { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+              { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+              { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+              { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+              { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+            ],
         whyChooseEyebrow: city.whyChooseEyebrow || "Why Choose Us",
         whyChooseTitle: city.whyChooseTitle || `Why Choose IDGen in ${city.name}?`,
         whyChooseSubtitle:
@@ -584,15 +632,15 @@ export default function AdminServiceAreasPage() {
         whyChoosePoints:
           city.whyChoosePoints && city.whyChoosePoints.length > 0
             ? city.whyChoosePoints.map((pt, i) => {
-                const defaults = getDefaultWhyChoosePoints(city.name, undefined, city.isPrimary || city.slug === "guwahati");
-                const fallback = defaults[i % defaults.length] || defaults[0];
-                return {
-                  ...pt,
-                  image: pt.image || fallback.image,
-                  badge: pt.badge || fallback.badge,
-                  stat: pt.stat || fallback.stat,
-                };
-              })
+              const defaults = getDefaultWhyChoosePoints(city.name, undefined, city.isPrimary || city.slug === "guwahati");
+              const fallback = defaults[i % defaults.length] || defaults[0];
+              return {
+                ...pt,
+                image: pt.image || fallback.image,
+                badge: pt.badge || fallback.badge,
+                stat: pt.stat || fallback.stat,
+              };
+            })
             : getDefaultWhyChoosePoints(city.name, undefined, city.isPrimary || city.slug === "guwahati"),
         workflowEyebrow: city.workflowEyebrow || "Step-by-Step Production Process • Factory Quality Standard",
         workflowBadge: city.workflowBadge || (city.isPrimary ? "Local Turnaround: 24–48h" : "Priority Turnaround"),
@@ -611,55 +659,55 @@ export default function AdminServiceAreasPage() {
           city.orderSteps && city.orderSteps.length > 0
             ? city.orderSteps
             : [
-                {
-                  step: "01",
-                  title: "Tell Us Your Requirement",
-                  description: `Share: Organization + Product + Quantity + Delivery Requirement in ${city.name}.`,
-                  phase: "Intake",
-                },
-                {
-                  step: "02",
-                  title: "Share Your Data",
-                  description: "Provide the required records and photos (or use IDGen Studio).",
-                  phase: "Data Intake",
-                },
-                {
-                  step: "03",
-                  title: "Confirm the Design",
-                  description: "Use your existing design or discuss a custom template.",
-                  phase: "Artwork",
-                },
-                {
-                  step: "04",
-                  title: "Review & Proofing",
-                  description: "Review digital PDF proofs or request physical pre-production sample.",
-                  phase: "Proofing",
-                },
-                {
-                  step: "05",
-                  title: "Approval Sign-Off",
-                  description: "Formal sign-off on design, data, and accessory specs.",
-                  phase: "Sign-Off",
-                },
-                {
-                  step: "06",
-                  title: "Cleanroom Production",
-                  description: "Thermal printing, RFID encoding, and ultrasonic lamination.",
-                  phase: "Manufacturing",
-                },
-                {
-                  step: "07",
-                  title: "100% Quality Check",
-                  description: "100% optical inspection before dispatch.",
-                  phase: "Quality Audit",
-                },
-                {
-                  step: "08",
-                  title: "Doorstep Dispatch",
-                  description: `Prepared for dispatch and delivered directly to your doorstep in ${city.name}.`,
-                  phase: "Fulfillment",
-                },
-              ],
+              {
+                step: "01",
+                title: "Tell Us Your Requirement",
+                description: `Share: Organization + Product + Quantity + Delivery Requirement in ${city.name}.`,
+                phase: "Intake",
+              },
+              {
+                step: "02",
+                title: "Share Your Data",
+                description: "Provide the required records and photos (or use IDGen Studio).",
+                phase: "Data Intake",
+              },
+              {
+                step: "03",
+                title: "Confirm the Design",
+                description: "Use your existing design or discuss a custom template.",
+                phase: "Artwork",
+              },
+              {
+                step: "04",
+                title: "Review & Proofing",
+                description: "Review digital PDF proofs or request physical pre-production sample.",
+                phase: "Proofing",
+              },
+              {
+                step: "05",
+                title: "Approval Sign-Off",
+                description: "Formal sign-off on design, data, and accessory specs.",
+                phase: "Sign-Off",
+              },
+              {
+                step: "06",
+                title: "Cleanroom Production",
+                description: "Thermal printing, RFID encoding, and ultrasonic lamination.",
+                phase: "Manufacturing",
+              },
+              {
+                step: "07",
+                title: "100% Quality Check",
+                description: "100% optical inspection before dispatch.",
+                phase: "Quality Audit",
+              },
+              {
+                step: "08",
+                title: "Doorstep Dispatch",
+                description: `Prepared for dispatch and delivered directly to your doorstep in ${city.name}.`,
+                phase: "Fulfillment",
+              },
+            ],
         confidentialityTitle: city.confidentialityTitle || "Identification Data & Confidentiality",
         confidentialityDesc:
           city.confidentialityDesc ||
@@ -674,7 +722,34 @@ export default function AdminServiceAreasPage() {
           city.faqsHelpText ||
           `Need guidance on custom RFID chip frequencies, lanyard branding, or batch approvals? Our ${city.name} production desk is here to help.`,
         services:
-          city.services && city.services.length > 0 ? city.services : getDefaultCityServices(city.name),
+          city.services && city.services.length > 0
+            ? city.services.map((srv, i) => {
+                const defaults = getDefaultCityServices(city.name);
+                const fallback = defaults[i % defaults.length] || defaults[0];
+                return {
+                  ...srv,
+                  spec: srv.spec || fallback.spec,
+                  highlights: srv.highlights && srv.highlights.length > 0 ? srv.highlights : fallback.highlights,
+                };
+              })
+            : getDefaultCityServices(city.name),
+        catalogEyebrow: city.catalogEyebrow || `${city.name} Hardware & Products`,
+        catalogTitle: city.catalogTitle || `Explore Our Product Catalog in ${city.name}`,
+        catalogSubtitle:
+          city.catalogSubtitle ||
+          `From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in ${city.name}.`,
+        products:
+          city.products && city.products.length > 0
+            ? city.products.map((prod, i) => {
+                const defaults = getDefaultCityProducts(city.name);
+                const fallback = defaults[i % defaults.length] || defaults[0];
+                return {
+                  ...prod,
+                  spec: prod.spec || fallback.spec,
+                  highlights: prod.highlights && prod.highlights.length > 0 ? prod.highlights : fallback.highlights,
+                };
+              })
+            : getDefaultCityProducts(city.name),
       });
     } else {
       setCityForm({
@@ -742,6 +817,10 @@ export default function AdminServiceAreasPage() {
         coverageFooterNote: "This follows the existing architecture rule in your website source.",
         nearbyAreas: [],
         services: getDefaultCityServices(cityName),
+        catalogEyebrow: "Hardware & Identity Products",
+        catalogTitle: cityName ? `Explore Our Product Catalog in ${cityName}` : "",
+        catalogSubtitle: "",
+        products: getDefaultCityProducts(cityName),
         setupsEyebrow: "Configurations",
         setupsTitle: "Complete ID Card Solutions & Packages",
         setupsSubtitle:
@@ -923,11 +1002,10 @@ export default function AdminServiceAreasPage() {
       {/* Status Message */}
       {message && (
         <div
-          className={`p-4 rounded-2xl flex items-center justify-between text-xs font-semibold ${
-            message.type === "success"
+          className={`p-4 rounded-2xl flex items-center justify-between text-xs font-semibold ${message.type === "success"
               ? "bg-emerald-500/10 border border-emerald-500/30 text-emerald-400"
               : "bg-rose-500/10 border border-rose-500/30 text-rose-400"
-          }`}
+            }`}
         >
           <span>{message.text}</span>
           <button onClick={() => setMessage(null)} className="opacity-70 hover:opacity-100">
@@ -942,20 +1020,18 @@ export default function AdminServiceAreasPage() {
           <button
             key={st.slug}
             onClick={() => setSelectedStateSlug(st.slug)}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 shrink-0 ${
-              selectedStateSlug === st.slug
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 shrink-0 ${selectedStateSlug === st.slug
                 ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/20"
                 : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
-            }`}
+              }`}
           >
             <Building2 className="h-3.5 w-3.5" />
             <span>{st.name}</span>
             <span
-              className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
-                selectedStateSlug === st.slug
+              className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${selectedStateSlug === st.slug
                   ? "bg-slate-950 text-teal-300"
                   : "bg-slate-800 text-slate-400"
-              }`}
+                }`}
             >
               {st.cities?.length || 0}
             </span>
@@ -1200,7 +1276,7 @@ export default function AdminServiceAreasPage() {
                   {cityForm.slug ? `Edit ${cityForm.name} Dynamic Content` : `Add City in ${editingStateSlug}`}
                 </h3>
                 <p className="text-xs text-slate-400">
-                  Manage all 8 sections: Hero, Local Presence, Products, Setups &amp; Workflow, Bulk &amp; Why Choose, Client Logos &amp; Coverage, FAQs, and SEO.
+                  Manage all 9 sections: Hero, Local Presence, Services, Product Catalog, Setups &amp; Workflow, Bulk &amp; Why Choose, Client Logos &amp; Coverage, FAQs, and SEO.
                 </p>
               </div>
               <button onClick={() => setIsCityModalOpen(false)} className="text-slate-400 hover:text-white">
@@ -1208,95 +1284,97 @@ export default function AdminServiceAreasPage() {
               </button>
             </div>
 
-            {/* 8 Section Navigation Tabs */}
+            {/* 9 Section Navigation Tabs */}
             <div className="flex items-center gap-1.5 border-b border-slate-800 pb-2 shrink-0 overflow-x-auto scrollbar-thin">
               <button
                 type="button"
                 onClick={() => setCityActiveTab("general")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "general"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "general"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
                 1. Hero &amp; Header
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("local")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "local"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "local"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
                 2. Local Presence &amp; Audiences
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("services")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "services"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "services"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
-                3. Products &amp; Services ({cityForm.services?.length || 0})
+                3. Services ({cityForm.services?.length || 0})
+              </button>
+              <button
+                type="button"
+                onClick={() => setCityActiveTab("products")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "products"
+                    ? "bg-teal-500 text-slate-950"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  }`}
+              >
+                4. Product Catalog ({cityForm.products?.length || 0})
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("packages")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "packages"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "packages"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
-                4. Packages &amp; Workflow
+                5. Packages &amp; Workflow
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("whyChoose")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "whyChoose"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "whyChoose"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
-                5. Why Choose &amp; Bulk ({cityForm.whyChoosePoints?.length || 0})
+                6. Why Choose &amp; Bulk ({cityForm.whyChoosePoints?.length || 0})
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("clients")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "clients"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "clients"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
-                6. Client Logos &amp; Coverage ({cityForm.verifiedClients?.length || 0})
+                7. Client Logos &amp; Coverage ({cityForm.verifiedClients?.length || 0})
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("faqs")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "faqs"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "faqs"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
-                7. FAQs ({cityForm.faqs?.length || 0})
+                8. FAQs ({cityForm.faqs?.length || 0})
               </button>
               <button
                 type="button"
                 onClick={() => setCityActiveTab("seo")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
-                  cityActiveTab === "seo"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "seo"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
-                8. SEO &amp; AI Summary
+                9. SEO &amp; AI Summary
               </button>
             </div>
 
@@ -1742,10 +1820,10 @@ export default function AdminServiceAreasPage() {
                               idx === 0
                                 ? "Primary Cleanroom"
                                 : idx === 1
-                                ? "24–48h Priority Batch Dispatch"
-                                : idx === 2
-                                ? "Pre-Production Physical Proofing"
-                                : "100% Optical Quality Check"
+                                  ? "24–48h Priority Batch Dispatch"
+                                  : idx === 2
+                                    ? "Pre-Production Physical Proofing"
+                                    : "100% Optical Quality Check"
                             }
                             value={cityForm.localAdvantagePills?.[idx] || ""}
                             onChange={(e) => {
@@ -2178,13 +2256,393 @@ export default function AdminServiceAreasPage() {
                             className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
                           />
                         </div>
+
+                        {/* Specification / Floating Spec */}
+                        <div>
+                          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                            Specification Floating Bar (Spec)
+                          </label>
+                          <input
+                            type="text"
+                            value={srv.spec || ""}
+                            placeholder="e.g. 30-Mil CR80 PVC • High-Res Photo Print"
+                            onChange={(e) => {
+                              const updated = [...(cityForm.services || [])];
+                              updated[idx].spec = e.target.value;
+                              setCityForm({ ...cityForm, services: updated });
+                            }}
+                            className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                          />
+                        </div>
+
+                        {/* Checkmark Bullet Highlights (3 inputs) */}
+                        <div className="space-y-1.5">
+                          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                            Checkmark Bullet Highlights (Up to 3 Features)
+                          </label>
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            {[0, 1, 2].map((hIdx) => (
+                              <input
+                                key={hIdx}
+                                type="text"
+                                value={srv.highlights?.[hIdx] || ""}
+                                placeholder={`Feature Bullet #${hIdx + 1}`}
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.services || [])];
+                                  const currentHighlights = [...(updated[idx].highlights || [])];
+                                  currentHighlights[hIdx] = e.target.value;
+                                  updated[idx].highlights = currentHighlights;
+                                  setCityForm({ ...cityForm, services: updated });
+                                }}
+                                className="px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                              />
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
 
-              {/* TAB 4: PACKAGES & WORKFLOW */}
+              {/* TAB 4: PRODUCT CATALOG (PHYSICAL HARDWARE & ACCESSORIES) */}
+              {cityActiveTab === "products" && (
+                <div className="space-y-4">
+                  {/* Section Header Settings */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <span className="text-xs font-bold text-teal-400 uppercase tracking-wider block">
+                      Product Catalog — Section Header Settings
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Catalog Eyebrow Tag
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={`${cityForm.name || "Guwahati"} Hardware & Products`}
+                          value={cityForm.catalogEyebrow || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, catalogEyebrow: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Catalog Main Title
+                        </label>
+                        <input
+                          type="text"
+                          placeholder={`Explore Our Product Catalog in ${cityForm.name || "Guwahati"}`}
+                          value={cityForm.catalogTitle || ""}
+                          onChange={(e) => setCityForm({ ...cityForm, catalogTitle: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Catalog Subtitle / Description
+                      </label>
+                      <textarea
+                        rows={2}
+                        placeholder={`From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in ${cityForm.name || "Guwahati"}.`}
+                        value={cityForm.catalogSubtitle || ""}
+                        onChange={(e) => setCityForm({ ...cityForm, catalogSubtitle: e.target.value })}
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Product Cards Header */}
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-xs font-bold text-slate-200">
+                        Product Catalog Carousel Items ({cityForm.products?.length || 0})
+                      </span>
+                      <p className="text-[11px] text-slate-400">
+                        Add, edit, and organize physical hardware products, upload custom photos, specs, and badges.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newProduct: CityProductItem = {
+                          id: `product-${Date.now()}`,
+                          slug: "id-card-holders",
+                          name: `Custom Hardware in ${cityForm.name || "Guwahati"}`,
+                          category: "holders",
+                          categoryLabel: "Protection Cases",
+                          imageSrc: "/images/product-id-holders.jpg",
+                          imageAlt: `Product in ${cityForm.name || "Guwahati"}`,
+                          tag: "Premium Quality",
+                          badge: "Hardware",
+                          badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
+                          shortDescription: `Premium identification hardware and accessories supplied to organizations in ${cityForm.name || "Guwahati"}.`,
+                          spec: "Industrial Grade Material",
+                          highlights: ["Precision Engineered", "Durable Construction", "Doorstep Dispatch"],
+                        };
+                        setCityForm({
+                          ...cityForm,
+                          products: [...(cityForm.products || []), newProduct],
+                        });
+                      }}
+                      className="px-3 py-1.5 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-bold hover:bg-teal-500/20 flex items-center gap-1 shrink-0"
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                      <span>Add Product</span>
+                    </button>
+                  </div>
+
+                  {/* Products List */}
+                  <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-1">
+                    {(cityForm.products || []).map((prod, idx) => (
+                      <div
+                        key={prod.id || idx}
+                        className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3 relative group"
+                      >
+                        <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                          <span className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
+                            <Sparkles className="h-3.5 w-3.5" />
+                            <span>Product #{idx + 1}: {prod.name}</span>
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updated = (cityForm.products || []).filter((_, i) => i !== idx);
+                              setCityForm({ ...cityForm, products: updated });
+                            }}
+                            className="text-xs text-rose-400 hover:underline flex items-center gap-1"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                            <span>Delete</span>
+                          </button>
+                        </div>
+
+                        {/* Image Upload Row */}
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-xl">
+                          <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-slate-700 bg-slate-950 flex items-center justify-center">
+                            {prod.imageSrc ? (
+                              /* eslint-disable-next-line @next/next/no-img-element */
+                              <img
+                                src={prod.imageSrc}
+                                alt={prod.name}
+                                className="h-full w-full object-cover"
+                                onError={(e) => {
+                                  (e.target as HTMLElement).style.display = "none";
+                                }}
+                              />
+                            ) : (
+                              <ImageIcon className="h-6 w-6 text-slate-600" />
+                            )}
+                          </div>
+
+                          <div className="flex-1 min-w-0 w-full space-y-1">
+                            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                              Product Showcase Image
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.imageSrc || ""}
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].imageSrc = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              placeholder="/images/product-id-holders.jpg"
+                              className="w-full px-2.5 py-1 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+
+                          <label className="relative cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-bold hover:bg-teal-500/20 shrink-0">
+                            <Upload className="h-3.5 w-3.5" />
+                            <span>Upload Image</span>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              disabled={uploadingImage}
+                              onChange={(e) => handleProductCatalogImageUpload(e, idx)}
+                              className="hidden"
+                            />
+                          </label>
+                        </div>
+
+                        {/* Name & Slug */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Product Name
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.name}
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].name = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              placeholder="e.g. ID Card Holders"
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Slug / Target URL
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.slug || ""}
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].slug = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              placeholder="e.g. id-card-holders"
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Category & Category Label */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Category Key
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.category || ""}
+                              placeholder="holders, hardware, badges, medals, cards"
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].category = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Category Label
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.categoryLabel || ""}
+                              placeholder="e.g. Protection Cases"
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].categoryLabel = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Badge, Tag & Spec */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Badge
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.badge || ""}
+                              placeholder="e.g. Protection"
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].badge = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Tag
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.tag || ""}
+                              placeholder="e.g. Hard Acrylic / PMMA"
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].tag = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                              Specification (Spec)
+                            </label>
+                            <input
+                              type="text"
+                              value={prod.spec || ""}
+                              placeholder="e.g. UV-Stabilized Polycarbonate • 0.82mm CR80"
+                              onChange={(e) => {
+                                const updated = [...(cityForm.products || [])];
+                                updated[idx].spec = e.target.value;
+                                setCityForm({ ...cityForm, products: updated });
+                              }}
+                              className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Short Description */}
+                        <div>
+                          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                            Short Description
+                          </label>
+                          <textarea
+                            rows={2}
+                            value={prod.shortDescription || ""}
+                            onChange={(e) => {
+                              const updated = [...(cityForm.products || [])];
+                              updated[idx].shortDescription = e.target.value;
+                              setCityForm({ ...cityForm, products: updated });
+                            }}
+                            placeholder="Vertical, horizontal, four-side-lock, metal and crystal holders for every card orientation."
+                            className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                          />
+                        </div>
+
+                        {/* Highlights (3 bullets) */}
+                        <div className="space-y-1.5">
+                          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                            Key Bullet Highlights (Up to 3)
+                          </label>
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            {[0, 1, 2].map((hIdx) => (
+                              <input
+                                key={hIdx}
+                                type="text"
+                                value={prod.highlights?.[hIdx] || ""}
+                                placeholder={`Highlight #${hIdx + 1}`}
+                                onChange={(e) => {
+                                  const updated = [...(cityForm.products || [])];
+                                  const currentHighlights = [...(updated[idx].highlights || [])];
+                                  currentHighlights[hIdx] = e.target.value;
+                                  updated[idx].highlights = currentHighlights;
+                                  setCityForm({ ...cityForm, products: updated });
+                                }}
+                                className="px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 5: PACKAGES & WORKFLOW */}
               {cityActiveTab === "packages" && (
                 <div className="space-y-6">
                   {/* Complete Setups Header */}
@@ -3292,26 +3750,26 @@ export default function AdminServiceAreasPage() {
                           const defaultAreas =
                             cityForm.slug === "guwahati" || (cityForm.name && cityForm.name.toLowerCase().includes("guwahati"))
                               ? [
-                                  "Dispur & Capital Complex",
-                                  "Beltola & Basistha",
-                                  "Khanapara & GS Road Corridor",
-                                  "Paltan Bazar & Panbazar",
-                                  "Fancy Bazar & Machkhowa",
-                                  "Ganeshguri & Christian Basti",
-                                  "Ulubari & Rehabari",
-                                  "Jalukbari & Guwahati University Zone",
-                                  "Borjhar & Airport Area",
-                                  "Noonmati & Chandmari",
-                                  "Six Mile & Panjabari",
-                                  "North Guwahati & IITG Zone",
-                                ]
+                                "Dispur & Capital Complex",
+                                "Beltola & Basistha",
+                                "Khanapara & GS Road Corridor",
+                                "Paltan Bazar & Panbazar",
+                                "Fancy Bazar & Machkhowa",
+                                "Ganeshguri & Christian Basti",
+                                "Ulubari & Rehabari",
+                                "Jalukbari & Guwahati University Zone",
+                                "Borjhar & Airport Area",
+                                "Noonmati & Chandmari",
+                                "Six Mile & Panjabari",
+                                "North Guwahati & IITG Zone",
+                              ]
                               : [
-                                  `${cityForm.name || "City"} Central / Main Commercial Zone`,
-                                  `${cityForm.name || "City"} Industrial & Tech Corridor`,
-                                  `${cityForm.name || "City"} Institutional & Academic Belt`,
-                                  `${cityForm.name || "City"} Administrative & Secretariat Zone`,
-                                  `${cityForm.name || "City"} Regional Transit & Logistics Hub`,
-                                ];
+                                `${cityForm.name || "City"} Central / Main Commercial Zone`,
+                                `${cityForm.name || "City"} Industrial & Tech Corridor`,
+                                `${cityForm.name || "City"} Institutional & Academic Belt`,
+                                `${cityForm.name || "City"} Administrative & Secretariat Zone`,
+                                `${cityForm.name || "City"} Regional Transit & Logistics Hub`,
+                              ];
 
                           setCityForm({
                             ...cityForm,

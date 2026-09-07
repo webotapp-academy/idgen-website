@@ -228,17 +228,28 @@ const atAGlanceMetrics = [
 ];
 
 /* Priority Service Areas from docx */
-const priorityAreas = [
-  "Guwahati",
-  "Jorhat",
-  "Dibrugarh",
-  "Silchar",
-  "Tezpur",
-  "Nagaon",
-  "Tinsukia",
-  "Sivasagar",
-  "Golaghat",
-  "Barpeta",
+const priorityCities = [
+  { name: "Guwahati", slug: "guwahati" },
+  { name: "Jorhat", slug: "jorhat" },
+  { name: "Dibrugarh", slug: "dibrugarh" },
+  { name: "Silchar", slug: "silchar" },
+  { name: "Tezpur", slug: "tezpur" },
+  { name: "Nagaon", slug: "nagaon" },
+  { name: "Tinsukia", slug: "tinsukia" },
+  { name: "Sivasagar", slug: "sivasagar" },
+  { name: "Golaghat", slug: "golaghat" },
+  { name: "Barpeta", slug: "barpeta" },
+];
+
+const northeastStates = [
+  { name: "Assam", slug: "assam" },
+  { name: "Arunachal Pradesh", slug: "arunachal-pradesh" },
+  { name: "Meghalaya", slug: "meghalaya" },
+  { name: "Manipur", slug: "manipur" },
+  { name: "Mizoram", slug: "mizoram" },
+  { name: "Nagaland", slug: "nagaland" },
+  { name: "Tripura", slug: "tripura" },
+  { name: "Sikkim", slug: "sikkim" },
 ];
 
 /* 5 Core FAQs verbatim from docx */
@@ -806,16 +817,16 @@ export default function HomePage() {
 
                 {/* 10 Priority City Cards */}
                 <div className="mt-3.5 grid grid-cols-2 sm:grid-cols-5 gap-2">
-                  {priorityAreas.map((city) => (
+                  {priorityCities.map((city) => (
                     <Link
-                      key={city}
-                      href={city === "Guwahati" ? "/service-areas/assam/guwahati/" : "/service-areas/assam/"}
+                      key={city.slug}
+                      href={`/service-areas/assam/${city.slug}/`}
                       className="group flex items-center justify-between rounded-xl border border-surface-border bg-background p-2.5 transition-all duration-200 hover:border-accent hover:bg-accent-soft/30 hover:-translate-y-0.5"
                     >
                       <div className="flex items-center gap-1.5 min-w-0">
                         <MapPin className="h-3 w-3 text-accent shrink-0" />
                         <span className="font-bold text-foreground text-xs truncate group-hover:text-accent">
-                          {city}
+                          {city.name}
                         </span>
                       </div>
                     </Link>
@@ -829,14 +840,15 @@ export default function HomePage() {
                   Complete 8-State Northeast Coverage
                 </p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  {["Assam", "Arunachal Pradesh", "Meghalaya", "Manipur", "Mizoram", "Nagaland", "Tripura", "Sikkim"].map((st) => (
-                    <span
-                      key={st}
-                      className="inline-flex items-center gap-1 rounded-lg border border-surface-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground"
+                  {northeastStates.map((st) => (
+                    <Link
+                      key={st.slug}
+                      href={`/service-areas/${st.slug}/`}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-surface-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent-soft/20 hover:-translate-y-0.5 shadow-2xs"
                     >
                       <CheckCircle2 className="h-3 w-3 text-accent" />
-                      <span>{st}</span>
-                    </span>
+                      <span>{st.name}</span>
+                    </Link>
                   ))}
                 </div>
               </div>

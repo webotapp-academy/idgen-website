@@ -5,15 +5,17 @@ import type { Faq } from "@/data/types";
 import {
   type SetupPackage,
   type CityServiceItem,
+  type CityProductItem,
   type CityData,
   type StateData,
   type WhyChoosePointItem,
   getDefaultCityServices,
+  getDefaultCityProducts,
   getDefaultWhyChoosePoints,
 } from "./dynamic-locations-types";
 
-export type { SetupPackage, CityServiceItem, CityData, StateData, WhyChoosePointItem };
-export { getDefaultCityServices, getDefaultWhyChoosePoints };
+export type { SetupPackage, CityServiceItem, CityProductItem, CityData, StateData, WhyChoosePointItem };
+export { getDefaultCityServices, getDefaultCityProducts, getDefaultWhyChoosePoints };
 
 const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-locations.json");
 
@@ -124,6 +126,13 @@ export const richGuwahatiData: CityData = {
 
   // 3. Products & Services
   services: getDefaultCityServices("Guwahati"),
+
+  // 3b. Product Catalog (Physical Hardware & Identity Products)
+  catalogEyebrow: "Guwahati Hardware & Products",
+  catalogTitle: "Explore Our Product Catalog in Guwahati",
+  catalogSubtitle:
+    "From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in Guwahati, Assam.",
+  products: getDefaultCityProducts("Guwahati"),
 
   // 4. Complete ID Card Packages / Setups
   setupsEyebrow: "Configurations",
@@ -413,12 +422,15 @@ function initializeDataStore(): StateData[] {
 }
 
 let memoryCache: StateData[] | null = null;
+let lastMtime: number = 0;
 
 export function getAllStates(): StateData[] {
-  if (memoryCache) return memoryCache;
-
   try {
     if (fs.existsSync(DATA_FILE_PATH)) {
+      const stats = fs.statSync(DATA_FILE_PATH);
+      if (memoryCache && stats.mtimeMs === lastMtime) {
+        return memoryCache;
+      }
       const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
       const loaded: StateData[] = JSON.parse(raw);
       for (const st of loaded) {
@@ -439,25 +451,33 @@ export function getAllStates(): StateData[] {
         }
       }
       memoryCache = loaded;
+      lastMtime = stats.mtimeMs;
       return memoryCache;
     }
   } catch (e) {
     console.error("Error reading dynamic-locations.json, initializing default:", e);
   }
 
+  if (memoryCache) return memoryCache;
   const initial = initializeDataStore();
   memoryCache = initial;
   return initial;
 }
 
 export function saveAllStates(states: StateData[]): void {
-  memoryCache = states;
   try {
     const dir = path.dirname(DATA_FILE_PATH);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(states, null, 2), "utf-8");
+    try {
+      const stats = fs.statSync(DATA_FILE_PATH);
+      lastMtime = stats.mtimeMs;
+    } catch {
+      lastMtime = Date.now();
+    }
+    memoryCache = states;
   } catch (e) {
     console.error("Error saving dynamic-locations.json:", e);
   }
