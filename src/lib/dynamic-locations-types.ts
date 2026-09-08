@@ -202,6 +202,12 @@ export interface StateData {
   heroImage?: string;
   indexed?: boolean;
   sortOrder?: number;
+  services?: CityServiceItem[];
+  projectsBadge?: string;
+  projectsSubBadge?: string;
+  projectsTitle?: string;
+  projectsDesc?: string;
+  verifiedClients?: VerifiedClientItem[];
   cities: CityData[];
 }
 

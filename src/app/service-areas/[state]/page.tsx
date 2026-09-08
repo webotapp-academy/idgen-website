@@ -16,12 +16,13 @@ import {
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { HeroShowcaseVisual } from "@/components/ui/HeroShowcaseVisual";
+import { CityServicesCarousel } from "@/components/ui/CityServicesCarousel";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { getState, getAllStates } from "@/lib/dynamic-locations";
+import { getState, getAllStates, getDefaultCityServices } from "@/lib/dynamic-locations";
 import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
@@ -47,7 +48,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   const state = getState(stateSlug);
   if (!state) notFound();
 
-  const verifiedClients = [
+  const defaultVerifiedClients = [
     { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
     { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
     { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
@@ -57,6 +58,33 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
     { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
   ];
+
+  // Aggregate all client logos from all cities in this state (e.g. Guwahati, Dibrugarh, Jorhat, etc.)
+  const allCityClients = state.cities.flatMap((city) => {
+    if (!city.verifiedClients || city.verifiedClients.length === 0) return [];
+    return city.verifiedClients.map((client) => ({
+      ...client,
+      tag: client.tag || city.name,
+    }));
+  });
+
+  // Combine state-level verified clients + all city-level verified clients
+  const combinedClients = [
+    ...(state.verifiedClients || []),
+    ...allCityClients,
+  ];
+
+  // Deduplicate by client name & logo path
+  const seen = new Set<string>();
+  const uniqueClients = combinedClients.filter((client) => {
+    if (!client.name || !client.logo) return false;
+    const key = `${client.name.trim().toLowerCase()}_${client.logo.trim().toLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  const displayClients = uniqueClients.length > 0 ? uniqueClients : defaultVerifiedClients;
 
   const faqs: Faq[] = [
     {
@@ -144,6 +172,14 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       <ProductShowcaseCarousel cityName={state.name} />
 
       <Container className="py-14 space-y-16">
+        {/* Dedicated Identification Products Available across State (Dynamic Services Carousel) */}
+        <div>
+          <CityServicesCarousel
+            cityName={state.name}
+            services={state.services && state.services.length > 0 ? state.services : getDefaultCityServices(state.name)}
+          />
+        </div>
+
         {/* Dynamic Sub-Category Cities Grid */}
         <div>
           <SectionHead
@@ -226,13 +262,14 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
               <ShieldCheck className="h-4 w-4" />
-              <span>Verified Institutional Deployments</span>
+              <span>{state.projectsBadge || "Verified Institutional Deployments"}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
-              Organizations &amp; Projects in {state.name}
+              {state.projectsTitle || `Organizations & Projects in ${state.name}`}
             </h2>
             <p className="text-sm text-muted max-w-3xl leading-relaxed">
-              IDGen partners with leading academic institutions, corporate offices, and government departments across {state.name} and Northeast India. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.
+              {state.projectsDesc ||
+                `IDGen partners with leading academic institutions, corporate offices, and government departments across ${state.name} and Northeast India. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.`}
             </p>
           </div>
         </Container>
@@ -244,7 +281,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           <div className="absolute inset-y-0 right-0 w-16 sm:w-36 bg-gradient-to-l from-background dark:from-[#0A1628] via-background/90 dark:via-[#0A1628]/90 to-transparent z-10 pointer-events-none transition-colors duration-300" />
 
           <div className="animate-marquee flex items-center gap-10 sm:gap-14">
-            {[...verifiedClients, ...verifiedClients].map((client, idx) => (
+            {[...displayClients, ...displayClients].map((client, idx) => (
               <div
                 key={idx}
                 className="group flex flex-col items-center justify-center shrink-0 w-36 sm:w-44 transition-all duration-300 hover:scale-105"

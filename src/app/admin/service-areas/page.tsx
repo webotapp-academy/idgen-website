@@ -47,11 +47,25 @@ export default function AdminServiceAreasPage() {
 
   // State (Category) Modal state
   const [isStateModalOpen, setIsStateModalOpen] = useState(false);
-  const [stateForm, setStateForm] = useState<{ slug: string; name: string; heroIntro: string }>({
+  const [stateActiveTab, setStateActiveTab] = useState<"general" | "clients">("general");
+  const [stateForm, setStateForm] = useState<Partial<StateData>>({
     slug: "",
     name: "",
     heroIntro: "",
+    projectsBadge: "Verified Institutional Deployments",
+    projectsSubBadge: "Active Regional Partnerships • Zero Fabricated Claims",
+    projectsTitle: "",
+    projectsDesc: "",
+    verifiedClients: [],
   });
+
+  // Helper inputs for state client logos
+  const [stateClientNameInput, setStateClientNameInput] = useState("");
+  const [stateClientLocationInput, setStateClientLocationInput] = useState("");
+  const [stateClientTagInput, setStateClientTagInput] = useState("");
+  const [stateClientLogoInput, setStateClientLogoInput] = useState("");
+  const [uploadingStateClientLogoIdx, setUploadingStateClientLogoIdx] = useState<number | null>(null);
+  const [uploadingNewStateClientLogo, setUploadingNewStateClientLogo] = useState(false);
 
   // City (Sub-category) Modal state
   const [isCityModalOpen, setIsCityModalOpen] = useState(false);
@@ -363,6 +377,57 @@ export default function AdminServiceAreasPage() {
     }
   }
 
+  // Handle State Client Logo Upload
+  async function handleStateClientLogoUpload(e: React.ChangeEvent<HTMLInputElement>, idx?: number) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      if (idx !== undefined) {
+        setUploadingStateClientLogoIdx(idx);
+      } else {
+        setUploadingNewStateClientLogo(true);
+      }
+
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const base64Image = reader.result as string;
+          const res = await fetch("/api/admin/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image: base64Image, filename: file.name }),
+          });
+          const data = await res.json();
+          if (data.success && data.url) {
+            if (idx !== undefined) {
+              const updated = [...(stateForm.verifiedClients || [])];
+              updated[idx] = { ...updated[idx], logo: data.url };
+              setStateForm((prev) => ({ ...prev, verifiedClients: updated }));
+            } else {
+              setStateClientLogoInput(data.url);
+            }
+            setMessage({ type: "success", text: "Client logo uploaded successfully!" });
+          } else {
+            setMessage({ type: "error", text: data.error || "Failed to upload logo." });
+          }
+        } catch (err) {
+          console.error(err);
+          setMessage({ type: "error", text: "Upload failed." });
+        } finally {
+          setUploadingStateClientLogoIdx(null);
+          setUploadingNewStateClientLogo(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: "error", text: "Error reading image file." });
+      setUploadingStateClientLogoIdx(null);
+      setUploadingNewStateClientLogo(false);
+    }
+  }
+
   // Open State Editor
   function openStateEditor(state?: StateData) {
     if (state) {
@@ -370,14 +435,52 @@ export default function AdminServiceAreasPage() {
         slug: state.slug,
         name: state.name,
         heroIntro: state.heroIntro || "",
+        projectsBadge: state.projectsBadge || "Verified Institutional Deployments",
+        projectsSubBadge: state.projectsSubBadge || "Active Regional Partnerships • Zero Fabricated Claims",
+        projectsTitle: state.projectsTitle || `Organizations & Projects in ${state.name}`,
+        projectsDesc:
+          state.projectsDesc ||
+          `IDGen partners with leading academic institutions, corporate offices, and government departments across ${state.name} and Northeast India. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.`,
+        verifiedClients:
+          state.verifiedClients && state.verifiedClients.length > 0
+            ? [...state.verifiedClients]
+            : [
+                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+              ],
       });
     } else {
       setStateForm({
         slug: "",
         name: "",
         heroIntro: "",
+        projectsBadge: "Verified Institutional Deployments",
+        projectsSubBadge: "Active Regional Partnerships • Zero Fabricated Claims",
+        projectsTitle: "",
+        projectsDesc: "",
+        verifiedClients: [
+          { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+          { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+          { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+          { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+          { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+          { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+          { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+          { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+        ],
       });
     }
+    setStateActiveTab("general");
+    setStateClientNameInput("");
+    setStateClientLocationInput("");
+    setStateClientTagInput("");
+    setStateClientLogoInput("");
     setIsStateModalOpen(true);
   }
 
@@ -1185,64 +1288,410 @@ export default function AdminServiceAreasPage() {
 
       {/* State / Category Modal */}
       {isStateModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-slate-900 border border-slate-800 w-full max-w-2xl rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-              <h3 className="text-lg font-bold text-white">
-                {stateForm.slug ? "Edit State Category" : "Add New State Category"}
-              </h3>
+              <div>
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <Building2 className="h-5 w-5 text-teal-400" />
+                  <span>
+                    {stateForm.slug ? `Edit State Category: ${stateForm.name}` : "Add New State Category"}
+                  </span>
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Configure state details, regional messaging, and verified partner client logos
+                </p>
+              </div>
               <button
+                type="button"
                 onClick={() => setIsStateModalOpen(false)}
-                className="text-slate-400 hover:text-white"
+                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
+            {/* State Tabs Navigation */}
+            <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+              <button
+                type="button"
+                onClick={() => setStateActiveTab("general")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                  stateActiveTab === "general"
+                    ? "bg-teal-500 text-slate-950"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                1. General Details
+              </button>
+              <button
+                type="button"
+                onClick={() => setStateActiveTab("clients")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${
+                  stateActiveTab === "clients"
+                    ? "bg-teal-500 text-slate-950"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                <ShieldCheck className="h-3.5 w-3.5" />
+                <span>2. Client Logos Ticker ({stateForm.verifiedClients?.length || 0})</span>
+              </button>
+            </div>
+
             <form onSubmit={handleSaveState} className="space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">State Name</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Assam, Meghalaya"
-                  value={stateForm.name}
-                  onChange={(e) => {
-                    const name = e.target.value;
-                    setStateForm({
-                      ...stateForm,
-                      name,
-                      slug: stateForm.slug || name.toLowerCase().replace(/\s+/g, "-"),
-                    });
-                  }}
-                  className="w-full px-3.5 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
-                />
-              </div>
+              {/* TAB 1: GENERAL DETAILS */}
+              {stateActiveTab === "general" && (
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">State Name</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Assam, Meghalaya"
+                      value={stateForm.name || ""}
+                      onChange={(e) => {
+                        const name = e.target.value;
+                        setStateForm({
+                          ...stateForm,
+                          name,
+                          slug: stateForm.slug || name.toLowerCase().replace(/\s+/g, "-"),
+                        });
+                      }}
+                      className="w-full px-3.5 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">URL Slug</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. assam"
-                  value={stateForm.slug}
-                  onChange={(e) => setStateForm({ ...stateForm, slug: e.target.value })}
-                  className="w-full px-3.5 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs font-mono text-white focus:outline-none focus:border-teal-500"
-                />
-              </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">URL Slug</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. assam"
+                      value={stateForm.slug || ""}
+                      onChange={(e) => setStateForm({ ...stateForm, slug: e.target.value })}
+                      className="w-full px-3.5 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs font-mono text-white focus:outline-none focus:border-teal-500"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">
-                  Hero Introduction
-                </label>
-                <textarea
-                  rows={3}
-                  value={stateForm.heroIntro}
-                  onChange={(e) => setStateForm({ ...stateForm, heroIntro: e.target.value })}
-                  placeholder="Summary of ID card manufacturing and identity solutions for this state..."
-                  className="w-full px-3.5 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
-                />
-              </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                      Hero Introduction
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={stateForm.heroIntro || ""}
+                      onChange={(e) => setStateForm({ ...stateForm, heroIntro: e.target.value })}
+                      placeholder="Summary of ID card manufacturing and identity solutions for this state..."
+                      className="w-full px-3.5 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: CLIENT LOGOS TICKER */}
+              {stateActiveTab === "clients" && (
+                <div className="space-y-5">
+                  <div className="p-3.5 bg-teal-500/10 border border-teal-500/20 rounded-2xl flex items-start gap-2.5 text-xs text-teal-300">
+                    <Sparkles className="h-4 w-4 shrink-0 text-teal-400 mt-0.5" />
+                    <div>
+                      <strong className="text-white block font-bold">Auto-Aggregation Active across All Cities:</strong>
+                      <span>
+                        The State landing page (<code className="text-teal-200">/service-areas/{stateForm.slug || "state"}/</code>) automatically aggregates and displays all client logos added across every individual city page in this state (e.g. Guwahati, Dibrugarh, Jorhat, etc.). You can also add state-wide flagship client logos below.
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Section Settings Card */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <span className="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <ShieldCheck className="h-4 w-4" />
+                        <span>Organizations &amp; Client Logos Ticker</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setStateForm({
+                            ...stateForm,
+                            verifiedClients: [
+                              { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: stateForm.name || "Guwahati" },
+                              { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+                              { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+                              { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+                              { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+                              { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+                              { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+                              { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+                            ],
+                          });
+                          setMessage({ type: "success", text: "Loaded 8 standard client logos for state." });
+                        }}
+                        className="text-[11px] text-teal-400 hover:underline flex items-center gap-1"
+                      >
+                        <Sparkles className="h-3 w-3" />
+                        <span>Load Default 8 Logos</span>
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Section Badge
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Verified Institutional Deployments"
+                          value={stateForm.projectsBadge || ""}
+                          onChange={(e) => setStateForm({ ...stateForm, projectsBadge: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                          Section Sub-Badge (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Active Regional Partnerships • Zero Fabricated Claims"
+                          value={stateForm.projectsSubBadge || ""}
+                          onChange={(e) => setStateForm({ ...stateForm, projectsSubBadge: e.target.value })}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Section Headline / Title
+                      </label>
+                      <input
+                        type="text"
+                        placeholder={`Organizations & Projects in ${stateForm.name || "State"}`}
+                        value={stateForm.projectsTitle || ""}
+                        onChange={(e) => setStateForm({ ...stateForm, projectsTitle: e.target.value })}
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-400 mb-1">
+                        Section Description / Subtitle
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={stateForm.projectsDesc || ""}
+                        onChange={(e) => setStateForm({ ...stateForm, projectsDesc: e.target.value })}
+                        placeholder={`IDGen partners with leading academic institutions, corporate offices, and government departments across ${stateForm.name || "State"}.`}
+                        className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Add New State Client Logo Card */}
+                  <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3">
+                    <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                      <Plus className="h-4 w-4 text-teal-400" />
+                      <span>Add New Client / Institutional Logo</span>
+                    </span>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Organization Name *</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Cotton University"
+                          value={stateClientNameInput}
+                          onChange={(e) => setStateClientNameInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">Location Subtext</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Guwahati, Assam"
+                          value={stateClientLocationInput}
+                          onChange={(e) => setStateClientLocationInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 mb-1">City / Region Tag</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Guwahati Hub"
+                          value={stateClientTagInput}
+                          onChange={(e) => setStateClientTagInput(e.target.value)}
+                          className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="block text-[10px] font-bold text-slate-400">Logo Image (Upload File or Enter URL) *</label>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          placeholder="/images/clint logo/1.png or https://..."
+                          value={stateClientLogoInput}
+                          onChange={(e) => setStateClientLogoInput(e.target.value)}
+                          className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white font-mono"
+                        />
+                        <label className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg cursor-pointer flex items-center gap-1.5 border border-slate-700 shrink-0">
+                          <Upload className="h-3.5 w-3.5 text-teal-400" />
+                          <span>{uploadingNewStateClientLogo ? "Uploading..." : "Upload Logo"}</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => handleStateClientLogoUpload(e)}
+                            className="hidden"
+                            disabled={uploadingNewStateClientLogo}
+                          />
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Logo Preview */}
+                    {stateClientLogoInput && (
+                      <div className="flex items-center gap-3 p-2.5 bg-slate-900/80 border border-slate-800 rounded-xl">
+                        <div className="h-10 w-16 relative bg-white/10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1">
+                          <Image
+                            src={stateClientLogoInput}
+                            alt="Preview"
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                        <div className="min-w-0 flex-1 text-xs">
+                          <span className="font-bold text-white block truncate">{stateClientNameInput || "Client Name"}</span>
+                          <span className="text-[10px] text-teal-400">{stateClientTagInput || stateClientLocationInput || "Location"}</span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex justify-end pt-1">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (!stateClientNameInput.trim()) {
+                            alert("Please enter organization name.");
+                            return;
+                          }
+                          if (!stateClientLogoInput.trim()) {
+                            alert("Please upload or provide logo image URL.");
+                            return;
+                          }
+                          const newClient = {
+                            name: stateClientNameInput.trim(),
+                            logo: stateClientLogoInput.trim(),
+                            location: stateClientLocationInput.trim() || stateForm.name || "Assam",
+                            tag: stateClientTagInput.trim() || stateClientLocationInput.trim() || "Regional Hub",
+                          };
+                          setStateForm({
+                            ...stateForm,
+                            verifiedClients: [...(stateForm.verifiedClients || []), newClient],
+                          });
+                          setStateClientNameInput("");
+                          setStateClientLocationInput("");
+                          setStateClientTagInput("");
+                          setStateClientLogoInput("");
+                        }}
+                        className="px-4 py-1.5 bg-teal-500 hover:bg-teal-400 text-slate-950 text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm"
+                      >
+                        <Plus className="h-3.5 w-3.5" />
+                        <span>Add Logo to State Ticker</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Active Client Logos List */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-300">
+                        Active State Client Logos ({stateForm.verifiedClients?.length || 0})
+                      </span>
+                    </div>
+
+                    {(!stateForm.verifiedClients || stateForm.verifiedClients.length === 0) ? (
+                      <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-center text-xs text-slate-500">
+                        No logos added yet. Click &quot;Load Default 8 Logos&quot; or add a custom client logo above.
+                      </div>
+                    ) : (
+                      <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+                        {stateForm.verifiedClients.map((client, idx) => (
+                          <div
+                            key={idx}
+                            className="p-3 bg-slate-950 border border-slate-800 rounded-xl flex items-center justify-between gap-3 text-xs"
+                          >
+                            <div className="flex items-center gap-3 min-w-0">
+                              <div className="h-10 w-14 relative bg-white/10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1">
+                                <Image
+                                  src={client.logo || "/images/clint logo/1.png"}
+                                  alt={client.name}
+                                  fill
+                                  className="object-contain"
+                                />
+                              </div>
+                              <div className="min-w-0">
+                                <span className="font-bold text-white block truncate">{client.name}</span>
+                                <span className="text-[10px] text-teal-400 block truncate">
+                                  {client.tag} {client.location && `• ${client.location}`}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center gap-1 shrink-0">
+                              <button
+                                type="button"
+                                disabled={idx === 0}
+                                onClick={() => {
+                                  if (idx === 0) return;
+                                  const updated = [...(stateForm.verifiedClients || [])];
+                                  const temp = updated[idx];
+                                  updated[idx] = updated[idx - 1];
+                                  updated[idx - 1] = temp;
+                                  setStateForm({ ...stateForm, verifiedClients: updated });
+                                }}
+                                className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
+                                title="Move Up"
+                              >
+                                ↑
+                              </button>
+                              <button
+                                type="button"
+                                disabled={idx === (stateForm.verifiedClients || []).length - 1}
+                                onClick={() => {
+                                  if (idx === (stateForm.verifiedClients || []).length - 1) return;
+                                  const updated = [...(stateForm.verifiedClients || [])];
+                                  const temp = updated[idx];
+                                  updated[idx] = updated[idx + 1];
+                                  updated[idx + 1] = temp;
+                                  setStateForm({ ...stateForm, verifiedClients: updated });
+                                }}
+                                className="p-1 text-slate-400 hover:text-white disabled:opacity-30"
+                                title="Move Down"
+                              >
+                                ↓
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const updated = (stateForm.verifiedClients || []).filter((_, i) => i !== idx);
+                                  setStateForm({ ...stateForm, verifiedClients: updated });
+                                }}
+                                className="p-1.5 text-slate-400 hover:text-rose-400 rounded hover:bg-slate-900"
+                                title="Delete"
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
 
               <div className="pt-3 border-t border-slate-800 flex justify-end gap-3">
                 <button
@@ -1257,7 +1706,7 @@ export default function AdminServiceAreasPage() {
                   className="px-5 py-2 rounded-xl bg-teal-500 text-slate-950 text-xs font-bold hover:bg-teal-400 flex items-center gap-1.5"
                 >
                   <Save className="h-4 w-4" />
-                  <span>Save Category</span>
+                  <span>Save State Category</span>
                 </button>
               </div>
             </form>

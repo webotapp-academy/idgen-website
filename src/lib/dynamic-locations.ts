@@ -526,6 +526,12 @@ export function saveState(stateData: Partial<StateData> & { slug: string; name: 
       metaDescription: stateData.metaDescription || `IDGen provides ID card printing and identity solutions across ${stateData.name}.`,
       indexed: stateData.indexed !== false,
       sortOrder: stateData.sortOrder || states.length,
+      projectsBadge: stateData.projectsBadge,
+      projectsSubBadge: stateData.projectsSubBadge,
+      projectsTitle: stateData.projectsTitle,
+      projectsDesc: stateData.projectsDesc,
+      verifiedClients: stateData.verifiedClients,
+      services: stateData.services,
       cities: stateData.cities || [],
     };
     states.push(updatedState);

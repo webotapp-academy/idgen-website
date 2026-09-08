@@ -26,6 +26,12 @@ export async function POST(request: Request) {
       metaDescription: data.metaDescription,
       indexed: data.indexed !== false,
       sortOrder: data.sortOrder,
+      projectsBadge: data.projectsBadge,
+      projectsSubBadge: data.projectsSubBadge,
+      projectsTitle: data.projectsTitle,
+      projectsDesc: data.projectsDesc,
+      verifiedClients: data.verifiedClients,
+      services: data.services,
       cities: data.cities || [],
     });
 

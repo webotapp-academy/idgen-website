@@ -12,6 +12,7 @@ import {
   Building2,
   IndianRupee,
   Newspaper,
+  Cpu,
 } from "lucide-react";
 
 export const metadata = {
@@ -62,6 +63,19 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <div className="flex-1 flex items-center justify-between">
               <span>Pricing Engine</span>
               <span className="text-[10px] bg-teal-950 text-teal-300 px-1.5 py-0.5 rounded-full border border-teal-800/40">
+                Dynamic
+              </span>
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/pricing?section=specs"
+            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/80 transition group"
+          >
+            <Cpu className="h-4 w-4 text-cyan-400 group-hover:scale-110 transition" />
+            <div className="flex-1 flex items-center justify-between">
+              <span>Technical Specs</span>
+              <span className="text-[10px] bg-cyan-950 text-cyan-300 px-1.5 py-0.5 rounded-full border border-cyan-800/40">
                 Dynamic
               </span>
             </div>

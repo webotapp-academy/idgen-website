@@ -1041,6 +1041,357 @@
               "Weatherproof Multi-Year Protection"
             ]
           }
+        ],
+        "heroEyebrow": "ASSAM SERVICE AREA",
+        "heroWorkflowSteps": [
+          "Requirement",
+          "Design",
+          "Approval",
+          "Production",
+          "Quality Check",
+          "Dispatch"
+        ],
+        "heroTrustBadges": [
+          "Free Pre-Production Physical Sample",
+          "100% Optical Inspection",
+          "Direct Cleanroom Manufacturing"
+        ],
+        "heroCtaText": "Request a Dibrugarh Quote",
+        "heroSecondaryCtaText": "Call / WhatsApp IDGen",
+        "heroShowcaseBadge": "Dibrugarh Direct Supply",
+        "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
+        "heroShowcaseChip2": "Verified Cleanroom",
+        "localPresenceBadge": "Local Identity Solutions • Dibrugarh",
+        "localPresenceSubBadge": "Direct Doorstep Logistics",
+        "localPresenceTitle": "IDGen in Dibrugarh: A Local Identity Solutions Partner",
+        "localAdvantagePills": [
+          "Dibrugarh Primary Cleanroom",
+          "24–48h Priority Batch Dispatch",
+          "Pre-Production Physical Proofing",
+          "100% Optical Quality Check"
+        ],
+        "audiencesTitle": "Organizations in Dibrugarh require identity products for:",
+        "audiencesSubtitle": "Tailored credential architectures mapped to specific access requirements in Dibrugarh.",
+        "audiencesNote": "Single & dual-sided thermal, RFID & ultrasonic sealed credentials",
+        "targetAudiences": [
+          {
+            "name": "Students & Scholars",
+            "category": "Schools, Colleges & Universities",
+            "badge": "Academic"
+          },
+          {
+            "name": "Employees & Executives",
+            "category": "Corporate, Startups & Tech Offices",
+            "badge": "Corporate"
+          },
+          {
+            "name": "Faculty & Teaching Staff",
+            "category": "Professors, Lecturers & Teachers",
+            "badge": "Faculty"
+          },
+          {
+            "name": "Visitors & Contractors",
+            "category": "Temporary Badges & Escorted Passes",
+            "badge": "Security"
+          },
+          {
+            "name": "Club & Association Members",
+            "category": "Societies, Alumni & Sports Guilds",
+            "badge": "Membership"
+          },
+          {
+            "name": "Event Participants",
+            "category": "Summits, Trade Expos & Festivals",
+            "badge": "Events"
+          },
+          {
+            "name": "Conference Delegates",
+            "category": "Keynote Speakers & VIP Badges",
+            "badge": "Conferences"
+          },
+          {
+            "name": "Institutional Access Users",
+            "category": "RFID Turnstile & Door Smartcards",
+            "badge": "Smart RFID"
+          }
+        ],
+        "organizationsTitle": "Typical Organizations We Serve in Dibrugarh:",
+        "organizationsSubtitle": "Institutions, healthcare bodies, government offices & enterprises across Dibrugarh.",
+        "localAdvantageTitle": "Dibrugarh Local Production Advantage",
+        "localAdvantageDesc": "Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch across Dibrugarh.",
+        "deliveryRoutesTitle": "Direct Doorstep Delivery & Pickup Routes Across Dibrugarh:",
+        "deliveryRoutesSubtitle": "Rapid fulfillment across all major institutional & commercial zones in Dibrugarh",
+        "coverageEyebrow": "Dibrugarh Service Coverage",
+        "coverageTitle": "Dibrugarh Service Coverage",
+        "coverageIntro": "IDGen is based in Dibrugarh and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.",
+        "coverageHubTitle": "Direct City Hub",
+        "coverageHubSubtitle": "Full Dibrugarh & Regional Reach",
+        "coverageNotice": "We should not create separate pages for every Dibrugarh locality just for SEO.",
+        "coverageExamples": [
+          "/service-areas/assam/dibrugarh/dispur/",
+          "/service-areas/assam/dibrugarh/beltola/",
+          "/service-areas/assam/dibrugarh/khanapara/"
+        ],
+        "coveragePolicy": "unless we eventually have genuine local information, customers, projects, photographs or materially different search intent for those locations.",
+        "coverageFooterNote": "This follows the existing architecture rule in your website source.",
+        "setupsEyebrow": "Configurations",
+        "setupsTitle": "Complete ID Card Solutions & Packages in Dibrugarh",
+        "setupsSubtitle": "Not every organization needs the same identification setup. Select the exact packaging that matches your project requirements.",
+        "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
+        "bulkSubBadge": "Dibrugarh Priority Route",
+        "bulkTitle": "Bulk ID Card Printing in Dibrugarh",
+        "bulkDesc": "IDGen supports institutional and high-volume identification requirements across Dibrugarh. For larger projects (schools, colleges, university batches, corporate renewals), our cleanroom workflows ensure reliable color calibration and prompt doorstep dispatch.",
+        "bulkHighlights": [
+          "Up to 10,000+ IDs / Day",
+          "100% Optical Quality Check",
+          "Free Pre-Production Physical Sample"
+        ],
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Dibrugarh:",
+        "bulkInputsDesc": "Provide these four details to receive an instant, accurate quotation tailored to your timeline.",
+        "bulkInputsStepTag": "Step 1 of 4 Preparation",
+        "bulkInputs": [
+          {
+            "step": "01",
+            "title": "Target Quantity",
+            "description": "50 to 50,000+ units with batch-wise staggered production for Dibrugarh institutions.",
+            "badge": "Scalable Volume"
+          },
+          {
+            "step": "02",
+            "title": "Card & RFID Type",
+            "description": "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.",
+            "badge": "Credential Spec"
+          },
+          {
+            "step": "03",
+            "title": "Data & Photographs",
+            "description": "Spreadsheet records, photo archives, or live IDGen Studio digital portal.",
+            "badge": "Data Processing"
+          },
+          {
+            "step": "04",
+            "title": "Accessories & Delivery",
+            "description": "Custom printed lanyards, card holders & express doorstep dispatch to Dibrugarh.",
+            "badge": "Full Ecosystem"
+          }
+        ],
+        "bulkBottomNote": "Actual production capacity is matched to product and project specifications for Dibrugarh. Qualified bulk projects receive physical pre-production sample proofs for institutional sign-off.",
+        "bulkCta1Text": "Talk to Specialist",
+        "bulkCta2Text": "Request a Dibrugarh Bulk Quote",
+        "projectsBadge": "Verified Institutional Deployments",
+        "projectsSubBadge": "Active Regional Partnerships • Zero Fabricated Claims",
+        "projectsTitle": "Organizations & Projects in Dibrugarh",
+        "projectsDesc": "IDGen partners with leading academic institutions, corporate offices, and government departments across Dibrugarh. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.",
+        "verifiedClients": [
+          {
+            "name": "Don Bosco Hr Sec School",
+            "logo": "/images/clint logo/1.png",
+            "location": "Gojapara, Assam",
+            "tag": "Dibrugarh"
+          },
+          {
+            "name": "Jorhat Kendriya Vidyalaya",
+            "logo": "/images/clint logo/2.png",
+            "location": "Jorhat, Assam",
+            "tag": "Jorhat"
+          },
+          {
+            "name": "CKB College",
+            "logo": "/images/clint logo/3.png",
+            "location": "Jorhat, Assam",
+            "tag": "Dibrugarh"
+          },
+          {
+            "name": "DBS Itanagar",
+            "logo": "/images/clint logo/4.png",
+            "location": "Arunachal Pradesh",
+            "tag": "Silchar"
+          },
+          {
+            "name": "Rayburn College",
+            "logo": "/images/clint logo/5.png",
+            "location": "Churachandpur, Manipur",
+            "tag": "Tezpur"
+          },
+          {
+            "name": "Nathan Brown Academy",
+            "logo": "/images/clint logo/6.png",
+            "location": "Namrup, Assam",
+            "tag": "Nagaon"
+          },
+          {
+            "name": "Ardalivia English School",
+            "logo": "/images/clint logo/7.png",
+            "location": "Assam",
+            "tag": "Tinsukia"
+          },
+          {
+            "name": "Assam Govt Departments",
+            "logo": "/images/clint logo/8.png",
+            "location": "Guwahati Hub",
+            "tag": "Sivasagar"
+          }
+        ],
+        "whyChooseEyebrow": "Why Choose Us",
+        "whyChooseTitle": "Why Choose IDGen in Dibrugarh?",
+        "whyChooseSubtitle": "Direct regional manufacturing, experience dating back to 2014, organizational focus, and an integrated digital workflow.",
+        "whyChoosePoints": [
+          {
+            "title": "Dibrugarh Direct Regional Fulfillment",
+            "desc": "Direct logistical coordination from our regional manufacturing cleanroom with doorstep delivery across Dibrugarh and the region.",
+            "image": "/images/idgen-id-card-solutions-guwahati-assam.jpg",
+            "badge": "Regional Priority",
+            "stat": "Fast Doorstep Dispatch"
+          },
+          {
+            "title": "Experience Since 2014",
+            "desc": "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
+            "image": "/images/why-idgen-more-than-brand.jpg",
+            "badge": "10+ Years Proven",
+            "stat": "Since 2014"
+          },
+          {
+            "title": "Organizational & Institutional Focus",
+            "desc": "Engineered specifically for schools, colleges, corporate offices, and government bodies in Dibrugarh rather than basic retail single-card prints.",
+            "image": "/images/sol-institutions-idgen-v1.jpg",
+            "badge": "Institutional Grade",
+            "stat": "Bulk & Enterprise"
+          },
+          {
+            "title": "Complete Identification Ecosystem",
+            "desc": "One-stop coordinated supply of premium CR80 PVC cards, RFID chips, custom satin lanyards, crystal holders, and ultrasonic tamper-evident sealing.",
+            "image": "/images/why-idgen-complete-ecosystem-branded.jpg",
+            "badge": "Turnkey Packages",
+            "stat": "Cards + Lanyards + Holders"
+          },
+          {
+            "title": "Structured 8-Stage Workflow",
+            "desc": "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
+            "image": "/images/why-idgen-production-batches-branded.jpg",
+            "badge": "Quality Assured",
+            "stat": "Zero-Defect Standard"
+          },
+          {
+            "title": "IDGen Studio Digital Portal",
+            "desc": "Cloud platform for online student and employee photo collection, background removal, and batch approvals without spreadsheet chaos.",
+            "image": "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+            "badge": "Cloud Automation",
+            "stat": "Digital Previews"
+          }
+        ],
+        "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
+        "workflowBadge": "Priority Turnaround",
+        "workflowTitle": "How to Order ID Cards in Dibrugarh",
+        "workflowSubtitle": "A predictable 8-stage manufacturing workflow ensuring zero data errors, exact color calibration, and doorstep dispatch to Dibrugarh.",
+        "workflowNote": "Doorstep express delivery across Dibrugarh with rigorous optical quality verification before dispatch.",
+        "workflowCta1Text": "Call / WhatsApp IDGen",
+        "workflowCta2Text": "Start at Step 01: Request Quote",
+        "confidentialityTitle": "Identification Data & Confidentiality",
+        "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
+        "confidentialityCta": "Explore IDGen Studio →",
+        "faqsTitle": "Frequently Asked Questions in Dibrugarh",
+        "faqsSubtitle": "Key answers regarding ID card printing, batch timelines, accessories, and delivery in Dibrugarh.",
+        "faqsHelpTitle": "Have Specific Questions?",
+        "faqsHelpText": "Need guidance on custom RFID chip frequencies, lanyard branding, or batch approvals? Our Dibrugarh production desk is here to help.",
+        "catalogEyebrow": "Dibrugarh Hardware & Products",
+        "catalogTitle": "Explore Our Product Catalog in Dibrugarh",
+        "catalogSubtitle": "From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in Dibrugarh.",
+        "products": [
+          {
+            "id": "id-card-holders",
+            "slug": "id-card-holders",
+            "name": "ID Card Holders",
+            "category": "holders",
+            "categoryLabel": "Protection Cases",
+            "imageSrc": "/images/product-id-holders.jpg",
+            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Dibrugarh",
+            "tag": "Hard Acrylic / PMMA",
+            "badge": "Protection",
+            "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
+            "shortDescription": "Vertical, horizontal, four-side-lock, metal and crystal holders for every card orientation supplied to Dibrugarh.",
+            "spec": "UV-Stabilized Polycarbonate • 0.82mm CR80",
+            "highlights": [
+              "4-Side Snap Lock Mechanism",
+              "Crystal Optical Transparency",
+              "Moisture & Dust Resistant"
+            ]
+          },
+          {
+            "id": "id-card-hooks",
+            "slug": "id-card-hooks",
+            "name": "ID Card & Lanyard Hooks",
+            "category": "hardware",
+            "categoryLabel": "Attachments",
+            "imageSrc": "/images/product-hooks-hardware.jpg",
+            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Dibrugarh",
+            "tag": "Chrome-Plated Metal",
+            "badge": "Hardware",
+            "badgeColor": "text-blue-400 bg-blue-500/10 border-blue-400/30",
+            "shortDescription": "Fish hooks, swivel snap hooks, alligator clips and metal attachments for lanyards in Dibrugarh.",
+            "spec": "Anti-Rust Nickel Plating • 25kg Tensile",
+            "highlights": [
+              "360° Free Swivel Rotation",
+              "High-Tension Spring Lever",
+              "Quick Auto-Release Breakaway"
+            ]
+          },
+          {
+            "id": "acrylic-badges",
+            "slug": "acrylic-badges",
+            "name": "Acrylic Badges & Pins",
+            "category": "badges",
+            "categoryLabel": "Executive Badges",
+            "imageSrc": "/images/product-acrylic-badges.jpg",
+            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Dibrugarh",
+            "tag": "Laser Cut PMMA",
+            "badge": "Executive",
+            "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
+            "shortDescription": "Laser-cut crystal acrylic badges with magnetic backing or safety pins for corporate staff in Dibrugarh.",
+            "spec": "Polished Bevel PMMA • Triple Neodymium",
+            "highlights": [
+              "No Garment Puncture or Tearing",
+              "Diamond-Polished Bevel Edges",
+              "High-Definition 1200 DPI Print"
+            ]
+          },
+          {
+            "id": "zinc-medals",
+            "slug": "zinc-medals",
+            "name": "Custom Zinc Medals",
+            "category": "medals",
+            "categoryLabel": "Sports & Honors",
+            "imageSrc": "/images/product-zinc-medals.jpg",
+            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Dibrugarh",
+            "tag": "Die-Cast Metal",
+            "badge": "Recognition",
+            "badgeColor": "text-purple-400 bg-purple-500/10 border-purple-400/30",
+            "shortDescription": "High-relief antique gold, silver & bronze medals with customized satin ribbons for sports & events across Dibrugarh.",
+            "spec": "3D Sculpted Zinc Alloy • Heavy Antique Finish",
+            "highlights": [
+              "Custom 3D Institutional Crests",
+              "Tri-Tone Antique Gold/Silver/Bronze",
+              "Matching V-Cut Satin Ribbon"
+            ]
+          },
+          {
+            "id": "pvc-cards",
+            "slug": "pvc-cards",
+            "name": "30-Mil PVC Smart Cards",
+            "category": "cards",
+            "categoryLabel": "Card Media",
+            "imageSrc": "/images/product-pvc-cards.jpg",
+            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Dibrugarh",
+            "tag": "Virgin PVC Core",
+            "badge": "Core Media",
+            "badgeColor": "text-sky-400 bg-sky-500/10 border-sky-400/30",
+            "shortDescription": "Bank-grade virgin PVC core cards with 300 DPI high-definition dye sublimation & overlaminate in Dibrugarh.",
+            "spec": "CR80 30-Mil Standard • 300 DPI Sublimation",
+            "highlights": [
+              "Bank-Grade 100% Virgin Core",
+              "Integrated RFID & NFC Chips",
+              "Scratch-Resistant Overlaminate"
+            ]
+          }
         ]
       },
       {

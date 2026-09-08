@@ -1,0 +1,374 @@
+[
+  {
+    "id": "pvc-id-cards",
+    "name": "PVC ID Cards (Standard CR-80)",
+    "category": "Identity Cards",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "pvc-single",
+      "pvc-double"
+    ],
+    "imageSrc": "/images/product-pvc-cards.jpg",
+    "alt": "Standard CR80 PVC ID Card printing specifications",
+    "pageHref": "/id-card-printing/",
+    "specs": [
+      {
+        "label": "Dimensions",
+        "value": "85.6 mm × 53.98 mm (CR-80 ISO 7810)"
+      },
+      {
+        "label": "Thickness",
+        "value": "30 Mil (0.76 mm) Standard Gauge"
+      },
+      {
+        "label": "Material",
+        "value": "100% Solid Virgin Polyvinyl Chloride"
+      },
+      {
+        "label": "Finish",
+        "value": "High-Gloss Mirror / Satin Matte UV Shield"
+      },
+      {
+        "label": "Printing Process",
+        "value": "Thermal Retransfer / Digital Dye-Sublimation"
+      },
+      {
+        "label": "Personalization",
+        "value": "Photos, 1D/2D Barcodes, QR Codes, Serial Numbers"
+      }
+    ],
+    "highlights": [
+      "Water-Proof Solid Core",
+      "Zero Corner De-lamination",
+      "Edge-to-Edge 300+ DPI Print",
+      "Scratch-Resistant Surface"
+    ],
+    "sortOrder": 1,
+    "isActive": true
+  },
+  {
+    "id": "custom-lanyards",
+    "name": "Custom Printed Satin Lanyards",
+    "category": "Wearable Credentials",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "lanyard-20mm"
+    ],
+    "imageSrc": "/images/product-satin-lanyards.jpg",
+    "alt": "20mm Custom Printed Satin Lanyard specifications",
+    "pageHref": "/custom-printed-lanyard-printing/",
+    "specs": [
+      {
+        "label": "Available Widths",
+        "value": "20 mm (Standard), 16 mm, 12 mm"
+      },
+      {
+        "label": "Length",
+        "value": "90 cm Total Loop (45 cm Hanging Drop)"
+      },
+      {
+        "label": "Material",
+        "value": "Premium Soft Fine-Woven Satin Polyester"
+      },
+      {
+        "label": "Print Technology",
+        "value": "Continuous Multi-Color Dye-Sublimation"
+      },
+      {
+        "label": "Joint Sealing",
+        "value": "Ultrasonic Acoustic Welding (Thread-Free)"
+      },
+      {
+        "label": "Standard Clip",
+        "value": "Anti-Rust Chrome Swivel Fish Hook"
+      }
+    ],
+    "highlights": [
+      "Skin-Friendly Soft Weave",
+      "Fray-Proof Ultrasonic Sealing",
+      "Washable Fade-Resistant Colors",
+      "High Tensile Durability"
+    ],
+    "sortOrder": 2,
+    "isActive": true
+  },
+  {
+    "id": "rfid-smart-cards",
+    "name": "RFID & Smart Access Cards",
+    "category": "Smart Access",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "rfid-card"
+    ],
+    "imageSrc": "/images/rfid-nfc-credentials.jpg",
+    "alt": "RFID and Smartcard Contactless Chip specifications",
+    "pageHref": "/rfid-card-printing/",
+    "specs": [
+      {
+        "label": "Frequencies",
+        "value": "13.56 MHz (HF) / 125 kHz (LF)"
+      },
+      {
+        "label": "Supported Chips",
+        "value": "Mifare 1K, NTAG213, EM4100, TK4100"
+      },
+      {
+        "label": "Read Distance",
+        "value": "2.5 cm – 10 cm (Sensor Dependent)"
+      },
+      {
+        "label": "Antenna Coil",
+        "value": "Embedded Copper Coil with PVC Lamination"
+      },
+      {
+        "label": "Data Retention",
+        "value": "10+ Years / 100,000 Read-Write Cycles"
+      },
+      {
+        "label": "Standard Size",
+        "value": "85.6 mm × 53.98 mm × 0.84 mm (ISO 14443A)"
+      }
+    ],
+    "highlights": [
+      "Turnstile & Door Lock Ready",
+      "Tamper-Proof Embedded Chip",
+      "High-Speed Contactless Scan",
+      "Dual Frequency Custom Inlays"
+    ],
+    "sortOrder": 3,
+    "isActive": true
+  },
+  {
+    "id": "event-badges",
+    "name": "Event & Conference VIP Badges",
+    "category": "Event Credentials",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "event-card"
+    ],
+    "imageSrc": "/images/idgen-custom-event-card-printing.jpg",
+    "alt": "Large format event card and VIP summit badge specifications",
+    "pageHref": "/event-card-printing/",
+    "specs": [
+      {
+        "label": "Available Formats",
+        "value": "3.5\" × 5.5\" (Jumbo), 4\" × 6\" (Summit), CR-100"
+      },
+      {
+        "label": "Card Material",
+        "value": "350+ GSM Tear-Proof Polyvinyl / 30-Mil PVC"
+      },
+      {
+        "label": "Punching Formats",
+        "value": "Center Oval Slot / Dual Anti-Twist Holes"
+      },
+      {
+        "label": "Lanyard Compatibility",
+        "value": "One-Hook or Two-Hook No-Flip Lanyards"
+      },
+      {
+        "label": "Security Badging",
+        "value": "Foil Accents, Access Zoning, Dynamic QR Codes"
+      },
+      {
+        "label": "Surface Lamination",
+        "value": "Thermal Gloss / Matte Velvet Touch"
+      }
+    ],
+    "highlights": [
+      "High-Visibility Oversized Layout",
+      "Anti-Twist Dual Hook Support",
+      "Multi-Day Conference Durable",
+      "Quick-Scan Delegate QR"
+    ],
+    "sortOrder": 4,
+    "isActive": true
+  },
+  {
+    "id": "pc-holders",
+    "name": "Polycarbonate ID Card Holders (V-1 / H-1 / V-2)",
+    "category": "Protective Holders",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "holder-v1",
+      "holder-v2",
+      "holder-h1",
+      "holder-h2"
+    ],
+    "imageSrc": "/images/product-id-holders.jpg",
+    "alt": "Polycarbonate rigid card holder specifications for V-1, H-1, V-2",
+    "pageHref": "/id-card-holders/",
+    "specs": [
+      {
+        "label": "Available Models",
+        "value": "V-1 (Vertical Standard: ₹6), H-1 (Horizontal: ₹6), V-2 (4-Side Lock: ₹7), H-2 (Landscape Lock: ₹7)"
+      },
+      {
+        "label": "Material",
+        "value": "100% Virgin Optical Grade Polycarbonate"
+      },
+      {
+        "label": "Card Fit",
+        "value": "Standard CR-80 (85.6 mm × 54 mm)"
+      },
+      {
+        "label": "Extraction Slot",
+        "value": "Ergonomic Curved Thumb Slide-Out Groove"
+      },
+      {
+        "label": "Hole Punch Fit",
+        "value": "Universal Euro Slot + Dual Chain Holes"
+      },
+      {
+        "label": "Impact Resistance",
+        "value": "Shatter-Proof, UV-Stabilized Anti-Yellowing"
+      }
+    ],
+    "highlights": [
+      "Crystal Clear Transparency",
+      "4-Corner Edge Guard Protection",
+      "Thumb Slot Card Removal",
+      "Prevents Bending & Snapping"
+    ],
+    "sortOrder": 5,
+    "isActive": true
+  },
+  {
+    "id": "metal-hooks",
+    "name": "Swivel Fish Hooks & Clips",
+    "category": "Hardware Attachments",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "swivel-hook"
+    ],
+    "imageSrc": "/images/product-hooks-hardware.jpg",
+    "alt": "Metal swivel hooks and attachment clips specifications",
+    "pageHref": "/id-card-hooks/",
+    "specs": [
+      {
+        "label": "Attachment Types",
+        "value": "Swivel Fish Hook, Dog Hook, Alligator Clip, Lobster Clasp"
+      },
+      {
+        "label": "Material",
+        "value": "Die-Cast Zinc Alloy Metal"
+      },
+      {
+        "label": "Plating Finish",
+        "value": "Mirror Polish Nickel-Chrome Electroplated"
+      },
+      {
+        "label": "Swivel Mechanism",
+        "value": "360-Degree Smooth Silent Rotation"
+      },
+      {
+        "label": "Pull Strength",
+        "value": "Tested up to 15 kg Tensile Pull Force"
+      },
+      {
+        "label": "Compatibility",
+        "value": "Fits 12 mm, 16 mm & 20 mm Lanyard Loops"
+      }
+    ],
+    "highlights": [
+      "100% Rust-Proof & Anti-Corrosion",
+      "360° Free Rotation",
+      "Heavy-Duty Spring Return",
+      "Snag-Free Smooth Edges"
+    ],
+    "sortOrder": 6,
+    "isActive": true
+  },
+  {
+    "id": "acrylic-badges",
+    "name": "Custom Acrylic Name Badges",
+    "category": "Executive Badges",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "acrylic-badge"
+    ],
+    "imageSrc": "/images/product-acrylic-badges.jpg",
+    "alt": "Custom acrylic name badges and magnetic pins specifications",
+    "pageHref": "/acrylic-badges/",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Precision Laser-Cut Optical Cast Acrylic (PMMA)"
+      },
+      {
+        "label": "Thickness",
+        "value": "3.0 mm – 4.0 mm Crystal Clear"
+      },
+      {
+        "label": "Edge Finishing",
+        "value": "Diamond-Polished Beveled Crystal Borders"
+      },
+      {
+        "label": "Fastener Options",
+        "value": "Triple Neodymium Magnet / Steel Safety Pin"
+      },
+      {
+        "label": "Printing Quality",
+        "value": "1200 DPI Subsurface UV Print with White Opaque Layer"
+      },
+      {
+        "label": "Custom Shapes",
+        "value": "Rectangular, Oval, Crest & Custom Contours"
+      }
+    ],
+    "highlights": [
+      "Clothing-Safe Magnetic Clasp",
+      "Zero Pin Hole Damage",
+      "Glass-Like Depth & Gloss",
+      "Personalized Names & Titles"
+    ],
+    "sortOrder": 7,
+    "isActive": true
+  },
+  {
+    "id": "zinc-medals",
+    "name": "Die-Cast Zinc Medals & Ribbons",
+    "category": "Awards & Trophies",
+    "priceFormula": "auto",
+    "matchedPricingIds": [
+      "zinc-medal"
+    ],
+    "imageSrc": "/images/product-zinc-medals.jpg",
+    "alt": "Die-cast zinc medals and custom satin ribbons specifications",
+    "pageHref": "/zinc-medals/",
+    "specs": [
+      {
+        "label": "Diameters Available",
+        "value": "50 mm / 60 mm / 70 mm Custom 3D Cast"
+      },
+      {
+        "label": "Metal Material",
+        "value": "High-Density Solid Zinc Alloy"
+      },
+      {
+        "label": "Plating Finishes",
+        "value": "Antique Gold, Antique Silver, Antique Bronze, Mirror Gold"
+      },
+      {
+        "label": "Ribbon Dimensions",
+        "value": "25 mm – 32 mm Width × 80 cm Loop"
+      },
+      {
+        "label": "Ribbon Material",
+        "value": "Full-Color Sublimated V-Cut Neck Ribbon"
+      },
+      {
+        "label": "Attachment",
+        "value": "Heavy-Duty Jump Ring with Ultrasonic Stitch"
+      }
+    ],
+    "highlights": [
+      "3D High-Relief Sculpted Artwork",
+      "Heavy Premium Weight in Hand",
+      "Custom Event & Institute Crest",
+      "Matching Themed Satin Ribbon"
+    ],
+    "sortOrder": 8,
+    "isActive": true
+  }
+]
