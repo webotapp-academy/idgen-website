@@ -39,6 +39,9 @@ const nextConfig: NextConfig = {
       { source: "/service-area", destination: "/service-areas/" },
       { source: "/get-a-quote", destination: "/request-a-quote/" },
       { source: "/become-a-partner", destination: "/partners/" },
+      { source: "/terms", destination: "/terms-conditions/" },
+      { source: "/terms-and-conditions", destination: "/terms-conditions/" },
+      { source: "/privacy", destination: "/privacy-policy/" },
     ];
     return rules.flatMap(({ source, destination }) => [
       { source, destination, permanent: true },

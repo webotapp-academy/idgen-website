@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -21,260 +21,54 @@ import {
   Users,
   Award,
   BadgeCheck,
+  Edit3,
 } from "lucide-react";
 import { FlowChain } from "@/components/ui/FlowChain";
+import {
+  type RealProjectItem,
+  INITIAL_PROJECTS,
+  DEFAULT_CATEGORY_FILTERS,
+} from "@/lib/dynamic-projects-types";
 
-export interface RealProjectItem {
-  id: string;
-  org: string;
-  location: string;
-  category:
-    | "student"
-    | "employee"
-    | "event"
-    | "rfid"
-    | "membership"
-    | "lanyards"
-    | "badges"
-    | "medals";
-  categoryLabel: string;
-  requirement: string;
-  products: string;
-  badge: string;
-  image: string;
-  imageSecondary?: string;
-  workflow: string[];
-  outcome: string;
+export type { RealProjectItem };
+export { DEFAULT_CATEGORY_FILTERS as categoryFilters };
+export const deliveredProjects = INITIAL_PROJECTS;
+
+export interface RealProjectShowcaseGalleryProps {
+  initialProjects?: RealProjectItem[];
 }
 
-export const categoryFilters = [
-  { id: "all", label: "All Projects" },
-  { id: "student", label: "Student ID Card Projects" },
-  { id: "employee", label: "Employee Identification Projects" },
-  { id: "event", label: "Event Identification Projects" },
-  { id: "rfid", label: "RFID Identification Projects" },
-  { id: "membership", label: "Membership ID Card" },
-  { id: "lanyards", label: "Custom 20 mm Printed Lanyards" },
-  { id: "badges", label: "Acrylic Badges" },
-  { id: "medals", label: "Medals" },
-];
-
-export const deliveredProjects: RealProjectItem[] = [
-  {
-    id: "don-bosco-school",
-    org: "Don Bosco Hr Sec School",
-    location: "Gojapara, Assam",
-    category: "student",
-    categoryLabel: "Student ID Card Projects",
-    requirement: "Annual student identification batch for school academic session",
-    products: "CR80 PVC Student ID Cards + Custom Printed Lanyards + Vertical Holders",
-    badge: "Student ID Card Projects",
-    image: "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
-    imageSecondary: "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 2.png",
-    workflow: [
-      "Student Data",
-      "Photograph",
-      "Design",
-      "Preview",
-      "Approval",
-      "Production",
-      "Quality Check",
-      "Dispatch",
-    ],
-    outcome:
-      "Personalized student identification prepared according to the organization's approved requirements and dispatched for campus distribution.",
-  },
-  {
-    id: "ckb-college-student",
-    org: "CKB College",
-    location: "Jorhat, Assam",
-    category: "student",
-    categoryLabel: "Student ID Card Projects",
-    requirement: "Higher education student identity passes & library access cards",
-    products: "Personalized PVC Cards + 20mm Custom Sublimation Lanyards",
-    badge: "Student ID Card Projects",
-    image: "/images/Order Deliver/CKB COLLAGE,JORHAT 1.png",
-    imageSecondary: "/images/Order Deliver/CKB COLLAGE,JORHAT 2.png",
-    workflow: [
-      "Data Collection",
-      "Photo Matching",
-      "Design Layout",
-      "Proof Review",
-      "Approval",
-      "Batch Printing",
-      "Express Delivery",
-    ],
-    outcome:
-      "Full student enrollment cards personalized with barcode registration and branded college lanyard.",
-  },
-  {
-    id: "govt-assam-staff",
-    org: "Government of Assam",
-    location: "Nagaon, Assam",
-    category: "employee",
-    categoryLabel: "Employee Identification Projects",
-    requirement: "Official department staff identification & security credentials",
-    products: "Official Staff PVC ID Cards + Branded Blue Lanyards + Four-Side Lock Holders",
-    badge: "Employee Identification Projects",
-    image: "/images/Order Deliver/Government of assam,nagoan 1.jpeg",
-    imageSecondary: "/images/Order Deliver/Government of assam,nagoan 2.jpeg",
-    workflow: [
-      "Official Roster",
-      "Department Design",
-      "Institutional Approval",
-      "Security Printing",
-      "QC Check",
-      "Dispatch",
-    ],
-    outcome:
-      "High-durability staff identification credentials manufactured to official departmental design standards.",
-  },
-  {
-    id: "northeast-tech-corporate",
-    org: "Northeast Corporate Enterprise",
-    location: "Guwahati, Assam",
-    category: "employee",
-    categoryLabel: "Employee Identification Projects",
-    requirement: "Corporate employee identity setup with security access encoding",
-    products: "30-Mil Edge-to-Edge PVC Cards + Custom Lanyards + Executive Holders",
-    badge: "Employee Identification Projects",
-    image: "/images/employee-id-card-printing-idgen.jpg",
-    workflow: [
-      "HR Roster Data",
-      "High-Res Photos",
-      "Corporate Branding",
-      "Thermal Print",
-      "Quality Check",
-      "Dispatched",
-    ],
-    outcome:
-      "Sleek corporate identity credentials delivered for employee onboarding across multiple office locations.",
-  },
-  {
-    id: "ne-business-summit-event",
-    org: "North-East Business & Trade Summit",
-    location: "Guwahati, Assam",
-    category: "event",
-    categoryLabel: "Event Identification Projects",
-    requirement: "Oversized VIP delegate badges and organizer identification credentials",
-    products: "Oversized Event Passes + Dual-Hook Satin Lanyards",
-    badge: "Event Identification Projects",
-    image: "/images/event-card-printing-lanyard-idgen.jpg",
-    workflow: [
-      "Delegate Roster",
-      "Category Color-Coding",
-      "Fast Printing",
-      "Dual-Hook Lanyard Assembly",
-      "Express Delivery",
-    ],
-    outcome:
-      "High-impact oversized event badges delivered on exact summit timeline with color-coded access tiers.",
-  },
-  {
-    id: "guwahati-campus-rfid",
-    org: "Smart Campus & University System",
-    location: "Guwahati, Assam",
-    category: "rfid",
-    categoryLabel: "RFID Identification Projects",
-    requirement: "Contactless smart RFID cards for automated attendance and turnstile access",
-    products: "13.56MHz Mifare 1K Smart PVC Cards + Encoded Barcodes",
-    badge: "RFID Identification Projects",
-    image: "/images/bulk-rfid-card-printing.jpg",
-    workflow: [
-      "UID Chip Mapping",
-      "Dye-Sub Printing",
-      "Turnstile Testing",
-      "Verification",
-      "Dispatch",
-    ],
-    outcome:
-      "Smart contactless RFID cards pre-encoded and synchronized with the campus attendance reader system.",
-  },
-  {
-    id: "assam-sports-club-membership",
-    org: "Assam Recreation & Sports Association",
-    location: "Jorhat, Assam",
-    category: "membership",
-    categoryLabel: "Membership ID Card",
-    requirement: "Premium membership credentials with QR verification and metallic finish",
-    products: "Gold-Accent PVC Cards + QR Verification + Clear Holders",
-    badge: "Membership ID Card",
-    image: "/images/idgen-custom-membership-card-printing.jpg",
-    workflow: [
-      "Member Database",
-      "QR Generation",
-      "High-Gloss Print",
-      "Inspection",
-      "Express Delivery",
-    ],
-    outcome:
-      "Durable, elegant membership cards featuring scannable QR codes for instant member verification.",
-  },
-  {
-    id: "institutional-satin-lanyards",
-    org: "Assam Educational Consortium",
-    location: "Guwahati, Assam",
-    category: "lanyards",
-    categoryLabel: "Custom 20 mm Printed Lanyards",
-    requirement: "20mm multi-color satin printed lanyards with ultrasonic welded ends",
-    products: "20mm Satin Lanyards + Chrome Swivel Fish Hooks + Ultrasonic Sealing",
-    badge: "Custom 20 mm Printed Lanyards",
-    image: "/images/20mm-custom-printed-lanyard-branding.jpg",
-    workflow: [
-      "Vector Logo Setup",
-      "Dye-Sublimation",
-      "Ultrasonic Loop Welding",
-      "Hardware Fitting",
-      "Packaging",
-    ],
-    outcome:
-      "Vibrant, non-fraying satin lanyards manufactured with exact Pantone color matching and heavy-duty hooks.",
-  },
-  {
-    id: "apollo-medical-badges",
-    org: "Healthcare & Medical Institute",
-    location: "Guwahati, Assam",
-    category: "badges",
-    categoryLabel: "Acrylic Badges",
-    requirement: "Laser-cut crystal acrylic name badges with magnetic backings for doctors",
-    products: "Diamond-Beveled PMMA Acrylic Badges + Triple Neodymium Magnets",
-    badge: "Acrylic Badges",
-    image: "/images/product-acrylic-badges.jpg",
-    workflow: [
-      "Staff Registry",
-      "Laser Cut PMMA",
-      "1200 DPI Printing",
-      "Magnetic Fitting",
-      "QC Check",
-    ],
-    outcome:
-      "Executive crystal-clear name badges delivered with zero garment damage magnetic clips.",
-  },
-  {
-    id: "state-championship-medals",
-    org: "Northeast Youth Sports Championship",
-    location: "Guwahati, Assam",
-    category: "medals",
-    categoryLabel: "Medals",
-    requirement: "3D high-relief die-cast metal honor medals with custom V-cut satin ribbons",
-    products: "Die-Cast Zinc Medals (Gold/Silver/Bronze) + Custom Printed Ribbon",
-    badge: "Medals",
-    image: "/images/product-zinc-medals.jpg",
-    workflow: [
-      "3D Crest Sculpting",
-      "Zinc Die-Casting",
-      "Antique Plating",
-      "V-Cut Ribbon Stitching",
-      "Delivery",
-    ],
-    outcome:
-      "Heavyweight 3D metal medals crafted in tri-tone finishes for championship award ceremonies.",
-  },
-];
-
-export function RealProjectShowcaseGallery() {
+export function RealProjectShowcaseGallery({
+  initialProjects,
+}: RealProjectShowcaseGalleryProps) {
+  const [projects, setProjects] = useState<RealProjectItem[]>(
+    initialProjects && initialProjects.length > 0 ? initialProjects : INITIAL_PROJECTS
+  );
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [activeModalProject, setActiveModalProject] = useState<RealProjectItem | null>(null);
+  const [activeModalImageIndex, setActiveModalImageIndex] = useState<number>(0);
+
+  // Sync with background API
+  useEffect(() => {
+    let isMounted = true;
+    async function loadDynamicProjects() {
+      try {
+        const res = await fetch("/api/projects");
+        if (!res.ok) return;
+        const data = await res.json();
+        if (isMounted && data.success && Array.isArray(data.projects) && data.projects.length > 0) {
+          setProjects(data.projects);
+        }
+      } catch {
+        // Fallback gracefully to props/initial
+      }
+    }
+
+    loadDynamicProjects();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") setActiveModalProject(null);
@@ -285,9 +79,29 @@ export function RealProjectShowcaseGallery() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const filteredProjects = deliveredProjects.filter(
-    (p) => selectedCategory === "all" || p.category === selectedCategory
-  );
+  // Dynamically compute available categories
+  const categoryFilters = useMemo(() => {
+    const filters = [...DEFAULT_CATEGORY_FILTERS];
+    // Check if there are projects with categories not in default list
+    const knownIds = new Set(filters.map((f) => f.id));
+    projects.forEach((p) => {
+      const catId = p.category?.toLowerCase();
+      if (catId && !knownIds.has(catId)) {
+        knownIds.add(catId);
+        filters.push({
+          id: catId,
+          label: p.categoryLabel || p.badge || catId.charAt(0).toUpperCase() + catId.slice(1),
+        });
+      }
+    });
+    return filters;
+  }, [projects]);
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter(
+      (p) => selectedCategory === "all" || p.category.toLowerCase() === selectedCategory.toLowerCase()
+    );
+  }, [projects, selectedCategory]);
 
   return (
     <section className="mt-10 sm:mt-14" id="project-gallery">
@@ -306,26 +120,54 @@ export function RealProjectShowcaseGallery() {
           </p>
         </div>
 
-        <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          Showing {filteredProjects.length} Verified Projects
+        <div className="flex items-center gap-3">
+          <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+            Showing {filteredProjects.length} Verified Projects
+          </div>
+          <Link
+            href="/admin/case-studies"
+            className="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 hover:text-[#009fe3] dark:hover:text-cyan-400 transition"
+            title="Manage Projects in Admin Panel"
+          >
+            <Edit3 className="h-3 w-3" />
+            <span>Admin Control</span>
+          </Link>
         </div>
       </div>
 
-      {/* ── Filter Pills for all 8 categories requested ── */}
+      {/* ── Filter Pills for all categories ── */}
       <div className="mt-6 flex flex-wrap items-center gap-2">
-        {categoryFilters.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => setSelectedCategory(cat.id)}
-            className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 ${
-              selectedCategory === cat.id
-                ? "bg-[#009fe3] text-white shadow-md shadow-[#009fe3]/25 scale-[1.02]"
-                : "bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-[#009fe3]/60 hover:bg-sky-50/50 dark:hover:bg-slate-800"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+        {categoryFilters.map((cat) => {
+          const count =
+            cat.id === "all"
+              ? projects.length
+              : projects.filter((p) => p.category.toLowerCase() === cat.id).length;
+
+          if (cat.id !== "all" && count === 0) return null;
+
+          return (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 flex items-center gap-1.5 ${
+                selectedCategory === cat.id
+                  ? "bg-[#009fe3] text-white shadow-md shadow-[#009fe3]/25 scale-[1.02]"
+                  : "bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-[#009fe3]/60 hover:bg-sky-50/50 dark:hover:bg-slate-800"
+              }`}
+            >
+              <span>{cat.label}</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                  selectedCategory === cat.id
+                    ? "bg-white/20 text-white"
+                    : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* ── Projects Grid ── */}
@@ -333,7 +175,10 @@ export function RealProjectShowcaseGallery() {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            onClick={() => setActiveModalProject(project)}
+            onClick={() => {
+              setActiveModalProject(project);
+              setActiveModalImageIndex(0);
+            }}
             className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-2xl hover:border-[#009fe3]/80 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
           >
             <div>
@@ -362,6 +207,11 @@ export function RealProjectShowcaseGallery() {
                     <MapPin className="h-3 w-3" />
                     <span>{project.location}</span>
                   </span>
+                  {project.imageSecondary && (
+                    <span className="text-[10px] bg-white/20 backdrop-blur-md px-2 py-0.5 rounded-full font-semibold">
+                      2 Photos
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -426,13 +276,45 @@ export function RealProjectShowcaseGallery() {
               </p>
             </div>
 
-            <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
-              <Image
-                src={activeModalProject.image}
-                alt={activeModalProject.org}
-                fill
-                className="object-cover"
-              />
+            {/* Modal Image Carousel / Toggle */}
+            <div className="space-y-2">
+              <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
+                <Image
+                  src={
+                    activeModalImageIndex === 1 && activeModalProject.imageSecondary
+                      ? activeModalProject.imageSecondary
+                      : activeModalProject.image
+                  }
+                  alt={activeModalProject.org}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {activeModalProject.imageSecondary && (
+                <div className="flex items-center justify-center gap-2 pt-1">
+                  <button
+                    onClick={() => setActiveModalImageIndex(0)}
+                    className={`px-3 py-1 rounded-full text-xs font-bold transition ${
+                      activeModalImageIndex === 0
+                        ? "bg-[#009fe3] text-white"
+                        : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                    }`}
+                  >
+                    Specimen View 1
+                  </button>
+                  <button
+                    onClick={() => setActiveModalImageIndex(1)}
+                    className={`px-3 py-1 rounded-full text-xs font-bold transition ${
+                      activeModalImageIndex === 1
+                        ? "bg-[#009fe3] text-white"
+                        : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                    }`}
+                  >
+                    Specimen View 2
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="space-y-4">

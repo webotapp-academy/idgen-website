@@ -413,6 +413,24 @@ export function Footer() {
             <span>&copy; {new Date().getFullYear()} IDGen. All rights reserved.</span>
           </div>
 
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-slate-400">
+            <Link href="/terms-conditions/" className="hover:text-cyan-300 transition-colors">
+              Terms & Conditions
+            </Link>
+            <span className="text-slate-600">•</span>
+            <Link href="/privacy-policy/" className="hover:text-cyan-300 transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-slate-600">•</span>
+            <Link href="/shipping-returns/" className="hover:text-cyan-300 transition-colors">
+              Shipping & Returns
+            </Link>
+            <span className="text-slate-600">•</span>
+            <Link href="/faq/" className="hover:text-cyan-300 transition-colors">
+              FAQ
+            </Link>
+          </div>
+
           <div className="flex items-center gap-4">
             <span className="text-cyan-300 font-semibold text-[11px]">
               Identity Solutions, Simplified — Guwahati, Assam
@@ -420,7 +438,7 @@ export function Footer() {
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 transition-all hover:bg-cyan-500 hover:text-slate-950 hover:scale-110 shadow-lg"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 transition-all hover:bg-cyan-500 hover:text-slate-950 hover:scale-110 shadow-lg cursor-pointer"
               aria-label="Back to top"
             >
               <ArrowUp className="h-4 w-4" />

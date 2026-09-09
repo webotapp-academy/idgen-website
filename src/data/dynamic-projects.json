@@ -1,0 +1,202 @@
+[
+  {
+    "id": "don-bosco-school",
+    "org": "Don Bosco Hr Sec School",
+    "location": "Gojapara, Assam",
+    "category": "student",
+    "categoryLabel": "Student ID Card Projects",
+    "requirement": "Annual student identification batch for school academic session",
+    "products": "CR80 PVC Student ID Cards + Custom Printed Lanyards + Vertical Holders",
+    "badge": "Student ID Card Projects",
+    "image": "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
+    "imageSecondary": "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 2.png",
+    "workflow": [
+      "Student Data",
+      "Photograph",
+      "Design",
+      "Preview",
+      "Approval",
+      "Production",
+      "Quality Check",
+      "Dispatch"
+    ],
+    "outcome": "Personalized student identification prepared according to the organization's approved requirements and dispatched for campus distribution."
+  },
+  {
+    "id": "ckb-college-student",
+    "org": "CKB College",
+    "location": "Jorhat, Assam",
+    "category": "student",
+    "categoryLabel": "Student ID Card Projects",
+    "requirement": "Higher education student identity passes & library access cards",
+    "products": "Personalized PVC Cards + 20mm Custom Sublimation Lanyards",
+    "badge": "Student ID Card Projects",
+    "image": "/images/Order Deliver/CKB COLLAGE,JORHAT 1.png",
+    "imageSecondary": "/images/Order Deliver/CKB COLLAGE,JORHAT 2.png",
+    "workflow": [
+      "Data Collection",
+      "Photo Matching",
+      "Design Layout",
+      "Proof Review",
+      "Approval",
+      "Batch Printing",
+      "Express Delivery"
+    ],
+    "outcome": "Full student enrollment cards personalized with barcode registration and branded college lanyard."
+  },
+  {
+    "id": "govt-assam-staff",
+    "org": "Government of Assam",
+    "location": "Nagaon, Assam",
+    "category": "employee",
+    "categoryLabel": "Employee Identification Projects",
+    "requirement": "Official department staff identification & security credentials",
+    "products": "Official Staff PVC ID Cards + Branded Blue Lanyards + Four-Side Lock Holders",
+    "badge": "Employee Identification Projects",
+    "image": "/images/Order Deliver/Government of assam,nagoan 1.jpeg",
+    "imageSecondary": "/images/Order Deliver/Government of assam,nagoan 2.jpeg",
+    "workflow": [
+      "Official Roster",
+      "Department Design",
+      "Institutional Approval",
+      "Security Printing",
+      "QC Check",
+      "Dispatch"
+    ],
+    "outcome": "High-durability staff identification credentials manufactured to official departmental design standards."
+  },
+  {
+    "id": "northeast-tech-corporate",
+    "org": "Northeast Corporate Enterprise",
+    "location": "Guwahati, Assam",
+    "category": "employee",
+    "categoryLabel": "Employee Identification Projects",
+    "requirement": "Corporate employee identity setup with security access encoding",
+    "products": "30-Mil Edge-to-Edge PVC Cards + Custom Lanyards + Executive Holders",
+    "badge": "Employee Identification Projects",
+    "image": "/images/employee-id-card-printing-idgen.jpg",
+    "workflow": [
+      "HR Roster Data",
+      "High-Res Photos",
+      "Corporate Branding",
+      "Thermal Print",
+      "Quality Check",
+      "Dispatched"
+    ],
+    "outcome": "Sleek corporate identity credentials delivered for employee onboarding across multiple office locations."
+  },
+  {
+    "id": "ne-business-summit-event",
+    "org": "North-East Business & Trade Summit",
+    "location": "Guwahati, Assam",
+    "category": "event",
+    "categoryLabel": "Event Identification Projects",
+    "requirement": "Oversized VIP delegate badges and organizer identification credentials",
+    "products": "Oversized Event Passes + Dual-Hook Satin Lanyards",
+    "badge": "Event Identification Projects",
+    "image": "/images/event-card-printing-lanyard-idgen.jpg",
+    "workflow": [
+      "Delegate Roster",
+      "Category Color-Coding",
+      "Fast Printing",
+      "Dual-Hook Lanyard Assembly",
+      "Express Delivery"
+    ],
+    "outcome": "High-impact oversized event badges delivered on exact summit timeline with color-coded access tiers."
+  },
+  {
+    "id": "guwahati-campus-rfid",
+    "org": "Smart Campus & University System",
+    "location": "Guwahati, Assam",
+    "category": "rfid",
+    "categoryLabel": "RFID Identification Projects",
+    "requirement": "Contactless smart RFID cards for automated attendance and turnstile access",
+    "products": "13.56MHz Mifare 1K Smart PVC Cards + Encoded Barcodes",
+    "badge": "RFID Identification Projects",
+    "image": "/images/bulk-rfid-card-printing.jpg",
+    "workflow": [
+      "UID Chip Mapping",
+      "Dye-Sub Printing",
+      "Turnstile Testing",
+      "Verification",
+      "Dispatch"
+    ],
+    "outcome": "Smart contactless RFID cards pre-encoded and synchronized with the campus attendance reader system."
+  },
+  {
+    "id": "assam-sports-club-membership",
+    "org": "Assam Recreation & Sports Association",
+    "location": "Jorhat, Assam",
+    "category": "membership",
+    "categoryLabel": "Membership ID Card",
+    "requirement": "Premium membership credentials with QR verification and metallic finish",
+    "products": "Gold-Accent PVC Cards + QR Verification + Clear Holders",
+    "badge": "Membership ID Card",
+    "image": "/images/idgen-custom-membership-card-printing.jpg",
+    "workflow": [
+      "Member Database",
+      "QR Generation",
+      "High-Gloss Print",
+      "Inspection",
+      "Express Delivery"
+    ],
+    "outcome": "Durable, elegant membership cards featuring scannable QR codes for instant member verification."
+  },
+  {
+    "id": "institutional-satin-lanyards",
+    "org": "Assam Educational Consortium",
+    "location": "Guwahati, Assam",
+    "category": "lanyards",
+    "categoryLabel": "Custom 20 mm Printed Lanyards",
+    "requirement": "20mm multi-color satin printed lanyards with ultrasonic welded ends",
+    "products": "20mm Satin Lanyards + Chrome Swivel Fish Hooks + Ultrasonic Sealing",
+    "badge": "Custom 20 mm Printed Lanyards",
+    "image": "/images/20mm-custom-printed-lanyard-branding.jpg",
+    "workflow": [
+      "Vector Logo Setup",
+      "Dye-Sublimation",
+      "Ultrasonic Loop Welding",
+      "Hardware Fitting",
+      "Packaging"
+    ],
+    "outcome": "Vibrant, non-fraying satin lanyards manufactured with exact Pantone color matching and heavy-duty hooks."
+  },
+  {
+    "id": "apollo-medical-badges",
+    "org": "Healthcare & Medical Institute",
+    "location": "Guwahati, Assam",
+    "category": "badges",
+    "categoryLabel": "Acrylic Badges",
+    "requirement": "Laser-cut crystal acrylic name badges with magnetic backings for doctors",
+    "products": "Diamond-Beveled PMMA Acrylic Badges + Triple Neodymium Magnets",
+    "badge": "Acrylic Badges",
+    "image": "/images/product-acrylic-badges.jpg",
+    "workflow": [
+      "Staff Registry",
+      "Laser Cut PMMA",
+      "1200 DPI Printing",
+      "Magnetic Fitting",
+      "QC Check"
+    ],
+    "outcome": "Executive crystal-clear name badges delivered with zero garment damage magnetic clips."
+  },
+  {
+    "id": "state-championship-medals",
+    "org": "Northeast Youth Sports Championship",
+    "location": "Guwahati, Assam",
+    "category": "medals",
+    "categoryLabel": "Medals",
+    "requirement": "3D high-relief die-cast metal honor medals with custom V-cut satin ribbons",
+    "products": "Die-Cast Zinc Medals (Gold/Silver/Bronze) + Custom Printed Ribbon",
+    "badge": "Medals",
+    "image": "/images/product-zinc-medals.jpg",
+    "workflow": [
+      "3D Crest Sculpting",
+      "Zinc Die-Casting",
+      "Antique Plating",
+      "V-Cut Ribbon Stitching",
+      "Delivery"
+    ],
+    "outcome": "Heavyweight 3D metal medals crafted in tri-tone finishes for championship award ceremonies."
+  }
+]

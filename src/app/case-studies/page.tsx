@@ -27,6 +27,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
 import { CaseStudiesHeroShowcase } from "@/components/case-studies/CaseStudiesHeroShowcase";
 import { RealProjectShowcaseGallery } from "@/components/case-studies/RealProjectShowcaseGallery";
+import { getAllDynamicProjects } from "@/lib/dynamic-projects";
 
 /* ─────────────────────────────────────────────────────────────
    SEO METADATA (Strictly from document)
@@ -39,6 +40,8 @@ export const metadata = pageMetadata({
 });
 
 export default function CaseStudiesPage() {
+  const projects = getAllDynamicProjects();
+
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -191,7 +194,7 @@ export default function CaseStudiesPage() {
       <div className="bg-slate-50/60 dark:bg-slate-950/20">
         <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
           {/* Real Delivered Projects Gallery */}
-          <RealProjectShowcaseGallery />
+          <RealProjectShowcaseGallery initialProjects={projects} />
 
           {/* Ultra-Luxury Closing CTA Banner */}
           <div className="mt-16 sm:mt-20">
