@@ -108,6 +108,8 @@ export function ProductShowcaseCarousel({
   eyebrow,
   title,
   subtitle,
+  buttonText,
+  buttonHref,
   products: customProducts,
 }: {
   cityName?: string;
@@ -115,6 +117,8 @@ export function ProductShowcaseCarousel({
   eyebrow?: string;
   title?: string;
   subtitle?: string;
+  buttonText?: string;
+  buttonHref?: string;
   products?: ProductItem[];
 } = {}) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -270,10 +274,10 @@ export function ProductShowcaseCarousel({
             </div>
 
             <Link
-              href="/products/"
+              href={buttonHref || "/products/"}
               className="inline-flex items-center gap-1.5 rounded-2xl bg-navy px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-navy-deep hover:shadow-lg transition-all"
             >
-              <span>All Products</span>
+              <span>{buttonText || (cityName ? `All ${cityName} Products` : "All Products")}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

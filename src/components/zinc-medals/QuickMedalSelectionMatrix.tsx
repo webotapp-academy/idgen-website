@@ -126,7 +126,24 @@ export const medalCatalog: MedalCatalogItem[] = [
   },
 ];
 
-export function QuickMedalSelectionMatrix() {
+export function QuickMedalSelectionMatrix({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    catalog?: MedalCatalogItem[];
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Medal Selection Matrix";
+  const sectionTitle = data?.title || "Die-Cast Zinc Medal Catalog";
+  const sectionLede =
+    data?.lede ||
+    "Inspect real production medal specimens manufactured with high-density zinc alloy, multi-stage electroplating, and custom sublimated satin neck ribbons.";
+  const activeCatalog =
+    data?.catalog && data.catalog.length > 0 ? data.catalog : medalCatalog;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
@@ -141,7 +158,7 @@ export function QuickMedalSelectionMatrix() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const filteredMedals = medalCatalog.filter((item) => {
+  const filteredMedals = activeCatalog.filter((item) => {
     const matchesCat = activeCategory === "all" || item.category === activeCategory;
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
@@ -162,13 +179,13 @@ export function QuickMedalSelectionMatrix() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Medal Selection Matrix</span>
+            <span>{badgeTitle}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Die-Cast Zinc Medal Catalog
+            {sectionTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Inspect real production medal specimens manufactured with high-density zinc alloy, multi-stage electroplating, and custom sublimated satin neck ribbons.
+            {sectionLede}
           </p>
         </div>
 

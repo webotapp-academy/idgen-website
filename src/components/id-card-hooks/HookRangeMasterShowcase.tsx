@@ -146,9 +146,30 @@ export const masterHookSections: MasterHookSection[] = [
   },
 ];
 
-export function HookRangeMasterShowcase() {
+export function HookRangeMasterShowcase({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    sections?: MasterHookSection[];
+  };
+}) {
+  const activeSections =
+    data?.sections && data.sections.length > 0
+      ? data.sections
+      : masterHookSections;
+  const badgeText = data?.badge || "Hardware Setups & Configurations";
+  const titleText = data?.title || "Fish Hook & ID Card Hook Setups";
+  const ledeText =
+    data?.lede ||
+    "Review detailed hook arrangements, holder pairing, lanyard compatibility, and configuration formats.";
+
   const [activeModelIndex, setActiveModelIndex] = useState(0);
-  const activeModel = masterHookSections[activeModelIndex];
+  const safeIndex =
+    activeModelIndex < activeSections.length ? activeModelIndex : 0;
+  const activeModel = activeSections[safeIndex];
 
   return (
     <section className="mt-16 sm:mt-20 scroll-mt-28" id="hook-range-master-showcase">
@@ -157,30 +178,30 @@ export function HookRangeMasterShowcase() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Box className="h-3.5 w-3.5" />
-            <span>Hardware Setups &amp; Configurations</span>
+            <span>{badgeText}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Fish Hook &amp; ID Card Hook Setups
+            {titleText}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Review detailed hook arrangements, holder pairing, lanyard compatibility, and configuration formats.
+            {ledeText}
           </p>
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          Showing Setup {activeModelIndex + 1} of {masterHookSections.length}
+          Showing Setup {safeIndex + 1} of {activeSections.length}
         </div>
       </div>
 
       {/* ── Navigation Strip ── */}
       <div className="mt-6 overflow-x-auto pb-2">
         <div className="flex items-center gap-2 min-w-max">
-          {masterHookSections.map((model, idx) => (
+          {activeSections.map((model, idx) => (
             <button
               key={model.code}
               onClick={() => setActiveModelIndex(idx)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-extrabold transition-all duration-200 ${
-                activeModelIndex === idx
+                safeIndex === idx
                   ? "bg-[#009fe3] text-white shadow-lg shadow-[#009fe3]/25 scale-[1.02]"
                   : "bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-[#009fe3]/60 hover:bg-sky-50/40 dark:hover:bg-slate-800"
               }`}
@@ -188,7 +209,7 @@ export function HookRangeMasterShowcase() {
               <span className="font-mono">{model.code}</span>
               <span
                 className={`text-[10px] px-1.5 py-0.5 rounded-md ${
-                  activeModelIndex === idx
+                  safeIndex === idx
                     ? "bg-white/20 text-white"
                     : "bg-slate-100 dark:bg-slate-800 text-slate-500"
                 }`}

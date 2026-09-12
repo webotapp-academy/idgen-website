@@ -1,0 +1,241 @@
+export interface DynamicContactUsMeta {
+  title: string;
+  description: string;
+  path: string;
+}
+
+export interface DynamicContactUsStat {
+  label: string;
+  value: string;
+}
+
+export interface DynamicContactUsHeroVisual {
+  primaryImage: {
+    src: string;
+    alt: string;
+    badge: string;
+  };
+  secondaryImage: {
+    src: string;
+    alt: string;
+  };
+  tertiaryImage: {
+    src: string;
+    alt: string;
+  };
+}
+
+export interface DynamicContactUsHero {
+  eyebrow: string;
+  title: string;
+  lede: string;
+  stats: DynamicContactUsStat[];
+  visual: DynamicContactUsHeroVisual;
+}
+
+export interface DynamicContactUsHotline {
+  title: string;
+  desc: string;
+  phone: string;
+  ctaText: string;
+}
+
+export interface DynamicContactUsWhatsApp {
+  title: string;
+  desc: string;
+  number: string;
+  ctaText: string;
+}
+
+export interface DynamicContactUsEmail {
+  title: string;
+  desc: string;
+  address: string;
+  ctaText: string;
+}
+
+export interface DynamicContactUsSocialLink {
+  label: string;
+  href: string;
+  platform: "gbp" | "whatsapp" | "linkedin" | "threads" | "pinterest" | "twitter" | "instagram" | "facebook" | "youtube";
+}
+
+export interface DynamicContactUsSocialAndReviews {
+  title: string;
+  desc: string;
+  links: DynamicContactUsSocialLink[];
+}
+
+export interface DynamicContactUsChannels {
+  hotline: DynamicContactUsHotline;
+  whatsapp: DynamicContactUsWhatsApp;
+  email: DynamicContactUsEmail;
+  socialAndReviews: DynamicContactUsSocialAndReviews;
+}
+
+export interface DynamicContactUsFacility {
+  eyebrow: string;
+  title: string;
+  description: string;
+  address: string;
+  operatingHours: string;
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
+
+export interface DynamicContactUsFormSection {
+  enabled: boolean;
+  badge: string;
+  title: string;
+  description: string;
+  slaBadge: string;
+}
+
+export interface DynamicContactUsClosingCta {
+  title: string;
+  body: string;
+  links: {
+    label: string;
+    href: string;
+    primary?: boolean;
+  }[];
+}
+
+export interface DynamicContactUsData {
+  meta: DynamicContactUsMeta;
+  hero: DynamicContactUsHero;
+  channels: DynamicContactUsChannels;
+  facility: DynamicContactUsFacility;
+  formSection: DynamicContactUsFormSection;
+  closingCta: DynamicContactUsClosingCta;
+}
+
+export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
+  meta: {
+    title: "Contact IDGen | Guwahati Manufacturing Facility & Sales Desk",
+    description:
+      "Get in touch with IDGen's Guwahati direct manufacturing facility for bulk ID card printing, custom lanyards, RFID credentials, and institutional specimen kits.",
+    path: "/contact-us/",
+  },
+  hero: {
+    eyebrow: "Direct Factory Communications",
+    title: "Get in Touch with IDGen Guwahati",
+    lede: "Connect with our identity engineering desk, request factory visit appointments, or order complimentary physical specimen kits for your institutional procurement committee.",
+    stats: [
+      { label: "Factory Hub", value: "Guwahati, Assam" },
+      { label: "Response SLA", value: "< 2 Hours" },
+      { label: "WhatsApp Support", value: "Instant Desk" },
+      { label: "Dispatch", value: "All 8 NE States" },
+    ],
+    visual: {
+      primaryImage: {
+        src: "/images/ID Card Full Set Samples/IMG20250321153934.jpg",
+        alt: "IDGen Guwahati Production Facility",
+        badge: "Guwahati Facility",
+      },
+      secondaryImage: {
+        src: "/images/ID Card Full Set Samples/Sample 1.jpeg",
+        alt: "Complete ID Card and Lanyard Specimen Package",
+      },
+      tertiaryImage: {
+        src: "/images/ID Card Full Set Samples/IMG20250321154119.jpg",
+        alt: "Retransfer Machine Assembly",
+      },
+    },
+  },
+  channels: {
+    hotline: {
+      title: "Direct Production Hotline",
+      desc: "Speak directly with an identity specialist regarding pricing, specs, and delivery timelines.",
+      phone: "+919207012084",
+      ctaText: "Call Factory Hotline",
+    },
+    whatsapp: {
+      title: "Instant WhatsApp Desk",
+      desc: "Send logos, request quick estimates, and receive instant 3D design mockups via WhatsApp.",
+      number: "919207012084",
+      ctaText: "Start WhatsApp Chat",
+    },
+    email: {
+      title: "Official Enquiries",
+      desc: "For formal purchase orders, institutional tender notices, and enterprise RFPs.",
+      address: "info@idgen.in",
+      ctaText: "Send Official Mail",
+    },
+    socialAndReviews: {
+      title: "Social & Reviews",
+      desc: "Follow our official channels, join our WhatsApp broadcast, and view verified Google customer reviews.",
+      links: [
+        {
+          label: "Google Review",
+          href: "https://g.page/r/CVteiJnim09XEBM/review",
+          platform: "gbp",
+        },
+        {
+          label: "WA Channel",
+          href: "https://whatsapp.com/channel/0029Vb8KpEP84Om3Z1aBVB2W",
+          platform: "whatsapp",
+        },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/company/144808592/",
+          platform: "linkedin",
+        },
+        {
+          label: "Threads",
+          href: "https://www.threads.com/@idgenguwahati",
+          platform: "threads",
+        },
+        {
+          label: "Pinterest",
+          href: "https://in.pinterest.com/iDGenGuwahati/",
+          platform: "pinterest",
+        },
+        {
+          label: "X / Twitter",
+          href: "https://x.com/iDGenGuwahati",
+          platform: "twitter",
+        },
+      ],
+    },
+  },
+  facility: {
+    eyebrow: "Central Manufacturing Facility",
+    title: "Guwahati Industrial Production Hub",
+    description:
+      "Our cleanroom manufacturing facility operates automated thermal retransfer printing presses, continuous dye-sublimation lines, and ultrasonic acoustic welding machinery.",
+    address: "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
+    operatingHours: "Mon – Sat: 9:30 AM – 7:00 PM",
+    primaryCta: {
+      label: "Request Itemized Quote",
+      href: "/request-a-quote/",
+    },
+    secondaryCta: {
+      label: "View Northeast Delivery Network",
+      href: "/service-areas/assam/",
+    },
+  },
+  formSection: {
+    enabled: true,
+    badge: "Direct Factory Desk",
+    title: "Send Direct Factory Message",
+    description:
+      "Share your requirements or questions below. Our team in Guwahati reviews messages and replies within 2 hours.",
+    slaBadge: "Guwahati Response SLA: < 2 Hours",
+  },
+  closingCta: {
+    title: "Need an immediate quotation for an upcoming batch?",
+    body: "Submit your card requirements online for an official factory estimate within 2 hours.",
+    links: [
+      { label: "Request a Quote", href: "/request-a-quote/", primary: true },
+      { label: "Explore IDGen Studio", href: "/idgen-studio/" },
+      { label: "View Pricing Tiers", href: "/pricing/" },
+    ],
+  },
+};

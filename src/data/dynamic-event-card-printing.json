@@ -1,0 +1,788 @@
+{
+  "hero": {
+    "badge": "Event Card Printing",
+    "title": "Custom Event Cards & Badges",
+    "titleHighlight": "for Conferences, Exhibitions, Seminars & Events",
+    "description": "IDGen provides custom printed event cards and badges for conferences, seminars, exhibitions, workshops, corporate events, institutional programmes, trade shows, cultural events, sports events and other organized gatherings. Event cards can be personalized with participant information, event branding, organization logos, photographs, QR codes, barcodes, categories and other required information. Depending on the event format, the card can be supplied with the appropriate lanyard and hook configuration, including one-hook or two-hook arrangements.",
+    "workflowHeading": "Event Identification Workflow:",
+    "workflowChain": [
+      "Event Data",
+      "Card Design",
+      "Preview",
+      "Approval",
+      "Printing",
+      "Attachment",
+      "Quality Check",
+      "Dispatch"
+    ],
+    "primaryCtaText": "Request Event Card Quote",
+    "primaryCtaLink": "/request-a-quote/",
+    "secondaryCtaText": "View Event Card Pricing",
+    "secondaryCtaLink": "/pricing/"
+  },
+  "heroSlides": [
+    {
+      "id": "event-vip-summit",
+      "imageSrc": "/images/idgen-custom-event-card-printing.jpg",
+      "alt": "Global Tech Summit 2026 VIP Delegate Pass printed by IDGen",
+      "title": "VIP Conference & Summit Badges",
+      "category": "Conference VIP",
+      "topBadge": "VIP Conference Pass",
+      "specPill": "Dual Swivel Hooks",
+      "bottomSpec": "Aravind Sharma • VIP Delegate • Global Tech Summit",
+      "hubTag": "SUMMIT READY"
+    },
+    {
+      "id": "event-badge-showcase",
+      "imageSrc": "/images/hero-slide-event-badge.jpg",
+      "alt": "VIP Conference Delegate Pass with holographic foil and satin lanyard",
+      "title": "Holographic Event Badges & Passes",
+      "category": "Executive Events",
+      "topBadge": "Executive Summit",
+      "specPill": "Holographic Security",
+      "bottomSpec": "Express 48h Delivery • Anti-Counterfeit Foil",
+      "hubTag": "EXPRESS DISPATCH"
+    },
+    {
+      "id": "event-two-hook-config",
+      "imageSrc": "/images/idgen-event-card-one-hook-two-hook-configuration.jpg",
+      "alt": "Single hook and dual hook event badge configurations by IDGen",
+      "title": "Single & Dual Hook Configurations",
+      "category": "Hook Formats",
+      "topBadge": "1-Hook / 2-Hook Options",
+      "specPill": "Anti-Twist Double Hook",
+      "bottomSpec": "No-Flip Dual Hook • Ultrasonic Sealed Lanyards",
+      "hubTag": "ZERO TWIST"
+    },
+    {
+      "id": "event-categories",
+      "imageSrc": "/images/idgen-event-badge-categories.jpg",
+      "alt": "Color-coded attendee categories for Delegate Speaker VIP Organizer and Sponsor",
+      "title": "Color-Coded Attendee Categories",
+      "category": "Multi-Role Access",
+      "topBadge": "Role-Based Badges",
+      "specPill": "Color-Coded Categories",
+      "bottomSpec": "Delegate • Speaker • VIP • Organizer • Sponsor • Press",
+      "hubTag": "GUWAHATI HUB"
+    },
+    {
+      "id": "event-exhibition-seminar",
+      "imageSrc": "/images/event-card-printing-lanyard-idgen.jpg",
+      "alt": "Exhibition, trade show and seminar attendee badges with custom printed lanyards",
+      "title": "Exhibitions & Seminar Badge Sets",
+      "category": "Trade Expos",
+      "topBadge": "Expo & Trade Shows",
+      "specPill": "Bulk Fast Turnaround",
+      "bottomSpec": "Personalized Attendee QR Codes • Onsite Scanning",
+      "hubTag": "ALL-IN-ONE"
+    }
+  ],
+  "whatIs": {
+    "eyebrow": "Identification Scope",
+    "title": "What Is an Event Card?",
+    "description": "An event card is a personalized identification card or badge used to identify people attending or working at an event. The card can be designed according to the event's branding and identification requirements.",
+    "attendeesHeading": "It can identify:",
+    "attendees": [
+      "Participants",
+      "Delegates",
+      "Speakers",
+      "Organizers",
+      "Staff",
+      "Volunteers",
+      "Exhibitors",
+      "Sponsors",
+      "VIP guests",
+      "Media representatives",
+      "Visitors"
+    ]
+  },
+  "customFields": {
+    "eyebrow": "Customization Fields",
+    "title": "Custom Event Card Printing",
+    "lede": "Every event can have different identification requirements. IDGen can customize event cards with required information.",
+    "fieldsHeading": "Available personalized card elements:",
+    "fields": [
+      "Participant name",
+      "Photograph",
+      "Organization",
+      "Designation",
+      "Participant category",
+      "Registration number",
+      "Event name",
+      "Event logo",
+      "Sponsor branding",
+      "QR code",
+      "Barcode",
+      "Department",
+      "Other event-specific information"
+    ],
+    "specimen": {
+      "eyebrow": "Layout Specimen",
+      "structureTag": "Example Structure",
+      "eventLogoText": "EVENT LOGO",
+      "eventName": "ANNUAL BUSINESS CONFERENCE 2026",
+      "participantName": "SUMIT GUPTA",
+      "organization": "IDGen",
+      "categoryBadge": "DELEGATE",
+      "regNumber": "Registration No. 10254",
+      "footerNote": "The final information and design depend on the event requirements."
+    }
+  },
+  "eventTypes": {
+    "eyebrow": "Event Formats",
+    "title": "Event Card Types",
+    "lede": "IDGen can produce event identification cards for different event categories.",
+    "types": [
+      {
+        "title": "Conference Cards",
+        "body": "Suitable for business conferences, industry conferences, academic conferences, and professional conferences. Typical identification: Conference Card + Lanyard + Hook.",
+        "iconName": "Presentation"
+      },
+      {
+        "title": "Exhibition & Trade Show Passes",
+        "body": "For expos, trade fairs, trade summits, and buyer-seller meets. Identification elements often distinguish exhibitors, visitors, organizers, and media.",
+        "iconName": "Building2"
+      },
+      {
+        "title": "Seminar & Workshop Badges",
+        "body": "For training programs, workshops, seminars, and corporate sessions. Can be produced with participant details, session details, and organizational logos.",
+        "iconName": "Store"
+      },
+      {
+        "title": "Corporate Event Cards",
+        "body": "For annual meets, product launches, corporate summits, board meetings, and dealer meetings. Reflects executive corporate branding and company identity.",
+        "iconName": "Building2"
+      },
+      {
+        "title": "Sports & Cultural Event Passes",
+        "body": "For sports tournaments, athletic meets, cultural festivals, youth festivals, and community celebrations with category-based access control.",
+        "iconName": "Trophy"
+      },
+      {
+        "title": "Institutional & School Events",
+        "body": "For university fests, inter-college competitions, science exhibitions, and academic Olympiads.",
+        "iconName": "School",
+        "href": "/student-id-card-printing/",
+        "linkText": "Explore Student ID Cards"
+      }
+    ]
+  },
+  "attachment": {
+    "image": "/images/idgen-event-card-one-hook-two-hook-configuration.jpg",
+    "imageBadge": "Attachment Options",
+    "imageTag": "IDGen",
+    "imageFooterSubtitle": "1-Hook vs 2-Hook",
+    "imageFooterTitle": "Single vs Anti-Flip Dual Attachment",
+    "imageFooterTag": "Guwahati Hub",
+    "eyebrow": "Hardware Attachment",
+    "title": "Event Card + Lanyard + Hook",
+    "description": "Event cards are commonly designed as a wearable identification system. Unlike standard employee or student ID cards, event badges may use different attachment configurations depending on the card format and lanyard design.",
+    "option1": {
+      "heading": "One-Hook Configuration",
+      "chain": [
+        "Event Card",
+        "One Hook",
+        "Lanyard"
+      ],
+      "note": "This configuration may be suitable where the card has a single attachment point."
+    },
+    "option2": {
+      "heading": "Two-Hook Configuration",
+      "chain": [
+        "Event Card",
+        "Two Hooks",
+        "Lanyard"
+      ],
+      "note": "This configuration can be used where the event card requires attachment at two points."
+    },
+    "note": "The correct configuration depends on the card design and attachment requirement.",
+    "links": [
+      {
+        "topic": "Explore Custom Printed Lanyard Printing",
+        "href": "/custom-printed-lanyard-printing/"
+      },
+      {
+        "topic": "Explore ID Card Hooks",
+        "href": "/id-card-hooks/"
+      }
+    ]
+  },
+  "ultrasonic": {
+    "eyebrow": "Acoustic Fusion",
+    "title": "Ultrasonic Sealing for Event Cards",
+    "description": "Where ultrasonic sealing is required, the sealing arrangement corresponds to the attachment configuration. This allows the attachment to be integrated into the required lanyard configuration.",
+    "oneHookHeading": "One-Hook Event Setup",
+    "oneHookChain": [
+      "Event Card",
+      "One Hook",
+      "One Ultrasonic Sealing Point",
+      "Lanyard"
+    ],
+    "twoHookHeading": "Two-Hook Event Setup",
+    "twoHookChain": [
+      "Event Card",
+      "Two Hooks",
+      "Two Ultrasonic Sealing Points",
+      "Lanyard"
+    ],
+    "ctaText": "Explore Ultrasonic Sealing",
+    "ctaLink": "/ultrasonic-sealing/"
+  },
+  "rightAttachment": {
+    "eyebrow": "Wearable Balance",
+    "title": "Why Event Cards Need the Right Attachment",
+    "description": "An event card is not only a printed badge. The final wearable setup depends on:",
+    "chain": [
+      "Card Design",
+      "Attachment Position",
+      "Hook Configuration",
+      "Lanyard"
+    ],
+    "note": "An incorrect attachment configuration can affect how the badge hangs or is worn. That is why IDGen can determine the appropriate configuration based on the event card design and customer requirements before production."
+  },
+  "categories": {
+    "eyebrow": "Tier Segregation",
+    "title": "Event Card Categories",
+    "lede": "Large events may require different identification categories. Each category can have its own design, colour treatment, text or other visual identification elements.",
+    "categories": [
+      {
+        "name": "Delegate",
+        "color": "border-blue-500/30 bg-blue-50/60 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300"
+      },
+      {
+        "name": "Speaker",
+        "color": "border-emerald-500/30 bg-emerald-50/60 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300"
+      },
+      {
+        "name": "Organizer",
+        "color": "border-amber-500/30 bg-amber-50/60 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300"
+      },
+      {
+        "name": "Staff",
+        "color": "border-purple-500/30 bg-purple-50/60 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300"
+      },
+      {
+        "name": "Exhibitor",
+        "color": "border-cyan-500/30 bg-cyan-50/60 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300"
+      },
+      {
+        "name": "Sponsor",
+        "color": "border-rose-500/30 bg-rose-50/60 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300"
+      },
+      {
+        "name": "VIP",
+        "color": "border-yellow-500/30 bg-yellow-50/60 dark:bg-yellow-950/40 text-yellow-700 dark:text-yellow-300"
+      },
+      {
+        "name": "Media",
+        "color": "border-indigo-500/30 bg-indigo-50/60 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300"
+      },
+      {
+        "name": "Volunteer",
+        "color": "border-teal-500/30 bg-teal-50/60 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300"
+      },
+      {
+        "name": "Visitor",
+        "color": "border-slate-500/30 bg-slate-50/60 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300"
+      }
+    ]
+  },
+  "branding": {
+    "eyebrow": "Visual Identity",
+    "title": "Event Branding",
+    "description": "Event cards can become part of the overall visual identity of an event. Branding can include:",
+    "elements": [
+      "Event logo",
+      "Event name",
+      "Organizer logo",
+      "Sponsor logos",
+      "Brand colours",
+      "Event theme",
+      "Category",
+      "Participant information",
+      "QR codes",
+      "Barcodes",
+      "Custom graphics"
+    ],
+    "structureHeading": "Example Branding Structure",
+    "structureSteps": [
+      "EVENT LOGO",
+      "EVENT NAME",
+      "PARTICIPANT NAME",
+      "ORGANIZATION",
+      "CATEGORY",
+      "QR / BARCODE"
+    ],
+    "structureNote": "The final design is prepared according to the approved event artwork."
+  },
+  "personalization": {
+    "eyebrow": "Data Ingestion",
+    "title": "Personalized Event Cards",
+    "description": "For events requiring personalized badges, IDGen can process participant information and photographs according to the supplied data.",
+    "chain": [
+      "Participant Data",
+      "Photograph",
+      "Badge Design",
+      "Preview",
+      "Approval",
+      "Printing"
+    ],
+    "note": "For larger events, the digital data workflow can be supported through IDGen Studio, where applicable.",
+    "ctaText": "Explore IDGen Studio",
+    "ctaLink": "/idgen-studio/"
+  },
+  "bulk": {
+    "eyebrow": "Mass Production",
+    "title": "Event Card Printing for Bulk Events",
+    "lede": "Event requirements can range from small programmes to large conferences involving thousands of participants. IDGen can support bulk event-card requirements.",
+    "factorsHeading": "Bulk requirements evaluated by:",
+    "factors": [
+      "Expected attendee count",
+      "Badge specification",
+      "Lanyard & hook format",
+      "Required delivery schedule"
+    ],
+    "footerNote": "For large personalized orders, having the participant data ready before production can significantly simplify the workflow."
+  },
+  "process": {
+    "eyebrow": "Production Lifecycle",
+    "title": "Event Card Printing Process",
+    "steps": [
+      {
+        "title": "01 - Requirement Discussion",
+        "body": "The event format, approximate quantity and required configuration are discussed."
+      },
+      {
+        "title": "02 - Design Confirmation",
+        "body": "The event branding, card size and layout requirements are reviewed."
+      },
+      {
+        "title": "03 - Participant Data Preparation",
+        "body": "Where personalization is required, participant data and photographs are organized."
+      },
+      {
+        "title": "04 - Preview & Approval",
+        "body": "Sample previews of the card design and personalized data are verified before production."
+      },
+      {
+        "title": "05 - Card Printing",
+        "body": "Cards are printed according to the approved specification and quantities."
+      },
+      {
+        "title": "06 - Accessory Integration",
+        "body": "Lanyards, hooks and attachment accessories are assembled as per configuration."
+      },
+      {
+        "title": "07 - Ultrasonic Sealing",
+        "body": "Where applicable, ultrasonic sealing is applied to the attachment points."
+      },
+      {
+        "title": "08 - Quality Check",
+        "body": "Finished materials are checked against the approved requirements."
+      },
+      {
+        "title": "09 - Dispatch",
+        "body": "The completed order is prepared for dispatch according to the applicable project timeline."
+      }
+    ]
+  },
+  "solutions": {
+    "eyebrow": "Tailored Solutions",
+    "title": "Event Card Solutions by Event Type",
+    "solutions": [
+      {
+        "type": "Conferences",
+        "setup": [
+          "Event Card",
+          "One Hook / Two Hooks",
+          "Lanyard"
+        ],
+        "desc": "Professional presentation suitable for multi-day summits and academic symposiums."
+      },
+      {
+        "type": "Exhibitions",
+        "setup": [
+          "Exhibitor / Visitor Cards",
+          "Lanyard",
+          "Category Differentiation"
+        ],
+        "desc": "Clear visual role differentiation across bustling trade exhibition floors."
+      },
+      {
+        "type": "Seminars",
+        "setup": [
+          "Event Card",
+          "Single Hook",
+          "Branded Lanyard"
+        ],
+        "desc": "Clean, streamlined identification format for half-day or full-day educational sessions."
+      },
+      {
+        "type": "Corporate Events",
+        "setup": [
+          "Card",
+          "Premium Lanyard",
+          "Ultrasonic Sealing"
+        ],
+        "desc": "High-end corporate aesthetics with seamless welded seams for executive gatherings."
+      },
+      {
+        "type": "Sports Events",
+        "setup": [
+          "Durable Pass",
+          "Anti-Twist Double Hook",
+          "Lanyard"
+        ],
+        "desc": "Sturdy non-flipping credentialing suited for active tournament arenas and sidelines."
+      },
+      {
+        "type": "Institutional Events",
+        "setup": [
+          "Participant Badges",
+          "Custom Ribbons",
+          "Color Accents"
+        ],
+        "desc": "Cost-effective, branded badge systems for university, college, and school celebrations."
+      }
+    ]
+  },
+  "comparison": {
+    "eyebrow": "Comparative Purpose",
+    "title": "Event Card vs Student or Employee ID Card",
+    "description": "Event cards are generally created for a specific event or programme, whereas student and employee ID cards are normally used for ongoing organizational identification.",
+    "items": [
+      {
+        "type": "Event Identification",
+        "setup": [
+          "Event",
+          "Participant",
+          "Badge",
+          "Lanyard"
+        ]
+      },
+      {
+        "type": "Student Identification",
+        "setup": [
+          "Student",
+          "Institution",
+          "ID Card",
+          "Holder/Lanyard"
+        ]
+      },
+      {
+        "type": "Employee Identification",
+        "setup": [
+          "Employee",
+          "Company",
+          "ID Card",
+          "Holder/Lanyard"
+        ]
+      }
+    ],
+    "footerNote": "If the requirement is an ongoing student or employee identification system, use the relevant dedicated service page.",
+    "links": [
+      {
+        "label": "Student ID Card Printing",
+        "href": "/student-id-card-printing/"
+      },
+      {
+        "label": "Employee ID Card Printing",
+        "href": "/employee-id-card-printing/"
+      }
+    ]
+  },
+  "informationNeeded": {
+    "eyebrow": "Quotation Checklist",
+    "title": "What Information Do We Need?",
+    "lede": "To prepare an event-card quotation, customers should ideally provide the following information to help determine the appropriate event-card configuration.",
+    "groups": [
+      {
+        "title": "Basic Information",
+        "items": [
+          "Event name",
+          "Event date",
+          "Quantity",
+          "Event location",
+          "Required delivery date"
+        ]
+      },
+      {
+        "title": "Card Information",
+        "items": [
+          "Card size",
+          "Single or double-sided printing",
+          "Personalization requirement",
+          "Photograph requirement",
+          "QR/barcode requirement"
+        ]
+      },
+      {
+        "title": "Branding",
+        "items": [
+          "Event logo",
+          "Organization logo",
+          "Sponsor logos",
+          "Artwork",
+          "Brand colours"
+        ]
+      },
+      {
+        "title": "Attachment",
+        "items": [
+          "One-hook configuration",
+          "Two-hook configuration",
+          "Lanyard requirement",
+          "Ultrasonic sealing requirement"
+        ]
+      }
+    ]
+  },
+  "qualityChecks": {
+    "eyebrow": "Quality Assurance",
+    "title": "Event Card Quality Checks",
+    "lede": "For personalized event badges, IDGen's quality workflow focuses on both the printed information and the final configuration.",
+    "checks": [
+      {
+        "title": "Personalization",
+        "body": "Names, photographs and registration information are verified against database records."
+      },
+      {
+        "title": "Artwork",
+        "body": "Event branding, contrast, and approved design alignments are inspected."
+      },
+      {
+        "title": "Specifications",
+        "body": "Card size and required printing specifications match exact order details."
+      },
+      {
+        "title": "Attachment",
+        "body": "Correct hook and lanyard configuration is checked for secure fit."
+      },
+      {
+        "title": "Final Assembly",
+        "body": "Where applicable, the complete wearable setup is checked before dispatch."
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Transparent Quotes",
+    "title": "Event Card Pricing",
+    "description": "Event-card pricing depends on the required configuration rather than only the printed card. Factors may include:",
+    "factors": [
+      "Quantity",
+      "Card specification",
+      "Printing",
+      "Personalization",
+      "Artwork",
+      "Lanyard",
+      "Hook configuration",
+      "Ultrasonic sealing",
+      "Packaging",
+      "Delivery requirements"
+    ],
+    "note": "This keeps the service page focused on the solution while the dedicated pricing pages handle current price information.",
+    "cta1Text": "View Event Card Pricing",
+    "cta1Link": "/pricing/",
+    "cta2Text": "View Custom Printed Lanyard Pricing",
+    "cta2Link": "/pricing/",
+    "cta3Text": "View Ultrasonic Sealing Pricing",
+    "cta3Link": "/pricing/"
+  },
+  "whyChoose": {
+    "eyebrow": "End-to-End Coordination",
+    "title": "Why Choose IDGen for Event Cards?",
+    "description": "For event identification, the important part is not just printing the badge. IDGen can coordinate the complete requirement:",
+    "chain": [
+      "Event Data",
+      "Design",
+      "Preview",
+      "Card Printing",
+      "Hook/Lanyard Configuration",
+      "Sealing",
+      "Quality Check",
+      "Dispatch"
+    ],
+    "note": "This allows event organizers to define the required identification setup before production instead of coordinating each component independently.",
+    "ctaText": "Request an Event Card Quote",
+    "ctaLink": "/request-a-quote/"
+  },
+  "faq": {
+    "eyebrow": "Questions & Answers",
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "What is an event card?",
+        "a": "An event card is a customized identification badge used to identify participants, delegates, speakers, organizers, exhibitors, staff, VIPs or other event attendees."
+      },
+      {
+        "q": "Can event cards include photographs?",
+        "a": "Yes. Personalized event cards can include photographs when required and supplied as part of the event data."
+      },
+      {
+        "q": "Can event cards include QR codes?",
+        "a": "Yes. QR codes can be included when required as part of the approved card design."
+      },
+      {
+        "q": "Can event cards include sponsor logos?",
+        "a": "Yes. Sponsor and partner branding can be incorporated into the approved event-card artwork."
+      },
+      {
+        "q": "Do event cards use holders?",
+        "a": "Event cards can use different attachment configurations. The required setup may use a lanyard and one or two hooks rather than a conventional card holder."
+      },
+      {
+        "q": "Can event cards use two hooks?",
+        "a": "Yes. A two-hook configuration can be used where the event-card design requires two attachment points."
+      },
+      {
+        "q": "How many ultrasonic sealing points are required?",
+        "a": "For the configurations used by IDGen, one-hook setups use one sealing point and two-hook setups use two sealing points."
+      },
+      {
+        "q": "Can I order event cards with lanyards?",
+        "a": "Yes. Event cards can be supplied with the required lanyard and hook configuration."
+      },
+      {
+        "q": "Can I order only event cards?",
+        "a": "Yes. Event cards can be ordered separately when the customer already has the required accessories."
+      },
+      {
+        "q": "Can event cards be personalized?",
+        "a": "Yes. Participant names, photographs, organizations, categories, registration numbers and other required information can be personalized."
+      },
+      {
+        "q": "Can IDGen handle bulk event cards?",
+        "a": "Yes. IDGen supports bulk event-card requirements, subject to quantity, specification, personalization and production requirements."
+      },
+      {
+        "q": "Can I review the event cards before production?",
+        "a": "Where applicable, the design and personalized information can be reviewed before production."
+      }
+    ]
+  },
+  "closingCta": {
+    "badge": "Event Solutions",
+    "title": "Need Event Cards?",
+    "description": "Whether you are organizing a conference, exhibition, seminar, workshop, corporate event, sports programme or institutional event, IDGen can provide customized event cards according to the required identification configuration.",
+    "packages": [
+      {
+        "title": "Event Card",
+        "badge": "Direct Pass",
+        "formula": [
+          "Custom Printed Event Card"
+        ],
+        "desc": "Card-only option when organizers already have their own accessories or clips."
+      },
+      {
+        "title": "Wearable Event Badge",
+        "badge": "Single-Point Setup",
+        "formula": [
+          "Event Card",
+          "Hook",
+          "Lanyard"
+        ],
+        "desc": "Standard conference setup with central hook clip and branded lanyard."
+      },
+      {
+        "title": "Two-Point Event Badge",
+        "badge": "Anti-Flip Setup",
+        "formula": [
+          "Event Card",
+          "Two Hooks",
+          "Lanyard"
+        ],
+        "desc": "Dual corner hook attachment preventing badges from flipping during summits."
+      },
+      {
+        "title": "Sealed Configuration",
+        "badge": "Ultrasonic Assembly",
+        "formula": [
+          "Event Card",
+          "Hook Configuration",
+          "Ultrasonic Sealing",
+          "Lanyard"
+        ],
+        "desc": "Integrated acoustic welded ribbon loops for seamless, staple-free badge security."
+      }
+    ],
+    "primaryCtaText": "Request Event Card Quote",
+    "primaryCtaLink": "/request-a-quote/",
+    "secondaryCtaText": "View Event Card Pricing",
+    "secondaryCtaLink": "/pricing/"
+  },
+  "summaryBanner": {
+    "eyebrow": "IDGen Event Card Printing",
+    "title": "Custom Event Identification for Conferences, Exhibitions & Events",
+    "chain": [
+      "Data",
+      "Design",
+      "Preview",
+      "Approval",
+      "Printing",
+      "Attachment",
+      "Quality Check",
+      "Dispatch"
+    ]
+  },
+  "geographicDirectory": {
+    "eyebrow": "Assam & Northeast India Hub",
+    "title": "Event Card Printing in Guwahati, Assam & Across Northeast India",
+    "description": "IDGen provides fast-turnaround event card printing in Guwahati, Assam, and across all 8 Northeast states for conferences, expos, sports tournaments, and summits.",
+    "directoryHeading": "Related IDGen Solutions & Directories:",
+    "links": [
+      {
+        "topic": "Custom lanyards",
+        "href": "/custom-printed-lanyard-printing/"
+      },
+      {
+        "topic": "Ultrasonic sealing",
+        "href": "/ultrasonic-sealing/"
+      },
+      {
+        "topic": "Hooks",
+        "href": "/id-card-hooks/"
+      },
+      {
+        "topic": "Event card pricing",
+        "href": "/pricing/"
+      },
+      {
+        "topic": "Student identification",
+        "href": "/student-id-card-printing/"
+      },
+      {
+        "topic": "Employee identification",
+        "href": "/employee-id-card-printing/"
+      },
+      {
+        "topic": "Digital data collection",
+        "href": "/idgen-studio/"
+      },
+      {
+        "topic": "Main ID card service",
+        "href": "/id-card-printing/"
+      },
+      {
+        "topic": "Why IDGen",
+        "href": "/why-idgen/"
+      },
+      {
+        "topic": "Guwahati service",
+        "href": "/service-areas/assam/guwahati/"
+      },
+      {
+        "topic": "Assam service",
+        "href": "/service-areas/assam/"
+      },
+      {
+        "topic": "Request a Quote",
+        "href": "/request-a-quote/"
+      }
+    ]
+  },
+  "metadata": {
+    "title": "Event Card Printing | Custom Event Badges & Lanyards | IDGen",
+    "description": "Custom event card printing for conferences, exhibitions, seminars, workshops and corporate events. Personalized event badges with lanyards, one or two hooks and ultrasonic sealing options.",
+    "path": "/event-card-printing/"
+  }
+}

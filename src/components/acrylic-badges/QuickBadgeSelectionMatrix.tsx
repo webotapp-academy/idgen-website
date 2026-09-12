@@ -175,7 +175,24 @@ export const badgeCatalog: BadgeCatalogItem[] = [
   },
 ];
 
-export function QuickBadgeSelectionMatrix() {
+export function QuickBadgeSelectionMatrix({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    catalog?: BadgeCatalogItem[];
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Badge Selection Matrix";
+  const sectionTitle = data?.title || "Acrylic Badge Models & Styles";
+  const sectionLede =
+    data?.lede ||
+    "Review real production badge models manufactured with cast PMMA acrylic sheets, direct UV printing, and neodymium magnetic backings.";
+  const activeCatalog =
+    data?.catalog && data.catalog.length > 0 ? data.catalog : badgeCatalog;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
@@ -190,7 +207,7 @@ export function QuickBadgeSelectionMatrix() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const filteredBadges = badgeCatalog.filter((item) => {
+  const filteredBadges = activeCatalog.filter((item) => {
     const matchesCat = activeCategory === "all" || item.category === activeCategory;
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
@@ -211,13 +228,13 @@ export function QuickBadgeSelectionMatrix() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Badge Selection Matrix</span>
+            <span>{badgeTitle}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Acrylic Badge Models &amp; Styles
+            {sectionTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Review real production badge models manufactured with cast PMMA acrylic sheets, direct UV printing, and neodymium magnetic backings.
+            {sectionLede}
           </p>
         </div>
 

@@ -82,21 +82,28 @@ const membershipSlides: MembershipSlide[] = [
   },
 ];
 
-export function MembershipHeroCarousel() {
+export function MembershipHeroCarousel({ slides }: { slides?: MembershipSlide[] }) {
+  const activeSlides = slides && slides.length > 0 ? slides : membershipSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => {
+    if (currentIndex >= activeSlides.length) {
+      setCurrentIndex(0);
+    }
+  }, [activeSlides.length, currentIndex]);
+
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % membershipSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + membershipSlides.length) % membershipSlides.length
+      (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
     );
-  }, []);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -132,7 +139,7 @@ export function MembershipHeroCarousel() {
     }
   };
 
-  const currentSlide = membershipSlides[currentIndex];
+  const currentSlide = activeSlides[currentIndex] || activeSlides[0];
 
   return (
     <div
@@ -148,7 +155,7 @@ export function MembershipHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-slate-100 dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {membershipSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
@@ -229,7 +236,7 @@ export function MembershipHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {membershipSlides.map((slide, idx) => (
+          {activeSlides.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => goToSlide(idx)}
@@ -257,7 +264,7 @@ export function MembershipHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {membershipSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button

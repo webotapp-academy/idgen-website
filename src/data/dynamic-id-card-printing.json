@@ -1,0 +1,692 @@
+{
+  "hero": {
+    "eyebrow": "ID Card Printing",
+    "title": "Custom PVC ID Card Printing",
+    "titleHighlight": "for Organizations",
+    "description": "IDGen provides custom PVC ID card printing for schools, colleges, universities, companies, hospitals, institutions, organizations and events across Assam and Northeast India.",
+    "workflowCardHeading": "We help organizations turn their approved information and designs into professionally personalized identification cards through a structured process:",
+    "workflowChain": [
+      "Requirement",
+      "Data",
+      "Design",
+      "Preview",
+      "Approval",
+      "Printing",
+      "Quality Check",
+      "Dispatch"
+    ],
+    "workflowCardNote": "Whether you need a small organizational batch or a large institutional order, IDGen can help you plan the appropriate card specification, personalization and production workflow.",
+    "primaryCtaText": "Request an ID Card Quote",
+    "primaryCtaLink": "/request-a-quote/",
+    "secondaryCtaText": "View ID Card Pricing",
+    "secondaryCtaLink": "/pricing/",
+    "slides": [
+      {
+        "id": "corporate-pvc",
+        "imageSrc": "/images/id-card-hero-corporate-pvc.jpg",
+        "alt": "Custom PVC ID Card for corporate employees printed by iDGen with precision personalization",
+        "title": "Corporate PVC Employee ID Cards",
+        "category": "Corporate",
+        "topBadge": "Corporate Identity",
+        "specPill": "30-Mil Gloss PVC",
+        "bottomSpec": "Sarah Jenkins • IDG-84950 • QR & Mag Stripe",
+        "hubTag": "GUWAHATI HUB"
+      },
+      {
+        "id": "student-id",
+        "imageSrc": "/images/id-card-hero-student-id.jpg",
+        "alt": "Institutional Student ID Card printed by iDGen for schools, colleges and universities",
+        "title": "Student & University Campus Cards",
+        "category": "Education",
+        "topBadge": "School & University",
+        "specPill": "QR Campus Pass",
+        "bottomSpec": "Alex Rivera • IDG-ST-2026 • Hologram Crest",
+        "hubTag": "ASSAM DIRECT"
+      },
+      {
+        "id": "rfid-smart",
+        "imageSrc": "/images/id-card-hero-rfid-smart.jpg",
+        "alt": "Contactless RFID / NFC Smart Identity Card for turnstile access control printed by iDGen",
+        "title": "13.56 MHz RFID Smart Access Badges",
+        "category": "Smart Access",
+        "topBadge": "Smart Contactless",
+        "specPill": "13.56MHz / 125kHz",
+        "bottomSpec": "Rohan Das • IDG-RFID-7701 • NFC Turnstile Tap",
+        "hubTag": "ZERO MISMATCH"
+      },
+      {
+        "id": "complete-kit",
+        "imageSrc": "/images/id-card-hero-complete-kit.jpg",
+        "alt": "Complete Modular ID Kit with ID Card, Hard Acrylic Holder, Swivel Hook, and Custom Lanyard by iDGen",
+        "title": "Complete Modular Wearable Set",
+        "category": "Healthcare & Staff",
+        "topBadge": "Complete Wearable Set",
+        "specPill": "Card + Holder + Reel",
+        "bottomSpec": "Dr. Priya Sharma • Acrylic Case + Satin Lanyard",
+        "hubTag": "ALL-IN-ONE"
+      },
+      {
+        "id": "bulk-batch",
+        "imageSrc": "/images/id-card-hero-bulk-batch.jpg",
+        "alt": "High-volume bulk PVC ID cards batch production with variable data and barcodes printed by iDGen",
+        "title": "Institutional Bulk Batch Production",
+        "category": "High Volume",
+        "topBadge": "Bulk Batch Ready",
+        "specPill": "10,000+ Daily Capacity",
+        "bottomSpec": "Multi-Design Batches • Barcodes • Fast Turnaround",
+        "hubTag": "EXPRESS DISPATCH"
+      }
+    ]
+  },
+  "customPvcSection": {
+    "eyebrow": "Custom PVC ID Card Printing",
+    "title": "A professional ID card does more than display a person's name",
+    "imageSrc": "/images/Precision-Print-Quality-Idgen.png",
+    "imageAlt": "Custom PVC ID cards printed with precision personalization by IDGen",
+    "imageTopBadge": "Precision Print Quality",
+    "imageTopBrand": "IDGen",
+    "imageBottomEyebrow": "100% Customized",
+    "imageBottomTitle": "Full-Color PVC Identification Cards",
+    "imageBottomLocation": "Guwahati",
+    "containerBadge": "Configurable Data Fields",
+    "containerCountLabel": "11 Card Elements",
+    "containerTitle": "A professional ID card can combine the following personalized features:",
+    "cardInfoItems": [
+      "Photograph",
+      "Name",
+      "Identification number",
+      "Organization name",
+      "Department",
+      "Designation",
+      "Class or course",
+      "Contact information",
+      "QR code",
+      "Barcode",
+      "Other required identification information"
+    ],
+    "noteLede": "The exact information depends on the purpose of your card.",
+    "noteStrong": "approved design, supplied data and required specifications"
+  },
+  "applicationsSection": {
+    "eyebrow": "Applications",
+    "title": "ID Cards",
+    "titleHighlight": "for Different Organizations",
+    "description": "The same core ID card printing service can support different identification requirements.",
+    "items": [
+      {
+        "id": "student",
+        "iconName": "GraduationCap",
+        "title": "Student ID Cards",
+        "body": "For student identification in educational institutions, schools, colleges, and universities.",
+        "href": "/student-id-card-printing/",
+        "badge": "Schools & Colleges",
+        "imageSrc": "/images/org-app-student-id-cards.jpg",
+        "spec": "Photo ID • Roll Number • QR Code"
+      },
+      {
+        "id": "employee",
+        "iconName": "Building2",
+        "title": "Employee & Staff ID Cards",
+        "body": "For companies, corporate offices, institutions, and government organizations.",
+        "href": "/employee-id-card-printing/",
+        "badge": "Corporate & Govt",
+        "imageSrc": "/images/org-app-employee-id-cards.jpg",
+        "spec": "Executive Badge • Contactless Chip"
+      },
+      {
+        "id": "event",
+        "iconName": "Ticket",
+        "title": "Event Cards",
+        "body": "For conferences, exhibitions, summits, seminars, workshops and VIP delegate passes.",
+        "href": "/event-card-printing/",
+        "badge": "Conferences & Summits",
+        "imageSrc": "/images/org-app-event-cards.jpg",
+        "spec": "VIP Delegate Pass • Swivel Hooks"
+      },
+      {
+        "id": "rfid",
+        "iconName": "Radio",
+        "title": "RFID Cards",
+        "body": "For security applications requiring 13.56 MHz Mifare or 125 kHz proximity RFID technology.",
+        "href": "/rfid-card-printing/",
+        "badge": "Smart Security",
+        "imageSrc": "/images/org-app-rfid-cards.jpg",
+        "spec": "Mifare 1K • Proximity Access"
+      },
+      {
+        "id": "visitor",
+        "iconName": "Users",
+        "title": "Visitor & Institutional Identification",
+        "body": "For organizations requiring secure visitor badges, contractor cards, and temporary access credentials.",
+        "badge": "Institutional Access",
+        "imageSrc": "/images/org-app-visitor-cards.jpg",
+        "spec": "Color Coded • Numbered Series"
+      }
+    ]
+  },
+  "bulkSection": {
+    "eyebrow": "Bulk ID Card Printing",
+    "title": "Large-Volume ID Card Printing for Institutions",
+    "description": "IDGen supports bulk personalized ID card printing for organizations that need hundreds or thousands of cards in a single project.",
+    "leftBadge": "High-Volume Applications",
+    "leftCountLabel": "10 Project Types",
+    "leftTitle": "Bulk projects may include:",
+    "bulkProjectTypes": [
+      "New academic-year ID cards",
+      "Student batches",
+      "Employee onboarding",
+      "Staff identification",
+      "University batches",
+      "Institutional renewals",
+      "Event participants",
+      "Membership cards",
+      "Visitor identification",
+      "Large organizational replacement projects"
+    ],
+    "rightBadge": "Institutional Consistency Standard",
+    "rightTitle": "For bulk orders, the challenge is not simply printing a large number of cards.",
+    "rightSubtitle": "It is maintaining consistency across:",
+    "consistencyFactors": [
+      "Data",
+      "Photographs",
+      "Design",
+      "Identification Numbers",
+      "Card Layout",
+      "Production",
+      "Quality"
+    ],
+    "factorEquation": "Data + Photographs + Design + Identification Numbers + Card Layout + Production + Quality",
+    "footerNote": "That's why IDGen follows a structured workflow for personalized projects.",
+    "ctaText": "Request Bulk ID Card Quote",
+    "ctaLink": "/request-a-quote/"
+  },
+  "workflowSection": {
+    "eyebrow": "Production Workflow",
+    "title": "One ID Card Printing Workflow",
+    "lede": "From Data to Finished Card",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Requirement",
+        "body": "We understand: Card type, Quantity, Organization, Required information, Design requirements, Card specification, Additional requirements.",
+        "badge": "Step 1 • Requirements",
+        "img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "ClipboardCheck"
+      },
+      {
+        "num": "02",
+        "title": "Data Preparation",
+        "body": "For personalized orders, customer information and photographs are prepared for production. Data may be supplied by the organization or collected through IDGen Studio, where applicable.",
+        "badge": "Step 2 • Data Setup",
+        "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "Database"
+      },
+      {
+        "num": "03",
+        "title": "Design Preparation",
+        "body": "The required card artwork is prepared according to the organization's branding and specifications.",
+        "badge": "Step 3 • Card Artwork",
+        "img": "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "Palette"
+      },
+      {
+        "num": "04",
+        "title": "Data & Design Preview",
+        "body": "Where applicable, the customer can review the personalized information and card design before production.",
+        "badge": "Step 4 • Digital Review",
+        "img": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "Eye"
+      },
+      {
+        "num": "05",
+        "title": "Approval",
+        "body": "Production proceeds after the required information, artwork and specifications are approved.",
+        "badge": "Step 5 • Final Signoff",
+        "img": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "CheckCircle2"
+      },
+      {
+        "num": "06",
+        "title": "Card Printing",
+        "body": "Approved cards move into the production process with edge-to-edge high-definition color profiling.",
+        "badge": "Step 6 • High-Def Print",
+        "img": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "Printer"
+      },
+      {
+        "num": "07",
+        "title": "Quality Check",
+        "body": "Finished cards are checked against the applicable approved requirements and data records.",
+        "badge": "Step 7 • Zero-Error QC",
+        "img": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "ShieldCheck"
+      },
+      {
+        "num": "08",
+        "title": "Accessories & Assembly",
+        "body": "If required, the cards can be combined with appropriate identification accessories: ID Card → Holder → Hook → Lanyard.",
+        "badge": "Step 8 • Assembly",
+        "img": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "Layers"
+      },
+      {
+        "num": "09",
+        "title": "Packaging & Dispatch",
+        "body": "Completed orders are sorted, batch-packaged and prepared for express dispatch across Assam and the Northeast.",
+        "badge": "Step 9 • Safe Dispatch",
+        "img": "https://images.unsplash.com/photo-1586528116493-a029325540fa?auto=format&fit=crop&w=1000&q=80",
+        "iconName": "Truck"
+      }
+    ]
+  },
+  "cardInformationSection": {
+    "eyebrow": "Card Personalization",
+    "title": "What Information Can Be Printed on an ID Card?",
+    "description": "IDGen can personalize cards according to the customer's approved data and design. Typical information may include:",
+    "categories": [
+      {
+        "id": "personal",
+        "title": "Personal Information",
+        "badge": "Personal Data",
+        "iconName": "User",
+        "items": [
+          "Name",
+          "Photograph",
+          "ID number",
+          "Date of birth, where required"
+        ]
+      },
+      {
+        "id": "org",
+        "title": "Organizational Information",
+        "badge": "Org Data",
+        "iconName": "Building2",
+        "items": [
+          "Organization name",
+          "Department",
+          "Designation",
+          "Employee number",
+          "Student roll number",
+          "Admission number"
+        ]
+      },
+      {
+        "id": "edu",
+        "title": "Educational Information",
+        "badge": "Academic Data",
+        "iconName": "GraduationCap",
+        "items": [
+          "Class",
+          "Section",
+          "Course",
+          "Academic year",
+          "Institution name"
+        ]
+      },
+      {
+        "id": "digital",
+        "title": "Digital Identification",
+        "badge": "Digital Tags",
+        "iconName": "QrCode",
+        "items": [
+          "QR code",
+          "Barcode",
+          "Other machine-readable information where required"
+        ]
+      }
+    ],
+    "noticeText": "The final card content is determined by your organization's exact requirements and specifications.",
+    "noticeCtaText": "Request Custom Layout",
+    "noticeCtaLink": "/request-a-quote/"
+  },
+  "designBrandingSection": {
+    "eyebrow": "Design & Branding",
+    "title": "ID Card Design & Branding",
+    "lede": "Your ID card can be designed around your organization's visual identity.",
+    "imageSrc": "/images/ID-Card-Design-&-Branding-Idgen.png",
+    "imageAlt": "ID card design and brand-aligned visual identity customization by IDGen",
+    "topBadge": "Visual Identity Alignment",
+    "topBrand": "IDGen",
+    "bottomEyebrow": "Brand-Matched Layouts",
+    "bottomTitle": "Full Front & Back Artwork",
+    "bottomLocation": "Guwahati",
+    "badge": "Artwork Specifications",
+    "countLabel": "10 Design Elements",
+    "bodyHeading": "Possible design elements include:",
+    "designElements": [
+      "Organization logo",
+      "Brand colours",
+      "Institutional colours",
+      "Department colours",
+      "Photograph",
+      "Identification details",
+      "QR codes",
+      "Barcodes",
+      "Security or identification elements",
+      "Front and back information"
+    ],
+    "noteExisting": "For organizations with existing artwork, IDGen can work according to the supplied design requirements.",
+    "noteNew": "For new requirements, the design can be prepared according to the agreed specification."
+  },
+  "bulkDataSection": {
+    "eyebrow": "Data-Driven Production",
+    "title": "ID Card Printing for Bulk Personalized Data",
+    "description": "Large ID card projects require more than a card printer.",
+    "leftBadge": "Scale Complexity",
+    "leftCountLabel": "2,000+ Records",
+    "leftDescription": "Consider an organization producing 2,000 personalized cards. Every card may contain a different:",
+    "fields": [
+      "Name",
+      "Photograph",
+      "ID Number",
+      "Department",
+      "Designation"
+    ],
+    "formula": "Name + Photograph + ID Number + Department + Designation",
+    "errorNotice": "A single data error can affect an individual card.",
+    "rightBadge": "Error-Prevention Architecture",
+    "rightDescription": "For this reason, IDGen places importance on the relationship between:",
+    "pipelineSteps": [
+      "Data",
+      "Design",
+      "Preview",
+      "Approval",
+      "Production"
+    ],
+    "rightFooterText": "Every personalized project is verified against the approved master dataset."
+  },
+  "studioSection": {
+    "eyebrow": "Data Collection & Management",
+    "title": "IDGen Studio for Data Collection and Preview",
+    "lede": "For projects where data collection or review is a challenge, IDGen Studio can help organizations collect and review personalized student, employee or member records before printing.",
+    "badge": "Digital Workflow Platform",
+    "bodyText1": "Instead of managing messy spreadsheets, scattered email attachments, and unformatted photos, IDGen Studio gives organizations a streamlined portal for collecting, verifying, and approving cardholder records.",
+    "bodyText2": "Cardholders or institutional coordinators can submit structured details, upload portrait photos that are automatically cropped to standard ID ratios, and preview the final digital badge layout.",
+    "useCasesHeading": "Common Studio Use Cases:",
+    "useCases": [
+      "Student batches",
+      "Employee onboarding",
+      "Institutional renewals",
+      "University identification",
+      "Event participants",
+      "Membership organizations"
+    ],
+    "ctaButtonText": "Explore IDGen Studio",
+    "ctaButtonLink": "/idgen-studio/"
+  },
+  "accessoriesSection": {
+    "eyebrow": "Identification Ecosystem",
+    "title": "ID Cards and Identification Accessories",
+    "lede": "An ID card often works as part of a complete identification setup. Depending on how the card will be used, organizations often choose a configuration that fits their working environment.",
+    "configRows": [
+      {
+        "application": "Basic identification",
+        "configuration": "ID Card"
+      },
+      {
+        "application": "Protected card",
+        "configuration": "ID Card + Holder"
+      },
+      {
+        "application": "Wearable identification",
+        "configuration": "ID Card + Holder + Hook + Lanyard"
+      },
+      {
+        "application": "Complete wearable setup",
+        "configuration": "ID Card + Sealing + Holder + Hook + Lanyard"
+      },
+      {
+        "application": "RFID application",
+        "configuration": "Compatible RFID Card"
+      },
+      {
+        "application": "Event identification",
+        "configuration": "Event Card + required attachment configuration"
+      }
+    ],
+    "note": "Organizations can order ID cards alone or combine them with appropriate identification accessories.",
+    "viewAllText": "Explore ID Card Accessories",
+    "viewAllLink": "/accessories/"
+  },
+  "organizationsSection": {
+    "eyebrow": "Sectors We Serve",
+    "title": "Organizations We Serve",
+    "lede": "IDGen provides identification solutions for institutions across diverse sectors.",
+    "institutions": [
+      {
+        "title": "Educational Institutions",
+        "body": "Student, faculty and staff identification.",
+        "iconName": "GraduationCap"
+      },
+      {
+        "title": "Companies",
+        "body": "Employee and staff identification.",
+        "iconName": "Building2"
+      },
+      {
+        "title": "Hospitals",
+        "body": "Staff and institutional identification.",
+        "iconName": "Hospital"
+      },
+      {
+        "title": "Industries",
+        "body": "Employee and workforce identification.",
+        "iconName": "Factory"
+      },
+      {
+        "title": "Government Organizations",
+        "body": "Official institutional identification requirements.",
+        "iconName": "Landmark"
+      },
+      {
+        "title": "NGOs & Associations",
+        "body": "Member, staff and organizational identification.",
+        "iconName": "Heart"
+      },
+      {
+        "title": "Events",
+        "body": "Participant and event identification.",
+        "iconName": "CalendarDays"
+      }
+    ]
+  },
+  "qualityCheckpointsSection": {
+    "eyebrow": "Quality Assurance",
+    "title": "Quality Checkpoints for Personalized ID Cards",
+    "lede": "Every card batch undergoes a rigorous 6-point verification protocol before packaging.",
+    "checkpoints": [
+      {
+        "title": "Data",
+        "body": "Is the information based on the approved data?"
+      },
+      {
+        "title": "Photograph",
+        "body": "Is the photograph matched with the correct record?"
+      },
+      {
+        "title": "Design",
+        "body": "Does the card follow the approved layout?"
+      },
+      {
+        "title": "Identification",
+        "body": "Are the required numbers and details present?"
+      },
+      {
+        "title": "Print",
+        "body": "Does the finished card meet the required production specification?"
+      },
+      {
+        "title": "Final Order",
+        "body": "Does the completed order correspond with the requested quantity and configuration?"
+      }
+    ]
+  },
+  "renewalsSection": {
+    "eyebrow": "Order Types",
+    "title": "New Cards, Batches & Renewals",
+    "lede": "We accommodate both ground-up institutional rollouts and routine periodic card re-issuances.",
+    "newCardsTitle": "New Project Types",
+    "newCardTypes": [
+      "New students",
+      "New employees",
+      "New members",
+      "New staff",
+      "New institutions",
+      "New organizations"
+    ],
+    "renewalsTitle": "Renewal & Re-issuance Scenarios",
+    "renewalTypes": [
+      "New academic years",
+      "Employee renewals",
+      "Expired cards",
+      "Damaged cards",
+      "Lost-card replacement",
+      "Updated organizational information"
+    ]
+  },
+  "whyIdgenSection": {
+    "eyebrow": "Why IDGen",
+    "title": "Why Organizations Choose IDGen for ID Card Printing",
+    "lede": "Direct factory production in Guwahati, backed by verified data handling and end-to-end quality controls.",
+    "reasons": [
+      {
+        "title": "Structured Process",
+        "body": "Requirement → Data → Design → Preview → Approval → Production → Quality Check → Dispatch",
+        "iconName": "Workflow"
+      },
+      {
+        "title": "Bulk Capability",
+        "body": "Suitable for institutional and high-volume personalized requirements.",
+        "iconName": "Zap"
+      },
+      {
+        "title": "Data-Aware Production",
+        "body": "Personalized card production begins with organized information and photographs.",
+        "iconName": "Database"
+      },
+      {
+        "title": "Preview Before Production",
+        "body": "Where applicable, customers can review the design and personalized information before production.",
+        "iconName": "Eye"
+      },
+      {
+        "title": "Complete Identification Options",
+        "body": "Cards can be combined with holders, hooks, lanyards and suitable sealing configurations.",
+        "iconName": "Package"
+      },
+      {
+        "title": "Digital Workflow",
+        "body": "IDGen Studio can support data collection and preview for suitable projects.",
+        "iconName": "Monitor"
+      },
+      {
+        "title": "Guwahati-Based",
+        "body": "IDGen is based in Guwahati and serves organizations across Assam and Northeast India.",
+        "iconName": "MapPin"
+      }
+    ]
+  },
+  "orderWorkflowSection": {
+    "eyebrow": "Ordering Process",
+    "title": "How to Order ID Cards from IDGen",
+    "lede": "A straightforward eight-step pathway from your initial inquiry to door-to-door delivery.",
+    "steps": [
+      {
+        "title": "Step 1 — Tell Us Your Requirement",
+        "body": "Tell us the card type, approximate quantity and application."
+      },
+      {
+        "title": "Step 2 — Share Data",
+        "body": "Provide the required information and photographs."
+      },
+      {
+        "title": "Step 3 — Share Design",
+        "body": "Provide your existing artwork or discuss the required design."
+      },
+      {
+        "title": "Step 4 — Review",
+        "body": "Review the applicable design and personalized information."
+      },
+      {
+        "title": "Step 5 — Approve",
+        "body": "Approve the final requirements."
+      },
+      {
+        "title": "Step 6 — Production",
+        "body": "The approved project moves into production."
+      },
+      {
+        "title": "Step 7 — Quality Check",
+        "body": "The finished cards are checked against the applicable requirements."
+      },
+      {
+        "title": "Step 8 — Dispatch",
+        "body": "The completed order is prepared and dispatched."
+      }
+    ]
+  },
+  "faqsSection": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": "ID Card Printing FAQs",
+    "lede": "Common questions about card materials, bulk turnarounds, personalization and accessories.",
+    "faqs": [
+      {
+        "q": "What type of ID cards does IDGen print?",
+        "a": "IDGen provides customized identification cards for students, employees, staff, institutions, visitors, members, events and other organizational applications."
+      },
+      {
+        "q": "Does IDGen provide PVC ID card printing?",
+        "a": "Yes. IDGen provides customized PVC ID card printing for organizational identification requirements."
+      },
+      {
+        "q": "Does IDGen handle bulk ID card printing?",
+        "a": "Yes. Bulk and institutional ID card printing is an important part of the service, including large personalized batches."
+      },
+      {
+        "q": "Can I print photographs and names on the cards?",
+        "a": "Yes. Personalized information such as photographs, names, identification numbers and organizational details can be included according to the approved design."
+      },
+      {
+        "q": "Can I order only the ID card?",
+        "a": "Yes. Organizations can order ID cards without accessories if they already have their own holders, hooks or lanyards."
+      },
+      {
+        "q": "Can I order ID cards with lanyards?",
+        "a": "Yes. ID cards can be combined with suitable holders, hooks and custom printed lanyards."
+      },
+      {
+        "q": "Can I get a complete ID card set?",
+        "a": "Yes. Depending on the application, a complete setup can include: ID Card + Ultrasonic Sealing + Holder + Hook + Custom Printed Lanyard."
+      },
+      {
+        "q": "Can IDGen collect student or employee data?",
+        "a": "IDGen Studio can support digital data and photograph collection for suitable projects."
+      },
+      {
+        "q": "Can I check the card before printing?",
+        "a": "Where applicable, the workflow includes a preview and approval stage before production."
+      },
+      {
+        "q": "How many ID cards can IDGen print?",
+        "a": "IDGen supports high-volume production requirements. Actual capacity depends on product type, quantity, personalization, data readiness and project specifications."
+      },
+      {
+        "q": "How long does ID card printing take?",
+        "a": "The production and dispatch timeline depends on the quantity, personalization, artwork approval and project requirements. A specific timeline should be confirmed when requesting a quotation."
+      }
+    ]
+  },
+  "ctaBand": {
+    "title": "Ready to Print Professional ID Cards for Your Organization?",
+    "body": "Contact our Guwahati production hub for sample kits, bulk institutional rate cards, and expert assistance with variable data preparation.",
+    "primaryButtonText": "Request an ID Card Quote",
+    "primaryButtonLink": "/request-a-quote/",
+    "secondaryButtonText": "Explore IDGen Studio",
+    "secondaryButtonLink": "/idgen-studio/"
+  },
+  "metadata": {
+    "title": "ID Card Printing | Custom PVC & Bulk ID Cards | IDGen",
+    "description": "IDGen provides custom PVC ID card printing and bulk personalized ID cards for schools, colleges, companies, hospitals, institutions and events across Assam and Northeast India.",
+    "path": "/id-card-printing/"
+  }
+}

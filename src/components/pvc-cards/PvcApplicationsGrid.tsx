@@ -12,6 +12,17 @@ import {
   Sparkles,
   Layers,
 } from "lucide-react";
+import type { DynamicPvcCardsApplications } from "@/lib/dynamic-pvc-cards-types";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  GraduationCap,
+  Briefcase,
+  Hospital,
+  ShieldCheck,
+  Radio,
+  Sparkles,
+  Layers,
+};
 
 export const pvcApplications = [
   {
@@ -61,31 +72,35 @@ export const pvcApplications = [
   },
 ];
 
-export function PvcApplicationsGrid() {
+export function PvcApplicationsGrid({ data }: { data?: DynamicPvcCardsApplications }) {
+  const activeApps = (data?.applications && data.applications.length > 0) ? data.applications : pvcApplications;
+
   return (
     <section className="mt-16 sm:mt-20">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Sector Applications</span>
+            <span>{data?.badge || "Sector Applications"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-            CR80 PVC Cards Across Organizations
+            {data?.title || "CR80 PVC Cards Across Organizations"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Supplied to over 500+ schools, universities, hospitals, corporate headquarters, and government institutions across Northeast India.
+            {data?.lede || "Supplied to over 500+ schools, universities, hospitals, corporate headquarters, and government institutions across Northeast India."}
           </p>
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          5 Core Sector Use Cases
+          {data?.subtitle || `${activeApps.length} Core Sector Use Cases`}
         </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {pvcApplications.map((item, idx) => {
-          const Icon = item.icon;
+        {activeApps.map((item, idx) => {
+          const Icon = (item as any).icon || ((item as any).iconName && ICON_MAP[(item as any).iconName]) || Sparkles;
+          const linkHref = typeof (item as any).link === "string" ? (item as any).link : (item as any).link?.href || "/request-a-quote/";
+          const linkLabel = typeof (item as any).link === "object" && (item as any).link?.label ? (item as any).link.label : "Explore Service";
 
           return (
             <div
@@ -93,13 +108,13 @@ export function PvcApplicationsGrid() {
               className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:shadow-xl hover:border-[#009fe3]/70 transition-all duration-300 hover:-translate-y-1"
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-50 pointer-events-none`}
+                className={`absolute inset-0 bg-gradient-to-br ${item.gradient || "from-sky-500/10 via-blue-500/5 to-transparent"} opacity-50 pointer-events-none`}
               />
 
               <div className="relative z-10 space-y-4">
                 <div className="flex items-center justify-between">
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-white dark:bg-slate-800 shadow-md ${item.accentColor}`}
+                    className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-white dark:bg-slate-800 shadow-md ${item.accentColor || "text-[#009fe3]"}`}
                   >
                     <Icon className="h-6 w-6" />
                   </div>
@@ -119,8 +134,8 @@ export function PvcApplicationsGrid() {
               </div>
 
               <div className="relative z-10 mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-[#009fe3] dark:text-cyan-400">
-                <Link href={item.link} className="hover:underline flex items-center gap-1.5">
-                  <span>Explore Service</span>
+                <Link href={linkHref} className="hover:underline flex items-center gap-1.5">
+                  <span>{linkLabel}</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   School,
   BookOpen,
@@ -11,29 +12,26 @@ import {
   CheckCircle2,
   Sparkles,
   Layers,
-  ArrowUpRight,
   ShieldCheck,
 } from "lucide-react";
+import { StudentOrgSlideItem } from "@/lib/dynamic-student-id-card-printing-types";
 
-interface OrgType {
-  id: string;
-  badge: string;
-  title: string;
-  categoryDesc: string;
-  forLabel: string;
-  items: string[];
-  icon: React.ElementType;
-  accentGradient: string;
-  bgGlow: string;
-  pillColor: string;
-}
+const ICON_MAP: Record<string, React.ElementType> = {
+  School,
+  GraduationCap,
+  BookOpen,
+  Building2,
+  Layers,
+  ShieldCheck,
+};
 
-const orgTypes: OrgType[] = [
+const defaultOrgTypes: StudentOrgSlideItem[] = [
   {
     id: "schools",
     badge: "K-12 & High Schools",
     title: "Schools",
-    categoryDesc: "Tailored student identification cards for structured school environments from foundational to senior levels.",
+    categoryDesc:
+      "Tailored student identification cards for structured school environments from foundational to senior levels.",
     forLabel: "For:",
     items: [
       "Primary schools",
@@ -44,77 +42,88 @@ const orgTypes: OrgType[] = [
       "Residential schools",
       "Boarding schools",
     ],
-    icon: School,
+    iconName: "School",
     accentGradient: "from-blue-600 via-[#009fe3] to-cyan-400",
     bgGlow: "from-blue-500/15 via-[#009fe3]/10 to-transparent",
-    pillColor: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800/60",
+    pillColor:
+      "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800/60",
   },
   {
     id: "colleges",
     badge: "Higher Education",
     title: "Colleges",
-    categoryDesc: "Streamlined bulk ID production suited for multi-stream college departments, admissions, and annual sessions.",
+    categoryDesc:
+      "Streamlined bulk ID production suited for multi-stream college departments, admissions, and annual sessions.",
     forLabel: "For:",
     items: [
       "Undergraduate students",
       "Postgraduate students",
-      "Department-wise batches",
-      "New admissions",
-      "Annual renewals",
+      "Junior colleges",
+      "Degree colleges",
+      "Autonomous colleges",
+      "Faculty & student bodies",
     ],
-    icon: BookOpen,
-    accentGradient: "from-[#009fe3] via-sky-500 to-indigo-500",
-    bgGlow: "from-[#009fe3]/15 via-indigo-500/10 to-transparent",
-    pillColor: "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/60 dark:text-cyan-300 dark:border-sky-800/60",
+    iconName: "GraduationCap",
+    accentGradient: "from-cyan-600 via-sky-500 to-blue-500",
+    bgGlow: "from-cyan-500/15 via-sky-500/10 to-transparent",
+    pillColor:
+      "bg-cyan-50 text-cyan-700 border-cyan-200 dark:bg-cyan-950/60 dark:text-cyan-300 dark:border-cyan-800/60",
   },
   {
     id: "universities",
-    badge: "Campuses & Research",
+    badge: "Campus Scale",
     title: "Universities",
-    categoryDesc: "Robust identity systems built for expansive university campuses, specialized research wings, and diverse faculties.",
+    categoryDesc:
+      "Campus-wide identity systems covering multiple faculties, hostelers, day scholars, research scholars, and staff.",
     forLabel: "For:",
     items: [
-      "Undergraduate students",
-      "Postgraduate students",
+      "Multiple departments",
+      "Different degree programmes",
       "Research scholars",
-      "Department-wise identification",
-      "Campus-wide student batches",
+      "Campus library systems",
+      "Hostel resident tracking",
+      "Campus security checkpoints",
     ],
-    icon: GraduationCap,
-    accentGradient: "from-indigo-600 via-[#009fe3] to-teal-400",
-    bgGlow: "from-indigo-500/15 via-[#009fe3]/10 to-transparent",
-    pillColor: "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-800/60",
+    iconName: "BookOpen",
+    accentGradient: "from-sky-600 via-blue-600 to-indigo-600",
+    bgGlow: "from-sky-500/15 via-blue-500/10 to-transparent",
+    pillColor:
+      "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-950/60 dark:text-sky-300 dark:border-sky-800/60",
   },
   {
-    id: "other",
-    badge: "Specialized Training",
-    title: "Other Educational Institutions",
-    categoryDesc: "Flexible credentialing solutions customized for professional institutes, academies, and coaching centers.",
-    forLabel: "Student identification can also be required by:",
+    id: "coaching",
+    badge: "Professional & Prep",
+    title: "Coaching & Training Institutes",
+    categoryDesc:
+      "Fast-turnaround ID solutions for batch-based student enrollments, exam entries, and attendance validation.",
+    forLabel: "For:",
     items: [
-      "Coaching institutes",
-      "Training institutes",
-      "Professional institutes",
-      "Vocational institutions",
-      "Educational organizations",
+      "Competitive exam institutes",
+      "Professional coaching centres",
+      "Skill development centres",
+      "Vocational training institutes",
+      "Test prep centres",
+      "Short-term study batches",
     ],
-    icon: Building2,
+    iconName: "Building2",
     accentGradient: "from-teal-600 via-sky-500 to-blue-600",
     bgGlow: "from-teal-500/15 via-sky-500/10 to-transparent",
-    pillColor: "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/60 dark:text-teal-300 dark:border-teal-800/60",
+    pillColor:
+      "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/60 dark:text-teal-300 dark:border-teal-800/60",
   },
 ];
 
-export function StudentOrgCarousel() {
+export function StudentOrgCarousel({ items }: { items?: StudentOrgSlideItem[] } = {}) {
+  const activeItems = items && items.length > 0 ? items : defaultOrgTypes;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? orgTypes.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? activeItems.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === orgTypes.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === activeItems.length - 1 ? 0 : prev + 1));
   };
 
   useEffect(() => {
@@ -123,10 +132,10 @@ export function StudentOrgCarousel() {
       nextSlide();
     }, 6000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, currentIndex]);
+  }, [isAutoPlaying, currentIndex, activeItems.length]);
 
-  const activeOrg = orgTypes[currentIndex];
-  const Icon = activeOrg.icon;
+  const activeOrg = activeItems[currentIndex] || activeItems[0];
+  const Icon = ICON_MAP[activeOrg.iconName] || School;
 
   return (
     <div
@@ -134,10 +143,10 @@ export function StudentOrgCarousel() {
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      {/* Category Selection Tabs - Modern Luxury Glass Pill Design */}
+      {/* Category Selection Tabs */}
       <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 p-1.5 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 backdrop-blur-md">
-        {orgTypes.map((org, index) => {
-          const TabIcon = org.icon;
+        {activeItems.map((org, index) => {
+          const TabIcon = ICON_MAP[org.iconName] || School;
           const isActive = index === currentIndex;
           return (
             <button
@@ -177,23 +186,35 @@ export function StudentOrgCarousel() {
       <div className="relative overflow-hidden rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 shadow-2xl backdrop-blur-xl transition-all duration-500">
         {/* Dynamic ambient background glow that shifts per category */}
         <div
-          className={`pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gradient-to-br ${activeOrg.bgGlow} blur-3xl transition-all duration-700`}
+          className={`pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gradient-to-br ${activeOrg.bgGlow || "from-sky-500/10 to-transparent"} blur-3xl transition-all duration-700`}
         />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-sky-200/30 dark:bg-[#009fe3]/10 blur-3xl" />
 
         {/* Top Control & Header Bar */}
         <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5 p-6 sm:p-8 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950/40">
           <div className="flex items-start sm:items-center gap-4">
-            {/* Holographic Glowing Icon Badge */}
-            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-white via-sky-50 to-sky-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 border-2 border-sky-200/80 dark:border-sky-800/60 shadow-lg text-[#009fe3] dark:text-cyan-400">
-              <div className="absolute inset-0 rounded-2xl bg-[#009fe3]/10 dark:bg-cyan-400/10 blur-sm" />
-              <Icon className="relative z-10 h-8 w-8" />
+            {/* Holographic Glowing Icon Badge & Optional Image */}
+            <div className="flex items-center gap-3">
+              <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-white via-sky-50 to-sky-100 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 border-2 border-sky-200/80 dark:border-sky-800/60 shadow-lg text-[#009fe3] dark:text-cyan-400">
+                <div className="absolute inset-0 rounded-2xl bg-[#009fe3]/10 dark:bg-cyan-400/10 blur-sm" />
+                <Icon className="relative z-10 h-8 w-8" />
+              </div>
+              {activeOrg.imageSrc && (
+                <div className="relative hidden sm:block h-16 w-24 shrink-0 rounded-2xl overflow-hidden border-2 border-sky-200/80 dark:border-sky-800/60 shadow-lg">
+                  <Image
+                    src={activeOrg.imageSrc}
+                    alt={`${activeOrg.title} Showcase`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
             </div>
 
             <div className="space-y-1.5">
               <div className="flex items-center gap-2 flex-wrap">
                 <span
-                  className={`inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider rounded-full px-3 py-1 border shadow-xs ${activeOrg.pillColor}`}
+                  className={`inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider rounded-full px-3 py-1 border shadow-xs ${activeOrg.pillColor || "bg-sky-50 text-sky-700 border-sky-200"}`}
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
                   {activeOrg.badge}
@@ -212,7 +233,7 @@ export function StudentOrgCarousel() {
           <div className="flex items-center gap-3 self-end md:self-auto">
             {/* Progress Dots */}
             <div className="hidden sm:flex items-center gap-1.5 mr-2">
-              {orgTypes.map((_, idx) => (
+              {activeItems.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
@@ -235,7 +256,7 @@ export function StudentOrgCarousel() {
                 <ChevronLeft className="h-4 w-4" />
               </button>
               <span className="text-xs font-black text-slate-800 dark:text-slate-200 px-2.5 tabular-nums">
-                {currentIndex + 1} / {orgTypes.length}
+                {currentIndex + 1} / {activeItems.length}
               </span>
               <button
                 onClick={nextSlide}
@@ -248,13 +269,13 @@ export function StudentOrgCarousel() {
           </div>
         </div>
 
-        {/* Content Section: Cards Grid with High-End Visual Accents */}
+        {/* Content Section: Cards Grid */}
         <div className="relative z-10 p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
               <p className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-800 dark:text-slate-200">
-                {activeOrg.forLabel}
+                {activeOrg.forLabel || "For:"}
               </p>
             </div>
             <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -262,17 +283,15 @@ export function StudentOrgCarousel() {
             </span>
           </div>
 
-          {/* Luxury Bento Grid of Cards */}
+          {/* Bento Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
             {activeOrg.items.map((item, itemIdx) => (
               <div
                 key={item}
                 className="group relative flex items-center gap-3.5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-gradient-to-b from-white to-slate-50/70 dark:from-slate-900 dark:to-slate-950 p-4 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 shadow-sm hover:shadow-md hover:border-[#009fe3] dark:hover:border-cyan-500 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
               >
-                {/* Subtle left accent bar on hover */}
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#009fe3] to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Check badge */}
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-sky-100/80 dark:bg-cyan-950/80 text-[#009fe3] dark:text-cyan-400 border border-sky-200/70 dark:border-cyan-800/50 group-hover:bg-[#009fe3] group-hover:text-white transition-colors duration-300 shadow-xs">
                   <CheckCircle2 className="h-4 w-4" />
                 </div>
@@ -288,7 +307,6 @@ export function StudentOrgCarousel() {
             ))}
           </div>
 
-          {/* Bottom Micro Footer in the Card */}
           <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-800/80 text-xs">
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 font-medium">
               <ShieldCheck className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
@@ -301,7 +319,7 @@ export function StudentOrgCarousel() {
           </div>
         </div>
 
-        {/* Autoplay Progress Line at the very bottom */}
+        {/* Autoplay Progress Line */}
         <div className="h-1 w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
           <div
             key={currentIndex}

@@ -15,6 +15,17 @@ import {
   Box,
   Flame,
 } from "lucide-react";
+import type { DynamicPvcCardsAnatomy } from "@/lib/dynamic-pvc-cards-types";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Box,
+  Radio,
+  Sparkles,
+  ShieldCheck,
+  CreditCard,
+  Layers,
+  Flame,
+};
 
 interface PvcStackLayer {
   step: string;
@@ -23,7 +34,8 @@ interface PvcStackLayer {
   badge: string;
   material: string;
   benefit: string;
-  icon: React.ElementType;
+  iconName?: string;
+  icon?: React.ElementType;
   img: string;
   details: string[];
 }
@@ -91,9 +103,17 @@ const pvcLayers: PvcStackLayer[] = [
   },
 ];
 
-export function PvcAnatomyEcosystem() {
+export function PvcAnatomyEcosystem({ data }: { data?: DynamicPvcCardsAnatomy }) {
   const [activeLayerIndex, setActiveLayerIndex] = useState(0);
-  const activeLayer = pvcLayers[activeLayerIndex];
+
+  const activeLayers = (data?.layers && data.layers.length > 0)
+    ? data.layers.map((l) => ({
+        ...l,
+        icon: (l as any).icon || (l.iconName && ICON_MAP[l.iconName]) || Box,
+      }))
+    : pvcLayers;
+
+  const activeLayer = activeLayers[activeLayerIndex] || activeLayers[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -102,13 +122,13 @@ export function PvcAnatomyEcosystem() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Layers className="h-3.5 w-3.5" />
-            <span>Manufacturing Ecosystem</span>
+            <span>{data?.badge || "Manufacturing Ecosystem"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            CR80 PVC Card Anatomy &amp; Engineering
+            {data?.title || "CR80 PVC Card Anatomy & Engineering"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Explore the 4-layer construction engineered for optical whiteness, smart chip integration, and 5+ year physical durability.
+            {data?.lede || "Explore the 4-layer construction engineered for optical whiteness, smart chip integration, and 5+ year physical durability."}
           </p>
         </div>
       </div>
@@ -117,9 +137,9 @@ export function PvcAnatomyEcosystem() {
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-stretch">
         {/* Left Column: Stack Layers */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
-          {pvcLayers.map((layer, idx) => {
+          {activeLayers.map((layer, idx) => {
             const isSelected = activeLayerIndex === idx;
-            const Icon = layer.icon;
+            const Icon = layer.icon || Box;
 
             return (
               <div

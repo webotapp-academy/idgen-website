@@ -40,9 +40,18 @@ import {
   ImageIcon,
   Type,
   Copy,
+  GraduationCap,
+  Building2,
+  MapPin,
+  AlertTriangle,
+  Calculator,
+  RefreshCw,
+  UploadCloud,
 } from "lucide-react";
 import type { PricingItemData } from "@/lib/dynamic-pricing";
 import type { TechnicalSpecItem, SpecDetail, TechnicalSpecsSectionConfig } from "@/lib/dynamic-specifications-types";
+import type { DynamicPricingPageData, PricingSlideData } from "@/lib/dynamic-pricing-types";
+import { AdminPricingPageSections } from "@/components/pricing/AdminPricingPageSections";
 
 const defaultCategoryTabs = [
   { id: "all", label: "All Items" },
@@ -63,16 +72,36 @@ const presetImages = [
   { label: "Zinc Medals", url: "/images/product-zinc-medals.jpg" },
 ];
 
+export type PricingAdminTab =
+  | "pricing"
+  | "specs"
+  | "hero"
+  | "cost"
+  | "usecases"
+  | "readiness"
+  | "quotes"
+  | "faqs"
+  | "closing"
+  | "seo";
+
 function AdminPricingContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
   // URL query parameter determines initial section: ?section=specs or ?tab=specs
   const initialSectionParam = searchParams.get("section") || searchParams.get("tab");
-  // Main view switcher: "pricing" for matrix rates, "specs" for Technical Specifications
-  const [mainSection, setMainSection] = useState<"pricing" | "specs">(
-    initialSectionParam === "specs" || initialSectionParam === "specifications" ? "specs" : "pricing"
+
+  const [mainSection, setMainSection] = useState<PricingAdminTab>(
+    (initialSectionParam as PricingAdminTab) || "pricing"
   );
+
+  // ── Full Page Content Dynamic State ──
+  const [pageData, setPageData] = useState<DynamicPricingPageData | null>(null);
+  const [pageLoading, setPageLoading] = useState(true);
+  const [savingPageSection, setSavingPageSection] = useState<string | null>(null);
+  const [isPageResetConfirmOpen, setIsPageResetConfirmOpen] = useState(false);
+  const slideFileInputRef = useRef<HTMLInputElement>(null);
+  const [activeSlideIndexForUpload, setActiveSlideIndexForUpload] = useState<number | null>(null);
 
   // ── Pricing Engine State ──
   const [items, setItems] = useState<PricingItemData[]>([]);
@@ -152,20 +181,18 @@ function AdminPricingContent() {
 
   // Synchronize mainSection when searchParams changes (e.g. sidebar navigation or browser back/forward)
   useEffect(() => {
-    const sec = searchParams.get("section") || searchParams.get("tab");
-    if (sec === "specs" || sec === "specifications") {
-      setMainSection("specs");
-    } else if (sec === "pricing" || !sec) {
-      setMainSection("pricing");
+    const sec = (searchParams.get("section") || searchParams.get("tab")) as PricingAdminTab;
+    if (sec) {
+      setMainSection(sec);
     }
   }, [searchParams]);
 
-  const handleSwitchSection = (nextSection: "pricing" | "specs") => {
+  const handleSwitchSection = (nextSection: PricingAdminTab) => {
     setMainSection(nextSection);
-    if (nextSection === "specs") {
-      router.push("/admin/pricing?section=specs", { scroll: false });
-    } else {
+    if (nextSection === "pricing") {
       router.push("/admin/pricing", { scroll: false });
+    } else {
+      router.push(`/admin/pricing?section=${nextSection}`, { scroll: false });
     }
   };
 
@@ -206,9 +233,135 @@ function AdminPricingContent() {
     }
   };
 
+  // Fetch Full Page Data from API
+  const fetchPageData = async () => {
+    try {
+      setPageLoading(true);
+      const res = await fetch("/api/admin/pricing?type=page");
+      const data = await res.json();
+      if (data.success && data.page) {
+        setPageData(data.page);
+      }
+    } catch (err) {
+      console.error("Failed to load page content:", err);
+      showToast("Failed to load full page content", "error");
+    } finally {
+      setPageLoading(false);
+    }
+  };
+
+  const handleSavePageSection = async <K extends keyof DynamicPricingPageData>(
+    section: K,
+    sectionData: DynamicPricingPageData[K]
+  ) => {
+    try {
+      setSavingPageSection(section as string);
+      const res = await fetch("/api/admin/pricing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "page",
+          action: "save_page_section",
+          section,
+          sectionData,
+        }),
+      });
+      const data = await res.json();
+      if (data.success && data.page) {
+        setPageData(data.page);
+        showToast(`Saved section: ${String(section)}!`);
+      } else {
+        showToast(data.error || "Failed to save section", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("Network error saving section", "error");
+    } finally {
+      setSavingPageSection(null);
+    }
+  };
+
+  const handleSaveFullPage = async () => {
+    if (!pageData) return;
+    try {
+      setSavingPageSection("full");
+      const res = await fetch("/api/admin/pricing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "page",
+          action: "save_page",
+          pageData,
+        }),
+      });
+      const data = await res.json();
+      if (data.success && data.page) {
+        setPageData(data.page);
+        showToast("Full pricing page content saved successfully!");
+      } else {
+        showToast(data.error || "Failed to save page", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("Network error saving page", "error");
+    } finally {
+      setSavingPageSection(null);
+    }
+  };
+
+  const handleResetFullPage = async () => {
+    try {
+      setSavingPageSection("reset");
+      const res = await fetch("/api/admin/pricing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "page",
+          action: "reset_page",
+        }),
+      });
+      const data = await res.json();
+      if (data.success && data.page) {
+        setPageData(data.page);
+        setIsPageResetConfirmOpen(false);
+        showToast("Full page reset to factory defaults!");
+      } else {
+        showToast(data.error || "Failed to reset page", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("Network error resetting page", "error");
+    } finally {
+      setSavingPageSection(null);
+    }
+  };
+
+  const handleSlideImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, slideIndex: number) => {
+    const file = e.target.files?.[0];
+    if (!file || !pageData) return;
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      const data = await res.json();
+      if (data.url) {
+        const nextSlides = [...pageData.heroSlides];
+        nextSlides[slideIndex] = { ...nextSlides[slideIndex], imageSrc: data.url };
+        setPageData({ ...pageData, heroSlides: nextSlides });
+        showToast("Slide image uploaded!");
+      } else {
+        showToast(data.error || "Upload failed", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("Upload failed", "error");
+    }
+  };
+
   useEffect(() => {
     fetchPricing();
     fetchSpecs();
+    fetchPageData();
   }, []);
 
   const showToast = (text: string, type: "success" | "error" = "success") => {
@@ -716,7 +869,7 @@ function AdminPricingContent() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            {mainSection === "pricing" ? (
+            {mainSection === "pricing" && (
               <>
                 <button
                   onClick={handleOpenAddModal}
@@ -734,7 +887,9 @@ function AdminPricingContent() {
                   <span>Reset Defaults</span>
                 </button>
               </>
-            ) : (
+            )}
+
+            {mainSection === "specs" && (
               <>
                 <button
                   onClick={handleOpenAddSpecModal}
@@ -754,8 +909,30 @@ function AdminPricingContent() {
               </>
             )}
 
+            {mainSection !== "pricing" && mainSection !== "specs" && (
+              <>
+                <button
+                  onClick={handleSaveFullPage}
+                  disabled={savingPageSection === "full"}
+                  className="px-4 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-lg shadow-teal-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                >
+                  <Save className="h-4 w-4" />
+                  <span>{savingPageSection === "full" ? "Saving Entire Page..." : "Save All Page Changes"}</span>
+                </button>
+                <button
+                  onClick={handleResetFullPage}
+                  disabled={savingPageSection === "reset"}
+                  className="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs border border-slate-700 transition flex items-center gap-1.5 cursor-pointer"
+                  title="Reset whole page content to factory defaults"
+                >
+                  <RotateCcw className="h-3.5 w-3.5 text-slate-400" />
+                  <span>Reset Page Content</span>
+                </button>
+              </>
+            )}
+
             <Link
-              href="/pricing/#product-specifications"
+              href="/pricing/"
               target="_blank"
               className="px-3.5 py-2.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-teal-300 font-semibold text-xs border border-teal-800/40 transition flex items-center gap-1.5"
             >
@@ -766,43 +943,49 @@ function AdminPricingContent() {
         </div>
       </div>
 
-      {/* ── Primary Mode Switcher Tabs (Pricing Rates vs Technical Specs) ── */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-2 rounded-2xl bg-slate-900 border border-slate-800 shadow-sm">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => handleSwitchSection("pricing")}
-            className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
-              mainSection === "pricing"
-                ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20 font-black"
-                : "text-slate-400 hover:text-white hover:bg-slate-800/60"
-            }`}
-          >
-            <IndianRupee className="h-4 w-4" />
-            <span>Reference Rates Catalog ({items.length})</span>
-          </button>
-
-          <button
-            onClick={() => handleSwitchSection("specs")}
-            className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
-              mainSection === "specs"
-                ? "bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20 font-black"
-                : "text-slate-400 hover:text-white hover:bg-slate-800/60"
-            }`}
-          >
-            <Cpu className="h-4 w-4" />
-            <span>Technical Specifications Section ({specsList.length})</span>
-            <span className="text-[10px] uppercase font-extrabold px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/60">
-              All Details &amp; Images Dynamic
-            </span>
-          </button>
-        </div>
-
-        <div className="text-xs text-slate-400 px-3 hidden md:block">
-          {mainSection === "pricing" ? (
-            <span>Editing live product rate matrix &amp; cards</span>
-          ) : (
-            <span>Editing section headers, images, specs tables &amp; highlights</span>
-          )}
+      {/* ── Primary 10-Tab Navigation Bar ── */}
+      <div className="p-2 rounded-2xl bg-slate-900 border border-slate-800 shadow-md">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {[
+            { id: "pricing" as PricingAdminTab, label: "Catalog Rates", icon: IndianRupee, count: items.length },
+            { id: "specs" as PricingAdminTab, label: "Tech Specs", icon: Cpu, count: specsList.length },
+            { id: "hero" as PricingAdminTab, label: "Hero & Carousel", icon: Sparkles, count: pageData?.heroSlides.length },
+            { id: "cost" as PricingAdminTab, label: "Cost & Tiers", icon: Boxes, count: pageData?.costDeterminants.factors.length },
+            { id: "usecases" as PricingAdminTab, label: "Use Cases", icon: GraduationCap },
+            { id: "readiness" as PricingAdminTab, label: "Readiness & Directory", icon: FolderKanban, count: pageData?.pricingDirectory.items.length },
+            { id: "quotes" as PricingAdminTab, label: "Price Changes & Quotes", icon: Calculator },
+            { id: "faqs" as PricingAdminTab, label: "FAQs & Summary", icon: HelpCircle, count: pageData?.faqsSection.faqs.length },
+            { id: "closing" as PricingAdminTab, label: "Closing CTA & Regional", icon: MapPin },
+            { id: "seo" as PricingAdminTab, label: "SEO Meta", icon: Search },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = mainSection === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleSwitchSection(tab.id)}
+                className={`px-3.5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2 cursor-pointer whitespace-nowrap ${
+                  isActive
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20 font-black"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800/70"
+                }`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                <span>{tab.label}</span>
+                {typeof tab.count === "number" && (
+                  <span
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      isActive
+                        ? "bg-slate-950 text-teal-300 font-extrabold"
+                        : "bg-slate-800 text-slate-400"
+                    }`}
+                  >
+                    {tab.count}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -1383,6 +1566,22 @@ function AdminPricingContent() {
             </div>
           )}
         </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          DYNAMIC FULL PAGE SECTIONS (HERO, COST, USECASES, READINESS, FAQS, ETC.)
+      ══════════════════════════════════════════════════════════════════════ */}
+      {mainSection !== "pricing" && mainSection !== "specs" && (
+        <AdminPricingPageSections
+          mainSection={mainSection}
+          pageData={pageData}
+          setPageData={setPageData}
+          savingSection={savingPageSection}
+          onSaveSection={handleSavePageSection}
+          onSaveFullPage={handleSaveFullPage}
+          onResetPage={handleResetFullPage}
+          onSlideImageUpload={handleSlideImageUpload}
+        />
       )}
 
       {/* ══════════════════════════════════════════════════════════════════════

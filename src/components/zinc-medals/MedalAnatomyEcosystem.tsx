@@ -22,10 +22,21 @@ interface MedalStackLayer {
   badge: string;
   material: string;
   benefit: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
+  iconName?: string;
   img: string;
   details: string[];
 }
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Box,
+  Sparkles,
+  Flame,
+  Shirt,
+  Layers,
+  Award,
+  ShieldCheck,
+};
 
 const medalLayers: MedalStackLayer[] = [
   {
@@ -36,6 +47,7 @@ const medalLayers: MedalStackLayer[] = [
     material: "High-purity zinc alloy (lead & nickel free)",
     benefit: "Delivers a heavy, substantial premium feel around the winner's neck with zero risk of rust or oxidation.",
     icon: Box,
+    iconName: "Box",
     img: "/images/Zinc Medal/IMG_20260213_100040.jpg.jpeg",
     details: [
       "Substantial 45g–90g solid heft compared to light stamped iron",
@@ -51,6 +63,7 @@ const medalLayers: MedalStackLayer[] = [
     material: "Precision hardened steel tooling die",
     benefit: "Creates tactile dimensional depth, raised laurel wreaths, and razor-sharp institutional typography.",
     icon: Sparkles,
+    iconName: "Sparkles",
     img: "/images/Zinc Medal/madl.png",
     details: [
       "True 3D sculpted bevels rather than basic flat 2D lines",
@@ -66,21 +79,23 @@ const medalLayers: MedalStackLayer[] = [
     material: "Multi-stage electroplating + protective clear lacquer",
     benefit: "Creates high-contrast antique shading in recesses while polishing raised areas for maximum visual brilliance.",
     icon: Flame,
+    iconName: "Flame",
     img: "/images/Zinc Medal/IMG_20260213_100059.jpg.jpeg",
     details: [
-      "Antique Gold, Shiny Gold, Antique Silver, Antique Bronze",
-      "Hand-buffed raised surfaces to highlight high-relief artwork",
-      "Protective clear lacquer prevents tarnishing and sweat corrosion",
+      "Electro-deposited copper, nickel and real gold / silver micro-layers",
+      "Manual dark wash buffing brings out deep shadow details in relief zones",
+      "Transparent baked lacquer preserves brilliance against finger sweat and moisture",
     ],
   },
   {
     step: "04",
-    title: "Dye-Sublimated Satin Neck Ribbon",
-    subtitle: "25mm – 35mm V-Neck Sewn Ribbon",
+    title: "Sublimated Satin Neck Ribbon Assembly",
+    subtitle: "High-Definition 300 DPI Heat-Transfer",
     badge: "Custom Satin Ribbon",
     material: "High-density silky polyester satin + heavy-duty jump ring",
     benefit: "Full-bleed photographic colors with event dates, sponsor logos, and smooth non-chafing neck wear.",
     icon: Shirt,
+    iconName: "Shirt",
     img: "/images/Zinc Medal/IMG20260213095826.jpg.jpeg",
     details: [
       "Dye-sublimation printing with zero color fading or bleeding",
@@ -90,9 +105,26 @@ const medalLayers: MedalStackLayer[] = [
   },
 ];
 
-export function MedalAnatomyEcosystem() {
+export function MedalAnatomyEcosystem({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    layers?: MedalStackLayer[];
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Manufacturing Ecosystem";
+  const sectionTitle = data?.title || "Die-Cast Zinc Medal Anatomy";
+  const sectionLede =
+    data?.lede ||
+    "Discover the 4 engineering stages that transform raw zinc alloy ingots into prestigious championship medals and tournament awards.";
+  const activeLayers =
+    data?.layers && data.layers.length > 0 ? data.layers : medalLayers;
+
   const [activeLayerIndex, setActiveLayerIndex] = useState(0);
-  const activeLayer = medalLayers[activeLayerIndex];
+  const activeLayer = activeLayers[activeLayerIndex] || activeLayers[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -101,13 +133,13 @@ export function MedalAnatomyEcosystem() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Layers className="h-3.5 w-3.5" />
-            <span>Manufacturing Ecosystem</span>
+            <span>{badgeTitle}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Die-Cast Zinc Medal Anatomy
+            {sectionTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Discover the 4 engineering stages that transform raw zinc alloy ingots into prestigious championship medals and tournament awards.
+            {sectionLede}
           </p>
         </div>
       </div>
@@ -116,9 +148,12 @@ export function MedalAnatomyEcosystem() {
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-stretch">
         {/* Left Column: Stack Layers */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
-          {medalLayers.map((layer, idx) => {
+          {activeLayers.map((layer, idx) => {
             const isSelected = activeLayerIndex === idx;
-            const Icon = layer.icon;
+            const Icon =
+              layer.icon ||
+              ((layer as any).iconName && ICON_MAP[(layer as any).iconName]) ||
+              Layers;
 
             return (
               <div

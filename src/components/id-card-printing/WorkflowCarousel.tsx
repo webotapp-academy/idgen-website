@@ -101,7 +101,24 @@ export const workflowStepsData: WorkflowItem[] = [
   },
 ];
 
-export function WorkflowCarousel() {
+const WORKFLOW_ICON_MAP: Record<string, React.ElementType> = {
+  ClipboardCheck,
+  Database,
+  Palette,
+  Eye,
+  CheckCircle2,
+  Printer,
+  ShieldCheck,
+  Layers,
+  Truck,
+};
+
+export function WorkflowCarousel({
+  steps,
+}: {
+  steps?: (WorkflowItem | (Omit<WorkflowItem, "icon"> & { iconName?: string; icon?: React.ElementType }))[];
+}) {
+  const activeSteps = steps && steps.length > 0 ? steps : workflowStepsData;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -121,7 +138,7 @@ export function WorkflowCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, workflowStepsData.length - itemsPerPage);
+  const maxIndex = Math.max(0, activeSteps.length - itemsPerPage);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -180,8 +197,8 @@ export function WorkflowCarousel() {
             transform: `translateX(-${currentIndex * (100 / itemsPerPage + (itemsPerPage === 1 ? 0 : 1.2))}%)`,
           }}
         >
-          {workflowStepsData.map((step) => {
-            const IconComponent = step.icon;
+          {activeSteps.map((step) => {
+            const IconComponent = (step as any).icon || ((step as any).iconName && WORKFLOW_ICON_MAP[(step as any).iconName]) || ClipboardCheck;
             return (
               <div
                 key={step.num}

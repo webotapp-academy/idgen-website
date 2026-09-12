@@ -19,41 +19,53 @@ import {
   Compass,
 } from "lucide-react";
 
-export function HolderEngineeringGuide() {
-  const [selectedDecisionStep, setSelectedDecisionStep] = useState<number>(0);
+import type { DynamicIdCardHoldersEngineeringGuide } from "@/lib/dynamic-id-card-holders-types";
 
-  const decisionSteps = [
-    {
-      q: "Step 1 • What is your card orientation?",
-      a: "Portrait → Vertical Holder (V-Series) | Landscape → Horizontal Holder (H-Series)",
-      detail: "Match the physical card orientation to avoid awkward tilted display.",
-      recommended: ["V-1", "V-2", "H-1", "H-2"],
-    },
-    {
-      q: "Step 2 • Do you need extra retention security?",
-      a: "Standard everyday → V-1 / H-1 | Active movement → V-2 / H-2 (4-Side Lock)",
-      detail: "Four-side locking tabs physically capture card corners, preventing accidental slippage during daily commutes or factory shifts.",
-      recommended: ["V-2", "H-2"],
-    },
-    {
-      q: "Step 3 • Is your card using a chemical sticker format?",
-      a: "Chemical dome / sticker format → V-3 Chemical Sticker Holder",
-      detail: "Specially formulated recessed frame providing sealed protection for resin dome badges.",
-      recommended: ["V-3"],
-    },
-    {
-      q: "Step 4 • Is this for executive or VIP leadership presentation?",
-      a: "Executive appearance → Metal ID Holder or CV-1 Crystal Optical Acrylic",
-      detail: "Machined aluminum alloy or diamond-beveled crystal acrylic for commanding corporate presence.",
-      recommended: ["Metal Holder", "CV-1 Crystal"],
-    },
-    {
-      q: "Step 5 • Do you need lanyard hardware attachments?",
-      a: "Holder to Lanyard connection → Precision Chrome Fish Hook",
-      detail: "Full 360-degree rotational swivel with spring gate that snaps into any 20mm slot.",
-      recommended: ["Fish Hook"],
-    },
-  ];
+const defaultDecisionSteps = [
+  {
+    q: "Step 1 • What is your card orientation?",
+    a: "Portrait → Vertical Holder (V-Series) | Landscape → Horizontal Holder (H-Series)",
+    detail: "Match the physical card orientation to avoid awkward tilted display.",
+    recommended: ["V-1", "V-2", "H-1", "H-2"],
+  },
+  {
+    q: "Step 2 • Do you need extra retention security?",
+    a: "Standard everyday → V-1 / H-1 | Active movement → V-2 / H-2 (4-Side Lock)",
+    detail: "Four-side locking tabs physically capture card corners, preventing accidental slippage during daily commutes or factory shifts.",
+    recommended: ["V-2", "H-2"],
+  },
+  {
+    q: "Step 3 • Is your card using a chemical sticker format?",
+    a: "Chemical dome / sticker format → V-3 Chemical Sticker Holder",
+    detail: "Specially formulated recessed frame providing sealed protection for resin dome badges.",
+    recommended: ["V-3"],
+  },
+  {
+    q: "Step 4 • Is this for executive or VIP leadership presentation?",
+    a: "Executive appearance → Metal ID Holder or CV-1 Crystal Optical Acrylic",
+    detail: "Machined aluminum alloy or diamond-beveled crystal acrylic for commanding corporate presence.",
+    recommended: ["Metal Holder", "CV-1 Crystal"],
+  },
+  {
+    q: "Step 5 • Do you need lanyard hardware attachments?",
+    a: "Holder to Lanyard connection → Precision Chrome Fish Hook",
+    detail: "Full 360-degree rotational swivel with spring gate that snaps into any 20mm slot.",
+    recommended: ["Fish Hook"],
+  },
+];
+
+export function HolderEngineeringGuide({
+  data,
+}: {
+  data?: DynamicIdCardHoldersEngineeringGuide;
+} = {}) {
+  const [selectedDecisionStep, setSelectedDecisionStep] = useState<number>(0);
+  const decisionSteps =
+    data?.decisionSteps && data.decisionSteps.length > 0
+      ? data.decisionSteps
+      : defaultDecisionSteps;
+  const orient = data?.orientationCard;
+  const lock = data?.lockingCard;
 
   return (
     <section className="mt-16 sm:mt-20 scroll-mt-28" id="engineering-guide">
@@ -66,14 +78,14 @@ export function HolderEngineeringGuide() {
 
           <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Compass className="h-4 w-4" />
-            <span>Orientation Engineering</span>
+            <span>{orient?.tag || "Orientation Engineering"}</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1">
-            Vertical vs Horizontal Holders
+            {orient?.title || "Vertical vs Horizontal Holders"}
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Selecting between portrait and landscape holders depends strictly on your printed card artwork layout.
+            {orient?.description || "Selecting between portrait and landscape holders depends strictly on your printed card artwork layout."}
           </p>
 
           <div className="mt-6 space-y-4">
@@ -81,14 +93,14 @@ export function HolderEngineeringGuide() {
             <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 p-4 transition hover:border-[#009fe3]">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 dark:text-white text-sm">
-                  Vertical (Portrait) Holders
+                  {orient?.verticalTitle || "Vertical (Portrait) Holders"}
                 </span>
                 <span className="font-mono text-xs font-bold text-[#009fe3] dark:text-cyan-400 bg-sky-100 dark:bg-sky-950 px-2 py-0.5 rounded-md">
-                  86 × 54 mm
+                  {orient?.verticalDim || "86 × 54 mm"}
                 </span>
               </div>
               <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
-                Use when card is taller than wide (Corporate staff, student badges).
+                {orient?.verticalDesc || "Use when card is taller than wide (Corporate staff, student badges)."}
               </p>
               <div className="mt-2 flex flex-wrap gap-1.5 pt-1 border-t border-slate-200/60 dark:border-slate-700/60">
                 {["V-1", "V-2", "V-3", "Metal", "CV-1"].map((m) => (
@@ -103,14 +115,14 @@ export function HolderEngineeringGuide() {
             <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 p-4 transition hover:border-[#009fe3]">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-slate-900 dark:text-white text-sm">
-                  Horizontal (Landscape) Holders
+                  {orient?.horizontalTitle || "Horizontal (Landscape) Holders"}
                 </span>
                 <span className="font-mono text-xs font-bold text-[#009fe3] dark:text-cyan-400 bg-sky-100 dark:bg-sky-950 px-2 py-0.5 rounded-md">
-                  54 × 86 mm
+                  {orient?.horizontalDim || "54 × 86 mm"}
                 </span>
               </div>
               <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
-                Use when card is wider than tall (Conferences, visitor passes, event credentials).
+                {orient?.horizontalDesc || "Use when card is wider than tall (Conferences, visitor passes, event credentials)."}
               </p>
               <div className="mt-2 flex flex-wrap gap-1.5 pt-1 border-t border-slate-200/60 dark:border-slate-700/60">
                 {["H-1", "H-2"].map((m) => (
@@ -130,14 +142,14 @@ export function HolderEngineeringGuide() {
 
           <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             <Lock className="h-4 w-4" />
-            <span>Retention Engineering</span>
+            <span>{lock?.tag || "Retention Engineering"}</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1">
-            Standard vs Four-Side Lock
+            {lock?.title || "Standard vs Four-Side Lock"}
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            The fundamental distinction between standard and four-side-lock is card retention under active physical motion.
+            {lock?.description || "The fundamental distinction between standard and four-side-lock is card retention under active physical motion."}
           </p>
 
           <div className="mt-6 space-y-4">
@@ -147,7 +159,7 @@ export function HolderEngineeringGuide() {
                 <div className="flex items-center gap-1.5">
                   <Unlock className="h-4 w-4 text-sky-500" />
                   <span className="font-bold text-slate-900 dark:text-white text-sm">
-                    Standard Drop-In (V-1 / H-1)
+                    {lock?.dropInTitle || "Standard Drop-In (V-1 / H-1)"}
                   </span>
                 </div>
                 <span className="text-[10px] font-bold uppercase bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-700 dark:text-slate-300">
@@ -155,7 +167,7 @@ export function HolderEngineeringGuide() {
                 </span>
               </div>
               <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
-                Ideal for general office environments, daily card swiping, and quick card removal.
+                {lock?.dropInDesc || "Ideal for general office environments, daily card swiping, and quick card removal."}
               </p>
             </div>
 
@@ -165,7 +177,7 @@ export function HolderEngineeringGuide() {
                 <div className="flex items-center gap-1.5">
                   <Lock className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                   <span className="font-bold text-slate-900 dark:text-white text-sm">
-                    Four-Side Lock (V-2 / H-2)
+                    {lock?.fourSideTitle || "Four-Side Lock (V-2 / H-2)"}
                   </span>
                 </div>
                 <span className="text-[10px] font-bold uppercase bg-emerald-500 text-white px-2 py-0.5 rounded">
@@ -173,7 +185,7 @@ export function HolderEngineeringGuide() {
                 </span>
               </div>
               <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                Four precision corner snap-pins physically hold card edges. Zero card loss during high physical movement.
+                {lock?.fourSideDesc || "Four precision corner snap-pins physically hold card edges. Zero card loss during high physical movement."}
               </p>
             </div>
           </div>
@@ -186,15 +198,15 @@ export function HolderEngineeringGuide() {
           <div>
             <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Zap className="h-4 w-4" />
-              <span>Decision Guide</span>
+              <span>{data?.eyebrow || "Decision Guide"}</span>
             </span>
             <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-1">
-              Which Holder Should You Choose?
+              {data?.decisionStepsTitle || "Which Holder Should You Choose?"}
             </h3>
           </div>
 
           <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-            5-Step Factory Selection Protocol
+            {data?.decisionStepsLede || "5-Step Factory Selection Protocol"}
           </span>
         </div>
 

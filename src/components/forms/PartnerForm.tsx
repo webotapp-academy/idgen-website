@@ -14,7 +14,7 @@ export function PartnerForm() {
     const payload = Object.fromEntries(form.entries());
 
     try {
-      const res = await fetch("/api/partner-inquiries", {
+      const res = await fetch("/api/partner-inquiries/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

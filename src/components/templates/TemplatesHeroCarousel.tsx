@@ -71,21 +71,22 @@ const templateSlides: TemplateSlide[] = [
   },
 ];
 
-export function TemplatesHeroCarousel() {
+export function TemplatesHeroCarousel({ slides = templateSlides }: { slides?: TemplateSlide[] }) {
+  const activeSlides = slides && slides.length > 0 ? slides : templateSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % templateSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + templateSlides.length) % templateSlides.length
+      (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
     );
-  }, []);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -113,7 +114,7 @@ export function TemplatesHeroCarousel() {
     setTouchStart(null);
   };
 
-  const current = templateSlides[currentIndex];
+  const current = activeSlides[currentIndex] || activeSlides[0] || templateSlides[0];
 
   return (
     <div
@@ -127,9 +128,9 @@ export function TemplatesHeroCarousel() {
     >
       {/* ── Slide Images Stack ── */}
       <div className="relative h-[420px] sm:h-[480px] lg:h-[520px] w-full overflow-hidden">
-        {templateSlides.map((slide, idx) => (
+        {activeSlides.map((slide, idx) => (
           <div
-            key={slide.id}
+            key={slide.id || idx}
             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
               idx === currentIndex
                 ? "opacity-100 z-10 scale-100"
@@ -209,9 +210,9 @@ export function TemplatesHeroCarousel() {
             <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">
               {/* Slide Dots */}
               <div className="flex items-center gap-1.5">
-                {templateSlides.map((slide, idx) => (
+                {activeSlides.map((slide, idx) => (
                   <button
-                    key={slide.id}
+                    key={slide.id || idx}
                     onClick={() => goToSlide(idx)}
                     aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
                     className={`transition-all duration-300 rounded-full h-2 ${

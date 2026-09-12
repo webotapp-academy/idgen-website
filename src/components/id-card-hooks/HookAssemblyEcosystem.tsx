@@ -89,9 +89,49 @@ const assemblyLayers: StackLayer[] = [
   },
 ];
 
-export function HookAssemblyEcosystem() {
+const ICON_MAP: Record<string, React.ElementType> = {
+  CreditCard,
+  Box,
+  Anchor,
+  Sparkles,
+  Layers,
+  ShieldCheck,
+  CheckCircle2,
+};
+
+export function HookAssemblyEcosystem({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    note?: string;
+    layers?: Array<{
+      step: string;
+      title: string;
+      subtitle: string;
+      badge: string;
+      material: string;
+      benefit: string;
+      iconName?: string;
+      img: string;
+      details: string[];
+    }>;
+  };
+}) {
+  const activeLayers =
+    data?.layers && data.layers.length > 0 ? data.layers : assemblyLayers;
+  const badgeText = data?.badge || "Typical Identification Setup";
+  const titleText = data?.title || "What Is an ID Card Hook?";
+  const ledeText =
+    data?.lede ||
+    "An ID card hook is an attachment component used to connect an ID card holder or badge to a lanyard. Instead of attaching the card directly to the lanyard, the hook provides the connection between the two components.";
+
   const [activeLayerIndex, setActiveLayerIndex] = useState(2);
-  const activeLayer = assemblyLayers[activeLayerIndex];
+  const safeIndex =
+    activeLayerIndex < activeLayers.length ? activeLayerIndex : 0;
+  const activeLayer = activeLayers[safeIndex];
 
   return (
     <section className="mt-16 sm:mt-20 scroll-mt-28" id="hook-assembly-ecosystem">
@@ -100,13 +140,13 @@ export function HookAssemblyEcosystem() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Layers className="h-3.5 w-3.5" />
-            <span>Typical Identification Setup</span>
+            <span>{badgeText}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            What Is an ID Card Hook?
+            {titleText}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            An ID card hook is an attachment component used to connect an ID card holder or badge to a lanyard. Instead of attaching the card directly to the lanyard, the hook provides the connection between the two components.
+            {ledeText}
           </p>
         </div>
       </div>
@@ -115,9 +155,13 @@ export function HookAssemblyEcosystem() {
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-stretch">
         {/* Left Column: Stack Layers */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
-          {assemblyLayers.map((layer, idx) => {
-            const isSelected = activeLayerIndex === idx;
-            const Icon = layer.icon;
+          {activeLayers.map((layer, idx) => {
+            const isSelected = safeIndex === idx;
+            const iconName = (layer as any).iconName;
+            const Icon =
+              (layer as any).icon ||
+              (iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : null) ||
+              Box;
 
             return (
               <div

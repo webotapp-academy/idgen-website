@@ -1,7 +1,31 @@
 import { NextResponse } from "next/server";
-import { validateCredentials, createSessionToken, verifySessionToken, SESSION_COOKIE_NAME } from "@/lib/auth";
+import {
+  validateCredentials,
+  createSessionToken,
+  verifySessionToken,
+  SESSION_COOKIE_NAME,
+} from "@/lib/auth";
 
 export async function GET(request: Request) {
+  const url = new URL(request.url);
+  const action = url.searchParams.get("action");
+
+  // Allow GET /api/admin/auth?action=logout for instant direct link logout
+  if (action === "logout") {
+    const loginUrl = new URL("/admin/login", request.url);
+    const response = NextResponse.redirect(loginUrl);
+    response.cookies.set({
+      name: SESSION_COOKIE_NAME,
+      value: "",
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 0,
+    });
+    return response;
+  }
+
   const cookieHeader = request.headers.get("cookie") || "";
   const match = cookieHeader.match(new RegExp(`${SESSION_COOKIE_NAME}=([^;]+)`));
   const token = match ? match[1] : undefined;
@@ -19,12 +43,31 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { username, password, action } = body;
+    let username = "";
+    let password = "";
+    let action = "";
+    const contentType = request.headers.get("content-type") || "";
+
+    if (contentType.includes("application/json")) {
+      const body = await request.json();
+      username = body.username || "";
+      password = body.password || "";
+      action = body.action || "";
+    } else {
+      // Handle form POST (x-www-form-urlencoded or multipart/form-data)
+      const formData = await request.formData();
+      username = (formData.get("username") as string) || "";
+      password = (formData.get("password") as string) || "";
+      action = (formData.get("action") as string) || "";
+    }
 
     // Logout action
     if (action === "logout") {
-      const response = NextResponse.json({ success: true, message: "Logged out successfully" });
+      const isFormSubmit = !contentType.includes("application/json");
+      const response = isFormSubmit
+        ? NextResponse.redirect(new URL("/admin/login", request.url))
+        : NextResponse.json({ success: true, message: "Logged out successfully" });
+
       response.cookies.set({
         name: SESSION_COOKIE_NAME,
         value: "",
@@ -66,6 +109,9 @@ export async function POST(request: Request) {
     return response;
   } catch (error) {
     console.error("Auth error:", error);
-    return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

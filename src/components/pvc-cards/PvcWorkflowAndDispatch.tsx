@@ -15,6 +15,7 @@ import {
   CreditCard,
 } from "lucide-react";
 import { FlowChain } from "@/components/ui/FlowChain";
+import type { DynamicPvcCardsWorkflowAndDispatch } from "@/lib/dynamic-pvc-cards-types";
 
 export const orderingSteps = [
   {
@@ -43,7 +44,25 @@ export const orderingSteps = [
   },
 ];
 
-export function PvcWorkflowAndDispatch() {
+export function PvcWorkflowAndDispatch({ data }: { data?: DynamicPvcCardsWorkflowAndDispatch }) {
+  const steps = (data?.orderingSteps && data.orderingSteps.length > 0) ? data.orderingSteps : orderingSteps;
+  const flowSteps = (data?.dispatchFlowSteps && data.dispatchFlowSteps.length > 0)
+    ? data.dispatchFlowSteps
+    : ["Roster Data Merge", "300 DPI Dye Sublimation", "Protective Overcoating", "Automated Sequence Sort", "Anti-Static Dispatch"];
+  const disclaimers = (data?.dispatchDisclaimers && data.dispatchDisclaimers.length > 0)
+    ? data.dispatchDisclaimers
+    : [
+        "Cards are packed sequentially in protective anti-static card trays (250 cards per inner box) to prevent surface scuffs and static dust attraction.",
+        "Express transit across Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, and Sikkim is additional.",
+      ];
+  const ctaButtons = (data?.closingCtaButtons && data.closingCtaButtons.length > 0)
+    ? data.closingCtaButtons
+    : [
+        { label: "Request a Free Quote", href: "/request-a-quote/", primary: true },
+        { label: "Compatible ID Card Holders", href: "/id-card-holders/" },
+        { label: "View Pricing Tiers", href: "/pricing/" },
+      ];
+
   return (
     <div className="space-y-16 sm:space-y-20 mt-16 sm:mt-20">
       {/* ═════════════════════════════════════════════════════════════
@@ -54,19 +73,19 @@ export function PvcWorkflowAndDispatch() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Clock className="h-3.5 w-3.5" />
-              <span>Production Pipeline</span>
+              <span>{data?.workflowBadge || "Production Pipeline"}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              How We Print &amp; Encode PVC Cards
+              {data?.workflowTitle || "How We Print & Encode PVC Cards"}
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-              From data roster matching and color proofing to thermal dye-sublimation and anti-static tray packaging.
+              {data?.workflowLede || "From data roster matching and color proofing to thermal dye-sublimation and anti-static tray packaging."}
             </p>
           </div>
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {orderingSteps.map((step) => (
+          {steps.map((step) => (
             <div
               key={step.num}
               className="relative rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:shadow-lg transition-all"
@@ -101,34 +120,31 @@ export function PvcWorkflowAndDispatch() {
             </div>
             <div>
               <span className="text-[11px] font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
-                Guwahati Direct Factory
+                {data?.dispatchBadge || "Guwahati Direct Factory"}
               </span>
               <h3 className="text-2xl font-black text-slate-900 dark:text-white">
-                24–48h Factory Dispatch
+                {data?.dispatchTitle || "24–48h Factory Dispatch"}
               </h3>
             </div>
           </div>
 
           <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1.5 rounded-full border border-emerald-500/30">
-            Guwahati Direct Hub
+            {data?.dispatchHubTag || "Guwahati Direct Hub"}
           </span>
         </div>
 
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl font-normal">
-          For standard organizational ID batches with approved data rosters, our automated thermal production line operates on a strict factory fulfillment schedule:
+          {data?.dispatchLede || "For standard organizational ID batches with approved data rosters, our automated thermal production line operates on a strict factory fulfillment schedule:"}
         </p>
 
         <div className="pt-2">
-          <FlowChain steps={["Roster Data Merge", "300 DPI Dye Sublimation", "Protective Overcoating", "Automated Sequence Sort", "Anti-Static Dispatch"]} />
+          <FlowChain steps={flowSteps} />
         </div>
 
         <div className="border-t border-slate-100 dark:border-slate-800 pt-4 text-[11px] text-slate-500 dark:text-slate-400 space-y-2 leading-relaxed">
-          <p>
-            Cards are packed sequentially in protective anti-static card trays (250 cards per inner box) to prevent surface scuffs and static dust attraction.
-          </p>
-          <p>
-            Express transit across Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, and Sikkim is additional.
-          </p>
+          {disclaimers.map((d, i) => (
+            <p key={i}>{d}</p>
+          ))}
         </div>
       </div>
 
@@ -143,44 +159,38 @@ export function PvcWorkflowAndDispatch() {
           <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-bold text-cyan-300 backdrop-blur-xs border border-white/10">
               <Sparkles className="h-3.5 w-3.5 text-cyan-300 animate-pulse" />
-              <span>Direct Factory Supply</span>
+              <span>{data?.closingCtaBadge || "Direct Factory Supply"}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-              Ready to Order CR80 Virgin PVC Cards?
+              {data?.closingCtaTitle || "Ready to Order CR80 Virgin PVC Cards?"}
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-              Whether you need 100 printed student ID cards or 50,000 blank Mifare smart cards for an enterprise campus, IDGen delivers factory-direct rates from Guwahati.
+              {data?.closingCtaLede || "Whether you need 100 printed student ID cards or 50,000 blank Mifare smart cards for an enterprise campus, IDGen delivers factory-direct rates from Guwahati."}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Link
-              href="/request-a-quote/"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] hover:bg-[#008bc9] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#009fe3]/50 hover:-translate-y-0.5"
-            >
-              <span>Request a Free Quote</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="/id-card-holders/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
-            >
-              <span>Compatible ID Card Holders</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/pricing/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
-            >
-              <span>View Pricing Tiers</span>
-            </Link>
+            {ctaButtons.map((btn, idx) => (
+              <Link
+                key={idx}
+                href={btn.href}
+                className={
+                  btn.primary
+                    ? "group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] hover:bg-[#008bc9] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#009fe3]/50 hover:-translate-y-0.5"
+                    : "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
+                }
+              >
+                <span>{btn.label}</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            ))}
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400">
             <p className="font-mono text-slate-300">
-              IDGen — 30-Mil CR80 Virgin PVC Smart Cards &amp; Credentials
+              {data?.closingCtaBrandingTitle || "IDGen — 30-Mil CR80 Virgin PVC Smart Cards & Credentials"}
             </p>
-            <p>Guwahati, Assam • Direct Factory Supply Across Northeast India</p>
+            <p>{data?.closingCtaBrandingLocation || "Guwahati, Assam • Direct Factory Supply Across Northeast India"}</p>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Building2,
   School,
@@ -21,36 +22,65 @@ import {
   Eye,
   Layers,
 } from "lucide-react";
+import { CardAnatomyField } from "@/lib/dynamic-student-id-card-printing-types";
 
-interface CardFieldItem {
-  id: string;
-  name: string;
-  category: "front" | "back";
-  icon: React.ElementType;
-  hint: string;
-}
+const ICON_MAP: Record<string, React.ElementType> = {
+  Building2,
+  School,
+  User,
+  GraduationCap,
+  BookOpen,
+  CreditCard,
+  FileSpreadsheet,
+  Calendar,
+  HeartPulse,
+  Phone,
+  QrCode,
+  MapPin,
+  Barcode,
+  CheckCircle2,
+  Sparkles,
+  ShieldCheck,
+  Eye,
+  Layers,
+};
 
-const frontFields: CardFieldItem[] = [
-  { id: "f1", name: "Institution Logo", category: "front", icon: Building2, hint: "High-resolution crest or emblem" },
-  { id: "f2", name: "Institution Name", category: "front", icon: School, hint: "School, College, or University title" },
-  { id: "f3", name: "Student Photograph", category: "front", icon: User, hint: "Clear passport-style photo" },
-  { id: "f4", name: "Student Name", category: "front", icon: GraduationCap, hint: "Official enrolled student name" },
-  { id: "f5", name: "Class / Course", category: "front", icon: BookOpen, hint: "Academic stream or program" },
-  { id: "f6", name: "Roll Number / ID Number", category: "front", icon: CreditCard, hint: "Unique student identifier" },
+const defaultFrontFields: CardAnatomyField[] = [
+  { id: "f1", name: "Institution Logo", category: "front", iconName: "Building2", hint: "High-resolution crest or emblem" },
+  { id: "f2", name: "Institution Name", category: "front", iconName: "School", hint: "School, College, or University title" },
+  { id: "f3", name: "Student Photograph", category: "front", iconName: "User", hint: "Clear passport-style photo" },
+  { id: "f4", name: "Student Name", category: "front", iconName: "GraduationCap", hint: "Official enrolled student name" },
+  { id: "f5", name: "Class / Course", category: "front", iconName: "BookOpen", hint: "Academic stream or program" },
+  { id: "f6", name: "Roll Number / ID Number", category: "front", iconName: "CreditCard", hint: "Unique student identifier" },
 ];
 
-const backFields: CardFieldItem[] = [
-  { id: "b1", name: "Admission Number", category: "back", icon: FileSpreadsheet, hint: "Permanent institutional record" },
-  { id: "b2", name: "Academic Session", category: "back", icon: Calendar, hint: "Enrollment & validity year" },
-  { id: "b3", name: "Date of Birth, if required", category: "back", icon: HeartPulse, hint: "Verified DOB record" },
-  { id: "b4", name: "Emergency / Contact Information, if required", category: "back", icon: Phone, hint: "Parent/guardian contact" },
-  { id: "b5", name: "QR Code / Barcode, if required", category: "back", icon: QrCode, hint: "Digital scanner lookup" },
-  { id: "b6", name: "Institution Address", category: "back", icon: MapPin, hint: "Official campus premises location" },
+const defaultBackFields: CardAnatomyField[] = [
+  { id: "b1", name: "Admission Number", category: "back", iconName: "FileSpreadsheet", hint: "Permanent institutional record" },
+  { id: "b2", name: "Academic Session", category: "back", iconName: "Calendar", hint: "Enrollment & validity year" },
+  { id: "b3", name: "Date of Birth, if required", category: "back", iconName: "HeartPulse", hint: "Verified DOB record" },
+  { id: "b4", name: "Emergency / Contact Information, if required", category: "back", iconName: "Phone", hint: "Parent/guardian contact" },
+  { id: "b5", name: "QR Code / Barcode, if required", category: "back", iconName: "QrCode", hint: "Digital scanner lookup" },
+  { id: "b6", name: "Institution Address", category: "back", iconName: "MapPin", hint: "Official campus premises location" },
 ];
 
-export function StudentCardAnatomy() {
+export function StudentCardAnatomy({
+  frontFields: propFront,
+  backFields: propBack,
+  frontCardImage,
+  backCardImage,
+}: {
+  frontFields?: CardAnatomyField[];
+  backFields?: CardAnatomyField[];
+  frontCardImage?: string;
+  backCardImage?: string;
+} = {}) {
+  const frontFields = propFront && propFront.length > 0 ? propFront : defaultFrontFields;
+  const backFields = propBack && propBack.length > 0 ? propBack : defaultBackFields;
+
   const [activeSide, setActiveSide] = useState<"both" | "front" | "back">("both");
   const [hoveredField, setHoveredField] = useState<string | null>(null);
+  const [showFrontProof, setShowFrontProof] = useState<boolean>(false);
+  const [showBackProof, setShowBackProof] = useState<boolean>(false);
 
   return (
     <div className="space-y-8">
@@ -116,71 +146,90 @@ export function StudentCardAnatomy() {
                 </h3>
               </div>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#009fe3] px-3.5 py-1 text-xs font-black text-white shadow-sm">
-              <Sparkles className="h-3 w-3" />
-              Primary Display
-            </span>
-          </div>
-
-          {/* Realistic Front Card Specimen Preview */}
-          <div className="relative z-10 my-6 rounded-2xl border border-sky-300/60 dark:border-sky-700/60 bg-gradient-to-br from-white via-sky-50/50 to-blue-50/40 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 p-4 sm:p-5 shadow-inner backdrop-blur-md">
-            {/* Top Card Header Strip */}
-            <div className="flex items-center justify-between border-b border-sky-200/80 dark:border-slate-700 pb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#009fe3] text-white font-black text-xs shadow-xs">
-                  <Building2 className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-black uppercase tracking-tight text-slate-900 dark:text-white leading-none">
-                    Institution Name
-                  </p>
-                  <p className="text-[9px] font-bold text-[#009fe3] dark:text-cyan-400 mt-0.5">
-                    Institution Logo &amp; Branding
-                  </p>
-                </div>
-              </div>
-              <div className="h-3.5 w-7 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 shadow-2xs border border-amber-300/80" />
-            </div>
-
-            {/* Middle Photo & Info Grid */}
-            <div className="grid grid-cols-12 gap-3.5 pt-3.5 items-center">
-              {/* Photo Box */}
-              <div className="col-span-4 rounded-xl border-2 border-dashed border-sky-300 dark:border-sky-700 bg-white dark:bg-slate-900 p-2 text-center flex flex-col items-center justify-center min-h-[90px] shadow-2xs">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-950 text-[#009fe3] dark:text-cyan-400 mb-1">
-                  <User className="h-5 w-5" />
-                </div>
-                <span className="text-[9px] font-extrabold text-slate-600 dark:text-slate-300 leading-tight">
-                  Student Photo
-                </span>
-              </div>
-
-              {/* Data Fields Specimen */}
-              <div className="col-span-8 space-y-1.5">
-                <div className="rounded-lg bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700 px-2.5 py-1 shadow-2xs">
-                  <span className="text-[8px] font-bold uppercase text-slate-400">Student Name</span>
-                  <p className="text-xs font-black text-slate-900 dark:text-white leading-tight">John Doe</p>
-                </div>
-                <div className="grid grid-cols-2 gap-1.5">
-                  <div className="rounded-lg bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700 px-2 py-1 shadow-2xs">
-                    <span className="text-[8px] font-bold uppercase text-slate-400">Class / Course</span>
-                    <p className="text-[10px] font-bold text-slate-800 dark:text-slate-200 leading-tight">B.Sc / Grade 12</p>
-                  </div>
-                  <div className="rounded-lg bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700 px-2 py-1 shadow-2xs">
-                    <span className="text-[8px] font-bold uppercase text-slate-400">Roll / ID</span>
-                    <p className="text-[10px] font-bold text-[#009fe3] dark:text-cyan-400 leading-tight">STU-2026-089</p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center gap-2">
+              {frontCardImage && (
+                <button
+                  type="button"
+                  onClick={() => setShowFrontProof(!showFrontProof)}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 dark:bg-cyan-950/80 border border-sky-300 dark:border-cyan-800/60 px-3 py-1 text-xs font-bold text-[#009fe3] dark:text-cyan-300 hover:bg-[#009fe3] hover:text-white transition"
+                >
+                  <Eye className="h-3 w-3" />
+                  <span>{showFrontProof ? "Specimen" : "Proof Image"}</span>
+                </button>
+              )}
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#009fe3] px-3.5 py-1 text-xs font-black text-white shadow-sm">
+                <Sparkles className="h-3 w-3" />
+                Primary Display
+              </span>
             </div>
           </div>
 
-          {/* 6 Front Items List */}
+          {/* Realistic Front Card Specimen Preview OR Uploaded Proof */}
+          {frontCardImage && showFrontProof ? (
+            <div className="relative z-10 my-6 aspect-[16/10] w-full rounded-2xl overflow-hidden border-2 border-sky-300 dark:border-sky-700 shadow-xl bg-slate-950">
+              <Image
+                src={frontCardImage}
+                alt="Front Student ID Card Proof"
+                fill
+                className="object-contain"
+              />
+            </div>
+          ) : (
+            <div className="relative z-10 my-6 rounded-2xl border border-sky-300/60 dark:border-sky-700/60 bg-gradient-to-br from-white via-sky-50/50 to-blue-50/40 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 p-4 sm:p-5 shadow-inner backdrop-blur-md">
+              <div className="flex items-center justify-between border-b border-sky-200/80 dark:border-slate-700 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#009fe3] text-white font-black text-xs shadow-xs">
+                    <Building2 className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-tight text-slate-900 dark:text-white leading-none">
+                      Institution Name
+                    </p>
+                    <p className="text-[9px] font-bold text-[#009fe3] dark:text-cyan-400 mt-0.5">
+                      Institution Logo &amp; Branding
+                    </p>
+                  </div>
+                </div>
+                <div className="h-3.5 w-7 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 shadow-2xs border border-amber-300/80" />
+              </div>
+
+              <div className="grid grid-cols-12 gap-3.5 pt-3.5 items-center">
+                <div className="col-span-4 rounded-xl border-2 border-dashed border-sky-300 dark:border-sky-700 bg-white dark:bg-slate-900 p-2 text-center flex flex-col items-center justify-center min-h-[90px] shadow-2xs">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-950 text-[#009fe3] dark:text-cyan-400 mb-1">
+                    <User className="h-5 w-5" />
+                  </div>
+                  <span className="text-[9px] font-extrabold text-slate-600 dark:text-slate-300 leading-tight">
+                    Student Photo
+                  </span>
+                </div>
+
+                <div className="col-span-8 space-y-1.5">
+                  <div className="rounded-lg bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700 px-2.5 py-1 shadow-2xs">
+                    <span className="text-[8px] font-bold uppercase text-slate-400">Student Name</span>
+                    <p className="text-xs font-black text-slate-900 dark:text-white leading-tight">John Doe</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <div className="rounded-lg bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700 px-2 py-1 shadow-2xs">
+                      <span className="text-[8px] font-bold uppercase text-slate-400">Class / Course</span>
+                      <p className="text-[10px] font-bold text-slate-800 dark:text-slate-200 leading-tight">B.Sc / Grade 12</p>
+                    </div>
+                    <div className="rounded-lg bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-700 px-2 py-1 shadow-2xs">
+                      <span className="text-[8px] font-bold uppercase text-slate-400">Roll / ID</span>
+                      <p className="text-[10px] font-bold text-[#009fe3] dark:text-cyan-400 leading-tight">STU-2026-089</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Front Items List */}
           <div className="relative z-10 space-y-2.5">
             <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
               Front Side Field Checklist:
             </p>
             {frontFields.map((field, idx) => {
-              const ItemIcon = field.icon;
+              const ItemIcon = ICON_MAP[field.iconName] || CreditCard;
               const isHovered = hoveredField === field.id;
               return (
                 <div
@@ -221,10 +270,8 @@ export function StudentCardAnatomy() {
             activeSide === "front" ? "hidden lg:block opacity-40" : "block"
           }`}
         >
-          {/* Ambient light glow */}
           <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-slate-400/10 dark:bg-cyan-500/10 blur-3xl" />
 
-          {/* Header */}
           <div className="relative z-10 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-5">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-slate-700 to-slate-900 dark:from-slate-800 dark:to-slate-700 text-white shadow-md">
@@ -239,62 +286,81 @@ export function StudentCardAnatomy() {
                 </h3>
               </div>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-800 dark:bg-slate-700 px-3.5 py-1 text-xs font-black text-slate-100 shadow-sm">
-              <ShieldCheck className="h-3 w-3 text-cyan-400" />
-              Verification &amp; Contact
-            </span>
-          </div>
-
-          {/* Realistic Back Card Specimen Preview */}
-          <div className="relative z-10 my-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-slate-50 via-white to-slate-100/60 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 p-4 sm:p-5 shadow-inner backdrop-blur-md">
-            {/* Top Magnetic Strip / Header Graphic Simulation */}
-            <div className="h-5 w-full rounded-md bg-slate-800 dark:bg-slate-950 mb-3 flex items-center justify-between px-3">
-              <span className="text-[7px] font-mono text-slate-400">ENCRYPTED IDENTITY RECORD</span>
-              <div className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            </div>
-
-            {/* Middle Data Fields + QR Grid */}
-            <div className="grid grid-cols-12 gap-3 items-center">
-              <div className="col-span-8 space-y-1">
-                <div className="flex justify-between text-[9px] border-b border-slate-200/80 dark:border-slate-700 pb-0.5">
-                  <span className="font-bold text-slate-500">Admission No:</span>
-                  <span className="font-mono font-bold text-slate-800 dark:text-slate-200">ADM-84920</span>
-                </div>
-                <div className="flex justify-between text-[9px] border-b border-slate-200/80 dark:border-slate-700 pb-0.5">
-                  <span className="font-bold text-slate-500">Academic Session:</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-200">2026 – 2027</span>
-                </div>
-                <div className="flex justify-between text-[9px] border-b border-slate-200/80 dark:border-slate-700 pb-0.5">
-                  <span className="font-bold text-slate-500">Date of Birth:</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-200">14 / 08 / 2008</span>
-                </div>
-                <div className="flex justify-between text-[9px]">
-                  <span className="font-bold text-slate-500">Emergency Contact:</span>
-                  <span className="font-bold text-[#009fe3] dark:text-cyan-400">+91 98765 43210</span>
-                </div>
-              </div>
-
-              {/* QR / Barcode Specimen Box */}
-              <div className="col-span-4 flex flex-col items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-2 shadow-2xs">
-                <QrCode className="h-9 w-9 text-slate-800 dark:text-slate-200" />
-                <span className="text-[7px] font-mono text-slate-500 mt-0.5">SCAN VERIFY</span>
-              </div>
-            </div>
-
-            {/* Bottom Address Strip */}
-            <div className="mt-3 pt-2 border-t border-slate-200/80 dark:border-slate-700 flex items-center gap-1.5 text-[8px] text-slate-500">
-              <MapPin className="h-3 w-3 text-red-500 shrink-0" />
-              <span className="truncate">Campus Address: Institutional Premises, Guwahati, Assam</span>
+            <div className="flex items-center gap-2">
+              {backCardImage && (
+                <button
+                  type="button"
+                  onClick={() => setShowBackProof(!showBackProof)}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-slate-800 dark:bg-slate-700/80 border border-slate-700 dark:border-slate-600 px-3 py-1 text-xs font-bold text-slate-300 dark:text-cyan-300 hover:bg-slate-700 hover:text-white transition"
+                >
+                  <Eye className="h-3 w-3" />
+                  <span>{showBackProof ? "Specimen" : "Proof Image"}</span>
+                </button>
+              )}
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-800 dark:bg-slate-700 px-3.5 py-1 text-xs font-black text-slate-100 shadow-sm">
+                <ShieldCheck className="h-3 w-3 text-cyan-400" />
+                Verification &amp; Contact
+              </span>
             </div>
           </div>
 
-          {/* 6 Back Items List */}
+          {/* Realistic Back Card Specimen Preview OR Uploaded Proof */}
+          {backCardImage && showBackProof ? (
+            <div className="relative z-10 my-6 aspect-[16/10] w-full rounded-2xl overflow-hidden border-2 border-slate-300 dark:border-slate-700 shadow-xl bg-slate-950">
+              <Image
+                src={backCardImage}
+                alt="Back Student ID Card Proof"
+                fill
+                className="object-contain"
+              />
+            </div>
+          ) : (
+            <div className="relative z-10 my-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-slate-50 via-white to-slate-100/60 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 p-4 sm:p-5 shadow-inner backdrop-blur-md">
+              <div className="h-5 w-full rounded-md bg-slate-800 dark:bg-slate-950 mb-3 flex items-center justify-between px-3">
+                <span className="text-[7px] font-mono text-slate-400">ENCRYPTED IDENTITY RECORD</span>
+                <div className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              </div>
+
+              <div className="grid grid-cols-12 gap-3 items-center">
+                <div className="col-span-8 space-y-1">
+                  <div className="flex justify-between text-[9px] border-b border-slate-200/80 dark:border-slate-700 pb-0.5">
+                    <span className="font-bold text-slate-500">Admission No:</span>
+                    <span className="font-mono font-bold text-slate-800 dark:text-slate-200">ADM-84920</span>
+                  </div>
+                  <div className="flex justify-between text-[9px] border-b border-slate-200/80 dark:border-slate-700 pb-0.5">
+                    <span className="font-bold text-slate-500">Academic Session:</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200">2026 – 2027</span>
+                  </div>
+                  <div className="flex justify-between text-[9px] border-b border-slate-200/80 dark:border-slate-700 pb-0.5">
+                    <span className="font-bold text-slate-500">Date of Birth:</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200">14 / 08 / 2008</span>
+                  </div>
+                  <div className="flex justify-between text-[9px]">
+                    <span className="font-bold text-slate-500">Emergency Contact:</span>
+                    <span className="font-bold text-[#009fe3] dark:text-cyan-400">+91 98765 43210</span>
+                  </div>
+                </div>
+
+                <div className="col-span-4 flex flex-col items-center justify-center rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-2 shadow-2xs">
+                  <QrCode className="h-9 w-9 text-slate-800 dark:text-slate-200" />
+                  <span className="text-[7px] font-mono text-slate-500 mt-0.5">SCAN VERIFY</span>
+                </div>
+              </div>
+
+              <div className="mt-3 pt-2 border-t border-slate-200/80 dark:border-slate-700 flex items-center gap-1.5 text-[8px] text-slate-500">
+                <MapPin className="h-3 w-3 text-red-500 shrink-0" />
+                <span className="truncate">Campus Address: Institutional Premises, Guwahati, Assam</span>
+              </div>
+            </div>
+          )}
+
+          {/* Back Items List */}
           <div className="relative z-10 space-y-2.5">
             <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
               Back Side Field Checklist:
             </p>
             {backFields.map((field, idx) => {
-              const ItemIcon = field.icon;
+              const ItemIcon = ICON_MAP[field.iconName] || FileSpreadsheet;
               const isHovered = hoveredField === field.id;
               return (
                 <div

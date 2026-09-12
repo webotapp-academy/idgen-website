@@ -100,6 +100,28 @@ export function Header({ navItems }: { navItems?: NavItem[] }) {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    fetch("/api/services", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.dropdown) && data.dropdown.length > 0) {
+          setNavState((prev) => {
+            const base = prev && prev.length > 0 ? prev : NAV;
+            return base.map((item) => {
+              if (item.label === "Services") {
+                return {
+                  ...item,
+                  children: data.dropdown,
+                };
+              }
+              return item;
+            });
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <>
       {/* Top Announcement Bar */}

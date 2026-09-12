@@ -329,7 +329,16 @@ export const holderCatalog: HolderItem[] = [
   },
 ];
 
-export function QuickHolderSelectionMatrix() {
+import type { DynamicIdCardHoldersQuickSelection } from "@/lib/dynamic-id-card-holders-types";
+
+export function QuickHolderSelectionMatrix({
+  data,
+  catalog,
+}: {
+  data?: DynamicIdCardHoldersQuickSelection;
+  catalog?: HolderItem[];
+} = {}) {
+  const activeCatalog = catalog && catalog.length > 0 ? catalog : holderCatalog;
   const [activeTab, setActiveTab] = useState<"all" | "vertical" | "horizontal" | "executive" | "attachment">("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [selectedHolder, setSelectedHolder] = useState<HolderItem | null>(null);
@@ -346,7 +355,7 @@ export function QuickHolderSelectionMatrix() {
       const params = new URLSearchParams(window.location.search);
       const holderCode = params.get("holder");
       if (holderCode) {
-        const found = holderCatalog.find(
+        const found = activeCatalog.find(
           (h) => h.code.toLowerCase() === holderCode.toLowerCase()
         );
         if (found) {
@@ -360,14 +369,14 @@ export function QuickHolderSelectionMatrix() {
         }
       }
     }
-  }, []);
+  }, [activeCatalog]);
 
   // Interactive Recommender Wizard State
   const [wizardOrientation, setWizardOrientation] = useState<"vertical" | "horizontal" | "executive">("vertical");
   const [wizardLock, setWizardLock] = useState<"standard" | "lock" | "special">("lock");
 
   // Filter items based on active tab
-  const filteredHolders = holderCatalog.filter((item) => {
+  const filteredHolders = activeCatalog.filter((item) => {
     if (activeTab === "all") return true;
     return item.category === activeTab;
   });
@@ -376,22 +385,22 @@ export function QuickHolderSelectionMatrix() {
   const getWizardRecommendation = () => {
     if (wizardOrientation === "executive") {
       return wizardLock === "standard"
-        ? holderCatalog.find((h) => h.code === "Metal Holder")!
-        : holderCatalog.find((h) => h.code === "CV-1 Crystal")!;
+        ? activeCatalog.find((h) => h.code === "Metal Holder") || activeCatalog[0]
+        : activeCatalog.find((h) => h.code === "CV-1 Crystal") || activeCatalog[0];
     }
     if (wizardOrientation === "horizontal") {
       return wizardLock === "lock"
-        ? holderCatalog.find((h) => h.code === "H-2")!
-        : holderCatalog.find((h) => h.code === "H-1")!;
+        ? activeCatalog.find((h) => h.code === "H-2") || activeCatalog[0]
+        : activeCatalog.find((h) => h.code === "H-1") || activeCatalog[0];
     }
     // Vertical
     if (wizardLock === "special") {
-      return holderCatalog.find((h) => h.code === "V-3")!;
+      return activeCatalog.find((h) => h.code === "V-3") || activeCatalog[0];
     }
     if (wizardLock === "lock") {
-      return holderCatalog.find((h) => h.code === "V-2")!;
+      return activeCatalog.find((h) => h.code === "V-2") || activeCatalog[0];
     }
-    return holderCatalog.find((h) => h.code === "V-1")!;
+    return activeCatalog.find((h) => h.code === "V-1") || activeCatalog[0];
   };
 
   const recommendedModel = getWizardRecommendation();
@@ -462,15 +471,24 @@ export function QuickHolderSelectionMatrix() {
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-gradient-to-r from-sky-500/10 via-cyan-500/10 to-sky-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 shadow-xs">
           <Sparkles className="h-3.5 w-3.5 text-[#009fe3] dark:text-cyan-400 animate-pulse" />
-          <span>Interactive Fitment & Selection Matrix</span>
+          <span>{data?.eyebrow || "Interactive Fitment & Selection Matrix"}</span>
         </div>
 
         <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl">
-          Quick Holder Selection <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009fe3] to-sky-500">System</span>
+          {data?.title ? (
+            <span>{data.title}</span>
+          ) : (
+            <>
+              Quick Holder Selection{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#009fe3] to-sky-500">
+                System
+              </span>
+            </>
+          )}
         </h2>
 
         <p className="mt-4 text-base text-slate-600 dark:text-slate-300 sm:text-lg">
-          Match the exact holder model engineered for your ID card orientation, security retention level, and executive presentation requirement.
+          {data?.lede || "Match the exact holder model engineered for your ID card orientation, security retention level, and executive presentation requirement."}
         </p>
 
         {/* Feature Trust Badges */}
@@ -745,7 +763,7 @@ export function QuickHolderSelectionMatrix() {
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            All Options ({holderCatalog.length})
+            All Options ({activeCatalog.length})
           </button>
           <button
             type="button"
@@ -756,7 +774,7 @@ export function QuickHolderSelectionMatrix() {
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            Vertical / Portrait (3)
+            Vertical / Portrait ({activeCatalog.filter((h) => h.category === "vertical").length})
           </button>
           <button
             type="button"
@@ -767,7 +785,7 @@ export function QuickHolderSelectionMatrix() {
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            Horizontal / Landscape (2)
+            Horizontal / Landscape ({activeCatalog.filter((h) => h.category === "horizontal").length})
           </button>
           <button
             type="button"
@@ -778,7 +796,7 @@ export function QuickHolderSelectionMatrix() {
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            Executive &amp; VIP (2)
+            Executive &amp; VIP ({activeCatalog.filter((h) => h.category === "executive").length})
           </button>
           <button
             type="button"
@@ -789,7 +807,7 @@ export function QuickHolderSelectionMatrix() {
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            Attachments (1)
+            Attachments ({activeCatalog.filter((h) => h.category === "attachment").length})
           </button>
         </div>
 

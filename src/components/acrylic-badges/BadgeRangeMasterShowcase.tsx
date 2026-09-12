@@ -131,9 +131,28 @@ export const masterBadgeSections: MasterBadgeSection[] = [
   },
 ];
 
-export function BadgeRangeMasterShowcase() {
+export function BadgeRangeMasterShowcase({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    sections?: MasterBadgeSection[];
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Master Hardware Showcase";
+  const sectionTitle = data?.title || "Acrylic Badge Variants & Finishes";
+  const sectionLede =
+    data?.lede ||
+    "Explore our specialized acrylic badge collections engineered for corporate executives, healthcare personnel, student leadership, and VIP summits.";
+  const activeSections =
+    data?.sections && data.sections.length > 0
+      ? data.sections
+      : masterBadgeSections;
+
   const [activeModelIndex, setActiveModelIndex] = useState(0);
-  const activeModel = masterBadgeSections[activeModelIndex];
+  const activeModel = activeSections[activeModelIndex] || activeSections[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -142,25 +161,25 @@ export function BadgeRangeMasterShowcase() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Box className="h-3.5 w-3.5" />
-            <span>Master Hardware Showcase</span>
+            <span>{badgeTitle}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Acrylic Badge Variants &amp; Finishes
+            {sectionTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Explore our specialized acrylic badge collections engineered for corporate executives, healthcare personnel, student leadership, and VIP summits.
+            {sectionLede}
           </p>
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          Showing Variant {activeModelIndex + 1} of {masterBadgeSections.length}
+          Showing Variant {activeModelIndex + 1} of {activeSections.length}
         </div>
       </div>
 
       {/* ── Navigation Strip ── */}
       <div className="mt-6 overflow-x-auto pb-2">
         <div className="flex items-center gap-2 min-w-max">
-          {masterBadgeSections.map((model, idx) => (
+          {activeSections.map((model, idx) => (
             <button
               key={model.code}
               onClick={() => setActiveModelIndex(idx)}

@@ -82,21 +82,22 @@ const holderSlides: HolderSlide[] = [
   },
 ];
 
-export function HolderHeroCarousel() {
+export function HolderHeroCarousel({ slides }: { slides?: HolderSlide[] } = {}) {
+  const activeSlides = slides && slides.length > 0 ? slides : holderSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % holderSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + holderSlides.length) % holderSlides.length
+      (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
     );
-  }, []);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -132,7 +133,7 @@ export function HolderHeroCarousel() {
     }
   };
 
-  const currentSlide = holderSlides[currentIndex];
+  const currentSlide = activeSlides[currentIndex] || activeSlides[0];
 
   return (
     <div
@@ -148,11 +149,11 @@ export function HolderHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-slate-100 dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {holderSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
-              key={slide.id}
+              key={slide.id || idx}
               className={`absolute inset-0 transition-all duration-700 ease-out ${
                 isActive
                   ? "opacity-100 scale-100 z-10"
@@ -161,7 +162,7 @@ export function HolderHeroCarousel() {
             >
               <Image
                 src={slide.imageSrc}
-                alt={slide.alt}
+                alt={slide.alt || slide.title}
                 title={slide.title}
                 fill
                 unoptimized
@@ -175,34 +176,42 @@ export function HolderHeroCarousel() {
         })}
 
         {/* Top-Left Floating Badge */}
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-white shadow-xl transition-all">
-          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>{currentSlide.topBadge}</span>
-        </div>
+        {currentSlide?.topBadge && (
+          <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-white shadow-xl transition-all">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>{currentSlide.topBadge}</span>
+          </div>
+        )}
 
         {/* Top-Right Floating Brand & Spec Badge */}
         <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-cyan-300 shadow-xl transition-all">
-            <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
-            <span>{currentSlide.specPill}</span>
-          </div>
+          {currentSlide?.specPill && (
+            <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-cyan-300 shadow-xl transition-all">
+              <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+              <span>{currentSlide.specPill}</span>
+            </div>
+          )}
           <span className="rounded-full bg-[#009fe3] px-3.5 py-1.5 text-xs font-black text-white shadow-lg border border-white/20">
             IDGen
           </span>
         </div>
 
         {/* Bottom Floating Spec Bar */}
-        <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2 rounded-2xl border border-white/25 bg-slate-950/90 backdrop-blur-md p-3 text-white shadow-2xl transition-all">
-          <div className="flex items-center gap-2 min-w-0">
-            <Radio className="h-4 w-4 text-cyan-400 shrink-0" />
-            <span className="text-xs font-bold truncate text-slate-100">
-              {currentSlide.bottomSpec}
-            </span>
+        {currentSlide && (
+          <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2 rounded-2xl border border-white/25 bg-slate-950/90 backdrop-blur-md p-3 text-white shadow-2xl transition-all">
+            <div className="flex items-center gap-2 min-w-0">
+              <Radio className="h-4 w-4 text-cyan-400 shrink-0" />
+              <span className="text-xs font-bold truncate text-slate-100">
+                {currentSlide.bottomSpec}
+              </span>
+            </div>
+            {currentSlide.hubTag && (
+              <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-500/40 shadow-sm">
+                {currentSlide.hubTag}
+              </span>
+            )}
           </div>
-          <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-500/40 shadow-sm">
-            {currentSlide.hubTag}
-          </span>
-        </div>
+        )}
 
         {/* Left / Right Arrow Controls */}
         <button
@@ -229,9 +238,9 @@ export function HolderHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {holderSlides.map((slide, idx) => (
+          {activeSlides.map((slide, idx) => (
             <button
-              key={slide.id}
+              key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -257,11 +266,11 @@ export function HolderHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {holderSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button
-              key={slide.id}
+              key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               className={`group/thumb relative aspect-square overflow-hidden rounded-xl border transition-all duration-300 ${
                 isActive

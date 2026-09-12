@@ -1,0 +1,334 @@
+{
+  "seo": {
+    "title": "ID Card Printing Price & Lanyard Pricing | IDGen",
+    "description": "Check IDGen reference pricing for PVC ID cards, custom printed lanyards, ID card holders (V-1, H-1, V-2), event cards and RFID cards. Get a customized quote for bulk identity requirements."
+  },
+  "hero": {
+    "eyebrow": "IDGen Pricing",
+    "title": "ID Card, Lanyard &",
+    "highlightText": "Identity Product Pricing",
+    "description": "IDGen provides customized identity products and related services for schools, colleges, universities, companies, institutions, events and organizations. Our pricing depends on the product, quantity, customization, data requirements, accessories and finishing configuration. Use the pricing below as a reference for common requirements. For bulk or customized projects, request a quotation based on your exact specifications.",
+    "ratesBanner": {
+      "eyebrow": "Transparent Reference Rates",
+      "text": "PVC ID Cards from ₹15/card • 20 mm Lanyards from ₹15/pc • Holders (V-1 / H-1: ₹6, V-2: ₹7) • Event Cards from ₹35/card • RFID Cards from ₹45/card"
+    },
+    "ctaPrimary": {
+      "text": "Request a Bulk Quote",
+      "href": "/request-a-quote/"
+    },
+    "ctaSecondary": {
+      "text": "Contact IDGen",
+      "href": "/contact/"
+    }
+  },
+  "heroSlides": [
+    {
+      "id": "pvc-cards-pricing",
+      "imageSrc": "/images/idgen-id-card-printing-pricing.jpg",
+      "alt": "IDGen PVC ID Card Printing Factory Direct Reference Pricing starting at ₹15 per card",
+      "title": "Single & Double-Sided PVC Cards",
+      "category": "PVC Cards",
+      "priceTag": "From ₹15 / card",
+      "topBadge": "PVC Identity Cards",
+      "specPill": "CR80 30-Mil Standard",
+      "bottomSpec": "Thermal & Re-Transfer Dye-Sub • Single Side ₹15 • Double Side ₹16",
+      "hubTag": "WHOLESALE DIRECT",
+      "isActive": true
+    },
+    {
+      "id": "custom-lanyards-pricing",
+      "imageSrc": "/images/idgen-id-card-lanyard-holder-hook-pricing.jpg",
+      "alt": "IDGen 20mm Custom Printed Satin Lanyards Reference Pricing starting at ₹15 per piece",
+      "title": "20 mm Custom Printed Lanyards",
+      "category": "Lanyards",
+      "priceTag": "From ₹15 / pc",
+      "topBadge": "Sublimation Lanyards",
+      "specPill": "Ultrasonic Weld Option",
+      "bottomSpec": "Multi-Color Sublimation • Dog Hook • Fish Hook • Breakaway Clasp",
+      "hubTag": "DIRECT FACTORY",
+      "isActive": true
+    },
+    {
+      "id": "bulk-rfid-pricing",
+      "imageSrc": "/images/bulk-rfid-card-printing.jpg",
+      "alt": "IDGen Contactless Smart RFID NFC ID Card Printing Reference Pricing ₹45 per card",
+      "title": "Contactless RFID / NFC Smart Cards",
+      "category": "RFID Smart Cards",
+      "priceTag": "From ₹45 / card",
+      "topBadge": "RFID Smart Badges",
+      "specPill": "13.56MHz Mifare / 125kHz",
+      "bottomSpec": "Smart Campus Attendance • Turnstile Gate Sync • High Security Encoding",
+      "hubTag": "SMART CREDENTIALS",
+      "isActive": true
+    },
+    {
+      "id": "event-badges-pricing",
+      "imageSrc": "/images/event-card-printing-lanyard-idgen.jpg",
+      "alt": "IDGen Large Format Event Card & Badge Printing Reference Pricing ₹35 per card",
+      "title": "Oversized Event & VIP Badges",
+      "category": "Event Cards",
+      "priceTag": "From ₹35 / card",
+      "topBadge": "Event Credentials",
+      "specPill": "Dual Hook Ready",
+      "bottomSpec": "Conferences • VIP Passes • Exhibitions • Same-Day / 72h Dispatch",
+      "hubTag": "EXPRESS SUMMITS",
+      "isActive": true
+    },
+    {
+      "id": "complete-assembly-pricing",
+      "imageSrc": "/images/why-idgen-complete-ecosystem-branded.jpg",
+      "alt": "IDGen Complete Wearable Identity Setup Card Holder Hook Lanyard and Ultrasonic Sealing",
+      "title": "Complete Modular Wearable Sets",
+      "category": "All-In-One",
+      "priceTag": "All-In-One Value",
+      "topBadge": "Complete Wearable Suite",
+      "specPill": "Card + Holder + Hook + Lanyard",
+      "bottomSpec": "Full Assembly Kits • 100% Virgin Polycarbonate • Ready Stock in Guwahati",
+      "hubTag": "READY STOCK",
+      "isActive": true
+    }
+  ],
+  "setupTiers": [
+    {
+      "title": "Card Only",
+      "badge": "Standalone Card",
+      "formula": ["ID Card"],
+      "desc": "For organizations that already have their accessories."
+    },
+    {
+      "title": "Card + Holder",
+      "badge": "Protected Card",
+      "formula": ["ID Card", "Holder"],
+      "desc": "For organizations requiring card protection."
+    },
+    {
+      "title": "Wearable Setup",
+      "badge": "Standard Assembly",
+      "formula": ["ID Card", "Holder", "Hook", "Lanyard"],
+      "desc": "For everyday student, employee or institutional identification."
+    },
+    {
+      "title": "Complete Wearable Setup",
+      "badge": "Ultrasonic Sealed",
+      "formula": ["ID Card", "Ultrasonic Sealing", "Holder", "Hook", "Lanyard"],
+      "desc": "For requirements where lanyard attachment and finishing are part of the final assembly."
+    }
+  ],
+  "costDeterminants": {
+    "eyebrow": "Cost Determinants",
+    "title": "What Affects ID Card Pricing?",
+    "lede": "The price of an identification project is not determined only by the card itself. Important factors include:",
+    "factors": [
+      { "title": "Quantity", "desc": "Larger quantities may have different commercial pricing." },
+      { "title": "Printing", "desc": "Single-side and double-side printing have different pricing." },
+      { "title": "Card Specification", "desc": "Card material, thickness, format and other specifications can affect the final price." },
+      { "title": "Personalization", "desc": "Individual names, photographs, ID numbers, QR codes and barcodes may affect the production workflow." },
+      { "title": "Accessories", "desc": "The final identification setup may include Holder, Hook, Lanyard, and Ultrasonic sealing." },
+      { "title": "Data Preparation", "desc": "Projects requiring structured data and photograph preparation may have different workflow requirements." },
+      { "title": "Design", "desc": "Existing print-ready artwork and design preparation can have different requirements." },
+      { "title": "Delivery", "desc": "Courier or transportation charges may depend on destination, shipment size and applicable delivery terms." }
+    ]
+  },
+  "useCases": {
+    "student": {
+      "title": "Student ID Card Pricing",
+      "desc": "Student identification projects can include:",
+      "steps": ["Student ID Card", "Lanyard", "Holder", "Hook"],
+      "appliesTo": [
+        "Schools",
+        "Colleges",
+        "Universities",
+        "Coaching institutions",
+        "Training institutes",
+        "Educational organizations"
+      ],
+      "linkText": "Explore Student ID Card Printing",
+      "linkHref": "/student-id-card-printing/"
+    },
+    "employee": {
+      "title": "Employee ID Card Pricing",
+      "desc": "Employee identification requirements can include:",
+      "steps": ["Employee ID Card", "Holder", "Hook", "Custom Printed Lanyard"],
+      "suitableFor": [
+        "Companies",
+        "Offices",
+        "Hospitals",
+        "Industries",
+        "Institutions",
+        "Organizations"
+      ],
+      "linkText": "Explore Employee ID Card Printing",
+      "linkHref": "/employee-id-card-printing/"
+    },
+    "bulk": {
+      "title": "Bulk ID Card Pricing",
+      "desc": "For large institutional orders, the best approach is to calculate pricing based on complete project requirements.",
+      "bulkFactors": [
+        "Total quantity",
+        "Card type",
+        "Single/double-side printing",
+        "Data personalization",
+        "Photograph processing",
+        "Lanyards",
+        "Holders",
+        "Hooks",
+        "Ultrasonic sealing",
+        "Packaging",
+        "Dispatch requirements"
+      ],
+      "typicalProjects": ["1,000+ cards", "5,000+ cards", "10,000+ cards"],
+      "linkText": "Request Bulk ID Card Quote",
+      "linkHref": "/request-a-quote/"
+    }
+  },
+  "orderReadiness": {
+    "eyebrow": "Order Readiness",
+    "title": "Print-Ready vs Customized Orders",
+    "desc": "Pricing can differ depending on whether your artwork and production data are already prepared.",
+    "printReady": {
+      "title": "Print-Ready Order",
+      "desc": "You provide: Final artwork, Correct production data, and Required specifications. The order moves directly into production workflow after confirmation."
+    },
+    "customized": {
+      "title": "Customized Order",
+      "desc": "IDGen coordinates complete end-to-end data onboarding and proof approvals:",
+      "steps": ["Data", "Design", "Personalization", "Preview", "Approval", "Production"]
+    },
+    "linkText": "Explore Our Process",
+    "linkHref": "/why-idgen/"
+  },
+  "pricingDirectory": {
+    "eyebrow": "Service Directory",
+    "title": "IDGen Pricing by Requirement",
+    "lede": "Select your target product requirement to view complete specification documentation.",
+    "items": [
+      { "requirement": "PVC ID Card Printing", "page": "ID Card Printing", "href": "/id-card-printing/" },
+      { "requirement": "Student ID Cards", "page": "Student ID Cards", "href": "/student-id-card-printing/" },
+      { "requirement": "Employee ID Cards", "page": "Employee ID Cards", "href": "/employee-id-card-printing/" },
+      { "requirement": "Custom Printed Lanyards", "page": "Custom Printed Lanyards", "href": "/custom-printed-lanyard-printing/" },
+      { "requirement": "Event Cards", "page": "Event Card Printing", "href": "/event-card-printing/" },
+      { "requirement": "RFID Cards", "page": "RFID Card Printing", "href": "/rfid-card-printing/" },
+      { "requirement": "Ultrasonic Sealing", "page": "Ultrasonic Sealing", "href": "/ultrasonic-sealing/" },
+      { "requirement": "ID Card Holders", "page": "ID Card Holders", "href": "/id-card-holders/" },
+      { "requirement": "ID Card Hooks", "page": "ID Card Hooks", "href": "/id-card-hooks/" },
+      { "requirement": "Digital Data Collection", "page": "IDGen Studio", "href": "/idgen-studio/" }
+    ]
+  },
+  "priceChangesAndQuote": {
+    "priceChanges": {
+      "title": "Why Prices May Change",
+      "desc": "Reference pricing can change because of:",
+      "reasons": [
+        "Product specifications",
+        "Quantity",
+        "Raw material costs",
+        "Customization requirements",
+        "Accessory selection",
+        "Production requirements",
+        "Packaging",
+        "Delivery requirements"
+      ],
+      "disclaimer": "Therefore, the price shown on this page should always be treated as a reference price unless explicitly marked as a fixed price."
+    },
+    "customQuote": {
+      "title": "Need a Custom Quote?",
+      "desc": "If your requirement includes multiple products, don't calculate everything separately. Send IDGen:",
+      "formula": ["Quantity", "Product", "Card Specification", "Printing", "Accessories", "Delivery Location"],
+      "exampleText": "Example: 2,500 student ID cards + 20 mm lanyards + holders + hooks",
+      "buttonText": "Request a Quote",
+      "buttonHref": "/request-a-quote/"
+    }
+  },
+  "faqsSection": {
+    "eyebrow": "Questions & Answers",
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "How much does an ID card cost at IDGen?",
+        "a": "Reference pricing starts at ₹15 per PVC ID card for single-side printing and ₹16 per card for double-side printing, subject to the applicable specifications and order conditions."
+      },
+      {
+        "q": "How much does a custom printed lanyard cost?",
+        "a": "The reference price for a 20 mm custom printed lanyard is ₹15 per piece."
+      },
+      {
+        "q": "How much does an event card cost?",
+        "a": "The reference price for an event card is ₹35 per card. The complete event identification setup may cost more depending on lanyards, hooks and sealing requirements."
+      },
+      {
+        "q": "How much does an RFID ID card cost?",
+        "a": "The reference price for an RFID ID card is ₹45 per card, subject to RFID type, specifications and compatibility requirements."
+      },
+      {
+        "q": "Do ID card prices include lanyards?",
+        "a": "Not necessarily. Card printing and accessories such as lanyards, holders and hooks should be considered according to the selected configuration."
+      },
+      {
+        "q": "Do bulk orders have different pricing?",
+        "a": "Bulk project pricing can vary according to quantity, specifications, personalization, accessories and production requirements. Request a quotation for the exact project."
+      },
+      {
+        "q": "Is the listed price the final price?",
+        "a": "The prices shown are reference prices. The final quotation depends on the confirmed product specifications, quantity, customization, accessories and applicable delivery conditions."
+      },
+      {
+        "q": "Can I order only ID cards?",
+        "a": "Yes. Customers can order ID cards without accessories where required."
+      },
+      {
+        "q": "Can I order a complete ID card set?",
+        "a": "Yes. Depending on the requirement, a complete setup can include the ID card, holder, hook, lanyard and applicable ultrasonic sealing."
+      },
+      {
+        "q": "Does delivery come under the listed price?",
+        "a": "Delivery conditions depend on the order and destination. Confirm applicable delivery charges and terms when requesting the quotation."
+      }
+    ]
+  },
+  "pricingSummary": {
+    "title": "Pricing in One Answer",
+    "description": "IDGen's reference pricing includes PVC ID cards from ₹15 per card for single-side printing, ₹16 for double-side printing, 20 mm custom printed lanyards at ₹15 per piece, event cards at ₹35 per card and RFID ID cards at ₹45 per card. Final pricing depends on quantity, specifications, personalization, accessories and applicable order conditions."
+  },
+  "closingCta": {
+    "badge": "Project Quote",
+    "title": "Get Your Exact IDGen Quote",
+    "description": "Have a requirement? Send us: Product + Quantity + Specification + Accessories + Delivery Location. We'll help determine the appropriate configuration and quotation.",
+    "highlightText": "Product + Quantity + Specification + Accessories + Delivery Location",
+    "buttons": [
+      {
+        "text": "Request a Quote",
+        "href": "/request-a-quote/",
+        "variant": "primary"
+      },
+      {
+        "text": "WhatsApp IDGen",
+        "href": "/contact/",
+        "variant": "secondary"
+      },
+      {
+        "text": "Contact IDGen",
+        "href": "/contact/",
+        "variant": "secondary"
+      }
+    ]
+  },
+  "geographicHub": {
+    "hubTag": "Assam & Northeast India Hub",
+    "title": "ID Card Printing Price & Lanyard Pricing in Guwahati, Assam & Northeast India",
+    "description": "IDGen provides transparent reference pricing and direct factory quotations for PVC ID cards, custom printed lanyards, RFID cards, and event credentials across Guwahati, Assam, and all 8 Northeast states.",
+    "relatedLinksTitle": "Related IDGen Solutions & Directories:",
+    "relatedLinks": [
+      { "topic": "ID Card Printing", "href": "/id-card-printing/" },
+      { "topic": "Student ID Cards", "href": "/student-id-card-printing/" },
+      { "topic": "Employee ID Cards", "href": "/employee-id-card-printing/" },
+      { "topic": "Custom Lanyards", "href": "/custom-printed-lanyard-printing/" },
+      { "topic": "Event Cards", "href": "/event-card-printing/" },
+      { "topic": "RFID Cards", "href": "/rfid-card-printing/" },
+      { "topic": "Ultrasonic Sealing", "href": "/ultrasonic-sealing/" },
+      { "topic": "ID Card Holders", "href": "/id-card-holders/" },
+      { "topic": "ID Card Hooks", "href": "/id-card-hooks/" },
+      { "topic": "IDGen Studio", "href": "/idgen-studio/" },
+      { "topic": "Request a Quote", "href": "/request-a-quote/" }
+    ]
+  }
+}

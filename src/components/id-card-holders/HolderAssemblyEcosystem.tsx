@@ -94,9 +94,27 @@ const assemblyLayers: StackLayer[] = [
   },
 ];
 
-export function HolderAssemblyEcosystem() {
+import type { DynamicIdCardHoldersAssembly } from "@/lib/dynamic-id-card-holders-types";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  CreditCard,
+  ShieldCheck,
+  Anchor,
+  Sparkles,
+  Layers,
+  Building2,
+  Lock,
+  Zap,
+};
+
+export function HolderAssemblyEcosystem({
+  data,
+}: {
+  data?: DynamicIdCardHoldersAssembly;
+} = {}) {
   const [activeLayerIndex, setActiveLayerIndex] = useState(1);
-  const activeLayer = assemblyLayers[activeLayerIndex];
+  const layers = data?.layers && data.layers.length > 0 ? data.layers : assemblyLayers;
+  const activeLayer = layers[activeLayerIndex] || layers[0];
 
   return (
     <div className="relative overflow-hidden rounded-3xl border-2 border-sky-200/80 dark:border-sky-800/60 bg-gradient-to-b from-white via-sky-50/25 to-white dark:from-slate-900 dark:via-slate-900/95 dark:to-slate-950 p-6 sm:p-8 lg:p-12 shadow-xl shadow-sky-500/5 scroll-mt-28" id="holder-assembly-ecosystem">
@@ -109,13 +127,13 @@ export function HolderAssemblyEcosystem() {
         <div className="max-w-2xl space-y-2">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Layers className="h-3.5 w-3.5" />
-            <span>Modular Identification Stack</span>
+            <span>{data?.eyebrow || "Modular Identification Stack"}</span>
           </div>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white sm:text-3xl lg:text-4xl tracking-tight">
-            What Is an ID Card Holder?
+            {data?.title || "What Is an ID Card Holder?"}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            An ID card holder is the critical protective interface in a wearable identification system. It shields the card from physical damage while mating seamlessly with lanyards and attachments.
+            {data?.lede || "An ID card holder is the critical protective interface in a wearable identification system. It shields the card from physical damage while mating seamlessly with lanyards and attachments."}
           </p>
         </div>
 
@@ -136,8 +154,8 @@ export function HolderAssemblyEcosystem() {
 
         {/* Pipeline Tabs */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {assemblyLayers.map((layer, idx) => {
-            const Icon = layer.icon;
+          {layers.map((layer, idx) => {
+            const Icon = (layer as any).icon || ICON_MAP[(layer as any).iconName] || Layers;
             const isActive = activeLayerIndex === idx;
             return (
               <button

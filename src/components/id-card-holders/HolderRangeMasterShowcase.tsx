@@ -271,12 +271,19 @@ export const masterHolderModels: MasterHolderModel[] = [
   },
 ];
 
-export function HolderRangeMasterShowcase() {
+import type { DynamicIdCardHoldersRangeMaster } from "@/lib/dynamic-id-card-holders-types";
+
+export function HolderRangeMasterShowcase({
+  data,
+}: {
+  data?: DynamicIdCardHoldersRangeMaster;
+} = {}) {
+  const activeModels = data?.models && data.models.length > 0 ? data.models : masterHolderModels;
   const [selectedCode, setSelectedCode] = useState<string>("V-2");
   const [activeTab, setActiveTab] = useState<"specs" | "suitable" | "overview">("specs");
   const [displayMode, setDisplayMode] = useState<"stage" | "grid">("grid");
 
-  const currentModel = masterHolderModels.find((m) => m.code === selectedCode) || masterHolderModels[0];
+  const currentModel = activeModels.find((m) => m.code === selectedCode) || activeModels[0];
 
   // Carousel slider state & logic
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -327,13 +334,13 @@ export function HolderRangeMasterShowcase() {
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Box className="h-3.5 w-3.5" />
-            <span>IDGen Manufacturing Catalog</span>
+            <span>{data?.eyebrow || "IDGen Manufacturing Catalog"}</span>
           </div>
           <h2 className="text-3xl font-black text-slate-900 dark:text-white sm:text-4xl">
-            ID Card Holder Range
+            {data?.title || "ID Card Holder Range"}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl">
-            Explore our complete line of portrait, landscape, four-side-lock, metal, crystal, and chemical sticker card holders engineered for durability and flawless lanyard fit.
+            {data?.lede || "Explore our complete line of portrait, landscape, four-side-lock, metal, crystal, and chemical sticker card holders engineered for durability and flawless lanyard fit."}
           </p>
         </div>
 
@@ -374,7 +381,7 @@ export function HolderRangeMasterShowcase() {
         <div className="space-y-6">
           {/* Quick Model Navigation Strip */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            {masterHolderModels.map((m) => {
+            {activeModels.map((m) => {
               const isSelected = m.code === selectedCode;
               return (
                 <button
@@ -582,11 +589,11 @@ export function HolderRangeMasterShowcase() {
             <div className="flex items-center gap-2">
               <span className="flex h-2.5 w-2.5 rounded-full bg-[#009fe3] animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                Slide {currentIndex + 1} of {maxIndex + 1} ({masterHolderModels.length} Models)
+                Slide {currentIndex + 1} of {maxIndex + 1} ({activeModels.length} Models)
               </span>
             </div>
 
-            {masterHolderModels.length > itemsPerPage && (
+            {activeModels.length > itemsPerPage && (
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -616,7 +623,7 @@ export function HolderRangeMasterShowcase() {
                 transform: `translateX(-${currentIndex * (100 / itemsPerPage + (itemsPerPage === 1 ? 0 : 1.25))}%)`,
               }}
             >
-              {masterHolderModels.map((holder) => (
+              {activeModels.map((holder) => (
                 <div
                   key={holder.code}
                   className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#009fe3] hover:shadow-xl dark:hover:border-cyan-500 shrink-0"

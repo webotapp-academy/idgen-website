@@ -118,13 +118,28 @@ const services: ServiceCardItem[] = [
   },
 ];
 
-export function ServicesCarousel() {
+export function ServicesCarousel({
+  eyebrow,
+  title,
+  description,
+  buttonText,
+  buttonHref,
+  services: customServices,
+}: {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  services?: ServiceCardItem[];
+} = {}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  const totalSlides = services.length;
+  const displayServices = customServices || services;
+  const totalSlides = displayServices.length;
 
   const scrollToIndex = useCallback((index: number) => {
     if (!scrollContainerRef.current) return;
@@ -200,15 +215,15 @@ export function ServicesCarousel() {
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 dark:bg-accent/15 px-3.5 py-1.5 text-xs font-bold tracking-widest text-accent uppercase backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5 text-accent" />
-              <span>Specialized Capabilities</span>
+              <span>{eyebrow || "Specialized Capabilities"}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-foreground tracking-tight leading-tight">
-              Our Identity Services
+              {title || "Our Identity Services"}
             </h2>
 
             <p className="text-sm sm:text-base text-muted leading-relaxed">
-              IDGen provides specialized identification services designed for institutions and organizations.
+              {description || "IDGen provides specialized identification services designed for institutions and organizations."}
             </p>
           </div>
 
@@ -245,10 +260,10 @@ export function ServicesCarousel() {
             </div>
 
             <Link
-              href="/services/"
+              href={buttonHref || "/services/"}
               className="inline-flex items-center gap-1.5 rounded-2xl bg-navy px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-navy-deep hover:shadow-lg transition-all"
             >
-              <span>View All Services</span>
+              <span>{buttonText || "View All Services"}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -263,7 +278,7 @@ export function ServicesCarousel() {
           className="flex gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {services.map((service, idx) => (
+          {displayServices.map((service, idx) => (
             <div
               key={service.title}
               data-service-card

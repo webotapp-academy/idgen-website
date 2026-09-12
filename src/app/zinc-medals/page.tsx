@@ -27,53 +27,50 @@ import { MedalRangeMasterShowcase } from "@/components/zinc-medals/MedalRangeMas
 import { MedalEngineeringGuide } from "@/components/zinc-medals/MedalEngineeringGuide";
 import { MedalApplicationsGrid } from "@/components/zinc-medals/MedalApplicationsGrid";
 import { MedalWorkflowAndDispatch } from "@/components/zinc-medals/MedalWorkflowAndDispatch";
-import type { Faq } from "@/data/types";
+import { getDynamicZincMedals } from "@/lib/dynamic-zinc-medals";
 
-/* ─────────────────────────────────────────────────────────────
-   SEO METADATA (Strictly from document)
-   ───────────────────────────────────────────────────────────── */
-export const metadata = pageMetadata({
-  title: "Custom Die-Cast Zinc Medals & Awards | Antique Gold, Silver & Bronze | IDGen",
-  description:
-    "High-relief die-cast zinc alloy medals with full-color custom satin neck ribbons. Manufactured for school sports days, corporate marathons, academic excellence, and institutional awards across Northeast India.",
-  path: "/zinc-medals/",
-});
+export const dynamic = "force-dynamic";
 
-/* ─────────────────────────────────────────────────────────────
-   FAQS (Document Content)
-   ───────────────────────────────────────────────────────────── */
-const faqs: Faq[] = [
-  {
-    q: "What is the weight and feel of zinc alloy medals compared to iron or plastic?",
-    a: "Zinc alloy is heavy, solid, and dense, giving a luxury feel when worn around the neck. Unlike stamped iron, zinc allows intricate 3D rounded contours and cutouts without rusting.",
-  },
-  {
-    q: "Can we print custom text or sponsor logos on the neck ribbons?",
-    a: "Yes! Our satin ribbons are printed using high-definition dye sublimation, allowing full-color gradient logos, event dates, and sponsor names on both sides.",
-  },
-  {
-    q: "What is the typical production timeline for custom medals?",
-    a: "Custom mold die-casting typically takes 7–10 days for production and dispatch from our Guwahati regional hub.",
-  },
-  {
-    q: "What diameters and thicknesses are available for custom medals?",
-    a: "We manufacture standard 50mm, 60mm, 65mm, and 75mm medal diameters with thicknesses ranging from 3.0mm to 5.0mm for a deep, high-relief sculpted effect.",
-  },
-  {
-    q: "Do you supply complete Gold, Silver, and Bronze podium sets?",
-    a: "Yes, we provide matching 1st, 2nd, and 3rd place podium medal sets with coordinated Antique Gold, Antique Silver, and Antique Bronze electroplating.",
-  },
-];
+export async function generateMetadata() {
+  const data = getDynamicZincMedals();
+  return pageMetadata({
+    title: data.seo.title,
+    description: data.seo.description,
+    path: data.seo.path,
+  });
+}
+
+const SPEC_ICONS: Record<string, React.ElementType> = {
+  Award,
+  Flame,
+  Sparkles,
+  Truck,
+  ShieldCheck,
+  CheckCircle2,
+  Boxes,
+  Layers,
+};
 
 export default function ZincMedalsPage() {
+  const data = getDynamicZincMedals();
+  const {
+    hero,
+    quickSelection,
+    anatomy,
+    rangeMaster,
+    engineeringGuide,
+    applications,
+    workflowAndDispatch,
+    faqs,
+  } = data;
+
   return (
     <>
       <JsonLd
         data={productSchema({
-          name: "Custom Die-Cast Zinc Medals & Awards",
-          description:
-            "High-relief die-cast zinc alloy medals with customized satin ribbons.",
-          path: "/zinc-medals/",
+          name: data.seo.title,
+          description: data.seo.description,
+          path: data.seo.path,
         })}
       />
 
@@ -111,104 +108,99 @@ export default function ZincMedalsPage() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white dark:from-cyan-950/60 dark:via-slate-900 dark:to-slate-800 px-4 py-1.5 shadow-2xs">
                   <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
                   <span className="text-xs font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
-                    Awards &amp; Recognition
+                    {hero.badge}
                   </span>
-                  <span className="h-3 w-px bg-[#009fe3]/30" />
-                  <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                    3D Die-Cast Eco Zinc Alloy
-                  </span>
+                  {hero.badgeSub && (
+                    <>
+                      <span className="h-3 w-px bg-[#009fe3]/30" />
+                      <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                        {hero.badgeSub}
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 {/* Main Heading */}
                 <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.1]">
-                  Custom Die-Cast Zinc Medals{" "}
+                  {hero.title}{" "}
                   <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
-                    &amp; Championship Awards
+                    {hero.highlight}
                   </span>
                 </h1>
 
                 {/* Subtitle / Lede */}
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                  Celebrate sporting victories, academic achievements, and corporate milestones with high-relief die-cast zinc medals. Featuring antique gold, silver, and bronze plating paired with custom-printed satin neck ribbons.
+                  {hero.description}
                 </p>
               </div>
 
               {/* Feature Spec Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <Award className="h-4 w-4 text-[#009fe3]" />
-                    <span>Eco Zinc Alloy</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">High-density solid metal</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <Flame className="h-4 w-4 text-[#009fe3]" />
-                    <span>Antique Plating</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Gold / Silver / Bronze</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <Sparkles className="h-4 w-4 text-[#009fe3]" />
-                    <span>Satin Ribbon</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Full-color sublimated</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <Truck className="h-4 w-4 text-[#009fe3]" />
-                    <span>Guwahati Hub</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">All 8 NE States</p>
-                </div>
+                {hero.specStrip.map((item, idx) => {
+                  const Icon = SPEC_ICONS[item.iconName] || Award;
+                  return (
+                    <div
+                      key={idx}
+                      className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs"
+                    >
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                        <Icon className="h-4 w-4 text-[#009fe3]" />
+                        <span>{item.title}</span>
+                      </div>
+                      <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">
+                        {item.desc}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Action CTAs */}
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <Link
-                  href="/request-a-quote/"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
-                >
-                  <span>Request Medal Quote</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <a
-                  href="#selection-matrix"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
-                >
-                  <span>Explore Medal Catalog</span>
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-                <Link
-                  href="/event-card-printing/"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-3.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
-                >
-                  <span>Event Credentials</span>
-                </Link>
+                {hero.primaryCta && (
+                  <Link
+                    href={hero.primaryCta.href}
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
+                  >
+                    <span>{hero.primaryCta.label}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                )}
+                {hero.secondaryCta && (
+                  <a
+                    href={hero.secondaryCta.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
+                  >
+                    <span>{hero.secondaryCta.label}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                )}
+                {hero.tertiaryCta && (
+                  <Link
+                    href={hero.tertiaryCta.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-3.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                  >
+                    <span>{hero.tertiaryCta.label}</span>
+                  </Link>
+                )}
               </div>
 
               {/* Trust Badge Bar */}
-              <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs font-medium text-slate-500 dark:text-slate-400">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>Free 3D Digital Vector Proof</span>
+              {hero.trustPoints && hero.trustPoints.length > 0 && (
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs font-medium text-slate-500 dark:text-slate-400">
+                  {hero.trustPoints.map((tp, idx) => (
+                    <div key={idx} className="flex items-center gap-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      <span>{tp}</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>Guwahati Factory Supply</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>Complete Gold/Silver/Bronze Sets</span>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* Right Column: Hero Visual Slider Showcase */}
             <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
-              <MedalHeroCarousel />
+              <MedalHeroCarousel slides={hero.slides} />
             </div>
           </div>
         </Container>
@@ -217,33 +209,33 @@ export default function ZincMedalsPage() {
       <div className="bg-slate-50/60 dark:bg-slate-950/20">
         <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
           {/* Quick Medal Selection & Model Matrix */}
-          <QuickMedalSelectionMatrix />
+          <QuickMedalSelectionMatrix data={quickSelection} />
 
           {/* Medal Anatomy & Multi-Layer Engineering */}
-          <MedalAnatomyEcosystem />
+          <MedalAnatomyEcosystem data={anatomy} />
 
           {/* Master Hardware Showcase */}
-          <MedalRangeMasterShowcase />
+          <MedalRangeMasterShowcase data={rangeMaster} />
 
           {/* Plating Comparison & Decision Guide */}
-          <MedalEngineeringGuide />
+          <MedalEngineeringGuide data={engineeringGuide} />
 
           {/* Event Applications Grid */}
-          <MedalApplicationsGrid />
+          <MedalApplicationsGrid data={applications} />
 
           {/* Ordering Workflow, Packaging & Dispatch */}
-          <MedalWorkflowAndDispatch />
+          <MedalWorkflowAndDispatch data={workflowAndDispatch} />
 
           {/* Frequently Asked Questions */}
           <div className="mt-16 sm:mt-20">
             <SectionHead
-              eyebrow="FAQ"
-              title="Frequently Asked Questions About Custom Medals"
-              lede="Direct answers regarding zinc alloy weight, custom neck ribbons, production timelines, and plating finishes:"
+              eyebrow={faqs.eyebrow}
+              title={faqs.title}
+              lede={faqs.lede}
             />
 
             <div className="mt-8">
-              <FaqList faqs={faqs} />
+              <FaqList faqs={faqs.faqs} />
             </div>
           </div>
         </Container>

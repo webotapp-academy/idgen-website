@@ -1,0 +1,783 @@
+import fs from "fs";
+import path from "path";
+import type { DynamicTemplatesData } from "./dynamic-templates-types";
+
+const DATA_FILE = path.join(process.cwd(), "src", "data", "dynamic-templates.json");
+
+export const DEFAULT_TEMPLATES_DATA: DynamicTemplatesData = {
+  meta: {
+    title: "ID Card Printing Templates & Requirement Checklists | IDGen",
+    description:
+      "Download and use practical ID card project templates for student and employee data, bulk orders, specifications and IDGen Studio form requirements.",
+    path: "/templates/",
+  },
+  hero: {
+    badge: "Project Resources & Checklists",
+    subBadge: "IDGen Standard Schemas",
+    h1Prefix: "ID Card Printing Templates & ",
+    h1Gradient: "Project Resources",
+    p1: "A well-prepared requirement makes an ID card project easier to plan, review and produce.",
+    p2: "IDGen templates help schools, colleges, universities, companies, institutions, event organizers and other organizations organize the information and specifications required for their identification projects before production begins.",
+    p3: "Use these resources to prepare your ID card data, photographs, card specifications, accessories, RFID requirements, event badges and IDGen Studio forms.",
+    quickLinks: [
+      { label: "Student Template", href: "#student-template" },
+      { label: "Employee Template", href: "#employee-template" },
+      { label: "Studio Form Planning", href: "#studio-form-planning" },
+      { label: "Bulk Checklist", href: "#bulk-checklist" },
+      { label: "Downloads", href: "#downloads", isDownload: true },
+    ],
+    trustBadges: [
+      "Standard Excel / CSV Formats",
+      "IDGen Studio Ready Schemas",
+      "Zero-Defect Verification Flow",
+    ],
+    slides: [
+      {
+        id: "student-data-template",
+        imageSrc: "/images/student-data-collection-workflow-v1.jpg",
+        alt: "IDGen Student ID Card Data Template and structured spreadsheet planning",
+        title: "Student ID Card Data Template",
+        category: "Data Schema",
+        topBadge: "Academic Template",
+        specPill: "XLSX / CSV Format",
+        bottomSpec: "Field Structure • Photo Matching • Class & Roll Mapping • QR Data",
+        hubTag: "EXCEL / STUDIO",
+      },
+      {
+        id: "employee-data-template",
+        imageSrc: "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+        alt: "IDGen Employee and Staff ID card data collection and form planning template",
+        title: "Employee ID Card Planning Template",
+        category: "Corporate Roster",
+        topBadge: "Corporate Template",
+        specPill: "HR Data Schema",
+        bottomSpec: "Department • Designation • Employee ID • QR/Barcode Encoding",
+        hubTag: "HR & ENTERPRISE",
+      },
+      {
+        id: "studio-form-planning",
+        imageSrc: "/images/idgen-studio-interface.jpg",
+        alt: "IDGen Studio digital form planning and field type configuration template",
+        title: "IDGen Studio Form Planning Template",
+        category: "Digital Collection",
+        topBadge: "Digital Form Builder",
+        specPill: "16+ Field Types",
+        bottomSpec: "Input Formats • Dropdowns • Photo Uploads • Live Card Previews",
+        hubTag: "ONLINE WORKFLOW",
+      },
+      {
+        id: "bulk-project-checklist",
+        imageSrc: "/images/why-idgen-complete-ecosystem-branded.jpg",
+        alt: "IDGen Bulk ID Card Project Checklist and specification template",
+        title: "Bulk Project Specification Checklist",
+        category: "Checklists",
+        topBadge: "Pre-Flight Checklist",
+        specPill: "Complete Spec Sheet",
+        bottomSpec: "Cards • Holders • Hooks • Lanyards • RFID Specs • Delivery Terms",
+        hubTag: "READY FOR PRODUCTION",
+      },
+    ],
+  },
+  student: {
+    badge: "Academic Data Preparation",
+    title: "Student ID Card Data Template",
+    description:
+      "Before starting a student ID card project, prepare the information that needs to be collected and printed.",
+    fields: [
+      { field: "Student Name", purpose: "Printed student name" },
+      { field: "Student ID / Admission Number", purpose: "Identification number" },
+      { field: "Class", purpose: "Current class" },
+      { field: "Section", purpose: "Class section" },
+      { field: "Course", purpose: "Course/program" },
+      { field: "Roll Number", purpose: "Academic identification" },
+      { field: "Date of Birth", purpose: "If required" },
+      { field: "Blood Group", purpose: "If required" },
+      { field: "Parent Name", purpose: "If required" },
+      { field: "Photograph", purpose: "Student photograph" },
+      { field: "Institution", purpose: "Organization name" },
+      { field: "QR Code Data", purpose: "Optional" },
+      { field: "Barcode Data", purpose: "Optional" },
+    ],
+    fieldTypesHeading: "Recommended Field Types for Digital Collection",
+    fieldTypesDescription:
+      "If the information will be collected through IDGen Studio, also define the appropriate field type.",
+    fieldTypes: [
+      { info: "Student Name", type: "Short Text", example: "Rahul Sharma" },
+      { info: "Admission Number", type: "Alphanumeric", example: "ADM20260045" },
+      { info: "Class", type: "Dropdown", example: "Class 10" },
+      { info: "Section", type: "Dropdown", example: "A" },
+      { info: "Roll Number", type: "Numeric", example: "25" },
+      { info: "Date of Birth", type: "Date", example: "15/06/2012" },
+      { info: "Blood Group", type: "Dropdown", example: "B+" },
+      { info: "Parent Name", type: "Short Text", example: "Amit Sharma" },
+      { info: "Mobile Number", type: "Mobile Number", example: "9876543210" },
+      { info: "Photograph", type: "Photo Upload", example: "Student photo" },
+      { info: "QR Code Data", type: "Text / Alphanumeric", example: "Student ID" },
+      { info: "Barcode Data", type: "Text / Alphanumeric", example: "Admission Number" },
+    ],
+  },
+  employee: {
+    badge: "Corporate Roster Preparation",
+    title: "Employee ID Card Data Template",
+    description: "Prepare the following information for employee and staff ID card projects.",
+    fields: [
+      { field: "Employee Name", purpose: "Printed employee name" },
+      { field: "Employee ID", purpose: "Employee identification" },
+      { field: "Photograph", purpose: "Employee photo" },
+      { field: "Designation", purpose: "Job designation" },
+      { field: "Department", purpose: "Department" },
+      { field: "Organization", purpose: "Company/institution" },
+      { field: "Date of Joining", purpose: "If required" },
+      { field: "Contact", purpose: "If required" },
+      { field: "Email", purpose: "If required" },
+      { field: "QR Code Data", purpose: "Optional" },
+      { field: "Barcode Data", purpose: "Optional" },
+    ],
+    fieldTypesHeading: "Recommended IDGen Studio Field Types",
+    fieldTypesDescription: "Standard digital field formats for corporate and employee card forms.",
+    fieldTypes: [
+      { info: "Employee Name", type: "Short Text", example: "Amit Sharma" },
+      { info: "Employee ID", type: "Alphanumeric", example: "EMP20260125" },
+      { info: "Department", type: "Dropdown", example: "Accounts" },
+      { info: "Designation", type: "Short Text / Dropdown", example: "Manager" },
+      { info: "Date of Joining", type: "Date", example: "01/04/2026" },
+      { info: "Mobile Number", type: "Mobile Number", example: "9876543210" },
+      { info: "Email", type: "Email", example: "amit@company.com" },
+      { info: "Photograph", type: "Photo Upload", example: "Employee photo" },
+      { info: "QR Code Data", type: "Text / Alphanumeric", example: "Employee ID" },
+      { info: "Barcode Data", type: "Text / Alphanumeric", example: "Employee ID" },
+    ],
+  },
+  studioPlanning: {
+    badge: "Digital Form Architecture",
+    title: "IDGen Studio Form Planning Template",
+    subtitle: "Plan Your Data Collection Before Creating the Form",
+    description:
+      "If you are using IDGen Studio, don't only decide what information to collect. Also decide how each information field should be entered. A properly planned form can make data collection easier for students, parents, employees and other end users while helping organizations maintain consistent information.",
+    fieldTypesHeading: "Recommended Field Types",
+    fieldTypes: [
+      { type: "Short Text", suitable: "Names, departments, designations", example: "Student Name" },
+      { type: "Long Text", suitable: "Addresses, remarks", example: "Residential Address" },
+      { type: "Numeric", suitable: "Numbers only", example: "Roll Number" },
+      { type: "Alphanumeric", suitable: "Letters + numbers", example: "Student ID / Employee ID" },
+      { type: "Email", suitable: "Email addresses", example: "user@example.com" },
+      { type: "Mobile Number", suitable: "Mobile numbers", example: "9876543210" },
+      { type: "Date", suitable: "Dates", example: "Date of Birth" },
+      { type: "Dropdown", suitable: "One predefined option", example: "Class / Blood Group" },
+      { type: "Multi-Select", suitable: "Multiple predefined options", example: "Activities" },
+      { type: "Radio Button", suitable: "One selected option", example: "Category" },
+      { type: "Checkbox", suitable: "Confirmation / agreement", example: "Declaration" },
+      { type: "Photo Upload", suitable: "Identification photograph", example: "Student Photo" },
+      { type: "File Upload", suitable: "Supporting files/documents", example: "Required Document" },
+      { type: "Address", suitable: "Address information", example: "Residential Address" },
+      { type: "QR Code Data", suitable: "Data used for QR generation", example: "Student ID / URL" },
+      { type: "Barcode Data", suitable: "Data used for barcode generation", example: "Employee ID" },
+      { type: "Custom Field", suitable: "Organization-specific information", example: "Campus / House" },
+    ],
+    importantNotice:
+      "Important: Only publish field types that are actually available in the current IDGen Studio implementation. If a field type is not yet supported, mark it as planned/coming soon or remove it from the public template.",
+    stepsHeading: "How to Plan Each IDGen Studio Field",
+    stepsDescription: "Before creating a form, define the following for every field:",
+    steps: [
+      {
+        stepNumber: "01",
+        title: "Field Name",
+        question: "What information is required?",
+        example: "Student Name",
+      },
+      {
+        stepNumber: "02",
+        title: "Field Type",
+        question: "How should the information be entered?",
+        example: "Short Text",
+      },
+      {
+        stepNumber: "03",
+        title: "Required or Optional",
+        question: "Does the user have to provide it?",
+        example: "Required",
+      },
+      {
+        stepNumber: "04",
+        title: "Input Format",
+        question: "Define the expected format where necessary",
+        points: [
+          "Student ID → Alphanumeric (ADM20260045)",
+          "Roll Number → Numeric (25)",
+          "Date of Birth → Date (15/06/2012)",
+          "Mobile Number → Mobile Number (9876543210)",
+        ],
+      },
+      {
+        stepNumber: "05",
+        title: "Selection Options",
+        question: "Define available options for selection fields",
+        example: "Blood Group → Dropdown: A+, A-, B+, B-, O+, O-, AB+, AB-",
+      },
+      {
+        stepNumber: "06",
+        title: "Card Usage",
+        question: "Identify how the collected data is used:",
+        points: [
+          "Appear on the ID card",
+          "Used to generate a QR code / barcode",
+          "Stored only in organization records",
+        ],
+      },
+    ],
+    worksheetHeading: "IDGen Studio Form Planning Worksheet",
+    worksheetDescription: "Organizations can prepare their requirements using this structure:",
+    worksheetRows: [
+      { name: "Student Name", type: "Short Text", format: "Rahul Sharma", req: "Yes", printed: "Yes", qr: "No", notes: "—" },
+      { name: "Admission No.", type: "Alphanumeric", format: "ADM20260045", req: "Yes", printed: "Yes", qr: "Yes", notes: "Unique" },
+      { name: "Class", type: "Dropdown", format: "Class 10", req: "Yes", printed: "Yes", qr: "No", notes: "—" },
+      { name: "Section", type: "Dropdown", format: "A/B/C", req: "Yes", printed: "Yes", qr: "No", notes: "—" },
+      { name: "Roll Number", type: "Numeric", format: "25", req: "Yes", printed: "Yes", qr: "No", notes: "—" },
+      { name: "Photograph", type: "Photo Upload", format: "JPG/PNG", req: "Yes", printed: "Yes", qr: "No", notes: "Required" },
+      { name: "Blood Group", type: "Dropdown", format: "B+", req: "Optional", printed: "Yes", qr: "No", notes: "—" },
+      { name: "Parent Name", type: "Short Text", format: "Amit Sharma", req: "Optional", printed: "No", qr: "No", notes: "—" },
+    ],
+    worksheetFootnote:
+      "This worksheet can help the organization and IDGen team understand the form requirements before the actual form is created.",
+  },
+  bulkChecklist: {
+    badge: "Pre-Flight Checklist",
+    title: "Bulk ID Card Project Checklist",
+    description: "Before sending a bulk ID card requirement to IDGen, prepare:",
+    items: [
+      "Organization name",
+      "Organization address/contact",
+      "Product required",
+      "Quantity",
+      "Card specification",
+      "Single-side or double-side printing",
+      "Final artwork",
+      "Data file",
+      "Photographs",
+      "Photo-to-record matching",
+      "QR/barcode information",
+      "Holder requirement",
+      "Hook requirement",
+      "Lanyard requirement",
+      "Lanyard width",
+      "Attachment configuration",
+      "RFID specification, if applicable",
+      "Delivery location",
+      "Required timeline",
+      "Approval contact",
+    ],
+  },
+  specifications: {
+    cardSpec: {
+      badge: "Spec Sheet",
+      title: "ID Card Specification Template",
+      rawText: `Card Type: PVC / RFID / Event / Membership
+Orientation: Portrait / Landscape
+Printing: Single Side / Double Side
+Personalization: Yes / No
+Photo: Yes / No
+QR Code: Yes / No
+Barcode: Yes / No
+Holder: Yes / No
+Hook: Yes / No
+Lanyard: Yes / No
+Sealing: Yes / No
+Quantity: [Specify count]
+Required Delivery Date: [Date]
+Additional Requirements: [Details]`,
+    },
+    eventBadgeSpec: {
+      badge: "Event Passes",
+      title: "Event Badge Planning Template",
+      eventInfo: "Event Name • Event Date • Venue • Expected Participants • Required Quantity",
+      badgeCategories: "Delegate, Speaker, Organizer, VIP, Exhibitor, Staff, Volunteer, Other",
+      badgeRequirements: "Card Type: PVC / Event Badge | Orientation: Portrait / Landscape | Attachment: One Hook / Two Hooks | Lanyard: Standard / Custom | QR / Barcode | Sealing",
+      linkText: "Explore Event Cards",
+      linkHref: "/event-card-printing/",
+      rawText: `Event Information:
+Event Name:
+Event Date:
+Venue:
+Expected Participants:
+Required Quantity:
+
+Badge Categories:
+Delegate, Speaker, Organizer, VIP, Exhibitor, Staff, Volunteer, Other
+
+Badge Requirements:
+Card Type: PVC / Event Badge / Other
+Orientation: Portrait / Landscape
+Attachment: One Hook / Two Hooks / Other
+Lanyard: Standard / Custom Printed
+QR Code: Yes / No
+Barcode: Yes / No
+Sealing: Required / Not Required`,
+    },
+    rfidSpec: {
+      badge: "Smart Chips",
+      title: "RFID Requirement Template",
+      points: [
+        "RFID technology & Frequency",
+        "Chip type & Reader/system model",
+        "Existing card specification & Card format",
+        "Personalization requirement & Quantity",
+        "Application & Read/Write functionality",
+        "Existing system/integration requirements",
+      ],
+      note: "RFID requirements can vary significantly depending on the application, so confirm the required technology and system compatibility before production.",
+      linkText: "Explore RFID ID Cards",
+      linkHref: "/rfid-card-printing/",
+      rawText: `RFID Requirement Template:
+Provide before requesting quotation:
+- RFID technology
+- Frequency (13.56 MHz / 125 kHz)
+- Chip type (Mifare 1K / TK4100 / NTAG)
+- Reader / system model
+- Existing card specification
+- Card format
+- Personalization requirement
+- Quantity
+- Application (Attendance, Turnstile, Access Control)
+- Required read/write functionality
+- Existing system/integration requirements`,
+    },
+  },
+  studioWorkflow: {
+    badge: "Digital Workflow Planning",
+    title: "IDGen Studio Data Collection Planning",
+    description: "For projects using IDGen Studio, define the workflow before creating the form.",
+    flowPipelineHeading: "Planning Flow Pipeline:",
+    flowSteps: [
+      "Organization",
+      "Required Information",
+      "Field Types",
+      "Required / Optional Fields",
+      "Photograph Requirement",
+      "Card Design",
+      "QR / Barcode Requirement",
+      "ID Card Preview",
+      "Organization Review",
+      "Approval",
+      "Batch Printing / Print All",
+    ],
+    flowFootnote:
+      "The detailed IDGen Studio workflow remains on /idgen-studio/. The Templates page is intended to help organizations prepare their requirements, rather than duplicate the complete IDGen Studio explanation.",
+    comparisonTraditional: {
+      badge: "Traditional Data Preparation",
+      title: "Traditional Data File",
+      description: "Excel Columns → Data Entry → Photograph Matching → Final File",
+    },
+    comparisonStudio: {
+      badge: "Digital Studio Planning",
+      title: "IDGen Studio Planning",
+      description:
+        "Field Name → Field Type → Required/Optional → User Submission → Preview → Organization Review → Approval → Printing",
+    },
+    studentExample: {
+      title: "IDGen Studio Example: Student Form",
+      intro: "A school could structure its form as:",
+      fields: [
+        "• Student Name → Short Text",
+        "• Admission Number → Alphanumeric",
+        "• Class → Dropdown",
+        "• Section → Dropdown",
+        "• Roll Number → Numeric",
+        "• Date of Birth → Date",
+        "• Blood Group → Dropdown",
+        "• Parent Name → Short Text",
+        "• Mobile Number → Mobile Number",
+        "• Photograph → Photo Upload",
+        "• QR Code Data → Student ID / Alphanumeric",
+      ],
+      workflowText:
+        "Then: Form → Student/Parent Submission → ID Card Preview → Submit → School Review → Approval → Batch Printing",
+    },
+    employeeExample: {
+      title: "IDGen Studio Example: Employee Form",
+      intro: "A company could structure its form as:",
+      fields: [
+        "• Employee Name → Short Text",
+        "• Employee ID → Alphanumeric",
+        "• Department → Dropdown",
+        "• Designation → Short Text / Dropdown",
+        "• Date of Joining → Date",
+        "• Mobile Number → Mobile Number",
+        "• Email → Email",
+        "• Photograph → Photo Upload",
+        "• QR Code Data → Employee ID",
+      ],
+      workflowText:
+        "Then: Form → Employee Submission → ID Card Preview → HR Review → Approval → Printing",
+    },
+    testingChecklist: {
+      title: "IDGen Studio Form Testing Checklist",
+      description:
+        "Before sharing the form with students, parents, employees or other users, test:",
+      items: [
+        "All required fields are included",
+        "Correct field type is selected",
+        "Numeric fields accept the intended values",
+        "Alphanumeric fields accept the intended format",
+        "Dropdown options are correct",
+        "Date fields work correctly",
+        "Mobile number field works correctly",
+        "Email field validates correctly",
+        "Photograph upload works",
+        "QR/barcode information is correct",
+        "ID card preview displays correctly",
+        "Card information maps to the correct fields",
+        "Required fields are enforced",
+        "Optional fields remain optional",
+        "Submission works correctly",
+        "Organization can see the submission",
+        "Organization can review/correct information where applicable",
+        "Approval workflow works correctly",
+        "Printing/batch workflow is ready",
+      ],
+    },
+  },
+  quotePrep: {
+    badge: "Quote Specifications",
+    title: "Quote Preparation Template",
+    description: "Before contacting IDGen, prepare:",
+    fields: [
+      { label: "Organization", placeholder: "[Name]" },
+      { label: "City & State", placeholder: "[Location]" },
+      { label: "Product", placeholder: "[PVC / Lanyard / Kit]" },
+      { label: "Quantity", placeholder: "[Count]" },
+      { label: "Card Type", placeholder: "[PVC / RFID / Event]" },
+      { label: "Orientation", placeholder: "[Portrait / Landscape]" },
+      { label: "Printing", placeholder: "[Single / Double]" },
+      { label: "Personalization", placeholder: "[Yes / No]" },
+      { label: "Accessories", placeholder: "[Holder / Hook / Lanyard]" },
+      { label: "RFID", placeholder: "[Yes / No]" },
+      { label: "QR Code / Barcode", placeholder: "[Yes / No]" },
+      { label: "Artwork & Data", placeholder: "[Available / Needed]" },
+      { label: "IDGen Studio Required", placeholder: "[Yes / No]" },
+      { label: "Delivery Location", placeholder: "[Destination]" },
+      { label: "Required Timeline", placeholder: "[Date]" },
+    ],
+    copyText: `Quote Preparation Template:
+Organization:
+City:
+State:
+Product:
+Quantity:
+Card Type:
+Orientation:
+Printing: Single / Double
+Personalization: Yes / No
+Accessories:
+RFID: Yes / No
+QR Code: Yes / No
+Barcode: Yes / No
+Artwork Available: Yes / No
+Data Available: Yes / No
+IDGen Studio Required: Yes / No
+Delivery Location:
+Required Timeline:
+Additional Requirements:`,
+    ctaText: "Submit to Request a Quote →",
+    ctaHref: "/request-a-quote/",
+  },
+  downloads: {
+    badge: "Ready Download Files",
+    title: "Downloadable Project Resources",
+    description:
+      "To make this page genuinely useful, IDGen provides downloadable templates that organizations can complete before requesting a quotation or starting a project.",
+    items: [
+      {
+        name: "Student ID Card Data Template",
+        format: "XLSX / CSV",
+        filename: "Student_ID_Card_Data_Template",
+        headers: ["Field", "Purpose"],
+        rows: [
+          ["Student Name", "Printed student name"],
+          ["Student ID / Admission Number", "Identification number"],
+          ["Class", "Current class"],
+          ["Section", "Class section"],
+          ["Course", "Course/program"],
+          ["Roll Number", "Academic identification"],
+          ["Date of Birth", "If required"],
+          ["Blood Group", "If required"],
+          ["Parent Name", "If required"],
+          ["Photograph", "Student photograph"],
+          ["Institution", "Organization name"],
+          ["QR Code Data", "Optional"],
+          ["Barcode Data", "Optional"],
+        ],
+      },
+      {
+        name: "Employee ID Card Data Template",
+        format: "XLSX / CSV",
+        filename: "Employee_ID_Card_Data_Template",
+        headers: ["Field", "Purpose"],
+        rows: [
+          ["Employee Name", "Printed employee name"],
+          ["Employee ID", "Employee identification"],
+          ["Photograph", "Employee photo"],
+          ["Designation", "Job designation"],
+          ["Department", "Department"],
+          ["Organization", "Company/institution"],
+          ["Date of Joining", "If required"],
+          ["Contact", "If required"],
+          ["Email", "If required"],
+          ["QR Code Data", "Optional"],
+          ["Barcode Data", "Optional"],
+        ],
+      },
+      {
+        name: "IDGen Studio Form Planning Template",
+        format: "XLSX / CSV",
+        filename: "IDGen_Studio_Form_Planning_Template",
+        headers: [
+          "Field Name",
+          "Field Type",
+          "Example / Format",
+          "Required?",
+          "Printed on Card?",
+          "QR/Barcode?",
+          "Notes",
+        ],
+        rows: [
+          ["Student Name", "Short Text", "Rahul Sharma", "Yes", "Yes", "No", "—"],
+          ["Admission No.", "Alphanumeric", "ADM20260045", "Yes", "Yes", "Yes", "Unique"],
+          ["Class", "Dropdown", "Class 10", "Yes", "Yes", "No", "—"],
+          ["Section", "Dropdown", "A/B/C", "Yes", "Yes", "No", "—"],
+          ["Roll Number", "Numeric", "25", "Yes", "Yes", "No", "—"],
+          ["Photograph", "Photo Upload", "JPG/PNG", "Yes", "Yes", "No", "Required"],
+          ["Blood Group", "Dropdown", "B+", "Optional", "Yes", "No", "—"],
+          ["Parent Name", "Short Text", "Amit Sharma", "Optional", "No", "No", "—"],
+        ],
+      },
+      {
+        name: "Bulk ID Card Project Checklist",
+        format: "PDF / CSV",
+        filename: "Bulk_ID_Card_Project_Checklist",
+        headers: ["Item Number", "Checklist Item"],
+        rows: [
+          [1, "Organization name"],
+          [2, "Organization address/contact"],
+          [3, "Product required"],
+          [4, "Quantity"],
+          [5, "Card specification"],
+          [6, "Single-side or double-side printing"],
+          [7, "Final artwork"],
+          [8, "Data file"],
+          [9, "Photographs"],
+          [10, "Photo-to-record matching"],
+          [11, "QR/barcode information"],
+          [12, "Holder requirement"],
+          [13, "Hook requirement"],
+          [14, "Lanyard requirement"],
+          [15, "Lanyard width"],
+          [16, "Attachment configuration"],
+          [17, "RFID specification, if applicable"],
+          [18, "Delivery location"],
+          [19, "Required timeline"],
+          [20, "Approval contact"],
+        ],
+      },
+      {
+        name: "ID Card Specification Checklist",
+        format: "PDF / CSV",
+        filename: "ID_Card_Specification_Checklist",
+        headers: ["Specification Item", "Options"],
+        rows: [
+          ["Card Type", "PVC / RFID / Event / Membership"],
+          ["Orientation", "Portrait / Landscape"],
+          ["Printing", "Single Side / Double Side"],
+          ["Personalization", "Yes / No"],
+          ["Accessories", "Holder / Hook / Lanyard / Sealing"],
+        ],
+      },
+      {
+        name: "Event Badge Planning Template",
+        format: "PDF / XLSX",
+        filename: "Event_Badge_Planning_Template",
+        headers: ["Section", "Details"],
+        rows: [
+          ["Event Information", "Name, Date, Venue, Participants, Quantity"],
+          ["Badge Categories", "Delegate, Speaker, Organizer, VIP, Exhibitor, Staff, Volunteer"],
+          ["Badge Requirements", "PVC/Badge, Portrait/Landscape, 1/2 Hooks, Lanyard, QR"],
+        ],
+      },
+      {
+        name: "RFID Requirement Checklist",
+        format: "PDF / CSV",
+        filename: "RFID_Requirement_Checklist",
+        headers: ["Requirement Item", "Specification Detail"],
+        rows: [
+          ["Technology", "13.56 MHz / 125 kHz"],
+          ["Chip Type", "Mifare 1K / TK4100 / NTAG"],
+          ["Reader Compatibility", "Specify reader make & model"],
+          ["Read/Write", "Encoding requirement"],
+        ],
+      },
+    ],
+  },
+  whyPrepare: {
+    badge: "Quality Assurance & Efficiency",
+    title: "Why Prepare Your Requirement Before Ordering?",
+    description: "A properly prepared requirement can help reduce:",
+    reasons: [
+      "Missing information",
+      "Incorrect data",
+      "Photograph mismatches",
+      "Repeated communication",
+      "Design corrections",
+      "Production delays",
+      "Avoidable reprints",
+    ],
+    footerNote:
+      "It also helps IDGen understand your project more accurately before production begins.",
+  },
+  closingCta: {
+    badge: "Identity Solutions Simplified",
+    title: "Ready to Send Your Requirement?",
+    description:
+      "Use the appropriate IDGen template to organize your project information before requesting a quotation.",
+    primaryCta: {
+      label: "Request a Quote →",
+      href: "/request-a-quote/",
+    },
+    secondaryCtas: [
+      {
+        label: "Explore IDGen Studio",
+        href: "/idgen-studio/",
+      },
+      {
+        label: "Contact IDGen",
+        href: "/contact-us/",
+      },
+    ],
+    tagline: {
+      title: "IDGen Templates",
+      subtitle: "Prepare Better. Collect Better. Print Better.",
+      pipeline: "Plan → Collect → Review → Approve → Print",
+      company: "IDGen — Identity Solutions Simplified",
+    },
+  },
+};
+
+export function getDynamicTemplates(): DynamicTemplatesData {
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      const raw = fs.readFileSync(DATA_FILE, "utf-8");
+      const parsed = JSON.parse(raw);
+      return {
+        ...DEFAULT_TEMPLATES_DATA,
+        ...parsed,
+        meta: { ...DEFAULT_TEMPLATES_DATA.meta, ...parsed.meta },
+        hero: {
+          ...DEFAULT_TEMPLATES_DATA.hero,
+          ...parsed.hero,
+          quickLinks: parsed.hero?.quickLinks || DEFAULT_TEMPLATES_DATA.hero.quickLinks,
+          trustBadges: parsed.hero?.trustBadges || DEFAULT_TEMPLATES_DATA.hero.trustBadges,
+          slides: parsed.hero?.slides || DEFAULT_TEMPLATES_DATA.hero.slides,
+        },
+        student: {
+          ...DEFAULT_TEMPLATES_DATA.student,
+          ...parsed.student,
+          fields: parsed.student?.fields || DEFAULT_TEMPLATES_DATA.student.fields,
+          fieldTypes: parsed.student?.fieldTypes || DEFAULT_TEMPLATES_DATA.student.fieldTypes,
+        },
+        employee: {
+          ...DEFAULT_TEMPLATES_DATA.employee,
+          ...parsed.employee,
+          fields: parsed.employee?.fields || DEFAULT_TEMPLATES_DATA.employee.fields,
+          fieldTypes: parsed.employee?.fieldTypes || DEFAULT_TEMPLATES_DATA.employee.fieldTypes,
+        },
+        studioPlanning: {
+          ...DEFAULT_TEMPLATES_DATA.studioPlanning,
+          ...parsed.studioPlanning,
+          fieldTypes: parsed.studioPlanning?.fieldTypes || DEFAULT_TEMPLATES_DATA.studioPlanning.fieldTypes,
+          steps: parsed.studioPlanning?.steps || DEFAULT_TEMPLATES_DATA.studioPlanning.steps,
+          worksheetRows: parsed.studioPlanning?.worksheetRows || DEFAULT_TEMPLATES_DATA.studioPlanning.worksheetRows,
+        },
+        bulkChecklist: {
+          ...DEFAULT_TEMPLATES_DATA.bulkChecklist,
+          ...parsed.bulkChecklist,
+          items: parsed.bulkChecklist?.items || DEFAULT_TEMPLATES_DATA.bulkChecklist.items,
+        },
+        specifications: {
+          ...DEFAULT_TEMPLATES_DATA.specifications,
+          ...parsed.specifications,
+          cardSpec: { ...DEFAULT_TEMPLATES_DATA.specifications.cardSpec, ...parsed.specifications?.cardSpec },
+          eventBadgeSpec: { ...DEFAULT_TEMPLATES_DATA.specifications.eventBadgeSpec, ...parsed.specifications?.eventBadgeSpec },
+          rfidSpec: {
+            ...DEFAULT_TEMPLATES_DATA.specifications.rfidSpec,
+            ...parsed.specifications?.rfidSpec,
+            points: parsed.specifications?.rfidSpec?.points || DEFAULT_TEMPLATES_DATA.specifications.rfidSpec.points,
+          },
+        },
+        studioWorkflow: {
+          ...DEFAULT_TEMPLATES_DATA.studioWorkflow,
+          ...parsed.studioWorkflow,
+          flowSteps: parsed.studioWorkflow?.flowSteps || DEFAULT_TEMPLATES_DATA.studioWorkflow.flowSteps,
+          comparisonTraditional: {
+            ...DEFAULT_TEMPLATES_DATA.studioWorkflow.comparisonTraditional,
+            ...parsed.studioWorkflow?.comparisonTraditional,
+          },
+          comparisonStudio: {
+            ...DEFAULT_TEMPLATES_DATA.studioWorkflow.comparisonStudio,
+            ...parsed.studioWorkflow?.comparisonStudio,
+          },
+          studentExample: {
+            ...DEFAULT_TEMPLATES_DATA.studioWorkflow.studentExample,
+            ...parsed.studioWorkflow?.studentExample,
+            fields: parsed.studioWorkflow?.studentExample?.fields || DEFAULT_TEMPLATES_DATA.studioWorkflow.studentExample.fields,
+          },
+          employeeExample: {
+            ...DEFAULT_TEMPLATES_DATA.studioWorkflow.employeeExample,
+            ...parsed.studioWorkflow?.employeeExample,
+            fields: parsed.studioWorkflow?.employeeExample?.fields || DEFAULT_TEMPLATES_DATA.studioWorkflow.employeeExample.fields,
+          },
+          testingChecklist: {
+            ...DEFAULT_TEMPLATES_DATA.studioWorkflow.testingChecklist,
+            ...parsed.studioWorkflow?.testingChecklist,
+            items: parsed.studioWorkflow?.testingChecklist?.items || DEFAULT_TEMPLATES_DATA.studioWorkflow.testingChecklist.items,
+          },
+        },
+        quotePrep: {
+          ...DEFAULT_TEMPLATES_DATA.quotePrep,
+          ...parsed.quotePrep,
+          fields: parsed.quotePrep?.fields || DEFAULT_TEMPLATES_DATA.quotePrep.fields,
+        },
+        downloads: {
+          ...DEFAULT_TEMPLATES_DATA.downloads,
+          ...parsed.downloads,
+          items: parsed.downloads?.items || DEFAULT_TEMPLATES_DATA.downloads.items,
+        },
+        whyPrepare: {
+          ...DEFAULT_TEMPLATES_DATA.whyPrepare,
+          ...parsed.whyPrepare,
+          reasons: parsed.whyPrepare?.reasons || DEFAULT_TEMPLATES_DATA.whyPrepare.reasons,
+        },
+        closingCta: {
+          ...DEFAULT_TEMPLATES_DATA.closingCta,
+          ...parsed.closingCta,
+          secondaryCtas: parsed.closingCta?.secondaryCtas || DEFAULT_TEMPLATES_DATA.closingCta.secondaryCtas,
+          tagline: { ...DEFAULT_TEMPLATES_DATA.closingCta.tagline, ...parsed.closingCta?.tagline },
+        },
+      };
+    }
+  } catch (err) {
+    console.error("Error reading dynamic-templates.json:", err);
+  }
+  return DEFAULT_TEMPLATES_DATA;
+}
+
+export function saveDynamicTemplates(data: DynamicTemplatesData): DynamicTemplatesData {
+  const dir = path.dirname(DATA_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+  return data;
+}
+
+export function resetDynamicTemplates(): DynamicTemplatesData {
+  saveDynamicTemplates(DEFAULT_TEMPLATES_DATA);
+  return DEFAULT_TEMPLATES_DATA;
+}

@@ -17,205 +17,18 @@ import {
   MessageSquare,
 } from "lucide-react";
 import type { Faq } from "@/data/types";
+import type { DynamicFaqExplorerMatrix, DynamicFaqCategorySection } from "@/lib/dynamic-faq-types";
 
-export interface CategorizedFaqSection {
-  name: string;
-  badge: string;
-  iconName?: string;
-  relatedHref?: string;
-  relatedLabel?: string;
-  faqs: Faq[];
-}
-
-export const faqDataCategories: CategorizedFaqSection[] = [
-  {
-    name: "General",
-    badge: "Company & Capabilities",
-    relatedHref: "/why-idgen/",
-    relatedLabel: "Why IDGen",
-    faqs: [
-      {
-        q: "What does IDGen do?",
-        a: "IDGen provides customized ID cards, printed lanyards, RFID cards, event badges, ID card accessories and digital identity workflows for organizations.",
-      },
-      {
-        q: "Where is IDGen based?",
-        a: "IDGen is based in Guwahati, Assam and serves organizations across Assam and the wider Northeast India market.",
-      },
-      {
-        q: "Does IDGen handle bulk ID card printing?",
-        a: "Yes. IDGen supports institutional and high-volume identification requirements, with actual capacity depending on product and project specifications.",
-      },
-    ],
-  },
-  {
-    name: "ID Cards",
-    badge: "Card Products & Formats",
-    relatedHref: "/id-card-printing/",
-    relatedLabel: "Explore ID Card Printing",
-    faqs: [
-      {
-        q: "Can I order only ID cards?",
-        a: "Yes. ID cards can be ordered without accessories where required.",
-      },
-      {
-        q: "Can I order a complete ID card setup?",
-        a: "Yes. Depending on the requirement, a setup can include an ID card, holder, hook, custom printed lanyard and applicable ultrasonic sealing.",
-      },
-      {
-        q: "Can ID cards contain QR codes?",
-        a: "Yes, where required. The actual function of a QR code depends on the supporting system or application.",
-      },
-      {
-        q: "Can ID cards contain barcodes?",
-        a: "Yes. Barcodes can be included according to the identification requirement.",
-      },
-    ],
-  },
-  {
-    name: "Student ID Cards",
-    badge: "Educational Institutions",
-    relatedHref: "/student-id-card-printing/",
-    relatedLabel: "Explore Student ID Cards",
-    faqs: [
-      {
-        q: "Does IDGen print student ID cards?",
-        a: "Yes. IDGen provides customized student ID cards for schools, colleges, universities and educational organizations.",
-      },
-      {
-        q: "Can student ID cards be ordered in bulk?",
-        a: "Yes. Institutional and high-volume student ID card projects are supported.",
-      },
-    ],
-  },
-  {
-    name: "Employee ID Cards",
-    badge: "Corporate & Staff",
-    relatedHref: "/employee-id-card-printing/",
-    relatedLabel: "Explore Employee ID Cards",
-    faqs: [
-      {
-        q: "Does IDGen print employee ID cards?",
-        a: "Yes. IDGen provides customized employee and staff identification for companies, offices, hospitals, industries and institutions.",
-      },
-    ],
-  },
-  {
-    name: "Lanyards & Accessories",
-    badge: "Wearable Hardware",
-    relatedHref: "/custom-printed-lanyard-printing/",
-    relatedLabel: "Explore Custom Lanyards",
-    faqs: [
-      {
-        q: "Does IDGen provide custom printed lanyards?",
-        a: "Yes. Custom printed lanyards can be supplied as part of an identification setup.",
-      },
-      {
-        q: "Can I order holders separately?",
-        a: "Yes. ID card holders can be supplied separately or combined with other identification products.",
-      },
-      {
-        q: "Can I order hooks separately?",
-        a: "Yes. ID card hooks and suitable attachments can be supplied according to the required configuration.",
-      },
-    ],
-  },
-  {
-    name: "RFID",
-    badge: "Smart Cards & Chips",
-    relatedHref: "/rfid-card-printing/",
-    relatedLabel: "Explore RFID Cards",
-    faqs: [
-      {
-        q: "Does IDGen provide RFID cards?",
-        a: "Yes. RFID cards can be produced according to the required RFID technology and compatible system specifications.",
-      },
-      {
-        q: "Can you guarantee RFID compatibility without checking my system?",
-        a: "No. RFID specifications should be confirmed against the reader/system and required technology before production.",
-      },
-    ],
-  },
-  {
-    name: "IDGen Studio",
-    badge: "Digital Identity Workflow",
-    relatedHref: "/idgen-studio/",
-    relatedLabel: "Explore IDGen Studio",
-    faqs: [
-      {
-        q: "What is IDGen Studio?",
-        a: "IDGen Studio is the digital identity workflow used to connect data collection and personalized ID card production for suitable projects.",
-      },
-      {
-        q: "Can people submit their information through a QR code?",
-        a: "The master content describes customized forms, shareable links and QR-code-based collection as part of the applicable IDGen Studio workflow.",
-      },
-      {
-        q: "Can organizations review submissions before printing?",
-        a: "Yes, for suitable IDGen Studio projects.",
-      },
-      {
-        q: "Can approved records be printed batch-wise?",
-        a: "Yes, where the configured IDGen Studio workflow supports batch production.",
-      },
-    ],
-  },
-  {
-    name: "Pricing",
-    badge: "Reference Rates & Quotes",
-    relatedHref: "/pricing/",
-    relatedLabel: "View Pricing Tiers",
-    faqs: [
-      {
-        q: "How much does an ID card cost?",
-        a: "The master pricing page uses reference pricing rather than a universal final price. Current reference prices documented in the master are ₹15 for single-side PVC ID card printing, ₹16 for double-side printing, ₹15 for a 20 mm custom printed lanyard, ₹35 for an event card and ₹45 for an RFID ID card, subject to specifications and order conditions.",
-      },
-      {
-        q: "Is the listed price the final price?",
-        a: "No. Final pricing depends on quantity, specifications, personalization, accessories and applicable delivery conditions.",
-      },
-    ],
-  },
-  {
-    name: "Service Areas",
-    badge: "Regional Coverage",
-    relatedHref: "/service-areas/assam/",
-    relatedLabel: "Explore Service Areas",
-    faqs: [
-      {
-        q: "Does IDGen serve only Guwahati?",
-        a: "No. Guwahati is the primary base, while IDGen serves organizations across Assam and the wider Northeast India market.",
-      },
-      {
-        q: "Does a city page mean IDGen has an office there?",
-        a: "No. A city service-area page represents service coverage unless a physical branch is specifically listed. This distinction is already used throughout the master location architecture.",
-      },
-    ],
-  },
-  {
-    name: "Data & Confidentiality",
-    badge: "Security & Privacy",
-    relatedHref: "/privacy-policy/",
-    relatedLabel: "Privacy Policy",
-    faqs: [
-      {
-        q: "Does IDGen handle identification information confidentially?",
-        a: "IDGen treats customer-provided identification information as confidential project information and handles it for the agreed identification-related purpose.",
-      },
-      {
-        q: "What information should an organization provide?",
-        a: "Only information required for the identification project should be provided. Depending on the project, this may include names, photographs, identification numbers, classes, courses, departments, designations, QR-code information and barcode information.",
-      },
-    ],
-  },
-];
+export type CategorizedFaqSection = DynamicFaqCategorySection;
 
 interface FaqExplorerMatrixProps {
+  data: DynamicFaqExplorerMatrix;
   selectedCategory: string;
   setSelectedCategory: (cat: string) => void;
 }
 
 export function FaqExplorerMatrix({
+  data,
   selectedCategory,
   setSelectedCategory,
 }: FaqExplorerMatrixProps) {
@@ -223,18 +36,20 @@ export function FaqExplorerMatrix({
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
+  const categories = data?.categories || [];
+
   // Auto-expand first few questions or active search results
   useEffect(() => {
     if (searchQuery.trim() !== "") {
       const allOpen: Record<string, boolean> = {};
-      faqDataCategories.forEach((cat) => {
-        cat.faqs.forEach((faq, i) => {
+      categories.forEach((cat) => {
+        cat.faqs.forEach((_, i) => {
           allOpen[`${cat.name}-${i}`] = true;
         });
       });
       setOpenItems(allOpen);
     }
-  }, [searchQuery]);
+  }, [searchQuery, categories]);
 
   const toggleAccordion = (id: string) => {
     setOpenItems((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -247,7 +62,7 @@ export function FaqExplorerMatrix({
   };
 
   // Filter logic
-  const filteredCategories = faqDataCategories
+  const filteredCategories = categories
     .map((cat) => {
       const matchesCategory =
         selectedCategory === "all" ||
@@ -272,6 +87,7 @@ export function FaqExplorerMatrix({
     })
     .filter((cat) => cat.visible);
 
+  const totalAllQuestions = categories.reduce((acc, cat) => acc + cat.faqs.length, 0);
   const totalAnswerCount = filteredCategories.reduce(
     (acc, cat) => acc + cat.faqs.length,
     0
@@ -284,18 +100,19 @@ export function FaqExplorerMatrix({
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <HelpCircle className="h-3.5 w-3.5" />
-            <span>Interactive Knowledge Base</span>
+            <span>{data?.eyebrow || "Interactive Knowledge Base"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white mt-2 tracking-tight">
-            Frequently Asked Questions
+            {data?.title || "Frequently Asked Questions"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Search or filter through verified answers covering factory production, digital workflows, wearable hardware, and regional fulfillment.
+            {data?.lede ||
+              "Search or filter through verified answers covering factory production, digital workflows, wearable hardware, and regional fulfillment."}
           </p>
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          Showing {totalAnswerCount} of 25 Verified Questions
+          Showing {totalAnswerCount} of {totalAllQuestions} Verified Questions
         </div>
       </div>
 
@@ -319,11 +136,11 @@ export function FaqExplorerMatrix({
                   : "bg-slate-100 dark:bg-slate-800 text-slate-500"
               }`}
             >
-              25
+              {totalAllQuestions}
             </span>
           </button>
 
-          {faqDataCategories.map((cat) => (
+          {categories.map((cat) => (
             <button
               key={cat.name}
               onClick={() => setSelectedCategory(cat.name)}
@@ -421,7 +238,10 @@ export function FaqExplorerMatrix({
               <div className="space-y-3.5">
                 {category.faqs.map((faq, idx) => {
                   const itemId = `${category.name}-${idx}`;
-                  const isOpen = openItems[itemId] !== undefined ? openItems[itemId] : idx === 0 && selectedCategory !== "all";
+                  const isOpen =
+                    openItems[itemId] !== undefined
+                      ? openItems[itemId]
+                      : idx === 0 && selectedCategory !== "all";
 
                   return (
                     <div

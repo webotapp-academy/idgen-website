@@ -75,19 +75,20 @@ const heroSlides: HeroSlide[] = [
   },
 ];
 
-export function HeroCarousel() {
+export function HeroCarousel({ slides: incomingSlides }: { slides?: HeroSlide[] } = {}) {
+  const slides = incomingSlides && incomingSlides.length > 0 ? incomingSlides : heroSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -123,7 +124,7 @@ export function HeroCarousel() {
     }
   };
 
-  const currentSlide = heroSlides[currentIndex];
+  const currentSlide = slides[currentIndex] || slides[0];
 
   return (
     <div
@@ -140,11 +141,11 @@ export function HeroCarousel() {
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-surface-border dark:border-cyan-500/30 bg-surface dark:bg-[#09111e] shadow-2xl shadow-accent/15 transition-all duration-500 hover:border-accent/50">
         
         {/* Slides Images Stack with Smooth Crossfade */}
-        {heroSlides.map((slide, idx) => {
+        {slides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
-              key={slide.id}
+              key={slide.id || idx}
               className={`absolute inset-0 transition-all duration-700 ease-out ${
                 isActive
                   ? "opacity-100 scale-100 z-10"
@@ -153,7 +154,7 @@ export function HeroCarousel() {
             >
               <Image
                 src={slide.imageSrc}
-                alt={slide.alt}
+                alt={slide.alt || slide.title}
                 title={slide.title}
                 fill
                 unoptimized
@@ -216,9 +217,9 @@ export function HeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {heroSlides.map((slide, idx) => (
+          {slides.map((slide, idx) => (
             <button
-              key={slide.id}
+              key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -240,12 +241,15 @@ export function HeroCarousel() {
       </div>
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
-      <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {heroSlides.map((slide, idx) => {
+      <div 
+        className="mt-3.5 grid gap-2 px-1"
+        style={{ gridTemplateColumns: `repeat(${Math.min(slides.length, 6)}, minmax(0, 1fr))` }}
+      >
+        {slides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button
-              key={slide.id}
+              key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               className={`group/thumb relative aspect-square overflow-hidden rounded-xl border transition-all duration-300 ${
                 isActive

@@ -8,11 +8,25 @@ import {
   resetPricingToDefaults,
   type PricingItemData,
 } from "@/lib/dynamic-pricing";
+import {
+  getDynamicPricingPage,
+  saveDynamicPricingPage,
+  saveDynamicPricingPageSection,
+  resetDynamicPricingPage,
+} from "@/lib/dynamic-pricing-page";
+import type { DynamicPricingPageData } from "@/lib/dynamic-pricing-types";
 import { getAdminSession } from "@/lib/auth";
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
+    const type = searchParams.get("type");
+
+    if (type === "page") {
+      const pageData = getDynamicPricingPage();
+      return NextResponse.json({ success: true, page: pageData });
+    }
+
     const id = searchParams.get("id");
     const includeInactive = searchParams.get("all") === "true";
 
@@ -40,7 +54,28 @@ export async function POST(request: Request) {
     }
 
     const data = await request.json();
-    const { item, action } = data;
+    const { item, action, type, section, sectionData, pageData } = data;
+
+    // Page-level actions
+    if (type === "page" || action === "save_page" || action === "save_page_section" || action === "reset_page") {
+      if (action === "reset_page") {
+        const resetPage = resetDynamicPricingPage();
+        return NextResponse.json({ success: true, message: "Pricing page reset to default content", page: resetPage });
+      }
+
+      if (action === "save_page_section" && section) {
+        const updated = saveDynamicPricingPageSection(
+          section as keyof DynamicPricingPageData,
+          sectionData
+        );
+        return NextResponse.json({ success: true, message: `Section ${String(section)} updated successfully`, page: updated });
+      }
+
+      if (action === "save_page" && pageData) {
+        saveDynamicPricingPage(pageData as DynamicPricingPageData);
+        return NextResponse.json({ success: true, message: "Full pricing page updated successfully", page: pageData });
+      }
+    }
 
     if (action === "reset") {
       const resetItems = resetPricingToDefaults();

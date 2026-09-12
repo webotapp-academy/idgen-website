@@ -89,21 +89,26 @@ const pricingSlides: PricingSlide[] = [
   },
 ];
 
-export function PricingHeroCarousel() {
+export function PricingHeroCarousel({ initialSlides }: { initialSlides?: PricingSlide[] }) {
+  const activeSlides = (initialSlides && initialSlides.length > 0)
+    ? initialSlides.filter((s) => (s as any).isActive !== false)
+    : pricingSlides;
+  const currentSlides = activeSlides.length > 0 ? activeSlides : pricingSlides;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % pricingSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % currentSlides.length);
+  }, [currentSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + pricingSlides.length) % pricingSlides.length
+      (prev) => (prev - 1 + currentSlides.length) % currentSlides.length
     );
-  }, []);
+  }, [currentSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);

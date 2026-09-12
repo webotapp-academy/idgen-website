@@ -15,66 +15,142 @@ import {
   Box,
 } from "lucide-react";
 
-export function MedalEngineeringGuide() {
+const ICON_MAP: Record<string, React.ElementType> = {
+  Box,
+  Sparkles,
+  Shirt,
+  Flame,
+  Award,
+  Sliders,
+  Layers,
+  ShieldCheck,
+};
+
+const defaultFactors = [
+  {
+    num: "01",
+    title: "1. Medal Diameter & Thickness",
+    desc: "50mm, 60mm, 65mm, 75mm (3.0mm to 5.0mm depth).",
+    detail: "For standard school events, 50mm–60mm (3.5mm thick) provides the ideal balance of size and budget. For state championships and marathons, 65mm–75mm (4.0mm–5.0mm thick) delivers massive podium impact.",
+    iconName: "Box",
+    icon: Box,
+  },
+  {
+    num: "02",
+    title: "2. 2D Flat vs 3D Sculpted Relief",
+    desc: "Single-plane graphic lines vs multi-level 3D contours.",
+    detail: "3D sculpted relief allows rounded human muscle contours, architectural elevations, and curved animal mascots that cannot be represented in flat 2D lines.",
+    iconName: "Sparkles",
+    icon: Sparkles,
+  },
+  {
+    num: "03",
+    title: "3. Custom Satin Ribbon Width",
+    desc: "20mm, 25mm, 30mm, 35mm V-Neck Sewn Satin.",
+    detail: "Our standard 25mm–30mm silky polyester satin ribbons support double-sided full-color dye sublimation for sponsor logos, event dates, and dynamic gradient artwork.",
+    iconName: "Shirt",
+    icon: Shirt,
+  },
+  {
+    num: "04",
+    title: "4. Plating & Color Enamel Infill",
+    desc: "Antique metal finish vs soft enamel color accents.",
+    detail: "Choose Antique Gold/Silver/Bronze for traditional prestige, or add vibrant Pantone-matched soft enamel infills for multi-colored federation logos.",
+    iconName: "Flame",
+    icon: Flame,
+  },
+];
+
+const defaultPlatingOptions = [
+  {
+    title: "Antique Gold Plating",
+    badge: "1st Place",
+    desc: "Rich golden electroplate with dark antique shadowing in recessed textures and mirror-polished highlights.",
+    pros: ["Maximum 3D contrast", "Non-glare photographic clarity", "Resistant to finger smudges"],
+    iconName: "Award",
+    icon: Award,
+    highlight: true,
+  },
+  {
+    title: "Antique Silver Plating",
+    badge: "2nd Place",
+    desc: "Classic antique nickel/silver finish that brings out razor-sharp serif text and academic crest details.",
+    pros: ["Elegant institutional look", "High-contrast relief definition", "Tarnish-proof lacquer seal"],
+    iconName: "Award",
+    icon: Award,
+    highlight: false,
+  },
+  {
+    title: "Antique Bronze / Copper",
+    badge: "3rd Place / Finisher",
+    desc: "Warm copper-bronze patina with rustic antique brushing, ideal for marathon finishers and 3rd place podiums.",
+    pros: ["Authentic Olympic aesthetic", "Extremely durable finish", "Popular for marathon runs"],
+    iconName: "Award",
+    icon: Award,
+    highlight: false,
+  },
+];
+
+export function MedalEngineeringGuide({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    description?: string;
+    lede?: string;
+    factors?: Array<{
+      num: string;
+      title: string;
+      desc: string;
+      detail: string;
+      iconName?: string;
+    }>;
+    platingBadge?: string;
+    platingTitle?: string;
+    fastenersTitle?: string;
+    fastenersLede?: string;
+    platingOptions?: Array<{
+      title: string;
+      badge: string;
+      desc: string;
+      pros: string[];
+      iconName?: string;
+      highlight?: boolean;
+    }>;
+    fasteners?: Array<{
+      title: string;
+      badge: string;
+      desc: string;
+      pros: string[];
+      iconName?: string;
+      highlight?: boolean;
+    }>;
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Decision Factors";
+  const sectionTitle = data?.title || "Custom Medal Engineering & Specifications";
+  const sectionDesc =
+    data?.lede ||
+    data?.description ||
+    "Consider these four technical parameters when designing custom zinc medals for your event:";
+  const activeFactors =
+    data?.factors && data.factors.length > 0 ? data.factors : defaultFactors;
+  const platingBadge = data?.platingBadge || "Electroplate Finishes";
+  const platingTitle =
+    data?.fastenersTitle ||
+    data?.platingTitle ||
+    "Medal Electroplating & Patina Options";
+  const activePlatingOptions =
+    data?.fasteners && data.fasteners.length > 0
+      ? data.fasteners
+      : data?.platingOptions && data.platingOptions.length > 0
+      ? data.platingOptions
+      : defaultPlatingOptions;
+
   const [selectedFactor, setSelectedFactor] = useState<number>(0);
-
-  const factors = [
-    {
-      num: "01",
-      title: "1. Medal Diameter & Thickness",
-      desc: "50mm, 60mm, 65mm, 75mm (3.0mm to 5.0mm depth).",
-      detail: "For standard school events, 50mm–60mm (3.5mm thick) provides the ideal balance of size and budget. For state championships and marathons, 65mm–75mm (4.0mm–5.0mm thick) delivers massive podium impact.",
-      icon: Box,
-    },
-    {
-      num: "02",
-      title: "2. 2D Flat vs 3D Sculpted Relief",
-      desc: "Single-plane graphic lines vs multi-level 3D contours.",
-      detail: "3D sculpted relief allows rounded human muscle contours, architectural elevations, and curved animal mascots that cannot be represented in flat 2D lines.",
-      icon: Sparkles,
-    },
-    {
-      num: "03",
-      title: "3. Custom Satin Ribbon Width",
-      desc: "20mm, 25mm, 30mm, 35mm V-Neck Sewn Satin.",
-      detail: "Our standard 25mm–30mm silky polyester satin ribbons support double-sided full-color dye sublimation for sponsor logos, event dates, and dynamic gradient artwork.",
-      icon: Shirt,
-    },
-    {
-      num: "04",
-      title: "4. Plating & Color Enamel Infill",
-      desc: "Antique metal finish vs soft enamel color accents.",
-      detail: "Choose Antique Gold/Silver/Bronze for traditional prestige, or add vibrant Pantone-matched soft enamel infills for multi-colored federation logos.",
-      icon: Flame,
-    },
-  ];
-
-  const platingOptions = [
-    {
-      title: "Antique Gold Plating",
-      badge: "1st Place",
-      desc: "Rich golden electroplate with dark antique shadowing in recessed textures and mirror-polished highlights.",
-      pros: ["Maximum 3D contrast", "Non-glare photographic clarity", "Resistant to finger smudges"],
-      icon: Award,
-      highlight: true,
-    },
-    {
-      title: "Antique Silver Plating",
-      badge: "2nd Place",
-      desc: "Classic antique nickel/silver finish that brings out razor-sharp serif text and academic crest details.",
-      pros: ["Elegant institutional look", "High-contrast relief definition", "Tarnish-proof lacquer seal"],
-      icon: Award,
-      highlight: false,
-    },
-    {
-      title: "Antique Bronze / Copper",
-      badge: "3rd Place / Finisher",
-      desc: "Warm copper-bronze patina with rustic antique brushing, ideal for marathon finishers and 3rd place podiums.",
-      pros: ["Authentic Olympic aesthetic", "Extremely durable finish", "Popular for marathon runs"],
-      icon: Award,
-      highlight: false,
-    },
-  ];
+  const safeFactorIndex = selectedFactor < activeFactors.length ? selectedFactor : 0;
+  const currentFactor = activeFactors[safeFactorIndex] || activeFactors[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -84,22 +160,25 @@ export function MedalEngineeringGuide() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Sliders className="h-3.5 w-3.5" />
-              <span>Decision Factors</span>
+              <span>{badgeTitle}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              Custom Medal Engineering &amp; Specifications
+              {sectionTitle}
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-              Consider these four technical parameters when designing custom zinc medals for your event:
+              {sectionDesc}
             </p>
           </div>
         </div>
 
         {/* 4 Factor Cards */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {factors.map((f, idx) => {
-            const isSelected = selectedFactor === idx;
-            const Icon = f.icon;
+          {activeFactors.map((f, idx) => {
+            const isSelected = safeFactorIndex === idx;
+            const Icon =
+              ((f as any).iconName && ICON_MAP[(f as any).iconName]) ||
+              (f as any).icon ||
+              Box;
 
             return (
               <div
@@ -140,10 +219,10 @@ export function MedalEngineeringGuide() {
             <Sparkles className="h-5 w-5 text-cyan-300 shrink-0 mt-0.5" />
             <div>
               <span className="text-[10px] font-black uppercase text-cyan-300 tracking-wider">
-                Engineering Recommendation: {factors[selectedFactor].title}
+                Engineering Recommendation: {currentFactor?.title}
               </span>
               <p className="text-xs sm:text-sm text-slate-200 mt-1 font-medium leading-relaxed">
-                {factors[selectedFactor].detail}
+                {currentFactor?.detail}
               </p>
             </div>
           </div>
@@ -156,10 +235,10 @@ export function MedalEngineeringGuide() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Flame className="h-3.5 w-3.5" />
-              <span>Electroplate Finishes</span>
+              <span>{platingBadge}</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              Medal Electroplating &amp; Patina Options
+              {platingTitle}
             </h3>
           </div>
 
@@ -169,8 +248,11 @@ export function MedalEngineeringGuide() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
-          {platingOptions.map((opt, idx) => {
-            const Icon = opt.icon;
+          {activePlatingOptions.map((opt, idx) => {
+            const Icon =
+              ((opt as any).iconName && ICON_MAP[(opt as any).iconName]) ||
+              (opt as any).icon ||
+              Award;
 
             return (
               <div

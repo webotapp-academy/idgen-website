@@ -1,0 +1,500 @@
+{
+  "meta": {
+    "title": "ID Card Printing Guides & Identification Resources | IDGen",
+    "description": "Practical guides for planning student ID cards, employee ID cards, bulk printing, lanyards, RFID cards, event badges and complete identification projects.",
+    "path": "/resources/guides/"
+  },
+  "hero": {
+    "badgePrefix": "Identification Resource Hub",
+    "badgeHighlight": "Comprehensive Guides",
+    "titlePrefix": "ID Card Printing & ",
+    "titleHighlight": "Identification Guides",
+    "description": "Planning an identification project becomes easier when the requirements are clear before production begins. These guides are designed for schools, colleges, universities, companies, hospitals, institutions, event organizers, associations and other organizations that need personalized identification products.",
+    "featureCards": [
+      {
+        "title": "10 Guides",
+        "subtitle": "Step-by-step checklists",
+        "iconName": "BookOpen"
+      },
+      {
+        "title": "7 Sectors",
+        "subtitle": "Institutional categories",
+        "iconName": "Boxes"
+      },
+      {
+        "title": "Digital Flow",
+        "subtitle": "IDGen Studio workflow",
+        "iconName": "QrCode"
+      },
+      {
+        "title": "Free Quotes",
+        "subtitle": "Quotation checklist",
+        "iconName": "Calculator"
+      }
+    ],
+    "primaryCta": {
+      "label": "Explore Featured Guides",
+      "href": "#guides-explorer"
+    },
+    "secondaryCta": {
+      "label": "Request a Quote",
+      "href": "/request-a-quote/"
+    },
+    "tertiaryCta": {
+      "label": "IDGen Studio",
+      "href": "/idgen-studio/"
+    },
+    "trustBadges": [
+      "Factory Direct Guidance",
+      "Guwahati Production Hub",
+      "72-Hour Express Dispatch"
+    ]
+  },
+  "heroShowcase": {
+    "badge": "10 Practical Guides",
+    "pillars": [
+      {
+        "id": "bulk",
+        "tabLabel": "Bulk Planning",
+        "tabSub": "Guide 1",
+        "guidePill": "Guide 01: Bulk Planning",
+        "headerSubtitle": "Production Readiness",
+        "cardTitle": "Bulk Project Checklist",
+        "cardSubtitle": "Information, specifications & approvals",
+        "cardBadge": "Guide 1",
+        "cardIcon": "Boxes",
+        "themeStyle": "light",
+        "items": [
+          "Personalized Information & CSV Roster",
+          "High-Resolution Biometric Photographs",
+          "Card Specifications (CR80 PVC / RFID)",
+          "Design Proof Review & Formal Approval",
+          "Quality Inspection & Batched Production"
+        ],
+        "footerLinkText": "Explore Bulk ID Card Printing",
+        "footerLinkHref": "/id-card-printing/"
+      },
+      {
+        "id": "studio",
+        "tabLabel": "IDGen Studio",
+        "tabSub": "Guide 9",
+        "guidePill": "Guide 09: Digital Workflow",
+        "headerSubtitle": "IDGen Studio Digital Flow",
+        "cardTitle": "IDGen Studio Digital Flow",
+        "cardSubtitle": "Online Data Collection & Live Card Preview",
+        "cardBadge": "Guide 9",
+        "cardIcon": "QrCode",
+        "themeStyle": "cyan",
+        "items": [
+          "1. Custom Form",
+          "2. QR / Link Share",
+          "3. Data & Photo",
+          "4. Live Card Preview",
+          "5. Org Review",
+          "6. Batch Approval"
+        ],
+        "footerLinkText": "Explore IDGen Studio",
+        "footerLinkHref": "/idgen-studio/"
+      },
+      {
+        "id": "student",
+        "tabLabel": "Checklists",
+        "tabSub": "Guide 2 & 3",
+        "guidePill": "Guide 02: Student Checklist",
+        "headerSubtitle": "Institutional Requirements",
+        "cardTitle": "Student Checklist",
+        "cardSubtitle": "Guide 2 & Guide 3 Specifications",
+        "cardBadge": "Guide 2 & 3",
+        "cardIcon": "GraduationCap",
+        "themeStyle": "light",
+        "items": [
+          "Student / Employee Name",
+          "Photograph Specifications",
+          "ID / Admission Number",
+          "Class / Department",
+          "Course / Designation",
+          "QR Code & Barcode"
+        ],
+        "footerLinkText": "Explore Student ID Card Printing",
+        "footerLinkHref": "/student-id-card-printing/"
+      },
+      {
+        "id": "wearable",
+        "tabLabel": "Wearable Setup",
+        "tabSub": "Guide 4",
+        "guidePill": "Guide 04: Wearable Setup",
+        "headerSubtitle": "Card + Holder + Hook + Lanyard",
+        "cardTitle": "Wearable Setups",
+        "cardSubtitle": "Guide 4: Which Setup Do You Need?",
+        "cardBadge": "Guide 4",
+        "cardIcon": "Layers",
+        "themeStyle": "emerald",
+        "items": [
+          "Tier 1: Card only",
+          "Tier 2: Card + holder",
+          "Tier 3: Card + holder + hook + lanyard",
+          "Tier 4: Complete wearable setup"
+        ],
+        "footerLinkText": "Explore ID Card Holders",
+        "footerLinkHref": "/id-card-holders/"
+      }
+    ],
+    "quickSpecs": [
+      {
+        "label": "Guides",
+        "value": "10 Practical Guides"
+      },
+      {
+        "label": "Categories",
+        "value": "7 Core Sectors",
+        "accentClass": "text-[#009fe3] dark:text-cyan-400"
+      },
+      {
+        "label": "Coverage",
+        "value": "Free Project Planning",
+        "accentClass": "text-emerald-600 dark:text-emerald-400"
+      }
+    ]
+  },
+  "explorerMatrix": {
+    "eyebrow": "Featured Documentation",
+    "title": "Featured Identification Guides",
+    "lede": "Step-by-step checklists, specification sheets, and project workflows designed to help organizations plan and manage identification projects.",
+    "categories": [
+      { "id": "all", "label": "All Guides" },
+      { "id": "bulk", "label": "Bulk Projects" },
+      { "id": "student", "label": "Student IDs" },
+      { "id": "employee", "label": "Employee IDs" },
+      { "id": "accessories", "label": "Holders & Lanyards" },
+      { "id": "tech", "label": "RFID & IDGen Studio" },
+      { "id": "events", "label": "Event Badges" },
+      { "id": "quote", "label": "Quote Preparation" }
+    ],
+    "guides": [
+      {
+        "number": "01",
+        "title": "How to Plan a Bulk ID Card Printing Project",
+        "category": "bulk",
+        "body": "Understand the information, photographs, quantity, card specifications, design approval and production requirements needed for a large ID card project.",
+        "relatedHref": "/id-card-printing/",
+        "iconName": "Boxes",
+        "tag": "Bulk Planning",
+        "readTime": "3 min read",
+        "accentGradient": "from-sky-500/10 via-cyan-500/5 to-transparent",
+        "iconColor": "text-[#009fe3] bg-sky-500/10 border-sky-500/20",
+        "badgeBg": "bg-sky-50 dark:bg-sky-950/50 text-[#009fe3] dark:text-cyan-300 border-sky-200/60 dark:border-sky-800"
+      },
+      {
+        "number": "02",
+        "title": "Student ID Card Requirements Checklist",
+        "category": "student",
+        "body": "Learn what schools and educational institutions should prepare before ordering student ID cards.",
+        "listLabel": "Typical information can include:",
+        "list": [
+          "Student name",
+          "Photograph",
+          "Student ID / admission number",
+          "Class",
+          "Course",
+          "Institution name",
+          "QR code or barcode where required",
+          "Required accessories"
+        ],
+        "relatedHref": "/student-id-card-printing/",
+        "iconName": "GraduationCap",
+        "tag": "Education Checklist",
+        "readTime": "4 min read",
+        "accentGradient": "from-blue-500/10 via-indigo-500/5 to-transparent",
+        "iconColor": "text-blue-500 bg-blue-500/10 border-blue-500/20",
+        "badgeBg": "bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-300 border-blue-200/60 dark:border-blue-800"
+      },
+      {
+        "number": "03",
+        "title": "Employee ID Card Requirements",
+        "category": "employee",
+        "body": "A practical guide to preparing employee information, photographs, departments, designations, employee IDs and branding.",
+        "relatedHref": "/employee-id-card-printing/",
+        "iconName": "Briefcase",
+        "tag": "Corporate Roster",
+        "readTime": "3 min read",
+        "accentGradient": "from-cyan-500/10 via-teal-500/5 to-transparent",
+        "iconColor": "text-cyan-500 bg-cyan-500/10 border-cyan-500/20",
+        "badgeBg": "bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-300 border-cyan-200/60 dark:border-cyan-800"
+      },
+      {
+        "number": "04",
+        "title": "ID Card + Holder + Hook + Lanyard: Which Setup Do You Need?",
+        "category": "accessories",
+        "body": "Understand the difference between different identification configurations:",
+        "list": [
+          "Card only",
+          "Card + holder",
+          "Card + holder + hook + lanyard",
+          "Complete wearable setup"
+        ],
+        "note": "The master architecture already defines these as different identification configurations rather than separate customer types.",
+        "relatedHref": "/id-card-holders/",
+        "iconName": "Layers",
+        "tag": "Hardware Setups",
+        "readTime": "4 min read",
+        "accentGradient": "from-emerald-500/10 via-teal-500/5 to-transparent",
+        "iconColor": "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+        "badgeBg": "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-300 border-emerald-200/60 dark:border-emerald-800"
+      },
+      {
+        "number": "05",
+        "title": "How to Choose an ID Card Holder",
+        "category": "accessories",
+        "body": "Understand portrait vs landscape orientation, holder type, card dimensions and attachment requirements.",
+        "relatedHref": "/id-card-holders/",
+        "iconName": "Layers",
+        "tag": "Holders & Attachments",
+        "readTime": "3 min read",
+        "accentGradient": "from-teal-500/10 via-cyan-500/5 to-transparent",
+        "iconColor": "text-teal-500 bg-teal-500/10 border-teal-500/20",
+        "badgeBg": "bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-300 border-teal-200/60 dark:border-teal-800"
+      },
+      {
+        "number": "06",
+        "title": "What Information Is Needed for RFID Card Printing?",
+        "category": "tech",
+        "body": "Before ordering RFID cards, organizations should provide the applicable RFID technology, frequency, chip, reader/system compatibility, card format and personalization requirements.",
+        "relatedHref": "/rfid-card-printing/",
+        "iconName": "Radio",
+        "tag": "Smart RFID",
+        "readTime": "4 min read",
+        "accentGradient": "from-purple-500/10 via-indigo-500/5 to-transparent",
+        "iconColor": "text-purple-500 bg-purple-500/10 border-purple-500/20",
+        "badgeBg": "bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-300 border-purple-200/60 dark:border-purple-800"
+      },
+      {
+        "number": "07",
+        "title": "Custom Printed Lanyard Planning Guide",
+        "category": "accessories",
+        "body": "Understand artwork, branding, colors, width and attachment requirements before ordering custom printed lanyards.",
+        "relatedHref": "/custom-printed-lanyard-printing/",
+        "iconName": "Sparkles",
+        "tag": "Lanyards",
+        "readTime": "3 min read",
+        "accentGradient": "from-amber-500/10 via-orange-500/5 to-transparent",
+        "iconColor": "text-amber-500 bg-amber-500/10 border-amber-500/20",
+        "badgeBg": "bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-300 border-amber-200/60 dark:border-amber-800"
+      },
+      {
+        "number": "08",
+        "title": "Event Badge Planning Guide",
+        "category": "events",
+        "body": "Plan participant categories such as:",
+        "list": [
+          "Delegate",
+          "Speaker",
+          "Organizer",
+          "VIP",
+          "Exhibitor",
+          "Staff",
+          "Volunteer"
+        ],
+        "relatedHref": "/event-card-printing/",
+        "iconName": "Ticket",
+        "tag": "Events & Summits",
+        "readTime": "3 min read",
+        "accentGradient": "from-rose-500/10 via-orange-500/5 to-transparent",
+        "iconColor": "text-rose-500 bg-rose-500/10 border-rose-500/20",
+        "badgeBg": "bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-300 border-rose-200/60 dark:border-rose-800"
+      },
+      {
+        "number": "09",
+        "title": "How IDGen Studio Can Simplify ID Card Data Collection",
+        "category": "tech",
+        "body": "Understand the digital collection and preview workflow:",
+        "workflow": [
+          "Form",
+          "QR/Link",
+          "Data & Photo",
+          "Preview",
+          "Organization Review",
+          "Approval",
+          "Production"
+        ],
+        "note": "The master file specifically positions IDGen Studio around digital collection, preview, review, approval and batch production.",
+        "relatedHref": "/idgen-studio/",
+        "iconName": "QrCode",
+        "tag": "Digital Workflow",
+        "readTime": "5 min read",
+        "accentGradient": "from-cyan-500/15 via-sky-500/10 to-transparent",
+        "iconColor": "text-cyan-400 bg-cyan-500/20 border-cyan-400/30",
+        "badgeBg": "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-300 border-cyan-300 dark:border-cyan-800"
+      },
+      {
+        "number": "10",
+        "title": "How to Prepare for Your ID Card Quote",
+        "category": "quote",
+        "body": "Before requesting a quotation, prepare:",
+        "list": [
+          "Organization name",
+          "City/state",
+          "Product required",
+          "Quantity",
+          "Card specification",
+          "Printing requirement",
+          "Accessories",
+          "Delivery location",
+          "Existing artwork, if available",
+          "Data readiness",
+          "Required timeline"
+        ],
+        "relatedHref": "/request-a-quote/",
+        "iconName": "Calculator",
+        "tag": "Quotation Prep",
+        "readTime": "4 min read",
+        "accentGradient": "from-slate-500/10 via-slate-400/5 to-transparent",
+        "iconColor": "text-slate-600 dark:text-slate-300 bg-slate-500/10 border-slate-500/20",
+        "badgeBg": "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+      }
+    ]
+  },
+  "readinessEstimator": {
+    "eyebrow": "Guide 10 Interactive Tool",
+    "title": "Project Readiness Estimator",
+    "lede": "Check what items your organization has ready to determine your production timeline and quotation accuracy.",
+    "checklist": [
+      {
+        "id": "org",
+        "label": "Organization & Delivery Location",
+        "sub": "Organization name, city/state, and primary dispatch address confirmed",
+        "weight": 15
+      },
+      {
+        "id": "product",
+        "label": "Product Required & Estimated Quantity",
+        "sub": "Target card count and product type (Student, Employee, Event, RFID)",
+        "weight": 20
+      },
+      {
+        "id": "specs",
+        "label": "Card Specifications & Printing Mode",
+        "sub": "Single vs dual-sided, CR80 standard PVC, glossy/matte finish, or smart RFID chip",
+        "weight": 20
+      },
+      {
+        "id": "data",
+        "label": "Personalized Information & Photos",
+        "sub": "Excel/CSV roster spreadsheet or ready for IDGen Studio digital link/QR collection",
+        "weight": 20
+      },
+      {
+        "id": "acc",
+        "label": "Accessories & Wearable Hardware",
+        "sub": "Card holder model (V/H series), 360° swivel fish hook, and custom printed lanyards",
+        "weight": 15
+      },
+      {
+        "id": "timeline",
+        "label": "Target Timeline & Artwork Readiness",
+        "sub": "Existing vector logo branding and desired completion/distribution deadline",
+        "weight": 10
+      }
+    ],
+    "defaultChecked": ["org", "product", "specs"],
+    "highScoreRecommendation": "Your project parameters are well-defined. Submit your quotation request to receive factory-direct wholesale pricing and instant digital layout proofs.",
+    "lowScoreRecommendation": "For projects with pending data, IDGen Studio can deploy customized digital collection forms to gather photographs and student/employee records automatically.",
+    "primaryButton": {
+      "label": "Request a Project Quote",
+      "href": "/request-a-quote/"
+    },
+    "secondaryButton": {
+      "label": "Explore IDGen Studio Data Flow",
+      "href": "/idgen-studio/"
+    }
+  },
+  "categoriesGrid": {
+    "eyebrow": "Sector Architecture",
+    "title": "Guide Categories",
+    "lede": "Browse our comprehensive documentation by industry sector, identification hardware, and digital technology.",
+    "badgeText": "7 Specialized Resource Categories",
+    "categories": [
+      {
+        "title": "ID Card Printing",
+        "desc": "General PVC cards, bulk projects and production planning.",
+        "iconName": "Boxes",
+        "gradient": "from-sky-500/10 via-blue-500/5 to-transparent",
+        "accentColor": "text-[#009fe3]",
+        "link": "/id-card-printing/",
+        "tag": "Core Production"
+      },
+      {
+        "title": "Student Identification",
+        "desc": "School, college and university requirements.",
+        "iconName": "GraduationCap",
+        "gradient": "from-blue-500/10 via-indigo-500/5 to-transparent",
+        "accentColor": "text-blue-500",
+        "link": "/student-id-card-printing/",
+        "tag": "Academic"
+      },
+      {
+        "title": "Employee Identification",
+        "desc": "Company, office, hospital and institutional identification.",
+        "iconName": "Briefcase",
+        "gradient": "from-cyan-500/10 via-sky-500/5 to-transparent",
+        "accentColor": "text-cyan-500",
+        "link": "/employee-id-card-printing/",
+        "tag": "Corporate & Staff"
+      },
+      {
+        "title": "Accessories",
+        "desc": "Holders, hooks and lanyards.",
+        "iconName": "Layers",
+        "gradient": "from-emerald-500/10 via-teal-500/5 to-transparent",
+        "accentColor": "text-emerald-500",
+        "link": "/id-card-holders/",
+        "tag": "Holders & Hooks"
+      },
+      {
+        "title": "Events",
+        "desc": "Conference, exhibition, seminar and event badges.",
+        "iconName": "Ticket",
+        "gradient": "from-amber-500/10 via-orange-500/5 to-transparent",
+        "accentColor": "text-amber-500",
+        "link": "/event-card-printing/",
+        "tag": "Badges & Passes"
+      },
+      {
+        "title": "Technology",
+        "desc": "RFID and IDGen Studio.",
+        "iconName": "Radio",
+        "gradient": "from-purple-500/10 via-indigo-500/5 to-transparent",
+        "accentColor": "text-purple-500",
+        "link": "/rfid-card-printing/",
+        "tag": "Smart Credentials"
+      },
+      {
+        "title": "Pricing",
+        "desc": "Understanding reference pricing and quotation requirements.",
+        "iconName": "Calculator",
+        "gradient": "from-slate-500/10 via-slate-400/5 to-transparent",
+        "accentColor": "text-slate-600 dark:text-slate-300",
+        "link": "/pricing/",
+        "tag": "Transparency"
+      }
+    ]
+  },
+  "closingCta": {
+    "badge": "Project Planning Support",
+    "title": "Not Sure What You Need?",
+    "description": "Send IDGen your requirement and we can help determine the appropriate identification configuration.",
+    "primaryCta": {
+      "label": "Request a Quote →",
+      "href": "/request-a-quote/"
+    },
+    "secondaryCta": {
+      "label": "Explore IDGen Studio",
+      "href": "/idgen-studio/"
+    },
+    "tertiaryCta": {
+      "label": "View Pricing Tiers",
+      "href": "/pricing/"
+    },
+    "footerTitle": "IDGen — Identification Guides & Resources",
+    "footerSubtitle": "Guwahati, Assam • Direct Factory Supply Dating Back to 2014"
+  }
+}

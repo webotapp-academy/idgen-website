@@ -17,66 +17,149 @@ import {
   Users,
 } from "lucide-react";
 
-export function BadgeEngineeringGuide() {
+const ICON_MAP: Record<string, React.ElementType> = {
+  Shirt,
+  Activity,
+  Layers,
+  Flame,
+  Magnet,
+  Pin,
+  Sliders,
+  Sparkles,
+  ShieldCheck,
+  Users,
+};
+
+export function BadgeEngineeringGuide({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    factors?: Array<{
+      num: string;
+      title: string;
+      desc: string;
+      detail: string;
+      iconName?: string;
+      icon?: React.ElementType;
+    }>;
+    fastenersTitle?: string;
+    fastenersLede?: string;
+    fasteners?: Array<{
+      title: string;
+      badge: string;
+      desc: string;
+      pros: string[];
+      iconName?: string;
+      icon?: React.ElementType;
+      highlight?: boolean;
+    }>;
+  };
+} = {}) {
   const [selectedFactor, setSelectedFactor] = useState<number>(0);
 
-  const factors = [
+  const defaultFactors = [
     {
       num: "01",
       title: "1. Fabric & Garment Type",
       desc: "Suits, silk blazers, lab coats, or heavy sweaters.",
-      detail: "For executive suits, silk blouses, and formal dresses, choose Neodymium Magnetic backings to avoid fabric pinholes. For heavy workwear or outdoor uniforms, safety pins offer physical mechanical hold.",
+      detail:
+        "For executive suits, silk blouses, and formal dresses, choose Neodymium Magnetic backings to avoid fabric pinholes. For heavy workwear or outdoor uniforms, safety pins offer physical mechanical hold.",
       icon: Shirt,
+      iconName: "Shirt",
     },
     {
       num: "02",
       title: "2. Movement & Duty Profile",
       desc: "Sedentary boardroom vs active clinical rounds.",
-      detail: "For doctors, nurses, and hospital staff who move frequently or lean over beds, triple-magnet plates provide a firm 3-point grip that prevents badge tilt or snagging.",
+      detail:
+        "For doctors, nurses, and hospital staff who move frequently or lean over beds, triple-magnet plates provide a firm 3-point grip that prevents badge tilt or snagging.",
       icon: Activity,
+      iconName: "Activity",
     },
     {
       num: "03",
       title: "3. Reusability & Staff Turnover",
       desc: "Permanent executive badges vs reusable window tags.",
-      detail: "Choose direct permanent UV personalization for core executives and long-tenured staff, or reusable acrylic window inserts for seasonal retail teams.",
+      detail:
+        "Choose direct permanent UV personalization for core executives and long-tenured staff, or reusable acrylic window inserts for seasonal retail teams.",
       icon: Layers,
+      iconName: "Layers",
     },
     {
       num: "04",
       title: "4. Brand Shape & Silhouette",
       desc: "Standard rectangular name tag vs custom organic crest.",
-      detail: "Take advantage of our CO2 laser cutting to match exact circular, shield, or mascot geometries rather than conforming to basic rectangular constraints.",
+      detail:
+        "Take advantage of our CO2 laser cutting to match exact circular, shield, or mascot geometries rather than conforming to basic rectangular constraints.",
       icon: Flame,
+      iconName: "Flame",
     },
   ];
 
-  const fastenerOptions = [
+  const defaultFasteners = [
     {
       title: "Triple Neodymium Magnetic Plate",
       badge: "Most Popular",
       desc: "Three high-power N52 rare-earth magnets enclosed in a durable ABS plate with 3M VHB industrial adhesive.",
-      pros: ["Zero fabric damage", "Holds through thick winter blazers", "Quick on/off alignment"],
+      pros: [
+        "Zero fabric damage",
+        "Holds through thick winter blazers",
+        "Quick on/off alignment",
+      ],
       icon: Magnet,
+      iconName: "Magnet",
       highlight: true,
     },
     {
       title: "Stainless Steel Safety Pin",
       badge: "Heavy Duty",
       desc: "Locking stainless steel safety pin bar with molded plastic base, ideal for rugged duty or outdoor uniforms.",
-      pros: ["Positive mechanical lock", "Economical for large batches", "Works on loose knit sweaters"],
+      pros: [
+        "Positive mechanical lock",
+        "Economical for large batches",
+        "Works on loose knit sweaters",
+      ],
       icon: Pin,
+      iconName: "Pin",
       highlight: false,
     },
     {
       title: "Dual Magnet & Pin Combo Clip",
       badge: "Versatile",
       desc: "All-in-one fastening system offering both a magnetic plate and a backup safety pin for multi-purpose uniform setups.",
-      pros: ["Maximum versatility", "Adapts to any clothing type", "Dual security backup"],
+      pros: [
+        "Maximum versatility",
+        "Adapts to any clothing type",
+        "Dual security backup",
+      ],
       icon: Sliders,
+      iconName: "Sliders",
       highlight: false,
     },
   ];
+
+  const factorsBadge = data?.badge || "Decision Factors";
+  const factorsTitle =
+    data?.title || "Choosing the Right Acrylic Badge Configuration";
+  const factorsLede =
+    data?.lede ||
+    "Consider these four operational parameters when ordering custom acrylic badges for your organization:";
+  const activeFactors =
+    data?.factors && data.factors.length > 0 ? data.factors : defaultFactors;
+
+  const fastenersHeading =
+    data?.fastenersTitle || "Badge Fastener Comparison";
+  const fastenersSub =
+    data?.fastenersLede || "Select the optimal backing for your uniform fabric";
+  const activeFasteners =
+    data?.fasteners && data.fasteners.length > 0
+      ? data.fasteners
+      : defaultFasteners;
+
+  const currentFactor = activeFactors[selectedFactor] || activeFactors[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -86,22 +169,23 @@ export function BadgeEngineeringGuide() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Sliders className="h-3.5 w-3.5" />
-              <span>Decision Factors</span>
+              <span>{factorsBadge}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              Choosing the Right Acrylic Badge Configuration
+              {factorsTitle}
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-              Consider these four operational parameters when ordering custom acrylic badges for your organization:
+              {factorsLede}
             </p>
           </div>
         </div>
 
         {/* 4 Factor Cards */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {factors.map((f, idx) => {
+          {activeFactors.map((f, idx) => {
             const isSelected = selectedFactor === idx;
-            const Icon = f.icon;
+            const Icon =
+              f.icon || (f.iconName && ICON_MAP[f.iconName]) || Sliders;
 
             return (
               <div
@@ -142,10 +226,10 @@ export function BadgeEngineeringGuide() {
             <Sparkles className="h-5 w-5 text-cyan-300 shrink-0 mt-0.5" />
             <div>
               <span className="text-[10px] font-black uppercase text-cyan-300 tracking-wider">
-                Engineering Recommendation: {factors[selectedFactor].title}
+                Engineering Recommendation: {currentFactor.title}
               </span>
               <p className="text-xs sm:text-sm text-slate-200 mt-1 font-medium leading-relaxed">
-                {factors[selectedFactor].detail}
+                {currentFactor.detail}
               </p>
             </div>
           </div>
@@ -161,18 +245,19 @@ export function BadgeEngineeringGuide() {
               <span>Attachment Hardware</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              Badge Fastener Comparison
+              {fastenersHeading}
             </h3>
           </div>
 
           <span className="text-xs font-semibold text-slate-500">
-            Select the optimal backing for your uniform fabric
+            {fastenersSub}
           </span>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
-          {fastenerOptions.map((opt, idx) => {
-            const Icon = opt.icon;
+          {activeFasteners.map((opt, idx) => {
+            const Icon =
+              opt.icon || (opt.iconName && ICON_MAP[opt.iconName]) || Magnet;
 
             return (
               <div

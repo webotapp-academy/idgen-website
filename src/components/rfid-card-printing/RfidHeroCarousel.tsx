@@ -84,19 +84,27 @@ const rfidSlides: RfidSlide[] = [
   },
 ];
 
-export function RfidHeroCarousel() {
+export function RfidHeroCarousel({ slides }: { slides?: RfidSlide[] }) {
+  const activeSlides = slides && slides.length > 0 ? slides : rfidSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Keep index within bounds if slides length changes
+  useEffect(() => {
+    if (currentIndex >= activeSlides.length) {
+      setCurrentIndex(0);
+    }
+  }, [activeSlides.length, currentIndex]);
+
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % rfidSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + rfidSlides.length) % rfidSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + activeSlides.length) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -132,7 +140,7 @@ export function RfidHeroCarousel() {
     }
   };
 
-  const currentSlide = rfidSlides[currentIndex];
+  const currentSlide = activeSlides[currentIndex] || activeSlides[0];
 
   return (
     <div
@@ -148,11 +156,11 @@ export function RfidHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-white dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {rfidSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
-              key={slide.id}
+              key={slide.id || idx}
               className={`absolute inset-0 transition-all duration-700 ease-out ${
                 isActive
                   ? "opacity-100 scale-100 z-10"
@@ -224,9 +232,9 @@ export function RfidHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {rfidSlides.map((slide, idx) => (
+          {activeSlides.map((slide, idx) => (
             <button
-              key={slide.id}
+              key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
               className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
@@ -248,11 +256,11 @@ export function RfidHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {rfidSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button
-              key={slide.id}
+              key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               className={`group/thumb relative aspect-square overflow-hidden rounded-xl border transition-all duration-300 cursor-pointer ${
                 isActive

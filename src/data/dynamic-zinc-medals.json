@@ -1,0 +1,619 @@
+{
+  "hero": {
+    "badge": "AWARDS & RECOGNITION",
+    "badgeSub": "3D Die-Cast Eco Zinc Alloy",
+    "title": "Custom Die-Cast Zinc Medals",
+    "highlight": "& Championship Awards",
+    "description": "Celebrate sporting victories, academic achievements, and corporate milestones with high-relief die-cast zinc medals. Featuring antique gold, silver, and bronze plating paired with custom-printed satin neck ribbons.",
+    "specStrip": [
+      {
+        "title": "Eco Zinc Alloy",
+        "desc": "High-density solid metal",
+        "iconName": "Award"
+      },
+      {
+        "title": "Antique Plating",
+        "desc": "Gold / Silver / Bronze",
+        "iconName": "Flame"
+      },
+      {
+        "title": "Satin Ribbon",
+        "desc": "Full-color sublimated",
+        "iconName": "Sparkles"
+      },
+      {
+        "title": "Guwahati Hub",
+        "desc": "All 8 NE States",
+        "iconName": "Truck"
+      }
+    ],
+    "primaryCta": {
+      "label": "Request Medal Quote",
+      "href": "/request-a-quote/"
+    },
+    "secondaryCta": {
+      "label": "Explore Medal Catalog",
+      "href": "#selection-matrix"
+    },
+    "tertiaryCta": {
+      "label": "Event Credentials",
+      "href": "/event-card-printing/"
+    },
+    "trustPoints": [
+      "Free 3D Digital Vector Proof",
+      "Guwahati Factory Supply",
+      "Complete Gold/Silver/Bronze Sets"
+    ],
+    "slides": [
+      {
+        "id": "medal-championship-3d",
+        "imageSrc": "/images/product-zinc-medals.jpg",
+        "alt": "IDGen 3D high-relief die-cast zinc championship medals with custom neck ribbons",
+        "title": "3D Die-Cast Eco Zinc Championship Medals",
+        "category": "Championship",
+        "topBadge": "3D Die-Cast Zinc",
+        "specPill": "Antique Gold / Silver",
+        "bottomSpec": "High-Density Zinc Alloy • Deep 3D Relief • Sublimated Ribbon",
+        "hubTag": "GUWAHATI FACTORY"
+      },
+      {
+        "id": "medal-sports-tournament",
+        "imageSrc": "/images/Zinc Medal/1f4d1eda-3be4-44cf-a700-3288b93f849f.jpg",
+        "alt": "IDGen sports tournament and marathon die-cast medal awards",
+        "title": "Tournament & Sports Victory Awards",
+        "category": "Sports & Athletics",
+        "topBadge": "Victory Series",
+        "specPill": "Custom Ribbon Loop",
+        "bottomSpec": "Gold, Silver & Bronze Sets • Satin Neck Lanyards • Heavyweight Feel",
+        "hubTag": "ASSAM DIRECT"
+      },
+      {
+        "id": "medal-marathon-custom",
+        "imageSrc": "/images/Zinc Medal/20dfd541-e04b-4fc4-944f-5127c3b4ec2e.jpg",
+        "alt": "IDGen marathon finisher and institutional custom shaped zinc medals",
+        "title": "Marathon & Academic Honor Medals",
+        "category": "Custom Shape",
+        "topBadge": "Finisher Medals",
+        "specPill": "Custom Contour 2D/3D",
+        "bottomSpec": "High-Relief Engraving • Anti-Tarnish Coating • Custom Ribbon",
+        "hubTag": "SUMMIT READY"
+      },
+      {
+        "id": "medal-award-sets",
+        "imageSrc": "/images/Zinc Medal/IMG20260213095826.jpg.jpeg",
+        "alt": "Complete gold, silver and bronze zinc medal award collection by IDGen",
+        "title": "Complete Gold / Silver / Bronze Sets",
+        "category": "Podium Trio",
+        "topBadge": "Podium Award Set",
+        "specPill": "1st, 2nd & 3rd Place",
+        "bottomSpec": "Tri-Color Plating Sets • Custom Event Branding • Direct Factory Supply",
+        "hubTag": "PODIUM SETS"
+      },
+      {
+        "id": "medal-precision-diecast",
+        "imageSrc": "/images/Zinc Medal/madl.png",
+        "alt": "Precision die-cast eco zinc alloy medal design rendering by IDGen",
+        "title": "Precision Vector Proof & Die-Casting",
+        "category": "Engineering",
+        "topBadge": "Free 3D Digital Proof",
+        "specPill": "Eco Zinc Alloy",
+        "bottomSpec": "Zero Lead/Cadmium • Scratch-Resistant Enamel • 72h Dispatch",
+        "hubTag": "EXPRESS DISPATCH"
+      }
+    ]
+  },
+  "quickSelection": {
+    "badge": "Medal Selection Matrix",
+    "title": "Die-Cast Zinc Medal Catalog",
+    "lede": "Inspect real production medal specimens manufactured with high-density zinc alloy, multi-stage electroplating, and custom sublimated satin neck ribbons.",
+    "catalog": [
+      {
+        "id": "znc-01",
+        "code": "ZNC-01",
+        "title": "High-Relief Die-Cast Gold Medal",
+        "category": "championship",
+        "material": "Eco-Friendly Zinc Alloy Die-Cast",
+        "finish": "Antique Gold Electroplate + Hand Buffing",
+        "ribbon": "25mm Full-Color Satin Sublimation",
+        "diameter": "65mm (3.5mm – 4.5mm thickness)",
+        "img": "/images/Zinc Medal/IMG_20260213_100040.jpg.jpeg",
+        "badge": "1st Place Gold",
+        "description": "Deep 3D sculpted victory laurel wreath with raised institutional crest and mirror-polished raised lettering.",
+        "idealFor": [
+          "Sports Championships",
+          "Tournament 1st Place",
+          "Annual Sports Days",
+          "Inter-College Meets"
+        ]
+      },
+      {
+        "id": "znc-02",
+        "code": "ZNC-02",
+        "title": "Custom Sublimation Satin Ribbon Assembly",
+        "category": "ribbon",
+        "material": "High-Density Silky Polyester Satin",
+        "finish": "Double-Sided Heat-Transfer Sublimation",
+        "ribbon": "25mm – 35mm V-Neck Sewn Ribbon",
+        "diameter": "Custom Length (850mm standard loop)",
+        "img": "/images/Zinc Medal/IMG20260213095826.jpg.jpeg",
+        "badge": "Satin Ribbon Assembly",
+        "description": "Full-bleed dye-sublimated neck ribbon with gradient event graphics, sponsor branding, and reinforced jump ring stitching.",
+        "idealFor": [
+          "Corporate Marathon Ribbons",
+          "School Event Badges",
+          "Custom Organization Lanyards",
+          "Tournament Branding"
+        ]
+      },
+      {
+        "id": "znc-03",
+        "code": "ZNC-03",
+        "title": "Antique Silver Institutional Award Medal",
+        "category": "institutional",
+        "material": "High-Density Eco Zinc Alloy",
+        "finish": "Antique Nickel / Silver Electroplate",
+        "ribbon": "25mm Custom Branded Ribbon",
+        "diameter": "60mm (3.5mm thickness)",
+        "img": "/images/Zinc Medal/IMG_20260213_100059.jpg.jpeg",
+        "badge": "2nd Place Silver",
+        "description": "Subtle antique matte shading in recessed areas that accentuates high-relief crest details and fine serif typography.",
+        "idealFor": [
+          "University Convocations",
+          "2nd Place Winners",
+          "Academic Honor Rolls",
+          "State Level Competitions"
+        ]
+      },
+      {
+        "id": "znc-04",
+        "code": "ZNC-04",
+        "title": "Custom Cutout Sports Championship Medal",
+        "category": "cutout",
+        "material": "Precision CNC Custom Milled Mold",
+        "finish": "Dual-Tone Plating + Soft Enamel",
+        "ribbon": "30mm Heavy-Duty V-Sewn Satin",
+        "diameter": "70mm Custom Geometric Cutout",
+        "img": "/images/Zinc Medal/madl.png",
+        "badge": "3D Cutout Mold",
+        "description": "Intricately pierced negative-space cutout design following the exact contours of the athletic federation silhouette.",
+        "idealFor": [
+          "Football Leagues",
+          "Martial Arts Tournaments",
+          "Badminton Cups",
+          "Cricket Championships"
+        ]
+      },
+      {
+        "id": "znc-05",
+        "code": "ZNC-05",
+        "title": "Corporate Award Medallion with Satin V-Neck",
+        "category": "corporate",
+        "material": "Polished Brass / Heavy Zinc",
+        "finish": "High-Gloss Mirror Gold / Chrome",
+        "ribbon": "Tricolor / Custom Corporate Ribbon",
+        "diameter": "55mm (3.5mm thickness)",
+        "img": "/images/Zinc Medal/1f4d1eda-3be4-44cf-a700-3288b93f849f.jpg",
+        "badge": "Corporate Honor",
+        "description": "Mirror-finish executive medallion crafted for long-service honors, sales leadership awards, and annual shareholder summits.",
+        "idealFor": [
+          "Employee of the Year",
+          "Sales Target Achievers",
+          "Long Service Honors",
+          "Executive Leadership"
+        ]
+      },
+      {
+        "id": "znc-06",
+        "code": "ZNC-06",
+        "title": "Bronze Marathon & Event Medallion",
+        "category": "marathon",
+        "material": "Die-Cast Zinc Alloy",
+        "finish": "Antique Copper / Bronze Treatment",
+        "ribbon": "25mm Sublimated Finisher Ribbon",
+        "diameter": "60mm (4mm thickness)",
+        "img": "/images/Zinc Medal/20dfd541-e04b-4fc4-944f-5127c3b4ec2e.jpg",
+        "badge": "3rd Place Bronze",
+        "description": "Warm rustic antique bronze finish with textured background stippling and bold finisher relief markings.",
+        "idealFor": [
+          "3rd Place Awardees",
+          "Marathon Finishers",
+          "10K Run Participants",
+          "Charity Cycling Rallies"
+        ]
+      }
+    ]
+  },
+  "anatomy": {
+    "badge": "Manufacturing Ecosystem",
+    "title": "Zinc Medal Anatomy & Engineering",
+    "lede": "Explore the multi-layer die-casting and electroplating craftsmanship engineered for heavyweight prestige and durable finish.",
+    "layers": [
+      {
+        "step": "01",
+        "title": "High-Density Eco Zinc Alloy Core",
+        "subtitle": "Heavyweight 45g – 90g Solid Metal",
+        "badge": "Eco-Friendly Metal",
+        "material": "High-purity zinc alloy (lead & nickel free)",
+        "benefit": "Delivers a heavy, substantial premium feel around the winner's neck with zero risk of rust or oxidation.",
+        "iconName": "Box",
+        "img": "/images/Zinc Medal/IMG_20260213_100040.jpg.jpeg",
+        "details": [
+          "Substantial 45g–90g solid heft compared to light stamped iron",
+          "Lead-free, eco-friendly certified metallurgical formulation",
+          "High fluidity allows intricate 3D contours and negative space cutouts"
+        ]
+      },
+      {
+        "step": "02",
+        "title": "3D High-Relief CNC Mold Sculpting",
+        "subtitle": "Multi-Level Vector Relief",
+        "badge": "Multi-Level 3D",
+        "material": "Precision hardened steel tooling die",
+        "benefit": "Creates tactile dimensional depth, raised laurel wreaths, and razor-sharp institutional typography.",
+        "iconName": "Sparkles",
+        "img": "/images/Zinc Medal/madl.png",
+        "details": [
+          "True 3D sculpted bevels rather than basic flat 2D lines",
+          "Micro-level texturing and background stippling",
+          "Precise negative-space pierced cutouts for athletic crests"
+        ]
+      },
+      {
+        "step": "03",
+        "title": "Electroplating & Antique Hand-Buffing",
+        "subtitle": "Gold, Silver, Bronze & Copper",
+        "badge": "Electroplate Finish",
+        "material": "Multi-stage electroplating + protective clear lacquer",
+        "benefit": "Creates high-contrast antique shading in recesses while polishing raised areas for maximum visual brilliance.",
+        "iconName": "Flame",
+        "img": "/images/Zinc Medal/IMG_20260213_100059.jpg.jpeg",
+        "details": [
+          "Antique Gold, Shiny Gold, Antique Silver, Antique Bronze",
+          "Hand-buffed raised surfaces to highlight high-relief artwork",
+          "Protective clear lacquer prevents tarnishing and sweat corrosion"
+        ]
+      },
+      {
+        "step": "04",
+        "title": "Dye-Sublimated Satin Neck Ribbon",
+        "subtitle": "25mm – 35mm V-Neck Sewn Ribbon",
+        "badge": "Custom Satin Ribbon",
+        "material": "High-density silky polyester satin + heavy-duty jump ring",
+        "benefit": "Full-bleed photographic colors with event dates, sponsor logos, and smooth non-chafing neck wear.",
+        "iconName": "Shirt",
+        "img": "/images/Zinc Medal/IMG20260213095826.jpg.jpeg",
+        "details": [
+          "Dye-sublimation printing with zero color fading or bleeding",
+          "Reinforced heavy-duty jump ring attachment",
+          "Comfortable silky texture designed for all-day victory ceremonies"
+        ]
+      }
+    ]
+  },
+  "rangeMaster": {
+    "badge": "Master Hardware Showcase",
+    "title": "Zinc Medal Variants & Finishes",
+    "lede": "Explore our specialized zinc medal collections engineered for sports championships, academic convocations, marathon runs, and corporate galas.",
+    "sections": [
+      {
+        "code": "Championship 3D Gold",
+        "badge": "1st Place Award",
+        "title": "3D High-Relief Championship Gold Medals",
+        "tagline": "Heavy-density zinc alloy with deep sculpted relief and antique gold plating.",
+        "description": "Engineered for high-stakes athletic championships, state-level tournaments, and annual sports days. Features multi-level 3D vector modeling, high-relief laurel crowns, and mirror-buffed raised typography.",
+        "image": "/images/Zinc Medal/IMG_20260213_100040.jpg.jpeg",
+        "alt": "Custom High-Relief Zinc Gold Medal with Ribbon",
+        "setup": "High-Density Zinc Alloy + Antique Gold Electroplate + 25mm Sublimated Satin Ribbon",
+        "suitable": [
+          "School & College Annual Sports Meets",
+          "State-Level Athletic Championships",
+          "Football & Cricket League Champions",
+          "Inter-College Basketball Tournaments",
+          "Martial Arts Gold Medalists"
+        ],
+        "specs": [
+          { "k": "Diameter", "v": "65mm (3.5mm – 4.5mm thickness)" },
+          { "k": "Core Material", "v": "Eco-Friendly Zinc Alloy" },
+          { "k": "Plating", "v": "Antique Gold Electroplate" },
+          { "k": "Ribbon", "v": "25mm Sublimation Full-Color Satin" }
+        ],
+        "conclusion": "Heavyweight, prestigious feel that athletes will proudly cherish for decades."
+      },
+      {
+        "code": "Antique Silver Honors",
+        "badge": "2nd Place / Academic",
+        "title": "Antique Silver Institutional Convocations & Honors",
+        "tagline": "Subtle antique matte electroplating that emphasizes micro-fine serif crest details.",
+        "description": "Crafted for university convocations, academic Olympiad toppers, and institutional merit awards. The antique nickel/silver electroplate darkens recesses while leaving raised crest emblems in brilliant silver.",
+        "image": "/images/Zinc Medal/IMG_20260213_100059.jpg.jpeg",
+        "alt": "Antique Silver Institutional Award Medal",
+        "setup": "Die-Cast Zinc + Antique Silver Electroplate + Custom V-Neck Satin Ribbon",
+        "suitable": [
+          "University Convocation Honors",
+          "National Science & Math Olympiads",
+          "Institutional Merit List Achievers",
+          "2nd Place Tournament Silver Winners",
+          "Research Fellowship Distinctions"
+        ],
+        "specs": [
+          { "k": "Diameter", "v": "60mm (3.5mm thickness)" },
+          { "k": "Finish", "v": "Antique Silver / Nickel Treatment" },
+          { "k": "Ribbon", "v": "Custom Institutional V-Neck Satin" },
+          { "k": "Edge", "v": "Rope Border / Smooth Bevel" }
+        ],
+        "conclusion": "Refined academic gravitas suited for prestigious institutional stages."
+      },
+      {
+        "code": "Custom Cutout Crest",
+        "badge": "3D Silhouette",
+        "title": "Precision Custom 3D Cutout Sports Medals",
+        "tagline": "Pierced negative space and organic silhouettes matching your tournament emblem.",
+        "description": "Break away from conventional round coins. Our CNC-milled steel dies allow intricate pierced negative spaces, floating emblems, and multi-tone enamel accents following your brand's unique silhouette.",
+        "image": "/images/Zinc Medal/madl.png",
+        "alt": "Custom Sports Championship Medal with Ribbon",
+        "setup": "CNC Milled Zinc Mold + Dual-Tone Plating + 30mm Heavy-Duty Satin Ribbon",
+        "suitable": [
+          "Martial Arts & Karate Federations",
+          "Marathon Cutout Finisher Medals",
+          "State Olympic Association Badges",
+          "Youth Football League Crests",
+          "Institutional Heritage Seals"
+        ],
+        "specs": [
+          { "k": "Molding Technique", "v": "Precision CNC Milled Steel Die" },
+          { "k": "Pierced Cutouts", "v": "Up to 5 Negative Space Apertures" },
+          { "k": "Enamel Options", "v": "Soft Enamel Infill (Pantone Match)" },
+          { "k": "Ribbon Width", "v": "30mm Heavy-Duty V-Sewn Satin" }
+        ],
+        "conclusion": "Striking architectural negative space that stands out dramatically in victory photos."
+      },
+      {
+        "code": "Corporate Gala Medallion",
+        "badge": "Corporate Executive",
+        "title": "Mirror Polished Executive Corporate Medallions",
+        "tagline": "High-gloss jewelry-grade polishing paired with commemorative presentation ribbons.",
+        "description": "Designed for corporate annual general meetings, lifetime achievement recognitions, and milestone celebrations. Features jewelry-grade mirror gold or rhodium chrome plating with diamond-cut faceted borders.",
+        "image": "/images/Zinc Medal/1f4d1eda-3be4-44cf-a700-3288b93f849f.jpg",
+        "alt": "Executive Corporate Award Medallion with Ribbon",
+        "setup": "Mirror Buffed Brass/Zinc + 24K Tone Electroplate + Luxury Tricolor Satin",
+        "suitable": [
+          "Annual Excellence & Leadership Galas",
+          "25-Year Long Service Recognitions",
+          "President's Circle Sales Awards",
+          "Corporate Milestone Commemorations",
+          "International Summit Keynote Honor"
+        ],
+        "specs": [
+          { "k": "Finish", "v": "High-Gloss Mirror Buff Gold / Chrome" },
+          { "k": "Diameter", "v": "55mm (3.5mm thickness)" },
+          { "k": "Presentation", "v": "Velvet Case / Presentation Box Available" },
+          { "k": "Ribbon Loop", "v": "Integrated Concealed Jump Ring" }
+        ],
+        "conclusion": "A jewelry-grade finish that commands immediate prestige and corporate gratitude."
+      }
+    ]
+  },
+  "engineeringGuide": {
+    "badge": "Decision Factors",
+    "title": "Custom Medal Engineering & Specifications",
+    "lede": "Consider these four metallurgical and aesthetic parameters when designing custom medals for your championship:",
+    "factors": [
+      {
+        "num": "01",
+        "title": "1. Medal Diameter & Thickness",
+        "desc": "50mm, 60mm, 65mm, 75mm (3.0mm to 5.0mm depth).",
+        "detail": "For standard school events, 50mm–60mm (3.5mm thick) provides the ideal balance of size and budget. For state championships and marathons, 65mm–75mm (4.0mm–5.0mm thick) delivers massive podium impact.",
+        "iconName": "Box"
+      },
+      {
+        "num": "02",
+        "title": "2. 2D Flat vs 3D Sculpted Relief",
+        "desc": "Single-plane graphic lines vs multi-level 3D contours.",
+        "detail": "3D sculpted relief allows rounded human muscle contours, architectural elevations, and curved animal mascots that cannot be represented in flat 2D lines.",
+        "iconName": "Sparkles"
+      },
+      {
+        "num": "03",
+        "title": "3. Custom Satin Ribbon Width",
+        "desc": "20mm, 25mm, 30mm, 35mm V-Neck Sewn Satin.",
+        "detail": "Our standard 25mm–30mm silky polyester satin ribbons support double-sided full-color dye sublimation for sponsor logos, event dates, and dynamic gradient artwork.",
+        "iconName": "Shirt"
+      },
+      {
+        "num": "04",
+        "title": "4. Plating & Color Enamel Infill",
+        "desc": "Antique metal finish vs soft enamel color accents.",
+        "detail": "Choose Antique Gold/Silver/Bronze for traditional prestige, or add vibrant Pantone-matched soft enamel infills for multi-colored federation logos.",
+        "iconName": "Flame"
+      }
+    ],
+    "fastenersTitle": "Medal Plating & Patina Comparison",
+    "fastenersLede": "Select the optimal electroplated finish for your podium ceremony",
+    "fasteners": [
+      {
+        "title": "Antique Gold Plating",
+        "badge": "1st Place",
+        "desc": "Rich golden electroplate with dark antique shadowing in recessed textures and mirror-polished highlights.",
+        "pros": [
+          "Maximum 3D contrast",
+          "Non-glare photographic clarity",
+          "Resistant to finger smudges"
+        ],
+        "iconName": "Award",
+        "highlight": true
+      },
+      {
+        "title": "Antique Silver Plating",
+        "badge": "2nd Place",
+        "desc": "Classic antique nickel/silver finish that brings out razor-sharp serif text and academic crest details.",
+        "pros": [
+          "Elegant institutional look",
+          "High-contrast relief definition",
+          "Tarnish-proof lacquer seal"
+        ],
+        "iconName": "Award",
+        "highlight": false
+      },
+      {
+        "title": "Antique Bronze / Copper",
+        "badge": "3rd Place / Finisher",
+        "desc": "Warm copper-bronze patina with rustic antique brushing, ideal for marathon finishers and 3rd place podiums.",
+        "pros": [
+          "Authentic Olympic aesthetic",
+          "Extremely durable finish",
+          "Popular for marathon runs"
+        ],
+        "iconName": "Award",
+        "highlight": false
+      }
+    ]
+  },
+  "applications": {
+    "badge": "Event Applications",
+    "title": "Custom Medals Across Tournaments & Honors",
+    "lede": "Engineered to provide unforgettable podium prestige across athletics, academics, marathon races, and corporate galas.",
+    "subtitle": "5 Specialized Event Domains",
+    "applications": [
+      {
+        "title": "School & College Sports Days",
+        "desc": "1st, 2nd, and 3rd place Gold, Silver, and Bronze podium medal sets with matching institutional neck ribbons.",
+        "link": { "label": "Request School Sports Quote", "href": "/request-a-quote/" },
+        "iconName": "Trophy",
+        "gradient": "from-sky-500/10 via-blue-500/5 to-transparent",
+        "accentColor": "text-[#009fe3]",
+        "tag": "Athletics"
+      },
+      {
+        "title": "Marathons, 10Ks & Cycling Events",
+        "desc": "Commemorative mass-participation finisher medals with custom event date reliefs and full-bleed sublimated sponsor ribbons.",
+        "link": { "label": "Request Marathon Finisher Batch", "href": "/request-a-quote/" },
+        "iconName": "Activity",
+        "gradient": "from-cyan-500/10 via-teal-500/5 to-transparent",
+        "accentColor": "text-cyan-500",
+        "tag": "Marathons"
+      },
+      {
+        "title": "University Convocations & Honors",
+        "desc": "Antique silver and gold academic medallion crests for gold medalists, department toppers, and PhD honors.",
+        "link": { "label": "Request Academic Medallions", "href": "/request-a-quote/" },
+        "iconName": "GraduationCap",
+        "gradient": "from-blue-500/10 via-indigo-500/5 to-transparent",
+        "accentColor": "text-blue-500",
+        "tag": "Academic"
+      },
+      {
+        "title": "Corporate Recognition & Awards",
+        "desc": "Heavyweight mirror gold executive medallions for long-service honors, sales achievements, and annual galas.",
+        "link": { "label": "Request Corporate Recognition", "href": "/request-a-quote/" },
+        "iconName": "Briefcase",
+        "gradient": "from-purple-500/10 via-indigo-500/5 to-transparent",
+        "accentColor": "text-purple-500",
+        "tag": "Corporate"
+      },
+      {
+        "title": "Martial Arts & League Cups",
+        "desc": "Precision cutout medals with custom federation emblems for Karate, Taekwondo, Boxing, Football, and Cricket cups.",
+        "link": { "label": "Request Federation Custom Dies", "href": "/request-a-quote/" },
+        "iconName": "Flame",
+        "gradient": "from-emerald-500/10 via-teal-500/5 to-transparent",
+        "accentColor": "text-emerald-500",
+        "tag": "Federations"
+      }
+    ]
+  },
+  "workflowAndDispatch": {
+    "workflowBadge": "Manufacturing Steps",
+    "workflowTitle": "How Custom Zinc Medals Are Produced",
+    "workflowLede": "From 3D digital vector proofs and steel mold engraving to die-casting, electroplating, and ribbon assembly.",
+    "orderingSteps": [
+      {
+        "num": "01",
+        "title": "1. Mold & 3D Artwork Design",
+        "body": "We convert your logo or emblem into a 3D high-relief vector proof showing exact bevels and text depth.",
+        "badge": "3D Design"
+      },
+      {
+        "num": "02",
+        "title": "2. Die-Casting & Electroplating",
+        "body": "High-pressure zinc die-casting followed by electroplating in antique gold, silver, or bronze.",
+        "badge": "Electroplate"
+      },
+      {
+        "num": "03",
+        "title": "3. Ribbon Sublimation & Assembly",
+        "body": "Matching 25mm satin neck ribbons printed in full color and stitched to the medal loop.",
+        "badge": "Satin Ribbon"
+      },
+      {
+        "num": "04",
+        "title": "4. QC & Bulk Express Delivery",
+        "body": "Each medal is individually polybagged and shipped across Guwahati, Shillong, Itanagar and all NE states.",
+        "badge": "Delivery"
+      }
+    ],
+    "dispatchBadge": "Express Production Commitment",
+    "dispatchTitle": "72h Express Rush Dispatch Available",
+    "dispatchHubTag": "Guwahati Regional Hub",
+    "dispatchLede": "For standard tournament orders with approved 3D digital proofs, our Guwahati facility operates on express fulfillment cycles:",
+    "dispatchFlowSteps": [
+      "3D Vector Proof Approval",
+      "CNC Mold Engraving & Cast",
+      "Electroplate & Enamel Fill",
+      "Satin Ribbon Assembly"
+    ],
+    "dispatchDisclaimers": [
+      "Medals are individually polybagged in protective anti-scratch sleeves and packaged in organized cartons for safe transit.",
+      "Express courier transit time across Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, and Sikkim is additional."
+    ],
+    "closingCtaBadge": "Direct Factory Supply",
+    "closingCtaTitle": "Ready to Create Custom Medals for Your Event?",
+    "closingCtaLede": "Whether you need 50 podium medals for a school sports day or 5,000 finisher medals for a city marathon, IDGen delivers die-cast precision from Guwahati.",
+    "closingCtaButtons": [
+      { "label": "Request Free 3D Proof", "href": "/request-a-quote/", "primary": true },
+      { "label": "Explore Event Cards", "href": "/event-card-printing/" },
+      { "label": "Custom Lanyards", "href": "/custom-printed-lanyard-printing/" }
+    ],
+    "closingCtaBrandingTitle": "IDGen — Custom Die-Cast Zinc Medals & Awards",
+    "closingCtaBrandingLocation": "Guwahati, Assam • Direct Regional Manufacturing Across All 8 NE States"
+  },
+  "faqs": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions About Custom Medals",
+    "lede": "Direct answers regarding zinc alloy weight, custom neck ribbons, production timelines, and plating finishes:",
+    "faqs": [
+      {
+        "q": "What is the weight and feel of zinc alloy medals compared to iron or plastic?",
+        "a": "Zinc alloy is heavy, solid, and dense, giving a luxury feel when worn around the neck. Unlike stamped iron, zinc allows intricate 3D rounded contours and cutouts without rusting."
+      },
+      {
+        "q": "Can we print custom text or sponsor logos on the neck ribbons?",
+        "a": "Yes! Our satin ribbons are printed using high-definition dye sublimation, allowing full-color gradient logos, event dates, and sponsor names on both sides."
+      },
+      {
+        "q": "What is the typical production timeline for custom medals?",
+        "a": "Custom mold die-casting typically takes 7–10 days for production and dispatch from our Guwahati regional hub."
+      },
+      {
+        "q": "What diameters and thicknesses are available for custom medals?",
+        "a": "We manufacture standard 50mm, 60mm, 65mm, and 75mm medal diameters with thicknesses ranging from 3.0mm to 5.0mm for a deep, high-relief sculpted effect."
+      },
+      {
+        "q": "Do you supply complete Gold, Silver, and Bronze podium sets?",
+        "a": "Yes, we provide matching 1st, 2nd, and 3rd place podium medal sets with coordinated Antique Gold, Antique Silver, and Antique Bronze electroplating."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Custom Die-Cast Zinc Medals & Awards | Antique Gold, Silver & Bronze | IDGen",
+    "description": "High-relief die-cast zinc alloy medals with full-color custom satin neck ribbons. Manufactured for school sports days, corporate marathons, academic excellence, and institutional awards across Northeast India.",
+    "path": "/zinc-medals/",
+    "keywords": [
+      "zinc medals",
+      "custom medals",
+      "sports day medals",
+      "marathon medals",
+      "die cast medals guwahati",
+      "assam medals manufacturer"
+    ]
+  }
+}

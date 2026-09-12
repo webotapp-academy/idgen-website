@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Protect /admin routes (except /admin/login)
@@ -25,6 +25,9 @@ export function middleware(request: NextRequest) {
 
   return NextResponse.next();
 }
+
+// Support legacy exports if needed
+export const middleware = proxy;
 
 export const config = {
   matcher: ["/admin/:path*", "/api/admin/:path*"],

@@ -13,6 +13,7 @@ import {
   Sliders,
   Box,
 } from "lucide-react";
+import type { DynamicPvcCardsRangeMaster } from "@/lib/dynamic-pvc-cards-types";
 
 export interface MasterPvcSection {
   code: string;
@@ -131,9 +132,10 @@ export const masterPvcSections: MasterPvcSection[] = [
   },
 ];
 
-export function PvcRangeMasterShowcase() {
+export function PvcRangeMasterShowcase({ data }: { data?: DynamicPvcCardsRangeMaster }) {
   const [activeModelIndex, setActiveModelIndex] = useState(0);
-  const activeModel = masterPvcSections[activeModelIndex];
+  const activeSections = (data?.sections && data.sections.length > 0) ? data.sections : masterPvcSections;
+  const activeModel = activeSections[activeModelIndex] || activeSections[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -142,25 +144,25 @@ export function PvcRangeMasterShowcase() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Box className="h-3.5 w-3.5" />
-            <span>Master Hardware Showcase</span>
+            <span>{data?.badge || "Master Hardware Showcase"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            PVC Card Variants &amp; Chip Formats
+            {data?.title || "PVC Card Variants & Chip Formats"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Explore our specialized PVC card substrates engineered for standard photo IDs, RFID smart campus systems, and heavy-wear magnetic access.
+            {data?.lede || "Explore our specialized PVC card substrates engineered for standard photo IDs, RFID smart campus systems, and heavy-wear magnetic access."}
           </p>
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          Showing Variant {activeModelIndex + 1} of {masterPvcSections.length}
+          Showing Variant {activeModelIndex + 1} of {activeSections.length}
         </div>
       </div>
 
       {/* ── Navigation Strip ── */}
       <div className="mt-6 overflow-x-auto pb-2">
         <div className="flex items-center gap-2 min-w-max">
-          {masterPvcSections.map((model, idx) => (
+          {activeSections.map((model, idx) => (
             <button
               key={model.code}
               onClick={() => setActiveModelIndex(idx)}

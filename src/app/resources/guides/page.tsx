@@ -28,25 +28,43 @@ import { GuidesHeroShowcase } from "@/components/resources/guides/GuidesHeroShow
 import { GuidesExplorerMatrix } from "@/components/resources/guides/GuidesExplorerMatrix";
 import { GuidesCategoriesGrid } from "@/components/resources/guides/GuidesCategoriesGrid";
 import { GuideReadinessEstimator } from "@/components/resources/guides/GuideReadinessEstimator";
+import { getDynamicGuides } from "@/lib/dynamic-guides";
 
-/* ─────────────────────────────────────────────────────────────
-   SEO METADATA (Strictly from document)
-   ───────────────────────────────────────────────────────────── */
-export const metadata = pageMetadata({
-  title: "ID Card Printing Guides & Identification Resources | IDGen",
-  description:
-    "Practical guides for planning student ID cards, employee ID cards, bulk printing, lanyards, RFID cards, event badges and complete identification projects.",
-  path: "/resources/guides/",
-});
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata() {
+  const data = getDynamicGuides();
+  return pageMetadata({
+    title: data.meta.title,
+    description: data.meta.description,
+    path: data.meta.path,
+  });
+}
+
+const SPEC_ICONS: Record<string, React.ElementType> = {
+  BookOpen,
+  Boxes,
+  QrCode,
+  Calculator,
+  ShieldCheck,
+  Truck,
+  Sliders,
+  Layers,
+  Sparkles,
+  CheckCircle2,
+};
 
 export default function GuidesPage() {
+  const data = getDynamicGuides();
+  const hero = data.hero;
+  const closingCta = data.closingCta;
+
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "ID Card Printing & Identification Guides",
-    description:
-      "Practical guides for planning student ID cards, employee ID cards, bulk printing, lanyards, RFID cards, event badges and complete identification projects.",
-    url: "https://idgen.in/resources/guides/",
+    name: data.meta.title,
+    description: data.meta.description,
+    url: `https://idgen.in${data.meta.path}`,
   };
 
   return (
@@ -87,104 +105,91 @@ export default function GuidesPage() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#009fe3]/30 bg-gradient-to-r from-[#009fe3]/10 via-sky-50 to-white dark:from-cyan-950/60 dark:via-slate-900 dark:to-slate-800 px-4 py-1.5 shadow-2xs">
                   <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
                   <span className="text-xs font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">
-                    Identification Resource Hub
+                    {hero.badgePrefix}
                   </span>
                   <span className="h-3 w-px bg-[#009fe3]/30" />
                   <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                    Comprehensive Guides
+                    {hero.badgeHighlight}
                   </span>
                 </div>
 
                 {/* Main Heading */}
                 <h1 className="text-3xl sm:text-4xl lg:text-[3rem] font-black text-slate-950 dark:text-white tracking-tight leading-[1.1]">
-                  ID Card Printing &amp;{" "}
+                  {hero.titlePrefix}
                   <span className="bg-gradient-to-r from-[#009fe3] via-[#0284c7] to-[#0369a1] dark:from-[#38bdf8] dark:via-[#009fe3] dark:to-[#38bdf8] bg-clip-text text-transparent">
-                    Identification Guides
+                    {hero.titleHighlight}
                   </span>
                 </h1>
 
                 {/* Subtitle / Lede */}
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                  Planning an identification project becomes easier when the requirements are clear before production begins. These guides are designed for schools, colleges, universities, companies, hospitals, institutions, event organizers, associations and other organizations that need personalized identification products.
+                  {hero.description}
                 </p>
               </div>
 
               {/* Feature Spec Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <BookOpen className="h-4 w-4 text-[#009fe3]" />
-                    <span>10 Guides</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Step-by-step checklists</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <Boxes className="h-4 w-4 text-[#009fe3]" />
-                    <span>7 Sectors</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Institutional categories</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <QrCode className="h-4 w-4 text-[#009fe3]" />
-                    <span>Digital Flow</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">IDGen Studio workflow</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
-                    <Calculator className="h-4 w-4 text-[#009fe3]" />
-                    <span>Free Quotes</span>
-                  </div>
-                  <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Quotation checklist</p>
-                </div>
+                {hero.featureCards.map((card, idx) => {
+                  const IconComp = SPEC_ICONS[card.iconName] || BookOpen;
+                  return (
+                    <div
+                      key={idx}
+                      className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-3 shadow-2xs"
+                    >
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white">
+                        <IconComp className="h-4 w-4 text-[#009fe3]" />
+                        <span>{card.title}</span>
+                      </div>
+                      <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">{card.subtitle}</p>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Action CTAs */}
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <a
-                  href="#guides-explorer"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
-                >
-                  <span>Explore Featured Guides</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-                <Link
-                  href="/request-a-quote/"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
-                >
-                  <span>Request a Quote</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/idgen-studio/"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-3.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
-                >
-                  <span>IDGen Studio</span>
-                </Link>
+                {hero.primaryCta && (
+                  <a
+                    href={hero.primaryCta.href}
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
+                  >
+                    <span>{hero.primaryCta.label}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                )}
+                {hero.secondaryCta && (
+                  <Link
+                    href={hero.secondaryCta.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
+                  >
+                    <span>{hero.secondaryCta.label}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
+                {hero.tertiaryCta && (
+                  <Link
+                    href={hero.tertiaryCta.href}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-3.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
+                  >
+                    <span>{hero.tertiaryCta.label}</span>
+                  </Link>
+                )}
               </div>
 
               {/* Trust Badge Bar */}
               <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs font-medium text-slate-500 dark:text-slate-400">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>Factory Direct Guidance</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>Guwahati Production Hub</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>72-Hour Express Dispatch</span>
-                </div>
+                {hero.trustBadges.map((badge, idx) => (
+                  <div key={idx} className="flex items-center gap-1.5">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                    <span>{badge}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Right Column: Visual Hero Showcase */}
             <div className="lg:col-span-5 flex flex-col">
-              <GuidesHeroShowcase />
+              <GuidesHeroShowcase data={data.heroShowcase} />
             </div>
           </div>
         </Container>
@@ -193,13 +198,13 @@ export default function GuidesPage() {
       <div className="bg-slate-50/60 dark:bg-slate-950/20">
         <Container className="pb-12 sm:pb-16 pt-4 sm:pt-6">
           {/* Featured Guides Explorer Matrix (Search, Filters, Checklists, Workflows) */}
-          <GuidesExplorerMatrix />
+          <GuidesExplorerMatrix data={data.explorerMatrix} />
 
           {/* Interactive Project Readiness Estimator */}
-          <GuideReadinessEstimator />
+          <GuideReadinessEstimator data={data.readinessEstimator} />
 
           {/* Guide Categories Grid across Sectors */}
-          <GuidesCategoriesGrid />
+          <GuidesCategoriesGrid data={data.categoriesGrid} />
 
           {/* Ultra-Luxury Closing CTA Banner */}
           <div className="mt-16 sm:mt-20">
@@ -211,44 +216,50 @@ export default function GuidesPage() {
                 <div className="max-w-3xl space-y-3">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-bold text-cyan-300 backdrop-blur-xs border border-white/10">
                     <Sparkles className="h-3.5 w-3.5 text-cyan-300 animate-pulse" />
-                    <span>Project Planning Support</span>
+                    <span>{closingCta.badge}</span>
                   </div>
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-                    Not Sure What You Need?
+                    {closingCta.title}
                   </h2>
                   <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-                    Send IDGen your requirement and we can help determine the appropriate identification configuration.
+                    {closingCta.description}
                   </p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <Link
-                    href="/request-a-quote/"
-                    className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] hover:bg-[#008bc9] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#009fe3]/50 hover:-translate-y-0.5"
-                  >
-                    <span>Request a Quote →</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                  <Link
-                    href="/idgen-studio/"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
-                  >
-                    <span>Explore IDGen Studio</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/pricing/"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
-                  >
-                    <span>View Pricing Tiers</span>
-                  </Link>
+                  {closingCta.primaryCta && (
+                    <Link
+                      href={closingCta.primaryCta.href}
+                      className="group inline-flex items-center gap-2.5 rounded-full bg-[#009fe3] hover:bg-[#008bc9] px-7 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#009fe3]/50 hover:-translate-y-0.5"
+                    >
+                      <span>{closingCta.primaryCta.label}</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  )}
+                  {closingCta.secondaryCta && (
+                    <Link
+                      href={closingCta.secondaryCta.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
+                    >
+                      <span>{closingCta.secondaryCta.label}</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  )}
+                  {closingCta.tertiaryCta && (
+                    <Link
+                      href={closingCta.tertiaryCta.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300 hover:-translate-y-0.5"
+                    >
+                      <span>{closingCta.tertiaryCta.label}</span>
+                    </Link>
+                  )}
                 </div>
 
                 <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-slate-400">
                   <p className="font-mono text-slate-300">
-                    IDGen — Identification Guides &amp; Resources
+                    {closingCta.footerTitle}
                   </p>
-                  <p>Guwahati, Assam • Direct Factory Supply Dating Back to 2014</p>
+                  <p>{closingCta.footerSubtitle}</p>
                 </div>
               </div>
             </section>

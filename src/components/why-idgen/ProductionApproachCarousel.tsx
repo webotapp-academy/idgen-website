@@ -123,7 +123,8 @@ const iconMap = {
   Truck,
 };
 
-export function ProductionApproachCarousel() {
+export function ProductionApproachCarousel({ steps }: { steps?: ProductionStep[] }) {
+  const activeSteps = steps && steps.length > 0 ? steps : productionStepsData;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -144,7 +145,7 @@ export function ProductionApproachCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, productionStepsData.length - itemsPerPage);
+  const maxIndex = Math.max(0, activeSteps.length - itemsPerPage);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -174,7 +175,7 @@ export function ProductionApproachCarousel() {
         <div className="flex items-center gap-2">
           <span className="flex h-2.5 w-2.5 rounded-full bg-[#009fe3] animate-pulse" />
           <span className="text-xs font-extrabold uppercase tracking-wider text-slate-800 dark:text-slate-200">
-            9-Step Precision Approach • Step {currentIndex + 1} of {productionStepsData.length}
+            9-Step Precision Approach • Step {currentIndex + 1} of {activeSteps.length}
           </span>
         </div>
 
@@ -204,8 +205,8 @@ export function ProductionApproachCarousel() {
             transform: `translateX(-${currentIndex * (100 / itemsPerPage + 1.25)}%)`,
           }}
         >
-          {productionStepsData.map((step) => {
-            const Icon = iconMap[step.iconType];
+          {activeSteps.map((step) => {
+            const Icon = iconMap[step.iconType] || ClipboardCheck;
             return (
               <div
                 key={step.num}

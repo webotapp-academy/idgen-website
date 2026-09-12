@@ -18,6 +18,8 @@ import {
   Check,
 } from "lucide-react";
 
+import type { DynamicPvcCardsQuickSelection } from "@/lib/dynamic-pvc-cards-types";
+
 export interface PvcCatalogItem {
   id: string;
   code: string;
@@ -126,11 +128,13 @@ export const pvcCatalog: PvcCatalogItem[] = [
   },
 ];
 
-export function QuickPvcSelectionMatrix() {
+export function QuickPvcSelectionMatrix({ data }: { data?: DynamicPvcCardsQuickSelection }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [selectedModalPvc, setSelectedModalPvc] = useState<PvcCatalogItem | null>(null);
+
+  const activeCatalog = (data?.catalog && data.catalog.length > 0) ? data.catalog : pvcCatalog;
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") setSelectedModalPvc(null);
@@ -141,7 +145,7 @@ export function QuickPvcSelectionMatrix() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const filteredCards = pvcCatalog.filter((item) => {
+  const filteredCards = activeCatalog.filter((item) => {
     const matchesCat = activeCategory === "all" || item.category === activeCategory;
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
@@ -162,13 +166,13 @@ export function QuickPvcSelectionMatrix() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Card Selection Matrix</span>
+            <span>{data?.badge || "Card Selection Matrix"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            CR80 PVC Card Substrates &amp; Chips
+            {data?.title || "CR80 PVC Card Substrates & Chips"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Choose from pure virgin plain PVC, 13.56MHz Mifare smart cards, 125kHz proximity cards, and magnetic stripe credentials.
+            {data?.lede || "Choose from pure virgin plain PVC, 13.56MHz Mifare smart cards, 125kHz proximity cards, and magnetic stripe credentials."}
           </p>
         </div>
 

@@ -1,0 +1,646 @@
+{
+  "hero": {
+    "badge": "Core Media & Credentials",
+    "badgeSub": "100% Virgin White Core",
+    "title": "30-Mil CR80 Virgin PVC",
+    "highlight": "Smart Cards",
+    "description": "The gold standard for identity credentials. IDGen supplies bank-grade 30-mil (0.76mm) CR80 virgin PVC cards with high-definition dye sublimation printing, protective overlaminate, and embedded RFID smart chips.",
+    "specStrip": [
+      {
+        "title": "CR80 Format",
+        "desc": "85.6 × 54.0 mm",
+        "iconName": "CreditCard"
+      },
+      {
+        "title": "30-Mil Depth",
+        "desc": "0.76mm bank grade",
+        "iconName": "Layers"
+      },
+      {
+        "title": "300 DPI",
+        "desc": "Dye sublimation",
+        "iconName": "Sparkles"
+      },
+      {
+        "title": "24–48h",
+        "desc": "Factory dispatch",
+        "iconName": "Truck"
+      }
+    ],
+    "primaryCta": {
+      "label": "Request a Quote",
+      "href": "/request-a-quote/"
+    },
+    "secondaryCta": {
+      "label": "Explore Card Models",
+      "href": "#selection-matrix"
+    },
+    "tertiaryCta": {
+      "label": "Compatible Holders",
+      "href": "/id-card-holders/"
+    },
+    "trustPoints": [
+      "100% Virgin Polymer Core",
+      "Guwahati Factory Direct",
+      "Mifare & TK4100 RFID Ready"
+    ],
+    "slides": [
+      {
+        "id": "pvc-cr80-virgin",
+        "imageSrc": "/images/product-pvc-cards.jpg",
+        "alt": "IDGen CR80 30-mil virgin PVC cards for student and corporate identification",
+        "title": "30-Mil CR80 Virgin White Core Cards",
+        "category": "Virgin PVC",
+        "topBadge": "CR80 30-Mil Bank Grade",
+        "specPill": "100% Virgin Core",
+        "bottomSpec": "85.6 × 54.0 mm • 0.76mm Thickness • Mirror Gloss Finish",
+        "hubTag": "GUWAHATI FACTORY"
+      },
+      {
+        "id": "pvc-custom-hd-print",
+        "imageSrc": "/images/custom-pvc-id-card-printing-idgen.jpg",
+        "alt": "Custom PVC ID card printing with high definition dye-sublimation by IDGen",
+        "title": "High-Definition 300 DPI Sublimation",
+        "category": "HD Print",
+        "topBadge": "Vibrant Print Series",
+        "specPill": "Dye-Sublimation",
+        "bottomSpec": "True-to-Life Colors • Sharp Barcodes • Holographic Overlay",
+        "hubTag": "ASSAM DIRECT"
+      },
+      {
+        "id": "pvc-institutional-cards",
+        "imageSrc": "/images/PVC-ID-Card-Printing-for-Organizations.png",
+        "alt": "Institutional PVC ID card printing for schools, colleges and companies by IDGen",
+        "title": "Enterprise & Campus Identity Cards",
+        "category": "Institutional",
+        "topBadge": "Institutional IDs",
+        "specPill": "Anti-Delamination",
+        "bottomSpec": "Student IDs • Staff Cards • Healthcare • Membership Badges",
+        "hubTag": "ZERO MISMATCH"
+      },
+      {
+        "id": "pvc-rfid-smart-chips",
+        "imageSrc": "/images/service-pvc-id-card-printing-v3.jpg",
+        "alt": "Contactless RFID and NFC smart chips embedded in 30-mil PVC cards by IDGen",
+        "title": "RFID / NFC Smart Campus Badges",
+        "category": "Smart Chips",
+        "topBadge": "Mifare 13.56 MHz",
+        "specPill": "Turnstile Access",
+        "bottomSpec": "1K S50 / TK4100 / NTAG213 • Contactless Attendance Sync",
+        "hubTag": "SMART RFID"
+      },
+      {
+        "id": "pvc-corporate-executive",
+        "imageSrc": "/images/id-card-hero-corporate-pvc.jpg",
+        "alt": "Corporate executive PVC ID card in acrylic case with printed lanyard by IDGen",
+        "title": "Executive Corporate PVC Credentials",
+        "category": "Full Suite",
+        "topBadge": "Ready Factory Stock",
+        "specPill": "10,000+ Daily Capacity",
+        "bottomSpec": "Ready Stock in Guwahati • 24–48h Dispatch Across 8 NE States",
+        "hubTag": "EXPRESS DISPATCH"
+      }
+    ]
+  },
+  "quickSelection": {
+    "badge": "Card Selection Matrix",
+    "title": "CR80 PVC Card Models & Chip Options",
+    "lede": "Review standard blank, pre-printed, RFID-embedded, and magnetic stripe PVC card models manufactured compliant with ISO/IEC 7810 specifications.",
+    "catalog": [
+      {
+        "id": "pvc-01",
+        "code": "PVC-01",
+        "title": "CR80 30-Mil Standard Virgin PVC Card",
+        "category": "plain",
+        "material": "100% Virgin Polyvinyl Chloride (Pure White Core)",
+        "dimensions": "85.6 mm × 54.0 mm (0.76 mm / 30-Mil)",
+        "print": "Thermal Transfer & Dye Sublimation (300 DPI)",
+        "durability": "5+ Years UV Resistance & Scratch Seal",
+        "img": "/images/PVC Cards Samples/Sample 1.jpg",
+        "badge": "Bank Grade CR80",
+        "description": "Bank-grade 30-mil virgin PVC with flawless optical whiteness, ensuring smooth printhead travel and vibrant edge-to-edge color reproduction.",
+        "idealFor": [
+          "Employee ID Badges",
+          "Student ID Cards",
+          "Visitor Passes",
+          "Membership Cards"
+        ]
+      },
+      {
+        "id": "pvc-02",
+        "code": "PVC-02",
+        "title": "Overlaminated Scratch-Proof Enterprise PVC Card",
+        "category": "plain",
+        "material": "Multi-Layer Composite PVC + Protective Clear Laminate",
+        "dimensions": "CR80 Standard (30-Mil / 0.76 mm)",
+        "print": "Sub-Surface Dye Sublimation + 1-Mil Overcoat",
+        "durability": "Heavy-Duty Abrasion & Moisture Shield",
+        "img": "/images/PVC Cards Samples/Sample 3.jpg",
+        "badge": "Overlaminated",
+        "description": "Heavy-duty protective thermal overlay shield that protects printed photographs and barcodes against friction, chemical exposure, and constant swipe wear.",
+        "idealFor": [
+          "Industrial Plants",
+          "Construction Sites",
+          "Hospital Clinical Staff",
+          "Daily Swipe Turnstiles"
+        ]
+      },
+      {
+        "id": "pvc-03",
+        "code": "PVC-03",
+        "title": "13.56MHz Mifare 1K Smart RFID PVC Card",
+        "category": "rfid",
+        "material": "Virgin PVC + Embedded 13.56MHz S50 Microchip",
+        "dimensions": "ISO/IEC 14443 Type A Standard (30-Mil)",
+        "print": "Full Color Variable Data + Direct UV / Sublimation",
+        "durability": "100,000 Read/Write Cycles (10-Yr Data Retention)",
+        "img": "/images/custom-rfid-id-card-printing.png",
+        "badge": "High Frequency 13.56MHz",
+        "description": "Contactless smart card with 1KB EEPROM storage for multi-application campus access, cashless canteen payments, and biometric attendance.",
+        "idealFor": [
+          "University Campus ID",
+          "Corporate Access Control",
+          "Cashless Canteen",
+          "Library Management"
+        ]
+      },
+      {
+        "id": "pvc-04",
+        "code": "PVC-04",
+        "title": "TK4100 125kHz Proximity Contactless Card",
+        "category": "prox",
+        "material": "Virgin PVC + Embedded 125kHz Copper Antenna",
+        "dimensions": "CR80 Standard (0.76 mm / 30-Mil)",
+        "print": "Edge-to-Edge Full Color + Chip Serial ID",
+        "durability": "Contactless Magnetic Induction Read",
+        "img": "/images/bulk-rfid-card-printing.jpg",
+        "badge": "Low Frequency 125kHz",
+        "description": "Standard low-frequency proximity card compatible with EM4100 / TK4100 turnstile readers, parking boom barriers, and time-clock terminals.",
+        "idealFor": [
+          "Office Turnstiles",
+          "Parking Gate Barriers",
+          "Gym Access Gates",
+          "Time & Attendance Clocks"
+        ]
+      },
+      {
+        "id": "pvc-05",
+        "code": "PVC-05",
+        "title": "HiCo Magnetic Stripe & QR Code PVC Card",
+        "category": "mag",
+        "material": "Virgin PVC + 2750 Oe High-Coercivity MagStripe",
+        "dimensions": "ISO 7811 3-Track Magnetic Standard",
+        "print": "Front Full Color + Back Encoded MagStripe",
+        "durability": "Resistant to Stray Demagnetization",
+        "img": "/images/idgen-membership-card-qr-barcode.jpg",
+        "badge": "HiCo 2750 Oe",
+        "description": "High-coercivity (2750 Oe) 3-track magnetic stripe card engineered to withstand magnetic erasure from mobile phones and everyday metal keys.",
+        "idealFor": [
+          "Retail Loyalty Cards",
+          "Hotel Room Keycards",
+          "Club Membership Cards",
+          "POS POS Terminal Swipes"
+        ]
+      },
+      {
+        "id": "pvc-06",
+        "code": "PVC-06",
+        "title": "Dual-Interface Hybrid RFID + MagStripe Card",
+        "category": "rfid",
+        "material": "Virgin PVC + 13.56MHz Chip + HiCo MagStripe",
+        "dimensions": "Dual Interface CR80 (0.80 mm)",
+        "print": "Double Sided 300 DPI Edge-to-Edge Print",
+        "durability": "Multi-Protocol Dual System Compatibility",
+        "img": "/images/PVC-ID-Card-Printing-for-Organizations.png",
+        "badge": "Hybrid Chip & Mag",
+        "description": "All-in-one dual credential integrating both contactless 13.56MHz RFID and contact magnetic stripe technology for legacy infrastructure migration.",
+        "idealFor": [
+          "Enterprise Campuses",
+          "Hospitality Resorts",
+          "Transit Systems",
+          "Legacy Access Upgrades"
+        ]
+      }
+    ]
+  },
+  "anatomy": {
+    "badge": "Card Engineering",
+    "title": "30-Mil PVC Card Multi-Layer Anatomy",
+    "lede": "Discover the 4 precision-engineered layers that ensure photo clarity, chip reliability, and 5+ years of daily swipe endurance.",
+    "layers": [
+      {
+        "step": "01",
+        "title": "100% Virgin PVC Solid Core",
+        "subtitle": "Pure White Non-Recycled Core",
+        "badge": "Virgin Substrate",
+        "material": "High-density virgin polyvinyl chloride polymer",
+        "benefit": "Flawless optical whiteness ensures smooth printhead travel without snagging and prevents card snapping.",
+        "iconName": "Box",
+        "img": "/images/PVC Cards Samples/Sample 1.jpg",
+        "details": [
+          "Pure white core without recycled grey fillers or impurities",
+          "Standard CR80 dimensions: 85.6 mm × 54.0 mm × 0.76 mm",
+          "ISO 7810 dimensional and bend-resistance compliance"
+        ]
+      },
+      {
+        "step": "02",
+        "title": "Embedded RFID Smart Inlay (Optional)",
+        "subtitle": "13.56MHz / 125kHz Microchip",
+        "badge": "Smart Contactless",
+        "material": "Ultrathin silicon chip + laminated copper wire antenna",
+        "benefit": "Seamless contactless communication for campus attendance, cashless payments, and door access.",
+        "iconName": "Radio",
+        "img": "/images/custom-rfid-id-card-printing.png",
+        "details": [
+          "Mifare 1K (13.56MHz) or TK4100 (125kHz) protocols",
+          "Embedded between core PVC layers with zero surface bump",
+          "100,000 read/write cycles with 10-year EEPROM retention"
+        ]
+      },
+      {
+        "step": "03",
+        "title": "300 DPI Dye-Sublimation Printing",
+        "subtitle": "Edge-to-Edge Full Color",
+        "badge": "HD Color Sublimation",
+        "material": "YMCKO thermal transfer dye-diffusion ribbons",
+        "benefit": "Photorealistic portraits, crisp QR codes, sharp barcodes, and corporate brand Pantone colors.",
+        "iconName": "Sparkles",
+        "img": "/images/PVC-ID-Card-Printing-for-Organizations.png",
+        "details": [
+          "True 300 × 300 DPI high-definition continuous tone",
+          "Zero border bleed with full edge-to-edge coverage",
+          "Supports dynamic barcodes (Code 128, Code 39) and QR codes"
+        ]
+      },
+      {
+        "step": "04",
+        "title": "Protective Thermal Overlaminate",
+        "subtitle": "Scratch & UV Barrier Seal",
+        "badge": "Protective Overcoat",
+        "material": "Clear thermal varnish / 1-Mil polyester overlay",
+        "benefit": "Shields card graphics from daily wallet friction, moisture, chemicals, and sunlight fading.",
+        "iconName": "ShieldCheck",
+        "img": "/images/PVC Cards Samples/Sample 3.jpg",
+        "details": [
+          "Extends functional card lifespan beyond 5+ years of active use",
+          "Protects printed surface against acetone and sanitizers",
+          "Optional holographic security watermark overlays"
+        ]
+      }
+    ]
+  },
+  "rangeMaster": {
+    "badge": "Master Card Showcase",
+    "title": "CR80 PVC Formats & Smart Chip Variants",
+    "lede": "Explore our specialized card technologies engineered for university campuses, corporate headquarters, hospitals, and access turnstiles.",
+    "sections": [
+      {
+        "code": "Standard 30-Mil CR80",
+        "badge": "Bank Grade Core",
+        "title": "30-Mil Standard CR80 Virgin PVC Cards",
+        "tagline": "The gold standard substrate for enterprise identity and academic credentials.",
+        "description": "Engineered with 100% virgin polyvinyl chloride core plastic, free of recycled impurities. Provides a mirror-smooth print surface for thermal transfer printers and 5+ years of anti-delamination durability.",
+        "image": "/images/PVC Cards Samples/Sample 1.jpg",
+        "alt": "30-Mil Virgin PVC Smart Card Sample",
+        "setup": "CR80 (85.6 × 54.0 mm) + 0.76 mm 30-Mil + Thermal Sublimation + UV Seal",
+        "suitable": [
+          "School & University Student ID Cards",
+          "Corporate Staff & Executive Badges",
+          "Hospital & Medical Personnel Passes",
+          "Government Department Credentials",
+          "Visitor & Contractor Badges"
+        ],
+        "specs": [
+          { "k": "Dimensions", "v": "85.6 mm × 54.0 mm (CR80)" },
+          { "k": "Thickness", "v": "30-Mil (0.76 mm Bank Standard)" },
+          { "k": "Core Material", "v": "100% Virgin White PVC" },
+          { "k": "Print Quality", "v": "300 DPI Edge-to-Edge Color" }
+        ],
+        "conclusion": "Flawless optical whiteness prevents card printer printhead snags and color banding."
+      },
+      {
+        "code": "13.56MHz Mifare 1K",
+        "badge": "Smart Contactless",
+        "title": "13.56MHz Mifare 1K High-Frequency Smart Cards",
+        "tagline": "Secure contactless microchip embedded inside standard 30-mil virgin PVC.",
+        "description": "The premier credential for integrated smart campuses and corporate attendance networks. Features 1KB EEPROM memory organized into 16 sectors with individual cryptographic keys for multi-application security.",
+        "image": "/images/custom-rfid-id-card-printing.png",
+        "alt": "13.56MHz Mifare RFID Smart PVC Card",
+        "setup": "Virgin PVC + Embedded Mifare S50 Inlay + Full-Color Personalization",
+        "suitable": [
+          "Smart University Campus Access",
+          "Cashless Canteen & Cafeteria Payments",
+          "Automated Library Book Checkout",
+          "Corporate Access Turnstiles",
+          "Biometric Time & Attendance Terminals"
+        ],
+        "specs": [
+          { "k": "Frequency", "v": "13.56 MHz (High Frequency)" },
+          { "k": "Protocol", "v": "ISO/IEC 14443 Type A" },
+          { "k": "Memory", "v": "1KB EEPROM (16 Sectors)" },
+          { "k": "Read Distance", "v": "Up to 10 cm (Contactless)" }
+        ],
+        "conclusion": "100,000 read/write endurance cycles with 10-year encrypted data retention."
+      },
+      {
+        "code": "125kHz TK4100 Prox",
+        "badge": "Low Frequency",
+        "title": "125kHz TK4100 Contactless Proximity Cards",
+        "tagline": "Universal access control credential for parking boom barriers and door gates.",
+        "description": "Reliable low-frequency contactless card embedded with a tuned copper coil antenna and TK4100 microchip. Pre-programmed with a factory unique 64-bit ID for plug-and-play compatibility with standard proximity readers.",
+        "image": "/images/bulk-rfid-card-printing.jpg",
+        "alt": "125kHz TK4100 Contactless Proximity Card",
+        "setup": "Virgin PVC + 125kHz Copper Coil + Laser Engraved Serial ID",
+        "suitable": [
+          "Office Security Door Turnstiles",
+          "Parking Boom Barrier Gates",
+          "Commercial Building Elevators",
+          "Gym & Fitness Club Entry",
+          "Factory Staff Time Clocks"
+        ],
+        "specs": [
+          { "k": "Frequency", "v": "125 kHz (Low Frequency)" },
+          { "k": "Chip Model", "v": "TK4100 / EM4100 Compatible" },
+          { "k": "Encoding", "v": "64-Bit Read-Only Serial ID" },
+          { "k": "Read Range", "v": "5 cm – 12 cm" }
+        ],
+        "conclusion": "Cost-effective, highly durable contactless technology for large enterprise workforces."
+      },
+      {
+        "code": "Overlaminated & Mag",
+        "badge": "HiCo 2750 Oe",
+        "title": "Overlaminated Magnetic Stripe & Barcode Cards",
+        "tagline": "Anti-scratch protective thermal laminate with high-coercivity magnetic stripe.",
+        "description": "Engineered for high-friction swipe environments such as hotel room keycards, POS loyalty terminals, and membership check-in desks. The protective overlay shields print against constant abrasion and chemical cleaners.",
+        "image": "/images/PVC Cards Samples/Sample 3.jpg",
+        "alt": "Overlaminated Scratch Proof PVC Card Sample",
+        "setup": "Virgin PVC + 2750 Oe HiCo MagStripe + 1-Mil Clear Thermal Overlaminate",
+        "suitable": [
+          "Hotel Room Access Keycards",
+          "Retail Loyalty & Discount Cards",
+          "Club & Association Membership Cards",
+          "High-Wear Industrial Environment IDs",
+          "POS Terminal Magnetic Swipes"
+        ],
+        "specs": [
+          { "k": "MagStripe Type", "v": "HiCo (2750 Oersted)" },
+          { "k": "Tracks", "v": "Track 1, 2, 3 (ISO 7811)" },
+          { "k": "Protection", "v": "1-Mil Clear Protective Film" },
+          { "k": "Barcode Support", "v": "Code 128, QR Code, PDF417" }
+        ],
+        "conclusion": "Resistant to stray magnetic fields from smartphones and metal accessories."
+      }
+    ]
+  },
+  "engineeringGuide": {
+    "badge": "Decision Factors",
+    "title": "PVC Card Formulation & Engineering Guide",
+    "lede": "Key technical parameters to evaluate when choosing between plain, composite, and RFID-embedded PVC cards:",
+    "factors": [
+      {
+        "num": "01",
+        "title": "1. Core Quality & Printhead Life",
+        "desc": "100% Virgin PVC vs Recycled Core Plastic.",
+        "detail": "Virgin PVC cards feature zero surface lumps, pinholes, or grey impurities, protecting desktop card printer thermal printheads from scratches and eliminating white printing artifacts.",
+        "iconName": "Box"
+      },
+      {
+        "num": "02",
+        "title": "2. Contactless Chip Protocol",
+        "desc": "13.56MHz Smart vs 125kHz Proximity.",
+        "detail": "Choose 13.56MHz Mifare 1K for encrypted multi-sector applications (canteen, library, biometric) and 125kHz TK4100 for standard turnstiles and vehicle parking boom barriers.",
+        "iconName": "Radio"
+      },
+      {
+        "num": "03",
+        "title": "3. Friction & Swipe Frequency",
+        "desc": "Lanyard badge vs daily magnetic swipe.",
+        "detail": "For cards subjected to high-friction daily swipes (POS loyalty or hotel doors), choose high-coercivity (2750 Oe) HiCo magnetic stripes with a protective 1-Mil thermal overlaminate.",
+        "iconName": "CreditCard"
+      },
+      {
+        "num": "04",
+        "title": "4. Wearable Ecosystem Compatibility",
+        "desc": "Card + Holder + Hook + Custom Lanyard.",
+        "detail": "Pair your PVC cards with our ultrasonic-sealed custom satin lanyards and V-2 Four-Side-Lock rigid holders for a complete institutional identification solution.",
+        "iconName": "Layers"
+      }
+    ],
+    "fastenersTitle": "Core Formulation & Edge Finish Comparison",
+    "fastenersLede": "Select the optimal core substrate based on durability, thermal resistance, and wearable format",
+    "fasteners": [
+      {
+        "title": "100% Virgin White PVC",
+        "badge": "IDGen Standard",
+        "desc": "Pure white virgin polymer with zero regrind impurities. Complies fully with ISO/IEC 7810 standards.",
+        "pros": [
+          "Zero printhead damage",
+          "Superior bend & snap resistance",
+          "Vibrant dye-sublimation color"
+        ],
+        "iconName": "CreditCard",
+        "highlight": true
+      },
+      {
+        "title": "Composite PET / PVC Core",
+        "badge": "High Heat Resistant",
+        "desc": "Multi-layer sandwich of 60% PVC and 40% PET polyester, engineered for heavy-duty thermal lamination.",
+        "pros": [
+          "Withstands high heat lamination",
+          "Extreme flexural durability",
+          "Zero warping in hot climates"
+        ],
+        "iconName": "Layers",
+        "highlight": false
+      },
+      {
+        "title": "Pre-Punched Slot PVC",
+        "badge": "No-Holder Option",
+        "desc": "Factory die-punched slot hole (vertical or horizontal) for direct clip/hook lanyard attachment without a holder.",
+        "pros": [
+          "Cost-effective wearable setup",
+          "Smooth burr-free punch edges",
+          "Direct hook attachment"
+        ],
+        "iconName": "Box",
+        "highlight": false
+      }
+    ]
+  },
+  "applications": {
+    "badge": "Sector Solutions",
+    "title": "PVC Cards Across Northeast Institutions",
+    "lede": "Supplied to leading universities, corporate offices, healthcare facilities, and access turnstiles across Assam and all 8 Northeast states.",
+    "subtitle": "5 Core Application Sectors",
+    "applications": [
+      {
+        "title": "School, College & University IDs",
+        "desc": "Long-lasting 30-mil student ID cards with student photos, roll numbers, barcodes, and optional Mifare library chips.",
+        "iconName": "GraduationCap",
+        "gradient": "from-sky-500/10 via-blue-500/5 to-transparent",
+        "accentColor": "text-[#009fe3]",
+        "tag": "Education",
+        "link": {
+          "label": "Student ID Cards",
+          "href": "/student-id-card-printing/"
+        }
+      },
+      {
+        "title": "Corporate & Enterprise Staff Badges",
+        "desc": "High-definition employee credentials with employee codes, department names, blood groups, and security QR codes.",
+        "iconName": "Briefcase",
+        "gradient": "from-cyan-500/10 via-teal-500/5 to-transparent",
+        "accentColor": "text-cyan-500",
+        "tag": "Corporate",
+        "link": {
+          "label": "Employee ID Cards",
+          "href": "/employee-id-card-printing/"
+        }
+      },
+      {
+        "title": "Hospital Doctors & Medical Staff",
+        "desc": "Sanitizable, wipeable staff cards with bold designation titles, photo IDs, and RFID access for restricted wards.",
+        "iconName": "Hospital",
+        "gradient": "from-emerald-500/10 via-teal-500/5 to-transparent",
+        "accentColor": "text-emerald-500",
+        "tag": "Healthcare",
+        "link": {
+          "label": "Medical Staff IDs",
+          "href": "/employee-id-card-printing/"
+        }
+      },
+      {
+        "title": "Clubs, Gyms & Member Cards",
+        "desc": "Sleek loyalty and membership cards with high-coercivity magnetic stripes, variable barcodes, and QR verification.",
+        "iconName": "Layers",
+        "gradient": "from-purple-500/10 via-indigo-500/5 to-transparent",
+        "accentColor": "text-purple-500",
+        "tag": "Membership",
+        "link": {
+          "label": "Membership Cards",
+          "href": "/membership-card-printing/"
+        }
+      },
+      {
+        "title": "RFID Turnstiles & Barrier Gates",
+        "desc": "13.56MHz and 125kHz contactless cards for boom barriers, turnstiles, and automated biometric time attendance.",
+        "iconName": "Radio",
+        "gradient": "from-blue-500/10 via-indigo-500/5 to-transparent",
+        "accentColor": "text-blue-500",
+        "tag": "Smart Access",
+        "link": {
+          "label": "RFID Smart Cards",
+          "href": "/rfid-card-printing/"
+        }
+      }
+    ]
+  },
+  "workflowAndDispatch": {
+    "workflowBadge": "Production Pipeline",
+    "workflowTitle": "How We Print & Encode PVC Cards",
+    "workflowLede": "From data roster matching and color proofing to thermal dye-sublimation and anti-static tray packaging.",
+    "orderingSteps": [
+      {
+        "num": "01",
+        "title": "1. Select PVC Chip / Spec",
+        "body": "Choose standard plain PVC, 13.56MHz Mifare 1K smart card, or 125kHz TK4100 proximity card.",
+        "badge": "Substrate & Chip"
+      },
+      {
+        "num": "02",
+        "title": "2. Provide Data & Staff / Student Roster",
+        "body": "Send data sheet along with individual photograph filenames for seamless automated batch printing.",
+        "badge": "Data Roster"
+      },
+      {
+        "num": "03",
+        "title": "3. Precision Thermal Sublimation",
+        "body": "300 DPI edge-to-edge printing with protective overlay lamination against wear and moisture.",
+        "badge": "Sublimation"
+      },
+      {
+        "num": "04",
+        "title": "4. Rapid Guwahati Dispatch",
+        "body": "Card batches packed in anti-static trays and dispatched in 24–48h across all 8 NE states.",
+        "badge": "Dispatch"
+      }
+    ],
+    "dispatchBadge": "Guwahati Direct Factory",
+    "dispatchTitle": "24–48h Factory Dispatch",
+    "dispatchHubTag": "Guwahati Direct Hub",
+    "dispatchLede": "For standard organizational ID batches with approved data rosters, our automated thermal production line operates on a strict factory fulfillment schedule:",
+    "dispatchFlowSteps": [
+      "Roster Data Merge",
+      "300 DPI Dye Sublimation",
+      "Protective Overcoating",
+      "Automated Sequence Sort",
+      "Anti-Static Dispatch"
+    ],
+    "dispatchDisclaimers": [
+      "Cards are packed sequentially in protective anti-static card trays (250 cards per inner box) to prevent surface scuffs and static dust attraction.",
+      "Express transit across Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, and Sikkim is additional."
+    ],
+    "closingCtaBadge": "Direct Factory Supply",
+    "closingCtaTitle": "Ready to Order CR80 Virgin PVC Cards?",
+    "closingCtaLede": "Whether you need 100 printed student ID cards or 50,000 blank Mifare smart cards for an enterprise campus, IDGen delivers factory-direct rates from Guwahati.",
+    "closingCtaButtons": [
+      {
+        "label": "Request a Free Quote",
+        "href": "/request-a-quote/",
+        "primary": true
+      },
+      {
+        "label": "Compatible ID Card Holders",
+        "href": "/id-card-holders/",
+        "primary": false
+      },
+      {
+        "label": "View Pricing Tiers",
+        "href": "/pricing/",
+        "primary": false
+      }
+    ],
+    "closingCtaBrandingTitle": "IDGen — 30-Mil CR80 Virgin PVC Smart Cards & Credentials",
+    "closingCtaBrandingLocation": "Guwahati, Assam • Direct Factory Supply Across Northeast India"
+  },
+  "faqs": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions About PVC Cards",
+    "lede": "Direct answers regarding virgin vs recycled PVC, security overlays, CR80 standards, and chip compatibility:",
+    "faqs": [
+      {
+        "q": "What is the difference between virgin PVC and recycled PVC cards?",
+        "a": "Virgin PVC cards feature pure white core plastic without imperfections, ensuring card printer printheads do not snag or cause white speckles. They also offer 3x higher resistance to snapping or delamination."
+      },
+      {
+        "q": "Can we print metallic foil, holographic overlays, or UV security text on PVC cards?",
+        "a": "Yes! IDGen offers security overlays including high-resolution 3D custom holograms, invisible UV microtext, and gold/silver foil stamping."
+      },
+      {
+        "q": "What is the standard dimension and thickness of CR80 cards?",
+        "a": "CR80 is the international credit-card size standard measuring exactly 85.6 mm × 54.0 mm with a standard 30-mil (0.76 mm) thickness compliant with ISO/IEC 7810."
+      },
+      {
+        "q": "Are IDGen PVC cards compatible with RFID smart chips and access systems?",
+        "a": "Yes, our cards are available with embedded 13.56MHz Mifare 1K chips, 125kHz TK4100 proximity inlays, or high-coercivity (2750 Oe) magnetic stripes."
+      },
+      {
+        "q": "What is the dispatch turnaround for custom printed PVC cards?",
+        "a": "Standard batches with approved data rosters are produced and dispatched in 24–48 hours from our Guwahati factory across Assam and all 8 Northeast states."
+      }
+    ]
+  },
+  "seo": {
+    "title": "30-Mil CR80 PVC Smart Cards | Virgin PVC Core Cards | IDGen",
+    "description": "Bank-grade 30-mil (0.76mm) CR80 virgin PVC smart cards manufactured for enterprise employee badges, student ID cards, RFID access cards, and membership programs across Northeast India.",
+    "path": "/pvc-cards/",
+    "keywords": [
+      "CR80 PVC Cards",
+      "Virgin PVC Cards",
+      "RFID Smart Cards",
+      "Mifare 1K Cards",
+      "Guwahati PVC Card Printing"
+    ]
+  }
+}

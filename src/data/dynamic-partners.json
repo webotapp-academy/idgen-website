@@ -1,0 +1,544 @@
+{
+  "meta": {
+    "title": "ID Card Reseller & Partner Program | IDGen Northeast India",
+    "description": "Become an IDGen reseller, referral, printing or School ERP partner. Build your local ID card business with IDGen production support across Northeast India.",
+    "path": "/partners/"
+  },
+  "hero": {
+    "badge": "IDGen Partner & Reseller Program",
+    "h1": "Become an IDGen Partner",
+    "subtitle": "Build Your Local Identity-Products Business With IDGen",
+    "description": "IDGen is developing a network of resellers, referral partners, printing partners and technology partners across Northeast India. If you already have relationships with schools, colleges, companies, hospitals, institutions, organizations or other businesses, you can offer professional identification products without necessarily building your own complete ID-card production setup.",
+    "responsibilityBadge": "Division of Responsibilities",
+    "responsibilityHighlight": "You Focus on Customers • IDGen Supports Production",
+    "modelTitle": "Local Partner Model:",
+    "modelSteps": [
+      "Find Customers",
+      "Collect Requirements",
+      "Send Order to IDGen",
+      "Production",
+      "Dispatch",
+      "Customer Delivery"
+    ],
+    "primaryCta": {
+      "label": "Apply to Become an IDGen Partner",
+      "href": "#apply"
+    },
+    "secondaryCta": {
+      "label": "Talk to IDGen",
+      "href": "/contact-us/"
+    },
+    "showcaseCard": {
+      "imageSrc": "/images/idgen-partner-reseller-program.jpg",
+      "alt": "IDGen B2B Partner & Reseller network production",
+      "topBadge": "Northeast India Reseller Network",
+      "brandBadge": "IDGen",
+      "subTitle": "Zero Production CapEx",
+      "mainTitle": "Local Sales + Central Production",
+      "regionBadge": "All 8 NE States"
+    }
+  },
+  "whyPartner": {
+    "eyebrow": "Market Entry Strategy",
+    "title": "Why Partner With IDGen?",
+    "description": "Starting an ID-card business can require investment in:",
+    "equipmentList": [
+      "Printing equipment",
+      "Fusing equipment",
+      "Cutting equipment",
+      "Materials",
+      "Accessories",
+      "Production staff",
+      "Quality-control processes",
+      "Order management",
+      "Production experience"
+    ],
+    "valueCallout": "An IDGen partnership can allow a local business to focus more on sales, customer relationships and local market development, while IDGen supports the required identity-product production according to the agreed partnership model."
+  },
+  "partnerStrengths": {
+    "eyebrow": "Core Synergies",
+    "title": "A Partnership Built Around Your Strengths",
+    "lede": "You may already have something IDGen needs:",
+    "strengths": [
+      {
+        "title": "Local Customers",
+        "desc": "You know schools, businesses, institutions or organizations in your area."
+      },
+      {
+        "title": "Local Market Knowledge",
+        "desc": "You understand how customers in your city or state purchase identification products."
+      },
+      {
+        "title": "Sales Network",
+        "desc": "You already sell printing, stationery, technology, school or corporate products."
+      },
+      {
+        "title": "Existing Business",
+        "desc": "You may already operate a printing, IT, advertising, stationery, ERP or related business."
+      },
+      {
+        "title": "Technology Platform",
+        "desc": "You may operate software that already serves schools or organizations."
+      }
+    ],
+    "synergyCard": {
+      "eyebrow": "The Synergy",
+      "text": "IDGen can provide the production side while you build the customer relationship."
+    }
+  },
+  "models": {
+    "eyebrow": "Partnership Options",
+    "title": "Choose Your Partnership Model",
+    "lede": "IDGen can work with different partner types depending on the business relationship.",
+    "reseller": {
+      "badge": "Model 1",
+      "title": "1. IDGen Reseller Partner",
+      "tag": "Sell Identification Products in Your Market",
+      "desc": "As a reseller, you acquire customers and sell IDGen products under an agreed reseller arrangement.",
+      "flowSteps": [
+        "Customer",
+        "Partner",
+        "IDGen",
+        "Production",
+        "Dispatch",
+        "Customer"
+      ],
+      "note": "You can develop your own customer relationships while using IDGen as your production partner.",
+      "suitableFor": [
+        "Printing businesses",
+        "Stationery businesses",
+        "IT companies",
+        "Advertising agencies",
+        "Local distributors",
+        "School suppliers",
+        "Business-service providers",
+        "Entrepreneurs",
+        "Local sales representatives"
+      ],
+      "ctaText": "Become a Reseller",
+      "ctaHref": "#apply"
+    },
+    "referral": {
+      "badge": "Model 2",
+      "title": "2. Referral Partner",
+      "tag": "Refer Customers to IDGen",
+      "desc": "If you do not want to manage the complete sales and order process, you can refer potential customers to IDGen.",
+      "flowSteps": [
+        "Partner",
+        "Customer Lead",
+        "IDGen",
+        "Requirement",
+        "Production",
+        "Dispatch"
+      ],
+      "note": "The commercial benefits and responsibilities can be agreed according to the referral arrangement. Suitable for people or businesses with relevant connections who don't want inventory or production management.",
+      "ctaText": "Become a Referral Partner",
+      "ctaHref": "#apply"
+    },
+    "erp": {
+      "badge": "Model 3",
+      "title": "3. School ERP Printing Partner",
+      "tag": "Your School Software. Our ID Card Production.",
+      "desc": "If you operate a School ERP, School management software, Student management platform, Attendance system, SIS, or EdTech solution, offer printed student and staff ID cards without building production infrastructure.",
+      "flowSteps": [
+        "Your Software",
+        "School Data",
+        "IDGen",
+        "Card Preview",
+        "Approval",
+        "Production",
+        "Quality Check",
+        "Dispatch"
+      ],
+      "note": "Your company can continue focusing on software while IDGen supports the physical identification requirement.",
+      "ctaText": "Discuss ERP Printing Partnership",
+      "ctaHref": "#apply"
+    },
+    "tech": {
+      "badge": "Model 4",
+      "title": "4. Technology Integration Partner",
+      "tag": "Connect Software With Physical Identification",
+      "desc": "Technology companies managing organizational data can explore future integration opportunities with IDGen to connect software data directly with card production.",
+      "flowSteps": [
+        "Software Data",
+        "Identification Workflow",
+        "Card Production"
+      ],
+      "note": "Reduces manual data transfer and makes production easier for organizations using compatible systems. Evaluated based on software, data structure, security and technical workflow.",
+      "ctaText": "Discuss Technology Partnership",
+      "ctaHref": "#apply"
+    }
+  },
+  "offerings": {
+    "eyebrow": "Product Portfolio",
+    "title": "What Can IDGen Partners Offer?",
+    "lede": "Partners can potentially offer a broad identity-product portfolio instead of selling only one product.",
+    "identificationCards": [
+      "Student ID cards",
+      "Employee ID cards",
+      "Staff ID cards",
+      "Visitor cards",
+      "Event cards",
+      "Membership cards",
+      "RFID cards"
+    ],
+    "accessories": [
+      "Custom printed lanyards",
+      "ID card holders",
+      "ID card hooks",
+      "Other identification accessories"
+    ],
+    "ctaText": "Explore IDGen Services",
+    "ctaHref": "/services/"
+  },
+  "whyModelWorks": {
+    "eyebrow": "Business Rationale",
+    "title": "Why This Model Can Work",
+    "cards": [
+      {
+        "title": "You Don't Need to Build Everything",
+        "desc": "A local partner does not necessarily need to establish a complete production facility before entering the identification-products market. IDGen supports production while you develop the local customer base."
+      },
+      {
+        "title": "Focus on Sales & Relationships",
+        "desc": "Your key activities: Customer → Requirement → Order. IDGen supports production. Spend more time finding customers, building relationships, generating repeat business, and expanding territory."
+      },
+      {
+        "title": "Local Partner + Central Production",
+        "desc": "Local Partner: Sales + Relationship + Local Support. IDGen: Production + Quality + Product Support. Customer: Professional Identity Products."
+      }
+    ],
+    "targetCustomersTitle": "Build Your Customer Base",
+    "targetCustomersDesc": "Approach diverse organizations requiring identification products at different times of year:",
+    "targetOrganizations": [
+      "Schools",
+      "Colleges",
+      "Universities",
+      "Companies",
+      "Hospitals",
+      "Government organizations",
+      "NGOs",
+      "Industries",
+      "Events",
+      "Clubs",
+      "Associations",
+      "Institutions"
+    ],
+    "regionalTitle": "City-Wise Partner Opportunities",
+    "regionalDesc": "IDGen is developing local partnerships across Northeast India. Position city-level local knowledge as your competitive advantage:",
+    "regionalFlow": [
+      "Your City",
+      "Your Customers",
+      "Your Market",
+      "IDGen Production Support"
+    ],
+    "regionalStates": [
+      "Assam",
+      "Meghalaya",
+      "Nagaland",
+      "Manipur",
+      "Mizoram",
+      "Tripura",
+      "Arunachal Pradesh",
+      "Sikkim"
+    ]
+  },
+  "goodPartnerProfile": {
+    "eyebrow": "Partner Profiles",
+    "title": "Who Is a Good IDGen Partner?",
+    "lede": "We are particularly interested in partners with existing school relationships, local business networks, sales capability, and long-term commitment.",
+    "traits": [
+      "Existing school relationships",
+      "Local business networks",
+      "Education-sector customers",
+      "Sales capability",
+      "Customer-support capability",
+      "Local market knowledge",
+      "Professional communication",
+      "Long-term business interest"
+    ],
+    "profileCards": [
+      {
+        "title": "Become a Reseller If...",
+        "desc": "You want to sell ID cards in your city, have local customers and sales capability, want recurring business, and don't want to build production.",
+        "rolePartner": "Acquisition → Requirement → Order → Relationship",
+        "roleIdgen": "Production → Quality → Dispatch Support"
+      },
+      {
+        "title": "Become a Printing Partner If...",
+        "desc": "You already provide services to schools, institutions, companies, or events and want to add identity products without building infrastructure."
+      },
+      {
+        "title": "Become an ERP Partner If...",
+        "desc": "Your software company serves schools. Offer student & staff cards directly from your platform.",
+        "flow": [
+          "School ERP",
+          "Student Data",
+          "IDGen",
+          "Card Preview",
+          "Approval",
+          "Printing",
+          "Quality Check",
+          "Dispatch"
+        ]
+      }
+    ]
+  },
+  "experienceAndStudio": {
+    "experience": {
+      "title": "IDGen Experience Behind the Partnership",
+      "desc": "IDGen is a newer identity-focused brand built on identification-product experience dating back to 2014 across Northeast India.",
+      "flow": [
+        "Personalized Data",
+        "ID Cards",
+        "Accessories",
+        "Bulk Requirements",
+        "Production Workflows"
+      ],
+      "note": "Instead of starting from zero, connect your local customer network with IDGen's established production experience."
+    },
+    "studio": {
+      "title": "Digital Workflow Support",
+      "desc": "For suitable projects, IDGen Studio supports digital data collection and card-preview workflows for large schools and organizations.",
+      "flow": [
+        "Customized Form",
+        "Link/QR Code",
+        "Data Collection",
+        "Card Preview",
+        "Organization Review",
+        "Approval",
+        "Production"
+      ],
+      "ctaText": "Explore IDGen Studio",
+      "ctaHref": "/idgen-studio/"
+    }
+  },
+  "detailedWorkflows": {
+    "eyebrow": "Detailed Operations",
+    "title": "Partner Order Workflows",
+    "resellerTitle": "Reseller Order Workflow (9 Steps)",
+    "resellerSteps": [
+      {
+        "step": "01",
+        "title": "Find Customer",
+        "desc": "Identify a school, company, institution or organization."
+      },
+      {
+        "step": "02",
+        "title": "Understand Requirement",
+        "desc": "Collect product, quantity and customization requirements."
+      },
+      {
+        "step": "03",
+        "title": "Send Requirement",
+        "desc": "Share requirement with IDGen according to agreed process."
+      },
+      {
+        "step": "04",
+        "title": "Quotation",
+        "desc": "IDGen provides applicable pricing/quotation according to agreed partner arrangement."
+      },
+      {
+        "step": "05",
+        "title": "Order",
+        "desc": "Confirm order and required specifications."
+      },
+      {
+        "step": "06",
+        "title": "Production",
+        "desc": "IDGen handles the applicable production workflow."
+      },
+      {
+        "step": "07",
+        "title": "Quality Check",
+        "desc": "Finished products are checked according to agreed requirements."
+      },
+      {
+        "step": "08",
+        "title": "Dispatch",
+        "desc": "Completed order is prepared for dispatch."
+      },
+      {
+        "step": "09",
+        "title": "Customer Delivery",
+        "desc": "Partner manages customer delivery/support according to agreed arrangement."
+      }
+    ],
+    "erpTitle": "ERP Partner Workflow",
+    "erpSteps": [
+      "School ERP",
+      "Student/Staff Data",
+      "IDGen",
+      "Preview",
+      "School Approval",
+      "Production",
+      "Quality Check",
+      "Dispatch"
+    ]
+  },
+  "divisionOfRoles": {
+    "idgenProvidesTitle": "What IDGen Provides to Partners",
+    "idgenProvides": [
+      "Physical identification-product production.",
+      "Cards, lanyards, RFID products, holders, hooks and related identification products.",
+      "Organization-specific personalization and approved artwork.",
+      "Production and quality checks according to agreed specifications.",
+      "Preparation and dispatch of completed orders.",
+      "Support regarding suitable identification-product configurations."
+    ],
+    "partnerExpectsTitle": "What We Expect From Partners",
+    "partnerExpects": [
+      "Develop and maintain relationships within their market.",
+      "Provide correct customer requirements and information.",
+      "Maintain clear communication with customers and IDGen.",
+      "Handle customer communication according to agreed arrangement.",
+      "Handle customer-provided information responsibly and follow applicable data-handling requirements.",
+      "Focus on long-term business rather than one-time orders."
+    ]
+  },
+  "termsAndTerritory": {
+    "territoryTitle": "Partner Territory",
+    "territoryDesc": "Focus on a city or market where you have genuine customer relationships:",
+    "territoryExamples": [
+      "Guwahati Partner → Guwahati Customers → IDGen",
+      "Jorhat Partner → Jorhat Customers → IDGen",
+      "Shillong Partner → Shillong Customers → IDGen"
+    ],
+    "territoryNote": "Territory exclusivity discussed separately.",
+    "franchiseAlertTitle": "Is This a Franchise?",
+    "franchiseAlertDesc": "No. The IDGen partner model is a business partnership / reseller / referral / printing relationship with exact commercial terms agreed individually. Not automatically presented as a franchise.",
+    "commercialTitle": "Partner Commercial Terms",
+    "commercialDesc": "Margins, minimum order requirements, payment and delivery terms are evaluated individually based on partner type, volume, product mix, and responsibilities rather than publishing one universal public margin."
+  },
+  "applicationSection": {
+    "badge": "Apply to Become an IDGen Partner",
+    "title": "Partner Onboarding Application",
+    "description": "Submit your business details and target territory. We evaluate applications within 24 business hours.",
+    "requirementsTitle": "What You Need to Apply",
+    "resellerRequirementsTitle": "For Resellers:",
+    "resellerRequirements": [
+      "Name",
+      "Business name",
+      "City",
+      "State",
+      "Contact details",
+      "Existing customer base",
+      "Products/services currently offered",
+      "Experience in school or institutional sales",
+      "Target market"
+    ],
+    "erpRequirementsTitle": "For School ERP Companies:",
+    "erpRequirements": [
+      "Company name",
+      "ERP/software name",
+      "Website",
+      "Number of schools served",
+      "Operating states/cities",
+      "Approximate annual ID-card requirements",
+      "Current ID-card printing arrangement",
+      "Technical integration requirements"
+    ],
+    "specimenImageSrc": "/images/idgen-partner-specimen-kit.jpg",
+    "specimenBadge": "Partner Specimen Pack Included"
+  },
+  "faqs": {
+    "eyebrow": "Questions & Answers",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "What is the IDGen reseller program?",
+        "a": "The IDGen reseller program allows suitable businesses to acquire customers and offer IDGen identity products under an agreed reseller arrangement while IDGen supports the applicable production workflow."
+      },
+      {
+        "q": "Do I need my own ID card printing machine?",
+        "a": "Not necessarily. The partner model is designed so suitable partners can focus on sales and customer relationships while IDGen supports production."
+      },
+      {
+        "q": "Can I become an IDGen reseller in my city?",
+        "a": "Yes. IDGen is developing local partnerships across Northeast India and is interested in partners with local market knowledge and customer relationships."
+      },
+      {
+        "q": "Can a printing company become an IDGen partner?",
+        "a": "Yes. Printing and related businesses can be considered where they have relevant customers and want to add identity products to their offering."
+      },
+      {
+        "q": "Can an IT company become an IDGen partner?",
+        "a": "Yes. IT companies with relevant organizational or education-sector customers can explore reseller, referral or technology partnership models."
+      },
+      {
+        "q": "Can a School ERP company partner with IDGen?",
+        "a": "Yes. A School ERP company can explore a printing partnership in which the ERP company serves the software requirement while IDGen supports physical student and staff ID-card production."
+      },
+      {
+        "q": "Can I become a referral partner?",
+        "a": "Yes. Suitable businesses or individuals can explore a referral arrangement with IDGen."
+      },
+      {
+        "q": "Can partners sell multiple IDGen products?",
+        "a": "Yes. The partner network can offer a range of identification products, including cards, RFID cards, event cards, membership cards, lanyards, holders and other identity products."
+      },
+      {
+        "q": "Does IDGen offer exclusive city territories?",
+        "a": "Do not assume exclusivity. Territory arrangements, if available, should be discussed and agreed separately with IDGen."
+      },
+      {
+        "q": "Does IDGen provide fixed reseller margins?",
+        "a": "Do not publish a universal margin unless IDGen has formally established one. Commercial terms can vary according to the partnership model and business arrangement."
+      }
+    ]
+  },
+  "closingCta": {
+    "badge": "Partner Opportunity",
+    "title": "Ready to Partner With IDGen?",
+    "description": "If you already have customers, market access, school relationships, software customers or a strong local business network, IDGen can help you explore a partnership around professional identification products.",
+    "equationText": "Your Market (Customers + Relationships + Sales) + IDGen (Products + Production + Quality + Dispatch Support) = Together (A Complete Identification Business Opportunity)",
+    "ctas": [
+      {
+        "label": "Apply to Become an IDGen Partner",
+        "href": "#apply"
+      },
+      {
+        "label": "Become a Reseller",
+        "href": "#apply"
+      },
+      {
+        "label": "Discuss ERP Partnership",
+        "href": "#apply"
+      },
+      {
+        "label": "Contact IDGen",
+        "href": "/contact-us/"
+      }
+    ]
+  },
+  "regionalDirectory": {
+    "title": "Local Relationships. Centralized Identity-Product Support.",
+    "subtitle": "Your Customers → Your Market → IDGen Production → Professional Identity Products",
+    "links": [
+      {
+        "label": "ID Card Printing",
+        "href": "/id-card-printing/"
+      },
+      {
+        "label": "Student ID Cards",
+        "href": "/student-id-card-printing/"
+      },
+      {
+        "label": "Employee ID Cards",
+        "href": "/employee-id-card-printing/"
+      },
+      {
+        "label": "Custom Lanyards",
+        "href": "/custom-printed-lanyard-printing/"
+      },
+      {
+        "label": "IDGen Studio",
+        "href": "/idgen-studio/"
+      },
+      {
+        "label": "Pricing",
+        "href": "/pricing/"
+      }
+    ]
+  }
+}

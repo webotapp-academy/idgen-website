@@ -46,182 +46,75 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { PageHero } from "@/components/ui/PageHero";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { WorkflowSteps } from "@/components/ui/WorkflowSteps";
-import { CompareTable } from "@/components/ui/CompareTable";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
-import type { Faq } from "@/data/types";
+import { getDynamicIdCardPrinting } from "@/lib/dynamic-id-card-printing";
 
-/* ── SEO Metadata (from document) ── */
-export const metadata = pageMetadata({
-  title: "ID Card Printing | Custom PVC & Bulk ID Cards | IDGen",
-  description:
-    "IDGen provides custom PVC ID card printing and bulk personalized ID cards for schools, colleges, companies, hospitals, institutions and events across Assam and Northeast India.",
-  path: "/id-card-printing/",
-});
+export const dynamic = "force-dynamic";
 
-/* ── Data Arrays (ALL from document only) ── */
+/* ── Dynamic SEO Metadata ── */
+export async function generateMetadata() {
+  const data = getDynamicIdCardPrinting();
+  return pageMetadata({
+    title: data.metadata.title,
+    description: data.metadata.description,
+    path: data.metadata.path || "/id-card-printing/",
+  });
+}
 
-const cardInfoItems = [
-  "Photograph",
-  "Name",
-  "Identification number",
-  "Organization name",
-  "Department",
-  "Designation",
-  "Class or course",
-  "Contact information",
-  "QR code",
-  "Barcode",
-  "Other required identification information",
-];
+const DYNAMIC_ICONS: Record<string, React.ElementType> = {
+  GraduationCap,
+  Building2,
+  Ticket,
+  Radio,
+  Users,
+  Hospital,
+  Factory,
+  Landmark,
+  Heart,
+  CalendarDays,
+  Workflow,
+  Zap,
+  Database,
+  Eye,
+  Package,
+  Monitor,
+  MapPin,
+  User,
+  QrCode,
+  CheckCircle2,
+  ShieldCheck,
+  Printer,
+  Sparkles,
+  Layers,
+  Truck,
+  Palette,
+  ClipboardCheck,
+};
 
-const orgTypes = [
-  { icon: GraduationCap, title: "Student ID Cards", body: "For student identification in educational institutions.", href: "/student-id-card-printing/" },
-  { icon: Building2, title: "Employee & Staff ID Cards", body: "For companies, offices, institutions and organizations.", href: "/employee-id-card-printing/" },
-  { icon: Ticket, title: "Event Cards", body: "For conferences, exhibitions, seminars, workshops and other events.", href: "/event-card-printing/" },
-  { icon: Radio, title: "RFID Cards", body: "For applications requiring compatible RFID technology.", href: "/rfid-card-printing/" },
-  { icon: Users, title: "Visitor & Institutional Identification", body: "For organizations requiring visitor, contractor, member or other identification cards." },
-];
-
-const bulkProjectTypes = [
-  "New academic-year ID cards",
-  "Student batches",
-  "Employee onboarding",
-  "Staff identification",
-  "University batches",
-  "Institutional renewals",
-  "Event participants",
-  "Membership cards",
-  "Visitor identification",
-  "Large organizational replacement projects",
-];
-
-const workflowSteps = [
-  { title: "01 — Requirement", body: "We understand: Card type, Quantity, Organization, Required information, Design requirements, Card specification, Additional requirements." },
-  { title: "02 — Data Preparation", body: "For personalized orders, customer information and photographs are prepared for production. Data may be supplied by the organization or collected through IDGen Studio, where applicable." },
-  { title: "03 — Design Preparation", body: "The required card artwork is prepared according to the organization's branding and specifications." },
-  { title: "04 — Data & Design Preview", body: "Where applicable, the customer can review the personalized information and card design before production." },
-  { title: "05 — Approval", body: "Production proceeds after the required information, artwork and specifications are approved." },
-  { title: "06 — Card Printing", body: "Approved cards move into the production process." },
-  { title: "07 — Quality Check", body: "Finished cards are checked against the applicable approved requirements." },
-  { title: "08 — Accessories & Assembly", body: "If required, the cards can be combined with appropriate identification accessories. For example: ID Card → Holder → Hook → Lanyard." },
-  { title: "09 — Packaging & Dispatch", body: "Completed orders are prepared for dispatch according to the applicable order timeline." },
-];
-
-const personalInfo = ["Name", "Photograph", "ID number", "Date of birth, where required"];
-const orgInfo = ["Organization name", "Department", "Designation", "Employee number", "Student roll number", "Admission number"];
-const eduInfo = ["Class", "Section", "Course", "Academic year", "Institution name"];
-const digitalInfo = ["QR code", "Barcode", "Other machine-readable information where required"];
-
-const designElements = [
-  "Organization logo",
-  "Brand colours",
-  "Institutional colours",
-  "Department colours",
-  "Photograph",
-  "Identification details",
-  "QR codes",
-  "Barcodes",
-  "Security or identification elements",
-  "Front and back information",
-];
-
-const studioUseCases = [
-  "Student batches",
-  "Employee onboarding",
-  "Institutional renewals",
-  "University identification",
-  "Event participants",
-  "Membership organizations",
-];
-
-const configRows = [
-  ["Basic identification", "ID Card"],
-  ["Protected card", "ID Card + Holder"],
-  ["Wearable identification", "ID Card + Holder + Hook + Lanyard"],
-  ["Complete wearable setup", "ID Card + Sealing + Holder + Hook + Lanyard"],
-  ["RFID application", "Compatible RFID Card"],
-  ["Event identification", "Event Card + required attachment configuration"],
-];
-
-const institutionTypes = [
-  { icon: GraduationCap, title: "Educational Institutions", body: "Student, faculty and staff identification." },
-  { icon: Building2, title: "Companies", body: "Employee and staff identification." },
-  { icon: Hospital, title: "Hospitals", body: "Staff and institutional identification." },
-  { icon: Factory, title: "Industries", body: "Employee and workforce identification." },
-  { icon: Landmark, title: "Government Organizations", body: "Official institutional identification requirements." },
-  { icon: Heart, title: "NGOs & Associations", body: "Member, staff and organizational identification." },
-  { icon: CalendarDays, title: "Events", body: "Participant and event identification." },
-];
-
-const qualityChecks = [
-  { title: "Data", body: "Is the information based on the approved data?" },
-  { title: "Photograph", body: "Is the photograph matched with the correct record?" },
-  { title: "Design", body: "Does the card follow the approved layout?" },
-  { title: "Identification", body: "Are the required numbers and details present?" },
-  { title: "Print", body: "Does the finished card meet the required production specification?" },
-  { title: "Final Order", body: "Does the completed order correspond with the requested quantity and configuration?" },
-];
-
-const newCardTypes = ["New students", "New employees", "New members", "New staff", "New institutions", "New organizations"];
-const renewalTypes = ["New academic years", "Employee renewals", "Expired cards", "Damaged cards", "Lost-card replacement", "Updated organizational information"];
-
-const whyIdgenReasons = [
-  { icon: Workflow, title: "Structured Process", body: "Requirement → Data → Design → Preview → Approval → Production → Quality Check → Dispatch" },
-  { icon: Zap, title: "Bulk Capability", body: "Suitable for institutional and high-volume personalized requirements." },
-  { icon: Database, title: "Data-Aware Production", body: "Personalized card production begins with organized information and photographs." },
-  { icon: Eye, title: "Preview Before Production", body: "Where applicable, customers can review the design and personalized information before production." },
-  { icon: Package, title: "Complete Identification Options", body: "Cards can be combined with holders, hooks, lanyards and suitable sealing configurations." },
-  { icon: Monitor, title: "Digital Workflow", body: "IDGen Studio can support data collection and preview for suitable projects." },
-  { icon: MapPin, title: "Guwahati-Based", body: "IDGen is based in Guwahati and serves organizations across Assam and Northeast India." },
-];
-
-const orderSteps = [
-  { title: "Step 1 — Tell Us Your Requirement", body: "Tell us the card type, approximate quantity and application." },
-  { title: "Step 2 — Share Data", body: "Provide the required information and photographs." },
-  { title: "Step 3 — Share Design", body: "Provide your existing artwork or discuss the required design." },
-  { title: "Step 4 — Review", body: "Review the applicable design and personalized information." },
-  { title: "Step 5 — Approve", body: "Approve the final requirements." },
-  { title: "Step 6 — Production", body: "The approved project moves into production." },
-  { title: "Step 7 — Quality Check", body: "The finished cards are checked against the applicable requirements." },
-  { title: "Step 8 — Dispatch", body: "The completed order is prepared and dispatched." },
-];
-
-const faqs: Faq[] = [
-  { q: "What type of ID cards does IDGen print?", a: "IDGen provides customized identification cards for students, employees, staff, institutions, visitors, members, events and other organizational applications." },
-  { q: "Does IDGen provide PVC ID card printing?", a: "Yes. IDGen provides customized PVC ID card printing for organizational identification requirements." },
-  { q: "Does IDGen handle bulk ID card printing?", a: "Yes. Bulk and institutional ID card printing is an important part of the service, including large personalized batches." },
-  { q: "Can I print photographs and names on the cards?", a: "Yes. Personalized information such as photographs, names, identification numbers and organizational details can be included according to the approved design." },
-  { q: "Can I order only the ID card?", a: "Yes. Organizations can order ID cards without accessories if they already have their own holders, hooks or lanyards." },
-  { q: "Can I order ID cards with lanyards?", a: "Yes. ID cards can be combined with suitable holders, hooks and custom printed lanyards." },
-  { q: "Can I get a complete ID card set?", a: "Yes. Depending on the application, a complete setup can include: ID Card + Ultrasonic Sealing + Holder + Hook + Custom Printed Lanyard." },
-  { q: "Can IDGen collect student or employee data?", a: "IDGen Studio can support digital data and photograph collection for suitable projects." },
-  { q: "Can I check the card before printing?", a: "Where applicable, the workflow includes a preview and approval stage before production." },
-  { q: "How many ID cards can IDGen print?", a: "IDGen supports high-volume production requirements. Actual capacity depends on product type, quantity, personalization, data readiness and project specifications." },
-  { q: "How long does ID card printing take?", a: "The production and dispatch timeline depends on the quantity, personalization, artwork approval and project requirements. A specific timeline should be confirmed when requesting a quotation." },
-];
-
-/* ── Page Component ── */
 export default function IdCardPrintingPage() {
+  const data = getDynamicIdCardPrinting();
+
   return (
     <>
       <JsonLd
         data={serviceSchema({
-          name: "ID Card Printing",
-          description: "Custom PVC ID card printing and bulk personalized ID cards for schools, colleges, companies, hospitals, institutions and events across Assam and Northeast India.",
-          path: "/id-card-printing/",
+          name: data.hero.title || "ID Card Printing",
+          description: data.metadata.description,
+          path: data.metadata.path || "/id-card-printing/",
         })}
       />
 
-      {/* ── ULTRA-PREMIUM LIGHT HERO SECTION ── */}
-      <section id="overview" className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-14 lg:pt-12 lg:pb-16 transition-colors scroll-mt-28">
+      {/* ── 1. ULTRA-PREMIUM HERO SECTION ── */}
+      <section
+        id="overview"
+        className="relative overflow-hidden bg-white dark:bg-[#070d18] border-b border-slate-200/90 dark:border-slate-800/80 pt-8 pb-14 lg:pt-12 lg:pb-16 transition-colors scroll-mt-28"
+      >
         {/* Ambient background glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,159,227,0.08),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,159,227,0.18),rgba(255,255,255,0))] pointer-events-none" />
         <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-[#009fe3]/10 dark:bg-[#009fe3]/15 blur-[120px] pointer-events-none" />
@@ -229,70 +122,67 @@ export default function IdCardPrintingPage() {
 
         <Container className="relative z-10">
           <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 lg:items-center">
-            {/* Left Column: Eyebrow + Heading + Paragraph + Workflow Card + CTAs */}
+            {/* Left Column */}
             <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 dark:border-cyan-800/50 bg-sky-50 dark:bg-cyan-950/60 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#009fe3] dark:text-cyan-400 shadow-2xs">
                   <IdCard className="h-4 w-4 text-[#009fe3] dark:text-cyan-400" />
-                  <span>ID Card Printing</span>
+                  <span>{data.hero.eyebrow}</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
-                  Custom PVC ID Card Printing{" "}
-                  <span className="bg-gradient-to-r from-[#009fe3] via-cyan-400 to-blue-600 bg-clip-text text-transparent">
-                    for Organizations
-                  </span>
+                  {data.hero.title}{" "}
+                  {data.hero.titleHighlight && (
+                    <span className="bg-gradient-to-r from-[#009fe3] via-cyan-400 to-blue-600 bg-clip-text text-transparent">
+                      {data.hero.titleHighlight}
+                    </span>
+                  )}
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                  IDGen provides custom PVC ID card printing for schools, colleges, universities, companies, hospitals, institutions, organizations and events across Assam and Northeast India.
+                  {data.hero.description}
                 </p>
               </div>
 
-              {/* Integrated Structured Workflow Card */}
+              {/* Structured Workflow Card */}
               <div className="rounded-2xl border border-sky-100 dark:border-slate-800 bg-sky-50/60 dark:bg-slate-900/80 p-5 shadow-xs space-y-3">
                 <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">
-                  We help organizations turn their approved information and designs into professionally personalized identification cards through a structured process:
+                  {data.hero.workflowCardHeading}
                 </p>
 
                 {/* Workflow Chain */}
                 <div className="rounded-xl border border-sky-200/90 dark:border-slate-800 bg-white dark:bg-slate-950 p-3.5 text-xs sm:text-[13px] font-bold text-slate-900 dark:text-cyan-300 tracking-wide flex flex-wrap items-center gap-x-2 gap-y-1.5 shadow-2xs">
-                  <span>Requirement</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Data</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Design</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Preview</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Approval</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Printing</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Quality Check</span>
-                  <span className="text-[#009fe3] dark:text-cyan-400">→</span>
-                  <span>Dispatch</span>
+                  {data.hero.workflowChain.map((step, idx) => (
+                    <React.Fragment key={idx}>
+                      <span>{step}</span>
+                      {idx < data.hero.workflowChain.length - 1 && (
+                        <span className="text-[#009fe3] dark:text-cyan-400">→</span>
+                      )}
+                    </React.Fragment>
+                  ))}
                 </div>
 
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Whether you need a small organizational batch or a large institutional order, IDGen can help you plan the appropriate card specification, personalization and production workflow.
-                </p>
+                {data.hero.workflowCardNote && (
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {data.hero.workflowCardNote}
+                  </p>
+                )}
               </div>
 
               {/* Action CTAs */}
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
-                  href="/request-a-quote/"
+                  href={data.hero.primaryCtaLink}
                   className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#009fe3]/25 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:shadow-[#009fe3]/40 hover:-translate-y-0.5"
                 >
-                  <span>Request an ID Card Quote</span>
+                  <span>{data.hero.primaryCtaText}</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
-                  href="/pricing/"
+                  href={data.hero.secondaryCtaLink}
                   className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-7 py-3.5 text-sm font-bold text-slate-800 dark:text-slate-200 shadow-2xs transition-all duration-300 hover:border-[#009fe3] hover:text-[#009fe3] dark:hover:text-cyan-400 hover:bg-sky-50/40 dark:hover:bg-slate-700 hover:-translate-y-0.5"
                 >
-                  <span>View ID Card Pricing</span>
+                  <span>{data.hero.secondaryCtaText}</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -300,7 +190,7 @@ export default function IdCardPrintingPage() {
 
             {/* Right Column: Sliding Showcase Carousel */}
             <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center">
-              <IdCardHeroCarousel />
+              <IdCardHeroCarousel slides={data.hero.slides} />
             </div>
           </div>
         </Container>
@@ -315,53 +205,57 @@ export default function IdCardPrintingPage() {
           <div className="w-full">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-              <p className="text-xs font-bold tracking-widest text-[#009fe3] uppercase">Custom PVC ID Card Printing</p>
+              <p className="text-xs font-bold tracking-widest text-[#009fe3] uppercase">
+                {data.customPvcSection.eyebrow}
+              </p>
               <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-              <SectionAnchorButton id="custom-pvc-cards" title="Custom PVC ID Card Printing" />
+              <SectionAnchorButton id="custom-pvc-cards" title={data.customPvcSection.eyebrow} />
             </div>
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl md:text-[1.75rem] lg:text-[2rem] xl:text-[2.15rem] leading-[1.15] tracking-tighter w-full md:whitespace-nowrap">
-              A professional ID card does more than display a person's name
+              {data.customPvcSection.title}
             </h2>
           </div>
-          
+
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center">
-            {/* Left Side: Premium Image (Nano Banana Generated) */}
+            {/* Left Side: Image */}
             <div className="lg:col-span-6 order-2 lg:order-1">
               <div className="relative mx-auto w-full">
-                {/* Backlight glow */}
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
 
-                {/* Card Container */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
-                      src="/images/Precision-Print-Quality-Idgen.png"
-                      alt="Custom PVC ID cards printed with precision personalization by IDGen"
+                      src={data.customPvcSection.imageSrc}
+                      alt={data.customPvcSection.imageAlt}
                       fill
                       className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
 
-                    {/* Top Badge */}
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
                         <Sparkles className="h-3 w-3 text-cyan-400" />
-                        <span>Precision Print Quality</span>
+                        <span>{data.customPvcSection.imageTopBadge}</span>
                       </span>
                       <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        IDGen
+                        {data.customPvcSection.imageTopBrand}
                       </span>
                     </div>
 
-                    {/* Bottom Info Bar */}
                     <div className="absolute bottom-4 left-4 right-4 z-10">
                       <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
                         <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">100% Customized</p>
-                          <p className="text-xs sm:text-sm font-black text-white">Full-Color PVC Identification Cards</p>
+                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
+                            {data.customPvcSection.imageBottomEyebrow}
+                          </p>
+                          <p className="text-xs sm:text-sm font-black text-white">
+                            {data.customPvcSection.imageBottomTitle}
+                          </p>
                         </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">Guwahati</span>
+                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
+                          {data.customPvcSection.imageBottomLocation}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -369,28 +263,29 @@ export default function IdCardPrintingPage() {
               </div>
             </div>
 
-            {/* Right Side: Sleek Glassmorphic Card Container (No Blank Gaps) */}
+            {/* Right Side: Feature Pills Grid */}
             <div className="lg:col-span-6 order-1 lg:order-2">
               <div className="rounded-3xl border border-sky-100 dark:border-slate-800 bg-gradient-to-br from-sky-50/60 via-white to-sky-50/30 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 p-6 sm:p-7 shadow-xl backdrop-blur-md space-y-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 bg-sky-100/80 dark:bg-cyan-950/60 border border-sky-200 dark:border-cyan-800/50 px-3.5 py-1.5 rounded-full">
                     <Sparkles className="h-3.5 w-3.5" />
-                    <span>Configurable Data Fields</span>
+                    <span>{data.customPvcSection.containerBadge}</span>
                   </div>
-                  <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">11 Card Elements</span>
+                  <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                    {data.customPvcSection.containerCountLabel}
+                  </span>
                 </div>
 
                 <p className="text-sm font-bold text-slate-900 dark:text-white leading-relaxed">
-                  A professional ID card can combine the following personalized features:
+                  {data.customPvcSection.containerTitle}
                 </p>
 
-                {/* 11 Card Feature Pills Grid (11th spans full width so NO gap) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {cardInfoItems.map((item, idx) => (
+                  {data.customPvcSection.cardInfoItems.map((item, idx) => (
                     <div
                       key={item}
                       className={`flex items-center gap-2.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-950/90 px-3.5 py-2.5 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-2xs hover:border-[#009fe3] hover:shadow-sm dark:hover:border-cyan-400 transition-all ${
-                        idx === cardInfoItems.length - 1 ? "sm:col-span-2" : ""
+                        idx === data.customPvcSection.cardInfoItems.length - 1 ? "sm:col-span-2" : ""
                       }`}
                     >
                       <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0" />
@@ -399,13 +294,16 @@ export default function IdCardPrintingPage() {
                   ))}
                 </div>
 
-                {/* Summary Info Card */}
                 <div className="rounded-2xl border border-sky-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 p-4 space-y-1.5 shadow-2xs">
                   <p className="text-xs font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-                    The exact information depends on the purpose of your card.
+                    {data.customPvcSection.noteLede}
                   </p>
                   <p className="text-xs font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
-                    IDGen produces customized cards according to the <span className="text-[#009fe3] dark:text-cyan-400 font-extrabold">approved design, supplied data and required specifications</span>.
+                    IDGen produces customized cards according to the{" "}
+                    <span className="text-[#009fe3] dark:text-cyan-400 font-extrabold">
+                      {data.customPvcSection.noteStrong}
+                    </span>
+                    .
                   </p>
                 </div>
               </div>
@@ -418,67 +316,72 @@ export default function IdCardPrintingPage() {
           <div className="w-full space-y-2">
             <div className="inline-flex items-center gap-2">
               <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-              <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Applications</p>
+              <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                {data.applicationsSection.eyebrow}
+              </p>
               <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-              <SectionAnchorButton id="applications" title="ID Cards for Different Organizations" />
+              <SectionAnchorButton id="applications" title={data.applicationsSection.title} />
             </div>
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
-              ID Cards{" "}
-              <span className="bg-gradient-to-r from-[#009fe3] via-cyan-400 to-blue-600 bg-clip-text text-transparent">
-                for Different Organizations
-              </span>
+              {data.applicationsSection.title}{" "}
+              {data.applicationsSection.titleHighlight && (
+                <span className="bg-gradient-to-r from-[#009fe3] via-cyan-400 to-blue-600 bg-clip-text text-transparent">
+                  {data.applicationsSection.titleHighlight}
+                </span>
+              )}
             </h2>
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-              The same core ID card printing service can support different identification requirements.
+              {data.applicationsSection.description}
             </p>
           </div>
           <div className="mt-8">
-            <OrgApplicationsCarousel />
+            <OrgApplicationsCarousel items={data.applicationsSection.items} />
           </div>
         </section>
 
         {/* ── 4. BULK ID CARD PRINTING ── */}
         <section id="bulk-printing" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Bulk ID Card Printing</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.bulkSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="bulk-printing" title="Large-Volume ID Card Printing for Institutions" />
+                <SectionAnchorButton id="bulk-printing" title={data.bulkSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
-                Large-Volume ID Card Printing for Institutions
+                {data.bulkSection.title}
               </h2>
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
-                IDGen supports bulk personalized ID card printing for organizations that need hundreds or thousands of cards in a single project.
+                {data.bulkSection.description}
               </p>
             </div>
 
-            {/* 2-Column Balanced Cards Grid */}
             <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch">
-              {/* Left Column: Glassmorphic Bulk Use-Cases Card (Tight Spacing, No Middle Gap) */}
+              {/* Left Column */}
               <div className="lg:col-span-6 flex flex-col justify-start rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 sm:p-6 shadow-md space-y-4 backdrop-blur-md">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 bg-sky-50 dark:bg-cyan-950/60 border border-sky-200/80 dark:border-cyan-800/50 px-3.5 py-1.5 rounded-full">
                     <Package className="h-3.5 w-3.5" />
-                    <span>High-Volume Applications</span>
+                    <span>{data.bulkSection.leftBadge}</span>
                   </div>
-                  <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">10 Project Types</span>
+                  <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                    {data.bulkSection.leftCountLabel}
+                  </span>
                 </div>
 
                 <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                  Bulk projects may include:
+                  {data.bulkSection.leftTitle}
                 </p>
 
-                {/* 10 Items Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {bulkProjectTypes.map((item, idx) => (
+                  {data.bulkSection.bulkProjectTypes.map((item, idx) => (
                     <div
                       key={item}
                       className={`flex items-center gap-2.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/80 px-3.5 py-2.5 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-2xs hover:border-[#009fe3] hover:bg-white dark:hover:bg-slate-900 transition-all ${
-                        idx === bulkProjectTypes.length - 1 ? "sm:col-span-2" : ""
+                        idx === data.bulkSection.bulkProjectTypes.length - 1 ? "sm:col-span-2" : ""
                       }`}
                     >
                       <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0" />
@@ -488,54 +391,56 @@ export default function IdCardPrintingPage() {
                 </div>
               </div>
 
-              {/* Right Column: Dark Guarantee Showcase Card */}
+              {/* Right Column: Dark Guarantee Card */}
               <div className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-slate-900 dark:border-slate-800 bg-slate-950 p-5 sm:p-7 text-white shadow-2xl flex flex-col justify-between space-y-5">
-                {/* Decorative Ambient Background Glow */}
                 <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#009fe3]/25 blur-3xl pointer-events-none" />
                 <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
 
                 <div className="relative space-y-4">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-cyan-300 bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-full w-fit backdrop-blur-md">
                     <ShieldCheck className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Institutional Consistency Standard</span>
+                    <span>{data.bulkSection.rightBadge}</span>
                   </div>
 
                   <div className="space-y-1.5">
                     <p className="text-sm font-bold text-slate-100 leading-relaxed">
-                      For bulk orders, the challenge is not simply printing a large number of cards.
+                      {data.bulkSection.rightTitle}
                     </p>
                     <p className="text-xs font-medium text-slate-300">
-                      It is maintaining consistency across:
+                      {data.bulkSection.rightSubtitle}
                     </p>
                   </div>
 
-                  {/* Factor Badges */}
                   <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-md p-3.5 space-y-2 shadow-inner">
                     <div className="flex flex-wrap gap-1.5">
-                      {["Data", "Photographs", "Design", "Identification Numbers", "Card Layout", "Production", "Quality"].map((factor) => (
-                        <span key={factor} className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900/90 px-2.5 py-1.5 text-[11px] font-bold text-cyan-300 border border-cyan-500/30">
+                      {data.bulkSection.consistencyFactors.map((factor) => (
+                        <span
+                          key={factor}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900/90 px-2.5 py-1.5 text-[11px] font-bold text-cyan-300 border border-cyan-500/30"
+                        >
                           <Sparkles className="h-3 w-3 text-cyan-400" />
                           <span>{factor}</span>
                         </span>
                       ))}
                     </div>
-                    <p className="text-[10px] font-mono text-slate-400 pt-1 border-t border-white/10">
-                      Data + Photographs + Design + Identification Numbers + Card Layout + Production + Quality
-                    </p>
+                    {data.bulkSection.factorEquation && (
+                      <p className="text-[10px] font-mono text-slate-400 pt-1 border-t border-white/10">
+                        {data.bulkSection.factorEquation}
+                      </p>
+                    )}
                   </div>
 
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    That&apos;s why IDGen follows a structured workflow for personalized projects.
+                    {data.bulkSection.footerNote}
                   </p>
                 </div>
 
-                {/* Action Link Button */}
                 <div className="relative pt-3 border-t border-white/10">
                   <Link
-                    href="/request-a-quote/"
+                    href={data.bulkSection.ctaLink}
                     className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#009fe3] px-6 py-3 text-xs font-bold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:-translate-y-0.5"
                   >
-                    <span>Request Bulk ID Card Quote</span>
+                    <span>{data.bulkSection.ctaText}</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
@@ -548,48 +453,43 @@ export default function IdCardPrintingPage() {
         <section id="production-workflow" className="mt-20 scroll-mt-28">
           <div className="flex items-center justify-between">
             <SectionHead
-              eyebrow="Production Workflow"
-              title="One ID Card Printing Workflow"
-              lede="From Data to Finished Card"
+              eyebrow={data.workflowSection.eyebrow}
+              title={data.workflowSection.title}
+              lede={data.workflowSection.lede}
             />
-            <SectionAnchorButton id="production-workflow" title="One ID Card Printing Workflow" />
+            <SectionAnchorButton id="production-workflow" title={data.workflowSection.title} />
           </div>
           <div className="mt-8">
-            <WorkflowCarousel />
+            <WorkflowCarousel steps={data.workflowSection.steps} />
           </div>
         </section>
 
         {/* ── 6. WHAT INFORMATION CAN BE PRINTED ── */}
         <section id="card-information" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Card Personalization</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.cardInformationSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="card-information" title="What Information Can Be Printed on an ID Card?" />
+                <SectionAnchorButton id="card-information" title={data.cardInformationSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
-                What Information Can Be Printed on an ID Card?
+                {data.cardInformationSection.title}
               </h2>
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
-                IDGen can personalize cards according to the customer&apos;s approved data and design. Typical information may include:
+                {data.cardInformationSection.description}
               </p>
             </div>
 
-            {/* 4 Category Cards Grid */}
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
-              {[
-                { title: "Personal Information", items: personalInfo, icon: User, badge: "Personal Data" },
-                { title: "Organizational Information", items: orgInfo, icon: Building2, badge: "Org Data" },
-                { title: "Educational Information", items: eduInfo, icon: GraduationCap, badge: "Academic Data" },
-                { title: "Digital Identification", items: digitalInfo, icon: QrCode, badge: "Digital Tags" },
-              ].map((group) => {
-                const IconComponent = group.icon;
+              {data.cardInformationSection.categories.map((group) => {
+                const IconComponent = (group.iconName && DYNAMIC_ICONS[group.iconName]) || User;
                 return (
                   <div
-                    key={group.title}
+                    key={group.id || group.title}
                     className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 shadow-sm hover:shadow-xl hover:border-[#009fe3] dark:hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between group space-y-4"
                   >
                     <div className="space-y-3">
@@ -639,14 +539,14 @@ export default function IdCardPrintingPage() {
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
-                  The final card content is determined by your organization&apos;s exact requirements and specifications.
+                  {data.cardInformationSection.noticeText}
                 </p>
               </div>
               <Link
-                href="/request-a-quote/"
+                href={data.cardInformationSection.noticeCtaLink}
                 className="inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-5 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#008bc9] hover:shadow-lg transition-all shrink-0"
               >
-                <span>Request Custom Layout</span>
+                <span>{data.cardInformationSection.noticeCtaText}</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
@@ -657,51 +557,53 @@ export default function IdCardPrintingPage() {
         <section id="design-branding" className="mt-20 scroll-mt-28">
           <div className="flex items-center justify-between">
             <SectionHead
-              eyebrow="Design & Branding"
-              title="ID Card Design & Branding"
-              lede="Your ID card can be designed around your organization's visual identity."
+              eyebrow={data.designBrandingSection.eyebrow}
+              title={data.designBrandingSection.title}
+              lede={data.designBrandingSection.lede}
             />
-            <SectionAnchorButton id="design-branding" title="ID Card Design & Branding" />
+            <SectionAnchorButton id="design-branding" title={data.designBrandingSection.title} />
           </div>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center">
-            {/* Left Side: Premium Branded Image */}
+            {/* Left Side Image */}
             <div className="lg:col-span-6 order-2 lg:order-1">
               <div className="relative mx-auto w-full">
-                {/* Backlight glow */}
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
 
-                {/* Card Container */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
-                      src="/images/ID-Card-Design-&-Branding-Idgen.png"
-                      alt="ID card design and brand-aligned visual identity customization by IDGen"
+                      src={data.designBrandingSection.imageSrc}
+                      alt={data.designBrandingSection.imageAlt}
                       fill
                       className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
 
-                    {/* Top Badges */}
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
                         <Palette className="h-3.5 w-3.5 text-cyan-400" />
-                        <span>Visual Identity Alignment</span>
+                        <span>{data.designBrandingSection.topBadge}</span>
                       </span>
                       <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        IDGen
+                        {data.designBrandingSection.topBrand}
                       </span>
                     </div>
 
-                    {/* Bottom Info Bar */}
                     <div className="absolute bottom-4 left-4 right-4 z-10">
                       <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
                         <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">Brand-Matched Layouts</p>
-                          <p className="text-xs sm:text-sm font-black text-white">Full Front & Back Artwork</p>
+                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
+                            {data.designBrandingSection.bottomEyebrow}
+                          </p>
+                          <p className="text-xs sm:text-sm font-black text-white">
+                            {data.designBrandingSection.bottomTitle}
+                          </p>
                         </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">Guwahati</span>
+                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
+                          {data.designBrandingSection.bottomLocation}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -709,24 +611,25 @@ export default function IdCardPrintingPage() {
               </div>
             </div>
 
-            {/* Right Side: Design Elements Glassmorphic Card */}
+            {/* Right Side Elements */}
             <div className="lg:col-span-6 order-1 lg:order-2">
               <div className="rounded-3xl border border-sky-100 dark:border-slate-800 bg-gradient-to-br from-sky-50/60 via-white to-sky-50/30 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 p-6 sm:p-7 shadow-xl backdrop-blur-md space-y-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 bg-sky-100/80 dark:bg-cyan-950/60 border border-sky-200 dark:border-cyan-800/50 px-3.5 py-1.5 rounded-full">
                     <Sparkles className="h-3.5 w-3.5" />
-                    <span>Artwork Specifications</span>
+                    <span>{data.designBrandingSection.badge}</span>
                   </div>
-                  <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">10 Design Elements</span>
+                  <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                    {data.designBrandingSection.countLabel}
+                  </span>
                 </div>
 
                 <p className="text-sm font-bold text-slate-900 dark:text-white leading-relaxed">
-                  Possible design elements include:
+                  {data.designBrandingSection.bodyHeading}
                 </p>
 
-                {/* 10 Items Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {designElements.map((item) => (
+                  {data.designBrandingSection.designElements.map((item) => (
                     <div
                       key={item}
                       className="flex items-center gap-2.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-950/90 px-3.5 py-2.5 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-2xs hover:border-[#009fe3] hover:shadow-sm dark:hover:border-cyan-400 transition-all"
@@ -737,13 +640,12 @@ export default function IdCardPrintingPage() {
                   ))}
                 </div>
 
-                {/* Info Text Box */}
                 <div className="rounded-2xl border border-sky-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 p-4 space-y-2 shadow-2xs text-xs leading-relaxed">
                   <p className="text-slate-700 dark:text-slate-300">
-                    For organizations with existing artwork, IDGen can work according to the <strong className="text-slate-950 dark:text-white font-bold">supplied design requirements</strong>.
+                    {data.designBrandingSection.noteExisting}
                   </p>
                   <p className="text-slate-700 dark:text-slate-300 pt-1.5 border-t border-slate-100 dark:border-slate-800/80">
-                    For new requirements, the design can be prepared according to the <strong className="text-[#009fe3] dark:text-cyan-400 font-bold">agreed specification</strong>.
+                    {data.designBrandingSection.noteNew}
                   </p>
                 </div>
               </div>
@@ -754,42 +656,43 @@ export default function IdCardPrintingPage() {
         {/* ── 8. BULK PERSONALIZED DATA ── */}
         <section id="bulk-data" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Data-Driven Production</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.bulkDataSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="bulk-data" title="ID Card Printing for Bulk Personalized Data" />
+                <SectionAnchorButton id="bulk-data" title={data.bulkDataSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
-                ID Card Printing for Bulk Personalized Data
+                {data.bulkDataSection.title}
               </h2>
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
-                Large ID card projects require more than a card printer.
+                {data.bulkDataSection.description}
               </p>
             </div>
 
-            {/* 2 Balanced Cards Grid */}
             <div className="grid gap-6 lg:grid-cols-12 items-stretch">
-              {/* Left Card: 2,000 Card Personalization Complexity */}
+              {/* Left Card */}
               <div className="lg:col-span-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 sm:p-6 shadow-md flex flex-col justify-between space-y-5 backdrop-blur-md">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                     <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 bg-sky-50 dark:bg-cyan-950/60 border border-sky-200/80 dark:border-cyan-800/50 px-3.5 py-1.5 rounded-full">
                       <Database className="h-3.5 w-3.5" />
-                      <span>Scale Complexity</span>
+                      <span>{data.bulkDataSection.leftBadge}</span>
                     </div>
-                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">2,000+ Records</span>
+                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                      {data.bulkDataSection.leftCountLabel}
+                    </span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                    Consider an organization producing 2,000 personalized cards. Every card may contain a different:
+                    {data.bulkDataSection.leftDescription}
                   </p>
 
-                  {/* 5 Field Pills */}
                   <div className="flex flex-wrap gap-2 pt-1">
-                    {["Name", "Photograph", "ID Number", "Department", "Designation"].map((field) => (
+                    {data.bulkDataSection.fields.map((field) => (
                       <span
                         key={field}
                         className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-1.5 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-2xs"
@@ -800,44 +703,46 @@ export default function IdCardPrintingPage() {
                     ))}
                   </div>
 
-                  <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950/80 p-3 text-[11px] font-mono text-slate-600 dark:text-slate-400">
-                    Name + Photograph + ID Number + Department + Designation
-                  </div>
+                  {data.bulkDataSection.formula && (
+                    <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950/80 p-3 text-[11px] font-mono text-slate-600 dark:text-slate-400">
+                      {data.bulkDataSection.formula}
+                    </div>
+                  )}
                 </div>
 
-                <div className="rounded-xl border border-amber-200/80 dark:border-amber-900/50 bg-amber-50/60 dark:bg-amber-950/30 p-3.5 flex items-center gap-2.5">
-                  <span className="flex h-2 w-2 rounded-full bg-amber-500 shrink-0" />
-                  <p className="text-xs font-semibold text-amber-900 dark:text-amber-300">
-                    A single data error can affect an individual card.
-                  </p>
-                </div>
+                {data.bulkDataSection.errorNotice && (
+                  <div className="rounded-xl border border-amber-200/80 dark:border-amber-900/50 bg-amber-50/60 dark:bg-amber-950/30 p-3.5 flex items-center gap-2.5">
+                    <span className="flex h-2 w-2 rounded-full bg-amber-500 shrink-0" />
+                    <p className="text-xs font-semibold text-amber-900 dark:text-amber-300">
+                      {data.bulkDataSection.errorNotice}
+                    </p>
+                  </div>
+                )}
               </div>
 
-              {/* Right Card: Dark Quality Integrity Workflow */}
+              {/* Right Card */}
               <div className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-slate-900 dark:border-slate-800 bg-slate-950 p-5 sm:p-7 text-white shadow-2xl flex flex-col justify-between space-y-5">
-                {/* Decorative Ambient Background Glow */}
                 <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#009fe3]/25 blur-3xl pointer-events-none" />
                 <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
 
                 <div className="relative space-y-4">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-cyan-300 bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-full w-fit backdrop-blur-md">
                     <Workflow className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Error-Prevention Architecture</span>
+                    <span>{data.bulkDataSection.rightBadge}</span>
                   </div>
 
                   <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                    For this reason, IDGen places importance on the relationship between:
+                    {data.bulkDataSection.rightDescription}
                   </p>
 
-                  {/* 5-Step Process Flow Visual */}
                   <div className="rounded-xl border border-white/15 bg-white/10 backdrop-blur-md p-3.5 space-y-2 shadow-inner">
                     <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold">
-                      {["Data", "Design", "Preview", "Approval", "Production"].map((step, idx) => (
+                      {data.bulkDataSection.pipelineSteps.map((step, idx) => (
                         <React.Fragment key={step}>
                           <span className="inline-flex items-center rounded-lg bg-slate-900/90 px-2.5 py-1.5 text-cyan-300 border border-cyan-500/30">
                             {step}
                           </span>
-                          {idx < 4 && (
+                          {idx < data.bulkDataSection.pipelineSteps.length - 1 && (
                             <span className="text-[#009fe3] dark:text-cyan-400 font-extrabold px-0.5">
                               →
                             </span>
@@ -848,13 +753,7 @@ export default function IdCardPrintingPage() {
                   </div>
 
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    Where applicable, personalized information can be reviewed before the production stage.
-                  </p>
-                </div>
-
-                <div className="relative pt-3 border-t border-white/10">
-                  <p className="text-xs font-bold text-cyan-300 leading-relaxed">
-                    The objective is to identify avoidable errors before large-volume production whenever possible.
+                    {data.bulkDataSection.rightFooterText}
                   </p>
                 </div>
               </div>
@@ -862,574 +761,357 @@ export default function IdCardPrintingPage() {
           </div>
         </section>
 
-        {/* ── 9. IDGEN STUDIO FOR DATA COLLECTION ── */}
+        {/* ── 9. IDGEN STUDIO FOR DATA COLLECTION AND PREVIEW ── */}
         <section id="idgen-studio" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            {/* Header Block inside Section Container */}
             <div className="w-full space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Digital Workflow</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.studioSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="idgen-studio" title="IDGen Studio for ID Card Data Collection" />
+                <SectionAnchorButton id="idgen-studio" title={data.studioSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
-                IDGen Studio for ID Card Data Collection
+                {data.studioSection.title}
               </h2>
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
-                Organizations that need to collect information and photographs from large numbers of people can use IDGen Studio, where applicable.
+                {data.studioSection.lede}
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-              {/* Left Side: Digital Workflow Glassmorphic Card */}
-              <div className="lg:col-span-6 order-1 lg:order-1">
-                <div className="rounded-3xl border border-sky-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 p-6 sm:p-7 shadow-md space-y-5 backdrop-blur-md">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 bg-sky-50 dark:bg-cyan-950/60 border border-sky-200/80 dark:border-cyan-800/50 px-3.5 py-1.5 rounded-full">
-                      <Sparkles className="h-3.5 w-3.5" />
-                      <span>Automated Pipeline</span>
-                    </div>
-                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">6 Use-Cases</span>
-                  </div>
+            <div className="grid gap-6 lg:grid-cols-12 items-stretch">
+              <div className="lg:col-span-7 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 sm:p-6 shadow-md space-y-4">
+                <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 bg-sky-50 dark:bg-cyan-950/60 border border-sky-200/80 dark:border-cyan-800/50 px-3.5 py-1.5 rounded-full w-fit">
+                  <Monitor className="h-3.5 w-3.5" />
+                  <span>{data.studioSection.badge}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {data.studioSection.bodyText1}
+                </p>
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {data.studioSection.bodyText2}
+                </p>
+                <div className="pt-2">
+                  <Link
+                    href={data.studioSection.ctaButtonLink}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#008bc9] transition-all"
+                  >
+                    <span>{data.studioSection.ctaButtonText}</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
 
-                  <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                    The digital workflow is designed to connect the data-collection stage with ID card production.
-                  </p>
-
-                  {/* Workflow Chain Visual */}
-                  <div className="rounded-2xl border border-sky-200/80 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950 p-3.5 space-y-2 shadow-2xs">
-                    <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold">
-                      {["Data Collection", "Photograph", "Card Data", "Preview", "Approval", "Printing"].map((step, idx) => (
-                        <React.Fragment key={step}>
-                          <span className="inline-flex items-center rounded-lg bg-white dark:bg-slate-900 px-2.5 py-1.5 text-slate-900 dark:text-cyan-300 border border-sky-200/60 dark:border-slate-700">
-                            {step}
-                          </span>
-                          {idx < 5 && (
-                            <span className="text-[#009fe3] dark:text-cyan-400 font-extrabold px-0.5">
-                              →
-                            </span>
-                          )}
-                        </React.Fragment>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 pt-1">
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                      This can be useful for:
-                    </p>
-
-                    {/* 6 Use Cases Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {studioUseCases.map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-center gap-2.5 rounded-xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/90 px-3.5 py-2.5 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-2xs hover:border-[#009fe3] hover:bg-white dark:hover:bg-slate-900 hover:shadow-sm dark:hover:border-cyan-400 transition-all"
-                        >
-                          <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Explore IDGen Studio Link Button */}
-                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-                    <Link
-                      href="/idgen-studio/"
-                      className="group inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-6 py-3 text-xs font-bold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:-translate-y-0.5"
+              <div className="lg:col-span-5 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 sm:p-6 shadow-md space-y-3">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                  {data.studioSection.useCasesHeading}
+                </p>
+                <div className="space-y-2">
+                  {data.studioSection.useCases.map((useCase) => (
+                    <div
+                      key={useCase}
+                      className="flex items-center gap-2 rounded-xl bg-slate-50/70 dark:bg-slate-950/70 px-3 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 border border-slate-100 dark:border-slate-800"
                     >
-                      <span>Explore IDGen Studio</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                    <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">Digital Ingestion</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Side: Premium Studio Platform Image */}
-              <div className="lg:col-span-6 order-2 lg:order-2">
-                <div className="relative mx-auto w-full">
-                  {/* Backlight glow */}
-                  <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
-
-                  {/* Card Container */}
-                  <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      <Image
-                        src="/images/IDGen-Studio-for -D.png"
-                        alt="IDGen Studio digital data collection platform interface for streamlined ID card printing"
-                        fill
-                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-
-                      {/* Top Badges */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                          <Database className="h-3.5 w-3.5 text-cyan-400" />
-                          <span>Digital Data Platform</span>
-                        </span>
-                        <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                          IDGen Studio
-                        </span>
-                      </div>
-
-                      {/* Bottom Info Bar */}
-                      <div className="absolute bottom-4 left-4 right-4 z-10">
-                        <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                          <div>
-                            <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">Automated Data Ingestion</p>
-                            <p className="text-xs sm:text-sm font-black text-white">Direct Photo & Field Synchronization</p>
-                          </div>
-                          <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">Cloud Platform</span>
-                        </div>
-                      </div>
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#009fe3] dark:text-cyan-400 shrink-0" />
+                      <span>{useCase}</span>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── 10. COMPLETE IDENTIFICATION SETUP ── */}
-        <section id="complete-setup" className="mt-20 scroll-mt-28">
+        {/* ── 10. ID CARDS AND ACCESSORIES ── */}
+        <section id="accessories" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
+            <div className="w-full space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Configuration Options</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.accessoriesSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="complete-setup" title="ID Card Printing + Complete Identification Setup" />
+                <SectionAnchorButton id="accessories" title={data.accessoriesSection.title} />
               </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                ID Card Printing + Complete Identification Setup
+              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
+                {data.accessoriesSection.title}
               </h2>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-                Some organizations need only the card. Others need the entire wearable identification setup. IDGen can help coordinate the required components according to the application.
+              <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
+                {data.accessoriesSection.lede}
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { title: "Card Only", config: "PVC ID Card", tier: 1, icon: "01" },
-                { title: "Card + Holder", config: "PVC ID Card + Card Holder", tier: 2, icon: "02" },
-                { title: "Wearable ID", config: "PVC ID Card + Holder + Hook + Custom Printed Lanyard", tier: 3, icon: "03" },
-                { title: "Complete Identification Set", config: "PVC ID Card + Ultrasonic Sealing + Holder + Hook + Custom Printed Lanyard", tier: 4, icon: "04" },
-              ].map((tier, idx) => (
-                <div key={tier.title} className={`group relative rounded-2xl border p-5 shadow-md space-y-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${idx === 3 ? "border-[#009fe3]/40 bg-gradient-to-br from-sky-50 to-white dark:from-sky-950/40 dark:to-slate-900" : "border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90"}`}>
-                  <div className="flex items-center justify-between">
-                    <span className={`text-[10px] font-black tracking-widest px-2.5 py-1 rounded-full ${idx === 3 ? "bg-[#009fe3] text-white" : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"}`}>
-                      TIER {tier.icon}
-                    </span>
-                    {idx === 3 && <span className="text-[10px] font-black text-[#009fe3] dark:text-cyan-400 uppercase tracking-wider">Most Complete</span>}
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{tier.title}</h3>
-                    <p className="text-xs font-semibold text-[#009fe3] dark:text-cyan-400 mt-1.5 leading-relaxed">{tier.config}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              ✦ The exact configuration depends on the type of identification required.
-            </p>
-          </div>
-        </section>
 
-        {/* ── 11. CHOOSING THE RIGHT CONFIGURATION ── */}
-        <section id="configurations" className="mt-20 scroll-mt-28">
-          <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Setup Guide</p>
-                <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="configurations" title="Choosing the Right ID Card Configuration" />
-              </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                Choosing the Right ID Card Configuration
-              </h2>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Different organizations have different requirements.</p>
-            </div>
-            {/* Premium table */}
-            <div className="overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-md">
-              <div className="grid grid-cols-2 bg-gradient-to-r from-[#009fe3] to-sky-500 px-5 py-3.5">
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-white">Requirement</span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-white">Typical Configuration</span>
-              </div>
-              {configRows.map(([req, cfg], idx) => (
-                <div key={req} className={`grid grid-cols-2 px-5 py-3.5 transition-colors ${idx % 2 === 0 ? "bg-white dark:bg-slate-900/90" : "bg-slate-50/80 dark:bg-slate-900/60"} hover:bg-sky-50/60 dark:hover:bg-sky-950/20`}>
-                  <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 pr-4">{req}</span>
-                  <span className="text-xs font-bold text-slate-900 dark:text-white">{cfg}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              ✦ The appropriate combination should be selected according to the intended use.
-            </p>
-          </div>
-        </section>
-
-        {/* ── 12. ID CARD PRINTING FOR INSTITUTIONS ── */}
-        <section id="institutions" className="mt-20 scroll-mt-28">
-          <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Institutional Applications</p>
-                <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="institutions" title="ID Card Printing for Institutions" />
-              </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                ID Card Printing for Institutions
-              </h2>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300">IDGen&apos;s ID card printing service can support organizational projects such as:</p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {institutionTypes.map((inst) => (
-                <div key={inst.title} className="group flex flex-col gap-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 shadow-md hover:border-[#009fe3]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 dark:from-sky-950/60 dark:to-sky-900/30 border border-sky-200/60 dark:border-sky-800/40 text-[#009fe3] dark:text-cyan-400 shadow-sm group-hover:scale-110 transition-transform">
-                    <inst.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{inst.title}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">{inst.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              ✦ For detailed application-specific requirements, see the relevant solution page.
-            </p>
-          </div>
-        </section>
-
-        {/* ── 13. WHY BULK NEEDS STRUCTURED PROCESS ── */}
-        <section id="structured-process" className="mt-20 scroll-mt-28">
-          <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 dark:from-slate-950 dark:via-slate-900 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-cyan-400" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-cyan-400 uppercase">Bulk Process</p>
-                <span className="h-px w-6 bg-cyan-400/40" aria-hidden="true" />
-                <SectionAnchorButton id="structured-process" title="Why Bulk ID Card Printing Needs a Structured Process" />
-              </div>
-              <h2 className="text-2xl font-extrabold text-white sm:text-3xl leading-tight tracking-tight">
-                Why Bulk ID Card Printing Needs a Structured Process
-              </h2>
-            </div>
-            <div className="grid gap-6 lg:grid-cols-2">
-              {/* Left: Context description */}
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 backdrop-blur-sm">
-                <p className="text-sm leading-relaxed text-slate-300">
-                  When an organization orders a few cards, manual checking may be manageable.
-                </p>
-                <p className="text-sm leading-relaxed text-slate-300">
-                  When the requirement becomes hundreds or thousands of personalized cards, the process becomes more complex.
-                </p>
-                <p className="text-sm font-bold text-white">A bulk project may involve:</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {["Hundreds of photographs", "Hundreds of names", "Hundreds of identification numbers", "Multiple departments", "Different design requirements", "Large quantities of physical cards"].map((item) => (
-                    <div key={item} className="rounded-xl border border-cyan-400/20 bg-cyan-950/30 px-3 py-2.5 text-xs font-semibold text-cyan-200 text-center">
-                      {item}
-                    </div>
+            <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 shadow-sm">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
+                  <tr>
+                    <th className="p-4">Application Environment</th>
+                    <th className="p-4">Typical Configuration</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-800 dark:text-slate-200">
+                  {data.accessoriesSection.configRows.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-sky-50/40 dark:hover:bg-slate-800/40 transition-colors">
+                      <td className="p-4 font-bold text-slate-900 dark:text-white">{row.application}</td>
+                      <td className="p-4 font-medium text-[#009fe3] dark:text-cyan-400">{row.configuration}</td>
+                    </tr>
                   ))}
-                </div>
-              </div>
-              {/* Right: Conclusion highlight */}
-              <div className="rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-950/60 to-sky-950/40 p-6 flex flex-col justify-center space-y-5 backdrop-blur-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#009fe3]/20 border border-[#009fe3]/30">
-                  <Layers className="h-6 w-6 text-cyan-400" />
-                </div>
-                <div>
-                  <p className="text-xs font-extrabold uppercase tracking-widest text-cyan-400 mb-3">IDGen Approach</p>
-                  <p className="text-base font-bold text-white leading-relaxed">
-                    IDGen therefore approaches bulk printing as a{" "}
-                    <span className="text-cyan-300">data + production workflow</span>, rather than simply a printing job.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {["Data Management", "Production Workflow", "Quality Control"].map((tag) => (
-                    <span key={tag} className="rounded-full bg-white/10 border border-white/10 px-3 py-1 text-[11px] font-bold text-white">{tag}</span>
-                  ))}
-                </div>
-              </div>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <p className="text-xs text-slate-600 dark:text-slate-400">
+                {data.accessoriesSection.note}
+              </p>
+              <Link
+                href={data.accessoriesSection.viewAllLink}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009fe3] dark:text-cyan-400 hover:underline shrink-0"
+              >
+                <span>{data.accessoriesSection.viewAllText}</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* ── 14. QUALITY CHECKS ── */}
+        {/* ── 11. ORGANIZATIONS WE SERVE ── */}
+        <section id="organizations" className="mt-20 scroll-mt-28">
+          <div className="flex items-center justify-between">
+            <SectionHead
+              eyebrow={data.organizationsSection.eyebrow}
+              title={data.organizationsSection.title}
+              lede={data.organizationsSection.lede}
+            />
+            <SectionAnchorButton id="organizations" title={data.organizationsSection.title} />
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {data.organizationsSection.institutions.map((inst) => {
+              const IconComponent = (inst.iconName && DYNAMIC_ICONS[inst.iconName]) || Building2;
+              return (
+                <div
+                  key={inst.title}
+                  className="group rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 shadow-sm hover:border-[#009fe3] hover:shadow-xl transition-all duration-300 space-y-3"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 dark:bg-slate-800 text-[#009fe3] dark:text-cyan-400 border border-sky-100 dark:border-slate-700 group-hover:bg-[#009fe3] group-hover:text-white transition-colors">
+                    <IconComponent className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">{inst.title}</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{inst.body}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── 12. QUALITY CHECKPOINTS ── */}
         <section id="quality-checks" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
+            <div className="w-full space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Quality Assurance</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.qualityCheckpointsSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="quality-checks" title="ID Card Quality Checks" />
+                <SectionAnchorButton id="quality-checks" title={data.qualityCheckpointsSection.title} />
               </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                ID Card Quality Checks
+              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl lg:text-[2.15rem] leading-[1.15] tracking-tight">
+                {data.qualityCheckpointsSection.title}
               </h2>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-                For personalized ID cards, quality includes both the physical card and the information printed on it.
+              <p className="text-sm font-medium text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
+                {data.qualityCheckpointsSection.lede}
               </p>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Depending on the project, checks can include:</p>
             </div>
+
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {qualityChecks.map((check, idx) => (
-                <div key={check.title} className="group relative rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 shadow-md hover:border-[#009fe3]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#009fe3]/5 to-transparent rounded-bl-3xl" />
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-100 to-sky-50 dark:from-sky-950/60 dark:to-sky-900/30 border border-sky-200/60 dark:border-sky-800/40 text-[#009fe3] dark:text-cyan-400">
-                      <ShieldCheck className="h-4 w-4" />
-                    </div>
-                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{check.title}</h3>
+              {data.qualityCheckpointsSection.checkpoints.map((cp, idx) => (
+                <div
+                  key={cp.title}
+                  className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 shadow-xs space-y-2"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#009fe3]/10 text-[11px] font-bold text-[#009fe3]">
+                      {idx + 1}
+                    </span>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">{cp.title}</h3>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{check.body}</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pl-7">{cp.body}</p>
                 </div>
               ))}
             </div>
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              ✦ Where additional accessories are ordered, the applicable configuration is also checked.
-            </p>
           </div>
         </section>
 
-        {/* ── 15. NEW & RENEWAL PROJECTS ── */}
-        <section id="new-and-renewals" className="mt-20 scroll-mt-28">
-          <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Project Types</p>
-                <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="new-and-renewals" title="ID Card Printing for New & Renewal Projects" />
-              </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                ID Card Printing for New &amp; Renewal Projects
-              </h2>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300">IDGen can support both new identification projects and replacement/renewal requirements.</p>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl border border-[#009fe3]/30 dark:border-sky-800/40 bg-gradient-to-br from-sky-50 to-white dark:from-sky-950/30 dark:to-slate-900 p-6 shadow-md space-y-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#009fe3]/15 border border-[#009fe3]/25 text-[#009fe3] dark:text-cyan-400">
-                    <Sparkles className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-base font-extrabold text-slate-900 dark:text-white">New ID Cards</h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {newCardTypes.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
-                      <CheckCircle2 className="h-4 w-4 text-[#009fe3] dark:text-cyan-400 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="rounded-2xl border border-slate-300/60 dark:border-slate-700/60 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-950 dark:to-slate-900 p-6 shadow-md space-y-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-400/15 border border-cyan-400/25 text-cyan-400">
-                    <RefreshCw className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-base font-extrabold text-white">Renewal Projects</h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {renewalTypes.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-xs text-slate-300">
-                      <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              ✦ The project workflow depends on the organization&apos;s requirements.
-            </p>
+        {/* ── 13. NEW CARDS, BATCHES & RENEWALS ── */}
+        <section id="new-cards-renewals" className="mt-20 scroll-mt-28">
+          <div className="flex items-center justify-between">
+            <SectionHead
+              eyebrow={data.renewalsSection.eyebrow}
+              title={data.renewalsSection.title}
+              lede={data.renewalsSection.lede}
+            />
+            <SectionAnchorButton id="new-cards-renewals" title={data.renewalsSection.title} />
           </div>
-        </section>
 
-        {/* ── 16. WHEN YOU NEED MORE ── */}
-        <section id="flexible-options" className="mt-20 scroll-mt-28">
-          <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Flexible Options</p>
-                <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="flexible-options" title="When You Need More Than ID Card Printing" />
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-4 shadow-sm">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-[#009fe3]" />
+                <span>{data.renewalsSection.newCardsTitle}</span>
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {data.renewalsSection.newCardTypes.map((t) => (
+                  <div
+                    key={t}
+                    className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-950 p-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 border border-slate-100 dark:border-slate-800"
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#009fe3] shrink-0" />
+                    <span>{t}</span>
+                  </div>
+                ))}
               </div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                When You Need More Than ID Card Printing
-              </h2>
             </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                {
-                  title: "Card Printing Only",
-                  desc: "If your organization already has its own holders and lanyards, you may only need:",
-                  highlight: "ID Card Printing",
-                  num: "01",
-                },
-                {
-                  title: "Complete Wearable Setup",
-                  desc: "If you need a complete wearable setup, you can combine:",
-                  highlight: "ID Card + Holder + Hook + Lanyard",
-                  num: "02",
-                },
-                {
-                  title: "With Ultrasonic Sealing",
-                  desc: "If your configuration requires ultrasonic sealing:",
-                  highlight: "ID Card + Ultrasonic Sealing + Holder + Hook + Lanyard",
-                  num: "03",
-                },
-              ].map((item) => (
-                <div key={item.title} className="group rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 shadow-md hover:border-[#009fe3]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-black tracking-widest text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full">{item.num}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{item.title}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">{item.desc}</p>
-                  </div>
-                  <p className="text-xs font-bold text-[#009fe3] dark:text-cyan-400 bg-sky-50 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-800/40 rounded-xl px-3 py-2">{item.highlight}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs font-medium text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              ✦ This allows you to order the components you actually need rather than automatically purchasing a complete set.
-            </p>
-          </div>
-        </section>
 
-        {/* ── 17. ASSAM & NORTHEAST INDIA ── */}
-        <section id="service-coverage" className="mt-20 scroll-mt-28">
-          <div className="rounded-3xl border border-[#009fe3]/30 dark:border-sky-800/40 bg-gradient-to-br from-sky-600 via-[#009fe3] to-sky-500 p-6 sm:p-8 md:p-10 shadow-2xl space-y-8 relative overflow-hidden">
-            {/* Decorative background dots */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-6 right-10 h-40 w-40 rounded-full bg-white blur-3xl" />
-              <div className="absolute bottom-4 left-10 h-32 w-32 rounded-full bg-white blur-2xl" />
-            </div>
-            <div className="relative space-y-2">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-white/70" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-white/80 uppercase">Service Coverage</p>
-                <span className="h-px w-6 bg-white/40" aria-hidden="true" />
-                <SectionAnchorButton id="service-coverage" title="ID Card Printing Across Assam & Northeast India" />
-              </div>
-              <h2 className="text-2xl font-extrabold text-white sm:text-3xl leading-tight tracking-tight">
-                ID Card Printing Across Assam &amp; Northeast India
-              </h2>
-              <p className="text-sm font-medium text-sky-100 leading-relaxed max-w-2xl">
-                IDGen is based in <strong className="text-white">Guwahati, Assam</strong>, and serves organizational identification requirements across Assam and the wider Northeast India market.
-              </p>
-            </div>
-            <div className="relative">
-              <p className="text-sm font-bold text-white mb-4">For location-specific information:</p>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/service-areas/assam/" className="group inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 px-5 py-2.5 text-xs font-bold text-white transition-all hover:bg-white hover:text-[#009fe3] shadow-sm">
-                  <MapPin className="h-3.5 w-3.5" /> ID Card Printing in Assam →
-                </Link>
-                <Link href="/service-areas/assam/guwahati/" className="group inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 px-5 py-2.5 text-xs font-bold text-white transition-all hover:bg-white hover:text-[#009fe3] shadow-sm">
-                  <MapPin className="h-3.5 w-3.5" /> ID Card Printing in Guwahati →
-                </Link>
+            <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 space-y-4 shadow-sm">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <RefreshCw className="h-4 w-4 text-[#009fe3]" />
+                <span>{data.renewalsSection.renewalsTitle}</span>
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {data.renewalsSection.renewalTypes.map((t) => (
+                  <div
+                    key={t}
+                    className="flex items-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-950 p-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 border border-slate-100 dark:border-slate-800"
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#009fe3] shrink-0" />
+                    <span>{t}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── 18. WHY CHOOSE IDGEN ── */}
+        {/* ── 14. WHY CHOOSE IDGEN ── */}
         <section id="why-idgen" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Why IDGen</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.whyIdgenSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="why-idgen" title="Why Choose IDGen for ID Card Printing?" />
+                <SectionAnchorButton id="why-idgen" title={data.whyIdgenSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                Why Choose IDGen for ID Card Printing?
+                {data.whyIdgenSection.title}
               </h2>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-300">IDGen&apos;s approach is built around the complete identification workflow.</p>
+              <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                {data.whyIdgenSection.lede}
+              </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {whyIdgenReasons.map((reason, idx) => (
-                <div key={reason.title} className="group rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 shadow-md hover:border-[#009fe3]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 dark:from-sky-950/60 dark:to-sky-900/30 border border-sky-200/60 dark:border-sky-800/40 text-[#009fe3] dark:text-cyan-400 shadow-sm group-hover:scale-110 transition-transform">
-                    <reason.icon className="h-5 w-5" />
+              {data.whyIdgenSection.reasons.map((reason) => {
+                const IconComponent = (reason.iconName && DYNAMIC_ICONS[reason.iconName]) || Workflow;
+                return (
+                  <div
+                    key={reason.title}
+                    className="group rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 shadow-md hover:border-[#009fe3]/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 dark:from-sky-950/60 dark:to-sky-900/30 border border-sky-200/60 dark:border-sky-800/40 text-[#009fe3] dark:text-cyan-400 shadow-sm group-hover:scale-110 transition-transform">
+                      <IconComponent className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{reason.title}</h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1.5">
+                        {reason.body}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">{reason.title}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1.5">{reason.body}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             <div className="border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              <Link href="/why-idgen/" className="inline-flex items-center gap-2 text-sm font-bold text-[#009fe3] dark:text-cyan-400 hover:underline group">
+              <Link
+                href="/why-idgen/"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#009fe3] dark:text-cyan-400 hover:underline group"
+              >
                 Why IDGen? <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* ── 19. HOW TO ORDER ── */}
+        {/* ── 15. HOW TO ORDER ── */}
         <section id="how-to-order" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">Ordering Process</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.orderWorkflowSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="how-to-order" title="How to Order ID Cards" />
+                <SectionAnchorButton id="how-to-order" title={data.orderWorkflowSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                How to Order ID Cards
+                {data.orderWorkflowSection.title}
               </h2>
             </div>
-            <WorkflowSteps steps={orderSteps} />
+            <WorkflowSteps steps={data.orderWorkflowSection.steps} />
             <div className="border-t border-slate-200/80 dark:border-slate-800 pt-4">
-              <Link href="/request-a-quote/" className="inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:-translate-y-0.5 group">
-                Request an ID Card Quote <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Link
+                href="/request-a-quote/"
+                className="inline-flex items-center gap-2 rounded-full bg-[#009fe3] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#009fe3]/30 transition-all duration-300 hover:bg-[#008bc9] hover:shadow-xl hover:-translate-y-0.5 group"
+              >
+                Request an ID Card Quote{" "}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* ── 20. FAQ ── */}
+        {/* ── 16. FAQS ── */}
         <section id="faq" className="mt-20 scroll-mt-28">
           <div className="rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-6 sm:p-8 md:p-10 shadow-xl space-y-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2">
                 <span className="h-px w-6 bg-[#009fe3]" aria-hidden="true" />
-                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">FAQ</p>
+                <p className="text-xs font-bold tracking-widest text-[#009fe3] dark:text-cyan-400 uppercase">
+                  {data.faqsSection.eyebrow}
+                </p>
                 <span className="h-px w-6 bg-[#009fe3]/40" aria-hidden="true" />
-                <SectionAnchorButton id="faq" title="Frequently Asked Questions" />
+                <SectionAnchorButton id="faq" title={data.faqsSection.title} />
               </div>
               <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl leading-tight tracking-tight">
-                Frequently Asked Questions
+                {data.faqsSection.title}
               </h2>
+              {data.faqsSection.lede && (
+                <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                  {data.faqsSection.lede}
+                </p>
+              )}
             </div>
-            <FaqList faqs={faqs} />
+            <FaqList faqs={data.faqsSection.faqs} />
           </div>
         </section>
 
-        {/* ── 21. CLOSING CTA ── */}
+        {/* ── 17. CLOSING CTA ── */}
         <div className="mt-16">
           <CtaBand
-            title="Need ID Card Printing?"
-            body="Tell us: What type of ID card do you need? How many cards do you need? Do you already have the data and design? Do you need only cards or a complete wearable ID set? IDGen can help you determine the appropriate configuration."
+            title={data.ctaBand.title}
+            body={data.ctaBand.body}
             links={[
-              { label: "Request an ID Card Quote", href: "/request-a-quote/", primary: true },
+              { label: data.ctaBand.primaryButtonText, href: data.ctaBand.primaryButtonLink, primary: true },
+              { label: data.ctaBand.secondaryButtonText, href: data.ctaBand.secondaryButtonLink },
               { label: "View ID Card Pricing", href: "/pricing/" },
               { label: "Explore Student ID Cards", href: "/student-id-card-printing/" },
-              { label: "Explore Employee ID Cards", href: "/employee-id-card-printing/" },
             ]}
           />
         </div>

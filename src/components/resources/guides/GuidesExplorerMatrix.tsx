@@ -32,214 +32,33 @@ import {
   Clock,
 } from "lucide-react";
 import { FlowChain } from "@/components/ui/FlowChain";
+import type { DynamicExplorerMatrix, DynamicGuideItem } from "@/lib/dynamic-guides-types";
 
-export interface GuideItem {
-  number: string;
-  title: string;
-  category: "bulk" | "student" | "employee" | "accessories" | "events" | "tech" | "quote";
-  body: string;
-  listLabel?: string;
-  list?: string[];
-  workflow?: string[];
-  note?: string;
-  relatedHref?: string;
-  icon: React.ElementType;
-  tag: string;
-  readTime: string;
-  accentGradient: string;
-  iconColor: string;
-  badgeBg: string;
-}
+const GUIDE_ICONS: Record<string, React.ElementType> = {
+  Boxes,
+  GraduationCap,
+  Briefcase,
+  Layers,
+  Radio,
+  Sparkles,
+  Ticket,
+  QrCode,
+  Calculator,
+  BookOpen,
+  Shield,
+  FileCheck2,
+  CheckCircle2,
+};
 
-export const allGuides: GuideItem[] = [
-  {
-    number: "01",
-    title: "How to Plan a Bulk ID Card Printing Project",
-    category: "bulk",
-    body: "Understand the information, photographs, quantity, card specifications, design approval and production requirements needed for a large ID card project.",
-    relatedHref: "/id-card-printing/",
-    icon: Boxes,
-    tag: "Bulk Planning",
-    readTime: "3 min read",
-    accentGradient: "from-sky-500/10 via-cyan-500/5 to-transparent",
-    iconColor: "text-[#009fe3] bg-sky-500/10 border-sky-500/20",
-    badgeBg: "bg-sky-50 dark:bg-sky-950/50 text-[#009fe3] dark:text-cyan-300 border-sky-200/60 dark:border-sky-800",
-  },
-  {
-    number: "02",
-    title: "Student ID Card Requirements Checklist",
-    category: "student",
-    body: "Learn what schools and educational institutions should prepare before ordering student ID cards.",
-    listLabel: "Typical information can include:",
-    list: [
-      "Student name",
-      "Photograph",
-      "Student ID / admission number",
-      "Class",
-      "Course",
-      "Institution name",
-      "QR code or barcode where required",
-      "Required accessories",
-    ],
-    relatedHref: "/student-id-card-printing/",
-    icon: GraduationCap,
-    tag: "Education Checklist",
-    readTime: "4 min read",
-    accentGradient: "from-blue-500/10 via-indigo-500/5 to-transparent",
-    iconColor: "text-blue-500 bg-blue-500/10 border-blue-500/20",
-    badgeBg: "bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-300 border-blue-200/60 dark:border-blue-800",
-  },
-  {
-    number: "03",
-    title: "Employee ID Card Requirements",
-    category: "employee",
-    body: "A practical guide to preparing employee information, photographs, departments, designations, employee IDs and branding.",
-    relatedHref: "/employee-id-card-printing/",
-    icon: Briefcase,
-    tag: "Corporate Roster",
-    readTime: "3 min read",
-    accentGradient: "from-cyan-500/10 via-teal-500/5 to-transparent",
-    iconColor: "text-cyan-500 bg-cyan-500/10 border-cyan-500/20",
-    badgeBg: "bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-300 border-cyan-200/60 dark:border-cyan-800",
-  },
-  {
-    number: "04",
-    title: "ID Card + Holder + Hook + Lanyard: Which Setup Do You Need?",
-    category: "accessories",
-    body: "Understand the difference between different identification configurations:",
-    list: [
-      "Card only",
-      "Card + holder",
-      "Card + holder + hook + lanyard",
-      "Complete wearable setup",
-    ],
-    note: "The master architecture already defines these as different identification configurations rather than separate customer types.",
-    relatedHref: "/id-card-holders/",
-    icon: Layers,
-    tag: "Hardware Setups",
-    readTime: "4 min read",
-    accentGradient: "from-emerald-500/10 via-teal-500/5 to-transparent",
-    iconColor: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
-    badgeBg: "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-300 border-emerald-200/60 dark:border-emerald-800",
-  },
-  {
-    number: "05",
-    title: "How to Choose an ID Card Holder",
-    category: "accessories",
-    body: "Understand portrait vs landscape orientation, holder type, card dimensions and attachment requirements.",
-    relatedHref: "/id-card-holders/",
-    icon: Layers,
-    tag: "Holders & Attachments",
-    readTime: "3 min read",
-    accentGradient: "from-teal-500/10 via-cyan-500/5 to-transparent",
-    iconColor: "text-teal-500 bg-teal-500/10 border-teal-500/20",
-    badgeBg: "bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-300 border-teal-200/60 dark:border-teal-800",
-  },
-  {
-    number: "06",
-    title: "What Information Is Needed for RFID Card Printing?",
-    category: "tech",
-    body: "Before ordering RFID cards, organizations should provide the applicable RFID technology, frequency, chip, reader/system compatibility, card format and personalization requirements.",
-    relatedHref: "/rfid-card-printing/",
-    icon: Radio,
-    tag: "Smart RFID",
-    readTime: "4 min read",
-    accentGradient: "from-purple-500/10 via-indigo-500/5 to-transparent",
-    iconColor: "text-purple-500 bg-purple-500/10 border-purple-500/20",
-    badgeBg: "bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-300 border-purple-200/60 dark:border-purple-800",
-  },
-  {
-    number: "07",
-    title: "Custom Printed Lanyard Planning Guide",
-    category: "accessories",
-    body: "Understand artwork, branding, colors, width and attachment requirements before ordering custom printed lanyards.",
-    relatedHref: "/custom-printed-lanyard-printing/",
-    icon: Sparkles,
-    tag: "Lanyards",
-    readTime: "3 min read",
-    accentGradient: "from-amber-500/10 via-orange-500/5 to-transparent",
-    iconColor: "text-amber-500 bg-amber-500/10 border-amber-500/20",
-    badgeBg: "bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-300 border-amber-200/60 dark:border-amber-800",
-  },
-  {
-    number: "08",
-    title: "Event Badge Planning Guide",
-    category: "events",
-    body: "Plan participant categories such as:",
-    list: [
-      "Delegate",
-      "Speaker",
-      "Organizer",
-      "VIP",
-      "Exhibitor",
-      "Staff",
-      "Volunteer",
-    ],
-    relatedHref: "/event-card-printing/",
-    icon: Ticket,
-    tag: "Events & Summits",
-    readTime: "3 min read",
-    accentGradient: "from-rose-500/10 via-orange-500/5 to-transparent",
-    iconColor: "text-rose-500 bg-rose-500/10 border-rose-500/20",
-    badgeBg: "bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-300 border-rose-200/60 dark:border-rose-800",
-  },
-  {
-    number: "09",
-    title: "How IDGen Studio Can Simplify ID Card Data Collection",
-    category: "tech",
-    body: "Understand the digital collection and preview workflow:",
-    workflow: [
-      "Form",
-      "QR/Link",
-      "Data & Photo",
-      "Preview",
-      "Organization Review",
-      "Approval",
-      "Production",
-    ],
-    note: "The master file specifically positions IDGen Studio around digital collection, preview, review, approval and batch production.",
-    relatedHref: "/idgen-studio/",
-    icon: QrCode,
-    tag: "Digital Workflow",
-    readTime: "5 min read",
-    accentGradient: "from-cyan-500/15 via-sky-500/10 to-transparent",
-    iconColor: "text-cyan-400 bg-cyan-500/20 border-cyan-400/30",
-    badgeBg: "bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-300 border-cyan-300 dark:border-cyan-800",
-  },
-  {
-    number: "10",
-    title: "How to Prepare for Your ID Card Quote",
-    category: "quote",
-    body: "Before requesting a quotation, prepare:",
-    list: [
-      "Organization name",
-      "City/state",
-      "Product required",
-      "Quantity",
-      "Card specification",
-      "Printing requirement",
-      "Accessories",
-      "Delivery location",
-      "Existing artwork, if available",
-      "Data readiness",
-      "Required timeline",
-    ],
-    relatedHref: "/request-a-quote/",
-    icon: Calculator,
-    tag: "Quotation Prep",
-    readTime: "4 min read",
-    accentGradient: "from-slate-500/10 via-slate-400/5 to-transparent",
-    iconColor: "text-slate-600 dark:text-slate-300 bg-slate-500/10 border-slate-500/20",
-    badgeBg: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700",
-  },
-];
-
-export function GuidesExplorerMatrix() {
+export function GuidesExplorerMatrix({ data }: { data: DynamicExplorerMatrix }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [selectedGuideModal, setSelectedGuideModal] = useState<GuideItem | null>(null);
+  const [selectedGuideModal, setSelectedGuideModal] = useState<DynamicGuideItem | null>(null);
   const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
+
+  const guides = data?.guides || [];
+  const categories = data?.categories || [];
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") setSelectedGuideModal(null);
@@ -250,7 +69,7 @@ export function GuidesExplorerMatrix() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const copyGuideChecklist = (guide: GuideItem) => {
+  const copyGuideChecklist = (guide: DynamicGuideItem) => {
     const textToCopy = `${guide.title}\n\n${guide.body}\n${
       guide.list ? guide.list.map((l) => `- ${l}`).join("\n") : ""
     }${guide.workflow ? `\nWorkflow: ${guide.workflow.join(" → ")}` : ""}`;
@@ -259,7 +78,7 @@ export function GuidesExplorerMatrix() {
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
-  const filteredGuides = allGuides.filter((guide) => {
+  const filteredGuides = guides.filter((guide) => {
     const matchesCat = activeCategory === "all" || guide.category === activeCategory;
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
@@ -273,6 +92,11 @@ export function GuidesExplorerMatrix() {
     return matchesCat && matchesSearch;
   });
 
+  const getCategoryCount = (catId: string) => {
+    if (catId === "all") return guides.length;
+    return guides.filter((g) => g.category === catId).length;
+  };
+
   return (
     <section className="mt-10 sm:mt-14" id="guides-explorer">
       {/* ── Section Header ── */}
@@ -280,13 +104,14 @@ export function GuidesExplorerMatrix() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Featured Documentation</span>
+            <span>{data?.eyebrow || "Featured Documentation"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 dark:text-white mt-2 tracking-tight">
-            Featured Identification Guides
+            {data?.title || "Featured Identification Guides"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-            Step-by-step checklists, specification sheets, and project workflows designed to help organizations plan and manage identification projects.
+            {data?.lede ||
+              "Step-by-step checklists, specification sheets, and project workflows designed to help organizations plan and manage identification projects."}
           </p>
         </div>
 
@@ -321,16 +146,7 @@ export function GuidesExplorerMatrix() {
       <div className="mt-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Category Pills */}
         <div className="flex flex-wrap items-center gap-1.5">
-          {[
-            { id: "all", label: "All Guides", count: 10 },
-            { id: "bulk", label: "Bulk Projects", count: 1 },
-            { id: "student", label: "Student IDs", count: 1 },
-            { id: "employee", label: "Employee IDs", count: 1 },
-            { id: "accessories", label: "Holders & Lanyards", count: 3 },
-            { id: "tech", label: "RFID & IDGen Studio", count: 2 },
-            { id: "events", label: "Event Badges", count: 1 },
-            { id: "quote", label: "Quote Preparation", count: 1 },
-          ].map((cat) => (
+          {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
@@ -348,7 +164,7 @@ export function GuidesExplorerMatrix() {
                     : "bg-slate-100 dark:bg-slate-800 text-slate-500"
                 }`}
               >
-                {cat.count}
+                {getCategoryCount(cat.id)}
               </span>
             </button>
           ))}
@@ -381,7 +197,7 @@ export function GuidesExplorerMatrix() {
       {viewMode === "grid" && (
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {filteredGuides.map((item) => {
-            const Icon = item.icon;
+            const Icon = GUIDE_ICONS[item.iconName] || BookOpen;
 
             return (
               <div
@@ -390,7 +206,9 @@ export function GuidesExplorerMatrix() {
               >
                 {/* Ambient Top Glow */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${item.accentGradient} opacity-50 pointer-events-none`}
+                  className={`absolute inset-0 bg-gradient-to-br ${
+                    item.accentGradient || "from-sky-500/10 via-cyan-500/5 to-transparent"
+                  } opacity-50 pointer-events-none`}
                 />
 
                 <div className="relative z-10 space-y-4">
@@ -401,12 +219,16 @@ export function GuidesExplorerMatrix() {
                         {item.number}
                       </span>
                       <div
-                        className={`flex h-8 w-8 items-center justify-center rounded-xl border ${item.iconColor}`}
+                        className={`flex h-8 w-8 items-center justify-center rounded-xl border ${
+                          item.iconColor || "text-[#009fe3] bg-sky-500/10 border-sky-500/20"
+                        }`}
                       >
                         <Icon className="h-4 w-4" />
                       </div>
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase border ${item.badgeBg}`}
+                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase border ${
+                          item.badgeBg || "bg-sky-50 dark:bg-sky-950/50 text-[#009fe3] dark:text-cyan-300 border-sky-200/60 dark:border-sky-800"
+                        }`}
                       >
                         {item.tag}
                       </span>
@@ -445,7 +267,7 @@ export function GuidesExplorerMatrix() {
                   </div>
 
                   {/* List / Checklist Pills */}
-                  {item.list && (
+                  {item.list && item.list.length > 0 && (
                     <div className="space-y-2 pt-1">
                       {item.listLabel && (
                         <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 block">
@@ -472,7 +294,7 @@ export function GuidesExplorerMatrix() {
                   )}
 
                   {/* Workflow Chain */}
-                  {item.workflow && (
+                  {item.workflow && item.workflow.length > 0 && (
                     <div className="mt-2 rounded-2xl border border-cyan-400/30 bg-gradient-to-r from-sky-50/80 to-white dark:from-slate-850 dark:to-slate-800 p-3 shadow-inner">
                       <span className="text-[9px] font-mono font-black uppercase text-[#009fe3] dark:text-cyan-400 block mb-1.5">
                         Digital Workflow Sequence:
@@ -530,7 +352,7 @@ export function GuidesExplorerMatrix() {
       {viewMode === "list" && (
         <div className="mt-8 space-y-6">
           {filteredGuides.map((item) => {
-            const Icon = item.icon;
+            const Icon = GUIDE_ICONS[item.iconName] || BookOpen;
 
             return (
               <div
@@ -545,7 +367,9 @@ export function GuidesExplorerMatrix() {
                         {item.number}
                       </span>
                       <span
-                        className={`rounded-full px-3 py-1 text-[11px] font-bold border ${item.badgeBg}`}
+                        className={`rounded-full px-3 py-1 text-[11px] font-bold border ${
+                          item.badgeBg || "bg-sky-50 text-[#009fe3] border-sky-200"
+                        }`}
                       >
                         {item.tag}
                       </span>
@@ -567,7 +391,7 @@ export function GuidesExplorerMatrix() {
                     )}
 
                     {/* Optional Bullet List */}
-                    {item.list && (
+                    {item.list && item.list.length > 0 && (
                       <div className="grid gap-2 sm:grid-cols-2 pt-1">
                         {item.list.map((listItem, idx) => (
                           <div
@@ -582,7 +406,7 @@ export function GuidesExplorerMatrix() {
                     )}
 
                     {/* Optional Workflow Chain */}
-                    {item.workflow && (
+                    {item.workflow && item.workflow.length > 0 && (
                       <div className="mt-3 rounded-2xl border-2 border-cyan-400/30 bg-gradient-to-r from-sky-50/80 via-white to-sky-50/50 dark:from-slate-850 dark:via-slate-800 dark:to-slate-850 p-4 shadow-inner">
                         <span className="text-[10px] font-mono font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 block mb-2">
                           Digital Workflow Sequence
@@ -656,7 +480,7 @@ export function GuidesExplorerMatrix() {
               <p>{selectedGuideModal.body}</p>
 
               {/* List */}
-              {selectedGuideModal.list && (
+              {selectedGuideModal.list && selectedGuideModal.list.length > 0 && (
                 <div className="space-y-2">
                   <span className="text-[11px] font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400 block">
                     {selectedGuideModal.listLabel || "Checklist Parameters:"}
@@ -676,7 +500,7 @@ export function GuidesExplorerMatrix() {
               )}
 
               {/* Workflow */}
-              {selectedGuideModal.workflow && (
+              {selectedGuideModal.workflow && selectedGuideModal.workflow.length > 0 && (
                 <div className="rounded-2xl border-2 border-cyan-400/30 bg-sky-50/70 dark:bg-slate-850 p-4 space-y-2">
                   <span className="text-[10px] font-mono font-black uppercase text-[#009fe3] dark:text-cyan-400 block">
                     Digital Flow Pipeline:

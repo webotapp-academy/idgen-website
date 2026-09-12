@@ -86,19 +86,20 @@ const idCardSlides: IdCardSlide[] = [
   },
 ];
 
-export function IdCardHeroCarousel() {
+export function IdCardHeroCarousel({ slides }: { slides?: IdCardSlide[] }) {
+  const activeSlides = slides && slides.length > 0 ? slides : idCardSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % idCardSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + idCardSlides.length) % idCardSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + activeSlides.length) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -134,7 +135,7 @@ export function IdCardHeroCarousel() {
     }
   };
 
-  const currentSlide = idCardSlides[currentIndex];
+  const currentSlide = activeSlides[currentIndex] || activeSlides[0];
 
   return (
     <div
@@ -150,7 +151,7 @@ export function IdCardHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-white dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {idCardSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
@@ -226,7 +227,7 @@ export function IdCardHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {idCardSlides.map((slide, idx) => (
+          {activeSlides.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => goToSlide(idx)}
@@ -250,7 +251,7 @@ export function IdCardHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {idCardSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button

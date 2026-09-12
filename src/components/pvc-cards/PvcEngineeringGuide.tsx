@@ -14,48 +14,60 @@ import {
   Box,
   Flame,
 } from "lucide-react";
+import type { DynamicPvcCardsEngineeringGuide } from "@/lib/dynamic-pvc-cards-types";
 
-export function PvcEngineeringGuide() {
+const ICON_MAP: Record<string, React.ElementType> = {
+  Box,
+  Radio,
+  CreditCard,
+  Layers,
+  Sparkles,
+  ShieldCheck,
+  Sliders,
+  Flame,
+};
+
+export function PvcEngineeringGuide({ data }: { data?: DynamicPvcCardsEngineeringGuide }) {
   const [selectedFactor, setSelectedFactor] = useState<number>(0);
 
-  const factors = [
+  const defaultFactors = [
     {
       num: "01",
       title: "1. Core Quality & Printhead Life",
       desc: "100% Virgin PVC vs Recycled Core Plastic.",
       detail: "Virgin PVC cards feature zero surface lumps, pinholes, or grey impurities, protecting desktop card printer thermal printheads from scratches and eliminating white printing artifacts.",
-      icon: Box,
+      iconName: "Box",
     },
     {
       num: "02",
       title: "2. Contactless Chip Protocol",
       desc: "13.56MHz Smart vs 125kHz Proximity.",
       detail: "Choose 13.56MHz Mifare 1K for encrypted multi-sector applications (canteen, library, biometric) and 125kHz TK4100 for standard turnstiles and vehicle parking boom barriers.",
-      icon: Radio,
+      iconName: "Radio",
     },
     {
       num: "03",
       title: "3. Friction & Swipe Frequency",
       desc: "Lanyard badge vs daily magnetic swipe.",
       detail: "For cards subjected to high-friction daily swipes (POS loyalty or hotel doors), choose high-coercivity (2750 Oe) HiCo magnetic stripes with a protective 1-Mil thermal overlaminate.",
-      icon: CreditCard,
+      iconName: "CreditCard",
     },
     {
       num: "04",
       title: "4. Wearable Ecosystem Compatibility",
       desc: "Card + Holder + Hook + Custom Lanyard.",
       detail: "Pair your PVC cards with our ultrasonic-sealed custom satin lanyards and V-2 Four-Side-Lock rigid holders for a complete institutional identification solution.",
-      icon: Layers,
+      iconName: "Layers",
     },
   ];
 
-  const coreOptions = [
+  const defaultCoreOptions = [
     {
       title: "100% Virgin White PVC",
       badge: "IDGen Standard",
       desc: "Pure white virgin polymer with zero regrind impurities. Complies fully with ISO/IEC 7810 standards.",
       pros: ["Zero printhead damage", "Superior bend & snap resistance", "Vibrant dye-sublimation color"],
-      icon: CreditCard,
+      iconName: "CreditCard",
       highlight: true,
     },
     {
@@ -63,7 +75,7 @@ export function PvcEngineeringGuide() {
       badge: "High Heat Resistant",
       desc: "Multi-layer sandwich of 60% PVC and 40% PET polyester, engineered for heavy-duty thermal lamination.",
       pros: ["Withstands high heat lamination", "Extreme flexural durability", "Zero warping in hot climates"],
-      icon: Layers,
+      iconName: "Layers",
       highlight: false,
     },
     {
@@ -71,10 +83,15 @@ export function PvcEngineeringGuide() {
       badge: "No-Holder Option",
       desc: "Factory die-punched slot hole (vertical or horizontal) for direct clip/hook lanyard attachment without a holder.",
       pros: ["Cost-effective wearable setup", "Smooth burr-free punch edges", "Direct hook attachment"],
-      icon: Box,
+      iconName: "Box",
       highlight: false,
     },
   ];
+
+  const activeFactors = (data?.factors && data.factors.length > 0) ? data.factors : defaultFactors;
+  const activeCoreOptions = (data?.fasteners && data.fasteners.length > 0) ? data.fasteners : defaultCoreOptions;
+
+  const currentFactor = activeFactors[selectedFactor] || activeFactors[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -84,22 +101,22 @@ export function PvcEngineeringGuide() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Sliders className="h-3.5 w-3.5" />
-              <span>Decision Factors</span>
+              <span>{data?.badge || "Decision Factors"}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              Choosing the Right PVC Card Specification
+              {data?.title || "Choosing the Right PVC Card Specification"}
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-              Consider these four core parameters when selecting PVC card substrates and chip configurations:
+              {data?.lede || "Consider these four core parameters when selecting PVC card substrates and chip configurations:"}
             </p>
           </div>
         </div>
 
         {/* 4 Factor Cards */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {factors.map((f, idx) => {
+          {activeFactors.map((f, idx) => {
             const isSelected = selectedFactor === idx;
-            const Icon = f.icon;
+            const Icon = (f as any).icon || ((f as any).iconName && ICON_MAP[(f as any).iconName]) || Box;
 
             return (
               <div
@@ -140,10 +157,10 @@ export function PvcEngineeringGuide() {
             <Sparkles className="h-5 w-5 text-cyan-300 shrink-0 mt-0.5" />
             <div>
               <span className="text-[10px] font-black uppercase text-cyan-300 tracking-wider">
-                Engineering Recommendation: {factors[selectedFactor].title}
+                Engineering Recommendation: {currentFactor?.title}
               </span>
               <p className="text-xs sm:text-sm text-slate-200 mt-1 font-medium leading-relaxed">
-                {factors[selectedFactor].detail}
+                {currentFactor?.detail}
               </p>
             </div>
           </div>
@@ -159,8 +176,11 @@ export function PvcEngineeringGuide() {
               <span>Substrate Formulations</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              PVC Core Quality &amp; Structure
+              {data?.fastenersTitle || "PVC Core Quality & Structure"}
             </h3>
+            {data?.fastenersLede && (
+              <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">{data.fastenersLede}</p>
+            )}
           </div>
 
           <span className="text-xs font-semibold text-slate-500">
@@ -169,8 +189,8 @@ export function PvcEngineeringGuide() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-3">
-          {coreOptions.map((opt, idx) => {
-            const Icon = opt.icon;
+          {activeCoreOptions.map((opt, idx) => {
+            const Icon = (opt as any).icon || ((opt as any).iconName && ICON_MAP[(opt as any).iconName]) || CreditCard;
 
             return (
               <div

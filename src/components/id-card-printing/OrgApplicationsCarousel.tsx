@@ -73,7 +73,23 @@ export const orgApplicationsData: OrgApplicationItem[] = [
   },
 ];
 
-export function OrgApplicationsCarousel() {
+import { Radio } from "lucide-react";
+
+const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  GraduationCap,
+  Building2,
+  Ticket,
+  Wifi,
+  Radio,
+  Users,
+};
+
+export function OrgApplicationsCarousel({
+  items,
+}: {
+  items?: (OrgApplicationItem | (Omit<OrgApplicationItem, "icon"> & { iconName?: string; icon?: React.ComponentType<{ className?: string }> }))[];
+}) {
+  const activeItems = items && items.length > 0 ? items : orgApplicationsData;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -93,7 +109,7 @@ export function OrgApplicationsCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, orgApplicationsData.length - itemsPerPage);
+  const maxIndex = Math.max(0, activeItems.length - itemsPerPage);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -152,8 +168,8 @@ export function OrgApplicationsCarousel() {
             transform: `translateX(-${currentIndex * (100 / itemsPerPage + (itemsPerPage === 1 ? 0 : 1.2))}%)`,
           }}
         >
-          {orgApplicationsData.map((item) => {
-            const IconComponent = item.icon;
+          {activeItems.map((item) => {
+            const IconComponent = (item as any).icon || ((item as any).iconName && ICON_MAP[(item as any).iconName]) || GraduationCap;
             return (
               <div
                 key={item.title}

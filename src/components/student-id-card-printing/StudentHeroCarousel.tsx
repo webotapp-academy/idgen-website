@@ -24,7 +24,7 @@ export interface StudentHeroSlide {
   hubTag: string;
 }
 
-const studentHeroSlides: StudentHeroSlide[] = [
+const defaultStudentHeroSlides: StudentHeroSlide[] = [
   {
     id: "school-id-set",
     imageSrc: "/images/student-hero-slide-school-id.jpg",
@@ -82,21 +82,22 @@ const studentHeroSlides: StudentHeroSlide[] = [
   },
 ];
 
-export function StudentHeroCarousel() {
+export function StudentHeroCarousel({ slides }: { slides?: StudentHeroSlide[] } = {}) {
+  const activeSlides = slides && slides.length > 0 ? slides : defaultStudentHeroSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % studentHeroSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + studentHeroSlides.length) % studentHeroSlides.length
+      (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
     );
-  }, []);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -132,7 +133,7 @@ export function StudentHeroCarousel() {
     }
   };
 
-  const currentSlide = studentHeroSlides[currentIndex];
+  const currentSlide = activeSlides[currentIndex] || activeSlides[0];
 
   return (
     <div
@@ -148,7 +149,7 @@ export function StudentHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio matching home page */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-white dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {studentHeroSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
@@ -175,29 +176,37 @@ export function StudentHeroCarousel() {
         })}
 
         {/* Top-Left Floating Badge */}
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-white shadow-xl transition-all">
-          <GraduationCap className="h-3.5 w-3.5 text-cyan-400" />
-          <span>{currentSlide.topBadge}</span>
-        </div>
+        {currentSlide?.topBadge && (
+          <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-white shadow-xl transition-all">
+            <GraduationCap className="h-3.5 w-3.5 text-cyan-400" />
+            <span>{currentSlide.topBadge}</span>
+          </div>
+        )}
 
         {/* Top-Right Floating Spec Badge */}
-        <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-1.5 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-white shadow-xl transition-all">
-          <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
-          <span>{currentSlide.specPill}</span>
-        </div>
+        {currentSlide?.specPill && (
+          <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-1.5 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-white shadow-xl transition-all">
+            <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+            <span>{currentSlide.specPill}</span>
+          </div>
+        )}
 
         {/* Bottom Floating Spec Bar */}
-        <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2 rounded-2xl border border-white/25 bg-slate-950/90 backdrop-blur-md p-3 text-white shadow-2xl transition-all">
-          <div className="flex items-center gap-2 min-w-0">
-            <Radio className="h-4 w-4 text-cyan-400 shrink-0" />
-            <span className="text-xs font-bold truncate text-slate-100">
-              {currentSlide.bottomSpec}
-            </span>
+        {currentSlide && (
+          <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2 rounded-2xl border border-white/25 bg-slate-950/90 backdrop-blur-md p-3 text-white shadow-2xl transition-all">
+            <div className="flex items-center gap-2 min-w-0">
+              <Radio className="h-4 w-4 text-cyan-400 shrink-0" />
+              <span className="text-xs font-bold truncate text-slate-100">
+                {currentSlide.bottomSpec}
+              </span>
+            </div>
+            {currentSlide.hubTag && (
+              <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-500/40 shadow-sm">
+                {currentSlide.hubTag}
+              </span>
+            )}
           </div>
-          <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-500/40 shadow-sm">
-            {currentSlide.hubTag}
-          </span>
-        </div>
+        )}
 
         {/* Left / Right Arrow Controls */}
         <button
@@ -224,7 +233,7 @@ export function StudentHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {studentHeroSlides.map((slide, idx) => (
+          {activeSlides.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => goToSlide(idx)}
@@ -248,7 +257,7 @@ export function StudentHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {studentHeroSlides.map((slide, idx) => {
+        {activeSlides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button

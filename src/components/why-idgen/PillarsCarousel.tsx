@@ -95,7 +95,8 @@ const iconMap = {
   PackageCheck,
 };
 
-export function PillarsCarousel() {
+export function PillarsCarousel({ items }: { items?: PillarItem[] }) {
+  const activeItems = items && items.length > 0 ? items : pillarsData;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -116,7 +117,7 @@ export function PillarsCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, pillarsData.length - itemsPerPage);
+  const maxIndex = Math.max(0, activeItems.length - itemsPerPage);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -176,8 +177,8 @@ export function PillarsCarousel() {
             transform: `translateX(-${currentIndex * (100 / itemsPerPage + 1.25)}%)`,
           }}
         >
-          {pillarsData.map((pillar) => {
-            const Icon = iconMap[pillar.iconType];
+          {activeItems.map((pillar) => {
+            const Icon = iconMap[pillar.iconType] || Target;
             return (
               <div
                 key={pillar.id}

@@ -68,7 +68,22 @@ export const qualityPoints = [
   "Factory Direct Wholesale Guaranteed Pricing",
 ];
 
-export function HolderWorkflowAndDispatch() {
+import type { DynamicIdCardHoldersWorkflowAndDispatch } from "@/lib/dynamic-id-card-holders-types";
+
+export function HolderWorkflowAndDispatch({
+  data,
+}: {
+  data?: DynamicIdCardHoldersWorkflowAndDispatch;
+} = {}) {
+  const bundles = data?.bundles;
+  const quality = data?.quality;
+  const ordering = data?.orderingWorkflow;
+  const dispatch = data?.expressDispatch;
+  const closing = data?.closingCta;
+
+  const currentQualityPoints = quality?.points && quality.points.length > 0 ? quality.points : qualityPoints;
+  const currentOrderingSteps = ordering?.steps && ordering.steps.length > 0 ? ordering.steps : orderingSteps;
+
   return (
     <div className="space-y-16 sm:space-y-20 mt-16 sm:mt-20 scroll-mt-28" id="workflow-dispatch">
       {/* ═════════════════════════════════════════════════════════════
@@ -79,15 +94,15 @@ export function HolderWorkflowAndDispatch() {
           <div>
             <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Layers className="h-4 w-4" />
-              <span>Complete Identification Bundles</span>
+              <span>{bundles?.badge || "Complete Identification Bundles"}</span>
             </span>
             <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-1">
-              ID Card Holder + Lanyard Wearable Systems
+              {bundles?.title || "ID Card Holder + Lanyard Wearable Systems"}
             </h3>
           </div>
 
           <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-            Factory Packaged &amp; Pre-Assembled
+            {bundles?.subtitle || "Factory Packaged & Pre-Assembled"}
           </span>
         </div>
 
@@ -96,25 +111,25 @@ export function HolderWorkflowAndDispatch() {
           <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 p-6 flex flex-col justify-between">
             <div>
               <span className="text-[11px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                Tier 1 • Basic Essential
+                {bundles?.tier1?.tag || "Tier 1 • Basic Essential"}
               </span>
               <h4 className="text-lg font-bold text-slate-900 dark:text-white mt-1">
-                ID Card + Card Holder
+                {bundles?.tier1?.title || "ID Card + Card Holder"}
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
-                Ideal for desktop badges, pocket cards, wallet storage, and standalone identity credentials without hanging attachments.
+                {bundles?.tier1?.desc || "Ideal for desktop badges, pocket cards, wallet storage, and standalone identity credentials without hanging attachments."}
               </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
               <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Single unit or bulk cartons
+                {bundles?.tier1?.subtext || "Single unit or bulk cartons"}
               </span>
               <Link
-                href="/id-card-printing/"
+                href={bundles?.tier1?.linkHref || "/id-card-printing/"}
                 className="text-xs font-bold text-[#009fe3] dark:text-cyan-400 hover:underline"
               >
-                PVC Cards →
+                {bundles?.tier1?.linkText || "PVC Cards →"}
               </Link>
             </div>
           </div>
@@ -124,34 +139,34 @@ export function HolderWorkflowAndDispatch() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
-                  Tier 2 • Full Enterprise System
+                  {bundles?.tier2?.tag || "Tier 2 • Full Enterprise System"}
                 </span>
                 <span className="rounded-full bg-[#009fe3] text-white px-2.5 py-0.5 text-[10px] font-bold">
-                  Most Popular
+                  {bundles?.tier2?.popularBadge || "Most Popular"}
                 </span>
               </div>
               <h4 className="text-lg font-bold text-slate-900 dark:text-white mt-1">
-                PVC Card + Holder + Fish Hook + Printed Lanyard
+                {bundles?.tier2?.title || "PVC Card + Holder + Fish Hook + Printed Lanyard"}
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                The complete turnkey executive identification setup. Fully color-coordinated with your organization&apos;s pantone colors, logo, and staff credentials.
+                {bundles?.tier2?.desc || "The complete turnkey executive identification setup. Fully color-coordinated with your organization's pantone colors, logo, and staff credentials."}
               </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-200/80 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
               <Link
-                href="/custom-printed-lanyard-printing/"
+                href={bundles?.tier2?.primaryButtonHref || "/custom-printed-lanyard-printing/"}
                 className="inline-flex items-center gap-1.5 rounded-xl bg-[#009fe3] hover:bg-[#0084be] text-white px-4 py-2 text-xs font-bold shadow-xs transition"
               >
-                <span>Custom Lanyard Sets</span>
+                <span>{bundles?.tier2?.primaryButtonText || "Custom Lanyard Sets"}</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
 
               <Link
-                href="/request-a-quote/"
+                href={bundles?.tier2?.secondaryButtonHref || "/request-a-quote/"}
                 className="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white underline"
               >
-                Get Full Bundle Quote
+                {bundles?.tier2?.secondaryButtonText || "Get Full Bundle Quote"}
               </Link>
             </div>
           </div>
@@ -168,16 +183,16 @@ export function HolderWorkflowAndDispatch() {
           </div>
           <div>
             <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-              Holder Quality &amp; Precision Compatibility
+              {quality?.title || "Holder Quality & Precision Compatibility"}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              IDGen 8-Point Manufacturing &amp; Tolerance Standards
+              {quality?.subtitle || "IDGen 8-Point Manufacturing & Tolerance Standards"}
             </p>
           </div>
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {qualityPoints.map((pt, idx) => (
+          {currentQualityPoints.map((pt, idx) => (
             <div
               key={idx}
               className="flex items-center gap-2.5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 p-3.5 text-xs font-bold text-slate-800 dark:text-slate-200"
@@ -190,7 +205,11 @@ export function HolderWorkflowAndDispatch() {
 
         <div className="mt-6 rounded-2xl bg-sky-50/60 dark:bg-slate-800/40 p-4 border border-sky-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
           <p>
-            For benchmark <strong>V-1</strong> and <strong>V-2</strong> models, IDGen guarantees 100% virgin plastic resin, ultrasonic finished edges, and a standardized 20 mm lanyard aperture. For specialized models, physical sample validation is provided prior to mass production.
+            {quality?.note || (
+              <>
+                For benchmark <strong>V-1</strong> and <strong>V-2</strong> models, IDGen guarantees 100% virgin plastic resin, ultrasonic finished edges, and a standardized 20 mm lanyard aperture. For specialized models, physical sample validation is provided prior to mass production.
+              </>
+            )}
           </p>
         </div>
       </div>
@@ -202,18 +221,18 @@ export function HolderWorkflowAndDispatch() {
         <div className="text-center max-w-2xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sliders className="h-3.5 w-3.5" />
-            <span>Fulfillment Pipeline</span>
+            <span>{ordering?.eyebrow || "Fulfillment Pipeline"}</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-            Ordering ID Card Holders
+            {ordering?.title || "Ordering ID Card Holders"}
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1.5">
-            A frictionless 6-step ordering process from requirement confirmation to express delivery.
+            {ordering?.lede || "A frictionless 6-step ordering process from requirement confirmation to express delivery."}
           </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {orderingSteps.map((step) => (
+          {currentOrderingSteps.map((step) => (
             <div
               key={step.num}
               className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#009fe3] hover:shadow-lg dark:hover:border-cyan-500"
@@ -258,29 +277,31 @@ export function HolderWorkflowAndDispatch() {
             </div>
             <div>
               <span className="text-xs font-black uppercase tracking-widest text-emerald-400">
-                Factory Speed Commitment
+                {dispatch?.badge || "Factory Speed Commitment"}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-white">
-                72-Hour Express Dispatch
+                {dispatch?.title || "72-Hour Express Dispatch"}
               </h3>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="rounded-full bg-emerald-500/20 border border-emerald-500/40 px-3.5 py-1 text-xs font-bold text-emerald-300">
-              ⚡ Guaranteed Timeline on Approved Orders
+              {dispatch?.pill || "⚡ Guaranteed Timeline on Approved Orders"}
             </span>
           </div>
         </div>
 
         {/* Dispatch Step Chain */}
         <div className="relative z-10 mt-8 grid gap-4 sm:grid-cols-4">
-          {[
-            { step: "01", label: "Approval & Payment", desc: "Digital signoff released" },
-            { step: "02", label: "Preparation", desc: "Batch picking & staging" },
-            { step: "03", label: "Quality Check", desc: "Aperture & finish audit" },
-            { step: "04", label: "72h Dispatch", desc: "Handover to express courier" },
-          ].map((item, idx) => (
+          {(
+            dispatch?.steps || [
+              { step: "01", label: "Approval & Payment", desc: "Digital signoff released" },
+              { step: "02", label: "Preparation", desc: "Batch picking & staging" },
+              { step: "03", label: "Quality Check", desc: "Aperture & finish audit" },
+              { step: "04", label: "72h Dispatch", desc: "Handover to express courier" },
+            ]
+          ).map((item, idx) => (
             <div
               key={idx}
               className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 relative"
@@ -299,15 +320,15 @@ export function HolderWorkflowAndDispatch() {
 
         <div className="relative z-10 mt-6 pt-5 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            • 72-hour period refers to factory handover from IDGen Guwahati. Express courier transit time applies to final destination.
+            {dispatch?.footerNote || "• 72-hour period refers to factory handover from IDGen Guwahati. Express courier transit time applies to final destination."}
           </p>
           <a
-            href="https://wa.me/919207012084?text=Hi%20IDGen%2C%20I%20need%20urgent%20express%20dispatch%20for%20ID%20card%20holders."
+            href={dispatch?.whatsappHref || "https://wa.me/919207012084?text=Hi%20IDGen%2C%20I%20need%20urgent%20express%20dispatch%20for%20ID%20card%20holders."}
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-1.5 font-bold text-emerald-400 hover:underline"
           >
-            <span>Check Dispatch Timeline for Your City</span>
+            <span>{dispatch?.whatsappText || "Check Dispatch Timeline for Your City"}</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </div>
@@ -322,50 +343,54 @@ export function HolderWorkflowAndDispatch() {
         <div className="relative z-10 max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300">
             <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
-            <span>Direct Wholesale Factory Pricing</span>
+            <span>{closing?.badge || "Direct Wholesale Factory Pricing"}</span>
           </div>
 
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            Need the Right ID Card Holder?
+            {closing?.title || "Need the Right ID Card Holder?"}
           </h3>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Tell us your <strong className="text-white">Card Size + Orientation + Estimated Quantity</strong> and our engineers will calculate your instant wholesale estimate and sample kit.
+            {closing?.description || (
+              <>
+                Tell us your <strong className="text-white">Card Size + Orientation + Estimated Quantity</strong> and our engineers will calculate your instant wholesale estimate and sample kit.
+              </>
+            )}
           </p>
 
           <div className="pt-6 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/request-a-quote/"
+              href={closing?.primaryButton?.href || "/request-a-quote/"}
               className="inline-flex items-center gap-2 rounded-2xl bg-[#009fe3] hover:bg-[#0084be] text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-sky-500/25 transition-all hover:-translate-y-0.5"
             >
-              <span>Request Bulk Factory Quote</span>
+              <span>{closing?.primaryButton?.text || "Request Bulk Factory Quote"}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 
             <a
-              href="https://wa.me/919207012084?text=Hi%20IDGen%20Team%2C%20I%20would%20like%20a%20quote%20for%20ID%20card%20holders%20and%20lanyards."
+              href={closing?.whatsappButton?.href || "https://wa.me/919207012084?text=Hi%20IDGen%20Team%2C%20I%20would%20like%20a%20quote%20for%20ID%20card%20holders%20and%20lanyards."}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-2xl border border-slate-700 bg-slate-800/80 hover:bg-slate-800 px-6 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5"
             >
               <MessageSquare className="h-4 w-4 text-emerald-400" />
-              <span>Instant WhatsApp Desk</span>
+              <span>{closing?.whatsappButton?.text || "Instant WhatsApp Desk"}</span>
             </a>
           </div>
 
           <div className="pt-8 border-t border-slate-800 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              Wholesale Cartons in Stock
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              Free Physical Sample Kits for Institutions
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              Pan-India Express Logistics
-            </span>
+            {(
+              closing?.trustPoints || [
+                "Wholesale Cartons in Stock",
+                "Free Physical Sample Kits for Institutions",
+                "Pan-India Express Logistics",
+              ]
+            ).map((point, idx) => (
+              <span key={idx} className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                {point}
+              </span>
+            ))}
           </div>
         </div>
       </div>

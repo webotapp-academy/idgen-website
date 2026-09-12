@@ -157,7 +157,31 @@ export const hookSelectionCatalog: HookSelectionItem[] = [
   },
 ];
 
-export function QuickHookSelectionMatrix() {
+export function QuickHookSelectionMatrix({
+  data,
+  catalog,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    catalog?: HookSelectionItem[];
+  };
+  catalog?: HookSelectionItem[];
+}) {
+  const activeCatalog =
+    catalog && catalog.length > 0
+      ? catalog
+      : data?.catalog && data.catalog.length > 0
+      ? data.catalog
+      : hookSelectionCatalog;
+
+  const badgeText = data?.badge || "Attachment Selection";
+  const titleText = data?.title || "Choosing the Right ID Card Hook";
+  const ledeText =
+    data?.lede ||
+    "The appropriate hook depends on the holder, card configuration, lanyard and intended application.";
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
@@ -175,7 +199,7 @@ export function QuickHookSelectionMatrix() {
       const params = new URLSearchParams(window.location.search);
       const hookCode = params.get("hook");
       if (hookCode) {
-        const found = hookSelectionCatalog.find(
+        const found = activeCatalog.find(
           (h) => h.code.toLowerCase() === hookCode.toLowerCase()
         );
         if (found) {
@@ -189,7 +213,7 @@ export function QuickHookSelectionMatrix() {
         }
       }
     }
-  }, []);
+  }, [activeCatalog]);
 
   const handleCopyLink = () => {
     if (typeof window !== "undefined" && selectedModalHook) {
@@ -210,7 +234,7 @@ export function QuickHookSelectionMatrix() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const filteredItems = hookSelectionCatalog.filter((item) => {
+  const filteredItems = activeCatalog.filter((item) => {
     const matchesCat = activeCategory === "all" || item.category === activeCategory;
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
@@ -231,13 +255,13 @@ export function QuickHookSelectionMatrix() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Attachment Selection</span>
+            <span>{badgeText}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Choosing the Right ID Card Hook
+            {titleText}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            The appropriate hook depends on the holder, card configuration, lanyard and intended application.
+            {ledeText}
           </p>
         </div>
 
@@ -272,22 +296,31 @@ export function QuickHookSelectionMatrix() {
       <div className="mt-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-1.5">
           {[
-            { id: "all", label: "All Configurations" },
-            { id: "fish", label: "Fish Hook Attachment" },
-            { id: "onehook", label: "One Hook" },
-            { id: "twohook", label: "Two Hooks" },
-            { id: "set", label: "Complete Set" },
+            { id: "all", label: "All Configurations", count: activeCatalog.length },
+            { id: "fish", label: "Fish Hook", count: activeCatalog.filter(c => c.category === "fish").length },
+            { id: "onehook", label: "One Hook", count: activeCatalog.filter(c => c.category === "onehook").length },
+            { id: "twohook", label: "Two Hooks", count: activeCatalog.filter(c => c.category === "twohook").length },
+            { id: "set", label: "Complete Set", count: activeCatalog.filter(c => c.category === "set").length },
           ].map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 flex items-center gap-1.5 ${
                 activeCategory === cat.id
                   ? "bg-[#009fe3] text-white shadow-md shadow-[#009fe3]/25 scale-[1.02]"
                   : "bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-[#009fe3]/60 hover:bg-sky-50/50 dark:hover:bg-slate-800"
               }`}
             >
-              {cat.label}
+              <span>{cat.label}</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                  activeCategory === cat.id
+                    ? "bg-white/20 text-white"
+                    : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
+                }`}
+              >
+                {cat.count}
+              </span>
             </button>
           ))}
         </div>

@@ -82,21 +82,24 @@ const pvcSlides: PvcSlide[] = [
   },
 ];
 
-export function PvcHeroCarousel() {
+export function PvcHeroCarousel({ slides }: { slides?: PvcSlide[] } = {}) {
+  const activeSlides = slides && slides.length > 0 ? slides : pvcSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  const safeIndex = currentIndex < activeSlides.length ? currentIndex : 0;
+
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % pvcSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % activeSlides.length);
+  }, [activeSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + pvcSlides.length) % pvcSlides.length
+      (prev) => (prev - 1 + activeSlides.length) % activeSlides.length
     );
-  }, []);
+  }, [activeSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -132,7 +135,7 @@ export function PvcHeroCarousel() {
     }
   };
 
-  const currentSlide = pvcSlides[currentIndex];
+  const currentSlide = activeSlides[safeIndex] || activeSlides[0];
 
   return (
     <div
@@ -148,8 +151,8 @@ export function PvcHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-slate-100 dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {pvcSlides.map((slide, idx) => {
-          const isActive = idx === currentIndex;
+        {activeSlides.map((slide, idx) => {
+          const isActive = idx === safeIndex;
           return (
             <div
               key={slide.id}
@@ -229,13 +232,13 @@ export function PvcHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {pvcSlides.map((slide, idx) => (
+          {activeSlides.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentIndex
+                idx === safeIndex
                   ? "w-6 bg-cyan-400 shadow-sm shadow-cyan-400/50"
                   : "w-2 bg-white/40 hover:bg-white/70"
               }`}
@@ -257,8 +260,8 @@ export function PvcHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {pvcSlides.map((slide, idx) => {
-          const isActive = idx === currentIndex;
+        {activeSlides.map((slide, idx) => {
+          const isActive = idx === safeIndex;
           return (
             <button
               key={slide.id}

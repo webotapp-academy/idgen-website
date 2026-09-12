@@ -1,0 +1,522 @@
+{
+  "hero": {
+    "badge": "IDGEN STUDIO",
+    "titlePrefix": "IDGen Studio — ",
+    "titleHighlight": "Digital ID Card Data Collection & Printing Workflow",
+    "slogan": "Collect Data. Preview the ID Card. Approve. Print.",
+    "description1": "IDGen Studio is a digital ID-card data collection and production workflow that helps schools, colleges, universities, companies, institutions and organizations collect identification information and photographs, review submissions, preview personalized ID cards and move approved records toward printing.",
+    "description2": "Instead of waiting for everyone to complete their information before starting production, organizations can review and approve completed records progressively and print in batches.",
+    "flowChainTitle": "IDGen Studio Flow",
+    "flowChainSteps": [
+      "Create Form",
+      "Share Link / QR Code",
+      "Submit Details",
+      "Preview ID Card",
+      "Review",
+      "Approve",
+      "Print",
+      "Distribute"
+    ],
+    "primaryCta": {
+      "label": "Try IDGen Studio Yourself",
+      "href": "#try-demo"
+    },
+    "secondaryCta": {
+      "label": "Request IDGen Studio",
+      "href": "/request-a-quote/"
+    },
+    "bannerVideo": {
+      "sourceType": "mp4",
+      "mp4Url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "poster": "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
+      "title": "How IDGen Studio Works | Digital ID Card Data Collection & Printing",
+      "description": "Watch the actual user journey from digital form creation, photo upload, and instant ID card preview to approval and factory batch printing.",
+      "youtubeLinkText": "Watch on YouTube",
+      "youtubeLinkHref": "https://www.youtube.com/@iDGenguwahati"
+    }
+  },
+  "actionVideo": {
+    "eyebrow": "🎥 See IDGen Studio in Action",
+    "title": "From Data Collection to Printed ID Card",
+    "lede": "Watch how IDGen Studio can simplify the identification-card data collection process.",
+    "journeyPipeline": [
+      "Create Form",
+      "Share",
+      "User Fills Form",
+      "Upload Photo",
+      "ID Card Preview",
+      "Submit",
+      "Organization Review",
+      "Approval",
+      "Printing"
+    ],
+    "video": {
+      "sourceType": "mp4",
+      "mp4Url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "poster": "/images/idgen-studio-interface.jpg",
+      "title": "Video Title: How IDGen Studio Works | Digital ID Card Data Collection & Printing",
+      "description": "The demonstration shows the actual user journey from end-to-end.",
+      "youtubeLinkText": "Open on YouTube",
+      "youtubeLinkHref": "https://www.youtube.com/@iDGenguwahati"
+    }
+  },
+  "tryDemo": {
+    "badge": "🧪 Interactive Live Demonstration",
+    "title": "Try IDGen Studio Yourself — ",
+    "titleHighlight": "Experience the ID Card Data Collection Process",
+    "description": "Don't just read about IDGen Studio. Try the workflow yourself. We have created a live demonstration form so students, parents, employees, organizations and other visitors can experience how the IDGen Studio submission process works.",
+    "option1Title": "Option 1",
+    "option1Subtitle": "1. Scan the QR Code",
+    "option1QrImage": "",
+    "option1QrAlt": "IDGen Studio Demo QR Code",
+    "option1QrLabel": "[IDGEN STUDIO DEMO QR CODE]",
+    "option1Note": "Scan using any smartphone camera or QR reader",
+    "option2Title": "Option 2",
+    "option2Subtitle": "2. Open the Demo Form",
+    "option2Description": "Access the interactive submission form directly in your current browser tab and test the photo upload and preview capabilities.",
+    "option2ButtonText": "Try the Live ID Card Form",
+    "option2ButtonHref": "/request-a-quote/",
+    "option2ExperiencesTitle": "What you can experience:",
+    "option2Experiences": [
+      "How simple the form is to complete",
+      "How information is entered",
+      "How photographs are uploaded",
+      "How the ID card preview works",
+      "How the completed information is submitted"
+    ],
+    "processStepsTitle": "Experience the Process",
+    "processSteps": [
+      "Open Form",
+      "Enter Information",
+      "Upload Photograph",
+      "Preview ID Card",
+      "Check Details",
+      "Submit"
+    ],
+    "noticeTitle": "Demo Form Notice:",
+    "noticeText": "Please use test information for demonstration purposes. Do not submit sensitive personal information or real identity documents unless specifically instructed.",
+    "footerTitle": "One Link. One QR Code. One Simple Process.",
+    "footerSubtitle": "Try it yourself and see how an end user experiences IDGen Studio."
+  },
+  "workflowSteps": {
+    "eyebrow": "Workflow Breakdown",
+    "title": "How IDGen Studio Works",
+    "lede": "A progressive, 9-stage digital workflow from form definition to batch factory dispatch.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Create Your Form",
+        "desc": "The organization defines the information required for its ID cards.",
+        "schoolExamples": [
+          "Student name",
+          "Admission number",
+          "Class",
+          "Section",
+          "Roll number",
+          "Date of birth",
+          "Blood group",
+          "Parent information",
+          "Photograph"
+        ],
+        "companyExamples": [
+          "Employee name",
+          "Employee ID",
+          "Department",
+          "Designation",
+          "Joining information",
+          "Photograph"
+        ],
+        "note": "The form can be planned according to the organization's identification requirements.",
+        "ctaText": "View IDGen Studio Form Planning Template →",
+        "ctaHref": "/templates/"
+      },
+      {
+        "num": "02",
+        "title": "Share the Form",
+        "desc": "Once the form is created, the organization can share it using a link or QR code.",
+        "channels": [
+          "WhatsApp",
+          "Email",
+          "SMS",
+          "School communication groups",
+          "Parent communication",
+          "Printed notices",
+          "Website",
+          "Other communication channels"
+        ],
+        "note": "The intended user simply opens the link or scans the QR code."
+      },
+      {
+        "num": "03",
+        "title": "User Enters Information",
+        "desc": "The student, parent, employee, participant or other authorized user enters the required information.",
+        "note": "They can provide their details directly rather than requiring the organization to manually enter every record."
+      },
+      {
+        "num": "04",
+        "title": "Upload Photograph",
+        "desc": "Where required, the user uploads their identification photograph.",
+        "note": "This allows the photograph to be associated with the corresponding identification record."
+      },
+      {
+        "num": "05",
+        "title": "Preview the ID Card",
+        "desc": "Before submitting the information, the user can see the personalized ID card preview.",
+        "previewItems": [
+          "Name",
+          "Photograph",
+          "ID number",
+          "Class",
+          "Department",
+          "Designation",
+          "Other personalized information",
+          "Card layout",
+          "Organization branding"
+        ],
+        "highlight": "The idea is simple: See your ID card before it goes for printing. This creates an opportunity to identify incorrect information before production."
+      },
+      {
+        "num": "06",
+        "title": "Submit",
+        "desc": "After reviewing the information and preview, the user submits the completed form.",
+        "note": "The record then becomes available to the organization for review."
+      },
+      {
+        "num": "07",
+        "title": "Organization Reviews",
+        "desc": "The organization can review submitted records through its IDGen Studio workflow.",
+        "checkItems": [
+          "Personal details",
+          "Identification number",
+          "Photograph",
+          "Class / department",
+          "Designation",
+          "Other required information"
+        ],
+        "note": "Where editing is supported, corrections can be made before approval."
+      },
+      {
+        "num": "08",
+        "title": "Approve",
+        "desc": "Once the organization is satisfied with a record, it can approve it for production.",
+        "flowTransition": "Submitted → Reviewed → Approved → Ready for Printing"
+      },
+      {
+        "num": "09",
+        "title": "Print in Batches",
+        "desc": "This is one of the key advantages of IDGen Studio. An organization does not necessarily have to wait until everyone has submitted their information.",
+        "batches": [
+          { "name": "Batch 1", "detail": "500 submitted → reviewed → approved → printed" },
+          { "name": "Batch 2", "detail": "400 submitted → reviewed → approved → printed" },
+          { "name": "Batch 3", "detail": "600 submitted → reviewed → approved → printed" }
+        ],
+        "principle": "The principle: Print what is ready instead of waiting for what is not ready.",
+        "note": "Meanwhile, remaining students, employees or participants can continue submitting their information. Organizations can also choose to process all approved records together when preferred."
+      }
+    ]
+  },
+  "organizations": {
+    "eyebrow": "Sector Adaptability",
+    "title": "IDGen Studio for Different Organizations",
+    "lede": "Customized digital onboarding workflows tailored to your sector's operational model.",
+    "organizations": [
+      {
+        "id": "schools",
+        "title": "Schools",
+        "desc": "Schools can share a form with parents or students to collect student information and photographs.",
+        "iconName": "GraduationCap",
+        "typicalFlowTitle": "Typical Flow:",
+        "typicalFlow": "School Creates Form → Parent/Student Submits → Preview → School Reviews → Approves → ID Card Printing",
+        "note": "This can help reduce repetitive manual data entry and provide better visibility into pending submissions.",
+        "linkText": "Student ID Card Printing",
+        "linkHref": "/student-id-card-printing/"
+      },
+      {
+        "id": "colleges",
+        "title": "Colleges & Universities",
+        "desc": "Larger student populations can be organized according to requirements such as course, department, year, semester, and batch.",
+        "iconName": "Building2",
+        "typicalFlowTitle": "Categorization Matrix:",
+        "typicalFlow": "Organized by Course, Department, Year, Semester, Batch, Campus, Faculty & Category",
+        "note": "Records can then be reviewed and approved according to the organization's hierarchical process.",
+        "linkText": "Student ID Card Printing",
+        "linkHref": "/student-id-card-printing/",
+        "categories": ["Course", "Department", "Year", "Semester", "Batch", "Campus", "Faculty", "Student category"]
+      },
+      {
+        "id": "companies",
+        "title": "Companies",
+        "desc": "Companies can use IDGen Studio for employee identification and ongoing staff additions.",
+        "iconName": "Users",
+        "typicalFlowTitle": "Example Flow:",
+        "typicalFlow": "HR Creates Form → Employee Submits → Preview → HR Reviews → Approval → ID Card Printing",
+        "note": "This can be useful for employee onboarding and ongoing additions to the workforce.",
+        "linkText": "Employee ID Card Printing",
+        "linkHref": "/employee-id-card-printing/"
+      },
+      {
+        "id": "events",
+        "title": "Events",
+        "desc": "Event organizers can collect participant information and photographs through a digital form.",
+        "iconName": "Ticket",
+        "typicalFlowTitle": "Example Flow:",
+        "typicalFlow": "Registration → Data Collection → Preview → Review → Approval → Event Card Printing",
+        "note": "This can be useful when registrations continue over several days or weeks.",
+        "linkText": "Event Card Printing",
+        "linkHref": "/event-card-printing/"
+      }
+    ]
+  },
+  "twoSides": {
+    "eyebrow": "Integrated Ecosystem",
+    "title": "Two Sides of the IDGen Studio Experience",
+    "lede": "IDGen Studio connects the end user and the organization in one workflow.",
+    "endUserTitle": "👤 End User",
+    "endUserSteps": [
+      "Open Link / Scan QR",
+      "Fill Information",
+      "Upload Photograph",
+      "Preview ID Card",
+      "Submit"
+    ],
+    "organizationTitle": "🏢 Organization",
+    "organizationSteps": [
+      "Create Form",
+      "Receive Submissions",
+      "Review",
+      "Correct Where Required",
+      "Approve",
+      "Print Approved Records"
+    ],
+    "footerNote": "This connection is what makes IDGen Studio more than a basic online form."
+  },
+  "dashboard": {
+    "eyebrow": "Progress Visibility",
+    "title": "IDGen Studio Dashboard",
+    "lede": "The organization can use its IDGen Studio workflow to monitor the progress of its identification project.",
+    "statusHeader": "Status",
+    "recordsHeader": "Records",
+    "rows": [
+      { "status": "Total Required", "count": "2,000" },
+      { "status": "Submitted", "count": "1,650" },
+      { "status": "Pending", "count": "350" },
+      { "status": "Reviewed", "count": "1,500" },
+      { "status": "Approved", "count": "1,350" },
+      { "status": "Ready for Printing", "count": "1,350" },
+      { "status": "Printed", "count": "1,200" }
+    ],
+    "disclaimer": "Actual dashboard features and status labels depend on the IDGen Studio implementation and account configuration."
+  },
+  "why": {
+    "eyebrow": "Operational Value",
+    "title": "Why IDGen Studio?",
+    "lede": "Engineered to solve real-world organizational bottlenecking in ID data collection.",
+    "cards": [
+      {
+        "title": "Reduce Manual Data Entry",
+        "desc": "Students, parents, employees or participants can enter their own information through the digital form."
+      },
+      {
+        "title": "Centralize Submissions",
+        "desc": "Information can be managed through the organization's IDGen Studio workflow rather than scattered across multiple spreadsheets, messages or files."
+      },
+      {
+        "title": "Give Users a Preview",
+        "desc": "Users can review their personalized ID card before submission."
+      },
+      {
+        "title": "Improve Review",
+        "desc": "Organizations get an opportunity to check information before production."
+      },
+      {
+        "title": "Print Progressively",
+        "desc": "Approved records can be processed in batches while remaining records continue to arrive."
+      },
+      {
+        "title": "Manage Large Projects",
+        "desc": "The workflow is designed to make large identification projects easier to organize and monitor."
+      }
+    ]
+  },
+  "comparison": {
+    "eyebrow": "Process Transformation",
+    "title": "Traditional ID Card Data Collection vs IDGen Studio",
+    "lede": "A direct comparison between legacy collection methods and progressive batch workflows.",
+    "aspectHeader": "Aspect",
+    "traditionalHeader": "Traditional Process",
+    "studioHeader": "IDGen Studio",
+    "rows": [
+      { "aspect": "Data Collection", "traditional": "Manual / mixed data collection", "studio": "Digital form" },
+      { "aspect": "Organization", "traditional": "Multiple files and spreadsheets", "studio": "Centralized workflow" },
+      { "aspect": "Photograph Collection", "traditional": "Manual photograph collection", "studio": "Digital photograph upload" },
+      { "aspect": "Preview Process", "traditional": "Separate preview process", "studio": "ID card preview" },
+      { "aspect": "Status Tracking", "traditional": "Manual status tracking", "studio": "Submission and approval workflow" },
+      { "aspect": "Batch Handling", "traditional": "Often waits for complete data", "studio": "Approved batches can move forward" },
+      { "aspect": "Corrections", "traditional": "Corrections coordinated manually", "studio": "Review before approval" },
+      { "aspect": "Production Timeline", "traditional": "Printing starts after preparation", "studio": "Printing can progress with approved records" }
+    ]
+  },
+  "journey": {
+    "eyebrow": "Lifecycle",
+    "title": "From QR Code to Printed ID Card",
+    "lede": "The Complete Journey: End-to-end trace from digital entry to physical card delivery.",
+    "steps": [
+      { "num": "01", "title": "Scan", "sub": "QR Code" },
+      { "num": "02", "title": "Fill", "sub": "Personal Information" },
+      { "num": "03", "title": "Upload", "sub": "Photograph" },
+      { "num": "04", "title": "Preview", "sub": "Personalized ID Card" },
+      { "num": "05", "title": "Submit", "sub": "Completed Record" },
+      { "num": "06", "title": "Review", "sub": "Organization Checks Information" },
+      { "num": "07", "title": "Approve", "sub": "Record Ready for Production" },
+      { "num": "08", "title": "Print", "sub": "ID Card Production" },
+      { "num": "09", "title": "Distribute", "sub": "Completed ID Card" }
+    ]
+  },
+  "formPlanning": {
+    "eyebrow": "Structure & Specifications",
+    "title": "IDGen Studio Form Planning",
+    "lede": "Plan Your Form Before Creating It. A good data-collection form starts with deciding what information to collect and how each field should be entered.",
+    "requirementHeader": "Requirement",
+    "fieldTypeHeader": "Example Field Type",
+    "fields": [
+      { "requirement": "Student Name", "fieldType": "Short Text" },
+      { "requirement": "Admission Number", "fieldType": "Alphanumeric" },
+      { "requirement": "Roll Number", "fieldType": "Numeric" },
+      { "requirement": "Class", "fieldType": "Dropdown" },
+      { "requirement": "Date of Birth", "fieldType": "Date" },
+      { "requirement": "Mobile Number", "fieldType": "Mobile Number" },
+      { "requirement": "Email", "fieldType": "Email" },
+      { "requirement": "Photograph", "fieldType": "Photo Upload" },
+      { "requirement": "QR Information", "fieldType": "QR Code Data" },
+      { "requirement": "Organization-specific information", "fieldType": "Custom Field" }
+    ],
+    "ctaCardTitle": "Need to plan your form?",
+    "ctaCardSubtitle": "The exact field types match the current IDGen Studio implementation.",
+    "ctaButtonText": "IDGen Studio Form Planning Template",
+    "ctaButtonHref": "/templates/"
+  },
+  "customers": {
+    "title": "IDGen Studio for IDGen Customers",
+    "description": "IDGen Studio is particularly useful when an organization is also arranging physical identification products such as:",
+    "products": [
+      "Student ID cards",
+      "College ID cards",
+      "University ID cards",
+      "Employee ID cards",
+      "Event cards",
+      "Membership cards"
+    ],
+    "footerNote": "The digital workflow helps connect data collection and approval with the physical identification production process."
+  },
+  "disclaimer": {
+    "badge": "Important: Actual Features May Vary",
+    "description": "IDGen Studio is continuously developed and configured according to the organization's requirements. Features such as available field types, dashboard statuses, editing permissions, QR code generation, barcode generation, preview functionality, batch selection, and printing workflow should only be presented as available when they are supported by the current implementation.",
+    "note": "The website always reflects the actual live IDGen Studio functionality."
+  },
+  "fullDemo": {
+    "title": "Watch the Full Demonstration",
+    "subtitle": "See How IDGen Studio Connects Data Collection With ID Card Printing",
+    "video": {
+      "sourceType": "mp4",
+      "mp4Url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "poster": "/images/idgen-studio-submission-dashboard.jpg",
+      "title": "Full IDGen Studio Demonstration",
+      "description": "Watch complete walkthrough from data submission to production dispatch.",
+      "youtubeLinkText": "Watch on YouTube",
+      "youtubeLinkHref": "https://www.youtube.com/@iDGenguwahati"
+    }
+  },
+  "closingCta": {
+    "title": "Ready to Use IDGen Studio?",
+    "slogan": "Make ID Card Data Collection Simpler",
+    "description": "If your school, college, university, company, institution or organization needs a more organized way to collect identification information and connect approved records with ID card printing, talk to IDGen about your requirements.",
+    "buttons": [
+      {
+        "label": "Request IDGen Studio",
+        "href": "/request-a-quote/",
+        "primary": true
+      },
+      {
+        "label": "Request a Quote",
+        "href": "/request-a-quote/"
+      },
+      {
+        "label": "Contact IDGen",
+        "href": "/contact-us/"
+      }
+    ],
+    "brandingTitle": "IDGen Studio — Collect Smarter. Review Earlier. Print Progressively.",
+    "brandingSteps": "Create → Share → Collect → Preview → Review → Approve → Print → Distribute",
+    "brandingCompany": "IDGen — Identity Solutions Simplified"
+  },
+  "faqs": {
+    "eyebrow": "Help & Guidance",
+    "title": "Frequently Asked Questions",
+    "lede": "Common questions regarding links, parent submissions, ID card previews, editing and batch printing.",
+    "faqs": [
+      {
+        "q": "What is IDGen Studio?",
+        "a": "IDGen Studio is a digital ID-card data collection and production workflow that helps organizations collect information and photographs, preview personalized ID cards, review submissions and approve records for printing."
+      },
+      {
+        "q": "How does a user access the form?",
+        "a": "The organization can share a form through a link or QR code. The user opens the link or scans the QR code and completes the required information."
+      },
+      {
+        "q": "Can parents submit student information?",
+        "a": "Yes, where the organization's workflow is configured for parent/student submission, parents can enter their child's required information and photograph."
+      },
+      {
+        "q": "Can users see their ID card before submitting?",
+        "a": "Yes, the IDGen Studio workflow is designed to provide an ID card preview before submission."
+      },
+      {
+        "q": "Can an organization review submissions?",
+        "a": "Yes, submitted records can be reviewed through the organization's IDGen Studio workflow."
+      },
+      {
+        "q": "Can corrections be made?",
+        "a": "Corrections can be made where the configured workflow provides editing access."
+      },
+      {
+        "q": "Can ID cards be printed in batches?",
+        "a": "Yes. Approved records can be processed progressively in batches where the production workflow supports it."
+      },
+      {
+        "q": "Does the organization have to wait for everyone?",
+        "a": "Not necessarily. One of the main advantages of the workflow is that approved records can move toward production while other users continue submitting their information."
+      },
+      {
+        "q": "Can an organization process all records together?",
+        "a": "Yes, where supported by the workflow, an organization can choose to process approved records together rather than progressively."
+      },
+      {
+        "q": "Can IDGen Studio be used for employees?",
+        "a": "Yes. Companies can use the workflow to collect employee identification information and photographs."
+      },
+      {
+        "q": "Can IDGen Studio be used for events?",
+        "a": "Yes. Event organizers can use the workflow for participant data collection and event-card production where the configured workflow supports it."
+      },
+      {
+        "q": "Do I need a separate app?",
+        "a": "No separate app installation is required. Users can access the form through the shared link or QR code using a web browser."
+      }
+    ]
+  },
+  "seo": {
+    "title": "IDGen Studio | Digital ID Card Data Collection & Printing Workflow",
+    "description": "Collect student, employee and participant information digitally with IDGen Studio. Share forms by link or QR code, preview ID cards, review submissions and print approved records in batches.",
+    "path": "/idgen-studio/",
+    "keywords": [
+      "IDGen Studio",
+      "Digital ID Card Data Collection",
+      "Online Student ID Form",
+      "Batch ID Card Printing",
+      "ID Card Preview System"
+    ]
+  }
+}

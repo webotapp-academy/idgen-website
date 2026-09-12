@@ -1,0 +1,743 @@
+import fs from "fs";
+import path from "path";
+import { DynamicAcrylicBadgesData } from "./dynamic-acrylic-badges-types";
+
+const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-acrylic-badges.json");
+
+export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
+  hero: {
+    badge: "Executive Identification",
+    badgeSub: "Laser-Cut Cast PMMA",
+    title: "Custom Laser-Cut Acrylic Badges",
+    highlight: "& Magnetic Pins",
+    description:
+      "Elevate your corporate brand, hospital staff, or executive delegates with glass-clear PMMA acrylic name tags. Manufactured in Guwahati with 1440 DPI direct UV printing and clothing-safe neodymium magnetic backings.",
+    specStrip: [
+      {
+        title: "3mm PMMA",
+        desc: "Cast optical acrylic",
+        iconName: "Shield",
+      },
+      {
+        title: "1440 DPI",
+        desc: "Direct UV printing",
+        iconName: "Sparkles",
+      },
+      {
+        title: "Triple Magnet",
+        desc: "Clothes-safe hold",
+        iconName: "Magnet",
+      },
+      {
+        title: "48–72h",
+        desc: "Factory dispatch",
+        iconName: "Truck",
+      },
+    ],
+    primaryCta: {
+      label: "Request a Free Quote",
+      href: "/request-a-quote/",
+    },
+    secondaryCta: {
+      label: "Explore Badge Models",
+      href: "#selection-matrix",
+    },
+    tertiaryCta: {
+      label: "ID Card Holders",
+      href: "/id-card-holders/",
+    },
+    trustPoints: [
+      "Zero Setup Charge on Bulk Orders",
+      "Guwahati Factory Direct",
+      "100% Neodymium Magnets",
+    ],
+    slides: [
+      {
+        id: "badge-executive-pmma",
+        imageSrc: "/images/product-acrylic-badges.jpg",
+        alt: "IDGen custom laser-cut acrylic badges with direct UV printing and magnetic pin",
+        title: "Executive Laser-Cut Acrylic Badges",
+        category: "Executive PMMA",
+        topBadge: "Cast Acrylic PMMA",
+        specPill: "1440 DPI Direct UV",
+        bottomSpec: "Cast PMMA Acrylic • Crystal Flame-Polished Edge • Neodymium Magnet",
+        hubTag: "GUWAHATI FACTORY",
+      },
+      {
+        id: "badge-corporate-series",
+        imageSrc: "/images/Acrylic Badges Samples/Sample 1.jpg",
+        alt: "IDGen premium corporate executive name badge with metallic accents",
+        title: "Corporate Executive Staff Badges",
+        category: "Corporate",
+        topBadge: "Executive Series",
+        specPill: "Neodymium Magnetic",
+        bottomSpec: "Clothing-Safe Triple Magnet • Beveled Finish • Scratch Resistant",
+        hubTag: "ASSAM DIRECT",
+      },
+      {
+        id: "badge-medical-hospital",
+        imageSrc: "/images/Acrylic Badges Samples/Sample 2.jpg",
+        alt: "IDGen medical staff and doctor acrylic name badges with high legibility",
+        title: "Hospital & Medical Staff Badges",
+        category: "Healthcare",
+        topBadge: "Medical Staff ID",
+        specPill: "Sanitizer Resistant",
+        bottomSpec: "High Legibility • Chemical Resistant • Lightweight Comfort",
+        hubTag: "CLINICAL GRADE",
+      },
+      {
+        id: "badge-hospitality-vip",
+        imageSrc: "/images/Acrylic Badges Samples/Sample 6.jpg",
+        alt: "IDGen VIP conference delegate and hospitality staff acrylic badges",
+        title: "Hospitality & VIP Event Badges",
+        category: "Hospitality",
+        topBadge: "VIP Badge Series",
+        specPill: "Custom Shape Cut",
+        bottomSpec: "Precision Laser Contour • Metallic Foiling • Premium Glaze",
+        hubTag: "CUSTOM SHAPE",
+      },
+      {
+        id: "badge-bulk-production",
+        imageSrc: "/images/Acrylic Badges Samples/Sample 7.jpg",
+        alt: "Bulk manufacturing of acrylic name badges at IDGen Guwahati factory",
+        title: "Institutional Bulk Factory Production",
+        category: "Bulk Batch",
+        topBadge: "Ready Factory Stock",
+        specPill: "5,000+ Daily Capacity",
+        bottomSpec: "Zero Setup Charge • 48-72h Express Turnaround • 8 NE States",
+        hubTag: "EXPRESS DISPATCH",
+      },
+    ],
+  },
+  quickSelection: {
+    badge: "Precision Laser Cut Selection",
+    title: "Acrylic Name Badges & Pin Models",
+    lede: "Compare cast PMMA thicknesses, fastener backings, edge beveling treatments, and application profiles.",
+    catalog: [
+      {
+        id: "acr-01",
+        code: "ACR-01",
+        title: "Crystal Clear Executive Name Badge",
+        category: "executive",
+        material: "3mm High-Gloss Cast PMMA Acrylic",
+        attachment: "Triple Neodymium Magnetic Plate",
+        finish: "Diamond Flame-Polished Edge",
+        img: "/images/Acrylic Badges Samples/Sample 1.jpg",
+        badge: "Executive Standard",
+        description:
+          "Optically clear PMMA name badge with crisp sub-surface 1440 DPI UV printing and clothes-safe magnetic backing.",
+        idealFor: ["Corporate Staff", "Hotel Executives", "Branch Managers", "Conference Delegates"],
+      },
+      {
+        id: "acr-02",
+        code: "ACR-02",
+        title: "Golden Metallic Inlay Acrylic Pin",
+        category: "metallic",
+        material: "Dual Layer Acrylic + Brass Mirror Inlay",
+        attachment: "Dual Magnet / Pin Combo",
+        finish: "Laser Chamfered Gold Border",
+        img: "/images/Acrylic Badges Samples/Sample 2.jpg",
+        badge: "Metallic Inlay",
+        description:
+          "Reflective metallic foil underlay with transparent optical acrylic face for a luxurious premium shimmer.",
+        idealFor: ["VIP Passes", "Award Recipients", "Executive Directors", "Leadership Crests"],
+      },
+      {
+        id: "acr-03",
+        code: "ACR-03",
+        title: "High-Gloss Corporate Crest Badge",
+        category: "contour",
+        material: "3mm Cast Acrylic",
+        attachment: "Neodymium Magnet Plate",
+        finish: "Full Bleed Direct UV Print",
+        img: "/images/Acrylic Badges Samples/Sample 3.jpg",
+        badge: "Corporate Crest",
+        description:
+          "High-contrast brand crest badge engineered to match exact company logo Pantone color codes.",
+        idealFor: ["Bank Personnel", "IT Enterprise Teams", "Automotive Showrooms", "Real Estate Staff"],
+      },
+      {
+        id: "acr-04",
+        code: "ACR-04",
+        title: "Precision Laser Cut Shape Badge",
+        category: "contour",
+        material: "CO2 Laser Contour Cut PMMA",
+        attachment: "Stainless Safety Pin or Magnet",
+        finish: "Smooth Flame-Polished Bevel",
+        img: "/images/Acrylic Badges Samples/Sample 4.jpg",
+        badge: "Custom Silhouette",
+        description:
+          "Custom cut to match the exact organic outline of your organizational emblem or mascot silhouette.",
+        idealFor: ["Sports Clubs", "Event Volunteers", "Festival Organizers", "Brand Ambassadors"],
+      },
+      {
+        id: "acr-05",
+        code: "ACR-05",
+        title: "Doctor & Hospital Staff Magnetic Pin",
+        category: "medical",
+        material: "Anti-Bacterial UV Sealed PMMA",
+        attachment: "Clothes-Safe Triple Magnet",
+        finish: "Scratch-Resistant Protective Coat",
+        img: "/images/Acrylic Badges Samples/Sample 5.jpg",
+        badge: "Healthcare Grade",
+        description:
+          "Sterilizable, wipeable acrylic name tag with bold designation titles and doctor photograph.",
+        idealFor: ["Doctors & Surgeons", "Hospital Nurses", "Diagnostic Labs", "Clinic Practitioners"],
+      },
+      {
+        id: "acr-06",
+        code: "ACR-06",
+        title: "VIP Executive Gold Border Badge",
+        category: "metallic",
+        material: "3.5mm Double Layer PMMA",
+        attachment: "Heavy Duty Dual Magnet",
+        finish: "Mirror Gold Foil Beveled Edge",
+        img: "/images/Acrylic Badges Samples/Sample 6.jpg",
+        badge: "VIP Edition",
+        description:
+          "Ultra-premium gold-bordered badge designed for high-profile summits and senior government dignitaries.",
+        idealFor: ["Summit Speakers", "Government Delegations", "Board Members", "Chief Guests"],
+      },
+      {
+        id: "acr-07",
+        code: "ACR-07",
+        title: "Custom Curved Institutional Crest",
+        category: "contour",
+        material: "3mm Crystal Acrylic",
+        attachment: "Safety Pin or Magnet",
+        finish: "Micro-Polished Perimeter",
+        img: "/images/Acrylic Badges Samples/Sample 7.jpg",
+        badge: "Contour Crest",
+        description:
+          "Elegantly curved institutional badge providing a refined 3D depth effect for university and academy crests.",
+        idealFor: ["University Faculty", "Academy Alumni", "Trust Foundations", "Cultural Societies"],
+      },
+      {
+        id: "acr-08",
+        code: "ACR-08",
+        title: "Frosted Matt Finish Acrylic Tag",
+        category: "executive",
+        material: "Frosted Matte Cast PMMA",
+        attachment: "Neodymium Magnetic Backing",
+        finish: "Non-Reflective Satin Texture",
+        img: "/images/Acrylic Badges Samples/Sample 8.jpg",
+        badge: "Frosted Finish",
+        description:
+          "Modern anti-glare frosted surface offering high contrast reading under harsh studio and retail lighting.",
+        idealFor: ["Studio Photographers", "Gallery Curators", "Architects", "Design Agencies"],
+      },
+      {
+        id: "acr-09",
+        code: "ACR-09",
+        title: "School Prefect & Leadership Pin",
+        category: "prefect",
+        material: "2.5mm Impact Acrylic",
+        attachment: "Child-Safe Safety Pin Clasp",
+        finish: "Gloss Enamel Color Inlay",
+        img: "/images/Acrylic Badges Samples/Sample 9.jpg",
+        badge: "Student Council",
+        description:
+          "Vibrant student council badges with gold star accents, house designations, and shatter-resistant polymer core.",
+        idealFor: ["School Prefects", "House Captains", "Student Monitors", "Youth Sports Clubs"],
+      },
+      {
+        id: "acr-10",
+        code: "ACR-10",
+        title: "Heavy Duty Triple Magnet Blank",
+        category: "executive",
+        material: "3mm Clear PMMA + ABS Backer",
+        attachment: "Triple N52 Neodymium Bar",
+        finish: "Chamfered Safety Edges",
+        img: "/images/Acrylic Badges Samples/Sample 10.jpg",
+        badge: "Magnetic Power",
+        description:
+          "Maximum-strength magnetic enclosure designed to hold through thick wool blazers, winter coats, and sherwanis.",
+        idealFor: ["Winter Uniforms", "Security Guards", "Hotel Doormen", "Formal Banquet Staff"],
+      },
+      {
+        id: "acr-11",
+        code: "ACR-11",
+        title: "Custom Cut Shield Emblem Pin",
+        category: "contour",
+        material: "Cast PMMA Laser Shield Silhouette",
+        attachment: "Dual Magnet Plate",
+        finish: "Prismatic Optical Edge",
+        img: "/images/Acrylic Badges Samples/Sample 11.jpg",
+        badge: "Shield Cut",
+        description:
+          "Classic shield crest badge providing a commanding executive presence for security and institutional personnel.",
+        idealFor: ["Security In-Charges", "Facility Heads", "Corporate Security", "Patrol Officers"],
+      },
+      {
+        id: "acr-12",
+        code: "ACR-12",
+        title: "Conference & Event Delegate Tag",
+        category: "executive",
+        material: "2mm Lightweight PMMA",
+        attachment: "Magnet or Alligator Clip",
+        finish: "Vibrant Full-Color Print",
+        img: "/images/Acrylic Badges Samples/Sample 12.jpg",
+        badge: "Event Series",
+        description:
+          "Lightweight, economical event tags designed for multi-day summits, symposiums, and trade expos.",
+        idealFor: ["Conference Delegates", "Media Press Corps", "Exhibitor Staff", "Summit Volunteers"],
+      },
+    ],
+  },
+  anatomy: {
+    badge: "Multi-Layer Material Science",
+    title: "Engineered Layer by Layer",
+    lede: "How IDGen crafts optical-clarity acrylic name badges with direct UV micro-piezo printing and clothes-safe neodymium magnetic backings.",
+    layers: [
+      {
+        step: "01",
+        title: "Optical Cast PMMA Acrylic",
+        subtitle: "3mm / 4mm Virgin Grade Substrate",
+        badge: "Crystal Substrate",
+        material: "High-grade virgin polymethyl methacrylate (PMMA)",
+        benefit: "Optically clear, non-yellowing, high-impact glass alternative that provides brilliant depth.",
+        iconName: "Box",
+        img: "/images/Acrylic Badges Samples/Sample 1.jpg",
+        details: [
+          "92% light transmittance for crystal clear clarity",
+          "UV-stabilized virgin grade that never yellows over time",
+          "Lightweight ergonomic wear with high structural rigidity",
+        ],
+      },
+      {
+        step: "02",
+        title: "1440 DPI Direct UV Printing",
+        subtitle: "High-Definition Micro-Piezo Inks",
+        badge: "Micro-Drop UV",
+        material: "Direct UV flatbed print + high-opacity white underbase",
+        benefit: "Photorealistic color vibrancy with Pantone-exact logo accuracy and micro-text legibility.",
+        iconName: "Sparkles",
+        img: "/images/Acrylic Badges Samples/Sample 5.jpg",
+        details: [
+          "1440 × 1440 DPI ultra-high definition micro-piezo printing",
+          "Opaque dense white underbase prevents background fabric bleed",
+          "Instant UV LED curing for scratch & chemical resistance",
+        ],
+      },
+      {
+        step: "03",
+        title: "Precision Laser Beveling & Edge Polishing",
+        subtitle: "CO2 Optical Laser Flame Polish",
+        badge: "Diamond Polish",
+        material: "Precision CO2 laser cut & chamfered edge",
+        benefit: "Smooth, glass-clear perimeter with zero burrs or sharp corners.",
+        iconName: "Flame",
+        img: "/images/Acrylic Badges Samples/Sample 4.jpg",
+        details: [
+          "0.1mm cutting tolerance for complex organic silhouettes",
+          "Flame-polished edges produce a radiant prismatic bevel",
+          "Smooth rounded safety corners that won't catch on garments",
+        ],
+      },
+      {
+        step: "04",
+        title: "Clothes-Safe Neodymium Magnetic Plate",
+        subtitle: "Triple N52 Magnetic Fastening",
+        badge: "Zero-Puncture Fastener",
+        material: "Enclosed triple neodymium magnetic plate + 3M VHB bonding",
+        benefit: "Holds securely through blazers, suit jackets and shirts without poking holes in delicate fabrics.",
+        iconName: "Magnet",
+        img: "/images/Acrylic Badges Samples/Sample 10.jpg",
+        details: [
+          "Triple N52 rare-earth neodymium magnets for rock-solid grip",
+          "3M VHB heavy-duty industrial bond to acrylic backing",
+          "Alternative stainless safety pin or butterfly clutch available",
+        ],
+      },
+    ],
+  },
+  rangeMaster: {
+    badge: "Master Hardware Specifications",
+    title: "Acrylic Badges & Fastener Showcase",
+    lede: "Deep-dive specifications into our executive magnetic tags, precision laser contour cuts, and metallic gold-bordered pins.",
+    sections: [
+      {
+        code: "Executive Magnetic",
+        badge: "Corporate Standard",
+        title: "Executive Magnetic Acrylic Name Badges",
+        tagline: "Ultra-clear PMMA acrylic with clothes-safe neodymium magnetic backings.",
+        description:
+          "Engineered for corporate executives, hospitality leaders, and retail managers. Features 3mm optical-grade PMMA with 1440 DPI direct UV printing, protected by an anti-scratch surface and secured with a triple neodymium magnet plate.",
+        image: "/images/Acrylic Badges Samples/Sample 5.jpg",
+        alt: "Doctor and Corporate Acrylic Badge Sample with Magnetic Attachment",
+        setup: "3mm Cast PMMA + 1440 DPI UV + Triple Neodymium Magnet Plate",
+        suitable: [
+          "Corporate Staff & Executives",
+          "Hospital Doctors & Specialists",
+          "Luxury Hotel & Hospitality Teams",
+          "Bank & Financial Branch Staff",
+          "Executive Summit Delegates",
+        ],
+        specs: [
+          { k: "Thickness", v: "3.0 mm Optical Cast PMMA" },
+          { k: "Print Quality", v: "1440 DPI Direct UV Micro-Piezo" },
+          { k: "Backing", v: "Triple N52 Neodymium Magnetic Plate" },
+          { k: "Edge Finish", v: "Diamond Flame-Polished Bevel" },
+        ],
+        conclusion: "Zero fabric damage — safely attaches through suits, silk shirts, and heavy winter blazers.",
+      },
+      {
+        code: "Contour Laser Cut",
+        badge: "Custom Silhouette",
+        title: "Precision Laser-Cut Custom Shape Badges",
+        tagline: "Cut to the exact organic outline of your brand emblem, crest, or mascot.",
+        description:
+          "Break away from standard rectangles with precision CO2 laser cutting. Any complex geometry, institutional shield, star, or mascot silhouette can be manufactured with crystal flame-polished edges.",
+        image: "/images/Acrylic Badges Samples/Sample 4.jpg",
+        alt: "Custom Laser Cut Acrylic Crest Badge",
+        setup: "Custom CO2 Laser Die-Cut + Sub-Surface UV + Dual Fastening",
+        suitable: [
+          "School & Academy Crests",
+          "Sports Clubs & Youth Academies",
+          "Brand Mascot & Promotion Pins",
+          "Cultural & Heritage Foundations",
+          "Event Organization Crests",
+        ],
+        specs: [
+          { k: "Cutting Tolerance", v: "±0.1 mm Micro-Precision" },
+          { k: "Shape Freedom", v: "100% Custom Organic Silhouette" },
+          { k: "Finish", v: "Smooth Flame-Polished Edge" },
+          { k: "Fastener", v: "Neodymium Magnet / Safety Pin" },
+        ],
+        conclusion: "Accurate contour die-cutting directly generated from your vector artwork.",
+      },
+      {
+        code: "School & Prefect",
+        badge: "Student Leadership",
+        title: "School Leadership, Prefect & Award Badges",
+        tagline: "High-contrast student badges with gold foil stars, house colors, and leadership titles.",
+        description:
+          "Durable, shatter-resistant badges for School Prefects, House Captains, Head Boys & Girls, and Academic Achievers. Designed with bright enamelled UV colors and child-safe rounded corners.",
+        image: "/images/Acrylic Badges Samples/Sample 6.jpg",
+        alt: "School Prefect and Award Badge with Gold Border",
+        setup: "Cast Acrylic + Gold Metallic Border + Safety Pin / Magnet",
+        suitable: [
+          "School Prefects & Monitors",
+          "House Captains & Vice-Captains",
+          "Head Boy & Head Girl Badges",
+          "100% Attendance & Star Badges",
+          "Annual Academic Awardees",
+        ],
+        specs: [
+          { k: "Durability", v: "Shatter-Resistant Cast PMMA" },
+          { k: "Child Safety", v: "Rounded Non-Sharp Corners" },
+          { k: "Fastener", v: "Safety Locking Pin Bar" },
+          { k: "Finish", v: "Gold Mirror Border Foil" },
+        ],
+        conclusion: "Inspire school spirit and leadership pride with durable, vibrant institutional badges.",
+      },
+      {
+        code: "Healthcare Sanitized",
+        badge: "Clinical Hygiene",
+        title: "Hospital & Medical Staff Identity Badges",
+        tagline: "Chemical-resistant, sterilizable badges designed for hospital infection control standards.",
+        description:
+          "Medical personnel require cleanable, high-legibility badges that won't harbor bacteria. Our medical acrylic tags withstand alcohol rubs and hospital disinfectants without fading.",
+        image: "/images/Acrylic Badges Samples/Sample 2.jpg",
+        alt: "Hospital Medical Staff Badge with Designation",
+        setup: "Sealed Sub-Surface Print + Non-Porous Acrylic + Magnetic Fastener",
+        suitable: [
+          "Chief Medical Officers & Surgeons",
+          "Hospital Nursing Supervisors",
+          "Diagnostic Lab Technicians",
+          "Dental & Eye Clinic Staff",
+          "Emergency Response Teams",
+        ],
+        specs: [
+          { k: "Hygiene", v: "Wipeable with 70% Isopropyl Alcohol" },
+          { k: "Visibility", v: "Bold High-Contrast Font Standards" },
+          { k: "Fastener", v: "Triple Magnetic Clothes-Safe Plate" },
+          { k: "Weight", v: "Ultra-Lightweight (under 18g)" },
+        ],
+        conclusion: "Complies with clinical dress codes without pin punctures through expensive scrubs or white coats.",
+      },
+    ],
+  },
+  engineeringGuide: {
+    badge: "Decision Factors",
+    title: "Choosing the Right Acrylic Badge Configuration",
+    lede: "Consider these four operational parameters when ordering custom acrylic badges for your organization:",
+    factors: [
+      {
+        num: "01",
+        title: "1. Fabric & Garment Type",
+        desc: "Suits, silk blazers, lab coats, or heavy sweaters.",
+        detail:
+          "For executive suits, silk blouses, and formal dresses, choose Neodymium Magnetic backings to avoid fabric pinholes. For heavy workwear or outdoor uniforms, safety pins offer physical mechanical hold.",
+        iconName: "Shirt",
+      },
+      {
+        num: "02",
+        title: "2. Movement & Duty Profile",
+        desc: "Sedentary boardroom vs active clinical rounds.",
+        detail:
+          "For doctors, nurses, and hospital staff who move frequently or lean over beds, triple-magnet plates provide a firm 3-point grip that prevents badge tilt or snagging.",
+        iconName: "Activity",
+      },
+      {
+        num: "03",
+        title: "3. Reusability & Staff Turnover",
+        desc: "Permanent executive badges vs reusable window tags.",
+        detail:
+          "Choose direct permanent UV personalization for core executives and long-tenured staff, or reusable acrylic window inserts for seasonal retail teams.",
+        iconName: "Layers",
+      },
+      {
+        num: "04",
+        title: "4. Brand Shape & Silhouette",
+        desc: "Standard rectangular name tag vs custom organic crest.",
+        detail:
+          "Take advantage of our CO2 laser cutting to match exact circular, shield, or mascot geometries rather than conforming to basic rectangular constraints.",
+        iconName: "Flame",
+      },
+    ],
+    fastenersTitle: "Fastener Backing Comparison",
+    fastenersLede: "Select the right clothing attachment based on duty profile and uniform fabrics:",
+    fasteners: [
+      {
+        title: "Triple Neodymium Magnetic Plate",
+        badge: "Most Popular",
+        desc: "Three high-power N52 rare-earth magnets enclosed in a durable ABS plate with 3M VHB industrial adhesive.",
+        pros: ["Zero fabric damage", "Holds through thick winter blazers", "Quick on/off alignment"],
+        iconName: "Magnet",
+        highlight: true,
+      },
+      {
+        title: "Stainless Steel Safety Pin",
+        badge: "Heavy Duty",
+        desc: "Locking stainless steel safety pin bar with molded plastic base, ideal for rugged duty or outdoor uniforms.",
+        pros: ["Positive mechanical lock", "Economical for large batches", "Works on loose knit sweaters"],
+        iconName: "Pin",
+        highlight: false,
+      },
+      {
+        title: "Dual Magnet & Pin Combo Clip",
+        badge: "Versatile",
+        desc: "All-in-one fastening system offering both a magnetic plate and a backup safety pin for multi-purpose uniform setups.",
+        pros: ["Maximum versatility", "Adapts to any clothing type", "Dual security backup"],
+        iconName: "Sliders",
+        highlight: false,
+      },
+    ],
+  },
+  applications: {
+    badge: "Sector Applications",
+    title: "Acrylic Badges Across Industries",
+    lede: "Engineered to provide professional prestige identification across healthcare, education, corporate, and luxury hospitality sectors.",
+    subtitle: "5 Specialized Sectors",
+    applications: [
+      {
+        title: "Corporate & Executive Teams",
+        desc: "Executive name tags for board members, branch managers, banking personnel, and IT enterprise staff.",
+        link: { label: "Explore Corporate Solutions", href: "/services/" },
+        iconName: "Briefcase",
+        gradient: "from-sky-500/10 via-blue-500/5 to-transparent",
+        accentColor: "text-[#009fe3]",
+        tag: "Corporate",
+      },
+      {
+        title: "Hospitals & Medical Staff",
+        desc: "Anti-bacterial, wipeable acrylic tags with high-visibility titles for doctors, surgeons, nurses, and lab staff.",
+        link: { label: "Explore Healthcare Badges", href: "/request-a-quote/" },
+        iconName: "Hospital",
+        gradient: "from-emerald-500/10 via-teal-500/5 to-transparent",
+        accentColor: "text-emerald-500",
+        tag: "Healthcare",
+      },
+      {
+        title: "School Leadership & Prefects",
+        desc: "Vibrant student leadership badges for Head Boys, Head Girls, House Captains, and 100% Attendance stars.",
+        link: { label: "Explore Student Badges", href: "/student-id-card-printing/" },
+        iconName: "GraduationCap",
+        gradient: "from-blue-500/10 via-indigo-500/5 to-transparent",
+        accentColor: "text-blue-500",
+        tag: "Academic",
+      },
+      {
+        title: "Hotels, Resorts & Hospitality",
+        desc: "Luxury acrylic name badges designed to match boutique uniforms and fine dining front-of-house attire.",
+        link: { label: "Explore Hospitality Badges", href: "/request-a-quote/" },
+        iconName: "Building2",
+        gradient: "from-amber-500/10 via-orange-500/5 to-transparent",
+        accentColor: "text-amber-500",
+        tag: "Hospitality",
+      },
+      {
+        title: "VIP Summits & Delegations",
+        desc: "Gold-bordered and custom contour badges for conference speakers, international delegates, and VIP organizers.",
+        link: { label: "Explore Event Cards", href: "/event-card-printing/" },
+        iconName: "Ticket",
+        gradient: "from-purple-500/10 via-pink-500/5 to-transparent",
+        accentColor: "text-purple-500",
+        tag: "Events & Conclaves",
+      },
+    ],
+  },
+  workflowAndDispatch: {
+    workflowBadge: "Manufacturing Workflow",
+    workflowTitle: "How We Craft Custom Acrylic Badges",
+    workflowLede:
+      "From vector artwork verification to precision CO2 laser contour cutting and express delivery across all 8 Northeast states.",
+    orderingSteps: [
+      {
+        num: "01",
+        title: "1. Submit Logo & Staff Names",
+        body: "Send us your vector artwork (AI/CDR/PDF) along with the staff excel roster for personalized name tags.",
+        badge: "Vector Artwork",
+      },
+      {
+        num: "02",
+        title: "2. Select Attachment Type",
+        body: "Choose between clothes-safe triple neodymium magnet plates or traditional stainless safety pins.",
+        badge: "Fastener",
+      },
+      {
+        num: "03",
+        title: "3. Precision Laser & UV Printing",
+        body: "Our Guwahati facility laser cuts PMMA acrylic to exact contours and applies 1440 DPI direct UV ink printing.",
+        badge: "Production",
+      },
+      {
+        num: "04",
+        title: "4. Fast Dispatch Across Northeast",
+        body: "Shipped in protective foam trays with 48–72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
+        badge: "Dispatch",
+      },
+    ],
+    dispatchBadge: "Factory Express Turnaround",
+    dispatchTitle: "48–72h Factory Dispatch",
+    dispatchHubTag: "Guwahati Direct Hub",
+    dispatchLede:
+      "For standard corporate orders with approved staff rosters, our streamlined production line operates on a strict factory fulfillment schedule:",
+    dispatchFlowSteps: [
+      "Vector Proof Approval",
+      "Laser Cutting & UV Print",
+      "Quality & Magnet Check",
+      "Foam Tray Dispatch",
+    ],
+    dispatchDisclaimers: [
+      "Badges are individually packed in anti-scratch sleeves and organized in custom high-density foam sorting trays for safe, pristine transit.",
+      "Express courier transit time across Assam, Meghalaya, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, and Sikkim is additional.",
+    ],
+    closingCtaBadge: "Direct Factory Manufacturing",
+    closingCtaTitle: "Ready to Order Custom Acrylic Badges?",
+    closingCtaLede:
+      "Whether you need 25 magnetic badges for your medical clinic or 5,000 executive tags for a regional enterprise, IDGen delivers factory-direct precision from Guwahati.",
+    closingCtaButtons: [
+      {
+        label: "Request a Free Quote",
+        href: "/request-a-quote/",
+        primary: true,
+      },
+      {
+        label: "Explore ID Card Holders",
+        href: "/id-card-holders/",
+      },
+      {
+        label: "View Full Products Range",
+        href: "/products/",
+      },
+    ],
+    closingCtaBrandingTitle: "IDGen — Custom Acrylic Badges & Executive Pins",
+    closingCtaBrandingLocation: "Guwahati, Assam • Direct Factory Production Across Northeast India",
+  },
+  faqs: {
+    eyebrow: "FAQ",
+    title: "Frequently Asked Questions About Acrylic Badges",
+    lede: "Direct answers regarding magnetic backings, custom contour shapes, minimum order quantities, and durability:",
+    faqs: [
+      {
+        q: "Will the magnetic backing damage suits or delicate clothing?",
+        a: "No! Unlike traditional pins, our neodymium magnetic plates hold firmly through blazers, lab coats, and shirts without poking holes or damaging delicate fabric fibers.",
+      },
+      {
+        q: "Can acrylic badges be cut into custom organic logo shapes?",
+        a: "Yes, our CO2 laser cutting equipment allows any custom geometric or shield shape based on your logo outline.",
+      },
+      {
+        q: "What is the minimum order quantity for custom acrylic badges?",
+        a: "We cater to corporate orders starting from as low as 25 pieces up to large enterprise volumes of 5,000+ units.",
+      },
+      {
+        q: "How durable is the UV printing on acrylic badges?",
+        a: "Our 1440 DPI direct UV inks are cured with industrial LED UV lamps, creating a permanent, scratch-resistant, and chemical-resistant bond on cast PMMA acrylic.",
+      },
+      {
+        q: "What is the standard production and delivery turnaround?",
+        a: "Standard orders with approved staff rosters are produced in 48–72 hours at our Guwahati facility and dispatched across Assam and all 8 Northeast states.",
+      },
+    ],
+  },
+  seo: {
+    title: "Custom Acrylic Badges & Executive Pins | High-Gloss PMMA Badges | IDGen",
+    description:
+      "Direct Guwahati factory manufacturing of precision laser-cut acrylic badges with high-grade magnetic backings and metallic pins for corporate staff, medical personnel, and executive events.",
+    path: "/acrylic-badges/",
+    keywords: [
+      "custom acrylic badges",
+      "magnetic pin badges",
+      "laser cut name tags",
+      "PMMA badges",
+      "doctor name badges",
+      "executive name plates",
+      "Guwahati badge factory",
+    ],
+  },
+};
+
+export function getDynamicAcrylicBadges(): DynamicAcrylicBadgesData {
+  try {
+    if (fs.existsSync(DATA_FILE_PATH)) {
+      const content = fs.readFileSync(DATA_FILE_PATH, "utf-8");
+      const parsed = JSON.parse(content);
+      return {
+        ...DEFAULT_ACRYLIC_BADGES_DATA,
+        ...parsed,
+        hero: { ...DEFAULT_ACRYLIC_BADGES_DATA.hero, ...(parsed.hero || {}) },
+        quickSelection: { ...DEFAULT_ACRYLIC_BADGES_DATA.quickSelection, ...(parsed.quickSelection || {}) },
+        anatomy: { ...DEFAULT_ACRYLIC_BADGES_DATA.anatomy, ...(parsed.anatomy || {}) },
+        rangeMaster: { ...DEFAULT_ACRYLIC_BADGES_DATA.rangeMaster, ...(parsed.rangeMaster || {}) },
+        engineeringGuide: { ...DEFAULT_ACRYLIC_BADGES_DATA.engineeringGuide, ...(parsed.engineeringGuide || {}) },
+        applications: { ...DEFAULT_ACRYLIC_BADGES_DATA.applications, ...(parsed.applications || {}) },
+        workflowAndDispatch: { ...DEFAULT_ACRYLIC_BADGES_DATA.workflowAndDispatch, ...(parsed.workflowAndDispatch || {}) },
+        faqs: { ...DEFAULT_ACRYLIC_BADGES_DATA.faqs, ...(parsed.faqs || {}) },
+        seo: { ...DEFAULT_ACRYLIC_BADGES_DATA.seo, ...(parsed.seo || {}) },
+      };
+    }
+  } catch (err) {
+    console.error("Error reading dynamic-acrylic-badges.json, falling back to default:", err);
+  }
+  return DEFAULT_ACRYLIC_BADGES_DATA;
+}
+
+export function saveDynamicAcrylicBadges(data: DynamicAcrylicBadgesData): boolean {
+  try {
+    const dir = path.dirname(DATA_FILE_PATH);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(data, null, 2), "utf-8");
+    return true;
+  } catch (err) {
+    console.error("Error saving dynamic-acrylic-badges.json:", err);
+    return false;
+  }
+}
+
+export function saveDynamicAcrylicBadgesSection<K extends keyof DynamicAcrylicBadgesData>(
+  section: K,
+  sectionData: DynamicAcrylicBadgesData[K]
+): boolean {
+  const current = getDynamicAcrylicBadges();
+  current[section] = sectionData;
+  return saveDynamicAcrylicBadges(current);
+}
+
+export function resetDynamicAcrylicBadges(): boolean {
+  return saveDynamicAcrylicBadges(DEFAULT_ACRYLIC_BADGES_DATA);
+}

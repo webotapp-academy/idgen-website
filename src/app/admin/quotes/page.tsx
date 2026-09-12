@@ -33,7 +33,7 @@ export default function AdminQuotesPage() {
   async function fetchLeads() {
     try {
       setLoading(true);
-      const res = await fetch("/api/admin/leads?type=quote");
+      const res = await fetch("/api/admin/leads/?type=quote");
       const data = await res.json();
       if (data.success) {
         setLeads(data.leads);
@@ -47,7 +47,7 @@ export default function AdminQuotesPage() {
 
   async function updateStatus(id: string, status: string) {
     try {
-      const res = await fetch("/api/admin/leads", {
+      const res = await fetch("/api/admin/leads/", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, status }),
@@ -67,7 +67,7 @@ export default function AdminQuotesPage() {
   async function deleteLead(id: string) {
     if (!confirm("Are you sure you want to delete this quote request?")) return;
     try {
-      const res = await fetch(`/api/admin/leads?id=${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/leads/?id=${id}`, { method: "DELETE" });
       const data = await res.json();
       if (data.success) {
         fetchLeads();

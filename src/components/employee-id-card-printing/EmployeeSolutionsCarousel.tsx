@@ -16,19 +16,28 @@ import {
   ArrowRight
 } from "lucide-react";
 
-interface EmployeeSolution {
+const ICON_MAP: Record<string, React.ElementType> = {
+  Building2,
+  Users,
+  Factory,
+  Hospital,
+  HeartHandshake,
+};
+
+export interface EmployeeSolutionItem {
   id: string;
   title: string;
   badge: string;
   description: string;
   typicalItems?: string[];
   involvesList?: string[];
-  icon: React.ElementType;
+  iconName?: string;
+  icon?: React.ElementType;
   image: string;
-  accent: string;
+  accent?: string;
 }
 
-const solutions: EmployeeSolution[] = [
+const defaultSolutions: EmployeeSolutionItem[] = [
   {
     id: "corporate",
     title: "Corporate Employee ID Cards",
@@ -42,6 +51,7 @@ const solutions: EmployeeSolution[] = [
       "Department",
       "Company Branding"
     ],
+    iconName: "Building2",
     icon: Building2,
     image: "/images/sol-companies-idgen-v2.jpg",
     accent: "from-blue-600 to-cyan-500",
@@ -58,6 +68,7 @@ const solutions: EmployeeSolution[] = [
       "Institution Logo & Info",
       "Access & Verification"
     ],
+    iconName: "Users",
     icon: Users,
     image: "/images/ID Card Full Set Samples/High-quality Employee ID Cards and Staff Identity Cards delivered to clients in Guwahati and Assam.jpg",
     accent: "from-emerald-600 to-teal-500",
@@ -75,6 +86,7 @@ const solutions: EmployeeSolution[] = [
       "Administrative staff",
       "Contract workforce"
     ],
+    iconName: "Factory",
     icon: Factory,
     image: "/images/why-idgen-production-batches-branded.jpg",
     accent: "from-amber-600 to-orange-500",
@@ -92,6 +104,7 @@ const solutions: EmployeeSolution[] = [
       "Support staff",
       "Other authorized personnel"
     ],
+    iconName: "Hospital",
     icon: Hospital,
     image: "/images/Order Deliver/MY SARAH,JORHAT 1.png",
     accent: "from-cyan-600 to-sky-500",
@@ -108,13 +121,19 @@ const solutions: EmployeeSolution[] = [
       "Emergency Contact Information",
       "Digital Verification QR Code"
     ],
+    iconName: "HeartHandshake",
     icon: HeartHandshake,
     image: "/images/Order Deliver/NON STOP 1.png",
     accent: "from-purple-600 to-indigo-500",
   },
 ];
 
-export function EmployeeSolutionsCarousel() {
+export interface EmployeeSolutionsCarouselProps {
+  solutions?: EmployeeSolutionItem[];
+}
+
+export function EmployeeSolutionsCarousel({ solutions: initialSolutions }: EmployeeSolutionsCarouselProps) {
+  const solutions = (initialSolutions && initialSolutions.length > 0) ? initialSolutions : defaultSolutions;
   const [activeIdx, setActiveIdx] = useState(0);
 
   const prev = () => {
@@ -125,15 +144,15 @@ export function EmployeeSolutionsCarousel() {
     setActiveIdx((cur) => (cur === solutions.length - 1 ? 0 : cur + 1));
   };
 
-  const current = solutions[activeIdx];
-  const Icon = current.icon;
+  const current = solutions[activeIdx] || solutions[0];
+  const Icon = current.icon || (current.iconName && ICON_MAP[current.iconName]) || Building2;
 
   return (
     <div className="space-y-8">
       {/* Category Pills Selector */}
       <div className="flex flex-wrap items-center justify-center gap-2">
         {solutions.map((sol, idx) => {
-          const SolIcon = sol.icon;
+          const SolIcon = sol.icon || (sol.iconName && ICON_MAP[sol.iconName]) || Building2;
           const isActive = idx === activeIdx;
           return (
             <button

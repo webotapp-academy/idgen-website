@@ -75,20 +75,39 @@ export const applicationsList = [
   },
 ];
 
-export function HolderApplicationsGrid() {
+import type { DynamicIdCardHoldersApplications } from "@/lib/dynamic-id-card-holders-types";
+
+const APP_ICON_MAP: Record<string, React.ElementType> = {
+  GraduationCap,
+  Briefcase,
+  Ticket,
+  Hospital,
+  Users,
+  Building2,
+  Sparkles,
+  ShieldCheck,
+};
+
+export function HolderApplicationsGrid({
+  data,
+}: {
+  data?: DynamicIdCardHoldersApplications;
+} = {}) {
+  const items = data?.items && data.items.length > 0 ? data.items : applicationsList;
+
   return (
     <section className="mt-16 sm:mt-20 scroll-mt-28" id="applications">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Multi-Sector Deployment</span>
+            <span>{data?.eyebrow || "Multi-Sector Deployment"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-            ID Card Holder Applications
+            {data?.title || "ID Card Holder Applications"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Tailored holder solutions engineered for schools, corporate enterprises, hospitals, events, and industrial plants across India.
+            {data?.lede || "Tailored holder solutions engineered for schools, corporate enterprises, hospitals, events, and industrial plants across India."}
           </p>
         </div>
 
@@ -98,8 +117,8 @@ export function HolderApplicationsGrid() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {applicationsList.map((app) => {
-          const IconComp = app.icon;
+        {items.map((app) => {
+          const IconComp = (app as any).icon || APP_ICON_MAP[(app as any).iconName] || Building2;
           return (
             <div
               key={app.title}

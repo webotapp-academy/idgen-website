@@ -425,7 +425,7 @@ export default function AdminBlogsPage() {
           />
         </div>
 
-        <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none">
+        <div className="flex flex-wrap items-center gap-1.5 w-full sm:w-auto">
           {BLOG_CATEGORIES.map((cat) => (
             <button
               key={cat}

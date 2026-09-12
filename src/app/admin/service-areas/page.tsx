@@ -1118,12 +1118,12 @@ export default function AdminServiceAreasPage() {
       )}
 
       {/* State Category Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 scrollbar-thin">
+      <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-800">
         {states.map((st) => (
           <button
             key={st.slug}
             onClick={() => setSelectedStateSlug(st.slug)}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 shrink-0 ${selectedStateSlug === st.slug
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${selectedStateSlug === st.slug
                 ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/20"
                 : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
               }`}
@@ -1734,11 +1734,11 @@ export default function AdminServiceAreasPage() {
             </div>
 
             {/* 9 Section Navigation Tabs */}
-            <div className="flex items-center gap-1.5 border-b border-slate-800 pb-2 shrink-0 overflow-x-auto scrollbar-thin">
+            <div className="flex flex-wrap items-center gap-1.5 border-b border-slate-800 pb-2">
               <button
                 type="button"
                 onClick={() => setCityActiveTab("general")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "general"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${cityActiveTab === "general"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}

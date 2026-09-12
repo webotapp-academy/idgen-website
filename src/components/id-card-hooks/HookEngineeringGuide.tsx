@@ -18,47 +18,101 @@ import {
   Users,
 } from "lucide-react";
 
-export function HookEngineeringGuide() {
+const ICON_MAP: Record<string, React.ElementType> = {
+  Box,
+  Layers,
+  Sliders,
+  Users,
+  ShieldCheck,
+  Sparkles,
+};
+
+const defaultFactors = [
+  {
+    num: "01",
+    title: "1. Holder Type",
+    desc: "Check the attachment point on your ID card holder.",
+    detail: "Confirm the attachment hole or slot on your selected holder (e.g. V-1, V-2, H-1, H-2, CV-1 Crystal, or Metal Holder) to ensure compatible hook ingress.",
+    icon: Box,
+  },
+  {
+    num: "02",
+    title: "2. Card Configuration",
+    desc: "Confirm whether the card is being used inside a holder or as a direct badge attachment.",
+    detail: "Determine whether the card will be housed within an ID card holder or punched directly for badge-clip attachment.",
+    icon: Layers,
+  },
+  {
+    num: "03",
+    title: "3. Lanyard",
+    desc: "Check the lanyard width and attachment arrangement.",
+    detail: "Check whether you are pairing with a 16 mm, 20 mm, or custom printed lanyard, and whether a single hook or two-hook arrangement is needed.",
+    icon: Sliders,
+  },
+  {
+    num: "04",
+    title: "4. Application",
+    desc: "Consider whether the setup is intended for: Daily student use, Employee identification, Visitor identification, Events, Membership, Institutional use.",
+    detail: "Match the hardware to your operational environment, from everyday classroom wear to executive summits and institutional supply.",
+    icon: Users,
+  },
+];
+
+const defaultQualityPoints = [
+  "Secure attachment",
+  "Compatibility with the holder",
+  "Compatibility with the lanyard",
+  "Consistent construction",
+  "Appropriate connection for the intended use",
+];
+
+export function HookEngineeringGuide({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    factors?: Array<{
+      num: string;
+      title: string;
+      desc: string;
+      detail?: string;
+      iconName?: string;
+    }>;
+    qualityBadge?: string;
+    qualityTitle?: string;
+    qualityLede?: string;
+    qualityPoints?: string[];
+    compatibilityRule?: string;
+    compatibilityNote?: string;
+  };
+}) {
   const [selectedFactor, setSelectedFactor] = useState<number>(0);
 
-  const factors = [
-    {
-      num: "01",
-      title: "1. Holder Type",
-      desc: "Check the attachment point on your ID card holder.",
-      detail: "Confirm the attachment hole or slot on your selected holder (e.g. V-1, V-2, H-1, H-2, CV-1 Crystal, or Metal Holder) to ensure compatible hook ingress.",
-      icon: Box,
-    },
-    {
-      num: "02",
-      title: "2. Card Configuration",
-      desc: "Confirm whether the card is being used inside a holder or as a direct badge attachment.",
-      detail: "Determine whether the card will be housed within an ID card holder or punched directly for badge-clip attachment.",
-      icon: Layers,
-    },
-    {
-      num: "03",
-      title: "3. Lanyard",
-      desc: "Check the lanyard width and attachment arrangement.",
-      detail: "Check whether you are pairing with a 16 mm, 20 mm, or custom printed lanyard, and whether a single hook or two-hook arrangement is needed.",
-      icon: Sliders,
-    },
-    {
-      num: "04",
-      title: "4. Application",
-      desc: "Consider whether the setup is intended for: Daily student use, Employee identification, Visitor identification, Events, Membership, Institutional use.",
-      detail: "Match the hardware to your operational environment, from everyday classroom wear to executive summits and institutional supply.",
-      icon: Users,
-    },
-  ];
+  const activeFactors =
+    data?.factors && data.factors.length > 0 ? data.factors : defaultFactors;
+  const activeQualityPoints =
+    data?.qualityPoints && data.qualityPoints.length > 0
+      ? data.qualityPoints
+      : defaultQualityPoints;
 
-  const qualityPoints = [
-    "Secure attachment",
-    "Compatibility with the holder",
-    "Compatibility with the lanyard",
-    "Consistent construction",
-    "Appropriate connection for the intended use",
-  ];
+  const badgeText = data?.badge || "Decision Factors";
+  const titleText = data?.title || "Choosing the Right ID Card Hook";
+  const ledeText =
+    data?.lede ||
+    "The correct hook should not be selected based only on appearance. Consider these four factors:";
+  const qualityBadgeText = data?.qualityBadge || "Quality & Compatibility";
+  const qualityTitleText =
+    data?.qualityTitle || "A Suitable ID Card Hook Should Provide:";
+  const ruleFormula =
+    data?.compatibilityRule || "Holder → Compatible Hook → Lanyard";
+  const ruleNote =
+    data?.compatibilityNote ||
+    "If you are unsure which hook is appropriate, provide the holder model, card size and lanyard type when requesting a quotation.";
+
+  const safeFactorIndex =
+    selectedFactor < activeFactors.length ? selectedFactor : 0;
 
   return (
     <section className="mt-16 sm:mt-20 scroll-mt-28" id="hook-engineering-guide">
@@ -68,26 +122,30 @@ export function HookEngineeringGuide() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
               <Sliders className="h-3.5 w-3.5" />
-              <span>Decision Factors</span>
+              <span>{badgeText}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-              Choosing the Right ID Card Hook
+              {titleText}
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-              The correct hook should not be selected based only on appearance. Consider these four factors:
+              {ledeText}
             </p>
           </div>
         </div>
 
         {/* 4 Factor Cards */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {factors.map((f, idx) => {
-            const isSelected = selectedFactor === idx;
-            const Icon = f.icon;
+          {activeFactors.map((f, idx) => {
+            const isSelected = safeFactorIndex === idx;
+            const iconName = (f as any).iconName;
+            const Icon =
+              (f as any).icon ||
+              (iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : null) ||
+              Box;
 
             return (
               <div
-                key={f.num}
+                key={f.num || idx}
                 onClick={() => setSelectedFactor(idx)}
                 className={`rounded-2xl border-2 p-5 flex flex-col justify-between transition-all duration-200 cursor-pointer ${
                   isSelected
@@ -125,11 +183,11 @@ export function HookEngineeringGuide() {
               Simple Rule
             </span>
             <p className="text-lg sm:text-xl font-black">
-              Holder → Compatible Hook → Lanyard
+              {ruleFormula}
             </p>
           </div>
           <p className="text-xs font-medium text-slate-300 max-w-md md:text-right">
-            If you are unsure which hook is appropriate, provide the holder model, card size and lanyard type when requesting a quotation.
+            {ruleNote}
           </p>
         </div>
       </div>
@@ -139,10 +197,10 @@ export function HookEngineeringGuide() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-emerald-500/20">
           <div>
             <span className="text-[11px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-              Quality &amp; Compatibility
+              {qualityBadgeText}
             </span>
             <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-1">
-              A Suitable ID Card Hook Should Provide:
+              {qualityTitleText}
             </h3>
           </div>
 
@@ -152,7 +210,7 @@ export function HookEngineeringGuide() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {qualityPoints.map((pt, idx) => (
+          {activeQualityPoints.map((pt, idx) => (
             <div
               key={idx}
               className="rounded-2xl border border-emerald-500/20 bg-white/90 dark:bg-slate-900/90 p-4 shadow-2xs flex items-center gap-3"

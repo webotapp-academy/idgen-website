@@ -82,21 +82,26 @@ const employeeHeroSlides: EmployeeHeroSlide[] = [
   },
 ];
 
-export function EmployeeHeroCarousel() {
+export interface EmployeeHeroCarouselProps {
+  slides?: EmployeeHeroSlide[];
+}
+
+export function EmployeeHeroCarousel({ slides: initialSlides }: EmployeeHeroCarouselProps) {
+  const slides = (initialSlides && initialSlides.length > 0) ? initialSlides : employeeHeroSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % employeeHeroSlides.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(
-      (prev) => (prev - 1 + employeeHeroSlides.length) % employeeHeroSlides.length
+      (prev) => (prev - 1 + slides.length) % slides.length
     );
-  }, []);
+  }, [slides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -132,7 +137,7 @@ export function EmployeeHeroCarousel() {
     }
   };
 
-  const currentSlide = employeeHeroSlides[currentIndex];
+  const currentSlide = slides[currentIndex] || slides[0];
 
   return (
     <div
@@ -148,7 +153,7 @@ export function EmployeeHeroCarousel() {
       {/* Main Carousel Frame with 1:1 Aspect Ratio matching home page */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-[2rem] border-2 border-slate-200/90 dark:border-cyan-500/30 bg-white dark:bg-[#09111e] shadow-2xl shadow-[#009fe3]/15 transition-all duration-500 hover:border-[#009fe3]/50">
         {/* Slides Images Stack with Smooth Crossfade */}
-        {employeeHeroSlides.map((slide, idx) => {
+        {slides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
@@ -224,7 +229,7 @@ export function EmployeeHeroCarousel() {
 
         {/* Bottom Pagination Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {employeeHeroSlides.map((slide, idx) => (
+          {slides.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => goToSlide(idx)}
@@ -248,7 +253,7 @@ export function EmployeeHeroCarousel() {
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
       <div className="mt-3.5 grid grid-cols-5 gap-2 px-1">
-        {employeeHeroSlides.map((slide, idx) => {
+        {slides.map((slide, idx) => {
           const isActive = idx === currentIndex;
           return (
             <button

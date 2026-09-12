@@ -1,0 +1,628 @@
+{
+  "hero": {
+    "badge": "Custom Printed Lanyard Printing",
+    "title": "Custom 20 mm Printed Lanyards",
+    "titleHighlight": "for ID Cards, Organizations & Events",
+    "description": "IDGen provides custom printed lanyard printing for organizations that need branded, professional and consistent identification accessories. Our standard offering includes 20 mm custom printed lanyards, suitable for student ID cards, employee identification, institutional programs, events, conferences, memberships and other organizational applications.",
+    "workflowHeading": "A typical identification arrangement is:",
+    "workflowChain": [
+      "ID Card",
+      "Holder/Attachment",
+      "Hook",
+      "Custom Printed Lanyard"
+    ],
+    "workflowNote": "The exact attachment depends on the application.",
+    "primaryCtaText": "Request a Lanyard Quote",
+    "primaryCtaLink": "/request-a-quote/",
+    "secondaryCtaText": "View Lanyard Pricing",
+    "secondaryCtaLink": "/pricing/"
+  },
+  "heroSlides": [
+    {
+      "id": "lanyard-20mm-satin",
+      "imageSrc": "/images/lanyard-hero-slide-20mm-satin.jpg",
+      "alt": "20mm custom printed satin lanyard with crisp idGen branding, chrome hook and acrylic card holder",
+      "title": "20 mm Premium Custom Printed Satin Lanyard",
+      "category": "20 mm Satin",
+      "topBadge": "20 mm Satin Lanyards",
+      "specPill": "Sublimation Print",
+      "bottomSpec": "Vibrant HD Print • Repeating Logo • Chrome Swivel Hook",
+      "hubTag": "GUWAHATI FACTORY"
+    },
+    {
+      "id": "lanyard-multicolor",
+      "imageSrc": "/images/lanyard-hero-slide-multicolor-array.jpg",
+      "alt": "Assorted corporate color custom printed satin lanyards made by idGen",
+      "title": "Multi-Color Corporate Brand Match",
+      "category": "Color Palette",
+      "topBadge": "Multi-Color Matching",
+      "specPill": "Pantone Accurate",
+      "bottomSpec": "Royal Blue • Teal • Emerald • Crimson • Black",
+      "hubTag": "ASSAM DIRECT"
+    },
+    {
+      "id": "lanyard-ultrasonic",
+      "imageSrc": "/images/lanyard-hero-slide-ultrasonic-sealed.jpg",
+      "alt": "Ultrasonic acoustic welded seam attachment on custom printed lanyard by idGen",
+      "title": "Ultrasonic Welded Hook Attachment",
+      "category": "Ultrasonic Sealing",
+      "topBadge": "Ultrasonic Welded Joint",
+      "specPill": "Zero Metal Staple",
+      "bottomSpec": "Acoustic Fusion • High Tensile Bond • Dog Hook",
+      "hubTag": "ZERO TEAR"
+    },
+    {
+      "id": "lanyard-complete-kit",
+      "imageSrc": "/images/20mm-custom-printed-lanyard-branding.jpg",
+      "alt": "20mm custom printed lanyard branding setup with hard acrylic holder and ID card by idGen",
+      "title": "Wearable ID Kit & Lanyard Integration",
+      "category": "Full Kit",
+      "topBadge": "Full Wearable Kit",
+      "specPill": "Card + Holder + Lanyard",
+      "bottomSpec": "Oxford & Globex Specimens • Single & Dual Hook",
+      "hubTag": "ALL-IN-ONE"
+    },
+    {
+      "id": "lanyard-bulk-production",
+      "imageSrc": "/images/bulk-custom-lanyard-printing-idgen.jpg",
+      "alt": "High volume bulk custom lanyard printing and spool production by idGen",
+      "title": "Institutional Bulk Lanyard Production",
+      "category": "Bulk Volume",
+      "topBadge": "Bulk Batch Ready",
+      "specPill": "5,000+ Daily Capacity",
+      "bottomSpec": "Schools • Universities • Summits • Corporate Offices",
+      "hubTag": "EXPRESS DISPATCH"
+    }
+  ],
+  "customElements": {
+    "eyebrow": "Custom Lanyard Specifications",
+    "title": "Lanyards can be customized with your organization branding",
+    "image": "/images/20mm-custom-printed-lanyard-branding.jpg",
+    "imageBadge": "High-Definition Print",
+    "imageWidthBadge": "20 mm",
+    "imageFooterSubtitle": "Continuous Dye Sublimation",
+    "imageFooterTitle": "Satin Polyester Ribbon",
+    "imageFooterTag": "IDGen",
+    "containerBadge": "Customizable Features",
+    "containerCount": "8 Parameters",
+    "containerIntro": "Lanyards can be customized with your:",
+    "elements": [
+      "Organization logo",
+      "Organization name",
+      "Brand colours",
+      "Text",
+      "Repeating logo pattern",
+      "Event branding",
+      "Department branding",
+      "Approved artwork"
+    ],
+    "primaryCtaText": "Request a Lanyard Quote",
+    "primaryCtaLink": "/request-a-quote/",
+    "secondaryCtaText": "View Lanyard Pricing",
+    "secondaryCtaLink": "/pricing/"
+  },
+  "whatIs": {
+    "eyebrow": "Identification Concept",
+    "title": "What Is Custom Printed Lanyard Printing?",
+    "description": "A custom printed lanyard is a branded neck strap used to carry an ID card, badge or other identification credential. Instead of using a plain lanyard, organizations can print their logo, name, colours or repeating branding directly onto the lanyard.",
+    "arrangementHeading": "A typical identification arrangement is:",
+    "arrangementChain": [
+      "ID Card",
+      "Holder/Attachment",
+      "Hook",
+      "Custom Printed Lanyard"
+    ],
+    "arrangementNote": "The exact attachment depends on the application."
+  },
+  "suitableFor": {
+    "eyebrow": "Product Specification",
+    "title": "20 mm Custom Printed Lanyards",
+    "lede": "IDGen offers 20 mm custom printed lanyards for organizational identification requirements. The 20 mm width provides a practical surface for displaying branding while maintaining the lanyard's role as a wearable identification accessory.",
+    "subheading": "Suitable for:",
+    "items": [
+      "Student identification",
+      "Employee identification",
+      "Staff identification",
+      "Institutional identification",
+      "Membership identification",
+      "Event badges",
+      "Conferences",
+      "Seminars",
+      "Corporate programs",
+      "Promotional identification"
+    ],
+    "footerNote": "For application-specific requirements, the appropriate card, holder and attachment configuration should be selected separately."
+  },
+  "printingOptions": {
+    "eyebrow": "Branding Styles",
+    "title": "Custom Lanyard Printing Options",
+    "lede": "Your lanyard can be designed around your organization's existing branding.",
+    "options": [
+      {
+        "title": "Organization Branding",
+        "pattern": "LOGO  •  ORGANIZATION NAME  •  LOGO  •  ORGANIZATION NAME",
+        "desc": "Your organization's official logo and name positioned with balanced spacing and clear legibility along the strap."
+      },
+      {
+        "title": "Repeating Brand Pattern",
+        "pattern": "REPEATING LOGO / GRAPHIC PATTERN",
+        "desc": "A repeating logo or graphic can be used across the length of the lanyard."
+      },
+      {
+        "title": "Event Branding",
+        "pattern": "EVENT NAME  •  LOGO  •  SPONSOR BRANDING",
+        "desc": "Event name, logo, sponsor branding or approved event artwork can be incorporated into the design."
+      },
+      {
+        "title": "Department Branding",
+        "pattern": "DEPARTMENT  •  CATEGORY  •  ORGANIZATION",
+        "desc": "Different designs can be prepared for departments, categories or organizational groups where required."
+      }
+    ]
+  },
+  "printableItems": {
+    "eyebrow": "Artwork Inclusions",
+    "title": "What Can Be Printed on a Lanyard?",
+    "intro": "Depending on the artwork, a custom lanyard may include:",
+    "items": [
+      "Company logo",
+      "School logo",
+      "College or university branding",
+      "Organization name",
+      "Event name",
+      "Brand colours",
+      "Department name",
+      "Short text",
+      "Repeating patterns",
+      "Sponsor logos",
+      "Approved graphics"
+    ],
+    "footerNote": "The final artwork should be checked and approved before production."
+  },
+  "applicationCards": {
+    "eyebrow": "Sector Use Cases",
+    "title": "Lanyard Printing for Different Applications",
+    "lede": "IDGen's custom lanyards can be used across different identification requirements.",
+    "cards": [
+      {
+        "iconName": "GraduationCap",
+        "title": "Student Identification",
+        "body": "Custom lanyards can complement student ID cards with school or institutional branding.",
+        "linkText": "Explore Student ID Card Printing",
+        "href": "/student-id-card-printing/"
+      },
+      {
+        "iconName": "Building2",
+        "title": "Employee Identification",
+        "body": "Companies can use branded lanyards to create a consistent employee identification system.",
+        "linkText": "Explore Employee ID Card Printing",
+        "href": "/employee-id-card-printing/"
+      },
+      {
+        "iconName": "Ticket",
+        "title": "Events",
+        "body": "Event organizers can use branded lanyards alongside event cards and the required attachment configuration.",
+        "linkText": "Explore Event Card Printing",
+        "href": "/event-card-printing/"
+      },
+      {
+        "iconName": "Users",
+        "title": "General Organizational Identification",
+        "body": "Lanyards can also be used by institutions, hospitals, associations, clubs and other organizations requiring wearable identification.",
+        "linkText": "Explore ID Card Printing",
+        "href": "/id-card-printing/"
+      }
+    ]
+  },
+  "lanyardSetup": {
+    "eyebrow": "System Configuration",
+    "title": "Lanyard + ID Card Setup",
+    "description": "A lanyard is normally only one part of the final wearable identification setup. Depending on the requirement, it can be combined with:",
+    "image": "/images/id-card-lanyard-holder-hook-setup.jpg",
+    "imageBadge": "Complete Setup",
+    "imageTag": "IDGen",
+    "imageFooterSubtitle": "Matching Identification",
+    "imageFooterTitle": "Card + Holder + Hook + Lanyard",
+    "imageFooterTag": "Ready to Wear",
+    "option1Heading": "Option 1",
+    "option1Chain": [
+      "ID Card",
+      "Holder",
+      "Hook",
+      "Lanyard"
+    ],
+    "option2Heading": "Option 2 (Ultrasonic Sealed)",
+    "option2Chain": [
+      "ID Card",
+      "Ultrasonic Sealing",
+      "Holder",
+      "Hook",
+      "Lanyard"
+    ],
+    "note": "The correct configuration depends on the type of card, holder, attachment and intended use.",
+    "links": [
+      {
+        "topic": "Explore ID Card Printing",
+        "href": "/id-card-printing/"
+      },
+      {
+        "topic": "Explore ID Card Holders",
+        "href": "/id-card-holders/"
+      },
+      {
+        "topic": "Explore ID Card Hooks",
+        "href": "/id-card-hooks/"
+      },
+      {
+        "topic": "Explore Ultrasonic Sealing",
+        "href": "/ultrasonic-sealing/"
+      }
+    ]
+  },
+  "bulkOrders": {
+    "eyebrow": "Institutional Capacity",
+    "title": "Custom Lanyard Printing for Bulk Orders",
+    "description": "Custom lanyards are particularly useful when an organization needs consistent branding across a large group of people.",
+    "image": "/images/bulk-custom-lanyard-printing-idgen.jpg",
+    "imageBadge": "Factory Production",
+    "imageTag": "Bulk Orders",
+    "imageFooterSubtitle": "Quality Audited",
+    "imageFooterTitle": "Packaged for Immediate Dispatch",
+    "imageFooterTag": "Guwahati",
+    "requirementsTitle": "Typical bulk requirements include:",
+    "requirements": [
+      "Student batches",
+      "Employee batches",
+      "Institutional programs",
+      "Corporate identification",
+      "Conferences",
+      "Events",
+      "Membership programs",
+      "Organizational campaigns"
+    ],
+    "note": "For bulk orders, the quotation depends on the required quantity, specification, artwork and configuration.",
+    "ctaText": "Request a Bulk Lanyard Quote",
+    "ctaLink": "/request-a-quote/"
+  },
+  "artworkProcess": {
+    "eyebrow": "Production Workflow",
+    "title": "Lanyard Artwork Process",
+    "lede": "A well-prepared artwork helps ensure the final lanyard matches the organization's branding.",
+    "steps": [
+      {
+        "title": "01 - Share Your Branding",
+        "body": "Provide your logo, artwork or branding requirements."
+      },
+      {
+        "title": "02 - Select the Lanyard",
+        "body": "Confirm the required lanyard width and specification."
+      },
+      {
+        "title": "03 - Artwork Preparation",
+        "body": "The artwork is prepared according to the selected lanyard format."
+      },
+      {
+        "title": "04 - Preview",
+        "body": "Review the proposed design before production."
+      },
+      {
+        "title": "05 - Approval",
+        "body": "Production begins after the required artwork and specifications are approved."
+      },
+      {
+        "title": "06 - Production",
+        "body": "The approved lanyards move into production."
+      },
+      {
+        "title": "07 - Quality Check",
+        "body": "Finished lanyards are checked against the approved requirements."
+      },
+      {
+        "title": "08 - Dispatch",
+        "body": "The completed order is prepared for dispatch."
+      }
+    ]
+  },
+  "whyUseLanyards": {
+    "eyebrow": "Key Benefits",
+    "title": "Why Use Custom Printed Lanyards?",
+    "items": [
+      {
+        "iconName": "ShieldCheck",
+        "title": "Consistent Branding",
+        "body": "A branded lanyard helps maintain a consistent visual identity across students, employees, staff, members or event participants."
+      },
+      {
+        "iconName": "Eye",
+        "title": "Easy Identification",
+        "body": "A common lanyard design can make organizational identification easier to recognize."
+      },
+      {
+        "iconName": "Sparkles",
+        "title": "Professional Appearance",
+        "body": "Matching lanyards can create a more organized appearance than using unrelated or plain accessories."
+      },
+      {
+        "iconName": "Boxes",
+        "title": "Bulk Customization",
+        "body": "One design can be reproduced across large quantities for institutional requirements."
+      },
+      {
+        "iconName": "BadgeCheck",
+        "title": "Works With Your Existing ID Cards",
+        "body": "If you already have ID cards, custom printed lanyards can be ordered as an accessory without necessarily replacing the cards."
+      }
+    ]
+  },
+  "designGuidelines": {
+    "eyebrow": "Design Guidelines",
+    "title": "Custom Lanyard Design",
+    "description": "A good lanyard design should remain readable and visually consistent when repeated along the strap.",
+    "recommendedHeading": "Recommended Design Elements:",
+    "recommendedFormula": "Logo + Organization Name + Brand Pattern",
+    "guidelinesHeading": "Keep important elements:",
+    "guidelines": [
+      "Clear",
+      "Repeated consistently",
+      "Properly spaced",
+      "Suitable for the available printing area",
+      "Consistent with your brand identity"
+    ],
+    "footerNote": "IDGen can work from customer-supplied artwork or the approved design requirements for the project."
+  },
+  "qualityConsiderations": {
+    "eyebrow": "Evaluation Standards",
+    "title": "Lanyard Quality Considerations",
+    "lede": "For bulk organizational requirements, the lanyard should be evaluated as part of the complete identification setup.",
+    "considerationsHeading": "Important considerations include:",
+    "factors": [
+      "Lanyard width",
+      "Printing quality",
+      "Artwork accuracy",
+      "Attachment configuration",
+      "Quantity",
+      "Intended application",
+      "Compatibility with the ID card setup"
+    ],
+    "footerNote": "Where the lanyard is being supplied with other identification components, the complete configuration should be confirmed before production."
+  },
+  "ultrasonicSealing": {
+    "eyebrow": "Finishing Option",
+    "title": "Ultrasonic Sealing With Lanyard Attachments",
+    "paragraph1": "For suitable identification configurations, IDGen also provides ultrasonic sealing as an attachment/finishing option.",
+    "paragraph2": "Ultrasonic sealing can be used to create a more integrated attachment between the lanyard and selected components.",
+    "paragraph3": "It is particularly relevant when the customer wants a finished identification assembly rather than simply receiving loose lanyards.",
+    "image": "/images/ultrasonic-sealed-lanyard-attachment.jpg",
+    "imageBadge": "Acoustic Fusion",
+    "imageTag": "Welded Loop",
+    "imageFooterSubtitle": "Smooth & Tear-Proof",
+    "imageFooterTitle": "Zero Metal Staples",
+    "imageFooterTag": "Guwahati",
+    "ctaText": "Learn About Ultrasonic Sealing",
+    "ctaLink": "/ultrasonic-sealing/"
+  },
+  "completeConfigurations": {
+    "eyebrow": "Order Configurations",
+    "title": "Custom Lanyards as Part of a Complete Identification Order",
+    "lede": "Organizations can purchase lanyards separately or combine them with other identification products. This allows customers to select only the components required for their project.",
+    "tiers": [
+      {
+        "title": "Lanyard Only",
+        "badge": "Accessory Only",
+        "formula": [
+          "20 mm Custom Printed Lanyard"
+        ],
+        "desc": "Direct custom printed lanyards ready to attach to existing card holders or keys."
+      },
+      {
+        "title": "Wearable Identification",
+        "badge": "Standard Bundle",
+        "formula": [
+          "ID Card",
+          "Holder",
+          "Hook",
+          "Lanyard"
+        ],
+        "desc": "Complete matching wearable setup with high-resolution PVC ID cards and protective holders."
+      },
+      {
+        "title": "Complete Configuration",
+        "badge": "Integrated Assembly",
+        "formula": [
+          "ID Card",
+          "Ultrasonic Sealing",
+          "Holder",
+          "Hook",
+          "Custom Printed Lanyard"
+        ],
+        "desc": "Factory pre-assembled solution with acoustic ultrasonic welded joint seals for maximum longevity."
+      }
+    ],
+    "ctaText": "View Complete Pricing",
+    "ctaLink": "/pricing/"
+  },
+  "howToOrder": {
+    "eyebrow": "Step-by-Step",
+    "title": "How to Order Custom Printed Lanyards",
+    "steps": [
+      {
+        "title": "Step 1 - Tell Us Your Quantity",
+        "body": "Provide the approximate number of lanyards required."
+      },
+      {
+        "title": "Step 2 - Share Your Artwork",
+        "body": "Send your logo, existing artwork or branding requirements."
+      },
+      {
+        "title": "Step 3 - Confirm Specification",
+        "body": "Confirm the lanyard width and required attachment configuration."
+      },
+      {
+        "title": "Step 4 - Review Artwork",
+        "body": "Check the proposed artwork before production."
+      },
+      {
+        "title": "Step 5 - Approve",
+        "body": "Approve the artwork and order specifications."
+      },
+      {
+        "title": "Step 6 - Production",
+        "body": "The approved order moves into production."
+      },
+      {
+        "title": "Step 7 - Quality Check",
+        "body": "The finished lanyards are checked against the approved requirements."
+      },
+      {
+        "title": "Step 8 - Dispatch",
+        "body": "The completed order is prepared for dispatch."
+      }
+    ],
+    "ctaText": "Request a Quote",
+    "ctaLink": "/request-a-quote/"
+  },
+  "pricing": {
+    "eyebrow": "Pricing Policy",
+    "title": "Custom Printed Lanyard Price",
+    "description": "The current price should be maintained centrally on the IDGen Pricing page rather than duplicating quantity-based pricing across multiple service pages. This keeps pricing consistent across the website and prevents different pages from showing outdated prices.",
+    "standardProductBadge": "Standard Product",
+    "standardProductName": "20 mm Custom Printed Lanyard",
+    "standardProductNote": "Subject to current quotation, quantity and applicable specifications.",
+    "price": "₹15",
+    "unit": "/ piece",
+    "ctaText": "View Current Lanyard Pricing",
+    "ctaLink": "/pricing/"
+  },
+  "faq": {
+    "eyebrow": "Questions & Answers",
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "What is a custom printed lanyard?",
+        "a": "A custom printed lanyard is a wearable strap customized with an organization's logo, name, colours, text or artwork and used to carry an ID card or badge."
+      },
+      {
+        "q": "What size lanyard does IDGen provide?",
+        "a": "The standard lanyard featured by IDGen is a 20 mm custom printed lanyard."
+      },
+      {
+        "q": "Can I print my company logo on the lanyard?",
+        "a": "Yes. Organization logos, names, colours, text and approved artwork can be incorporated into the lanyard design."
+      },
+      {
+        "q": "Can schools order custom printed lanyards?",
+        "a": "Yes. Custom lanyards can be used with student and staff identification systems. For the complete student identification solution, see Student ID Card Printing (/student-id-card-printing/)."
+      },
+      {
+        "q": "Can I order lanyards for employees?",
+        "a": "Yes. Companies can order branded lanyards for employee and staff identification. See Employee ID Card Printing (/employee-id-card-printing/)."
+      },
+      {
+        "q": "Can I order lanyards for an event?",
+        "a": "Yes. Custom printed lanyards can be produced for conferences, seminars, exhibitions and other events. See Event Card Printing (/event-card-printing/)."
+      },
+      {
+        "q": "Can I order only lanyards?",
+        "a": "Yes. You can order custom printed lanyards separately if you already have your ID cards and other accessories."
+      },
+      {
+        "q": "Can I order lanyards with ID cards?",
+        "a": "Yes. Lanyards can be included as part of a broader identification order."
+      },
+      {
+        "q": "Can ultrasonic sealing be added?",
+        "a": "Yes. Ultrasonic sealing can be included for suitable lanyard attachment configurations."
+      },
+      {
+        "q": "Can I order custom lanyards in bulk?",
+        "a": "Yes. Bulk quantities can be quoted according to quantity, artwork and specification."
+      },
+      {
+        "q": "Can I use my existing design?",
+        "a": "Yes. Customer-supplied artwork can be used where it meets the required production specifications."
+      }
+    ]
+  },
+  "closingCta": {
+    "badge": "Get Started with IDGen",
+    "title": "Need Custom Printed Lanyards?",
+    "description": "Whether you need branded lanyards for students, employees, organizations, members or events, IDGen can provide custom printed lanyards according to your approved branding and application requirements.",
+    "flowChain": [
+      "20 mm Custom Printed Lanyards",
+      "Custom Branding",
+      "Artwork Approval",
+      "Production",
+      "Quality Check",
+      "Dispatch"
+    ],
+    "primaryCtaText": "Request a Lanyard Quote",
+    "primaryCtaLink": "/request-a-quote/",
+    "secondaryCtaText": "View Pricing",
+    "secondaryCtaLink": "/pricing/"
+  },
+  "geographicDirectory": {
+    "eyebrow": "Assam & Northeast India Hub",
+    "title": "Direct ID Card & Lanyard Printing Services Across Northeast India",
+    "description": "IDGen supplies custom lanyard printing in Guwahati, custom printed lanyards in Assam, ID card lanyard printing in Guwahati, and bulk lanyard printing across all Northeast India regions.",
+    "directoryHeading": "Related IDGen Solutions & Directories:",
+    "links": [
+      {
+        "topic": "Main ID card service",
+        "href": "/id-card-printing/"
+      },
+      {
+        "topic": "Student IDs",
+        "href": "/student-id-card-printing/"
+      },
+      {
+        "topic": "Employee IDs",
+        "href": "/employee-id-card-printing/"
+      },
+      {
+        "topic": "Event cards",
+        "href": "/event-card-printing/"
+      },
+      {
+        "topic": "RFID Cards",
+        "href": "/rfid-card-printing/"
+      },
+      {
+        "topic": "Ultrasonic sealing",
+        "href": "/ultrasonic-sealing/"
+      },
+      {
+        "topic": "Holders",
+        "href": "/id-card-holders/"
+      },
+      {
+        "topic": "Hooks",
+        "href": "/id-card-hooks/"
+      },
+      {
+        "topic": "Pricing",
+        "href": "/pricing/"
+      },
+      {
+        "topic": "IDGen Studio",
+        "href": "/idgen-studio/"
+      },
+      {
+        "topic": "Why IDGen",
+        "href": "/why-idgen/"
+      },
+      {
+        "topic": "Guwahati Services",
+        "href": "/service-areas/assam/guwahati/"
+      },
+      {
+        "topic": "Assam Services",
+        "href": "/service-areas/assam/"
+      }
+    ]
+  },
+  "metadata": {
+    "title": "Custom Printed Lanyard Printing | 20mm ID Card Lanyards | IDGen",
+    "description": "Custom printed 20mm lanyards for ID cards, students, employees, organizations and events. Add your logo, branding and artwork. Bulk lanyard printing by IDGen.",
+    "path": "/custom-printed-lanyard-printing/"
+  }
+}

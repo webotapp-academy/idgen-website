@@ -57,31 +57,75 @@ export const badgeApplications = [
   },
 ];
 
-export function BadgeApplicationsGrid() {
+const ICON_MAP: Record<string, React.ElementType> = {
+  Briefcase,
+  Hospital,
+  GraduationCap,
+  Building2,
+  Ticket,
+  Sparkles,
+  ShieldCheck,
+};
+
+export function BadgeApplicationsGrid({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    subtitle?: string;
+    applications?: Array<{
+      title: string;
+      desc: string;
+      link?: { label: string; href: string };
+      iconName?: string;
+      icon?: React.ElementType;
+      gradient: string;
+      accentColor: string;
+      tag: string;
+    }>;
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Sector Applications";
+  const sectionTitle = data?.title || "Acrylic Badges Across Industries";
+  const sectionLede =
+    data?.lede ||
+    "Engineered to provide professional prestige identification across healthcare, education, corporate, and luxury hospitality sectors.";
+  const activeApplications =
+    data?.applications && data.applications.length > 0
+      ? data.applications
+      : badgeApplications;
+  const subtitle =
+    data?.subtitle || `${activeApplications.length} Specialized Sectors`;
+
   return (
     <section className="mt-16 sm:mt-20">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Sector Applications</span>
+            <span>{badgeTitle}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
-            Acrylic Badges Across Industries
+            {sectionTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Engineered to provide professional prestige identification across healthcare, education, corporate, and luxury hospitality sectors.
+            {sectionLede}
           </p>
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          5 Specialized Sectors
+          {subtitle}
         </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {badgeApplications.map((item, idx) => {
-          const Icon = item.icon;
+        {activeApplications.map((item, idx) => {
+          const Icon =
+            (item as any).icon ||
+            ((item as any).iconName && ICON_MAP[(item as any).iconName]) ||
+            Briefcase;
 
           return (
             <div
@@ -115,7 +159,7 @@ export function BadgeApplicationsGrid() {
               </div>
 
               <div className="relative z-10 mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-[#009fe3] dark:text-cyan-400">
-                <span>Request Custom Quote</span>
+                <span>{(item as any).link?.label || "Request Custom Quote"}</span>
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </div>
             </div>

@@ -13,59 +13,13 @@ import {
   FileCheck2,
   RotateCcw,
 } from "lucide-react";
+import type { DynamicReadinessEstimator } from "@/lib/dynamic-guides-types";
 
-interface ReadinessItem {
-  id: string;
-  label: string;
-  sub: string;
-  weight: number;
-}
+export function GuideReadinessEstimator({ data }: { data: DynamicReadinessEstimator }) {
+  const checklistItems = data?.checklist || [];
+  const defaultChecked = data?.defaultChecked || ["org", "product", "specs"];
 
-const checklistItems: ReadinessItem[] = [
-  {
-    id: "org",
-    label: "Organization & Delivery Location",
-    sub: "Organization name, city/state, and primary dispatch address confirmed",
-    weight: 15,
-  },
-  {
-    id: "product",
-    label: "Product Required & Estimated Quantity",
-    sub: "Target card count and product type (Student, Employee, Event, RFID)",
-    weight: 20,
-  },
-  {
-    id: "specs",
-    label: "Card Specifications & Printing Mode",
-    sub: "Single vs dual-sided, CR80 standard PVC, glossy/matte finish, or smart RFID chip",
-    weight: 20,
-  },
-  {
-    id: "data",
-    label: "Personalized Information & Photos",
-    sub: "Excel/CSV roster spreadsheet or ready for IDGen Studio digital link/QR collection",
-    weight: 20,
-  },
-  {
-    id: "acc",
-    label: "Accessories & Wearable Hardware",
-    sub: "Card holder model (V/H series), 360° swivel fish hook, and custom printed lanyards",
-    weight: 15,
-  },
-  {
-    id: "timeline",
-    label: "Target Timeline & Artwork Readiness",
-    sub: "Existing vector logo branding and desired completion/distribution deadline",
-    weight: 10,
-  },
-];
-
-export function GuideReadinessEstimator() {
-  const [checkedIds, setCheckedIds] = useState<string[]>([
-    "org",
-    "product",
-    "specs",
-  ]);
+  const [checkedIds, setCheckedIds] = useState<string[]>(defaultChecked);
 
   const toggleItem = (id: string) => {
     setCheckedIds((prev) =>
@@ -93,13 +47,14 @@ export function GuideReadinessEstimator() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-cyan-300">
                 <Sparkles className="h-3.5 w-3.5" />
-                <span>Guide 10 Interactive Tool</span>
+                <span>{data?.eyebrow || "Guide 10 Interactive Tool"}</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-black mt-2">
-                Project Readiness Estimator
+                {data?.title || "Project Readiness Estimator"}
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                Check what items your organization has ready to determine your production timeline and quotation accuracy.
+                {data?.lede ||
+                  "Check what items your organization has ready to determine your production timeline and quotation accuracy."}
               </p>
             </div>
 
@@ -175,26 +130,32 @@ export function GuideReadinessEstimator() {
                 </span>
                 <p className="text-slate-200 leading-relaxed font-medium">
                   {score >= 70
-                    ? "Your project parameters are well-defined. Submit your quotation request to receive factory-direct wholesale pricing and instant digital layout proofs."
-                    : "For projects with pending data, IDGen Studio can deploy customized digital collection forms to gather photographs and student/employee records automatically."}
+                    ? data?.highScoreRecommendation ||
+                      "Your project parameters are well-defined. Submit your quotation request to receive factory-direct wholesale pricing and instant digital layout proofs."
+                    : data?.lowScoreRecommendation ||
+                      "For projects with pending data, IDGen Studio can deploy customized digital collection forms to gather photographs and student/employee records automatically."}
                 </p>
               </div>
             </div>
 
             <div className="space-y-2.5 pt-2">
-              <Link
-                href="/request-a-quote/"
-                className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#009fe3] hover:bg-[#008bc9] py-3.5 text-xs font-extrabold text-white shadow-lg shadow-[#009fe3]/30 transition-all hover:shadow-xl hover:-translate-y-0.5"
-              >
-                <span>Request a Project Quote</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/idgen-studio/"
-                className="flex w-full items-center justify-center gap-1.5 rounded-2xl border border-white/20 bg-white/5 hover:bg-white/10 py-3 text-xs font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300"
-              >
-                <span>Explore IDGen Studio Data Flow</span>
-              </Link>
+              {data?.primaryButton && (
+                <Link
+                  href={data.primaryButton.href}
+                  className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#009fe3] hover:bg-[#008bc9] py-3.5 text-xs font-extrabold text-white shadow-lg shadow-[#009fe3]/30 transition-all hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  <span>{data.primaryButton.label}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              )}
+              {data?.secondaryButton && (
+                <Link
+                  href={data.secondaryButton.href}
+                  className="flex w-full items-center justify-center gap-1.5 rounded-2xl border border-white/20 bg-white/5 hover:bg-white/10 py-3 text-xs font-bold text-white transition hover:border-cyan-300 hover:text-cyan-300"
+                >
+                  <span>{data.secondaryButton.label}</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>

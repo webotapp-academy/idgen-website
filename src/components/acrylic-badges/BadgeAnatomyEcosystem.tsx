@@ -22,10 +22,20 @@ interface BadgeStackLayer {
   badge: string;
   material: string;
   benefit: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
+  iconName?: string;
   img: string;
   details: string[];
 }
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Box,
+  Sparkles,
+  Flame,
+  Magnet,
+  Layers,
+  ShieldCheck,
+};
 
 const badgeLayers: BadgeStackLayer[] = [
   {
@@ -36,6 +46,7 @@ const badgeLayers: BadgeStackLayer[] = [
     material: "High-grade virgin polymethyl methacrylate (PMMA)",
     benefit: "Optically clear, non-yellowing, high-impact glass alternative that provides brilliant depth.",
     icon: Box,
+    iconName: "Box",
     img: "/images/Acrylic Badges Samples/Sample 1.jpg",
     details: [
       "92% light transmittance for crystal clear clarity",
@@ -51,6 +62,7 @@ const badgeLayers: BadgeStackLayer[] = [
     material: "Direct UV flatbed print + high-opacity white underbase",
     benefit: "Photorealistic color vibrancy with Pantone-exact logo accuracy and micro-text legibility.",
     icon: Sparkles,
+    iconName: "Sparkles",
     img: "/images/Acrylic Badges Samples/Sample 5.jpg",
     details: [
       "1440 × 1440 DPI ultra-high definition micro-piezo printing",
@@ -66,6 +78,7 @@ const badgeLayers: BadgeStackLayer[] = [
     material: "Precision CO2 laser cut & chamfered edge",
     benefit: "Smooth, glass-clear perimeter with zero burrs or sharp corners.",
     icon: Flame,
+    iconName: "Flame",
     img: "/images/Acrylic Badges Samples/Sample 4.jpg",
     details: [
       "0.1mm cutting tolerance for complex organic silhouettes",
@@ -81,6 +94,7 @@ const badgeLayers: BadgeStackLayer[] = [
     material: "Enclosed triple neodymium magnetic plate + 3M VHB bonding",
     benefit: "Holds securely through blazers, suit jackets and shirts without poking holes in delicate fabrics.",
     icon: Magnet,
+    iconName: "Magnet",
     img: "/images/Acrylic Badges Samples/Sample 10.jpg",
     details: [
       "Triple N52 rare-earth neodymium magnets for rock-solid grip",
@@ -90,9 +104,26 @@ const badgeLayers: BadgeStackLayer[] = [
   },
 ];
 
-export function BadgeAnatomyEcosystem() {
-  const [activeLayerIndex, setActiveLayerIndex] = useState(1);
-  const activeLayer = badgeLayers[activeLayerIndex];
+export function BadgeAnatomyEcosystem({
+  data,
+}: {
+  data?: {
+    badge?: string;
+    title?: string;
+    lede?: string;
+    layers?: BadgeStackLayer[];
+  };
+} = {}) {
+  const badgeTitle = data?.badge || "Manufacturing Ecosystem";
+  const sectionTitle = data?.title || "Acrylic Badge Anatomy & Engineering";
+  const sectionLede =
+    data?.lede ||
+    "Explore the multi-layer construction engineered for optical depth, vibrant color fidelity, and clothes-safe magnetic security.";
+  const activeLayers =
+    data?.layers && data.layers.length > 0 ? data.layers : badgeLayers;
+
+  const [activeLayerIndex, setActiveLayerIndex] = useState(0);
+  const activeLayer = activeLayers[activeLayerIndex] || activeLayers[0];
 
   return (
     <section className="mt-16 sm:mt-20">
@@ -101,13 +132,13 @@ export function BadgeAnatomyEcosystem() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[#009fe3]/10 dark:bg-cyan-500/10 border border-[#009fe3]/20 dark:border-cyan-500/30 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
             <Layers className="h-3.5 w-3.5" />
-            <span>Manufacturing Ecosystem</span>
+            <span>{badgeTitle}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mt-2">
-            Acrylic Badge Anatomy &amp; Engineering
+            {sectionTitle}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            Explore the multi-layer construction engineered for optical depth, vibrant color fidelity, and clothes-safe magnetic security.
+            {sectionLede}
           </p>
         </div>
       </div>
@@ -116,9 +147,12 @@ export function BadgeAnatomyEcosystem() {
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-stretch">
         {/* Left Column: Stack Layers */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
-          {badgeLayers.map((layer, idx) => {
+          {activeLayers.map((layer, idx) => {
             const isSelected = activeLayerIndex === idx;
-            const Icon = layer.icon;
+            const Icon =
+              layer.icon ||
+              (layer.iconName && ICON_MAP[layer.iconName]) ||
+              Layers;
 
             return (
               <div
