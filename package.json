@@ -6,7 +6,7 @@
     "dev": "next dev --webpack -p 3012",
     "dev:turbo": "next dev --turbo -p 3012",
     "build": "next build",
-    "start": "next start -p 3012",
+    "start": "next start",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
