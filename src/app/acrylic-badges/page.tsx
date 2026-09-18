@@ -27,8 +27,6 @@ import { BadgeApplicationsGrid } from "@/components/acrylic-badges/BadgeApplicat
 import { BadgeWorkflowAndDispatch } from "@/components/acrylic-badges/BadgeWorkflowAndDispatch";
 import { getDynamicAcrylicBadges } from "@/lib/dynamic-acrylic-badges";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicAcrylicBadges();
   return pageMetadata({

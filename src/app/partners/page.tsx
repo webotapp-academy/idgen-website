@@ -26,8 +26,6 @@ import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import { getDynamicPartners } from "@/lib/dynamic-partners";
 
-export const dynamic = "force-dynamic";
-
 /* ── Dynamic SEO Metadata ── */
 export async function generateMetadata() {
   const data = getDynamicPartners();

@@ -43,7 +43,13 @@ import { services } from "@/data/services";
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
 
-export const dynamic = "force-dynamic";
+export function generateStaticParams() {
+  const cities = getAllCities();
+  return cities.map(({ state, city }) => ({
+    state: state.slug,
+    city: city.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,

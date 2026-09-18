@@ -25,8 +25,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { getAllDynamicBlogPosts, getDynamicFeaturedBlogPost } from "@/lib/dynamic-blogs";
 import { BlogsExplorer } from "@/components/resources/blogs/BlogsExplorer";
 
-export const dynamic = "force-dynamic";
-
 /* ─────────────────────────────────────────────────────────────
    SEO METADATA
 ───────────────────────────────────────────────────────────── */

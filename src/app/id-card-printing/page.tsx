@@ -55,8 +55,6 @@ import { serviceSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
 import { getDynamicIdCardPrinting } from "@/lib/dynamic-id-card-printing";
 
-export const dynamic = "force-dynamic";
-
 /* ── Dynamic SEO Metadata ── */
 export async function generateMetadata() {
   const data = getDynamicIdCardPrinting();

@@ -7,7 +7,6 @@ import { getDynamicHomePage } from "@/lib/dynamic-homepage";
 import { getDynamicWhyIdgen } from "@/lib/dynamic-why-idgen";
 import { getDynamicServices } from "@/lib/dynamic-services";
 import { getDynamicIdCardPrinting } from "@/lib/dynamic-id-card-printing";
-import { getAdminSession } from "@/lib/auth";
 import {
   MapPin,
   Building2,
@@ -47,7 +46,6 @@ import {
 } from "lucide-react";
 
 export default async function AdminDashboardPage() {
-  const session = await getAdminSession();
   const states = getAllStates();
   const allCitiesList = getAllCities();
   const pricingItems = getAllPricingItems(true);
@@ -305,7 +303,7 @@ export default async function AdminDashboardPage() {
               <span>IDGen Secure System Connected</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Welcome back, {session?.username || "Administrator"}
+              Welcome back, Administrator
             </h1>
             <p className="mt-1.5 text-sm text-slate-400 max-w-2xl">
               Control the 100% dynamic home page and Why IDGen page point-by-point, pricing engine, service areas, and case studies in real time.

@@ -188,7 +188,7 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
         material: "High-Tensile Polyester Ribbon (16mm / 20mm)",
         benefit: "High-impact organizational branding worn comfortably around the neck.",
         iconName: "Sparkles",
-        img: "/images/hero-slide-lanyard-production.jpg",
+        img: "/images/lanyard-hero-slide-20mm-satin.jpg",
         details: [
           "Full-color high-definition heat-transfer printing",
           "Skin-friendly satin weave with ultrasonic end seal",

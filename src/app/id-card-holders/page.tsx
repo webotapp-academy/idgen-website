@@ -46,8 +46,6 @@ import { HolderWorkflowAndDispatch } from "@/components/id-card-holders/HolderWo
 import { HolderScrollSpyNav, SectionAnchorButton } from "@/components/id-card-holders/HolderScrollSpy";
 import { getDynamicIdCardHolders } from "@/lib/dynamic-id-card-holders";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicIdCardHolders();
   return pageMetadata({

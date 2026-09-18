@@ -42,8 +42,6 @@ import { RfidHeroCarousel } from "@/components/rfid-card-printing/RfidHeroCarous
 import { pageMetadata } from "@/lib/metadata";
 import { getDynamicRfidCardPrinting } from "@/lib/dynamic-rfid-card-printing";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicRfidCardPrinting();
   return pageMetadata({

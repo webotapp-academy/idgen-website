@@ -30,8 +30,6 @@ import { GuidesCategoriesGrid } from "@/components/resources/guides/GuidesCatego
 import { GuideReadinessEstimator } from "@/components/resources/guides/GuideReadinessEstimator";
 import { getDynamicGuides } from "@/lib/dynamic-guides";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicGuides();
   return pageMetadata({

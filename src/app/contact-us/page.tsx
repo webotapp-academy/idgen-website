@@ -25,8 +25,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { getDynamicContactUs } from "@/lib/dynamic-contact-us";
 import { ContactDirectForm } from "@/components/forms/ContactDirectForm";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicContactUs();
   return pageMetadata({

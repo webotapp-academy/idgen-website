@@ -38,8 +38,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { UltrasonicHeroCarousel } from "@/components/ultrasonic-sealing/UltrasonicHeroCarousel";
 import { getDynamicUltrasonicSealing } from "@/lib/dynamic-ultrasonic-sealing";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicUltrasonicSealing();
   return pageMetadata({

@@ -37,8 +37,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { LanyardHeroCarousel } from "@/components/custom-printed-lanyard-printing/LanyardHeroCarousel";
 import { getDynamicCustomPrintedLanyardPrinting } from "@/lib/dynamic-custom-printed-lanyard-printing";
 
-export const dynamic = "force-dynamic";
-
 const DYNAMIC_ICONS: Record<string, LucideIcon> = {
   Tag,
   GraduationCap,

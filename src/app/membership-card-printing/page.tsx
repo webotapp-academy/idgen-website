@@ -46,8 +46,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { MembershipHeroCarousel } from "@/components/membership-card-printing/MembershipHeroCarousel";
 import { getDynamicMembershipCardPrinting } from "@/lib/dynamic-membership-card-printing";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicMembershipCardPrinting();
   return pageMetadata({

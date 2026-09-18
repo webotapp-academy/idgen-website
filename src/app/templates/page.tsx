@@ -12,8 +12,6 @@ import { TemplatesHeroCarousel } from "@/components/templates/TemplatesHeroCarou
 import { TemplateResources } from "@/components/templates/TemplateResources";
 import { getDynamicTemplates } from "@/lib/dynamic-templates";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicTemplates();
   return pageMetadata({

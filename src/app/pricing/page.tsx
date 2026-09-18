@@ -30,8 +30,6 @@ import { getAllPricingItems } from "@/lib/dynamic-pricing";
 import { getAllTechnicalSpecs, getSectionConfig } from "@/lib/dynamic-specifications";
 import { getDynamicPricingPage } from "@/lib/dynamic-pricing-page";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const pageData = getDynamicPricingPage();
   return pageMetadata({

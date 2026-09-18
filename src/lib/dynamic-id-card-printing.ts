@@ -116,7 +116,7 @@ export const DEFAULT_ORG_APPLICATIONS: OrgApplicationConfigItem[] = [
     title: "Visitor & Institutional Identification",
     body: "For organizations requiring secure visitor badges, contractor cards, and temporary access credentials.",
     badge: "Institutional Access",
-    imageSrc: "/images/org-app-visitor-cards.jpg",
+    imageSrc: "/images/org-app-visitor-institutional-cards.jpg",
     spec: "Color Coded • Numbered Series",
   },
 ];

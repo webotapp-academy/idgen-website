@@ -44,8 +44,6 @@ import { EmployeeSolutionsCarousel } from "@/components/employee-id-card-printin
 import { EmployeeCardAnatomy } from "@/components/employee-id-card-printing/EmployeeCardAnatomy";
 import { getDynamicEmployeeIdCardPrinting } from "@/lib/dynamic-employee-id-card-printing";
 
-export const dynamic = "force-dynamic";
-
 const DYNAMIC_ICONS: Record<string, React.ElementType> = {
   Building2,
   Users,

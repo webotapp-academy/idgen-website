@@ -39,8 +39,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { getDynamicIdgenStudio } from "@/lib/dynamic-idgen-studio";
 import { StudioVideoPlayer } from "@/components/idgen-studio/StudioVideoPlayer";
 
-export const dynamic = "force-dynamic";
-
 const ICON_MAP: Record<string, React.ElementType> = {
   GraduationCap,
   Building2,

@@ -32,8 +32,6 @@ import {
 import type { BlogPost } from "@/data/blogs";
 import { BlogArticleInteractive } from "@/components/resources/blogs/BlogArticleInteractive";
 
-export const dynamic = "force-dynamic";
-
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;

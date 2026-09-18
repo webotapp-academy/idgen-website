@@ -38,8 +38,6 @@ import { StudentWorkflowCarousel } from "@/components/student-id-card-printing/S
 import { StudentCardAnatomy } from "@/components/student-id-card-printing/StudentCardAnatomy";
 import { getDynamicStudentIdCardPrinting } from "@/lib/dynamic-student-id-card-printing";
 
-export const dynamic = "force-dynamic";
-
 const DYNAMIC_ICONS: Record<string, React.ElementType> = {
   Building2,
   Palette,

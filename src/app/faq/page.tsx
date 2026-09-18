@@ -27,8 +27,6 @@ import { FaqHeroShowcase } from "@/components/faq/FaqHeroShowcase";
 import { FaqPageClient } from "@/components/faq/FaqPageClient";
 import { getDynamicFaq } from "@/lib/dynamic-faq";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicFaq();
   return pageMetadata({

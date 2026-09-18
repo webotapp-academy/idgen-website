@@ -41,8 +41,6 @@ import { pageMetadata } from "@/lib/metadata";
 import { EventHeroCarousel } from "@/components/event-card-printing/EventHeroCarousel";
 import { getDynamicEventCardPrinting } from "@/lib/dynamic-event-card-printing";
 
-export const dynamic = "force-dynamic";
-
 const DYNAMIC_ICONS: Record<string, LucideIcon> = {
   Ticket,
   Presentation,

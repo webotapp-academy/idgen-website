@@ -246,7 +246,7 @@ export const DEFAULT_EMPLOYEE_ID_CARD_PRINTING_DATA: DynamicEmployeeIdCardPrinti
           "Authorized representatives",
         ],
         iconName: "HeartHandshake",
-        image: "/images/service-company-id-cards.jpg",
+        image: "/images/service-pvc-id-card-printing.jpg",
         accent: "from-purple-600 to-pink-500",
       },
     ],

@@ -27,7 +27,10 @@ import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarous
 import { SITE, SITE_URL } from "@/data/site";
 import type { Faq } from "@/data/types";
 
-export const dynamic = "force-dynamic";
+export function generateStaticParams() {
+  const states = getAllStates();
+  return states.map((s) => ({ state: s.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ state: string }> }): Promise<Metadata> {
   const { state: stateSlug } = await params;

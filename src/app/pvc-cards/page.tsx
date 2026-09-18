@@ -30,8 +30,6 @@ import { PvcApplicationsGrid } from "@/components/pvc-cards/PvcApplicationsGrid"
 import { PvcWorkflowAndDispatch } from "@/components/pvc-cards/PvcWorkflowAndDispatch";
 import { getDynamicPvcCards } from "@/lib/dynamic-pvc-cards";
 
-export const dynamic = "force-dynamic";
-
 const ICON_MAP: Record<string, React.ElementType> = {
   CreditCard,
   Layers,

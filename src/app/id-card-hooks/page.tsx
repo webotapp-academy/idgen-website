@@ -29,8 +29,6 @@ import { HookWorkflowAndDispatch } from "@/components/id-card-hooks/HookWorkflow
 import { HookScrollSpyNav, SectionAnchorButton } from "@/components/id-card-hooks/HookScrollSpy";
 import { getDynamicIdCardHooks } from "@/lib/dynamic-id-card-hooks";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicIdCardHooks();
   return pageMetadata({

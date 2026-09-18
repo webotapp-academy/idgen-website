@@ -29,8 +29,6 @@ import { MedalApplicationsGrid } from "@/components/zinc-medals/MedalApplication
 import { MedalWorkflowAndDispatch } from "@/components/zinc-medals/MedalWorkflowAndDispatch";
 import { getDynamicZincMedals } from "@/lib/dynamic-zinc-medals";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = getDynamicZincMedals();
   return pageMetadata({

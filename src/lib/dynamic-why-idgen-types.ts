@@ -621,7 +621,7 @@ export const DEFAULT_WHY_IDGEN_DATA: DynamicWhyIdgenData = {
         step: "04",
         title: "Custom Printed Lanyards",
         description: "High-density satin, multi-color sublimation, tubular, and reflective ribbons with safety breakaway releases.",
-        image: "/images/product-lanyards.jpg",
+        image: "/images/product-satin-lanyards.jpg",
       },
     ],
     projectConfigurations: [

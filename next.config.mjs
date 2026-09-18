@@ -1,5 +1,8 @@
-import type { NextConfig } from "next";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -17,7 +20,8 @@ const CONTENT_SECURITY_POLICY = [
   "frame-ancestors 'none'",
 ].join("; ");
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   trailingSlash: true,
   turbopack: {
     root: path.join(__dirname),
@@ -27,9 +31,9 @@ const nextConfig: NextConfig = {
     // the slash fire in a single hop; without it, trailingSlash:true's own
     // normalization would otherwise add a second hop (e.g. /about-us →
     // /about-us/ → /why-idgen/) before the destination is ever reached.
-    const rules: { source: string; destination: string }[] = [
+    const rules = [
       { source: "/about-us", destination: "/why-idgen/" },
-      { source: "/about", destination: "/why-idgen/" }, // was a dead end: /about → /about/ → 404
+      { source: "/about", destination: "/why-idgen/" },
       { source: "/manufacturing", destination: "/why-idgen/" },
       { source: "/quality-assurance", destination: "/why-idgen/" },
       { source: "/our-process", destination: "/why-idgen/" },
@@ -66,6 +70,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "images.pexels.com" },
       { protocol: "https", hostname: "images.unsplash.com" },
