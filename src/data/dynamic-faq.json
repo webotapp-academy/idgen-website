@@ -6,13 +6,13 @@
   },
   "hero": {
     "badgePrefix": "Knowledge Base & Support",
-    "badgeHighlight": "25+ Verified Answers",
+    "badgeHighlight": "150+ Answers",
     "titlePrefix": "Frequently Asked Questions ",
     "titleHighlight": "About IDGen",
     "description": "Find fast, transparent answers regarding customized ID card printing, student & employee badging, wearable lanyards, RFID systems, reference pricing, and regional delivery across Northeast India.",
     "featureCards": [
       {
-        "title": "10 Categories",
+        "title": "22 Categories",
         "subtitle": "Complete knowledge base",
         "iconName": "HelpCircle"
       },
@@ -51,7 +51,7 @@
     ]
   },
   "heroShowcase": {
-    "badge": "25+ Answers",
+    "badge": "150+ Answers",
     "pillars": [
       {
         "id": "pricing",
@@ -143,7 +143,7 @@
       },
       {
         "label": "Answers",
-        "value": "25+ Clarifications",
+        "value": "150+ Clarifications",
         "accentClass": "text-[#009fe3] dark:text-cyan-400"
       },
       {

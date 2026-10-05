@@ -11,6 +11,9 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { pageMetadata } from "@/lib/metadata";
+import { FaqList } from "@/components/ui/FaqList";
+import { SectionHead as FaqSectionHead } from "@/components/ui/SectionHead";
+import { getFaqsFromFiles } from "@/lib/dynamic-faq";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageTypeSchema } from "@/lib/schema-org";
 
@@ -197,6 +200,14 @@ export default function ProductsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+
+        {/* Common questions (real Q&As from the individual pages) */}
+        <div className="mt-16">
+          <FaqSectionHead eyebrow="Before you order" title="Common questions about our products" />
+          <div className="mt-8">
+            <FaqList faqs={getFaqsFromFiles(["dynamic-id-card-holders.json", "dynamic-id-card-hooks.json", "dynamic-acrylic-badges.json", "dynamic-zinc-medals.json", "dynamic-pvc-cards.json"], 3)} />
           </div>
         </div>
 

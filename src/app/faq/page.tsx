@@ -30,10 +30,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/data/site";
 import { FaqHeroShowcase } from "@/components/faq/FaqHeroShowcase";
 import { FaqPageClient } from "@/components/faq/FaqPageClient";
-import { getDynamicFaq } from "@/lib/dynamic-faq";
+import { getFaqPageData } from "@/lib/dynamic-faq";
 
 export async function generateMetadata() {
-  const data = getDynamicFaq();
+  const data = getFaqPageData();
   return {
     title: { absolute: "Frequently Asked Questions | IDGen" },
     description: data.meta.description,
@@ -61,7 +61,7 @@ const SPEC_ICONS: Record<string, React.ElementType> = {
 };
 
 export default function FaqPage() {
-  const data = getDynamicFaq();
+  const data = getFaqPageData();
   const hero = data.hero;
   const closingCta = data.closingCta;
 

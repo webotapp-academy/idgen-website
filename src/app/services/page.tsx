@@ -13,6 +13,8 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { pageMetadata } from "@/lib/metadata";
+import { FaqList } from "@/components/ui/FaqList";
+import { getFaqsFromFiles } from "@/lib/dynamic-faq";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageTypeSchema } from "@/lib/schema-org";
 import { getDynamicServices } from "@/lib/dynamic-services";
@@ -205,6 +207,14 @@ export default function ServicesPage() {
                 <span>{accessoriesTeaser.secondaryButtonText}</span>
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Common questions (real Q&As from the individual pages) */}
+        <div className="mt-16">
+          <SectionHead eyebrow="Before you order" title="Common questions about our ID card services" />
+          <div className="mt-8">
+            <FaqList faqs={getFaqsFromFiles(["dynamic-id-card-printing.json", "dynamic-student-id-card-printing.json", "dynamic-employee-id-card-printing.json", "dynamic-rfid-card-printing.json", "dynamic-event-card-printing.json", "dynamic-membership-card-printing.json", "dynamic-custom-printed-lanyard-printing.json", "dynamic-ultrasonic-sealing.json"], 2)} />
           </div>
         </div>
 

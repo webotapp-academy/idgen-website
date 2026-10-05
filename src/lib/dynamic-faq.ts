@@ -499,3 +499,97 @@ export function resetDynamicFaq(): DynamicFaqData {
   saveDynamicFaq(DEFAULT_FAQ_DATA);
   return DEFAULT_FAQ_DATA;
 }
+
+
+// ── Public /faq/ page only ─────────────────────────────────────────────
+// The /faq/ hub had 25 questions while the individual service/product pages
+// already carry ~160 more real, client-supplied Q&As. Gather those (read-only,
+// never saved back to dynamic-faq.json) so the hub is a genuine knowledge base.
+// Turnaround/dispatch-time answers are skipped on purpose: the site still has
+// conflicting delivery promises and the hub must not add more variants.
+const PAGE_FAQ_SOURCES: { file: string; name: string; badge: string; href: string; label: string }[] = [
+  { file: "dynamic-id-card-printing.json", name: "ID Card Printing", badge: "Cards & Printing", href: "/id-card-printing/", label: "ID card printing" },
+  { file: "dynamic-student-id-card-printing.json", name: "Student ID Cards", badge: "Schools & Colleges", href: "/student-id-card-printing/", label: "Student ID cards" },
+  { file: "dynamic-employee-id-card-printing.json", name: "Employee ID Cards", badge: "Corporate", href: "/employee-id-card-printing/", label: "Employee ID cards" },
+  { file: "dynamic-rfid-card-printing.json", name: "RFID Cards", badge: "Access Control", href: "/rfid-card-printing/", label: "RFID cards" },
+  { file: "dynamic-event-card-printing.json", name: "Event Badges", badge: "Events", href: "/event-card-printing/", label: "Event cards" },
+  { file: "dynamic-membership-card-printing.json", name: "Membership Cards", badge: "Clubs & Associations", href: "/membership-card-printing/", label: "Membership cards" },
+  { file: "dynamic-custom-printed-lanyard-printing.json", name: "Lanyards", badge: "Accessories", href: "/custom-printed-lanyard-printing/", label: "Custom lanyards" },
+  { file: "dynamic-id-card-holders.json", name: "ID Card Holders", badge: "Accessories", href: "/id-card-holders/", label: "ID card holders" },
+  { file: "dynamic-id-card-hooks.json", name: "ID Card Hooks", badge: "Accessories", href: "/id-card-hooks/", label: "ID card hooks" },
+  { file: "dynamic-ultrasonic-sealing.json", name: "Ultrasonic Sealing", badge: "Finishing", href: "/ultrasonic-sealing/", label: "Ultrasonic sealing" },
+  { file: "dynamic-idgen-studio.json", name: "IDGen Studio", badge: "Digital Workflow", href: "/idgen-studio/", label: "IDGen Studio" },
+  { file: "dynamic-partners.json", name: "Partner Program", badge: "Resellers", href: "/partners/", label: "Partner program" },
+];
+
+const TIMING_PATTERN = /\b(hours?|turnaround|dispatch|same[- ]day|delivery time)\b/i;
+
+function collectQa(node: unknown, out: { q: string; a: string }[]) {
+  if (Array.isArray(node)) {
+    node.forEach((n) => collectQa(n, out));
+  } else if (node && typeof node === "object") {
+    const rec = node as Record<string, unknown>;
+    if (typeof rec.q === "string" && typeof rec.a === "string") out.push({ q: rec.q, a: rec.a });
+    Object.values(rec).forEach((v) => collectQa(v, out));
+  }
+}
+
+export function getFaqPageData(): DynamicFaqData {
+  const base = getDynamicFaq();
+  const seen = new Set(
+    base.explorerMatrix.categories.flatMap((c) => c.faqs.map((f) => f.q.trim().toLowerCase())),
+  );
+  const extra: DynamicFaqData["explorerMatrix"]["categories"] = [];
+  for (const src of PAGE_FAQ_SOURCES) {
+    try {
+      const raw = fs.readFileSync(path.join(process.cwd(), "src", "data", src.file), "utf-8");
+      const found: { q: string; a: string }[] = [];
+      collectQa(JSON.parse(raw), found);
+      const faqs = found.filter((f) => {
+        const key = f.q.trim().toLowerCase();
+        if (seen.has(key) || TIMING_PATTERN.test(f.q) || TIMING_PATTERN.test(f.a)) return false;
+        seen.add(key);
+        return true;
+      });
+      if (faqs.length) {
+        extra.push({ name: src.name, badge: src.badge, relatedHref: src.href, relatedLabel: src.label, faqs });
+      }
+    } catch {
+      // missing/invalid source file: skip that section, keep the hub working
+    }
+  }
+  return {
+    ...base,
+    explorerMatrix: {
+      ...base.explorerMatrix,
+      categories: [...base.explorerMatrix.categories, ...extra],
+    },
+  };
+}
+
+// Real Q&As already written for individual pages, reused as a "common questions"
+// block on hub pages (/services/, /products/). Timing answers are skipped so the
+// hubs do not add another delivery-time variant.
+export function getFaqsFromFiles(files: string[], perFile: number): { q: string; a: string }[] {
+  const out: { q: string; a: string }[] = [];
+  const seen = new Set<string>();
+  for (const file of files) {
+    try {
+      const raw = fs.readFileSync(path.join(process.cwd(), "src", "data", file), "utf-8");
+      const found: { q: string; a: string }[] = [];
+      collectQa(JSON.parse(raw), found);
+      let taken = 0;
+      for (const f of found) {
+        const key = f.q.trim().toLowerCase();
+        if (taken >= perFile) break;
+        if (seen.has(key) || TIMING_PATTERN.test(f.q) || TIMING_PATTERN.test(f.a)) continue;
+        seen.add(key);
+        out.push(f);
+        taken++;
+      }
+    } catch {
+      // skip unreadable source
+    }
+  }
+  return out;
+}
