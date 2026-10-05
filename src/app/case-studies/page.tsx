@@ -33,6 +33,7 @@ import { CaseStudiesHeroShowcase } from "@/components/case-studies/CaseStudiesHe
 import { RealProjectShowcaseGallery } from "@/components/case-studies/RealProjectShowcaseGallery";
 import { getAllDynamicProjects } from "@/lib/dynamic-projects";
 
+import { SITE_URL } from "@/data/site";
 /* ─────────────────────────────────────────────────────────────
    SEO METADATA (Strictly from document)
    ───────────────────────────────────────────────────────────── */
@@ -52,7 +53,7 @@ export default function CaseStudiesPage() {
     name: "IDGen Case Studies & Identification Projects",
     description:
       "Explore IDGen identification projects covering student ID cards, employee cards, event badges, lanyards and complete identification solutions.",
-    url: "https://idgen.in/case-studies/",
+    url: `${SITE_URL}/case-studies/`,
   };
 
   return (

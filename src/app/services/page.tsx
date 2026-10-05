@@ -13,6 +13,8 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageTypeSchema } from "@/lib/schema-org";
 import { getDynamicServices } from "@/lib/dynamic-services";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -47,6 +49,7 @@ export default function ServicesPage() {
 
   return (
     <>
+      <JsonLd data={pageTypeSchema({ type: "CollectionPage", name: "ID Card Printing Services by IDGen", path: "/services/" })} />
       <PageHero
         eyebrow={hero.eyebrow}
         icon={IdCard}

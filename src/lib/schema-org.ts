@@ -13,7 +13,7 @@ export function organizationSchema() {
     legalName: SITE.legalName,
     url: SITE_URL,
     logo: `${SITE_URL}/images/iDGen%20Primary%20logo.svg`,
-    image: `${SITE_URL}/images/idgen-guwahati-factory.jpg`,
+    image: `${SITE_URL}/images/idgen-hero-cards-showcase.jpg`,
     description: SITE.description,
     slogan: SITE.tagline,
     priceRange: "₹₹",
@@ -46,6 +46,11 @@ export function organizationSchema() {
         opens: "09:30",
         closes: "18:30",
       },
+    ],
+    areaServed: [
+      { "@type": "City", name: SITE.hqCity },
+      ...SITE.regionalFocus.map((name) => ({ "@type": "State", name })),
+      { "@type": "AdministrativeArea", name: "Northeast India" },
     ],
     sameAs: Object.values(SITE.social).filter(Boolean),
   };
@@ -166,8 +171,10 @@ export function localBusinessSchema(opts?: {
           return { "@type": item.type || "City", name: item.name };
         }
         const isState = statesSet.has(item.toLowerCase());
+        // "Northeast India" is a region, not a city
+        const isRegion = /^north ?east india$/i.test(item);
         return {
-          "@type": isState ? "State" : "City",
+          "@type": isState ? "State" : isRegion ? "AdministrativeArea" : "City",
           name: item,
         };
       })
@@ -176,47 +183,33 @@ export function localBusinessSchema(opts?: {
         ...SITE.regionalFocus.map((name) => ({ "@type": "State", name })),
       ];
 
+  // The single Organization + LocalBusiness node lives in the root layout
+  // (organizationSchema). Page-level callers only say which places this page
+  // is about, by reference, instead of re-declaring a second node that
+  // shares the same @id.
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness"],
-    "@id": `${SITE_URL}/#organization`,
-    name: SITE.name,
-    legalName: SITE.legalName,
-    url: SITE_URL,
-    logo: `${SITE_URL}/images/iDGen%20Primary%20logo.svg`,
-    image: `${SITE_URL}/images/idgen-guwahati-factory.jpg`,
-    description: SITE.description,
-    priceRange: "₹₹",
-    ...(SITE.phone ? { telephone: SITE.phone } : {}),
-    ...(SITE.email ? { email: SITE.email } : {}),
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: SITE.address,
-      addressLocality: SITE.hqCity,
-      addressRegion: SITE.hqState,
-      postalCode: "781001",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 26.1825,
-      longitude: 91.7415,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "09:30",
-        closes: "18:30",
-      },
-    ],
-    areaServed: resolvedAreaServed,
+    "@type": "WebPage",
+    about: { "@id": `${SITE_URL}/#organization` },
+    spatialCoverage: resolvedAreaServed.map((a) => ({ "@type": "Place", name: a.name })),
+  };
+}
+
+// Page-type signal for hub pages (AboutPage / CollectionPage) so Google knows
+// what kind of page it is beyond the sitewide Organization/WebSite blocks.
+export function pageTypeSchema(opts: {
+  type: "AboutPage" | "CollectionPage";
+  name: string;
+  path: string;
+  description?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": opts.type,
+    name: opts.name,
+    url: `${SITE_URL}${opts.path}`,
+    ...(opts.description ? { description: opts.description } : {}),
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
   };
 }

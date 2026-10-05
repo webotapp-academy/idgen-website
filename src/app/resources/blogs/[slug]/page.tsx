@@ -36,6 +36,7 @@ import {
 import type { BlogPost } from "@/data/blogs";
 import { BlogArticleInteractive } from "@/components/resources/blogs/BlogArticleInteractive";
 
+import { SITE_URL } from "@/data/site";
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
@@ -61,10 +62,18 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   }
 
   return pageMetadata({
-    title: `${post.title} | IDGen Technical Insights`,
+    title: shortBlogTitle(post.title),
     description: post.excerpt,
     path: `/resources/blogs/${post.slug}/`,
   });
+}
+
+// Keep <title> under ~60 chars so Google does not truncate it: take the part
+// before a colon/dash subtitle, then trim at a word boundary.
+function shortBlogTitle(title: string): string {
+  let t = title.split(/:\s|\s[—–-]\s/)[0].trim();
+  if (t.length > 62) t = t.slice(0, 62).replace(/\s+\S*$/, "");
+  return t.replace(/[\s,&]+(and|for|of|the|in|to|a|&)?$/i, "").trim();
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -82,8 +91,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    url: `https://idgen.in/resources/blogs/${post.slug}/`,
-    image: `https://idgen.in${post.featuredImage}`,
+    url: `${SITE_URL}/resources/blogs/${post.slug}/`,
+    image: `${SITE_URL}${encodeURI(post.featuredImage)}`,
     datePublished: post.publishedDate,
     dateModified: post.publishedDate,
     author: {
@@ -91,17 +100,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: post.author.name,
       jobTitle: post.author.role,
     },
-    publisher: {
-      "@type": "Organization",
-      name: "IDGen Identity Technologies",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://idgen.in/images/iDGen%20Primary%20logo.svg",
-      },
-    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://idgen.in/resources/blogs/${post.slug}/`,
+      "@id": `${SITE_URL}/resources/blogs/${post.slug}/`,
     },
   };
 

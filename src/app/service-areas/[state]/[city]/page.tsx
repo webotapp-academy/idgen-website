@@ -40,7 +40,7 @@ import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { localBusinessSchema } from "@/lib/schema-org";
+import { localBusinessSchema, faqSchema } from "@/lib/schema-org";
 import { getState, getCity, getAllCities, getDefaultCityServices } from "@/lib/dynamic-locations";
 import { renderDualColorHeadline } from "@/lib/render-headline";
 import { services } from "@/data/services";
@@ -66,7 +66,7 @@ export async function generateMetadata({
   if (!state || !city) return {};
   const url = `${SITE_URL}/service-areas/${state.slug}/${city.slug}/`;
   const rawTitle = city.metaTitle || `ID Card Printing in ${city.name}`;
-  const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|iDGen)\s*$/gi, "").trim();
+  const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|IDGen)\s*$/gi, "").trim();
   const absoluteTitle = `${cleanTitle} | IDGen`;
   return {
     title: { absolute: absoluteTitle },
@@ -189,6 +189,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
   return (
     <>
       <JsonLd data={localBusinessSchema({ areaServed: [state.name, city.name] })} />
+      <JsonLd data={faqSchema(displayFaqs)} />
 
       {/* Unified Hero Section */}
       <PageHero

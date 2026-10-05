@@ -223,7 +223,7 @@ export async function sendLeadNotificationEmail(lead: StoredLead) {
   const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS || process.env.SMTP_PASSWORD;
-  const smtpFrom = process.env.SMTP_FROM || `"iDGen Factory Desk" <${smtpUser || "noreply@idgen.in"}>`;
+  const smtpFrom = process.env.SMTP_FROM || `"IDGen Factory Desk" <${smtpUser || "noreply@idgen.in"}>`;
 
   if (smtpHost && smtpUser && smtpPass) {
     try {

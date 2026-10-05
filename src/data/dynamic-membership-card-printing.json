@@ -657,7 +657,7 @@
             },
             {
                 "q": "Can membership cards be used for gyms, clubs and associations?",
-                "a": "Yes. iDGen can produce customized membership cards for gyms, fitness centres, sports clubs, social clubs, professional associations, community organizations, NGOs, alumni organizations and other membership-based organizations.\n"
+                "a": "Yes. IDGen can produce customized membership cards for gyms, fitness centres, sports clubs, social clubs, professional associations, community organizations, NGOs, alumni organizations and other membership-based organizations.\n"
             },
             {
                 "q": "Can games zones and entertainment centres use customized membership cards?",
@@ -668,7 +668,7 @@
                 "a": "Yes. QR codes and barcodes can be printed on membership cards for compatible identification, verification, check-in or system lookup applications. Their actual functionality depends on the organization's software, scanner and membership-management system."
             },
             {
-                "q": "Can iDGen provide RFID membership cards?",
+                "q": "Can IDGen provide RFID membership cards?",
                 "a": "Yes. RFID membership cards can be considered when the required chip, frequency, reader and software system are compatible. The RFID specification should be confirmed before production so that the cards match the organization's existing or planned system.\n"
             },
             {
@@ -676,7 +676,7 @@
                 "a": "Yes. Membership cards can be supplied as standalone cards or as a wearable setup consisting of a card holder, hook and custom printed lanyard. The components can be selected according to how members are expected to carry or display their cards.\n"
             },
             {
-                "q": "Can iDGen print membership cards for new members and renewal batches?",
+                "q": "Can IDGen print membership cards for new members and renewal batches?",
                 "a": "Yes. Membership-card projects can include new-member batches, annual renewals, replacement cards, updated photographs, changed membership categories and updated validity periods. Member data can be prepared and approved according to the organization's production workflow.\n"
             },
             {
@@ -684,12 +684,12 @@
                 "a": "Yes. For suitable projects using the configured IDGen Studio workflow, organizations can collect member information progressively, review records and approve batches for production rather than waiting for every member to register before starting printing.\n"
             },
             {
-                "q": "Can iDGen provide membership cards with different designs for VIP or premium members?",
+                "q": "Can IDGen provide membership cards with different designs for VIP or premium members?",
                 "a": "Yes. Membership programmes can use different card designs or visual treatments for premium, VIP, lifetime or other membership categories. The design can incorporate different colours, graphics, branding or approved membership information while maintaining the organization's overall identity.\n"
             },
             {
                 "q": "What information is required to get a membership card quotation?",
-                "a": "Provide the approximate quantity, card size or preferred card specification, single- or double-sided printing requirement, member information to be printed, photograph requirement, artwork or logo, QR/barcode requirements, RFID requirements if applicable, and whether holders, hooks or lanyards are required. iDGen can then determine the appropriate configuration and quotation.\n"
+                "a": "Provide the approximate quantity, card size or preferred card specification, single- or double-sided printing requirement, member information to be printed, photograph requirement, artwork or logo, QR/barcode requirements, RFID requirements if applicable, and whether holders, hooks or lanyards are required. IDGen can then determine the appropriate configuration and quotation.\n"
             }
         ]
     },

@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   if (!state) return {};
   const url = `${SITE_URL}/service-areas/${state.slug}/`;
   const rawTitle = state.metaTitle || `ID Card Printing & Identity Solutions in ${state.name}`;
-  const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|iDGen)\s*$/gi, "").trim();
+  const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|IDGen)\s*$/gi, "").trim();
   const absoluteTitle = `${cleanTitle} | IDGen`;
   return {
     title: { absolute: absoluteTitle },

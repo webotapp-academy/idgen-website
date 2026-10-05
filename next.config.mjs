@@ -95,13 +95,32 @@ const nextConfig = {
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
-      // Live dynamic updates: HTML pages revalidate immediately so admin edits show instantly
+      // Live dynamic updates: HTML pages revalidate immediately so admin edits show instantly.
+      // Static assets (images, uploads, build files) are excluded below and get long cache lifetimes.
       {
-        source: "/:path*",
+        source: "/:path((?!images/|uploads/|_next/static/).*)",
         headers: [
           { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
           { key: "Pragma", value: "no-cache" },
           { key: "Expires", value: "0" },
+        ],
+      },
+      // SEO fix (performance): images and uploads had no cache lifetime at all
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
+      },
+      {
+        source: "/uploads/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
+        source: "/_next/static/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
+        source: "/:path*",
+        headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

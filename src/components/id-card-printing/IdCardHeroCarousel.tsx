@@ -32,7 +32,7 @@ const idCardSlides: IdCardSlide[] = [
   {
     id: "corporate-pvc",
     imageSrc: "/images/id-card-hero-corporate-pvc.jpg",
-    alt: "Custom PVC ID Card for corporate employees printed by iDGen with precision personalization",
+    alt: "Custom PVC ID Card for corporate employees printed by IDGen with precision personalization",
     title: "Corporate PVC Employee ID Cards",
     category: "Corporate",
     topBadge: "Corporate Identity",
@@ -43,7 +43,7 @@ const idCardSlides: IdCardSlide[] = [
   {
     id: "student-id",
     imageSrc: "/images/id-card-hero-student-id.jpg",
-    alt: "Institutional Student ID Card printed by iDGen for schools, colleges and universities",
+    alt: "Institutional Student ID Card printed by IDGen for schools, colleges and universities",
     title: "Student & University Campus Cards",
     category: "Education",
     topBadge: "School & University",
@@ -54,7 +54,7 @@ const idCardSlides: IdCardSlide[] = [
   {
     id: "rfid-smart",
     imageSrc: "/images/id-card-hero-rfid-smart.jpg",
-    alt: "Contactless RFID / NFC Smart Identity Card for turnstile access control printed by iDGen",
+    alt: "Contactless RFID / NFC Smart Identity Card for turnstile access control printed by IDGen",
     title: "13.56 MHz RFID Smart Access Badges",
     category: "Smart Access",
     topBadge: "Smart Contactless",
@@ -65,7 +65,7 @@ const idCardSlides: IdCardSlide[] = [
   {
     id: "complete-kit",
     imageSrc: "/images/id-card-hero-complete-kit.jpg",
-    alt: "Complete Modular ID Kit with ID Card, Hard Acrylic Holder, Swivel Hook, and Custom Lanyard by iDGen",
+    alt: "Complete Modular ID Kit with ID Card, Hard Acrylic Holder, Swivel Hook, and Custom Lanyard by IDGen",
     title: "Complete Modular Wearable Set",
     category: "Healthcare & Staff",
     topBadge: "Complete Wearable Set",
@@ -76,7 +76,7 @@ const idCardSlides: IdCardSlide[] = [
   {
     id: "bulk-batch",
     imageSrc: "/images/id-card-hero-bulk-batch.jpg",
-    alt: "High-volume bulk PVC ID cards batch production with variable data and barcodes printed by iDGen",
+    alt: "High-volume bulk PVC ID cards batch production with variable data and barcodes printed by IDGen",
     title: "Institutional Bulk Batch Production",
     category: "High Volume",
     topBadge: "Bulk Batch Ready",

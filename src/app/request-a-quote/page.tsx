@@ -58,7 +58,7 @@ export default function RequestAQuotePage() {
               {/* Primary Quotation & Specimen Kit Sample */}
               <div className="absolute top-0 right-0 h-64 w-[75%] rounded-3xl overflow-hidden border border-white/20 shadow-2xl z-10 hover:scale-105 transition-all duration-500">
                 <Image
-                  src="/images/ID Card Full Set Samples/Sample 1.jpeg"
+                  src="/images/ID%20Card%20Full%20Set%20Samples/Sample%201.jpeg"
                   alt="Complete ID Card and Lanyard Specimen Package"
                   fill
                   priority

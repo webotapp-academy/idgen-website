@@ -34,7 +34,7 @@ export function PartnerForm() {
     return (
       <div className="rounded-2xl border border-accent/30 bg-accent-soft p-6 text-sm text-navy-deep">
         <p className="font-semibold">Thanks for reaching out.</p>
-        <p className="mt-1">We&apos;ll review your details and get back to you about partnering with iDGen.</p>
+        <p className="mt-1">We&apos;ll review your details and get back to you about partnering with IDGen.</p>
       </div>
     );
   }
@@ -55,7 +55,7 @@ export function PartnerForm() {
         <textarea
           name="message"
           rows={4}
-          placeholder="What you sell, who your customers are, and why a partnership with iDGen makes sense"
+          placeholder="What you sell, who your customers are, and why a partnership with IDGen makes sense"
           className="rounded-lg border border-surface-border bg-background px-3 py-2 text-sm outline-none focus:border-accent"
         />
       </label>

@@ -24,7 +24,7 @@
             {
                 "id": "corporate-pvc",
                 "imageSrc": "/uploads/School_Student_PVC_ID_Card__IDGen-1790159304.webp",
-                "alt": "Custom PVC ID Card for corporate employees printed by iDGen with precision personalization",
+                "alt": "Custom PVC ID Card for corporate employees printed by IDGen with precision personalization",
                 "title": "Corporate PVC Employee ID Cards",
                 "category": "Corporate",
                 "topBadge": "Corporate Identity",
@@ -35,7 +35,7 @@
             {
                 "id": "student-id",
                 "imageSrc": "/uploads/University_Student_PVC_ID_Card__IDGen-1790159316.webp",
-                "alt": "Institutional Student ID Card printed by iDGen for schools, colleges and universities",
+                "alt": "Institutional Student ID Card printed by IDGen for schools, colleges and universities",
                 "title": "Student & University Campus Cards",
                 "category": "Education",
                 "topBadge": "School & University",
@@ -46,7 +46,7 @@
             {
                 "id": "rfid-smart",
                 "imageSrc": "/uploads/University_Both_Side_Students_PVC_ID_Card_with_Holder_and_Multicolored_lanyard_iDGen-1790159323.webp",
-                "alt": "Contactless RFID / NFC Smart Identity Card for turnstile access control printed by iDGen",
+                "alt": "Contactless RFID / NFC Smart Identity Card for turnstile access control printed by IDGen",
                 "title": "13.56 MHz RFID Smart Access Badges",
                 "category": "Smart Access",
                 "topBadge": "Smart Contactless",
@@ -57,7 +57,7 @@
             {
                 "id": "complete-kit",
                 "imageSrc": "/uploads/PVC_ID_Card_iDGen-1790159339.webp",
-                "alt": "Complete Modular ID Kit with ID Card, Hard Acrylic Holder, Swivel Hook, and Custom Lanyard by iDGen",
+                "alt": "Complete Modular ID Kit with ID Card, Hard Acrylic Holder, Swivel Hook, and Custom Lanyard by IDGen",
                 "title": "Complete Modular Wearable Set",
                 "category": "Healthcare & Staff",
                 "topBadge": "Complete Wearable Set",
@@ -68,7 +68,7 @@
             {
                 "id": "bulk-batch",
                 "imageSrc": "/uploads/Students_PVC_ID_Card_iDGen_Guwahati-1790159356.webp",
-                "alt": "High-volume bulk PVC ID cards batch production with variable data and barcodes printed by iDGen",
+                "alt": "High-volume bulk PVC ID cards batch production with variable data and barcodes printed by IDGen",
                 "title": "Institutional Bulk Batch Production",
                 "category": "High Volume",
                 "topBadge": "Bulk Batch Ready",
@@ -631,36 +631,36 @@
         "lede": "Common questions about card materials, bulk turnarounds, personalization and accessories.",
         "faqs": [
             {
-                "q": "What information can be personalized on an iDGen ID card?",
-                "a": "iDGen can personalize ID cards according to the approved design and required specifications. Depending on the application, cards can include a photograph, name, ID number, organization name, department, designation, class, course, admission or employee number, QR code, barcode and other required identification information.\n"
+                "q": "What information can be personalized on an IDGen ID card?",
+                "a": "IDGen can personalize ID cards according to the approved design and required specifications. Depending on the application, cards can include a photograph, name, ID number, organization name, department, designation, class, course, admission or employee number, QR code, barcode and other required identification information.\n"
             },
             {
                 "q": "What do I need to provide to start an ID card printing project?",
-                "a": "Typically, iDGen needs the required card type, approximate quantity, organization details, card data and photographs, along with an existing design or the requirements for a new design. The exact information depends on the card type and project.\n"
+                "a": "Typically, IDGen needs the required card type, approximate quantity, organization details, card data and photographs, along with an existing design or the requirements for a new design. The exact information depends on the card type and project.\n"
             },
             {
                 "q": "Can I review personalized ID cards before they are printed?",
-                "a": "Yes. Where applicable, iDGen's workflow includes a digital review and approval stage. Personalized information and the applicable card design can be reviewed before the project proceeds to production, helping organizations identify avoidable data or design discrepancies.\n"
+                "a": "Yes. Where applicable, IDGen's workflow includes a digital review and approval stage. Personalized information and the applicable card design can be reviewed before the project proceeds to production, helping organizations identify avoidable data or design discrepancies.\n"
             },
             {
-                "q": "Can iDGen print hundreds or thousands of personalized ID cards?",
-                "a": "Yes. iDGen supports bulk and institutional ID card projects involving hundreds or thousands of personalized cards. The production workflow is designed to manage data, photographs, identification numbers, card layouts, production and quality checks across larger batches."
+                "q": "Can IDGen print hundreds or thousands of personalized ID cards?",
+                "a": "Yes. IDGen supports bulk and institutional ID card projects involving hundreds or thousands of personalized cards. The production workflow is designed to manage data, photographs, identification numbers, card layouts, production and quality checks across larger batches."
             },
             {
                 "q": "Can I order only printed ID cards without lanyards and holders?",
-                "a": "Yes. Organizations can order ID cards alone if they already have their own holders, hooks or lanyards. Alternatively, iDGen can provide suitable accessories and complete wearable identification configurations according to the project's requirements.\n"
+                "a": "Yes. Organizations can order ID cards alone if they already have their own holders, hooks or lanyards. Alternatively, IDGen can provide suitable accessories and complete wearable identification configurations according to the project's requirements.\n"
             },
             {
-                "q": "Can iDGen print replacement or renewal ID cards?",
-                "a": "Yes. iDGen can support new ID card projects as well as replacement and renewal requirements, including new academic-year cards, employee renewals, expired or damaged cards, lost-card replacements and cards requiring updated organizational information.\n"
+                "q": "Can IDGen print replacement or renewal ID cards?",
+                "a": "Yes. IDGen can support new ID card projects as well as replacement and renewal requirements, including new academic-year cards, employee renewals, expired or damaged cards, lost-card replacements and cards requiring updated organizational information.\n"
             },
             {
-                "q": "Can iDGen help with ID card data collection as well as printing?",
-                "a": "Yes. For suitable projects, iDGen Studio can support digital collection of identification information and photographs. The workflow can connect data collection, review and approval with the subsequent ID card production process.\n"
+                "q": "Can IDGen help with ID card data collection as well as printing?",
+                "a": "Yes. For suitable projects, IDGen Studio can support digital collection of identification information and photographs. The workflow can connect data collection, review and approval with the subsequent ID card production process.\n"
             },
             {
                 "q": "How long does an ID card printing project take?",
-                "a": "The production and dispatch timeline depends on the quantity, card type, personalization requirements, artwork approval, data readiness and overall project specifications. iDGen confirms the applicable timeline based on the requirements when a quotation or order is prepared.\n"
+                "a": "The production and dispatch timeline depends on the quantity, card type, personalization requirements, artwork approval, data readiness and overall project specifications. IDGen confirms the applicable timeline based on the requirements when a quotation or order is prepared.\n"
             }
         ]
     },

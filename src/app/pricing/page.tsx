@@ -58,6 +58,13 @@ export default function PricingPage() {
           name: pageData.seo.title || "IDGen Pricing",
           description: pageData.seo.description || "Transparent reference pricing for PVC ID cards, custom printed lanyards, event cards and RFID cards by IDGen.",
           path: "/pricing/",
+          offers: dynamicPricingItems
+            .map((item) => ({
+              priceCurrency: "INR",
+              price: (item.price.match(/[\d,]+(?:\.\d+)?/)?.[0] || "").replace(/,/g, ""),
+              description: item.name,
+            }))
+            .filter((o) => o.price),
         })}
       />
 

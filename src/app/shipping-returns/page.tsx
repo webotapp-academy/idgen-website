@@ -12,7 +12,7 @@ import { SITE_URL } from "@/data/site";
 export const metadata = pageMetadata({
   title: "Shipping & Returns Policy",
   description:
-    "Official Shipping & Returns terms for iDGen. Understand order processing, dispatch, courier responsibilities, custom manufacturing return policies, and defect reporting.",
+    "Official Shipping & Returns terms for IDGen. Understand order processing, dispatch, courier responsibilities, custom manufacturing return policies, and defect reporting.",
   path: "/shipping-returns/",
 });
 
@@ -67,13 +67,13 @@ const shippingSections: LegalSectionItem[] = [
         <div className="pt-2 border-t border-slate-100 dark:border-white/5">
           <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1.5">Dispatch</h3>
           <p>
-            After production is completed and the required balance payment is received, iDGen will hand over the parcel to the applicable <strong>courier, transport company, bus/transport service, or other logistics provider</strong>.
+            After production is completed and the required balance payment is received, IDGen will hand over the parcel to the applicable <strong>courier, transport company, bus/transport service, or other logistics provider</strong>.
           </p>
           <p className="mt-2">
             The dispatch date is the date on which the parcel is handed over to the logistics provider.
           </p>
           <div className="mt-3 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-3.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
-            <strong>Important Notice:</strong> iDGen is not the courier or transport service provider and does not provide door-to-door delivery services.
+            <strong>Important Notice:</strong> IDGen is not the courier or transport service provider and does not provide door-to-door delivery services.
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ const shippingSections: LegalSectionItem[] = [
           Once the parcel has been handed over to the courier/transport/logistics provider, the shipment is under the responsibility of that service provider.
         </p>
         <p className="font-medium text-slate-900 dark:text-white">
-          The following are therefore outside iDGen&apos;s direct control:
+          The following are therefore outside IDGen&apos;s direct control:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 py-1">
           {[
@@ -115,7 +115,7 @@ const shippingSections: LegalSectionItem[] = [
           ))}
         </div>
         <p className="text-xs text-slate-500 dark:text-slate-400">
-          Any delivery estimate provided by iDGen is an <strong>approximate transit estimate provided by the logistics provider</strong> and is not a guaranteed delivery date.
+          Any delivery estimate provided by IDGen is an <strong>approximate transit estimate provided by the logistics provider</strong> and is not a guaranteed delivery date.
         </p>
       </div>
     ),
@@ -138,7 +138,7 @@ const shippingSections: LegalSectionItem[] = [
           <li>Mobile number</li>
         </ul>
         <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3.5 text-xs text-amber-900 dark:text-amber-200">
-          iDGen will not be responsible for delays or additional charges caused by an incorrect, incomplete or unavailable delivery address or contact number provided by the customer.
+          IDGen will not be responsible for delays or additional charges caused by an incorrect, incomplete or unavailable delivery address or contact number provided by the customer.
         </div>
       </div>
     ),
@@ -167,7 +167,7 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          Where tracking information is available, iDGen may provide the customer with the applicable tracking/AWB/consignment details.
+          Where tracking information is available, IDGen may provide the customer with the applicable tracking/AWB/consignment details.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           After the parcel has been handed over to the logistics provider, customers should also contact the respective courier/transport company for transit-related updates.
@@ -189,11 +189,11 @@ const shippingSections: LegalSectionItem[] = [
         <ol className="list-decimal pl-5 space-y-2">
           <li>Take photographs/videos of the package before opening it, where possible.</li>
           <li>Take photographs/videos of the damaged products and packaging.</li>
-          <li>Inform iDGen as soon as possible.</li>
+          <li>Inform IDGen as soon as possible.</li>
           <li>Provide the relevant photographs, videos and shipment details for review.</li>
         </ol>
         <p className="text-xs text-slate-600 dark:text-slate-400">
-          iDGen will review cases of transit damage and coordinate with the logistics provider where appropriate.
+          IDGen will review cases of transit damage and coordinate with the logistics provider where appropriate.
         </p>
       </div>
     ),
@@ -206,7 +206,7 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          If a shipment is reported as lost or missing during transit, iDGen may assist the customer in raising a query or claim with the relevant courier/transport provider.
+          If a shipment is reported as lost or missing during transit, IDGen may assist the customer in raising a query or claim with the relevant courier/transport provider.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           The final resolution of a logistics-related loss will depend on the investigation and policies of the respective courier/transport provider.
@@ -221,7 +221,7 @@ const shippingSections: LegalSectionItem[] = [
     tags: ["returned to origin", "rto", "re-dispatch", "undelivered"],
     content: (
       <div className="space-y-3">
-        <p>If a parcel is returned to iDGen because of:</p>
+        <p>If a parcel is returned to IDGen because of:</p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li>Incorrect or incomplete address</li>
           <li>Recipient unavailable</li>
@@ -261,7 +261,7 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          Before production, iDGen provides a proof/sample for customer verification and approval. Once the customer approves the proof, iDGen proceeds with production.
+          Before production, IDGen provides a proof/sample for customer verification and approval. Once the customer approves the proof, IDGen proceeds with production.
         </p>
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2.5">
           <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400" />
@@ -283,10 +283,10 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          If a product has a genuine manufacturing or printing defect attributable to iDGen, the customer should contact iDGen with photographs/videos and order details.
+          If a product has a genuine manufacturing or printing defect attributable to IDGen, the customer should contact IDGen with photographs/videos and order details.
         </p>
         <p>
-          After review and confirmation, iDGen may provide an appropriate resolution, which may include replacement or reprinting of the affected products.
+          After review and confirmation, IDGen may provide an appropriate resolution, which may include replacement or reprinting of the affected products.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           The resolution will be determined based on the nature and extent of the confirmed defect.
@@ -334,7 +334,7 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          An order may be cancelled only if production has not commenced and the cancellation is accepted by iDGen.
+          An order may be cancelled only if production has not commenced and the cancellation is accepted by IDGen.
         </p>
         <p>
           Once production, printing, personalization or material preparation has commenced, the order generally cannot be cancelled.
@@ -353,7 +353,7 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          Where a refund is approved by iDGen, the refund amount and method will depend on the circumstances of the order.
+          Where a refund is approved by IDGen, the refund amount and method will depend on the circumstances of the order.
         </p>
         <p className="font-medium text-slate-900 dark:text-white">No refund will normally be provided for:</p>
         <ul className="list-disc pl-5 space-y-1.5">
@@ -380,14 +380,14 @@ const shippingSections: LegalSectionItem[] = [
             Manufacturing & Dispatch Scope
           </p>
           <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-            <strong>iDGen&apos;s responsibility is to manufacture the ordered products and hand over the completed parcel to the applicable courier, transport or logistics provider. iDGen does not provide door-to-door delivery services.</strong>
+            <strong>IDGen&apos;s responsibility is to manufacture the ordered products and hand over the completed parcel to the applicable courier, transport or logistics provider. IDGen does not provide door-to-door delivery services.</strong>
           </p>
           <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
             Once the parcel has been handed over to the logistics provider, delivery is subject to the terms, routes, schedules and operating conditions of that provider.
           </p>
         </div>
         <p className="text-xs text-slate-500 dark:text-slate-400">
-          For any questions regarding an order, customers may contact iDGen using the contact details provided on the website or quotation.
+          For any questions regarding an order, customers may contact IDGen using the contact details provided on the website or quotation.
         </p>
       </div>
     ),
@@ -400,7 +400,7 @@ const shippingSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          iDGen may update this Shipping & Returns policy from time to time to reflect changes in our products, services, logistics arrangements or applicable requirements.
+          IDGen may update this Shipping & Returns policy from time to time to reflect changes in our products, services, logistics arrangements or applicable requirements.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           The updated version will be published on this page with the revised date.
@@ -414,13 +414,13 @@ export default function ShippingReturnsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Shipping & Returns Policy — iDGen",
+    name: "Shipping & Returns Policy — IDGen",
     url: `${SITE_URL}/shipping-returns/`,
-    description: "Official Shipping & Returns terms for iDGen. Understand order processing, dispatch, courier responsibilities, custom manufacturing return policies, and defect reporting.",
+    description: "Official Shipping & Returns terms for IDGen. Understand order processing, dispatch, courier responsibilities, custom manufacturing return policies, and defect reporting.",
     dateModified: "2026-10-01",
     publisher: {
       "@type": "Organization",
-      name: "iDGen",
+      name: "IDGen",
       url: SITE_URL,
       email: "info@idgen.in",
     },
@@ -432,7 +432,7 @@ export default function ShippingReturnsPage() {
       <LegalDocumentShell
         documentType="shipping"
         title="Shipping & Returns"
-        subtitle="At iDGen, we manufacture and supply ID cards, lanyards, holders, RFID cards, event cards and other identity products. Once an order is completed and the applicable payment is received, we hand over the parcel to the agreed courier, transport, or logistics provider for delivery. Please read the following Shipping & Returns terms carefully before placing an order."
+        subtitle="At IDGen, we manufacture and supply ID cards, lanyards, holders, RFID cards, event cards and other identity products. Once an order is completed and the applicable payment is received, we hand over the parcel to the agreed courier, transport, or logistics provider for delivery. Please read the following Shipping & Returns terms carefully before placing an order."
         lastUpdated="1 October 2026"
         highlights={shippingHighlights}
         sections={shippingSections}

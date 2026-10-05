@@ -798,32 +798,32 @@
                 "a": "A student ID card can include information such as the student's photograph, name, student or admission ID, class, course, section, academic session, institution name and logo, along with other identification details required by the school, college or university.\n"
             },
             {
-                "q": "Can iDGen print student ID cards with individual photographs and student details?",
-                "a": "Yes. iDGen can produce personalized student ID cards using individual student photographs and approved student information. The design and data fields can be configured according to the institution's requirements.\n"
+                "q": "Can IDGen print student ID cards with individual photographs and student details?",
+                "a": "Yes. IDGen can produce personalized student ID cards using individual student photographs and approved student information. The design and data fields can be configured according to the institution's requirements.\n"
             },
             {
                 "q": "Can schools and colleges order student ID cards in bulk?",
-                "a": "Yes. iDGen supports bulk student ID card projects for schools, colleges, universities and other educational institutions. Large batches can be produced using institution-approved student data, photographs and card designs.\n"
+                "a": "Yes. IDGen supports bulk student ID card projects for schools, colleges, universities and other educational institutions. Large batches can be produced using institution-approved student data, photographs and card designs.\n"
             },
             {
                 "q": "How can an educational institution provide student data for ID card printing?",
-                "a": "The required student information and photographs can be provided through the agreed data-submission workflow. For suitable projects, iDGen Studio can also be used to collect student information and photographs digitally before the records are reviewed and approved for production."
+                "a": "The required student information and photographs can be provided through the agreed data-submission workflow. For suitable projects, IDGen Studio can also be used to collect student information and photographs digitally before the records are reviewed and approved for production."
             },
             {
                 "q": "Can students or parents review their information before the ID cards are printed?",
-                "a": "For projects using iDGen Studio, students or parents can submit the required information and photograph, after which the institution can review and approve the submitted records before they proceed to the printing workflow. This can help reduce avoidable data errors."
+                "a": "For projects using IDGen Studio, students or parents can submit the required information and photograph, after which the institution can review and approve the submitted records before they proceed to the printing workflow. This can help reduce avoidable data errors."
             },
             {
                 "q": "Can student ID cards be made for different classes, courses or departments?",
                 "a": "Yes. Student ID card designs and data fields can be structured according to the institution's requirements, allowing different classes, courses, departments, sessions or student categories to be accommodated within the project's approved card design.\n"
             },
             {
-                "q": "Can iDGen provide student ID cards with lanyards and holders?",
+                "q": "Can IDGen provide student ID cards with lanyards and holders?",
                 "a": "Yes. Student ID cards can be ordered with compatible accessories such as card holders, hooks and custom printed lanyards. Institutions can choose cards alone or a complete wearable identification set according to their requirements.\n"
             },
             {
-                "q": " Can iDGen provide replacement or new-session student ID cards?",
-                "a": "Yes. iDGen can support replacement cards for lost or damaged cards as well as new student ID card projects for a new academic session. The required data, photographs and design specifications can be updated according to the institution's requirements.\n"
+                "q": " Can IDGen provide replacement or new-session student ID cards?",
+                "a": "Yes. IDGen can support replacement cards for lost or damaged cards as well as new student ID card projects for a new academic session. The required data, photographs and design specifications can be updated according to the institution's requirements.\n"
             }
         ]
     },

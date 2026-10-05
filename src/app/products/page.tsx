@@ -11,6 +11,8 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageTypeSchema } from "@/lib/schema-org";
 
 export const metadata = pageMetadata({
   title: "Products | ID Card Holders, Hooks & Hardware Attachments | IDGen",
@@ -85,6 +87,7 @@ const hardwareSpecs = [
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd data={pageTypeSchema({ type: "CollectionPage", name: "ID Card Accessories & Products by IDGen", path: "/products/" })} />
 
       <PageHero
         eyebrow="Hardware & Accessories"

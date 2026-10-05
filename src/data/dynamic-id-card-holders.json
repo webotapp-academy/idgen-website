@@ -1235,40 +1235,40 @@
         "lede": "Common questions regarding card holder models, fittings, attachments, and order turnaround:",
         "items": [
             {
-                "q": "What types of ID card holders does iDGen provide?",
-                "a": "iDGen provides different ID card holder options including vertical and horizontal holders, four-side-lock holders, chemical-sticker holders, crystal holders, metal holders and lanyard attachment options. The appropriate holder depends on the card orientation, dimensions, retention requirement and how the card will be worn.\n"
+                "q": "What types of ID card holders does IDGen provide?",
+                "a": "IDGen provides different ID card holder options including vertical and horizontal holders, four-side-lock holders, chemical-sticker holders, crystal holders, metal holders and lanyard attachment options. The appropriate holder depends on the card orientation, dimensions, retention requirement and how the card will be worn.\n"
             },
             {
                 "q": "How do I choose between a vertical and horizontal ID card holder?",
-                "a": "Choose the holder according to the orientation of your printed card. A portrait card requires a vertical holder, while a landscape card requires a horizontal holder. iDGen's V-series holders are designed for vertical cards and H-series holders for horizontal cards.\n"
+                "a": "Choose the holder according to the orientation of your printed card. A portrait card requires a vertical holder, while a landscape card requires a horizontal holder. IDGen's V-series holders are designed for vertical cards and H-series holders for horizontal cards.\n"
             },
             {
                 "q": "What is the difference between a standard holder and a four-side-lock holder?",
                 "a": "A standard ID card holder allows the card to slide in and out more easily, making it convenient when cards need to be removed or replaced frequently.\nA four-side-lock holder secures the card from multiple sides, making it more difficult to remove the card accidentally or intentionally during normal use. This type of holder is particularly suitable for school students, where preventing students from easily taking out or losing their ID cards can be important.\nFor schools and other applications where the card needs to remain securely inside the holder, a four-side-lock holder can provide an additional level of card retention compared with a standard holder.\n"
             },
             {
-                "q": "What size ID card fits iDGen's standard holders?",
+                "q": "What size ID card fits IDGen's standard holders?",
                 "a": "The standard holder range is designed around the specified CR80-format card dimensions, including the 86 × 54 mm format used by the V-series and the corresponding horizontal orientation for H-series holders. Card and holder dimensions should always be confirmed before a bulk order."
             },
             {
                 "q": "Are ID card holders made from virgin plastic?",
-                "a": "iDGen's standard holder range includes holders made from virgin-grade polymer materials. Specific material and construction can vary between holder models, so the material specification should be confirmed for the selected model before ordering.\n"
+                "a": "IDGen's standard holder range includes holders made from virgin-grade polymer materials. Specific material and construction can vary between holder models, so the material specification should be confirmed for the selected model before ordering.\n"
             },
             {
                 "q": "Can an ID card holder be attached directly to a lanyard?",
-                "a": "Yes. Suitable ID card holders can be connected to lanyards using compatible attachment hardware such as fish hooks, clips or other fittings. iDGen can coordinate the holder, attachment and custom printed lanyard as a complete wearable setup.\n"
+                "a": "Yes. Suitable ID card holders can be connected to lanyards using compatible attachment hardware such as fish hooks, clips or other fittings. IDGen can coordinate the holder, attachment and custom printed lanyard as a complete wearable setup.\n"
             },
             {
                 "q": "Can ID card holders be supplied with hooks or clips?",
-                "a": "Yes. iDGen provides attachment options such as swivel fish hooks and other suitable clips for connecting holders to lanyards. The attachment should be selected according to the holder's slot and the required lanyard configuration."
+                "a": "Yes. IDGen provides attachment options such as swivel fish hooks and other suitable clips for connecting holders to lanyards. The attachment should be selected according to the holder's slot and the required lanyard configuration."
             },
             {
                 "q": "Can I order ID card holders separately without ID cards?",
-                "a": "Yes. ID card holders can be ordered separately when an organization already has its ID cards or wants to source the accessories independently. iDGen can also supply holders as part of a complete card, holder, hook and lanyard setup."
+                "a": "Yes. ID card holders can be ordered separately when an organization already has its ID cards or wants to source the accessories independently. IDGen can also supply holders as part of a complete card, holder, hook and lanyard setup."
             },
             {
-                "q": "Can iDGen supply complete ID card holder and lanyard sets?",
-                "a": "Yes. iDGen can coordinate a complete wearable identification setup consisting of a printed ID card, holder, attachment hook or clip and custom printed lanyard. This allows organizations to source the required identification components together.\n"
+                "q": "Can IDGen supply complete ID card holder and lanyard sets?",
+                "a": "Yes. IDGen can coordinate a complete wearable identification setup consisting of a printed ID card, holder, attachment hook or clip and custom printed lanyard. This allows organizations to source the required identification components together.\n"
             },
             {
                 "q": "Are ID card holders suitable for schools, companies and events?",
@@ -1280,7 +1280,7 @@
             },
             {
                 "q": "What information should I provide when ordering ID card holders?",
-                "a": "Provide the card dimensions, portrait or landscape orientation, required quantity, preferred holder style, retention requirement and attachment requirement. If you already have the ID card or a holder sample, providing its dimensions or a physical sample can help iDGen confirm compatibility before bulk production.\n"
+                "a": "Provide the card dimensions, portrait or landscape orientation, required quantity, preferred holder style, retention requirement and attachment requirement. If you already have the ID card or a holder sample, providing its dimensions or a physical sample can help IDGen confirm compatibility before bulk production.\n"
             }
         ]
     }

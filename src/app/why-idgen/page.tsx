@@ -44,6 +44,8 @@ import { FaqList } from "@/components/ui/FaqList";
 import { PillarsCarousel } from "@/components/why-idgen/PillarsCarousel";
 import { ProductionApproachCarousel } from "@/components/why-idgen/ProductionApproachCarousel";
 import { pageMetadata } from "@/lib/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageTypeSchema } from "@/lib/schema-org";
 import { getDynamicWhyIdgen } from "@/lib/dynamic-why-idgen";
 
 /* ============================================================
@@ -105,6 +107,7 @@ export default function WhyIdgenPage() {
 
   return (
     <div className="bg-[#f8fafc] dark:bg-[#070d18] text-slate-900 dark:text-slate-100 min-h-screen selection:bg-[#009fe3]/20 selection:text-[#009fe3] transition-colors">
+      <JsonLd data={pageTypeSchema({ type: "AboutPage", name: "About IDGen", path: "/why-idgen/" })} />
       {/* ─────────────────────────────────────────────────────────────
           1. ULTRA-PREMIUM HERO SECTION (100% Dynamic)
       ───────────────────────────────────────────────────────────── */}

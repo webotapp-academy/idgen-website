@@ -34,6 +34,7 @@ import { GuidesCategoriesGrid } from "@/components/resources/guides/GuidesCatego
 import { GuideReadinessEstimator } from "@/components/resources/guides/GuideReadinessEstimator";
 import { getDynamicGuides } from "@/lib/dynamic-guides";
 
+import { SITE_URL } from "@/data/site";
 export async function generateMetadata() {
   const data = getDynamicGuides();
   return pageMetadata({
@@ -66,7 +67,7 @@ export default function GuidesPage() {
     "@type": "CollectionPage",
     name: data.meta.title,
     description: data.meta.description,
-    url: `https://idgen.in${data.meta.path}`,
+    url: `${SITE_URL}${data.meta.path}`,
   };
 
   return (

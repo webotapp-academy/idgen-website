@@ -550,12 +550,12 @@
                 "a": "An RFID ID card is a personalized identification card containing an embedded RFID component that communicates with a compatible RFID reader or system. It combines normal printed identification such as a name, photograph and ID number with contactless identification functionality. The RFID technology must be selected according to the organization's existing or planned access, attendance or identification system."
             },
             {
-                "q": "What RFID frequencies and card technologies can iDGen provide?",
-                "a": "iDGen can support RFID card requirements based on the customer's system specification, including common 13.56 MHz and 125 kHz applications. Depending on the project, technologies and chip types may include MIFARE and proximity RFID cards. The exact chip and frequency should be confirmed against the reader or access-control system before production.\n"
+                "q": "What RFID frequencies and card technologies can IDGen provide?",
+                "a": "IDGen can support RFID card requirements based on the customer's system specification, including common 13.56 MHz and 125 kHz applications. Depending on the project, technologies and chip types may include MIFARE and proximity RFID cards. The exact chip and frequency should be confirmed against the reader or access-control system before production.\n"
             },
             {
                 "q": "How do I make sure an RFID card will work with my existing reader?",
-                "a": "Compatibility should be checked before ordering. Ideally, provide the existing RFID card, reader model, system information, chip or frequency specification and card dimensions. iDGen uses these details to determine the required RFID specification and reduce the risk of producing cards that are physically suitable but incompatible with the existing system.\n"
+                "a": "Compatibility should be checked before ordering. Ideally, provide the existing RFID card, reader model, system information, chip or frequency specification and card dimensions. IDGen uses these details to determine the required RFID specification and reduce the risk of producing cards that are physically suitable but incompatible with the existing system.\n"
             },
             {
                 "q": "Can RFID cards be printed with photographs, names and organization details?",
@@ -563,7 +563,7 @@
             },
             {
                 "q": "Can RFID cards be used for access control and attendance systems?",
-                "a": "Yes, RFID cards can be used for compatible access-control, attendance and electronic identification applications. However, the card technology, frequency, chip type and encoding requirements must match the organization's reader and software system. iDGen recommends confirming system compatibility before production rather than selecting an RFID card based only on frequency.\n"
+                "a": "Yes, RFID cards can be used for compatible access-control, attendance and electronic identification applications. However, the card technology, frequency, chip type and encoding requirements must match the organization's reader and software system. IDGen recommends confirming system compatibility before production rather than selecting an RFID card based only on frequency.\n"
             },
             {
                 "q": "Can RFID cards be pre-encoded or supplied with programmed card information?",
@@ -575,7 +575,7 @@
             },
             {
                 "q": "Can companies and organizations order RFID employee ID cards in bulk?",
-                "a": "Yes. iDGen supports RFID card projects for companies, corporate offices, institutions, hospitals, industries, government organizations, clubs, associations and other organizations. Bulk projects can combine personalized employee information, photographs, organizational branding and RFID functionality according to the confirmed system requirements."
+                "a": "Yes. IDGen supports RFID card projects for companies, corporate offices, institutions, hospitals, industries, government organizations, clubs, associations and other organizations. Bulk projects can combine personalized employee information, photographs, organizational branding and RFID functionality according to the confirmed system requirements."
             },
             {
                 "q": "Can RFID cards be supplied with lanyards, holders and other accessories?",
@@ -583,7 +583,7 @@
             },
             {
                 "q": "What information should I provide to get an RFID card quotation?",
-                "a": "For an accurate quotation, provide the required quantity, existing RFID card or sample if available, reader model, RFID frequency or chip type, system/application, card size, printing requirements, personalization data, encoding requirements and required accessories. Providing these details at the beginning helps iDGen determine the appropriate RFID card specification before production.\n"
+                "a": "For an accurate quotation, provide the required quantity, existing RFID card or sample if available, reader model, RFID frequency or chip type, system/application, card size, printing requirements, personalization data, encoding requirements and required accessories. Providing these details at the beginning helps IDGen determine the appropriate RFID card specification before production.\n"
             }
         ]
     },

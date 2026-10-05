@@ -29,6 +29,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { getAllDynamicBlogPosts, getDynamicFeaturedBlogPost } from "@/lib/dynamic-blogs";
 import { BlogsExplorer } from "@/components/resources/blogs/BlogsExplorer";
 
+import { SITE_URL } from "@/data/site";
 /* ─────────────────────────────────────────────────────────────
    SEO METADATA
 ───────────────────────────────────────────────────────────── */
@@ -49,12 +50,12 @@ export default function BlogsPage() {
     name: "IDGen Credential Engineering & Identification Blogs",
     description:
       "Technical blogs, material comparisons, ultrasonic lanyard welding guides, and RFID access insights by IDGen.",
-    url: "https://idgen.in/resources/blogs/",
+    url: `${SITE_URL}/resources/blogs/`,
     hasPart: posts.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
       description: p.excerpt,
-      url: `https://idgen.in/resources/blogs/${p.slug}/`,
+      url: `${SITE_URL}/resources/blogs/${p.slug}/`,
       datePublished: p.publishedDate,
       author: {
         "@type": "Person",

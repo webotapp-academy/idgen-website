@@ -16,6 +16,7 @@ import { TemplatesHeroCarousel } from "@/components/templates/TemplatesHeroCarou
 import { TemplateResources } from "@/components/templates/TemplateResources";
 import { getDynamicTemplates } from "@/lib/dynamic-templates";
 
+import { SITE_URL } from "@/data/site";
 export async function generateMetadata() {
   const data = getDynamicTemplates();
   return pageMetadata({
@@ -34,7 +35,7 @@ export default function TemplatesPage() {
     "@type": "CollectionPage",
     name: data.meta.title,
     description: data.meta.description,
-    url: `https://idgen.in${data.meta.path || "/templates/"}`,
+    url: `${SITE_URL}${data.meta.path || "/templates/"}`,
   };
 
   return (

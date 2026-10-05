@@ -9,6 +9,7 @@ import type { PricingItemData } from "@/lib/dynamic-pricing";
 import type { TechnicalSpecItem, TechnicalSpecsSectionConfig } from "@/lib/dynamic-specifications-types";
 import { defaultTechnicalSpecs, defaultSectionConfig } from "@/lib/dynamic-specifications-types";
 
+import { SITE_URL } from "@/data/site";
 interface TechnicalSpecificationsSectionProps {
   initialItems?: PricingItemData[];
   initialSpecs?: TechnicalSpecItem[];
@@ -77,7 +78,7 @@ export function TechnicalSpecificationsSection({
       const url =
         typeof window !== "undefined"
           ? `${window.location.origin}/pricing/#${specId}`
-          : `https://idgen.in/pricing/#${specId}`;
+          : `${SITE_URL}/pricing/#${specId}`;
 
       await navigator.clipboard.writeText(url);
       setCopiedId(specId);
