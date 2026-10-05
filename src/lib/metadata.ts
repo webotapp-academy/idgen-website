@@ -6,7 +6,7 @@ import { SITE_URL } from "@/data/site";
 const TITLE_SUFFIX_LENGTH = " | IDGen".length;
 const MAX_TITLE_LENGTH = 65;
 
-function fitTitle(title: string): string {
+export function fitTitle(title: string): string {
   if (title.length + TITLE_SUFFIX_LENGTH <= MAX_TITLE_LENGTH) return title;
   const segments = title.split(/\s+\|\s+/);
   let fitted = segments[0];

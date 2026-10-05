@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 // before a colon/dash subtitle, then trim at a word boundary.
 function shortBlogTitle(title: string): string {
   let t = title.split(/:\s|\s[—–-]\s/)[0].trim();
-  if (t.length > 62) t = t.slice(0, 62).replace(/\s+\S*$/, "");
+  if (t.length > 56) t = t.slice(0, 56).replace(/\s+\S*$/, "");
   return t.replace(/[\s,&]+(and|for|of|the|in|to|a|&)?$/i, "").trim();
 }
 

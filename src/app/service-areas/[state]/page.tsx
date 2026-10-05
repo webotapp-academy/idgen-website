@@ -2,6 +2,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+import { fitTitle } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const url = `${SITE_URL}/service-areas/${state.slug}/`;
   const rawTitle = state.metaTitle || `ID Card Printing & Identity Solutions in ${state.name}`;
   const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|IDGen)\s*$/gi, "").trim();
-  const absoluteTitle = `${cleanTitle} | IDGen`;
+  const absoluteTitle = `${fitTitle(cleanTitle)} | IDGen`;
   return {
     title: { absolute: absoluteTitle },
     description: state.metaDescription || `IDGen provides ID card printing and identity solutions across ${state.name}.`,

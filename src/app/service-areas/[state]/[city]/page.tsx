@@ -2,6 +2,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+import { fitTitle } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -67,7 +68,7 @@ export async function generateMetadata({
   const url = `${SITE_URL}/service-areas/${state.slug}/${city.slug}/`;
   const rawTitle = city.metaTitle || `ID Card Printing in ${city.name}`;
   const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|IDGen)\s*$/gi, "").trim();
-  const absoluteTitle = `${cleanTitle} | IDGen`;
+  const absoluteTitle = `${fitTitle(cleanTitle)} | IDGen`;
   return {
     title: { absolute: absoluteTitle },
     description:
