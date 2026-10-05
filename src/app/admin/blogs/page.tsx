@@ -31,6 +31,7 @@ import {
   ListPlus,
   Table,
   Check,
+  UploadCloud,
 } from "lucide-react";
 import type { BlogPost } from "@/data/blogs";
 import { BLOG_CATEGORIES } from "@/data/blogs";
@@ -108,6 +109,31 @@ export default function AdminBlogsPage() {
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [formData, setFormData] = useState<BlogFormData>(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
+
+  const handleFileUpload = async (file: File, callback: (url: string) => void) => {
+    if (!file) return;
+    try {
+      setUploadingImage(true);
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await res.json();
+      if (json.success && json.url) {
+        callback(json.url);
+        showToast("Image uploaded successfully!", "success");
+      } else {
+        showToast(json.error || "Failed to upload image", "error");
+      }
+    } catch (err: any) {
+      showToast(err.message || "Error uploading image", "error");
+    } finally {
+      setUploadingImage(false);
+    }
+  };
 
   // Load posts
   const fetchPosts = async () => {
@@ -115,8 +141,15 @@ export default function AdminBlogsPage() {
       setLoading(true);
       const res = await fetch("/api/admin/blogs");
       const data = await res.json();
-      if (data.success && Array.isArray(data.posts)) {
-        setPosts(data.posts);
+      const postsList = Array.isArray(data?.posts)
+        ? data.posts
+        : Array.isArray(data?.data)
+        ? data.data
+        : Array.isArray(data)
+        ? data
+        : [];
+      if (data.success || postsList.length > 0) {
+        setPosts(postsList);
       }
     } catch (e) {
       console.error("Failed to load blog posts:", e);
@@ -472,6 +505,7 @@ export default function AdminBlogsPage() {
                   {/* Thumbnail */}
                   <div className="relative h-20 w-28 shrink-0 rounded-xl overflow-hidden bg-slate-800 border border-slate-700">
                     <Image
+                  unoptimized
                       src={post.featuredImage}
                       alt={post.alt || post.title}
                       fill
@@ -695,7 +729,7 @@ export default function AdminBlogsPage() {
               </div>
 
               {/* Row 4: Author & Image */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-300 mb-1">Author Name</label>
                   <input
@@ -719,14 +753,68 @@ export default function AdminBlogsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1">Featured Image Path</label>
-                  <input
-                    type="text"
-                    value={formData.featuredImage}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, featuredImage: e.target.value }))}
-                    placeholder="/images/PVC Cards Samples/Sample 1.jpg"
-                    className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-cyan-300 font-mono"
-                  />
+                  <label className="block text-xs font-bold text-slate-300 mb-1">Author Avatar</label>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={formData.authorAvatar}
+                      onChange={(e) => setFormData((prev) => ({ ...prev, authorAvatar: e.target.value }))}
+                      placeholder="/images/idgen-hero-cards-mockup.png"
+                      className="flex-1 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-cyan-300 font-mono truncate"
+                    />
+                    <label className="cursor-pointer inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 text-xs font-bold transition whitespace-nowrap">
+                      <UploadCloud className="h-3.5 w-3.5" />
+                      <span>{uploadingImage ? "..." : "Upload"}</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) handleFileUpload(f, (url) => setFormData((prev) => ({ ...prev, authorAvatar: url })));
+                        }}
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div className="sm:col-span-2 lg:col-span-3">
+                  <label className="block text-xs font-bold text-slate-300 mb-1">Featured Cover Image</label>
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <input
+                      type="text"
+                      value={formData.featuredImage}
+                      onChange={(e) => setFormData((prev) => ({ ...prev, featuredImage: e.target.value }))}
+                      placeholder="/images/PVC Cards Samples/Sample 1.jpg"
+                      className="flex-1 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-cyan-300 font-mono"
+                    />
+                    <label className="cursor-pointer inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#009fe3] to-cyan-500 hover:from-[#008bc7] hover:to-cyan-600 text-white text-xs font-black shadow-md shadow-cyan-500/20 transition whitespace-nowrap">
+                      <UploadCloud className="h-4 w-4" />
+                      <span>{uploadingImage ? "Uploading..." : "Upload Cover Image"}</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) handleFileUpload(f, (url) => setFormData((prev) => ({ ...prev, featuredImage: url })));
+                        }}
+                      />
+                    </label>
+                  </div>
+                  {formData.featuredImage && (
+                    <div className="mt-2 flex items-center gap-2">
+                      <div className="relative h-12 w-20 rounded-lg overflow-hidden border border-slate-700 bg-slate-950">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={formData.featuredImage}
+                          alt="Cover preview"
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <span className="text-[11px] text-slate-400 font-mono truncate">{formData.featuredImage}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 

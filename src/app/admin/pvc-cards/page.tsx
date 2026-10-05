@@ -578,7 +578,8 @@ function AdminPvcCardsContent() {
 
                   <div className="flex items-center gap-3">
                     <div className="relative h-20 w-28 rounded-xl overflow-hidden bg-slate-900 border border-slate-800 shrink-0">
-                      <Image src={slide.imageSrc} alt={slide.alt} fill className="object-cover" />
+                      <Image
+                  unoptimized src={slide.imageSrc} alt={slide.alt} fill className="object-cover" />
                     </div>
                     <div className="space-y-1 overflow-hidden">
                       <span className="text-[10px] font-black uppercase text-[#009fe3]">{slide.topBadge}</span>
@@ -993,19 +994,48 @@ function AdminPvcCardsContent() {
       ───────────────────────────────────────────────────────────── */}
       {activeTab === "anatomy" && (
         <div className="rounded-3xl border border-slate-800 bg-slate-900/90 p-6 sm:p-8 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
               <h2 className="text-lg font-black text-white">Anatomy &amp; Layer Architecture</h2>
               <p className="text-xs text-slate-400">The 4 physical layers that compose CR80 smart credentials</p>
             </div>
-            <button
-              onClick={() => handleSaveSection("anatomy")}
-              disabled={savingSection === "anatomy"}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 px-4 py-2 text-xs font-extrabold text-white border border-slate-700 transition"
-            >
-              {savingSection === "anatomy" ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
-              <span>Save Anatomy</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  const nextStep = String(data.anatomy.layers.length + 1).padStart(2, "0");
+                  const newLayer: PvcStackLayer = {
+                    step: nextStep,
+                    title: "New Substrate Layer",
+                    subtitle: "Layer Description Subtitle",
+                    badge: "Custom Layer",
+                    material: "High-density polymer composite",
+                    benefit: "Enhanced structural rigidity and chemical durability.",
+                    iconName: "Box",
+                    img: "/images/PVC Cards Samples/Sample 1.jpg",
+                    details: [
+                      "ISO 7810 compliant core layer",
+                      "Anti-delamination lamination barrier",
+                    ],
+                  };
+                  setData({
+                    ...data,
+                    anatomy: { ...data.anatomy, layers: [...data.anatomy.layers, newLayer] },
+                  });
+                }}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#009fe3]/20 text-[#009fe3] hover:bg-[#009fe3]/30 px-3 py-1.5 text-xs font-bold transition"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Layer</span>
+              </button>
+              <button
+                onClick={() => handleSaveSection("anatomy")}
+                disabled={savingSection === "anatomy"}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 px-4 py-2 text-xs font-extrabold text-white border border-slate-700 transition"
+              >
+                {savingSection === "anatomy" ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
+                <span>Save Anatomy</span>
+              </button>
+            </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
@@ -1015,7 +1045,7 @@ function AdminPvcCardsContent() {
                 type="text"
                 value={data.anatomy.badge}
                 onChange={(e) => setData({ ...data, anatomy: { ...data.anatomy, badge: e.target.value } })}
-                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-xs text-white"
               />
             </div>
             <div>
@@ -1024,33 +1054,112 @@ function AdminPvcCardsContent() {
                 type="text"
                 value={data.anatomy.title}
                 onChange={(e) => setData({ ...data, anatomy: { ...data.anatomy, title: e.target.value } })}
-                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-xs text-white"
               />
             </div>
             <div>
-              <label className="text-xs font-bold text-slate-300 block mb-1">Lede</label>
+              <label className="text-xs font-bold text-slate-300 block mb-1">Lede / Subtitle</label>
               <input
                 type="text"
                 value={data.anatomy.lede}
                 onChange={(e) => setData({ ...data, anatomy: { ...data.anatomy, lede: e.target.value } })}
-                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-xs text-white"
               />
             </div>
           </div>
 
-          <div className="space-y-4 pt-4 border-t border-slate-800">
+          <div className="space-y-6 pt-4 border-t border-slate-800">
             {data.anatomy.layers.map((layer, idx) => (
-              <div key={layer.step} className="rounded-2xl border border-slate-800 bg-slate-950 p-5 space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                  <span className="font-mono text-xs font-black uppercase text-[#009fe3]">
-                    Layer {layer.step}: {layer.title}
-                  </span>
-                  <span className="text-xs font-bold text-slate-400">{layer.badge}</span>
+              <div key={idx} className="rounded-2xl border border-slate-800 bg-slate-950 p-5 space-y-4 relative">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs font-black uppercase text-[#009fe3] bg-slate-900 px-2 py-0.5 rounded">
+                      Layer {layer.step}
+                    </span>
+                    <span className="text-xs font-black text-white">{layer.title}</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const next = data.anatomy.layers.filter((_, i) => i !== idx);
+                      setData({ ...data, anatomy: { ...data.anatomy, layers: next } });
+                    }}
+                    className="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg bg-slate-900 transition"
+                    title="Delete layer"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+
+                {/* Layer Image Preview & Upload */}
+                <div className="flex flex-col sm:flex-row gap-4 items-start bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+                  <div className="relative h-28 w-36 rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shrink-0">
+                    <Image
+                      unoptimized
+                      src={layer.img || "/images/PVC Cards Samples/Sample 1.jpg"}
+                      alt={layer.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-2 w-full">
+                    <label className="text-[10px] font-bold text-slate-400 block">Layer Illustration Image URL / Upload</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={layer.img}
+                        onChange={(e) => {
+                          const next = [...data.anatomy.layers];
+                          next[idx].img = e.target.value;
+                          setData({ ...data, anatomy: { ...data.anatomy, layers: next } });
+                        }}
+                        className="flex-1 rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs font-mono text-slate-300"
+                      />
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-200 transition shrink-0">
+                        <UploadCloud className="h-3.5 w-3.5 text-[#009fe3]" />
+                        <span>{uploadingField === `layer-img-${idx}` ? "..." : "Upload"}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              handleFileUpload(
+                                file,
+                                (url) => {
+                                  const next = [...data.anatomy.layers];
+                                  next[idx].img = url;
+                                  setData({ ...data, anatomy: { ...data.anatomy, layers: next } });
+                                },
+                                `layer-img-${idx}`
+                              );
+                            }
+                          }}
+                        />
+                      </label>
+                    </div>
+                    <p className="text-[10px] text-slate-500">
+                      Upload macro product shot or schematic cross-section for this physical layer.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div>
-                    <label className="text-[10px] font-bold text-slate-400 block">Title</label>
+                    <label className="text-[10px] font-bold text-slate-400 block">Step Number (e.g., 01, 02)</label>
+                    <input
+                      type="text"
+                      value={layer.step}
+                      onChange={(e) => {
+                        const next = [...data.anatomy.layers];
+                        next[idx].step = e.target.value;
+                        setData({ ...data, anatomy: { ...data.anatomy, layers: next } });
+                      }}
+                      className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs font-mono text-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-slate-400 block">Layer Title</label>
                     <input
                       type="text"
                       value={layer.title}
@@ -1088,19 +1197,6 @@ function AdminPvcCardsContent() {
                       className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
                     />
                   </div>
-                  <div className="sm:col-span-2">
-                    <label className="text-[10px] font-bold text-slate-400 block">Material Specification</label>
-                    <input
-                      type="text"
-                      value={layer.material}
-                      onChange={(e) => {
-                        const next = [...data.anatomy.layers];
-                        next[idx].material = e.target.value;
-                        setData({ ...data, anatomy: { ...data.anatomy, layers: next } });
-                      }}
-                      className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
-                    />
-                  </div>
                   <div>
                     <label className="text-[10px] font-bold text-slate-400 block">Icon Name (Box, Radio, Sparkles, ShieldCheck)</label>
                     <input
@@ -1115,7 +1211,20 @@ function AdminPvcCardsContent() {
                     />
                   </div>
                   <div className="sm:col-span-3">
-                    <label className="text-[10px] font-bold text-slate-400 block">Performance Benefit</label>
+                    <label className="text-[10px] font-bold text-slate-400 block">Material Specification</label>
+                    <input
+                      type="text"
+                      value={layer.material}
+                      onChange={(e) => {
+                        const next = [...data.anatomy.layers];
+                        next[idx].material = e.target.value;
+                        setData({ ...data, anatomy: { ...data.anatomy, layers: next } });
+                      }}
+                      className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
+                    />
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label className="text-[10px] font-bold text-slate-400 block">Functional Performance Benefit</label>
                     <input
                       type="text"
                       value={layer.benefit}
@@ -1128,7 +1237,7 @@ function AdminPvcCardsContent() {
                     />
                   </div>
                   <div className="sm:col-span-3">
-                    <label className="text-[10px] font-bold text-slate-400 block">Key Bullet Points (one per line)</label>
+                    <label className="text-[10px] font-bold text-slate-400 block">Key Technical Characteristics (one per line)</label>
                     <textarea
                       rows={3}
                       value={layer.details.join("\n")}
@@ -1152,19 +1261,52 @@ function AdminPvcCardsContent() {
       ───────────────────────────────────────────────────────────── */}
       {activeTab === "rangeMaster" && (
         <div className="rounded-3xl border border-slate-800 bg-slate-900/90 p-6 sm:p-8 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
               <h2 className="text-lg font-black text-white">Master Hardware Showcase</h2>
               <p className="text-xs text-slate-400">Detailed showcase tabs with engineering parameters and setups</p>
             </div>
-            <button
-              onClick={() => handleSaveSection("rangeMaster")}
-              disabled={savingSection === "rangeMaster"}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 px-4 py-2 text-xs font-extrabold text-white border border-slate-700 transition"
-            >
-              {savingSection === "rangeMaster" ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
-              <span>Save Showcase</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  const newSec: MasterPvcSection = {
+                    code: `Variant-${data.rangeMaster.sections.length + 1}`,
+                    badge: "Bank Grade Core",
+                    title: "New PVC Smart Card Variant",
+                    tagline: "High-performance substrate for enterprise credentials.",
+                    description:
+                      "Engineered with 100% virgin polyvinyl chloride plastic with enhanced microchip integration capability.",
+                    image: "/images/PVC Cards Samples/Sample 1.jpg",
+                    alt: "New PVC Card Specimen",
+                    setup: "CR80 (85.6 × 54.0 mm) + 0.76 mm 30-Mil + Thermal Sublimation",
+                    suitable: ["Corporate Staff", "Student Passes"],
+                    specs: [
+                      { k: "Dimensions", v: "85.6 mm × 54.0 mm (CR80)" },
+                      { k: "Thickness", v: "30-Mil (0.76 mm Bank Standard)" },
+                      { k: "Core Material", v: "100% Virgin White PVC" },
+                      { k: "Print Quality", v: "300 DPI Edge-to-Edge Color" },
+                    ],
+                    conclusion: "Flawless optical whiteness prevents printhead snags.",
+                  };
+                  setData({
+                    ...data,
+                    rangeMaster: { ...data.rangeMaster, sections: [...data.rangeMaster.sections, newSec] },
+                  });
+                }}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-[#009fe3]/20 text-[#009fe3] hover:bg-[#009fe3]/30 px-3 py-1.5 text-xs font-bold transition"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Hardware Variant</span>
+              </button>
+              <button
+                onClick={() => handleSaveSection("rangeMaster")}
+                disabled={savingSection === "rangeMaster"}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 px-4 py-2 text-xs font-extrabold text-white border border-slate-700 transition"
+              >
+                {savingSection === "rangeMaster" ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
+                <span>Save Showcase</span>
+              </button>
+            </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
@@ -1174,7 +1316,7 @@ function AdminPvcCardsContent() {
                 type="text"
                 value={data.rangeMaster.badge}
                 onChange={(e) => setData({ ...data, rangeMaster: { ...data.rangeMaster, badge: e.target.value } })}
-                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-xs text-white"
               />
             </div>
             <div>
@@ -1183,31 +1325,109 @@ function AdminPvcCardsContent() {
                 type="text"
                 value={data.rangeMaster.title}
                 onChange={(e) => setData({ ...data, rangeMaster: { ...data.rangeMaster, title: e.target.value } })}
-                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-xs text-white"
               />
             </div>
             <div>
-              <label className="text-xs font-bold text-slate-300 block mb-1">Lede</label>
+              <label className="text-xs font-bold text-slate-300 block mb-1">Lede / Subtitle</label>
               <input
                 type="text"
                 value={data.rangeMaster.lede}
                 onChange={(e) => setData({ ...data, rangeMaster: { ...data.rangeMaster, lede: e.target.value } })}
-                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-xs text-white"
               />
             </div>
           </div>
 
-          <div className="space-y-4 pt-4 border-t border-slate-800">
+          <div className="space-y-6 pt-4 border-t border-slate-800">
             {data.rangeMaster.sections.map((sec, idx) => (
-              <div key={sec.code} className="rounded-2xl border border-slate-800 bg-slate-950 p-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                  <span className="font-mono text-xs font-black uppercase text-[#009fe3]">{sec.code}</span>
-                  <span className="text-xs font-bold text-slate-400">{sec.badge}</span>
+              <div key={idx} className="rounded-2xl border border-slate-800 bg-slate-950 p-5 space-y-4 relative">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs font-black uppercase text-[#009fe3] bg-slate-900 px-2 py-0.5 rounded">
+                      {sec.code}
+                    </span>
+                    <span className="text-xs font-black text-white">{sec.title}</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const next = data.rangeMaster.sections.filter((_, i) => i !== idx);
+                      setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
+                    }}
+                    className="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg bg-slate-900 transition"
+                    title="Delete variant"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+
+                {/* Section Image Preview & Upload */}
+                <div className="flex flex-col sm:flex-row gap-4 items-start bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+                  <div className="relative h-32 w-48 rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shrink-0">
+                    <Image
+                      unoptimized
+                      src={sec.image || "/images/PVC Cards Samples/Sample 1.jpg"}
+                      alt={sec.alt || sec.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-2 w-full">
+                    <label className="text-[10px] font-bold text-slate-400 block">Variant Image URL / Upload</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={sec.image}
+                        onChange={(e) => {
+                          const next = [...data.rangeMaster.sections];
+                          next[idx].image = e.target.value;
+                          setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
+                        }}
+                        className="flex-1 rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs font-mono text-slate-300"
+                      />
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-200 transition shrink-0">
+                        <UploadCloud className="h-3.5 w-3.5 text-[#009fe3]" />
+                        <span>{uploadingField === `range-sec-${idx}` ? "..." : "Upload"}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              handleFileUpload(
+                                file,
+                                (url) => {
+                                  const next = [...data.rangeMaster.sections];
+                                  next[idx].image = url;
+                                  setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
+                                },
+                                `range-sec-${idx}`
+                              );
+                            }
+                          }}
+                        />
+                      </label>
+                    </div>
+                    <div>
+                      <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Image Alt Text</label>
+                      <input
+                        type="text"
+                        value={sec.alt}
+                        onChange={(e) => {
+                          const next = [...data.rangeMaster.sections];
+                          next[idx].alt = e.target.value;
+                          setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
+                        }}
+                        className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-300"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div>
-                    <label className="text-[10px] font-bold text-slate-400 block">Code</label>
+                    <label className="text-[10px] font-bold text-slate-400 block">Nav Code (e.g., Standard 30-Mil CR80)</label>
                     <input
                       type="text"
                       value={sec.code}
@@ -1220,7 +1440,7 @@ function AdminPvcCardsContent() {
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] font-bold text-slate-400 block">Badge</label>
+                    <label className="text-[10px] font-bold text-slate-400 block">Badge Tag</label>
                     <input
                       type="text"
                       value={sec.badge}
@@ -1233,7 +1453,7 @@ function AdminPvcCardsContent() {
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] font-bold text-slate-400 block">Title</label>
+                    <label className="text-[10px] font-bold text-slate-400 block">Variant Title</label>
                     <input
                       type="text"
                       value={sec.title}
@@ -1271,8 +1491,8 @@ function AdminPvcCardsContent() {
                       className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
                     />
                   </div>
-                  <div className="sm:col-span-2">
-                    <label className="text-[10px] font-bold text-slate-400 block">Production Setup Text</label>
+                  <div className="sm:col-span-3">
+                    <label className="text-[10px] font-bold text-slate-400 block">Production Setup Formula</label>
                     <input
                       type="text"
                       value={sec.setup}
@@ -1284,23 +1504,50 @@ function AdminPvcCardsContent() {
                       className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
                     />
                   </div>
-                  <div>
-                    <label className="text-[10px] font-bold text-slate-400 block">Image Source</label>
-                    <input
-                      type="text"
-                      value={sec.image}
-                      onChange={(e) => {
-                        const next = [...data.rangeMaster.sections];
-                        next[idx].image = e.target.value;
-                        setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
-                      }}
-                      className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs font-mono text-slate-300"
-                    />
+                </div>
+
+                {/* Specs Cards Grid (4 specs) */}
+                <div className="space-y-2 pt-2 border-t border-slate-800/80">
+                  <label className="text-[10px] font-bold text-slate-400 block">Technical Specifications (4 Spec Cards)</label>
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {sec.specs.map((sp, specIdx) => (
+                      <div key={specIdx} className="rounded-xl border border-slate-800 bg-slate-900 p-2.5 space-y-1.5">
+                        <div>
+                          <label className="text-[9px] font-bold text-slate-500 uppercase block">Label</label>
+                          <input
+                            type="text"
+                            value={sp.k}
+                            onChange={(e) => {
+                              const next = [...data.rangeMaster.sections];
+                              next[idx].specs[specIdx].k = e.target.value;
+                              setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
+                            }}
+                            className="w-full rounded-md border border-slate-800 bg-slate-950 px-2 py-1 text-xs text-slate-300 font-bold"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[9px] font-bold text-slate-500 uppercase block">Value</label>
+                          <input
+                            type="text"
+                            value={sp.v}
+                            onChange={(e) => {
+                              const next = [...data.rangeMaster.sections];
+                              next[idx].specs[specIdx].v = e.target.value;
+                              setData({ ...data, rangeMaster: { ...data.rangeMaster, sections: next } });
+                            }}
+                            className="w-full rounded-md border border-slate-800 bg-slate-950 px-2 py-1 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="sm:col-span-3">
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2 pt-2 border-t border-slate-800/80">
+                  <div>
                     <label className="text-[10px] font-bold text-slate-400 block">Suitable Applications (comma-separated)</label>
-                    <input
-                      type="text"
+                    <textarea
+                      rows={3}
                       value={sec.suitable.join(", ")}
                       onChange={(e) => {
                         const next = [...data.rangeMaster.sections];
@@ -1310,10 +1557,10 @@ function AdminPvcCardsContent() {
                       className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
                     />
                   </div>
-                  <div className="sm:col-span-3">
-                    <label className="text-[10px] font-bold text-slate-400 block">Quality Standard / Conclusion</label>
-                    <input
-                      type="text"
+                  <div>
+                    <label className="text-[10px] font-bold text-slate-400 block">Quality Standard / Conclusion Note</label>
+                    <textarea
+                      rows={3}
                       value={sec.conclusion}
                       onChange={(e) => {
                         const next = [...data.rangeMaster.sections];

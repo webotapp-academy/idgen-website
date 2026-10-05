@@ -57,17 +57,17 @@ export const states: StateContent[] = [
           "IDGen provides customized and bulk ID card printing in Silchar, Assam, including student, employee, event and RFID cards, custom lanyards, holders and ID accessories.",
       },
       {
-        slug: "tezpur",
-        name: "Tezpur",
+        slug: "sonitpur",
+        name: "Sonitpur",
         isPrimary: false,
         heroIntro:
-          "IDGen provides customized and bulk identification products for organizations in Tezpur, Assam, serving central university faculties, research centres, and schools.",
+          "IDGen provides customized and bulk identification products for organizations in Sonitpur and Tezpur, Assam, serving central university faculties, research centres, and schools.",
         localColor:
           "Tezpur is the cultural capital of Sonitpur district and home to Tezpur University, LGBRIMH, and regional defence establishments.",
         nearbyAreas: ["Napaam", "Mahabhairab", "Dekargaon", "Bamuni", "Dhekiajuli", "Balipara", "Rangapara", "Chariduar", "Jamugurihat", "Sootea"],
-        metaTitle: "ID Card Printing in Tezpur, Assam | Student & Employee ID Cards | IDGen",
+        metaTitle: "ID Card Printing in Sonitpur & Tezpur, Assam | Student & Employee ID Cards",
         metaDescription:
-          "IDGen provides customized and bulk ID card printing in Tezpur, Assam for schools, colleges, companies, institutions and events, with lanyards, holders and RFID options.",
+          "IDGen provides customized and bulk ID card printing in Sonitpur and Tezpur, Assam for schools, colleges, companies, institutions and events, with lanyards, holders and RFID options.",
       },
       {
         slug: "nagaon",

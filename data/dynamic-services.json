@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "metaTitle": "Identity Printing & Manufacturing Services | IDGen",
+    "metaDescription": "Explore IDGen's specialized identity services: PVC ID card printing, RFID/NFC credentials, custom satin lanyards, ultrasonic sealing, and cloud identity management.",
+    "metaKeywords": [
+      "ID Card Printing Services",
+      "PVC ID Cards Guwahati",
+      "Custom Lanyards Assam",
+      "Student ID Card Printing",
+      "Employee Badges",
+      "RFID Card Printing"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Direct Factory Services",
+    "title": "Comprehensive Identity & Credential Services",
+    "lede": "From 30-mil PVC smart cards and contactless RFID badges to full-color satin lanyards and ultrasonic finishing, IDGen delivers complete wearable identification manufactured under one roof in Guwahati.",
+    "stats": [
+      {
+        "label": "Daily Output",
+        "value": "10,000+ IDs"
+      },
+      {
+        "label": "Dispatch Timeline",
+        "value": "48–72h"
+      },
+      {
+        "label": "Print Technology",
+        "value": "Thermal Retransfer"
+      },
+      {
+        "label": "Artwork Setup",
+        "value": "Zero Fee"
+      }
+    ],
+    "primaryImage": "/images/ID Card Full Set Samples/Sample 1.jpeg",
+    "secondaryImage": "/images/Event Card/Events Card with 2 hook.png",
+    "accentImage": "/images/Lanyard with Hook Samples/Sample 12.jpg"
+  },
+  "cardSection": {
+    "eyebrow": "Card Manufacturing",
+    "title": "CR80 PVC & RFID Smart Card Printing",
+    "lede": "Engineered for universities, tech parks, hospitals, and events requiring high-definition graphics and security encoding."
+  },
+  "lanyardSection": {
+    "eyebrow": "Lanyards & Assembly",
+    "title": "Custom Lanyards & Finishing Services",
+    "lede": "Direct factory dye-sublimation and ultrasonic welding for comfortable, tear-proof daily identification."
+  },
+  "accessoriesTeaser": {
+    "eyebrow": "Hardware Accessories & Holders",
+    "title": "Looking for ID Card Holders & Hardware Hooks?",
+    "lede": "Complete your card setup with crystal acrylic cases, horizontal/vertical four-side-lock holders, and anti-rust swivel carabiners manufactured for maximum durability.",
+    "primaryButtonText": "Explore Card Holders",
+    "primaryButtonLink": "/id-card-holders/",
+    "secondaryButtonText": "Explore Lanyard Hooks",
+    "secondaryButtonLink": "/id-card-hooks/"
+  },
+  "ctaBand": {
+    "title": "Need custom printing specifications or combined kits?",
+    "body": "Contact our technical production team to review card samples, RFID reader compatibility, and custom lanyard artwork proofs.",
+    "primaryButtonText": "Request a Quote",
+    "primaryButtonLink": "/request-a-quote/",
+    "secondaryButtonText": "Explore IDGen Studio",
+    "secondaryButtonLink": "/idgen-studio/",
+    "pricingButtonText": "View Pricing Tiers",
+    "pricingButtonLink": "/pricing/"
+  },
+  "services": [
+    {
+      "id": "pvc-id-card-printing",
+      "title": "PVC ID Card Printing",
+      "slug": "id-card-printing",
+      "path": "/id-card-printing/",
+      "category": "cards",
+      "categoryLabel": "Card Manufacturing",
+      "shortDescription": "High-resolution thermal retransfer and direct-to-card PVC printing for schools, universities, hospitals, and corporate organizations.",
+      "imageSrc": "/images/PVC Cards Samples/Sample 1.jpg",
+      "imageAlt": "PVC ID Card Printing Specimen",
+      "tag": "30-Mil CR80",
+      "badge": "Core Service",
+      "showInDropdown": true,
+      "order": 1,
+      "isActive": true,
+      "iconKey": "Layers"
+    },
+    {
+      "id": "student-id-card-printing",
+      "title": "Student ID Card Printing",
+      "slug": "student-id-card-printing",
+      "path": "/student-id-card-printing/",
+      "category": "cards",
+      "categoryLabel": "Card Manufacturing",
+      "shortDescription": "High-volume student identification for schools and colleges, featuring automated roster imports, batch photo cropping, and library barcodes.",
+      "imageSrc": "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
+      "imageAlt": "Student ID Card Printing Service for Schools",
+      "tag": "Education",
+      "badge": "Bulk Intake",
+      "showInDropdown": true,
+      "order": 2,
+      "isActive": true,
+      "iconKey": "GraduationCap"
+    },
+    {
+      "id": "employee-id-card-printing",
+      "title": "Employee ID Card Printing",
+      "slug": "employee-id-card-printing",
+      "path": "/employee-id-card-printing/",
+      "category": "cards",
+      "categoryLabel": "Card Manufacturing",
+      "shortDescription": "Corporate employee badges with RFID turnstile integration, executive finishes, department color bands, and security holograms.",
+      "imageSrc": "/images/ID Card Full Set Samples/High-quality Employee ID Cards and Staff Identity Cards delivered to clients in Guwahati and Assam.jpg",
+      "imageAlt": "Corporate Employee ID Card Printing",
+      "tag": "Corporate",
+      "badge": "Enterprise",
+      "showInDropdown": true,
+      "order": 3,
+      "isActive": true,
+      "iconKey": "Building2"
+    },
+    {
+      "id": "custom-printed-lanyard-printing",
+      "title": "Custom Printed Satin Lanyards",
+      "slug": "custom-printed-lanyard-printing",
+      "path": "/custom-printed-lanyard-printing/",
+      "category": "lanyards",
+      "categoryLabel": "Lanyards & Assembly",
+      "shortDescription": "Full-color dye-sublimated 20mm satin lanyards with sharp continuous logo printing, safety breakaways, and heavy-duty swivel dog hooks.",
+      "imageSrc": "/images/Lanyard with Hook Samples/Sample 1.jpeg",
+      "imageAlt": "Custom Printed Satin Lanyards IDGen",
+      "tag": "20mm Satin Sublimation",
+      "badge": "Bestseller",
+      "showInDropdown": true,
+      "order": 4,
+      "isActive": true,
+      "iconKey": "Tag"
+    },
+    {
+      "id": "event-card-printing",
+      "title": "Event & Conference Badges",
+      "slug": "event-card-printing",
+      "path": "/event-card-printing/",
+      "category": "cards",
+      "categoryLabel": "Card Manufacturing",
+      "shortDescription": "Oversized VIP passes, delegate badges, and accreditation credentials with dual-hook anti-twist lanyards and fast event turnaround.",
+      "imageSrc": "/images/Event Card/Events Card with 2 hook.png",
+      "imageAlt": "Event & Conference Badge Printing with Dual Hooks",
+      "tag": "Summits & Expos",
+      "badge": "VIP Credentials",
+      "showInDropdown": true,
+      "order": 5,
+      "isActive": true,
+      "iconKey": "CalendarDays"
+    },
+    {
+      "id": "rfid-card-printing",
+      "title": "RFID & NFC Smart Card Printing",
+      "slug": "rfid-card-printing",
+      "path": "/rfid-card-printing/",
+      "category": "cards",
+      "categoryLabel": "Card Manufacturing",
+      "shortDescription": "13.56 MHz (Mifare, DESFire, NTAG) and 125 kHz contactless smart cards customized with high-security encoding and durable lamination.",
+      "imageSrc": "/images/ID Card Full Set Samples/IMG20250328133145.jpg",
+      "imageAlt": "Contactless RFID Smart Card Printing",
+      "tag": "13.56 MHz / 125 kHz",
+      "badge": "Contactless",
+      "showInDropdown": true,
+      "order": 6,
+      "isActive": true,
+      "iconKey": "Radio"
+    },
+    {
+      "id": "ultrasonic-sealing",
+      "title": "Precision Ultrasonic Sealing",
+      "slug": "ultrasonic-sealing",
+      "path": "/ultrasonic-sealing/",
+      "category": "finishing",
+      "categoryLabel": "Lanyards & Assembly",
+      "shortDescription": "Acoustic high-frequency welding that seamlessly bonds lanyard ribbon loops, delivering 18kg+ pull resistance with zero staples or loose threads.",
+      "imageSrc": "/images/Lanyard with Holder Samples/Sample 26.jpg",
+      "imageAlt": "Ultrasonic Sealing of Lanyards by IDGen",
+      "tag": "Hermetic Weld",
+      "badge": "Heavy Duty",
+      "showInDropdown": true,
+      "order": 7,
+      "isActive": true,
+      "iconKey": "Flame"
+    },
+    {
+      "id": "membership-card-printing",
+      "title": "Membership & Loyalty Cards",
+      "slug": "membership-card-printing",
+      "path": "/membership-card-printing/",
+      "category": "cards",
+      "categoryLabel": "Card Manufacturing",
+      "shortDescription": "Premium VIP club membership cards with embossed foil stamping, magnetic stripes, smart chips, and luxury matte or gloss surfaces.",
+      "imageSrc": "/images/PVC Cards Samples/Sample 3.jpg",
+      "imageAlt": "Membership & Loyalty Card Printing",
+      "tag": "Retail & Clubs",
+      "badge": "VIP Cards",
+      "showInDropdown": true,
+      "order": 8,
+      "isActive": true,
+      "iconKey": "Sparkles"
+    }
+  ]
+}

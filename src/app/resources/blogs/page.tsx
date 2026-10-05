@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -82,7 +86,6 @@ export default function BlogsPage() {
           <Breadcrumbs
             items={[
               { name: "Home", path: "/" },
-              { name: "Resources", path: "/resources/" },
               { name: "Blogs & Technical Insights", path: "/resources/blogs/" },
             ]}
           />

@@ -28,7 +28,7 @@ import {
   HelpCircle,
   Search,
 } from "lucide-react";
-import type { DynamicPricingPageData, PricingSlideData } from "@/lib/dynamic-pricing-types";
+import type { DynamicPricingPageData, PricingSlideData, SetupTierData } from "@/lib/dynamic-pricing-types";
 import type { PricingAdminTab } from "@/app/admin/pricing/page";
 
 const presetImages = [
@@ -51,6 +51,7 @@ interface AdminPricingPageSectionsProps {
     section: K,
     data: DynamicPricingPageData[K]
   ) => Promise<void>;
+  onSaveHeroBundle?: () => Promise<void>;
   onSaveFullPage: () => Promise<void>;
   onResetPage: () => Promise<void>;
   onSlideImageUpload: (e: React.ChangeEvent<HTMLInputElement>, slideIndex: number) => Promise<void>;
@@ -62,6 +63,7 @@ export function AdminPricingPageSections({
   setPageData,
   savingSection,
   onSaveSection,
+  onSaveHeroBundle,
   onSaveFullPage,
   onResetPage,
   onSlideImageUpload,
@@ -94,31 +96,49 @@ export function AdminPricingPageSections({
               Customize the headline, rates ribbon, call-to-action buttons, and all slides in the hero slider.
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
-              onClick={() => onSaveSection("hero", pageData.hero)}
-              disabled={savingSection === "hero"}
-              className="px-4 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-lg shadow-teal-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+              onClick={() => (onSaveHeroBundle ? onSaveHeroBundle() : onSaveFullPage())}
+              disabled={savingSection === "hero_bundle" || savingSection === "hero" || savingSection === "heroSlides"}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 text-slate-950 font-black text-xs shadow-lg shadow-teal-500/25 transition flex items-center gap-2 cursor-pointer disabled:opacity-50"
             >
               <Save className="h-4 w-4" />
-              <span>{savingSection === "hero" ? "Saving..." : "Save Hero Text"}</span>
+              <span>{savingSection === "hero_bundle" ? "Saving All Hero Changes..." : "Save All (Headline & Slides)"}</span>
+            </button>
+            <button
+              onClick={() => onSaveSection("hero", pageData.hero)}
+              disabled={savingSection === "hero" || savingSection === "hero_bundle"}
+              className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 font-bold text-xs border border-teal-500/30 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+            >
+              <Save className="h-3.5 w-3.5" />
+              <span>{savingSection === "hero" ? "Saving..." : "Save Headline Only"}</span>
             </button>
             <button
               onClick={() => onSaveSection("heroSlides", pageData.heroSlides)}
-              disabled={savingSection === "heroSlides"}
-              className="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+              disabled={savingSection === "heroSlides" || savingSection === "hero_bundle"}
+              className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-bold text-xs border border-cyan-500/30 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
             >
-              <Save className="h-4 w-4" />
-              <span>{savingSection === "heroSlides" ? "Saving..." : "Save Slides"}</span>
+              <Save className="h-3.5 w-3.5" />
+              <span>{savingSection === "heroSlides" ? "Saving..." : "Save Slides Only"}</span>
             </button>
           </div>
         </div>
 
         {/* Hero Copy Fields */}
         <div className="rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-8 space-y-6">
-          <h3 className="text-sm font-extrabold text-white uppercase tracking-wider text-teal-400 border-b border-slate-800 pb-3">
-            Hero Headline &amp; Text
-          </h3>
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <h3 className="text-sm font-extrabold text-white uppercase tracking-wider text-teal-400">
+              Hero Headline &amp; Text
+            </h3>
+            <button
+              onClick={() => onSaveSection("hero", pageData.hero)}
+              disabled={savingSection === "hero" || savingSection === "hero_bundle"}
+              className="px-3.5 py-1.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md shadow-teal-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+            >
+              <Save className="h-3.5 w-3.5" />
+              <span>{savingSection === "hero" ? "Saving..." : "Save Hero Headline"}</span>
+            </button>
+          </div>
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label className="block text-xs font-bold text-slate-300 mb-1.5">Eyebrow Pill</label>
@@ -298,11 +318,26 @@ export function AdminPricingPageSections({
               />
             </div>
           </div>
+
+          {/* Hero Copy Footer Save Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-800">
+            <p className="text-xs text-slate-400">
+              Save changes to Eyebrow Pill, Title, Gradient Text, Description, Rates Banner &amp; CTA Buttons.
+            </p>
+            <button
+              onClick={() => onSaveSection("hero", pageData.hero)}
+              disabled={savingSection === "hero" || savingSection === "hero_bundle"}
+              className="px-4 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md shadow-teal-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50 self-end sm:self-auto"
+            >
+              <Save className="h-4 w-4" />
+              <span>{savingSection === "hero" ? "Saving Headline..." : "Save Hero Headline & Text"}</span>
+            </button>
+          </div>
         </div>
 
         {/* Hero Slides Manager */}
         <div className="rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-8 space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
             <div>
               <h3 className="text-sm font-extrabold text-white uppercase tracking-wider text-cyan-400">
                 Hero Carousel Slides ({pageData.heroSlides.length})
@@ -311,31 +346,41 @@ export function AdminPricingPageSections({
                 Manage slide images, rates tags, categories, and technical pills.
               </p>
             </div>
-            <button
-              onClick={() => {
-                const newSlide: PricingSlideData = {
-                  id: `slide-${Date.now()}`,
-                  imageSrc: "/images/idgen-id-card-printing-pricing.jpg",
-                  alt: "IDGen New Product Pricing",
-                  title: "New Product Title",
-                  category: "Product Category",
-                  priceTag: "From ₹15 / pc",
-                  topBadge: "Top Badge",
-                  specPill: "Spec Pill",
-                  bottomSpec: "Spec Details • Highlights",
-                  hubTag: "DIRECT FACTORY",
-                  isActive: true,
-                };
-                setPageData({
-                  ...pageData,
-                  heroSlides: [...pageData.heroSlides, newSlide],
-                });
-              }}
-              className="px-3.5 py-2 rounded-xl bg-cyan-950/80 border border-cyan-800/60 hover:bg-cyan-900 text-cyan-300 font-bold text-xs flex items-center gap-1.5 cursor-pointer"
-            >
-              <Plus className="h-3.5 w-3.5" />
-              <span>Add Slide</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  const newSlide: PricingSlideData = {
+                    id: `slide-${Date.now()}`,
+                    imageSrc: "/images/idgen-id-card-printing-pricing.jpg",
+                    alt: "IDGen New Product Pricing",
+                    title: "New Product Title",
+                    category: "Product Category",
+                    priceTag: "From ₹15 / pc",
+                    topBadge: "Top Badge",
+                    specPill: "Spec Pill",
+                    bottomSpec: "Spec Details • Highlights",
+                    hubTag: "DIRECT FACTORY",
+                    isActive: true,
+                  };
+                  setPageData({
+                    ...pageData,
+                    heroSlides: [...pageData.heroSlides, newSlide],
+                  });
+                }}
+                className="px-3.5 py-2 rounded-xl bg-cyan-950/80 border border-cyan-800/60 hover:bg-cyan-900 text-cyan-300 font-bold text-xs flex items-center gap-1.5 cursor-pointer"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Slide</span>
+              </button>
+              <button
+                onClick={() => onSaveSection("heroSlides", pageData.heroSlides)}
+                disabled={savingSection === "heroSlides" || savingSection === "hero_bundle"}
+                className="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+              >
+                <Save className="h-3.5 w-3.5" />
+                <span>{savingSection === "heroSlides" ? "Saving Slides..." : "Save Carousel Slides"}</span>
+              </button>
+            </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -533,6 +578,21 @@ export function AdminPricingPageSections({
               </div>
             ))}
           </div>
+
+          {/* Hero Slides Footer Save Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-800">
+            <p className="text-xs text-slate-400">
+              Save changes to all {pageData.heroSlides.length} slide images, badges, prices and active status.
+            </p>
+            <button
+              onClick={() => onSaveSection("heroSlides", pageData.heroSlides)}
+              disabled={savingSection === "heroSlides" || savingSection === "hero_bundle"}
+              className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50 self-end sm:self-auto"
+            >
+              <Save className="h-4 w-4" />
+              <span>{savingSection === "heroSlides" ? "Saving Slides..." : "Save Carousel Slides"}</span>
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -684,6 +744,138 @@ export function AdminPricingPageSections({
                     }}
                     className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-slate-300"
                   />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Setup Tiers Configuration */}
+          <div className="space-y-4 pt-6 border-t border-slate-800">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-extrabold uppercase tracking-wider text-cyan-400">
+                  Identification Setup Tiers ({pageData.setupTiers?.length || 0})
+                </span>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Configure card-only, holder-included, and wearable complete assembly packages.
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newTier: SetupTierData = {
+                      title: "New Tier Package",
+                      badge: "Standard",
+                      formula: ["ID Card", "Lanyard"],
+                      desc: "Description of this tier setup package.",
+                    };
+                    setPageData({
+                      ...pageData,
+                      setupTiers: [...(pageData.setupTiers || []), newTier],
+                    });
+                  }}
+                  className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 text-xs font-bold flex items-center gap-1"
+                >
+                  <Plus className="h-3 w-3" />
+                  <span>Add Tier</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onSaveSection("setupTiers", pageData.setupTiers)}
+                  disabled={savingSection === "setupTiers"}
+                  className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                >
+                  <Save className="h-4 w-4" />
+                  <span>{savingSection === "setupTiers" ? "Saving..." : "Save Setup Tiers"}</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {(pageData.setupTiers || []).map((tier, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 relative group hover:border-cyan-800/60 transition"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-cyan-400 uppercase">
+                      Tier #{idx + 1}: {tier.title}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const updated = (pageData.setupTiers || []).filter((_, i) => i !== idx);
+                        setPageData({
+                          ...pageData,
+                          setupTiers: updated,
+                        });
+                      }}
+                      className="text-slate-500 hover:text-rose-400 p-1"
+                      title="Delete Tier"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    <div>
+                      <label className="block text-[11px] text-slate-400 mb-1">Tier Title</label>
+                      <input
+                        type="text"
+                        value={tier.title}
+                        onChange={(e) => {
+                          const updated = [...(pageData.setupTiers || [])];
+                          updated[idx] = { ...updated[idx], title: e.target.value };
+                          setPageData({ ...pageData, setupTiers: updated });
+                        }}
+                        className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-bold text-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] text-slate-400 mb-1">Badge Pill</label>
+                      <input
+                        type="text"
+                        value={tier.badge}
+                        onChange={(e) => {
+                          const updated = [...(pageData.setupTiers || [])];
+                          updated[idx] = { ...updated[idx], badge: e.target.value };
+                          setPageData({ ...pageData, setupTiers: updated });
+                        }}
+                        className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-cyan-300 font-bold"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-[11px] text-slate-400 mb-1">
+                      Formula Components (comma-separated)
+                    </label>
+                    <input
+                      type="text"
+                      value={(tier.formula || []).join(", ")}
+                      onChange={(e) => {
+                        const updated = [...(pageData.setupTiers || [])];
+                        updated[idx] = {
+                          ...updated[idx],
+                          formula: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
+                        };
+                        setPageData({ ...pageData, setupTiers: updated });
+                      }}
+                      className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] text-slate-400 mb-1">Description</label>
+                    <textarea
+                      rows={2}
+                      value={tier.desc}
+                      onChange={(e) => {
+                        const updated = [...(pageData.setupTiers || [])];
+                        updated[idx] = { ...updated[idx], desc: e.target.value };
+                        setPageData({ ...pageData, setupTiers: updated });
+                      }}
+                      className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-slate-300"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

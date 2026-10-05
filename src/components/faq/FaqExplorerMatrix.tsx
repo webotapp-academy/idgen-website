@@ -282,33 +282,35 @@ export function FaqExplorerMatrix({
                         </div>
                       </button>
 
-                      {isOpen && (
-                        <div className="border-t border-slate-100 dark:border-slate-800 px-4 sm:px-5 pb-5 pt-3 animate-fadeIn">
-                          <div className="rounded-xl bg-white/80 dark:bg-slate-950/60 p-4 border border-slate-200/60 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                            <p className="flex-1">{faq.a}</p>
+                      <div
+                        className={`border-t border-slate-100 dark:border-slate-800 px-4 sm:px-5 pb-5 pt-3 ${
+                          isOpen ? "block animate-fadeIn" : "hidden"
+                        }`}
+                      >
+                        <div className="rounded-xl bg-white/80 dark:bg-slate-950/60 p-4 border border-slate-200/60 dark:border-slate-800 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                          <p className="flex-1">{faq.a}</p>
 
-                            <div className="flex items-center gap-2 shrink-0 self-end sm:self-start">
-                              <button
-                                onClick={() => copyAnswer(faq, itemId)}
-                                title="Copy Question & Answer"
-                                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-800 transition"
-                              >
-                                {copiedId === itemId ? (
-                                  <>
-                                    <Check className="h-3 w-3 text-emerald-500" />
-                                    <span className="text-emerald-600">Copied!</span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Copy className="h-3 w-3" />
-                                    <span>Copy</span>
-                                  </>
-                                )}
-                              </button>
-                            </div>
+                          <div className="flex items-center gap-2 shrink-0 self-end sm:self-start">
+                            <button
+                              onClick={() => copyAnswer(faq, itemId)}
+                              title="Copy Question & Answer"
+                              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-slate-800 transition"
+                            >
+                              {copiedId === itemId ? (
+                                <>
+                                  <Check className="h-3 w-3 text-emerald-500" />
+                                  <span className="text-emerald-600">Copied!</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Copy className="h-3 w-3" />
+                                  <span>Copy</span>
+                                </>
+                              )}
+                            </button>
                           </div>
                         </div>
-                      )}
+                      </div>
                     </div>
                   );
                 })}

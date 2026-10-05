@@ -49,10 +49,34 @@ export async function POST(request: Request) {
 
     if (section && sectionData) {
       const current = getDynamicContactUs();
-      const updated = {
+      const updated: any = {
         ...current,
         [section]: sectionData,
       };
+
+      // Keep hero address card settings and facility card settings perfectly in sync
+      if (section === "hero") {
+        if (sectionData.address !== undefined) {
+          updated.facility = { ...updated.facility, address: sectionData.address };
+        }
+        if (sectionData.landmark !== undefined) {
+          updated.facility = { ...updated.facility, landmark: sectionData.landmark };
+        }
+        if (sectionData.operatingHours !== undefined) {
+          updated.facility = { ...updated.facility, operatingHours: sectionData.operatingHours };
+        }
+      } else if (section === "facility") {
+        if (sectionData.address !== undefined) {
+          updated.hero = { ...updated.hero, address: sectionData.address };
+        }
+        if (sectionData.landmark !== undefined) {
+          updated.hero = { ...updated.hero, landmark: sectionData.landmark };
+        }
+        if (sectionData.operatingHours !== undefined) {
+          updated.hero = { ...updated.hero, operatingHours: sectionData.operatingHours };
+        }
+      }
+
       const saved = saveDynamicContactUs(updated as DynamicContactUsData);
       return NextResponse.json({
         success: true,

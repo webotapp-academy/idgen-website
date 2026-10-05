@@ -1,6 +1,6 @@
 {
   "name": "idgen-web",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "private": true,
   "scripts": {
     "dev": "next dev --webpack -p 3012",
@@ -18,6 +18,8 @@
     "lucide-react": "^1.31.0",
     "next": "16.2.10",
     "nodemailer": "^10.0.8",
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^6.3.289",
     "postgres": "^3.4.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -31,8 +33,14 @@
     "drizzle-kit": "^0.31.10",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
+    "ssh2": "^1.17.0",
     "tailwindcss": "^4",
     "tsx": "^4.19.2",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "> 0.5%",
+    "not dead"
+  ]
 }

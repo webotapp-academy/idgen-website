@@ -86,20 +86,12 @@ export function HookHeroShowcase() {
             >
               <div className="relative h-64 w-64 sm:h-72 sm:w-72 rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
                 <Image
+                  unoptimized
                   src="/images/Lanyard with Hook Samples/Sample 18 .jpg"
                   alt="Fish hook attachment for ID card holder and lanyard"
                   fill
                   className="object-cover p-2"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="rounded-full bg-[#009fe3] px-2.5 py-0.5 text-[10px] font-black uppercase shadow-xs">
-                    Fish Hook Attachment
-                  </span>
-                  <p className="text-xs font-bold mt-1 text-slate-100">
-                    ID Card → Holder → Fish Hook → Lanyard
-                  </p>
-                </div>
               </div>
             </div>
           )}
@@ -115,20 +107,12 @@ export function HookHeroShowcase() {
             >
               <div className="relative h-64 w-64 sm:h-72 sm:w-72 rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
                 <Image
+                  unoptimized
                   src="/images/idgen-event-card-one-hook-two-hook-configuration.jpg"
                   alt="One hook and two hook configurations for ID card lanyards"
                   fill
                   className="object-cover p-2"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="rounded-full bg-amber-500 text-slate-950 px-2.5 py-0.5 text-[10px] font-black uppercase shadow-xs">
-                    Configurations
-                  </span>
-                  <p className="text-xs font-bold mt-1 text-slate-100">
-                    One Hook / Two-Hook Configurations
-                  </p>
-                </div>
               </div>
             </div>
           )}
@@ -144,20 +128,12 @@ export function HookHeroShowcase() {
             >
               <div className="relative h-64 w-64 sm:h-72 sm:w-72 rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
                 <Image
+                  unoptimized
                   src="/images/Lanyard with Hook Samples/Sample 23 .jpg"
                   alt="ID card holder connected to hook attachment"
                   fill
                   className="object-cover p-2"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="rounded-full bg-emerald-500 text-slate-950 px-2.5 py-0.5 text-[10px] font-black uppercase shadow-xs">
-                    Hook + Holder
-                  </span>
-                  <p className="text-xs font-bold mt-1 text-slate-100">
-                    86 × 54 mm Card → Holder → Fish Hook → 20 mm Lanyard
-                  </p>
-                </div>
               </div>
             </div>
           )}
@@ -173,20 +149,12 @@ export function HookHeroShowcase() {
             >
               <div className="relative h-64 w-64 sm:h-72 sm:w-72 rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
                 <Image
+                  unoptimized
                   src="/images/Lanyard with Hook Samples/Sample 25 .jpg"
                   alt="ID card holder hook and custom printed lanyard assembly"
                   fill
                   className="object-cover p-2"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="rounded-full bg-[#009fe3] px-2.5 py-0.5 text-[10px] font-black uppercase shadow-xs">
-                    Complete Setup
-                  </span>
-                  <p className="text-xs font-bold mt-1 text-slate-100">
-                    Card + Holder + Hook + Lanyard
-                  </p>
-                </div>
               </div>
             </div>
           )}

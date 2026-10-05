@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import {
@@ -821,16 +822,18 @@ export const DEFAULT_STUDENT_ID_CARD_PRINTING_DATA: DynamicStudentIdCardPrinting
   },
 };
 
+const FILENAME = "dynamic-student-id-card-printing.json";
+
 export function getDynamicStudentIdCardPrinting(): DynamicStudentIdCardPrintingData {
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      const fileData = fs.readFileSync(DATA_FILE, "utf-8");
-      const parsed = JSON.parse(fileData);
-      return {
-        ...DEFAULT_STUDENT_ID_CARD_PRINTING_DATA,
-        ...parsed,
-      };
-    }
+    const parsed = loadDynamicJson<Partial<DynamicStudentIdCardPrintingData>>(
+      FILENAME,
+      DEFAULT_STUDENT_ID_CARD_PRINTING_DATA
+    );
+    return {
+      ...DEFAULT_STUDENT_ID_CARD_PRINTING_DATA,
+      ...parsed,
+    };
   } catch (error) {
     console.error("Error reading dynamic-student-id-card-printing.json:", error);
   }
@@ -841,11 +844,7 @@ export function saveDynamicStudentIdCardPrinting(
   data: DynamicStudentIdCardPrintingData
 ): DynamicStudentIdCardPrintingData {
   try {
-    const dir = path.dirname(DATA_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+    saveDynamicJson(FILENAME, data);
     return data;
   } catch (error) {
     console.error("Error saving dynamic-student-id-card-printing.json:", error);
@@ -854,5 +853,6 @@ export function saveDynamicStudentIdCardPrinting(
 }
 
 export function resetDynamicStudentIdCardPrinting(): DynamicStudentIdCardPrintingData {
-  return saveDynamicStudentIdCardPrinting(DEFAULT_STUDENT_ID_CARD_PRINTING_DATA);
+  saveDynamicJson(FILENAME, DEFAULT_STUDENT_ID_CARD_PRINTING_DATA);
+  return DEFAULT_STUDENT_ID_CARD_PRINTING_DATA;
 }

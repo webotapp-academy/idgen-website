@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import type { DynamicRfidCardPrintingData } from "./dynamic-rfid-card-printing-types";
@@ -586,14 +587,17 @@ export const DEFAULT_RFID_CARD_PRINTING_DATA: DynamicRfidCardPrintingData = {
   },
 };
 
+const FILENAME = "dynamic-rfid-card-printing.json";
+
 export function getDynamicRfidCardPrinting(): DynamicRfidCardPrintingData {
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      const content = fs.readFileSync(DATA_FILE, "utf-8");
-      const parsed = JSON.parse(content);
-      return {
-        ...DEFAULT_RFID_CARD_PRINTING_DATA,
-        ...parsed,
+    const parsed = loadDynamicJson<Partial<DynamicRfidCardPrintingData>>(
+      FILENAME,
+      DEFAULT_RFID_CARD_PRINTING_DATA
+    );
+    return {
+      ...DEFAULT_RFID_CARD_PRINTING_DATA,
+      ...parsed,
         meta: { ...DEFAULT_RFID_CARD_PRINTING_DATA.meta, ...parsed.meta },
         hero: {
           ...DEFAULT_RFID_CARD_PRINTING_DATA.hero,
@@ -675,7 +679,6 @@ export function getDynamicRfidCardPrinting(): DynamicRfidCardPrintingData {
           links: parsed.regionalDirectory?.links || DEFAULT_RFID_CARD_PRINTING_DATA.regionalDirectory.links,
         },
       };
-    }
   } catch (err) {
     console.error("Error reading dynamic-rfid-card-printing.json:", err);
   }
@@ -683,15 +686,11 @@ export function getDynamicRfidCardPrinting(): DynamicRfidCardPrintingData {
 }
 
 export function saveDynamicRfidCardPrinting(data: DynamicRfidCardPrintingData): DynamicRfidCardPrintingData {
-  const dir = path.dirname(DATA_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+  saveDynamicJson(FILENAME, data);
   return data;
 }
 
 export function resetDynamicRfidCardPrinting(): DynamicRfidCardPrintingData {
-  saveDynamicRfidCardPrinting(DEFAULT_RFID_CARD_PRINTING_DATA);
+  saveDynamicJson(FILENAME, DEFAULT_RFID_CARD_PRINTING_DATA);
   return DEFAULT_RFID_CARD_PRINTING_DATA;
 }

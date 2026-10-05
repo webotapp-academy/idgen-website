@@ -1,3 +1,4 @@
+﻿import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import { states as initialStates } from "@/data/locations";
@@ -49,7 +50,7 @@ export const richGuwahatiData: CityData = {
   localColor:
     "IDGen is based in Guwahati, Assam, allowing us to work closely with organizations in one of Assam's major educational, commercial and institutional markets.",
   localAdvantagePills: [
-    "Guwahati Primary Cleanroom",
+    "Guwahati Production Facility",
     "24–48h Priority Batch Dispatch",
     "Pre-Production Physical Proofing",
     "100% Optical Quality Check",
@@ -421,18 +422,12 @@ function initializeDataStore(): StateData[] {
   });
 }
 
-let memoryCache: StateData[] | null = null;
-let lastMtime: number = 0;
+const FILENAME = "dynamic-locations.json";
 
 export function getAllStates(): StateData[] {
   try {
-    if (fs.existsSync(DATA_FILE_PATH)) {
-      const stats = fs.statSync(DATA_FILE_PATH);
-      if (memoryCache && stats.mtimeMs === lastMtime) {
-        return memoryCache;
-      }
-      const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-      const loaded: StateData[] = JSON.parse(raw);
+    const loaded = loadDynamicJson<StateData[]>(FILENAME, []);
+    if (Array.isArray(loaded) && loaded.length > 0) {
       for (const st of loaded) {
         for (let i = 0; i < st.cities.length; i++) {
           const city = st.cities[i];
@@ -450,37 +445,18 @@ export function getAllStates(): StateData[] {
           }
         }
       }
-      memoryCache = loaded;
-      lastMtime = stats.mtimeMs;
-      return memoryCache;
+      return loaded;
     }
   } catch (e) {
     console.error("Error reading dynamic-locations.json, initializing default:", e);
   }
 
-  if (memoryCache) return memoryCache;
   const initial = initializeDataStore();
-  memoryCache = initial;
   return initial;
 }
 
 export function saveAllStates(states: StateData[]): void {
-  try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(states, null, 2), "utf-8");
-    try {
-      const stats = fs.statSync(DATA_FILE_PATH);
-      lastMtime = stats.mtimeMs;
-    } catch {
-      lastMtime = Date.now();
-    }
-    memoryCache = states;
-  } catch (e) {
-    console.error("Error saving dynamic-locations.json:", e);
-  }
+  saveDynamicJson(FILENAME, states);
 }
 
 export function getState(slug: string): StateData | undefined {

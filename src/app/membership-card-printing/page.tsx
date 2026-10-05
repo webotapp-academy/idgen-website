@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -232,41 +235,14 @@ export default function MembershipCardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.whatIs.image.src}
                       alt={data.whatIs.image.alt}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <Award className="h-3 w-3 text-cyan-400" />
-                        <span>{data.whatIs.image.badgeTop}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.whatIs.image.brandTop}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.whatIs.image.badgeBottomSub}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.whatIs.image.badgeBottomTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.whatIs.image.badgeBottomTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -489,41 +465,14 @@ export default function MembershipCardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.scannableCredentials.image.src}
                       alt={data.scannableCredentials.image.alt}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <QrCode className="h-3 w-3 text-cyan-400" />
-                        <span>{data.scannableCredentials.image.badgeTop}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.scannableCredentials.image.brandTop}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.scannableCredentials.image.badgeBottomSub}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.scannableCredentials.image.badgeBottomTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.scannableCredentials.image.badgeBottomTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -671,41 +620,14 @@ export default function MembershipCardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.studioWorkflow.image.src}
                       alt={data.studioWorkflow.image.alt}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <Eye className="h-3 w-3 text-cyan-400" />
-                        <span>{data.studioWorkflow.image.badgeTop}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.studioWorkflow.image.brandTop}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.studioWorkflow.image.badgeBottomSub}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.studioWorkflow.image.badgeBottomTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.studioWorkflow.image.badgeBottomTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

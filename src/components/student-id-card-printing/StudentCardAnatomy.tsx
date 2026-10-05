@@ -168,6 +168,7 @@ export function StudentCardAnatomy({
           {frontCardImage && showFrontProof ? (
             <div className="relative z-10 my-6 aspect-[16/10] w-full rounded-2xl overflow-hidden border-2 border-sky-300 dark:border-sky-700 shadow-xl bg-slate-950">
               <Image
+                  unoptimized
                 src={frontCardImage}
                 alt="Front Student ID Card Proof"
                 fill
@@ -308,6 +309,7 @@ export function StudentCardAnatomy({
           {backCardImage && showBackProof ? (
             <div className="relative z-10 my-6 aspect-[16/10] w-full rounded-2xl overflow-hidden border-2 border-slate-300 dark:border-slate-700 shadow-xl bg-slate-950">
               <Image
+                  unoptimized
                 src={backCardImage}
                 alt="Back Student ID Card Proof"
                 fill

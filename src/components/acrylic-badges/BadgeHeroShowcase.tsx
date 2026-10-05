@@ -118,24 +118,13 @@ export function BadgeHeroShowcase() {
           >
             <div className="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-slate-950 shadow-2xl p-2">
               <Image
+                  unoptimized
                 src={current.image}
                 alt={current.alt}
                 fill
                 priority
                 className="object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-300">
-                    Cast PMMA Acrylic
-                  </span>
-                  <h4 className="text-sm font-black text-white">{current.title}</h4>
-                </div>
-                <span className="rounded-lg bg-white/20 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white">
-                  1440 DPI UV
-                </span>
-              </div>
             </div>
 
             <div className="mt-3 w-full rounded-2xl bg-white/90 dark:bg-slate-900/90 p-3 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between text-xs font-semibold">

@@ -22,7 +22,10 @@ import {
   Trash2,
   UserCheck,
   Clock,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Truck,
+  Package,
+  AlertTriangle
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -43,7 +46,10 @@ export type LegalIconKey =
   | "shield"
   | "user"
   | "clock"
-  | "spreadsheet";
+  | "spreadsheet"
+  | "truck"
+  | "box"
+  | "alert";
 
 export interface LegalHighlight {
   label: string;
@@ -53,7 +59,7 @@ export interface LegalHighlight {
 }
 
 interface LegalDocumentShellProps {
-  documentType: "terms" | "privacy";
+  documentType?: "terms" | "privacy" | "shipping" | string;
   title: string;
   subtitle: string;
   lastUpdated: string;
@@ -178,6 +184,9 @@ export function LegalDocumentShell({
                         {h.iconKey === "user" && <UserCheck className="h-4 w-4" />}
                         {h.iconKey === "clock" && <Clock className="h-4 w-4" />}
                         {h.iconKey === "spreadsheet" && <FileSpreadsheet className="h-4 w-4" />}
+                        {h.iconKey === "truck" && <Truck className="h-4 w-4" />}
+                        {h.iconKey === "box" && <Package className="h-4 w-4" />}
+                        {h.iconKey === "alert" && <AlertTriangle className="h-4 w-4" />}
                       </div>
                       <span className="text-[11px] font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400">
                         {h.label}

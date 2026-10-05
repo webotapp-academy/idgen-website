@@ -36,7 +36,6 @@ const staticPaths = [
   "/idgen-studio/",
   "/pricing/",
   "/partners/",
-  "/resources/",
   "/resources/blogs/",
   "/resources/guides/",
   "/faq/",
@@ -47,6 +46,8 @@ const staticPaths = [
   "/privacy-policy/",
   "/terms-conditions/",
   "/shipping-returns/",
+  // A10 SEO fix: service-areas hub page (was 404, now created)
+  "/service-areas/",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

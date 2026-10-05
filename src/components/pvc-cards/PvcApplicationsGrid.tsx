@@ -87,7 +87,7 @@ export function PvcApplicationsGrid({ data }: { data?: DynamicPvcCardsApplicatio
             {data?.title || "CR80 PVC Cards Across Organizations"}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
-            {data?.lede || "Supplied to over 500+ schools, universities, hospitals, corporate headquarters, and government institutions across Northeast India."}
+            {data?.lede || "Supplied to schools, universities, hospitals, corporate headquarters, and government institutions across Northeast India."}
           </p>
         </div>
 

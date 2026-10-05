@@ -30,6 +30,13 @@ import {
 } from "lucide-react";
 import type { RealProjectItem } from "@/lib/dynamic-projects-types";
 import { DEFAULT_CATEGORY_FILTERS } from "@/lib/dynamic-projects-types";
+import type {
+  DynamicCaseStudiesPageData,
+  CaseStudiesHeroData,
+  CaseStudiesCtaData,
+} from "@/lib/dynamic-case-studies-types";
+import { DEFAULT_CASE_STUDIES_PAGE_DATA } from "@/lib/dynamic-case-studies-types";
+import { AdminCaseStudiesSections } from "@/components/case-studies/AdminCaseStudiesSections";
 
 interface ProjectFormData {
   id: string;
@@ -126,6 +133,12 @@ export default function AdminCaseStudiesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
+  // Tab State: "gallery" | "hero" | "cta"
+  const [currentTab, setCurrentTab] = useState<"gallery" | "hero" | "cta">("gallery");
+  const [pageData, setPageData] = useState<DynamicCaseStudiesPageData>(DEFAULT_CASE_STUDIES_PAGE_DATA);
+  const [pageLoading, setPageLoading] = useState<boolean>(false);
+  const [savingSection, setSavingSection] = useState<boolean>(false);
+
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -143,8 +156,16 @@ export default function AdminCaseStudiesPage() {
       setLoading(true);
       const res = await fetch("/api/admin/projects");
       const data = await res.json();
-      if (data.success && Array.isArray(data.projects)) {
-        setProjects(data.projects);
+      const list = Array.isArray(data.projects)
+        ? data.projects
+        : Array.isArray(data.data)
+        ? data.data
+        : Array.isArray(data)
+        ? data
+        : null;
+
+      if (data.success !== false && list) {
+        setProjects(list);
       } else {
         setMessage({ type: "error", text: data.error || "Failed to load projects" });
       }
@@ -156,9 +177,104 @@ export default function AdminCaseStudiesPage() {
     }
   };
 
+  // Fetch page data (Hero & CTA sections)
+  const fetchPageData = async () => {
+    try {
+      setPageLoading(true);
+      const res = await fetch("/api/admin/projects?type=page");
+      const data = await res.json();
+      const p = data.page || data.data;
+      if (data.success !== false && p && (p.hero || p.cta)) {
+        setPageData(p);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setPageLoading(false);
+    }
+  };
+
   useEffect(() => {
     fetchProjects();
+    fetchPageData();
   }, []);
+
+  // Save page section (Hero or CTA)
+  const handleSavePageSection = async (
+    section: "hero" | "cta",
+    sectionData: CaseStudiesHeroData | CaseStudiesCtaData
+  ) => {
+    try {
+      setSavingSection(true);
+      setMessage(null);
+      const res = await fetch("/api/admin/projects", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "page",
+          action: "save_page_section",
+          section,
+          sectionData,
+        }),
+      });
+      const data = await res.json();
+      const p = data.page || data.data;
+      if (data.success && p) {
+        setPageData(p);
+        setMessage({
+          type: "success",
+          text: `${section === "hero" ? "Hero Section" : "Closing Requirement CTA"} updated and published live!`,
+        });
+      } else {
+        setMessage({ type: "error", text: data.error || "Failed to update section." });
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: "error", text: "Error saving section." });
+    } finally {
+      setSavingSection(false);
+    }
+  };
+
+  // Reset page sections to default
+  const handleResetPageSections = async () => {
+    if (
+      !confirm(
+        "Are you sure you want to reset both the Hero and Closing CTA sections to default factory content?"
+      )
+    ) {
+      return;
+    }
+
+    try {
+      setSavingSection(true);
+      setMessage(null);
+      const res = await fetch("/api/admin/projects", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "page",
+          action: "reset_page",
+        }),
+      });
+      const data = await res.json();
+      const p = data.page || data.data;
+      if (data.success && p) {
+        setPageData(p);
+        setMessage({
+          type: "success",
+          text: "Case Studies page sections reset to default content!",
+        });
+      } else {
+        setMessage({ type: "error", text: data.error || "Failed to reset page sections." });
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage({ type: "error", text: "Error resetting page sections." });
+    } finally {
+      setSavingSection(false);
+    }
+  };
 
   // Filter projects by search and category
   const filteredProjects = useMemo(() => {
@@ -292,8 +408,17 @@ export default function AdminCaseStudiesPage() {
       });
 
       const data = await res.json();
+      const updatedList = Array.isArray(data.projects)
+        ? data.projects
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setProjects(data.projects);
+        if (updatedList) {
+          setProjects(updatedList);
+        } else {
+          fetchProjects();
+        }
         setIsModalOpen(false);
         setMessage({
           type: "success",
@@ -319,8 +444,17 @@ export default function AdminCaseStudiesPage() {
         method: "DELETE",
       });
       const data = await res.json();
+      const updatedList = Array.isArray(data.projects)
+        ? data.projects
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setProjects(data.projects);
+        if (updatedList) {
+          setProjects(updatedList);
+        } else {
+          fetchProjects();
+        }
         setMessage({ type: "success", text: `Deleted "${org}" successfully.` });
       } else {
         setMessage({ type: "error", text: data.error || "Failed to delete project" });
@@ -377,8 +511,17 @@ export default function AdminCaseStudiesPage() {
         body: JSON.stringify({ action: "reset" }),
       });
       const data = await res.json();
+      const updatedList = Array.isArray(data.projects)
+        ? data.projects
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setProjects(data.projects);
+        if (updatedList) {
+          setProjects(updatedList);
+        } else {
+          fetchProjects();
+        }
         setMessage({ type: "success", text: "Delivered projects reset to verified catalog!" });
       } else {
         setMessage({ type: "error", text: data.error || "Failed to reset catalog" });
@@ -464,8 +607,70 @@ export default function AdminCaseStudiesPage() {
         </div>
       )}
 
-      {/* ── Overview Metrics Strip ── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* ── Main Navigation Tabs ── */}
+      <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl bg-slate-900 border border-slate-800">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={() => setCurrentTab("gallery")}
+            className={`px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 ${
+              currentTab === "gallery"
+                ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                : "text-slate-400 hover:text-white hover:bg-slate-800"
+            }`}
+          >
+            <Camera className="h-4 w-4" />
+            <span>Delivered Projects Catalog ({projects.length})</span>
+          </button>
+
+          <button
+            onClick={() => setCurrentTab("hero")}
+            className={`px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 ${
+              currentTab === "hero"
+                ? "bg-[#009fe3] text-white shadow-md shadow-[#009fe3]/25"
+                : "text-slate-400 hover:text-white hover:bg-slate-800"
+            }`}
+          >
+            <Sparkles className="h-4 w-4" />
+            <span>Hero &amp; Specimen Stage</span>
+          </button>
+
+          <button
+            onClick={() => setCurrentTab("cta")}
+            className={`px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 ${
+              currentTab === "cta"
+                ? "bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20"
+                : "text-slate-400 hover:text-white hover:bg-slate-800"
+            }`}
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>Closing Requirement CTA</span>
+          </button>
+        </div>
+
+        {currentTab !== "gallery" && (
+          <button
+            onClick={handleResetPageSections}
+            disabled={savingSection}
+            className="px-3.5 py-2 rounded-xl text-slate-400 hover:text-amber-400 hover:bg-slate-800/80 transition flex items-center gap-1.5 text-xs border border-slate-800"
+          >
+            <RotateCcw className="h-3.5 w-3.5" />
+            <span>Reset Sections to Default</span>
+          </button>
+        )}
+      </div>
+
+      {currentTab === "hero" || currentTab === "cta" ? (
+        <AdminCaseStudiesSections
+          pageData={pageData}
+          activeSection={currentTab}
+          onSaveSection={handleSavePageSection}
+          onResetPage={handleResetPageSections}
+          saving={savingSection}
+        />
+      ) : (
+        <>
+          {/* ── Overview Metrics Strip ── */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
           <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
             Total Projects
@@ -580,38 +785,28 @@ export default function AdminCaseStudiesPage() {
                 {/* Image Header */}
                 <div className="relative h-44 w-full bg-slate-950 overflow-hidden">
                   <Image
+                  unoptimized
                     src={project.image}
                     alt={project.org}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80" />
+                </div>
 
-                  {/* Badge */}
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="rounded-full bg-slate-900/90 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-bold text-teal-300 border border-teal-500/30">
+                {/* Content Body */}
+                <div className="p-4 space-y-2.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="rounded-full bg-slate-800 px-2.5 py-0.5 text-[10px] font-bold text-teal-300 border border-teal-500/30">
                       {project.badge}
-                    </span>
-                  </div>
-
-                  {/* Location */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px] font-medium">
-                    <span className="flex items-center gap-1 text-teal-300 font-bold">
-                      <MapPin className="h-3 w-3" />
-                      <span>{project.location}</span>
                     </span>
                     <button
                       onClick={() => setPreviewProject(project)}
-                      className="p-1 rounded bg-slate-900/80 hover:bg-teal-500 hover:text-slate-950 text-slate-300 transition"
+                      className="p-1 rounded bg-slate-800 hover:bg-teal-500 hover:text-slate-950 text-slate-300 transition"
                       title="Preview details"
                     >
                       <Eye className="h-3.5 w-3.5" />
                     </button>
                   </div>
-                </div>
-
-                {/* Content Body */}
-                <div className="p-4 space-y-2.5">
                   <h3 className="text-base font-bold text-white group-hover:text-teal-400 transition-colors line-clamp-1">
                     {project.org}
                   </h3>
@@ -683,6 +878,8 @@ export default function AdminCaseStudiesPage() {
           ))}
         </div>
       )}
+    </>
+  )}
 
       {/* ── Add / Edit Project Modal ── */}
       {isModalOpen && (
@@ -862,6 +1059,7 @@ export default function AdminCaseStudiesPage() {
                   {formData.image && (
                     <div className="relative h-28 w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 mt-1">
                       <Image
+                  unoptimized
                         src={formData.image}
                         alt="Primary Preview"
                         fill
@@ -915,6 +1113,7 @@ export default function AdminCaseStudiesPage() {
                   {formData.imageSecondary && (
                     <div className="relative h-28 w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950 mt-1">
                       <Image
+                  unoptimized
                         src={formData.imageSecondary}
                         alt="Secondary Preview"
                         fill
@@ -1060,6 +1259,7 @@ export default function AdminCaseStudiesPage() {
 
             <div className="relative h-48 w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
               <Image
+                  unoptimized
                 src={previewProject.image}
                 alt={previewProject.org}
                 fill
@@ -1070,6 +1270,7 @@ export default function AdminCaseStudiesPage() {
             {previewProject.imageSecondary && (
               <div className="relative h-36 w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
                 <Image
+                  unoptimized
                   src={previewProject.imageSecondary}
                   alt={`${previewProject.org} secondary`}
                   fill

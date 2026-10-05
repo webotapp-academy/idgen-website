@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import {
@@ -11,7 +12,7 @@ export { DEFAULT_SERVICES_DATA };
 
 const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-services.json");
 
-let memoryCache: DynamicServicesData | null = null;
+
 
 export function getDynamicServices(): DynamicServicesData {
   try {
@@ -36,14 +37,14 @@ export function getDynamicServices(): DynamicServicesData {
         ctaBand: { ...DEFAULT_SERVICES_DATA.ctaBand, ...(loaded.ctaBand || {}) },
         services: loaded.services || DEFAULT_SERVICES_DATA.services,
       };
-      memoryCache = mergedData;
+      
       return mergedData;
     }
   } catch (e) {
     console.error("Error reading dynamic-services.json, falling back:", e);
   }
 
-  memoryCache = DEFAULT_SERVICES_DATA;
+  
   saveDynamicServices(DEFAULT_SERVICES_DATA);
   return DEFAULT_SERVICES_DATA;
 }
@@ -54,7 +55,7 @@ export function saveDynamicServices(data: DynamicServicesData): DynamicServicesD
     lastUpdated: new Date().toISOString(),
   };
 
-  memoryCache = updatedData;
+  
   try {
     const dir = path.dirname(DATA_FILE_PATH);
     if (!fs.existsSync(dir)) {

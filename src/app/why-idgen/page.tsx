@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -193,36 +197,14 @@ export default function WhyIdgenPage() {
             {/* Right Hero Visual Showcase */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
               <div className="relative rounded-[2rem] overflow-hidden border-2 border-white dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl flex-1 min-h-[380px] sm:min-h-[420px] flex flex-col">
-                <div className="relative flex-1 w-full overflow-hidden bg-slate-900 min-h-[320px]">
+                <div className="relative flex-1 w-full overflow-hidden bg-slate-900 min-h-[320px] p-2 sm:p-4 flex items-center justify-center">
                   <Image
                     src={hero.heroImage || "/images/why-idgen-hero-branded.jpg"}
                     alt="IDGen Identity Solutions Showcase"
                     fill
-                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                    className="object-contain object-center p-2 transition-transform duration-700 hover:scale-105"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/20" />
-
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-bold text-white border border-white/15 shadow-md">
-                      <Sparkles className="h-3 w-3 text-cyan-300 animate-pulse" />
-                      <span>{hero.floatingCardTag || "IDGen Identity Solutions"}</span>
-                    </div>
-                    <div className="rounded-full bg-[#009fe3] px-3 py-1 text-[11px] font-black text-white shadow-md">
-                      {hero.floatingCardLocation || "Guwahati Hub"}
-                    </div>
-                  </div>
-
-                  {/* Bottom Image Overlay Label */}
-                  <div className="absolute bottom-4 left-5 right-5 text-white z-10">
-                    <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-0.5">
-                      {hero.floatingCardTitle || "Direct ID Card & Lanyard Factory"}
-                    </p>
-                    <p className="text-sm font-extrabold text-white leading-snug">
-                      {hero.floatingCardSubtitle || "Serving all 8 Northeast States"}
-                    </p>
-                  </div>
                 </div>
 
                 {/* Sub-Card Trust Indicators */}
@@ -373,34 +355,14 @@ export default function WhyIdgenPage() {
             {/* Right Photo Showcase */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
               <div className="relative rounded-[2rem] overflow-hidden border-2 border-white dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl flex-1 min-h-[440px] sm:min-h-[480px] flex flex-col">
-                <div className="relative flex-1 w-full overflow-hidden bg-slate-900 min-h-[360px]">
+                <div className="relative flex-1 w-full overflow-hidden bg-slate-900 min-h-[360px] p-2 sm:p-4 flex items-center justify-center">
                   <Image
                     src={experience2014.image || "/images/why-idgen-more-than-brand.jpg"}
                     alt="IDGen smart ID cards and woven lanyards"
                     fill
-                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                    className="object-contain object-center p-2 transition-transform duration-700 hover:scale-105"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-slate-950/20" />
-
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-bold text-white border border-white/15 shadow-sm">
-                      <Sparkles className="h-3 w-3 text-cyan-300" />
-                      <span>{experience2014.badgeYearLabel || "Experience Began"}</span>
-                    </div>
-                    <span className="rounded-full bg-[#009fe3] px-3 py-1 text-[11px] font-black text-white shadow-sm">
-                      {experience2014.badgeYear || "2014"}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-4 left-5 right-5 text-white z-10">
-                    <p className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-0.5">
-                      {experience2014.badgeFootprintLabel || "Northeast Coverage"}
-                    </p>
-                    <p className="text-sm font-extrabold text-white leading-snug">
-                      {experience2014.badgeFootprint || "8 States"} • Structured Identity Operations
-                    </p>
-                  </div>
                 </div>
 
                 <div className="p-3 bg-white dark:bg-slate-900 grid grid-cols-2 gap-2 border-t border-slate-100 dark:border-slate-800">
@@ -680,7 +642,7 @@ export default function WhyIdgenPage() {
         <section className="mt-20 pt-8">
           <div className="rounded-[2.25rem] border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden">
             {/* Header Banner */}
-            <div className="relative h-56 sm:h-72 w-full bg-slate-900">
+            <div className="relative h-56 sm:h-72 w-full bg-slate-900 flex items-end justify-center pb-6 sm:pb-8">
               <Image
                 src="/images/why-idgen-data-security-light.jpg"
                 alt="IDGen confidential handling of student and employee identification data"
@@ -690,17 +652,7 @@ export default function WhyIdgenPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
 
-              <div className="absolute top-4 left-6 right-6 flex items-center justify-between z-10">
-                <div className="inline-flex items-center gap-2 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-cyan-300 border border-white/15 shadow-md">
-                  <Lock className="h-3.5 w-3.5 text-cyan-300 animate-pulse" />
-                  <span>{dataSecurity.eyebrow}</span>
-                </div>
-                <span className="rounded-full bg-emerald-600 px-3 py-1 text-[11px] font-black text-white shadow-md">
-                  Guaranteed Privacy
-                </span>
-              </div>
-
-              <div className="absolute bottom-6 left-6 right-6 text-center text-white z-10">
+              <div className="relative text-center text-white z-10 px-4">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
                   {dataSecurity.title}
                 </h2>

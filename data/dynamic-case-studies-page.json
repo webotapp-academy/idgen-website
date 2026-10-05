@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "badge": "Real Delivered Projects",
+    "badgeSub": "Verified Customer Proof",
+    "title": "IDGen Case Studies & ",
+    "titleHighlight": "Identification Projects",
+    "subtitle": "A real identification project involves more than the finished card. It can include data preparation, photographs, design, personalization, approval, production, accessories, quality checking, packaging and dispatch. IDGen case studies will document real projects and show how organizations use identification products and workflows in practice.",
+    "featurePills": [
+      {
+        "title": "Real Photos",
+        "desc": "Delivered specimens",
+        "icon": "camera"
+      },
+      {
+        "title": "8 NE States",
+        "desc": "Regional fulfillment",
+        "icon": "map"
+      },
+      {
+        "title": "8-Step Flow",
+        "desc": "Structured pipeline",
+        "icon": "flow"
+      },
+      {
+        "title": "Trust Rule",
+        "desc": "Zero fake claims",
+        "icon": "shield"
+      }
+    ],
+    "primaryBtnText": "Explore Delivered Projects",
+    "primaryBtnLink": "#project-gallery",
+    "secondaryBtnText": "Start Your Project",
+    "secondaryBtnLink": "/request-a-quote/",
+    "tertiaryBtnText": "IDGen Studio",
+    "tertiaryBtnLink": "/idgen-studio/",
+    "trustBadges": [
+      "Real Delivered Client Batches",
+      "Guwahati Production Hub",
+      "72-Hour Express Dispatch"
+    ],
+    "pillars": [
+      {
+        "id": "school",
+        "label": "School Project",
+        "sub": "Don Bosco",
+        "title": "School ID Card Project",
+        "loc": "Gojapara, Assam",
+        "org": "Don Bosco Hr Sec School",
+        "image": "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
+        "req": "Student Data + Photographs + PVC ID Cards + Lanyards + Holders",
+        "badge": "Real Delivered Batch"
+      },
+      {
+        "id": "college",
+        "label": "College Project",
+        "sub": "CKB College",
+        "title": "College Campus Pass Project",
+        "loc": "Jorhat, Assam",
+        "org": "CKB College",
+        "image": "/images/Order Deliver/CKB COLLAGE,JORHAT 1.png",
+        "req": "Institutional student passes with department codes & QR verification",
+        "badge": "Campus Batch"
+      },
+      {
+        "id": "government",
+        "label": "Institutional",
+        "sub": "Govt of Assam",
+        "title": "Institutional Project",
+        "loc": "Nagaon, Assam",
+        "org": "Government of Assam",
+        "image": "/images/Order Deliver/Government of assam,nagoan 1.jpeg",
+        "req": "Official staff identification credentials & custom printed lanyards",
+        "badge": "Institutional"
+      },
+      {
+        "id": "wearable",
+        "label": "Wearable Setup",
+        "sub": "Rayburn College",
+        "title": "Complete Wearable Setup",
+        "loc": "Manipur",
+        "org": "Rayburn College",
+        "image": "/images/Order Deliver/RAYBURN COLLAGE,MANIPUR 1.png",
+        "req": "CR80 PVC Cards + Protective Holders + Hooks + Sublimation Lanyards",
+        "badge": "Wearable Set"
+      }
+    ],
+    "bottomMetrics": [
+      {
+        "label": "Evidence",
+        "value": "100% Real Projects"
+      },
+      {
+        "label": "Coverage",
+        "value": "Assam & Northeast"
+      },
+      {
+        "label": "Trust Rule",
+        "value": "Zero Fake Claims"
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Real Delivery Experience",
+    "title": "Have a Similar Identification Requirement?",
+    "description": "Tell IDGen about your organization, location, quantity and required products to receive a factory direct proposal and digital proof.",
+    "primaryBtnText": "Start Your Project →",
+    "primaryBtnLink": "/request-a-quote/",
+    "secondaryBtnText": "Explore IDGen Studio",
+    "secondaryBtnLink": "/idgen-studio/",
+    "tertiaryBtnText": "View Pricing Tiers",
+    "tertiaryBtnLink": "/pricing/",
+    "footerBrand": "IDGen — Real Identification Case Studies",
+    "footerText": "Guwahati, Assam • Direct Factory Deliveries Across Northeast India"
+  }
+}

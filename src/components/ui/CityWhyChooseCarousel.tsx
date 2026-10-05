@@ -152,35 +152,13 @@ export function CityWhyChooseCarousel({ city, state }: CityWhyChooseCarouselProp
                 {/* Dynamic Image Header */}
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
                   <Image
+                  unoptimized
                     src={slide.image}
                     alt={`${slide.title} - IDGen Identity Solutions in ${city.name}`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                    className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-108"
                   />
-                  {/* Subtle Gradient Overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
-
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-[10px] font-bold text-cyan-300 border border-white/15 shadow-sm">
-                      <Sparkles className="h-2.5 w-2.5" />
-                      <span>{slide.badge}</span>
-                    </span>
-                    <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] font-black text-white shadow-xs">
-                      IDGen
-                    </span>
-                  </div>
-
-                  {/* Bottom Image Stat Overlay */}
-                  <div className="absolute bottom-3 left-4 right-4 text-white z-10 flex items-center justify-between">
-                    <span className="text-[11px] font-extrabold text-white truncate drop-shadow-sm">
-                      {slide.stat}
-                    </span>
-                    <span className="text-[10px] font-mono text-cyan-300 bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-xs">
-                      {city.name}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content Body */}

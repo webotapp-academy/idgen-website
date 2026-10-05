@@ -133,6 +133,7 @@ export function HolderHeroShowcase() {
                     <div className="flex items-center gap-1.5">
                       <div className="h-6 w-16 relative">
                         <Image
+                  unoptimized
                           src="/images/logo-dark-theme.svg"
                           alt="IDGen Logo"
                           fill
@@ -153,6 +154,7 @@ export function HolderHeroShowcase() {
                   <div className="relative z-10 mt-3 flex items-center gap-3">
                     <div className="relative h-14 w-14 rounded-xl overflow-hidden border-2 border-cyan-400/80 shadow-md bg-gradient-to-tr from-slate-800 to-slate-700 flex items-center justify-center shrink-0">
                       <Image
+                  unoptimized
                         src="/images/why-idgen-hero-light.jpg"
                         alt="Employee Portrait"
                         fill
@@ -247,6 +249,7 @@ export function HolderHeroShowcase() {
                     <div className="col-span-4 flex flex-col items-center">
                       <div className="relative h-16 w-16 rounded-xl overflow-hidden border-2 border-cyan-400 shadow-md">
                         <Image
+                  unoptimized
                           src="/images/why-idgen-hero-light.jpg"
                           alt="IDGen Executive"
                           fill
@@ -263,6 +266,7 @@ export function HolderHeroShowcase() {
                       <div className="flex items-center justify-between border-b border-white/10 pb-1">
                         <div className="h-5 w-16 relative">
                           <Image
+                  unoptimized
                             src="/images/logo-dark-theme.svg"
                             alt="IDGen Logo"
                             fill
@@ -315,6 +319,7 @@ export function HolderHeroShowcase() {
                   <div className="flex items-center justify-between border-b border-amber-400/30 pb-2">
                     <div className="h-6 w-16 relative">
                       <Image
+                  unoptimized
                         src="/images/logo-dark-theme.svg"
                         alt="IDGen Logo"
                         fill
@@ -331,6 +336,7 @@ export function HolderHeroShowcase() {
                     <div className="mx-auto h-14 w-14 rounded-full p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-200 to-amber-500 shadow-md">
                       <div className="relative h-full w-full rounded-full overflow-hidden">
                         <Image
+                  unoptimized
                           src="/images/why-idgen-hero-light.jpg"
                           alt="VIP Cardholder"
                           fill
@@ -370,55 +376,14 @@ export function HolderHeroShowcase() {
               }`}
             >
               <Image
+                  unoptimized
                 src="/images/product-id-holders.jpg"
                 alt="Complete IDGen ID card holder and lanyard assembly"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
-
-              {/* Overlay IDGen Brand Emblem */}
-              <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                <div className="h-6 w-20 relative bg-white/90 backdrop-blur-md rounded-lg px-2 py-1 shadow-md">
-                  <Image
-                    src="/images/finallogolight.svg"
-                    alt="IDGen Logo"
-                    fill
-                    className="object-contain p-0.5"
-                  />
-                </div>
-                <span className="rounded-full bg-[#009fe3] text-white px-3 py-0.5 text-[10px] font-black shadow-md">
-                  Turnkey Modular Set
-                </span>
-              </div>
-
-              <div className="absolute bottom-3 left-3 right-3 z-10">
-                <div className="rounded-xl border border-white/20 bg-slate-950/80 backdrop-blur-md p-2.5 text-white flex items-center justify-between">
-                  <div>
-                    <p className="text-[9px] font-black uppercase tracking-wider text-cyan-300">
-                      All-in-One Assembly
-                    </p>
-                    <p className="text-xs font-black">
-                      Card Holder + Fish Hook + Satin Lanyard
-                    </p>
-                  </div>
-                  <span className="text-[9px] font-bold bg-white/10 px-2 py-1 rounded-md text-slate-200">
-                    Guwahati Hub
-                  </span>
-                </div>
-              </div>
             </div>
           )}
-
-          {/* Floating Spec Badge at Bottom Right */}
-          <div className="absolute bottom-3 right-3 z-20 hidden sm:block">
-            <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1.5 shadow-md flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[11px] font-bold text-slate-800 dark:text-slate-200">
-                Official IDGen Specimen
-              </span>
-            </div>
-          </div>
         </div>
 
         {/* ── Bottom Specifications Grid ── */}

@@ -218,33 +218,12 @@ export function ProductionApproachCarousel({ steps }: { steps?: ProductionStep[]
                 {/* Header Image */}
                 <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900">
                   <Image
+                  unoptimized
                     src={step.img}
                     alt={`IDGen Step ${step.num}: ${step.title}`}
                     fill
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                    className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
-
-                  {/* Top Floating Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-[10px] font-bold text-cyan-300 border border-white/15">
-                      <Sparkles className="h-2.5 w-2.5" />
-                      <span>{step.badge}</span>
-                    </span>
-                    <span className="font-mono rounded-full bg-[#009fe3] px-2.5 py-0.5 text-[11px] font-black text-white shadow-xs">
-                      {step.num}
-                    </span>
-                  </div>
-
-                  {/* Bottom Overlay */}
-                  <div className="absolute bottom-3 left-4 right-4 text-white z-10">
-                    <p className="text-[11px] font-extrabold text-cyan-300 uppercase tracking-wider">
-                      Production Process
-                    </p>
-                    <p className="text-sm font-black text-white truncate">
-                      {step.num} — {step.title}
-                    </p>
-                  </div>
                 </div>
 
                 {/* Body Content */}

@@ -28,6 +28,11 @@ export interface DynamicContactUsHeroVisual {
 export interface DynamicContactUsHero {
   eyebrow: string;
   title: string;
+  subtitle?: string;
+  addressCardTitle?: string;
+  address?: string;
+  landmark?: string;
+  operatingHours?: string;
   lede: string;
   stats: DynamicContactUsStat[];
   visual: DynamicContactUsHeroVisual;
@@ -78,7 +83,9 @@ export interface DynamicContactUsFacility {
   title: string;
   description: string;
   address: string;
+  landmark?: string;
   operatingHours: string;
+  closedNotice?: string;
   primaryCta: {
     label: string;
     href: string;
@@ -126,6 +133,11 @@ export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
   hero: {
     eyebrow: "Direct Factory Communications",
     title: "Get in Touch with IDGen Guwahati",
+    subtitle: "Direct Manufacturing Facility & Identification Engineering Desk",
+    addressCardTitle: "Guwahati Factory & Office Address:",
+    address: "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
+    landmark: "Central A.T. Road commercial hub, Guwahati, Assam 781001",
+    operatingHours: "Mon – Sat: 9:30 AM – 7:00 PM",
     lede: "Connect with our identity engineering desk, request factory visit appointments, or order complimentary physical specimen kits for your institutional procurement committee.",
     stats: [
       { label: "Factory Hub", value: "Guwahati, Assam" },
@@ -188,19 +200,19 @@ export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
           platform: "linkedin",
         },
         {
-          label: "Threads",
-          href: "https://www.threads.com/@idgenguwahati",
-          platform: "threads",
+          label: "Instagram",
+          href: "https://instagram.com/idgenguwahati",
+          platform: "instagram",
         },
         {
-          label: "Pinterest",
-          href: "https://in.pinterest.com/iDGenGuwahati/",
-          platform: "pinterest",
+          label: "Facebook",
+          href: "https://www.facebook.com/iDGenGuwahati",
+          platform: "facebook",
         },
         {
-          label: "X / Twitter",
-          href: "https://x.com/iDGenGuwahati",
-          platform: "twitter",
+          label: "YouTube",
+          href: "https://www.youtube.com/@iDGenguwahati",
+          platform: "youtube",
         },
       ],
     },
@@ -211,7 +223,9 @@ export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
     description:
       "Our cleanroom manufacturing facility operates automated thermal retransfer printing presses, continuous dye-sublimation lines, and ultrasonic acoustic welding machinery.",
     address: "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
+    landmark: "Central A.T. Road commercial hub, Guwahati, Assam 781001",
     operatingHours: "Mon – Sat: 9:30 AM – 7:00 PM",
+    closedNotice: "Sunday: Closed (WhatsApp queries processed)",
     primaryCta: {
       label: "Request Itemized Quote",
       href: "/request-a-quote/",

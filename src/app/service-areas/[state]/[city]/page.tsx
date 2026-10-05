@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -61,14 +65,17 @@ export async function generateMetadata({
   const city = getCity(stateSlug, citySlug);
   if (!state || !city) return {};
   const url = `${SITE_URL}/service-areas/${state.slug}/${city.slug}/`;
+  const rawTitle = city.metaTitle || `ID Card Printing in ${city.name}`;
+  const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|iDGen)\s*$/gi, "").trim();
+  const absoluteTitle = `${cleanTitle} | IDGen`;
   return {
-    title: city.metaTitle || `ID Card Printing in ${city.name} | IDGen Identity Solutions`,
+    title: { absolute: absoluteTitle },
     description:
       city.metaDescription ||
       `IDGen provides ID card printing and identity solutions in ${city.name}, ${state.name}, including student, employee, event and RFID cards, lanyards and accessories.`,
     alternates: { canonical: url },
     openGraph: {
-      title: city.metaTitle,
+      title: absoluteTitle,
       description: city.metaDescription,
       url,
       type: "website",
@@ -387,7 +394,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
           <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
               <ShieldCheck className="h-4 w-4" />
-              <span>{city.projectsBadge || "Verified Institutional Deployments"}</span>
+              <span>{city.projectsBadge || "Institutions We Serve"}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
               {city.projectsTitle || `Organizations & Projects in ${city.name}`}
@@ -459,7 +466,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               </h2>
               <p className="text-sm sm:text-base text-muted leading-relaxed">
                 {city.coverageIntro ||
-                  `IDGen is based in ${city.name} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`}
+                  (isGuwahati ? `IDGen is based in Guwahati, Assam, and serves organizations across the city and surrounding areas.` : `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`)}
               </p>
             </div>
 

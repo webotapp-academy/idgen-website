@@ -307,18 +307,12 @@ export function StudentWorkflowCarousel({
                   {currentStep.imageSrc ? (
                     <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-white/15 shadow-xl bg-slate-950">
                       <Image
+                  unoptimized
                         src={currentStep.imageSrc}
                         alt={`${currentStep.title} Workflow Step`}
                         fill
-                        className="object-cover"
+                        className="object-contain p-2"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-cyan-300">
-                        <span>{currentStep.categoryTag}</span>
-                        <span className="text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/60">
-                          VERIFIED
-                        </span>
-                      </div>
                     </div>
                   ) : currentStep.step === "01" ? (
                     <div className="space-y-3">

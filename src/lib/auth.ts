@@ -32,18 +32,29 @@ export function createSessionToken(username: string): string {
  */
 export function verifySessionToken(token: string | undefined): SessionData | null {
   if (!token || typeof token !== "string") return null;
-  const parts = token.split(".");
-  if (parts.length !== 2) return null;
-
-  const [base64Payload, signature] = parts;
-  const expectedSignature = crypto.createHmac("sha256", AUTH_SECRET).update(base64Payload).digest("base64url");
-
-  // Constant time comparison to prevent timing attacks
-  if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
-    return null;
-  }
 
   try {
+    const parts = token.split(".");
+    if (parts.length !== 2) return null;
+
+    const [base64Payload, signature] = parts;
+    const expectedSignature = crypto
+      .createHmac("sha256", AUTH_SECRET)
+      .update(base64Payload)
+      .digest("base64url");
+
+    const sigBuf = Buffer.from(signature);
+    const expBuf = Buffer.from(expectedSignature);
+
+    if (sigBuf.length !== expBuf.length) {
+      return null;
+    }
+
+    // Constant time comparison to prevent timing attacks
+    if (!crypto.timingSafeEqual(sigBuf, expBuf)) {
+      return null;
+    }
+
     const json = Buffer.from(base64Payload, "base64url").toString("utf-8");
     const payload = JSON.parse(json) as SessionData;
 

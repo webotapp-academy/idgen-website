@@ -207,31 +207,13 @@ export function WorkflowCarousel({
                 {/* Step Image Frame with Hover Zoom */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
                   <Image
+                  unoptimized
                     src={step.img}
                     alt={`${step.num} — ${step.title} ID card production step by IDGen`}
                     fill
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-
-                  {/* Top Step Number Badge */}
-                  <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3 py-1 text-xs font-black text-cyan-300 border border-white/15 shadow-sm">
-                    <IconComponent className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Stage {step.num}</span>
-                  </div>
-
-                  {/* Top Right Brand Pill */}
-                  <div className="absolute top-3.5 right-3.5 rounded-full bg-[#009fe3] px-2.5 py-0.5 text-[10px] font-black text-white shadow-md">
-                    IDGen
-                  </div>
-
-                  {/* Bottom Image Overlay Badge */}
-                  <div className="absolute bottom-3 left-3.5 right-3.5">
-                    <span className="text-[11px] font-bold text-slate-200 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
-                      {step.badge}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content Section */}

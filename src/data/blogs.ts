@@ -1,6 +1,7 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  seoTitle?: string;
   subtitle: string;
   excerpt: string;
   category: "Security & Smart Access" | "Lanyard Engineering" | "Hardware & Accessories" | "Digital Workflow" | "Event Credentials";
@@ -35,6 +36,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "modern-id-card-security-guide",
     title: "The Complete Guide to Modern Institutional ID Card Security: From Holographic Overlays to 13.56 MHz RFID",
+    seoTitle: "Modern ID Card Security: Holograms & RFID Guide",
     subtitle: "How modern schools, universities, and healthcare facilities are phasing out basic paper badges in favor of solid 30-mil virgin PVC, encrypted contactless chips, and tamper-proof finishes.",
     excerpt: "Discover essential security layers for institutional identity badges: edge-to-edge dye retransfer, micro-text, holographic laminate foils, and high-frequency RFID chips.",
     category: "Security & Smart Access",
@@ -42,8 +44,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedDate: "2026-02-18",
     formattedDate: "February 18, 2026",
     author: {
-      name: "Pranab Jyoti Das",
-      role: "Head of Credential Engineering, IDGen",
+      name: "IDGen Technical Team",
+      role: "Credential Engineering Desk",
       avatar: "/images/idgen-hero-cards-mockup.png",
     },
     featuredImage: "/images/PVC Cards Samples/Sample 1.jpg",
@@ -127,6 +129,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ultrasonic-lanyard-sealing-revolution",
     title: "Why Ultrasonic Sealing is Revolutionizing Corporate & Institutional Lanyards",
+    seoTitle: "Ultrasonic Sealing vs Stitched Lanyards Guide",
     subtitle: "Thread-stitched lanyard joints break and fray within months. Discover how high-frequency acoustic molecular welding delivers 15+ kg tensile strength without unsightly staples or threads.",
     excerpt: "Traditional thread stitching and metal staples fail quickly on daily student lanyards. Ultrasonic acoustic sealing fuses satin fibers at the molecular level for fray-proof longevity.",
     category: "Lanyard Engineering",
@@ -134,8 +137,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedDate: "2026-02-10",
     formattedDate: "February 10, 2026",
     author: {
-      name: "Kabir Bora",
-      role: "Production Lead, IDGen Cleanroom",
+      name: "IDGen Production Team",
+      role: "Lanyard Fabrication Desk",
       avatar: "/images/idgen-hero-cards-mockup.png",
     },
     featuredImage: "/images/Lanyard with Hook Samples/Sample 1.jpeg",
@@ -199,6 +202,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "holder-v1-v2-h1-comparison-guide",
     title: "V-1 vs V-2 vs H-1: Choosing the Right Polycarbonate Card Holder for Your Workforce",
+    seoTitle: "Rigid ID Card Holders Guide: V-1, V-2 & H-1",
     subtitle: "Drop-in standard open slots or four-side perimeter locking clips? A technical comparison of portrait V-1 vs heavy-movement V-2 and landscape H-1 frames.",
     excerpt: "Selecting the wrong holder causes bent cards and accidental drop-outs. Compare benchmark V-1 portrait, H-1 landscape, and V-2 4-side lock holders.",
     category: "Hardware & Accessories",
@@ -206,8 +210,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedDate: "2026-02-05",
     formattedDate: "February 5, 2026",
     author: {
-      name: "Pranab Jyoti Das",
-      role: "Head of Credential Engineering, IDGen",
+      name: "IDGen Editorial Team",
+      role: "Hardware & Accessories Desk",
       avatar: "/images/idgen-hero-cards-mockup.png",
     },
     featuredImage: "/images/product-id-holders.jpg",
@@ -283,6 +287,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "rfid-frequency-comparison-guide",
     title: "RFID Frequency Breakdown: 125 kHz Proximity vs 13.56 MHz Mifare 1K & NFC",
+    seoTitle: "RFID Card Standards: 125 kHz vs 13.56 MHz Mifare",
     subtitle: "A technical comparison of legacy low-frequency turnstiles versus high-frequency encrypted contactless smart cards for automated campus attendance.",
     excerpt: "Confused between 125 kHz Proximity and 13.56 MHz Mifare RFID? Learn antenna differences, read ranges, encryption standards, and reader compatibility.",
     category: "Security & Smart Access",
@@ -290,8 +295,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedDate: "2026-01-28",
     formattedDate: "January 28, 2026",
     author: {
-      name: "Pranab Jyoti Das",
-      role: "Head of Credential Engineering, IDGen",
+      name: "IDGen Technical Team",
+      role: "Smart Credentials Desk",
       avatar: "/images/idgen-hero-cards-mockup.png",
     },
     featuredImage: "/images/rfid-nfc-credentials.jpg",
@@ -368,6 +373,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "idgen-studio-digital-onboarding",
     title: "Eliminating Photo Chaos: How IDGen Studio Streamlines Bulk Student Identity Collection",
+    seoTitle: "IDGen Studio: Bulk Student Photo Collection",
     subtitle: "Collecting 5,000 student photographs and spelling details across dozens of departments traditionally took weeks of manual file renaming. See how self-service student portals automate cleanups and digital proof sign-offs.",
     excerpt: "Say goodbye to mismatched Excel rows and blurry WhatsApp photos. Learn how IDGen Studio's digital portal automates cloud photo capture and pre-production proofs.",
     category: "Digital Workflow",
@@ -375,8 +381,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedDate: "2026-01-15",
     formattedDate: "January 15, 2026",
     author: {
-      name: "Rituraj Saikia",
-      role: "Digital Solutions Team, IDGen",
+      name: "IDGen Studio Team",
+      role: "Digital Onboarding Solutions",
       avatar: "/images/idgen-hero-cards-mockup.png",
     },
     featuredImage: "/images/idgen-studio-digital-id-card-data-collection-workflow.jpg",
@@ -440,6 +446,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "event-badging-best-practices",
     title: "Planning High-Impact Badging for Summits, Expos & International Conferences",
+    seoTitle: "High-Impact Badging for Summits & Conferences",
     subtitle: "How oversized 3.5×5.5\" and 4×6\" tear-proof badges paired with dual-hook non-twist lanyards and color-coded zoning transform attendee flow at corporate conventions.",
     excerpt: "Ensure effortless crowd control and sponsor visibility with jumbo summit cards, dual anti-twist lanyard hooks, and instant-scan dynamic QR badges.",
     category: "Event Credentials",
@@ -447,8 +454,8 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedDate: "2026-02-01",
     formattedDate: "February 1, 2026",
     author: {
-      name: "Kabir Bora",
-      role: "Event Production Desk, IDGen",
+      name: "IDGen Events Team",
+      role: "Event Badging & Passes Desk",
       avatar: "/images/idgen-hero-cards-mockup.png",
     },
     featuredImage: "/images/idgen-custom-event-card-printing.jpg",

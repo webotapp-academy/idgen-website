@@ -562,7 +562,7 @@ export default function AdminServiceAreasPage() {
           city.localAdvantagePills && city.localAdvantagePills.length > 0
             ? city.localAdvantagePills
             : [
-              `${city.name} Primary Cleanroom`,
+              `Dispatched from Guwahati Production Hub`,
               "24–48h Priority Batch Dispatch",
               "Pre-Production Physical Proofing",
               "100% Optical Quality Check",
@@ -603,7 +603,7 @@ export default function AdminServiceAreasPage() {
         coverageTitle: city.coverageTitle || `${city.name} Service Coverage`,
         coverageIntro:
           city.coverageIntro ||
-          `IDGen is based in ${city.name} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`,
+          `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`,
         coverageHubTitle: city.coverageHubTitle || (city.isPrimary || city.slug === "guwahati" ? "Guwahati Direct Hub" : "Direct City Hub"),
         coverageHubSubtitle: city.coverageHubSubtitle || `Full ${city.name} & Regional Reach`,
         coverageNotice:
@@ -879,7 +879,7 @@ export default function AdminServiceAreasPage() {
         localPresenceSubBadge: "Direct Doorstep Logistics",
         localPresenceTitle: "IDGen: A Local Identity Solutions Partner",
         localAdvantagePills: [
-          "Primary Cleanroom",
+          "Guwahati Production Facility",
           "24–48h Priority Batch Dispatch",
           "Pre-Production Physical Proofing",
           "100% Optical Quality Check",
@@ -1556,6 +1556,7 @@ export default function AdminServiceAreasPage() {
                       <div className="flex items-center gap-3 p-2.5 bg-slate-900/80 border border-slate-800 rounded-xl">
                         <div className="h-10 w-16 relative bg-white/10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1">
                           <Image
+                  unoptimized
                             src={stateClientLogoInput}
                             alt="Preview"
                             fill
@@ -1626,6 +1627,7 @@ export default function AdminServiceAreasPage() {
                             <div className="flex items-center gap-3 min-w-0">
                               <div className="h-10 w-14 relative bg-white/10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1">
                                 <Image
+                  unoptimized
                                   src={client.logo || "/images/clint logo/1.png"}
                                   alt={client.name}
                                   fill
@@ -2267,7 +2269,7 @@ export default function AdminServiceAreasPage() {
                             type="text"
                             placeholder={
                               idx === 0
-                                ? "Primary Cleanroom"
+                                ? "Guwahati Production Facility"
                                 : idx === 1
                                   ? "24–48h Priority Batch Dispatch"
                                   : idx === 2
@@ -3517,6 +3519,7 @@ export default function AdminServiceAreasPage() {
                           <div className="relative h-20 w-24 sm:w-28 shrink-0 rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex flex-col items-center justify-center group/img">
                             {pt.image ? (
                               <Image
+                  unoptimized
                                 src={pt.image}
                                 alt={pt.title}
                                 fill
@@ -4224,7 +4227,7 @@ export default function AdminServiceAreasPage() {
                             ...cityForm,
                             coverageEyebrow: `${cityForm.name || "Guwahati"} Service Coverage`,
                             coverageTitle: `${cityForm.name || "Guwahati"} Service Coverage`,
-                            coverageIntro: `IDGen is based in ${cityForm.name || "Guwahati"} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`,
+                            coverageIntro: `IDGen serves ${cityForm.name || "Guwahati"} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`,
                             coverageHubTitle:
                               cityForm.isPrimary || cityForm.slug === "guwahati"
                                 ? "Guwahati Direct Hub"
@@ -4279,7 +4282,7 @@ export default function AdminServiceAreasPage() {
                         rows={2}
                         value={cityForm.coverageIntro || ""}
                         onChange={(e) => setCityForm({ ...cityForm, coverageIntro: e.target.value })}
-                        placeholder={`IDGen is based in ${cityForm.name || "Guwahati"} and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.`}
+                        placeholder={`IDGen serves ${cityForm.name || "Guwahati"} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`}
                         className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
                       />
                     </div>

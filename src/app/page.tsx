@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import type { DynamicMembershipCardPrintingPageData } from "./dynamic-membership-card-printing-types";
@@ -779,14 +780,17 @@ export const DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA: DynamicMembershipCardPrintin
   },
 };
 
+const FILENAME = "dynamic-membership-card-printing.json";
+
 export function getDynamicMembershipCardPrinting(): DynamicMembershipCardPrintingPageData {
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      const raw = fs.readFileSync(DATA_FILE, "utf-8");
-      const parsed = JSON.parse(raw);
-      return {
-        ...DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA,
-        ...parsed,
+    const parsed = loadDynamicJson<Partial<DynamicMembershipCardPrintingPageData>>(
+      FILENAME,
+      DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA
+    );
+    return {
+      ...DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA,
+      ...parsed,
         meta: { ...DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA.meta, ...parsed.meta },
         hero: {
           ...DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA.hero,
@@ -1009,7 +1013,6 @@ export function getDynamicMembershipCardPrinting(): DynamicMembershipCardPrintin
             DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA.hubDirectory.internalLinks,
         },
       };
-    }
   } catch (err) {
     console.error("Error reading dynamic-membership-card-printing.json:", err);
   }
@@ -1019,15 +1022,11 @@ export function getDynamicMembershipCardPrinting(): DynamicMembershipCardPrintin
 export function saveDynamicMembershipCardPrinting(
   data: DynamicMembershipCardPrintingPageData
 ): DynamicMembershipCardPrintingPageData {
-  const dir = path.dirname(DATA_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+  saveDynamicJson(FILENAME, data);
   return data;
 }
 
 export function resetDynamicMembershipCardPrinting(): DynamicMembershipCardPrintingPageData {
-  saveDynamicMembershipCardPrinting(DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA);
+  saveDynamicJson(FILENAME, DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA);
   return DEFAULT_MEMBERSHIP_CARD_PRINTING_DATA;
 }

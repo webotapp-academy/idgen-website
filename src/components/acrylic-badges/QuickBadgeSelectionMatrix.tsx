@@ -331,15 +331,12 @@ export function QuickBadgeSelectionMatrix({
 
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-slate-950 mb-3 flex items-center justify-center p-2">
                   <Image
+                  unoptimized
                     src={item.img}
                     alt={item.title}
                     fill
-                    className="object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-1.5 rounded-xl group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-2 right-2 rounded-lg bg-slate-900/80 text-white p-1.5 opacity-0 group-hover:opacity-100 transition">
-                    <Maximize2 className="h-3.5 w-3.5" />
-                  </div>
                 </div>
 
                 <h3 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white group-hover:text-[#009fe3] transition-colors leading-snug line-clamp-1">
@@ -428,12 +425,13 @@ export function QuickBadgeSelectionMatrix({
             </button>
 
             <div className="flex items-start gap-4">
-              <div className="relative h-24 w-24 shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950">
+              <div className="relative h-24 w-24 shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950 p-1 flex items-center justify-center">
                 <Image
+                  unoptimized
                   src={selectedModalBadge.img}
                   alt={selectedModalBadge.title}
                   fill
-                  className="object-cover"
+                  className="object-contain p-1"
                 />
               </div>
               <div className="space-y-1">

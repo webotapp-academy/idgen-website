@@ -200,10 +200,17 @@ function AdminPricingContent() {
   const fetchPricing = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/admin/pricing?all=true");
+      const res = await fetch("/api/admin/pricing/?all=true");
       const data = await res.json();
-      if (data.success && Array.isArray(data.items)) {
-        setItems(data.items);
+      const itemsList = Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data.data)
+        ? data.data
+        : Array.isArray(data)
+        ? data
+        : null;
+      if (data.success !== false && itemsList) {
+        setItems(itemsList);
       }
     } catch (err) {
       console.error("Failed to load pricing:", err);
@@ -217,12 +224,19 @@ function AdminPricingContent() {
   const fetchSpecs = async () => {
     try {
       setSpecsLoading(true);
-      const res = await fetch("/api/admin/specifications?all=true");
+      const res = await fetch("/api/admin/specifications/?all=true");
       const data = await res.json();
-      if (data.success && Array.isArray(data.specs)) {
-        setSpecsList(data.specs);
+      const specs = Array.isArray(data.specs)
+        ? data.specs
+        : Array.isArray(data.data)
+        ? data.data
+        : Array.isArray(data)
+        ? data
+        : null;
+      if (data.success !== false && specs) {
+        setSpecsList(specs);
       }
-      if (data.success && data.sectionConfig) {
+      if (data.sectionConfig) {
         setSectionConfig(data.sectionConfig);
       }
     } catch (err) {
@@ -237,10 +251,11 @@ function AdminPricingContent() {
   const fetchPageData = async () => {
     try {
       setPageLoading(true);
-      const res = await fetch("/api/admin/pricing?type=page");
+      const res = await fetch("/api/admin/pricing/?type=page");
       const data = await res.json();
-      if (data.success && data.page) {
-        setPageData(data.page);
+      const p = data.page || data.data || (data.hero ? data : null);
+      if (data.success !== false && p && p.hero) {
+        setPageData(p);
       }
     } catch (err) {
       console.error("Failed to load page content:", err);
@@ -256,7 +271,7 @@ function AdminPricingContent() {
   ) => {
     try {
       setSavingPageSection(section as string);
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -267,8 +282,9 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
-      if (data.success && data.page) {
-        setPageData(data.page);
+      const p = data.page || data.data;
+      if (data.success && p) {
+        setPageData((prev) => (prev ? { ...prev, [section]: sectionData } : p));
         showToast(`Saved section: ${String(section)}!`);
       } else {
         showToast(data.error || "Failed to save section", "error");
@@ -281,11 +297,43 @@ function AdminPricingContent() {
     }
   };
 
+  const handleSaveHeroBundle = async () => {
+    if (!pageData) return;
+    try {
+      setSavingPageSection("hero_bundle");
+      const res = await fetch("/api/admin/pricing/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "page",
+          action: "save_hero_bundle",
+          heroBundle: {
+            hero: pageData.hero,
+            heroSlides: pageData.heroSlides,
+          },
+        }),
+      });
+      const data = await res.json();
+      const p = data.page || data.data;
+      if (data.success && p) {
+        setPageData((prev) => (prev ? { ...prev, hero: p.hero, heroSlides: p.heroSlides } : p));
+        showToast("Hero headline, rates ribbon & carousel slides saved successfully!");
+      } else {
+        showToast(data.error || "Failed to save hero section", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("Network error saving hero section", "error");
+    } finally {
+      setSavingPageSection(null);
+    }
+  };
+
   const handleSaveFullPage = async () => {
     if (!pageData) return;
     try {
       setSavingPageSection("full");
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -295,8 +343,9 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
-      if (data.success && data.page) {
-        setPageData(data.page);
+      const p = data.page || data.data;
+      if (data.success && p) {
+        setPageData(p);
         showToast("Full pricing page content saved successfully!");
       } else {
         showToast(data.error || "Failed to save page", "error");
@@ -312,7 +361,7 @@ function AdminPricingContent() {
   const handleResetFullPage = async () => {
     try {
       setSavingPageSection("reset");
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -321,8 +370,9 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
-      if (data.success && data.page) {
-        setPageData(data.page);
+      const p = data.page || data.data;
+      if (data.success && p) {
+        setPageData(p);
         setIsPageResetConfirmOpen(false);
         showToast("Full page reset to factory defaults!");
       } else {
@@ -342,7 +392,7 @@ function AdminPricingContent() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      const res = await fetch("/api/admin/upload/", { method: "POST", body: formData });
       const data = await res.json();
       if (data.url) {
         const nextSlides = [...pageData.heroSlides];
@@ -435,7 +485,7 @@ function AdminPricingContent() {
 
     try {
       setSavingInlineId(item.id);
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -447,8 +497,17 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
+      const updatedItems = Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setItems(data.items);
+        if (updatedItems) {
+          setItems(updatedItems);
+        } else {
+          fetchPricing();
+        }
         setInlineEdits((prev) => {
           const next = { ...prev };
           delete next[item.id];
@@ -470,7 +529,7 @@ function AdminPricingContent() {
   const handleToggleActive = async (item: PricingItemData) => {
     try {
       const updatedActive = !item.isActive;
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -481,8 +540,17 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
+      const updatedItems = Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setItems(data.items);
+        if (updatedItems) {
+          setItems(updatedItems);
+        } else {
+          fetchPricing();
+        }
         showToast(`${item.name} is now ${updatedActive ? "Live (Visible)" : "Hidden"}`);
       }
     } catch (err) {
@@ -495,7 +563,7 @@ function AdminPricingContent() {
   const handleToggleSpecActive = async (spec: TechnicalSpecItem) => {
     try {
       const updatedActive = !spec.isActive;
-      const res = await fetch("/api/admin/specifications", {
+      const res = await fetch("/api/admin/specifications/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -506,8 +574,17 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
+      const updatedSpecs = Array.isArray(data.specs)
+        ? data.specs
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setSpecsList(data.specs);
+        if (updatedSpecs) {
+          setSpecsList(updatedSpecs);
+        } else {
+          fetchSpecs();
+        }
         showToast(`${spec.name} is now ${updatedActive ? "Live (Visible)" : "Hidden"}`);
       }
     } catch (err) {
@@ -521,14 +598,14 @@ function AdminPricingContent() {
     e.preventDefault();
     try {
       setSavingHeader(true);
-      const res = await fetch("/api/admin/specifications", {
+      const res = await fetch("/api/admin/specifications/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sectionConfig }),
       });
       const data = await res.json();
       if (data.success) {
-        setSectionConfig(data.sectionConfig);
+        if (data.sectionConfig) setSectionConfig(data.sectionConfig);
         setIsEditingSectionHeader(false);
         showToast("Technical Specifications section header updated successfully!");
       } else {
@@ -552,7 +629,7 @@ function AdminPricingContent() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const res = await fetch("/api/admin/upload", {
+      const res = await fetch("/api/admin/upload/", {
         method: "POST",
         body: formData,
       });
@@ -618,7 +695,7 @@ function AdminPricingContent() {
 
     try {
       setIsSubmitting(true);
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -629,8 +706,17 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
+      const updatedItems = Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setItems(data.items);
+        if (updatedItems) {
+          setItems(updatedItems);
+        } else {
+          fetchPricing();
+        }
         setIsModalOpen(false);
         showToast(modalMode === "add" ? "New product pricing added!" : "Pricing item saved successfully!");
       } else {
@@ -649,12 +735,21 @@ function AdminPricingContent() {
     if (!confirm(`Are you sure you want to delete "${name}"?`)) return;
 
     try {
-      const res = await fetch(`/api/admin/pricing?id=${encodeURIComponent(id)}`, {
+      const res = await fetch(`/api/admin/pricing/?id=${encodeURIComponent(id)}`, {
         method: "DELETE",
       });
       const data = await res.json();
+      const updatedItems = Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setItems(data.items);
+        if (updatedItems) {
+          setItems(updatedItems);
+        } else {
+          fetchPricing();
+        }
         showToast(`Deleted ${name}`);
       } else {
         showToast(data.error || "Failed to delete item", "error");
@@ -669,14 +764,23 @@ function AdminPricingContent() {
   const handleResetToDefaults = async () => {
     try {
       setIsSubmitting(true);
-      const res = await fetch("/api/admin/pricing", {
+      const res = await fetch("/api/admin/pricing/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "reset" }),
       });
       const data = await res.json();
+      const updatedItems = Array.isArray(data.items)
+        ? data.items
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setItems(data.items);
+        if (updatedItems) {
+          setItems(updatedItems);
+        } else {
+          fetchPricing();
+        }
         setIsResetConfirmOpen(false);
         showToast("Reset all pricing to factory defaults!");
       }
@@ -740,7 +844,7 @@ function AdminPricingContent() {
 
     try {
       setIsSubmitting(true);
-      const res = await fetch("/api/admin/specifications", {
+      const res = await fetch("/api/admin/specifications/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -755,8 +859,17 @@ function AdminPricingContent() {
         }),
       });
       const data = await res.json();
+      const updatedSpecs = Array.isArray(data.specs)
+        ? data.specs
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setSpecsList(data.specs);
+        if (updatedSpecs) {
+          setSpecsList(updatedSpecs);
+        } else {
+          fetchSpecs();
+        }
         setIsSpecModalOpen(false);
         showToast(specModalMode === "add" ? "New Technical Specification added!" : "Technical Specification saved successfully!");
       } else {
@@ -774,12 +887,21 @@ function AdminPricingContent() {
     if (!confirm(`Are you sure you want to delete technical specifications for "${name}"?`)) return;
 
     try {
-      const res = await fetch(`/api/admin/specifications?id=${encodeURIComponent(id)}`, {
+      const res = await fetch(`/api/admin/specifications/?id=${encodeURIComponent(id)}`, {
         method: "DELETE",
       });
       const data = await res.json();
+      const updatedSpecs = Array.isArray(data.specs)
+        ? data.specs
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setSpecsList(data.specs);
+        if (updatedSpecs) {
+          setSpecsList(updatedSpecs);
+        } else {
+          fetchSpecs();
+        }
         showToast(`Deleted specification: ${name}`);
       } else {
         showToast(data.error || "Failed to delete specification", "error");
@@ -793,17 +915,28 @@ function AdminPricingContent() {
   const handleResetSpecsToDefaults = async () => {
     try {
       setIsSubmitting(true);
-      const res = await fetch("/api/admin/specifications", {
+      const res = await fetch("/api/admin/specifications/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "reset" }),
       });
       const data = await res.json();
+      const updatedSpecs = Array.isArray(data.specs)
+        ? data.specs
+        : Array.isArray(data.data)
+        ? data.data
+        : null;
       if (data.success) {
-        setSpecsList(data.specs);
+        if (updatedSpecs) {
+          setSpecsList(updatedSpecs);
+        } else {
+          fetchSpecs();
+        }
         if (data.sectionConfig) setSectionConfig(data.sectionConfig);
         setIsSpecResetConfirmOpen(false);
         showToast("Reset all technical specifications & images to factory engineering catalog!");
+      } else {
+        showToast(data.error || "Failed to reset specifications", "error");
       }
     } catch (err) {
       console.error(err);
@@ -1450,6 +1583,7 @@ function AdminPricingContent() {
                       <div className="flex gap-4 items-start">
                         <div className="relative h-28 w-28 shrink-0 rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-inner group">
                           <Image
+                  unoptimized
                             src={spec.imageSrc || "/images/product-pvc-cards.jpg"}
                             alt={spec.alt || spec.name}
                             fill
@@ -1578,6 +1712,7 @@ function AdminPricingContent() {
           setPageData={setPageData}
           savingSection={savingPageSection}
           onSaveSection={handleSavePageSection}
+          onSaveHeroBundle={handleSaveHeroBundle}
           onSaveFullPage={handleSaveFullPage}
           onResetPage={handleResetFullPage}
           onSlideImageUpload={handleSlideImageUpload}
@@ -1945,6 +2080,7 @@ function AdminPricingContent() {
                   <div className="relative h-28 w-28 shrink-0 rounded-2xl overflow-hidden border border-slate-700 bg-slate-900 shadow-inner flex items-center justify-center">
                     {editingSpec.imageSrc ? (
                       <Image
+                  unoptimized
                         src={editingSpec.imageSrc}
                         alt={editingSpec.alt || "Product image"}
                         fill

@@ -636,16 +636,12 @@ function AdminWhyIdgenContent() {
                   {/* Preview */}
                   <div className="relative h-44 sm:h-52 w-full rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
                     <Image
+                  unoptimized
                       src={data.hero.heroImage || "/images/why-idgen-hero-branded.jpg"}
                       alt="Hero preview"
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
-                      <span className="text-[11px] font-bold text-white bg-slate-900/80 px-2 py-1 rounded-md backdrop-blur-sm">
-                        {data.hero.floatingCardTag} • {data.hero.floatingCardLocation}
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1423,6 +1419,7 @@ function AdminWhyIdgenContent() {
                       <div className="space-y-2">
                         <div className="relative h-32 w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
                           <Image
+                  unoptimized
                             src={pillar.img || "/images/why-idgen-cards-showcase-branded.jpg"}
                             alt={pillar.title}
                             fill
@@ -1860,7 +1857,8 @@ function AdminWhyIdgenContent() {
                       className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2.5"
                     >
                       <div className="relative h-28 w-full rounded-xl overflow-hidden bg-slate-900">
-                        <Image src={prod.image} alt={prod.title} fill className="object-cover" />
+                        <Image
+                  unoptimized src={prod.image} alt={prod.title} fill className="object-cover" />
                         <span className="absolute top-2 left-2 text-[10px] font-black text-slate-950 bg-teal-400 px-2 py-0.5 rounded-md font-mono">
                           Step {prod.step}
                         </span>

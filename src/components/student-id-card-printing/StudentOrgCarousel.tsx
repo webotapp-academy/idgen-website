@@ -202,10 +202,11 @@ export function StudentOrgCarousel({ items }: { items?: StudentOrgSlideItem[] } 
               {activeOrg.imageSrc && (
                 <div className="relative hidden sm:block h-16 w-24 shrink-0 rounded-2xl overflow-hidden border-2 border-sky-200/80 dark:border-sky-800/60 shadow-lg">
                   <Image
+                  unoptimized
                     src={activeOrg.imageSrc}
                     alt={`${activeOrg.title} Showcase`}
                     fill
-                    className="object-cover"
+                    className="object-contain p-1"
                   />
                 </div>
               )}

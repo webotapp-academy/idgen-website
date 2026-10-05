@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import { pageMetadata } from "@/lib/metadata";
 import { LegalDocumentShell, type LegalSectionItem, type LegalHighlight } from "@/components/legal/LegalDocumentShell";
@@ -6,9 +10,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/data/site";
 
 export const metadata = pageMetadata({
-  title: "Privacy Policy — iDGen Identity Solutions",
+  title: "Privacy Policy",
   description:
-    "Official Privacy Policy of iDGen explaining how personal information, photographs, student/employee ID credentials, and iDGen Studio order data are collected, processed, protected, and deleted.",
+    "Official Privacy Policy of IDGen explaining how personal information, photographs, student/employee ID credentials, and IDGen Studio order data are collected, processed, protected, and deleted.",
   path: "/privacy-policy/",
 });
 
@@ -22,7 +26,7 @@ const privacyHighlights: LegalHighlight[] = [
   {
     label: "Data Ownership",
     value: "Customer is Data Fiduciary",
-    desc: "You retain full ownership of employee, student, and institutional records; iDGen acts as processor.",
+    desc: "You retain full ownership of employee, student, and institutional records; IDGen acts as processor.",
     iconKey: "user",
   },
   {
@@ -49,14 +53,14 @@ const privacySections: LegalSectionItem[] = [
       <div className="space-y-3">
         <p>This Privacy Policy applies to:</p>
         <ul className="list-disc pl-5 space-y-1.5">
-          <li>The iDGen website</li>
-          <li>iDGen Studio</li>
+          <li>The IDGen website</li>
+          <li>IDGen Studio</li>
           <li>ID card printing services</li>
           <li>Lanyard and accessory services</li>
           <li>Customer enquiries</li>
           <li>Orders and quotations</li>
           <li>Customer communications</li>
-          <li>Other services provided by iDGen through digital or offline channels</li>
+          <li>Other services provided by IDGen through digital or offline channels</li>
         </ul>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           By using our website or services, you acknowledge that you have read this Privacy Policy.
@@ -161,12 +165,12 @@ const privacySections: LegalSectionItem[] = [
           Photographs submitted for ID card production are treated as personal information.
         </p>
         <p>
-          The customer is responsible for ensuring that they have the necessary authority or permission to submit photographs and other personal information to iDGen for the requested service.
+          The customer is responsible for ensuring that they have the necessary authority or permission to submit photographs and other personal information to IDGen for the requested service.
         </p>
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2">
           <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400" />
           <span>
-            If an incorrect or wrong photograph is submitted by a user/customer and approved for printing, iDGen will not be responsible for the resulting incorrect ID card.
+            If an incorrect or wrong photograph is submitted by a user/customer and approved for printing, IDGen will not be responsible for the resulting incorrect ID card.
           </span>
         </div>
       </div>
@@ -188,7 +192,7 @@ const privacySections: LegalSectionItem[] = [
             "Designing and printing ID cards",
             "Producing lanyards and accessories",
             "Managing customer accounts",
-            "Operating iDGen Studio",
+            "Operating IDGen Studio",
             "Processing customer approvals",
             "Communicating about orders",
             "Preparing invoices and payment records",
@@ -217,21 +221,21 @@ const privacySections: LegalSectionItem[] = [
   {
     id: "idgen-studio-customer-data",
     num: "5",
-    title: "iDGen Studio & Customer Data",
+    title: "IDGen Studio & Customer Data",
     tags: ["schools", "colleges", "companies", "data processor", "fiduciary"],
     content: (
       <div className="space-y-3">
         <p>
-          iDGen Studio may allow an organisation such as a school, college, university, company, government department, or other organisation to collect and manage information for ID card production.
+          IDGen Studio may allow an organisation such as a school, college, university, company, government department, or other organisation to collect and manage information for ID card production.
         </p>
         <p>
           In such cases, the organisation/customer generally determines what information is collected and why it is required.
         </p>
         <p>
-          The customer is responsible for ensuring that it has the necessary authority, permissions, notices, and lawful basis required to collect and provide such information to iDGen.
+          The customer is responsible for ensuring that it has the necessary authority, permissions, notices, and lawful basis required to collect and provide such information to IDGen.
         </p>
         <p className="text-cyan-600 dark:text-cyan-400 font-semibold text-xs">
-          iDGen processes the information to provide the agreed services.
+          IDGen processes the information to provide the agreed services.
         </p>
       </div>
     ),
@@ -247,7 +251,7 @@ const privacySections: LegalSectionItem[] = [
           Personal data and photographs supplied by a customer for ID card production remain under the customer&apos;s control and responsibility, subject to applicable law.
         </p>
         <p className="font-semibold text-slate-900 dark:text-white">
-          iDGen does not claim ownership of the customer&apos;s personal information merely because it is uploaded to iDGen Studio.
+          IDGen does not claim ownership of the customer&apos;s personal information merely because it is uploaded to IDGen Studio.
         </p>
       </div>
     ),
@@ -264,10 +268,10 @@ const privacySections: LegalSectionItem[] = [
         </p>
         <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-4 space-y-2 text-xs">
           <h4 className="font-bold text-slate-900 dark:text-white text-sm">
-            iDGen Studio Standard Retention Policy
+            IDGen Studio Standard Retention Policy
           </h4>
           <p>
-            For completed ID-card orders, <strong>iDGen&apos;s standard operational retention period is one month after completion of the order</strong>, unless:
+            For completed ID-card orders, <strong>IDGen&apos;s standard operational retention period is one month after completion of the order</strong>, unless:
           </p>
           <ul className="list-disc pl-5 space-y-1">
             <li>The customer requests a different arrangement;</li>
@@ -290,10 +294,10 @@ const privacySections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          Customers may request deletion of applicable personal information stored in iDGen Studio.
+          Customers may request deletion of applicable personal information stored in IDGen Studio.
         </p>
         <p>
-          After receiving and verifying a valid request, iDGen will delete the applicable data where deletion is permitted and technically possible.
+          After receiving and verifying a valid request, IDGen will delete the applicable data where deletion is permitted and technically possible.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           Certain information may need to be retained where required by law, accounting requirements, fraud prevention, dispute resolution, or other lawful purposes.
@@ -309,10 +313,10 @@ const privacySections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          Before scheduled deletion of iDGen Studio data, the customer may request an export of available information.
+          Before scheduled deletion of IDGen Studio data, the customer may request an export of available information.
         </p>
         <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.02] p-4 text-xs space-y-1.5">
-          <p className="font-bold text-slate-900 dark:text-white">Where technically available, iDGen may provide:</p>
+          <p className="font-bold text-slate-900 dark:text-white">Where technically available, IDGen may provide:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Data in Excel format</strong>; and</li>
             <li><strong>Photographs in a separate folder</strong>.</li>
@@ -363,7 +367,7 @@ const privacySections: LegalSectionItem[] = [
           Payments may be processed through third-party payment gateways or financial institutions.
         </p>
         <p>
-          iDGen generally does not store complete payment card details such as full debit/credit card numbers or CVV information on its own systems unless specifically required and lawfully permitted.
+          IDGen generally does not store complete payment card details such as full debit/credit card numbers or CVV information on its own systems unless specifically required and lawfully permitted.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           Payment providers may have their own privacy policies and security practices.
@@ -412,7 +416,7 @@ const privacySections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          iDGen takes reasonable technical and organisational measures to protect personal information from unauthorised access, misuse, loss, alteration, disclosure, or destruction.
+          IDGen takes reasonable technical and organisational measures to protect personal information from unauthorised access, misuse, loss, alteration, disclosure, or destruction.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           However, no online system, website, database, or transmission method can be guaranteed to be completely secure.
@@ -427,7 +431,7 @@ const privacySections: LegalSectionItem[] = [
     tags: ["customer duty", "accurate data", "authority", "export security"],
     content: (
       <div className="space-y-3">
-        <p>Customers using iDGen Studio are responsible for:</p>
+        <p>Customers using IDGen Studio are responsible for:</p>
         <ul className="list-disc pl-5 space-y-1.5 text-xs">
           <li>Providing accurate information</li>
           <li>Providing appropriate photographs</li>
@@ -448,13 +452,13 @@ const privacySections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          iDGen may process information relating to students or other individuals who may be children when an authorised school, institution, parent, guardian, or other customer uses our ID card services.
+          IDGen may process information relating to students or other individuals who may be children when an authorised school, institution, parent, guardian, or other customer uses our ID card services.
         </p>
         <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-3.5 text-xs text-slate-700 dark:text-slate-300">
           Where required by applicable law, the relevant customer/organisation is responsible for obtaining the necessary consent or ensuring the appropriate legal basis and safeguards for processing such information.
         </div>
         <p className="text-xs text-slate-600 dark:text-slate-400">
-          iDGen will process such information only for the agreed service purposes.
+          IDGen will process such information only for the agreed service purposes.
         </p>
       </div>
     ),
@@ -466,7 +470,7 @@ const privacySections: LegalSectionItem[] = [
     tags: ["incident", "breach", "notification"],
     content: (
       <p>
-        If iDGen becomes aware of a personal data security incident affecting information under our control, we will take appropriate steps to investigate, contain, and address the incident and make notifications where required by applicable law.
+        If IDGen becomes aware of a personal data security incident affecting information under our control, we will take appropriate steps to investigate, contain, and address the incident and make notifications where required by applicable law.
       </p>
     ),
   },
@@ -488,7 +492,7 @@ const privacySections: LegalSectionItem[] = [
           <li>Other privacy-related requests</li>
         </ul>
         <p className="text-xs text-slate-500 dark:text-slate-400">
-          Where a request relates to information controlled by a customer organisation, such as a school, college, company, or institution, iDGen may direct the request to that organisation where appropriate.
+          Where a request relates to information controlled by a customer organisation, such as a school, college, company, or institution, IDGen may direct the request to that organisation where appropriate.
         </p>
       </div>
     ),
@@ -501,7 +505,7 @@ const privacySections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          Where processing is based on consent and applicable law provides a right to withdraw that consent, the individual may withdraw consent using the available method communicated by iDGen or the relevant customer organisation.
+          Where processing is based on consent and applicable law provides a right to withdraw that consent, the individual may withdraw consent using the available method communicated by IDGen or the relevant customer organisation.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           Withdrawal of consent does not affect processing that was lawfully carried out before withdrawal. Withdrawal may also affect our ability to provide certain services where the information is necessary for those services.
@@ -518,7 +522,7 @@ const privacySections: LegalSectionItem[] = [
       <div className="space-y-2">
         <p>For privacy or data-related questions, requests, or complaints, please contact:</p>
         <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.03] p-4 text-xs space-y-1">
-          <p className="font-bold text-slate-900 dark:text-white">iDGen</p>
+          <p className="font-bold text-slate-900 dark:text-white">IDGen</p>
           <p>
             Email:{" "}
             <a href="mailto:info@idgen.in" className="text-cyan-600 dark:text-cyan-400 font-semibold hover:underline">
@@ -540,7 +544,7 @@ const privacySections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          Our website may contain links to third-party websites or services. iDGen is not responsible for the privacy practices, security, or content of third-party websites.
+          Our website may contain links to third-party websites or services. IDGen is not responsible for the privacy practices, security, or content of third-party websites.
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
           We recommend reviewing their respective privacy policies before providing personal information.
@@ -580,9 +584,9 @@ const privacySections: LegalSectionItem[] = [
     tags: ["contact", "email", "address"],
     content: (
       <div className="space-y-3">
-        <p>If you have any questions about this Privacy Policy or how iDGen handles information, please contact:</p>
+        <p>If you have any questions about this Privacy Policy or how IDGen handles information, please contact:</p>
         <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.03] p-4 text-xs space-y-1.5">
-          <p className="font-bold text-slate-900 dark:text-white text-sm">iDGen</p>
+          <p className="font-bold text-slate-900 dark:text-white text-sm">IDGen</p>
           <p className="text-cyan-600 dark:text-cyan-400 font-medium">Identity Solutions, Simplified</p>
           <p>
             Email:{" "}
@@ -607,13 +611,13 @@ export default function PrivacyPolicyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Privacy Policy — iDGen",
+    name: "Privacy Policy — IDGen",
     url: `${SITE_URL}/privacy-policy/`,
-    description: "Official Privacy Policy of iDGen explaining how personal information, photographs, student/employee ID credentials, and iDGen Studio order data are collected, processed, protected, and deleted.",
+    description: "Official Privacy Policy of IDGen explaining how personal information, photographs, student/employee ID credentials, and IDGen Studio order data are collected, processed, protected, and deleted.",
     dateModified: "2026-09-07",
     publisher: {
       "@type": "Organization",
-      name: "iDGen",
+      name: "IDGen",
       url: SITE_URL,
       email: "info@idgen.in",
     },
@@ -625,7 +629,7 @@ export default function PrivacyPolicyPage() {
       <LegalDocumentShell
         documentType="privacy"
         title="Privacy Policy"
-        subtitle="At iDGen, we respect your privacy and are committed to protecting the personal information entrusted to us. This Privacy Policy explains how iDGen collects, uses, stores, processes, shares, and deletes information when you visit our website, contact us, place an order, or use iDGen Studio."
+        subtitle="At IDGen, we respect your privacy and are committed to protecting the personal information entrusted to us. This Privacy Policy explains how IDGen collects, uses, stores, processes, shares, and deletes information when you visit our website, contact us, place an order, or use IDGen Studio."
         lastUpdated="7 September 2026"
         highlights={privacyHighlights}
         sections={privacySections}

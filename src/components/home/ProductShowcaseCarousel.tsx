@@ -299,37 +299,16 @@ export function ProductShowcaseCarousel({
               className="snap-start shrink-0 w-[88vw] sm:w-[380px] lg:w-[390px] flex flex-col justify-between rounded-3xl border border-surface-border bg-surface p-5 sm:p-6 shadow-lg shadow-black/[0.03] transition-all duration-500 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1.5 card-3d group"
             >
               {/* Product Image Frame */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-surface-border/80 img-shine mb-5">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-surface-border/80 img-shine mb-5 p-2 flex items-center justify-center">
                 <Image
                   src={product.imageSrc}
                   alt={product.imageAlt || product.name}
                   title={product.name}
                   fill
                   unoptimized
-                  sizes="(max-width: 640px) 90vw, 400px"
-                  className="object-cover object-center img-zoom transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  className="object-contain object-center img-zoom transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-
-                {/* Top Badge */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                  <span className={`rounded-full border px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider backdrop-blur-md shadow-md ${product.badgeColor || "text-accent bg-accent/10 border-accent/30"}`}>
-                    {product.badge}
-                  </span>
-                </div>
-
-                {/* Top Right Tag */}
-                <div className="absolute top-3 right-3">
-                  <span className="rounded-full bg-slate-950/80 border border-white/20 px-2.5 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
-                    {product.tag}
-                  </span>
-                </div>
-
-                {/* Bottom Spec Floating Bar */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-medium backdrop-blur-md bg-slate-950/85 px-3 py-1.5 rounded-xl border border-white/15">
-                  <span className="truncate text-slate-200">{product.spec}</span>
-                  <Sparkles className="h-3.5 w-3.5 text-accent shrink-0 ml-1.5" />
-                </div>
               </div>
 
               {/* Product Info & Highlights */}

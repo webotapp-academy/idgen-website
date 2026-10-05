@@ -211,14 +211,12 @@ export function HolderAssemblyEcosystem({
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative aspect-[4/3] w-full max-w-[340px] overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-950 p-4 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center group">
               <Image
+                  unoptimized
                 src={activeLayer.img}
                 alt={activeLayer.title}
                 fill
                 className="object-contain p-3 transition-transform duration-500 group-hover:scale-108 drop-shadow-md"
               />
-              <span className="absolute top-3 left-3 rounded-full bg-slate-900/85 text-white px-2.5 py-0.5 text-[11px] font-mono font-bold backdrop-blur-xs">
-                Layer {activeLayer.step}
-              </span>
             </div>
             <span className="mt-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
               {activeLayer.badge}

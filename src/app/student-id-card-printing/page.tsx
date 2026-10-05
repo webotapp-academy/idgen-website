@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -284,41 +287,14 @@ export default function StudentIdCardPrintingPage() {
                 <div className="relative mx-auto w-full">
                   <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#009fe3]/25 via-sky-400/20 to-blue-600/25 blur-2xl opacity-75" />
                   <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                       <Image
                         src={data.design.imageSrc}
                         alt={data.design.imageAlt}
                         fill
-                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 1024px) 100vw, 50vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
-
-                      {/* Top Badges */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                          <Palette className="h-3.5 w-3.5 text-cyan-400" />
-                          <span>{data.design.badgeTopLeft}</span>
-                        </span>
-                        <span className="rounded-full bg-[#009fe3] px-3.5 py-1 text-xs font-black text-white shadow-md">
-                          {data.design.badgeTopRight}
-                        </span>
-                      </div>
-
-                      {/* Bottom Info Bar */}
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white z-10">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.design.footerTagline}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black">
-                            {data.design.footerTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-extrabold bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-sm">
-                          {data.design.footerStatus}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -773,28 +749,14 @@ export default function StudentIdCardPrintingPage() {
                 <div className="relative mx-auto w-full">
                   <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#009fe3]/25 via-cyan-500/20 to-blue-600/25 blur-2xl opacity-75" />
                   <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                    <div className="relative aspect-[3/4] w-full overflow-hidden">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                       <Image
                         src={data.studio.imageSrc}
                         alt={data.studio.imageAlt}
                         fill
-                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 1024px) 100vw, 40vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white z-10">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.studio.imageBadge}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black">
-                            {data.studio.imageTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-extrabold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
-                          {data.studio.imageTag}
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </div>

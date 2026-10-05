@@ -43,6 +43,9 @@ import {
   CreditCard,
   Laptop,
   FileSpreadsheet,
+  BookOpen,
+  Phone,
+  Box,
 } from "lucide-react";
 
 export default async function AdminDashboardPage() {
@@ -57,6 +60,265 @@ export default async function AdminDashboardPage() {
 
   const primaryCities = allCitiesList.filter((item) => item.city.isPrimary);
   const activePricingCount = pricingItems.filter((i) => i.isActive).length;
+
+  const adminCategories = [
+    {
+      name: "Core Portals",
+      desc: "Central dynamic engines & interactive previewer",
+      color: "teal",
+      portals: [
+        {
+          name: "Home Page CMS",
+          href: "/admin/homepage/",
+          publicHref: "/",
+          icon: Sparkles,
+          tag: "11 Points Dynamic",
+          desc: "Hero slides, product catalog, trust bar, services, solutions, FAQs & SEO.",
+        },
+        {
+          name: "Why IDGen CMS",
+          href: "/admin/why-idgen/",
+          publicHref: "/why-idgen/",
+          icon: Award,
+          tag: "13 Points Dynamic",
+          desc: "Pillars, 2014 milestones, factory process, security & regional commitments.",
+        },
+        {
+          name: "IDGen Studio CMS",
+          href: "/admin/idgen-studio/",
+          publicHref: "/idgen-studio/",
+          icon: Laptop,
+          tag: "Visual Suite",
+          desc: "Workflow steps, interactive demo video, format templates & client sectors.",
+        },
+      ],
+    },
+    {
+      name: "Services Dynamic CMS (8 Services)",
+      desc: "Full identification product and specialized manufacturing pipelines",
+      color: "cyan",
+      portals: [
+        {
+          name: "Services & Dropdown",
+          href: "/admin/services/",
+          icon: Package,
+          tag: "Manager",
+          desc: "Navigation dropdown items, global services list & service catalog.",
+        },
+        {
+          name: "ID Card Printing",
+          href: "/admin/id-card-printing/",
+          publicHref: "/id-card-printing/",
+          icon: ShieldCheck,
+          tag: "Service",
+          desc: "PVC card printing, tech specs, pricing tiers & institutional security.",
+        },
+        {
+          name: "Student ID Cards",
+          href: "/admin/student-id-card-printing/",
+          publicHref: "/student-id-card-printing/",
+          icon: GraduationCap,
+          tag: "Service",
+          desc: "School & university bulk identity, barcode, RFID & safety compliance.",
+        },
+        {
+          name: "Employee ID Cards",
+          href: "/admin/employee-id-card-printing/",
+          publicHref: "/employee-id-card-printing/",
+          icon: Briefcase,
+          tag: "Service",
+          desc: "Corporate staff cards, magnetic stripe, smart chip & access control.",
+        },
+        {
+          name: "Custom Printed Lanyards",
+          href: "/admin/custom-printed-lanyard-printing/",
+          publicHref: "/custom-printed-lanyard-printing/",
+          icon: Tag,
+          tag: "Service",
+          desc: "Sublimation heat transfer satin lanyards, attachments & width sizing.",
+        },
+        {
+          name: "Event Cards & Badges",
+          href: "/admin/event-card-printing/",
+          publicHref: "/event-card-printing/",
+          icon: Ticket,
+          tag: "Service",
+          desc: "Conferences, summit badges, backstage passes & rapid dispatch.",
+        },
+        {
+          name: "RFID & Smart Cards",
+          href: "/admin/rfid-card-printing/",
+          publicHref: "/rfid-card-printing/",
+          icon: Radio,
+          tag: "Service",
+          desc: "13.56 MHz Mifare, 125 kHz EM proximity, contactless encoding & UHF.",
+        },
+        {
+          name: "Ultrasonic Sealing",
+          href: "/admin/ultrasonic-sealing/",
+          publicHref: "/ultrasonic-sealing/",
+          icon: Waves,
+          tag: "Service",
+          desc: "Weather-proof ultrasonic weld pouches, industrial sealing & tamper-proofing.",
+        },
+        {
+          name: "Membership Cards",
+          href: "/admin/membership-card-printing/",
+          publicHref: "/membership-card-printing/",
+          icon: Sparkles,
+          tag: "Service",
+          desc: "VIP club cards, loyalty barcode cards, embossing & foil stamping.",
+        },
+      ],
+    },
+    {
+      name: "Products Dynamic CMS (5 Products)",
+      desc: "Hardware accessories, credential attachments, medals and PVC substrates",
+      color: "indigo",
+      portals: [
+        {
+          name: "ID Card Holders",
+          href: "/admin/id-card-holders/",
+          publicHref: "/id-card-holders/",
+          icon: Box,
+          tag: "Product",
+          desc: "Rigid plastic holders, silicone pouches, open-face frames & double-sided cases.",
+        },
+        {
+          name: "ID Card Hooks & Clips",
+          href: "/admin/id-card-hooks/",
+          publicHref: "/id-card-hooks/",
+          icon: Link2,
+          tag: "Product",
+          desc: "Metal dog hooks, alligator clips, swivel snap hooks & safety breakaway clasps.",
+        },
+        {
+          name: "Acrylic Badges & Pins",
+          href: "/admin/acrylic-badges/",
+          publicHref: "/acrylic-badges/",
+          icon: Shield,
+          tag: "Product",
+          desc: "Custom laser cut acrylic badges, magnetic backing, gold pin badges & nameplates.",
+        },
+        {
+          name: "Custom Zinc Medals",
+          href: "/admin/zinc-medals/",
+          publicHref: "/zinc-medals/",
+          icon: Award,
+          tag: "Product",
+          desc: "Die-cast zinc alloy medals, 3D relief, antique gold/silver finish & ribbons.",
+        },
+        {
+          name: "30-Mil PVC Smart Cards",
+          href: "/admin/pvc-cards/",
+          publicHref: "/pvc-cards/",
+          icon: CreditCard,
+          tag: "Product",
+          desc: "CR80 30-mil ISO blank cards, composite PET-PVC, magnetic stripe & smart cards.",
+        },
+      ],
+    },
+    {
+      name: "Regional & Hubs (8 NE States)",
+      desc: "Central Guwahati base and localized SEO landing pages for 8 Northeast States",
+      color: "emerald",
+      portals: [
+        {
+          name: "Service Areas CMS",
+          href: "/admin/service-areas/",
+          publicHref: "/service-areas/assam/",
+          icon: MapPin,
+          tag: "8 States · 28+ Cities",
+          desc: "Assam, Arunachal, Meghalaya, Nagaland, Manipur, Mizoram, Tripura & Sikkim.",
+        },
+      ],
+    },
+    {
+      name: "Content & Resources CMS",
+      desc: "Knowledge base, guides, FAQs, case studies, templates and partner network",
+      color: "purple",
+      portals: [
+        {
+          name: "Blogs & Insights",
+          href: "/admin/blogs/",
+          publicHref: "/resources/blogs/",
+          icon: FileText,
+          tag: "Blog CMS",
+          desc: "Identity tech insights, buyer guides, printing advice & SEO articles.",
+        },
+        {
+          name: "Technical Guides",
+          href: "/admin/guides/",
+          publicHref: "/resources/guides/",
+          icon: BookOpen,
+          tag: "Guides CMS",
+          desc: "Card design dimensions, DPI specifications, material comparisons & best practices.",
+        },
+        {
+          name: "Institutional FAQs",
+          href: "/admin/faq/",
+          publicHref: "/faq/",
+          icon: HelpCircle,
+          tag: "FAQ CMS",
+          desc: "Q&A matrix for corporate procurement, turnarounds, warranties & delivery.",
+        },
+        {
+          name: "Case Studies / Projects",
+          href: "/admin/case-studies/",
+          publicHref: "/case-studies/",
+          icon: Camera,
+          tag: `${projects.length} Projects`,
+          desc: "Delivered portfolio showcases, client project photos & deployment details.",
+        },
+        {
+          name: "Templates CMS",
+          href: "/admin/templates/",
+          publicHref: "/templates/",
+          icon: FileSpreadsheet,
+          tag: "Templates",
+          desc: "Downloadable Photoshop, Illustrator, CorelDraw and Excel batch spreadsheets.",
+        },
+        {
+          name: "Partners CMS",
+          href: "/admin/partners/",
+          publicHref: "/partners/",
+          icon: Users,
+          tag: "Partners",
+          desc: "Dealer network, wholesale reseller program, tier pricing & application forms.",
+        },
+        {
+          name: "Contact Us CMS",
+          href: "/admin/contact-us/",
+          publicHref: "/contact-us/",
+          icon: Phone,
+          tag: "Contact",
+          desc: "Factory address, direct phone hotline, WhatsApp links, Google map coordinates.",
+        },
+      ],
+    },
+    {
+      name: "Operations & Leads",
+      desc: "Rate calculator matrices, specifications and inbound customer quotes",
+      color: "amber",
+      portals: [
+        {
+          name: "Pricing Engine & Catalog",
+          href: "/admin/pricing/",
+          publicHref: "/pricing/",
+          icon: IndianRupee,
+          tag: `${activePricingCount} Rates Live`,
+          desc: "V-1 vertical, H-1 horizontal, card holders, lanyards and bulk quantity discounts.",
+        },
+        {
+          name: "CRM Lead Quotes",
+          href: "/admin/quotes/",
+          icon: FileText,
+          tag: "CRM Leads",
+          desc: "Live inbound customer quote requests, contact numbers, product selections & SLAs.",
+        },
+      ],
+    },
+  ];
 
   const homePoints = [
     {
@@ -306,150 +568,52 @@ export default async function AdminDashboardPage() {
               Welcome back, Administrator
             </h1>
             <p className="mt-1.5 text-sm text-slate-400 max-w-2xl">
-              Control the 100% dynamic home page and Why IDGen page point-by-point, pricing engine, service areas, and case studies in real time.
+              Control the 100% dynamic home page, Why IDGen, IDGen Studio, all 8 services, 5 product lines, 8 Northeast state hubs, resource guides, pricing and live lead quotes in real time.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             <Link
-              href="/admin/homepage"
-              className="px-4 py-2.5 rounded-xl bg-teal-500 text-slate-950 font-bold text-xs hover:bg-teal-400 shadow-lg shadow-teal-500/20 transition flex items-center gap-2"
+              href="/admin/homepage/"
+              className="px-3 py-2 rounded-xl bg-teal-500 text-slate-950 font-bold text-xs hover:bg-teal-400 shadow-md transition flex items-center gap-1.5"
             >
-              <Sparkles className="h-4 w-4" />
-              <span>Home Page</span>
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Home Page (11)</span>
             </Link>
             <Link
-              href="/admin/why-idgen"
-              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 font-bold text-xs hover:from-teal-400 hover:to-emerald-400 shadow-lg shadow-teal-500/20 transition flex items-center gap-2"
+              href="/admin/why-idgen/"
+              className="px-3 py-2 rounded-xl bg-teal-500/20 text-teal-300 border border-teal-500/30 font-bold text-xs hover:bg-teal-500/30 transition flex items-center gap-1.5"
             >
-              <Award className="h-4 w-4" />
-              <span>Why IDGen</span>
+              <Award className="h-3.5 w-3.5" />
+              <span>Why IDGen (13)</span>
             </Link>
             <Link
-              href="/admin/services"
-              className="px-4 py-2.5 rounded-xl bg-teal-950/80 text-teal-300 font-bold text-xs hover:bg-teal-900 border border-teal-800/60 shadow-md transition flex items-center gap-2"
+              href="/admin/idgen-studio/"
+              className="px-3 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold text-xs hover:bg-cyan-500/30 transition flex items-center gap-1.5"
             >
-              <Package className="h-4 w-4" />
-              <span>Services &amp; Dropdown ({servicesData.services.length})</span>
-            </Link>
-            <Link
-              href="/admin/id-card-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <ShieldCheck className="h-4 w-4" />
-              <span>ID Card Printing CMS</span>
-            </Link>
-            <Link
-              href="/admin/student-id-card-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <GraduationCap className="h-4 w-4" />
-              <span>Student ID Cards</span>
-            </Link>
-            <Link
-              href="/admin/employee-id-card-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Briefcase className="h-4 w-4" />
-              <span>Employee ID Cards</span>
-            </Link>
-            <Link
-              href="/admin/custom-printed-lanyard-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Tag className="h-4 w-4" />
-              <span>Custom Lanyards</span>
-            </Link>
-            <Link
-              href="/admin/event-card-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Ticket className="h-4 w-4" />
-              <span>Event Cards</span>
-            </Link>
-            <Link
-              href="/admin/rfid-card-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Radio className="h-4 w-4" />
-              <span>RFID Cards</span>
-            </Link>
-            <Link
-              href="/admin/ultrasonic-sealing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Waves className="h-4 w-4" />
-              <span>Ultrasonic Sealing</span>
-            </Link>
-            <Link
-              href="/admin/id-card-holders"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Layers className="h-4 w-4" />
-              <span>ID Card Holders</span>
-            </Link>
-            <Link
-              href="/admin/id-card-hooks"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Link2 className="h-4 w-4" />
-              <span>ID Card Hooks</span>
-            </Link>
-            <Link
-              href="/admin/acrylic-badges"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Shield className="h-4 w-4" />
-              <span>Acrylic Badges</span>
-            </Link>
-            <Link
-              href="/admin/zinc-medals"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <Award className="h-4 w-4" />
-              <span>Zinc Medals</span>
-            </Link>
-            <Link
-              href="/admin/pvc-cards"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
-            >
-              <CreditCard className="h-4 w-4" />
-              <span>PVC Cards</span>
-            </Link>
-            <Link
-              href="/admin/idgen-studio"
-              className="px-4 py-2.5 rounded-xl bg-cyan-900/50 text-cyan-200 font-bold text-xs hover:bg-cyan-800 border border-cyan-500/50 shadow-md transition flex items-center gap-2"
-            >
-              <Laptop className="h-4 w-4 text-cyan-400" />
+              <Laptop className="h-3.5 w-3.5" />
               <span>IDGen Studio</span>
             </Link>
             <Link
-              href="/admin/membership-card-printing"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
+              href="/admin/service-areas/"
+              className="px-3 py-2 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold text-xs hover:bg-emerald-500/30 transition flex items-center gap-1.5"
             >
-              <Award className="h-4 w-4" />
-              <span>Membership Cards</span>
+              <MapPin className="h-3.5 w-3.5" />
+              <span>Service Areas (8 States)</span>
             </Link>
             <Link
-              href="/admin/templates"
-              className="px-4 py-2.5 rounded-xl bg-cyan-950/80 text-cyan-300 font-bold text-xs hover:bg-cyan-900 border border-cyan-800/60 shadow-md transition flex items-center gap-2"
+              href="/admin/pricing/"
+              className="px-3 py-2 rounded-xl bg-slate-800 text-slate-200 font-semibold text-xs hover:bg-slate-700 transition flex items-center gap-1.5 border border-slate-700"
             >
-              <FileSpreadsheet className="h-4 w-4" />
-              <span>Templates</span>
+              <IndianRupee className="h-3.5 w-3.5 text-teal-400" />
+              <span>Pricing Catalog</span>
             </Link>
             <Link
-              href="/admin/case-studies"
-              className="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-200 font-semibold text-xs hover:bg-slate-700 transition flex items-center gap-1.5 border border-slate-700"
+              href="/admin/quotes/"
+              className="px-3 py-2 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-xs hover:bg-amber-500/30 transition flex items-center gap-1.5"
             >
-              <Camera className="h-4 w-4 text-teal-400" />
-              <span>Projects</span>
-            </Link>
-            <Link
-              href="/admin/pricing"
-              className="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-200 font-semibold text-xs hover:bg-slate-700 transition flex items-center gap-1.5 border border-slate-700"
-            >
-              <IndianRupee className="h-4 w-4 text-teal-400" />
-              <span>Pricing Engine</span>
+              <FileText className="h-3.5 w-3.5" />
+              <span>CRM Quotes</span>
             </Link>
           </div>
         </div>
@@ -519,10 +683,10 @@ export default async function AdminDashboardPage() {
             </div>
           </div>
           <p className="mt-3 text-2xl sm:text-3xl font-black text-white">{states.length}</p>
-          <p className="mt-1 text-[11px] text-teal-400 flex items-center gap-1">
+          <Link href="/admin/service-areas" className="mt-1 text-[11px] text-teal-400 hover:underline flex items-center gap-1">
             <TrendingUp className="h-3 w-3" />
-            <span>8 NE States</span>
-          </p>
+            <span>8 NE States →</span>
+          </Link>
         </div>
 
         <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-sm">
@@ -537,18 +701,110 @@ export default async function AdminDashboardPage() {
             {primaryCities.length} Primary Base
           </p>
         </div>
+      </div>
 
-        <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-sm">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400">Quote Leads</span>
-            <div className="h-8 w-8 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
-              <FileText className="h-4 w-4" />
+      {/* Complete All-Pages Admin Directory & Control Portals Hub */}
+      <div className="rounded-3xl bg-slate-900/90 border border-teal-500/30 p-6 sm:p-8 space-y-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-300 text-xs font-semibold mb-1.5 border border-teal-500/20">
+              <Package className="h-3.5 w-3.5" />
+              <span>Complete System Directory • 26+ Management Portals</span>
             </div>
+            <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              All Admin Control Centers &amp; Dynamic Pages
+            </h2>
+            <p className="text-xs text-slate-400 mt-1 max-w-3xl">
+              Access every dynamic product line, custom studio workflow, service category, Northeast state hub, resource portal, and operational tool across the IDGen platform.
+            </p>
           </div>
-          <p className="mt-3 text-2xl sm:text-3xl font-black text-white">2 New</p>
-          <Link href="/admin/quotes" className="mt-1 text-[11px] text-cyan-400 hover:underline inline-block">
-            View leads →
-          </Link>
+
+          <div className="flex items-center gap-2">
+            <Link
+              href="/"
+              target="_blank"
+              className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs flex items-center gap-1.5 border border-slate-700 transition"
+            >
+              <span>View Public Site</span>
+              <ExternalLink className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Categorized Portals Grid */}
+        <div className="space-y-8">
+          {adminCategories.map((cat) => (
+            <div key={cat.name} className="space-y-3.5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-teal-400" />
+                  <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-200">
+                    {cat.name}
+                  </h3>
+                  <span className="text-[11px] text-slate-500">
+                    ({cat.portals.length} {cat.portals.length === 1 ? "page" : "pages"})
+                  </span>
+                </div>
+                <p className="hidden md:block text-xs text-slate-500">{cat.desc}</p>
+              </div>
+
+              <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {cat.portals.map((portal) => {
+                  const Icon = portal.icon;
+                  return (
+                    <div
+                      key={portal.href}
+                      className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/90 hover:border-teal-500/40 hover:bg-slate-950/90 transition-all duration-200 group flex flex-col justify-between space-y-3 shadow-sm"
+                    >
+                      <div className="space-y-2.5">
+                        <div className="flex items-center justify-between">
+                          <div className="h-9 w-9 rounded-xl bg-teal-500/10 text-teal-300 border border-teal-500/20 flex items-center justify-center group-hover:scale-105 transition">
+                            <Icon className="h-4 w-4" />
+                          </div>
+                          {portal.tag && (
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-900 border border-teal-500/30 text-teal-300">
+                              {portal.tag}
+                            </span>
+                          )}
+                        </div>
+
+                        <div>
+                          <h4 className="font-bold text-sm text-white group-hover:text-teal-300 transition">
+                            {portal.name}
+                          </h4>
+                          <p className="text-[11px] text-slate-400 leading-relaxed mt-1 line-clamp-2">
+                            {portal.desc}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="pt-2.5 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                        <Link
+                          href={portal.href}
+                          className="inline-flex items-center gap-1 text-xs font-bold text-teal-400 group-hover:text-teal-300 hover:underline"
+                        >
+                          <span>Open CMS</span>
+                          <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition" />
+                        </Link>
+
+                        {portal.publicHref && (
+                          <Link
+                            href={portal.publicHref}
+                            target="_blank"
+                            title="View public live page"
+                            className="text-[10px] text-slate-400 hover:text-slate-200 flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-900 hover:bg-slate-800 transition"
+                          >
+                            <span>Live</span>
+                            <ExternalLink className="h-2.5 w-2.5" />
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

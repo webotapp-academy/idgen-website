@@ -45,8 +45,10 @@ import type {
   DynamicIdCardHoldersWorkflowAndDispatch,
   DynamicIdCardHoldersFaqs,
   DynamicHolderModel,
+  HolderItem,
 } from "@/lib/dynamic-id-card-holders-types";
 import type { HolderSlide } from "@/components/id-card-holders/HolderHeroCarousel";
+import { holderCatalog } from "@/components/id-card-holders/QuickHolderSelectionMatrix";
 
 function AdminIdCardHoldersContent() {
   const searchParams = useSearchParams();
@@ -59,6 +61,7 @@ function AdminIdCardHoldersContent() {
   const [uploadingField, setUploadingField] = useState<string | null>(null);
   const [saveSuccess, setSaveSuccess] = useState<string | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [expandedCatalogId, setExpandedCatalogId] = useState<string | null>(null);
 
   useEffect(() => {
     const tabParam = searchParams.get("tab");
@@ -77,7 +80,11 @@ function AdminIdCardHoldersContent() {
       const res = await fetch("/api/admin/id-card-holders");
       const json = await res.json();
       if (json.success && json.data) {
-        setData(json.data);
+        const pageData = json.data;
+        if (!pageData.quickSelection.catalog || pageData.quickSelection.catalog.length === 0) {
+          pageData.quickSelection.catalog = holderCatalog;
+        }
+        setData(pageData);
       } else {
         setSaveError("Failed to load ID Card Holders data");
       }
@@ -645,7 +652,8 @@ function AdminIdCardHoldersContent() {
                     </div>
 
                     <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-900">
-                      <Image src={slide.imageSrc} alt={slide.title} fill className="object-cover" />
+                      <Image
+                  unoptimized src={slide.imageSrc} alt={slide.title} fill className="object-cover" />
                     </div>
 
                     <div>
@@ -744,14 +752,14 @@ function AdminIdCardHoldersContent() {
       )}
 
       {/* ─────────────────────────────────────────────────────────────
-          TAB 2: QUICK SELECTION MATRIX
+          TAB 2: QUICK SELECTION MATRIX & FULL CATALOG EDITOR
       ───────────────────────────────────────────────────────────── */}
       {activeTab === "quickSelection" && (
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div>
-              <h2 className="text-lg font-bold text-white">Quick Holder Selection Matrix</h2>
-              <p className="text-xs text-slate-400">Header copy and quick fitment match table.</p>
+              <h2 className="text-lg font-bold text-white">Quick Holder Selection Matrix CMS</h2>
+              <p className="text-xs text-slate-400">Header copy, quick match items, and full visual catalog items with images &amp; specifications.</p>
             </div>
             <button
               type="button"
@@ -764,7 +772,11 @@ function AdminIdCardHoldersContent() {
             </button>
           </div>
 
+          {/* Section Header Controls */}
           <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+              Section Header &amp; Copy
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-xs font-medium text-slate-400 mb-1">Eyebrow</label>
@@ -811,7 +823,7 @@ function AdminIdCardHoldersContent() {
               />
             </div>
 
-            {/* Quick Match Items */}
+            {/* Quick Match Criteria Items */}
             <div className="pt-4 border-t border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-300">
@@ -903,6 +915,1074 @@ function AdminIdCardHoldersContent() {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* DYNAMIC CATALOG MODELS EDITOR */}
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h3 className="text-sm font-bold text-cyan-300">
+                  Interactive Catalog Holder Models ({(data.quickSelection.catalog || holderCatalog).length} Items)
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Manage product images, specifications, lock types, categories, and descriptions displayed in the public grid, comparison matrix table, and inspection popups.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  const currentCatalog = data.quickSelection.catalog || holderCatalog;
+                  const newItem: HolderItem = {
+                    id: `holder-${Date.now()}`,
+                    code: `V-${currentCatalog.length + 1}`,
+                    name: "New Holder Model",
+                    req: "Custom holder requirement",
+                    badge: "Portrait / Landscape",
+                    category: "vertical",
+                    orientation: "Vertical (Portrait)",
+                    cardFormat: "86 × 54 mm (CR80)",
+                    lockType: "Four-Side Lock",
+                    retentionRating: 5,
+                    material: "100% Virgin Polymer",
+                    finish: "High-Gloss Transparent",
+                    lanyardHole: "20 mm Standard Slot",
+                    image: "/images/ID card holder/V-1/V-1.png",
+                    alt: "New ID Card Holder",
+                    tagline: "High retention precision holder",
+                    description: "Engineered for maximum card security and durability.",
+                    suitable: ["Corporate Employees", "Student Badges"],
+                    specs: [
+                      { k: "Capacity", v: "1 Standard CR80 Card" },
+                      { k: "Retention", v: "4-Side Perimeter Snap Lock" },
+                    ],
+                  };
+                  setData({
+                    ...data,
+                    quickSelection: {
+                      ...data.quickSelection,
+                      catalog: [...currentCatalog, newItem],
+                    },
+                  });
+                  setExpandedCatalogId(newItem.id);
+                }}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-cyan-500 px-3.5 py-2 text-xs font-bold text-slate-950 hover:bg-cyan-400 transition shrink-0"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Catalog Model</span>
+              </button>
+            </div>
+
+            {/* List of Catalog Items */}
+            <div className="space-y-4 pt-2">
+              {(data.quickSelection.catalog || holderCatalog).map((item, idx) => {
+                const catalogList = data.quickSelection.catalog || holderCatalog;
+                const isExpanded = expandedCatalogId === (item.id || `item-${idx}`);
+
+                return (
+                  <div
+                    key={item.id || idx}
+                    className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden transition-all"
+                  >
+                    {/* Item Top Bar */}
+                    <div className="flex items-center justify-between p-4 bg-slate-900/80 border-b border-slate-800/80">
+                      <div className="flex items-center gap-3">
+                        <div className="relative h-12 w-12 shrink-0 rounded-xl overflow-hidden bg-slate-800 border border-slate-700 p-1 flex items-center justify-center">
+                          <Image
+                            unoptimized
+                            src={item.image || "/images/product-id-holders.jpg"}
+                            alt={item.name || "Holder Image"}
+                            width={44}
+                            height={44}
+                            className="h-full w-full object-contain"
+                          />
+                        </div>
+
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono font-black text-xs text-white bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-md">
+                              {item.code}
+                            </span>
+                            <span className="text-xs font-bold text-cyan-300">
+                              {item.name}
+                            </span>
+                            <span className="text-[10px] font-semibold text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full uppercase">
+                              {item.category}
+                            </span>
+                          </div>
+                          <span className="text-[11px] text-slate-400 block mt-0.5">
+                            {item.req} • {item.badge}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedCatalogId(isExpanded ? null : (item.id || `item-${idx}`))}
+                          className="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-800 text-xs font-bold text-slate-300 hover:text-white transition"
+                        >
+                          {isExpanded ? "Collapse Specs" : "Edit Specs & Image"}
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updated = catalogList.filter((_, i) => i !== idx);
+                            setData({
+                              ...data,
+                              quickSelection: { ...data.quickSelection, catalog: updated },
+                            });
+                          }}
+                          className="p-1.5 rounded-xl text-slate-500 hover:text-red-400 hover:bg-slate-900 transition"
+                          title="Delete Catalog Model"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Expanded Editor Details */}
+                    {isExpanded && (
+                      <div className="p-5 space-y-5 bg-slate-950">
+                        {/* Row 1: Image & Basic Identifiers */}
+                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                          {/* Image & File Upload */}
+                          <div className="md:col-span-4 space-y-2">
+                            <label className="block text-[11px] font-bold text-cyan-400 uppercase tracking-wider">
+                              Product Image
+                            </label>
+                            <div className="relative h-32 w-full rounded-2xl border border-slate-800 bg-slate-900 p-2 flex items-center justify-center overflow-hidden">
+                              <Image
+                                unoptimized
+                                src={item.image || "/images/product-id-holders.jpg"}
+                                alt={item.alt || item.name}
+                                width={120}
+                                height={120}
+                                className="h-full w-full object-contain"
+                              />
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <input
+                                type="text"
+                                value={item.image}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].image = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                placeholder="Image URL / Path"
+                                className="flex-1 rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                              />
+                              <label className="cursor-pointer p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 flex items-center gap-1 text-xs font-bold shrink-0">
+                                {uploadingField === `cat-img-${idx}` ? (
+                                  <RefreshCw className="h-4 w-4 animate-spin" />
+                                ) : (
+                                  <UploadCloud className="h-4 w-4" />
+                                )}
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  className="hidden"
+                                  onChange={(e) =>
+                                    handleFileUpload(
+                                      e,
+                                      (url) => {
+                                        const updated = [...catalogList];
+                                        updated[idx].image = url;
+                                        setData({
+                                          ...data,
+                                          quickSelection: { ...data.quickSelection, catalog: updated },
+                                        });
+                                      },
+                                      `cat-img-${idx}`
+                                    )
+                                  }
+                                />
+                              </label>
+                            </div>
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-0.5">Alt Text</label>
+                              <input
+                                type="text"
+                                value={item.alt || ""}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].alt = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-slate-300"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Basic Information */}
+                          <div className="md:col-span-8 space-y-3">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                              <div>
+                                <label className="block text-[10px] text-slate-400 mb-1 font-bold">Code (e.g. V-1)</label>
+                                <input
+                                  type="text"
+                                  value={item.code}
+                                  onChange={(e) => {
+                                    const updated = [...catalogList];
+                                    updated[idx].code = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: { ...data.quickSelection, catalog: updated },
+                                    });
+                                  }}
+                                  className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white font-mono font-bold"
+                                />
+                              </div>
+
+                              <div className="sm:col-span-2">
+                                <label className="block text-[10px] text-slate-400 mb-1 font-bold">Model Name</label>
+                                <input
+                                  type="text"
+                                  value={item.name}
+                                  onChange={(e) => {
+                                    const updated = [...catalogList];
+                                    updated[idx].name = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: { ...data.quickSelection, catalog: updated },
+                                    });
+                                  }}
+                                  className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white font-bold"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                              <div>
+                                <label className="block text-[10px] text-slate-400 mb-1 font-bold">Category</label>
+                                <select
+                                  value={item.category}
+                                  onChange={(e) => {
+                                    const updated = [...catalogList];
+                                    updated[idx].category = e.target.value as any;
+                                    setData({
+                                      ...data,
+                                      quickSelection: { ...data.quickSelection, catalog: updated },
+                                    });
+                                  }}
+                                  className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-cyan-300 font-bold"
+                                >
+                                  <option value="vertical">Vertical / Portrait</option>
+                                  <option value="horizontal">Horizontal / Landscape</option>
+                                  <option value="executive">Executive &amp; VIP</option>
+                                  <option value="attachment">Attachment Hardware</option>
+                                </select>
+                              </div>
+
+                              <div>
+                                <label className="block text-[10px] text-slate-400 mb-1 font-bold font-bold">Matched Requirement</label>
+                                <input
+                                  type="text"
+                                  value={item.req}
+                                  onChange={(e) => {
+                                    const updated = [...catalogList];
+                                    updated[idx].req = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: { ...data.quickSelection, catalog: updated },
+                                    });
+                                  }}
+                                  className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                                />
+                              </div>
+
+                              <div>
+                                <label className="block text-[10px] text-slate-400 mb-1 font-bold">Pill Badge</label>
+                                <input
+                                  type="text"
+                                  value={item.badge}
+                                  onChange={(e) => {
+                                    const updated = [...catalogList];
+                                    updated[idx].badge = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: { ...data.quickSelection, catalog: updated },
+                                    });
+                                  }}
+                                  className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-slate-300"
+                                />
+                              </div>
+                            </div>
+
+                            {/* Flags & Security Badge */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                              <div>
+                                <label className="block text-[10px] text-slate-400 mb-1">Security Badge</label>
+                                <input
+                                  type="text"
+                                  value={item.securityBadge || ""}
+                                  placeholder="e.g. Maximum Retention"
+                                  onChange={(e) => {
+                                    const updated = [...catalogList];
+                                    updated[idx].securityBadge = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: { ...data.quickSelection, catalog: updated },
+                                    });
+                                  }}
+                                  className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-emerald-400"
+                                />
+                              </div>
+
+                              <div className="flex items-center gap-4 pt-4">
+                                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-300">
+                                  <input
+                                    type="checkbox"
+                                    checked={!!item.popular}
+                                    onChange={(e) => {
+                                      const updated = [...catalogList];
+                                      updated[idx].popular = e.target.checked;
+                                      setData({
+                                        ...data,
+                                        quickSelection: { ...data.quickSelection, catalog: updated },
+                                      });
+                                    }}
+                                    className="rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-0"
+                                  />
+                                  <span>Most Popular</span>
+                                </label>
+
+                                <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-amber-400">
+                                  <input
+                                    type="checkbox"
+                                    checked={!!item.premium}
+                                    onChange={(e) => {
+                                      const updated = [...catalogList];
+                                      updated[idx].premium = e.target.checked;
+                                      setData({
+                                        ...data,
+                                        quickSelection: { ...data.quickSelection, catalog: updated },
+                                      });
+                                    }}
+                                    className="rounded border-slate-700 bg-slate-900 text-amber-500 focus:ring-0"
+                                  />
+                                  <span>Executive / VIP</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Row 2: Detailed Technical Specifications */}
+                        <div className="pt-3 border-t border-slate-800/80 space-y-3">
+                          <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
+                            Technical Fitment Parameters
+                          </h4>
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Orientation</label>
+                              <input
+                                type="text"
+                                value={item.orientation}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].orientation = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Card Format</label>
+                              <input
+                                type="text"
+                                value={item.cardFormat}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].cardFormat = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Lock Type</label>
+                              <input
+                                type="text"
+                                value={item.lockType}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].lockType = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-white"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Retention Rating (1-5)</label>
+                              <select
+                                value={item.retentionRating}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].retentionRating = Number(e.target.value);
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-cyan-300 font-bold"
+                              >
+                                <option value={1}>1 Star</option>
+                                <option value={2}>2 Stars</option>
+                                <option value={3}>3 Stars</option>
+                                <option value={4}>4 Stars</option>
+                                <option value={5}>5 Stars (Maximum)</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Material</label>
+                              <input
+                                type="text"
+                                value={item.material}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].material = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Surface Finish</label>
+                              <input
+                                type="text"
+                                value={item.finish}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].finish = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400 mb-1">Lanyard Hole Aperture</label>
+                              <input
+                                type="text"
+                                value={item.lanyardHole}
+                                onChange={(e) => {
+                                  const updated = [...catalogList];
+                                  updated[idx].lanyardHole = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Row 3: Marketing Descriptions */}
+                        <div className="pt-3 border-t border-slate-800/80 space-y-3">
+                          <div>
+                            <label className="block text-[10px] text-slate-400 mb-1 font-bold">Tagline</label>
+                            <input
+                              type="text"
+                              value={item.tagline}
+                              onChange={(e) => {
+                                const updated = [...catalogList];
+                                updated[idx].tagline = e.target.value;
+                                setData({
+                                  ...data,
+                                  quickSelection: { ...data.quickSelection, catalog: updated },
+                                });
+                              }}
+                              className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] text-slate-400 mb-1 font-bold">Full Product Description</label>
+                            <textarea
+                              rows={3}
+                              value={item.description}
+                              onChange={(e) => {
+                                const updated = [...catalogList];
+                                updated[idx].description = e.target.value;
+                                setData({
+                                  ...data,
+                                  quickSelection: { ...data.quickSelection, catalog: updated },
+                                });
+                              }}
+                              className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-2 text-xs text-white"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Row 4: Specs & Suitability */}
+                        <div className="pt-3 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {/* Key Specs Array */}
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                Key Specs Table ({(item.specs || []).length})
+                              </label>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const updated = [...catalogList];
+                                  const currentSpecs = updated[idx].specs || [];
+                                  updated[idx].specs = [...currentSpecs, { k: "Capacity", v: "1 CR80 Card" }];
+                                  setData({
+                                    ...data,
+                                    quickSelection: { ...data.quickSelection, catalog: updated },
+                                  });
+                                }}
+                                className="text-[11px] font-bold text-cyan-400 hover:underline inline-flex items-center gap-1"
+                              >
+                                <Plus className="h-3 w-3" />
+                                <span>Add Key Spec</span>
+                              </button>
+                            </div>
+
+                            <div className="space-y-1.5">
+                              {(item.specs || []).map((spec, specIdx) => (
+                                <div key={specIdx} className="flex items-center gap-2">
+                                  <input
+                                    type="text"
+                                    value={spec.k}
+                                    onChange={(e) => {
+                                      const updated = [...catalogList];
+                                      updated[idx].specs[specIdx].k = e.target.value;
+                                      setData({
+                                        ...data,
+                                        quickSelection: { ...data.quickSelection, catalog: updated },
+                                      });
+                                    }}
+                                    placeholder="Key (e.g. Capacity)"
+                                    className="w-1/3 rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1 text-xs text-slate-300 font-medium"
+                                  />
+                                  <input
+                                    type="text"
+                                    value={spec.v}
+                                    onChange={(e) => {
+                                      const updated = [...catalogList];
+                                      updated[idx].specs[specIdx].v = e.target.value;
+                                      setData({
+                                        ...data,
+                                        quickSelection: { ...data.quickSelection, catalog: updated },
+                                      });
+                                    }}
+                                    placeholder="Value (e.g. 1 CR80 Card)"
+                                    className="flex-1 rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1 text-xs text-white"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      const updated = [...catalogList];
+                                      updated[idx].specs = updated[idx].specs.filter((_, i) => i !== specIdx);
+                                      setData({
+                                        ...data,
+                                        quickSelection: { ...data.quickSelection, catalog: updated },
+                                      });
+                                    }}
+                                    className="p-1 text-slate-500 hover:text-red-400"
+                                  >
+                                    <Trash2 className="h-3.5 w-3.5" />
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Suitability Points */}
+                          <div className="space-y-2">
+                            <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              Suitable Applications (One per line)
+                            </label>
+                            <textarea
+                              rows={4}
+                              value={(item.suitable || []).join("\n")}
+                              onChange={(e) => {
+                                const updated = [...catalogList];
+                                updated[idx].suitable = e.target.value.split("\n").filter(Boolean);
+                                setData({
+                                  ...data,
+                                  quickSelection: { ...data.quickSelection, catalog: updated },
+                                });
+                              }}
+                              placeholder="e.g. Student ID cards&#10;Corporate Badges&#10;Visitor Access"
+                              className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3 py-2 text-xs text-white"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {/* DYNAMIC GOLDEN RULES INFOGRAPHIC EDITOR */}
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-bold text-cyan-300">
+                  Golden Rules &amp; Fitment Guidelines Infographic
+                </h3>
+                <p className="text-xs text-slate-400">
+                  Manage section header copy, rule cards, point highlights, recommendation footer note, and call-to-action button.
+                </p>
+              </div>
+            </div>
+
+            {data.quickSelection.goldenRules && (
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium text-slate-400 mb-1">Eyebrow</label>
+                    <input
+                      type="text"
+                      value={data.quickSelection.goldenRules.eyebrow}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          quickSelection: {
+                            ...data.quickSelection,
+                            goldenRules: {
+                              ...data.quickSelection.goldenRules!,
+                              eyebrow: e.target.value,
+                            },
+                          },
+                        })
+                      }
+                      className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"
+                    />
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <label className="block text-xs font-medium text-slate-400 mb-1">Section Title</label>
+                    <input
+                      type="text"
+                      value={data.quickSelection.goldenRules.title}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          quickSelection: {
+                            ...data.quickSelection,
+                            goldenRules: {
+                              ...data.quickSelection.goldenRules!,
+                              title: e.target.value,
+                            },
+                          },
+                        })
+                      }
+                      className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white font-bold"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 mb-1">Subtitle / Top Right Note</label>
+                  <input
+                    type="text"
+                    value={data.quickSelection.goldenRules.subtitle}
+                    onChange={(e) =>
+                      setData({
+                        ...data,
+                        quickSelection: {
+                          ...data.quickSelection,
+                          goldenRules: {
+                            ...data.quickSelection.goldenRules!,
+                            subtitle: e.target.value,
+                          },
+                        },
+                      })
+                    }
+                    className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-300"
+                  />
+                </div>
+
+                {/* Rule Cards Editor */}
+                <div className="pt-3 border-t border-slate-800 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+                      Rule Cards ({data.quickSelection.goldenRules.rules.length})
+                    </h4>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const currentRules = data.quickSelection.goldenRules?.rules || [];
+                        const newRule = {
+                          ruleNum: `Rule ${currentRules.length + 1}`,
+                          title: "New Golden Rule",
+                          description: "Custom fitment guideline rule description.",
+                          iconName: "Sliders",
+                          points: [{ label: "Specification Option", value: "→ Details" }],
+                        };
+                        setData({
+                          ...data,
+                          quickSelection: {
+                            ...data.quickSelection,
+                            goldenRules: {
+                              ...data.quickSelection.goldenRules!,
+                              rules: [...currentRules, newRule],
+                            },
+                          },
+                        });
+                      }}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:underline"
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                      <span>Add Rule Card</span>
+                    </button>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-3">
+                    {data.quickSelection.goldenRules.rules.map((rule, ruleIdx) => (
+                      <div
+                        key={ruleIdx}
+                        className="rounded-2xl border border-slate-800 bg-slate-950 p-4 space-y-3 flex flex-col justify-between"
+                      >
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-mono font-bold text-cyan-400">
+                              #{ruleIdx + 1}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const updatedRules = data.quickSelection.goldenRules!.rules.filter(
+                                  (_, i) => i !== ruleIdx
+                                );
+                                setData({
+                                  ...data,
+                                  quickSelection: {
+                                    ...data.quickSelection,
+                                    goldenRules: {
+                                      ...data.quickSelection.goldenRules!,
+                                      rules: updatedRules,
+                                    },
+                                  },
+                                });
+                              }}
+                              className="p-1 text-slate-500 hover:text-red-400"
+                            >
+                              <Trash2 className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-2">
+                            <div>
+                              <label className="block text-[10px] text-slate-400">Rule Tag</label>
+                              <input
+                                type="text"
+                                value={rule.ruleNum}
+                                onChange={(e) => {
+                                  const updated = [...data.quickSelection.goldenRules!.rules];
+                                  updated[ruleIdx].ruleNum = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: {
+                                      ...data.quickSelection,
+                                      goldenRules: {
+                                        ...data.quickSelection.goldenRules!,
+                                        rules: updated,
+                                      },
+                                    },
+                                  });
+                                }}
+                                className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2 py-1 text-xs text-white"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[10px] text-slate-400">Icon Name</label>
+                              <input
+                                type="text"
+                                value={rule.iconName || "Sliders"}
+                                onChange={(e) => {
+                                  const updated = [...data.quickSelection.goldenRules!.rules];
+                                  updated[ruleIdx].iconName = e.target.value;
+                                  setData({
+                                    ...data,
+                                    quickSelection: {
+                                      ...data.quickSelection,
+                                      goldenRules: {
+                                        ...data.quickSelection.goldenRules!,
+                                        rules: updated,
+                                      },
+                                    },
+                                  });
+                                }}
+                                className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2 py-1 text-xs text-cyan-300 font-mono"
+                              />
+                            </div>
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] text-slate-400">Rule Title</label>
+                            <input
+                              type="text"
+                              value={rule.title}
+                              onChange={(e) => {
+                                const updated = [...data.quickSelection.goldenRules!.rules];
+                                updated[ruleIdx].title = e.target.value;
+                                setData({
+                                  ...data,
+                                  quickSelection: {
+                                    ...data.quickSelection,
+                                    goldenRules: {
+                                      ...data.quickSelection.goldenRules!,
+                                      rules: updated,
+                                    },
+                                  },
+                                });
+                              }}
+                              className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2 py-1 text-xs text-white font-bold"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] text-slate-400">Description</label>
+                            <textarea
+                              rows={2}
+                              value={rule.description}
+                              onChange={(e) => {
+                                const updated = [...data.quickSelection.goldenRules!.rules];
+                                updated[ruleIdx].description = e.target.value;
+                                setData({
+                                  ...data,
+                                  quickSelection: {
+                                    ...data.quickSelection,
+                                    goldenRules: {
+                                      ...data.quickSelection.goldenRules!,
+                                      rules: updated,
+                                    },
+                                  },
+                                });
+                              }}
+                              className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2 py-1 text-xs text-slate-300"
+                            />
+                          </div>
+
+                          <div>
+                            <label className="block text-[10px] text-slate-400">Green Highlight Note (Optional)</label>
+                            <input
+                              type="text"
+                              value={rule.highlightNote || ""}
+                              placeholder="e.g. Prevents card fallout"
+                              onChange={(e) => {
+                                const updated = [...data.quickSelection.goldenRules!.rules];
+                                updated[ruleIdx].highlightNote = e.target.value;
+                                setData({
+                                  ...data,
+                                  quickSelection: {
+                                    ...data.quickSelection,
+                                    goldenRules: {
+                                      ...data.quickSelection.goldenRules!,
+                                      rules: updated,
+                                    },
+                                  },
+                                });
+                              }}
+                              className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2 py-1 text-xs text-emerald-400"
+                            />
+                          </div>
+
+                          {/* Rule Points Table */}
+                          <div className="pt-2 border-t border-slate-800 space-y-1.5">
+                            <div className="flex items-center justify-between">
+                              <span className="text-[10px] font-bold text-slate-400">Key Points</span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const updated = [...data.quickSelection.goldenRules!.rules];
+                                  const currentPts = updated[ruleIdx].points || [];
+                                  updated[ruleIdx].points = [...currentPts, { label: "Label", value: "Value" }];
+                                  setData({
+                                    ...data,
+                                    quickSelection: {
+                                      ...data.quickSelection,
+                                      goldenRules: {
+                                        ...data.quickSelection.goldenRules!,
+                                        rules: updated,
+                                      },
+                                    },
+                                  });
+                                }}
+                                className="text-[10px] text-cyan-400 font-bold hover:underline"
+                              >
+                                + Point
+                              </button>
+                            </div>
+
+                            {(rule.points || []).map((pt, ptIdx) => (
+                              <div key={ptIdx} className="flex items-center gap-1">
+                                <input
+                                  type="text"
+                                  value={pt.label}
+                                  onChange={(e) => {
+                                    const updated = [...data.quickSelection.goldenRules!.rules];
+                                    updated[ruleIdx].points![ptIdx].label = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: {
+                                        ...data.quickSelection,
+                                        goldenRules: {
+                                          ...data.quickSelection.goldenRules!,
+                                          rules: updated,
+                                        },
+                                      },
+                                    });
+                                  }}
+                                  className="w-1/2 rounded border border-slate-800 bg-slate-900 px-1.5 py-0.5 text-[10px] text-slate-300"
+                                />
+                                <input
+                                  type="text"
+                                  value={pt.value}
+                                  onChange={(e) => {
+                                    const updated = [...data.quickSelection.goldenRules!.rules];
+                                    updated[ruleIdx].points![ptIdx].value = e.target.value;
+                                    setData({
+                                      ...data,
+                                      quickSelection: {
+                                        ...data.quickSelection,
+                                        goldenRules: {
+                                          ...data.quickSelection.goldenRules!,
+                                          rules: updated,
+                                        },
+                                      },
+                                    });
+                                  }}
+                                  className="w-1/2 rounded border border-slate-800 bg-slate-900 px-1.5 py-0.5 text-[10px] text-cyan-300 font-mono"
+                                />
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const updated = [...data.quickSelection.goldenRules!.rules];
+                                    updated[ruleIdx].points = updated[ruleIdx].points!.filter(
+                                      (_, i) => i !== ptIdx
+                                    );
+                                    setData({
+                                      ...data,
+                                      quickSelection: {
+                                        ...data.quickSelection,
+                                        goldenRules: {
+                                          ...data.quickSelection.goldenRules!,
+                                          rules: updated,
+                                        },
+                                      },
+                                    });
+                                  }}
+                                  className="p-0.5 text-slate-500 hover:text-red-400"
+                                >
+                                  <Trash2 className="h-3 w-3" />
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer Note & CTA */}
+                <div className="pt-3 border-t border-slate-800 grid grid-cols-1 md:grid-cols-12 gap-3">
+                  <div className="md:col-span-6">
+                    <label className="block text-xs font-medium text-slate-400 mb-1">Footer Recommendation Note</label>
+                    <textarea
+                      rows={2}
+                      value={data.quickSelection.goldenRules.footerNote}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          quickSelection: {
+                            ...data.quickSelection,
+                            goldenRules: {
+                              ...data.quickSelection.goldenRules!,
+                              footerNote: e.target.value,
+                            },
+                          },
+                        })
+                      }
+                      className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-white"
+                    />
+                  </div>
+
+                  <div className="md:col-span-3">
+                    <label className="block text-xs font-medium text-slate-400 mb-1">CTA Link Label</label>
+                    <input
+                      type="text"
+                      value={data.quickSelection.goldenRules.ctaText}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          quickSelection: {
+                            ...data.quickSelection,
+                            goldenRules: {
+                              ...data.quickSelection.goldenRules!,
+                              ctaText: e.target.value,
+                            },
+                          },
+                        })
+                      }
+                      className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-cyan-300 font-bold"
+                    />
+                  </div>
+
+                  <div className="md:col-span-3">
+                    <label className="block text-xs font-medium text-slate-400 mb-1">CTA WhatsApp Link Href</label>
+                    <input
+                      type="text"
+                      value={data.quickSelection.goldenRules.ctaHref}
+                      onChange={(e) =>
+                        setData({
+                          ...data,
+                          quickSelection: {
+                            ...data.quickSelection,
+                            goldenRules: {
+                              ...data.quickSelection.goldenRules!,
+                              ctaHref: e.target.value,
+                            },
+                          },
+                        })
+                      }
+                      className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-300 font-mono"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

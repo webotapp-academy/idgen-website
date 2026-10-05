@@ -92,22 +92,13 @@ export function BlogsExplorer({ posts, featuredPost }: BlogsExplorerProps) {
               {/* Image Banner */}
               <div className="relative lg:col-span-6 min-h-[300px] sm:min-h-[380px] lg:min-h-full overflow-hidden">
                 <Image
+                  unoptimized
                   src={featuredPost.featuredImage}
                   alt={featuredPost.alt}
                   fill
                   priority
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#0c1424]" />
-                <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#009fe3] text-white px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-lg">
-                    <Sparkles className="h-3 w-3" />
-                    Featured Teardown
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-slate-900/80 backdrop-blur-md text-cyan-300 border border-cyan-400/30 px-3 py-1 text-xs font-semibold">
-                    {featuredPost.category}
-                  </span>
-                </div>
               </div>
 
               {/* Content Panel */}
@@ -272,28 +263,12 @@ export function BlogsExplorer({ posts, featuredPost }: BlogsExplorerProps) {
                 {/* Image Container */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                   <Image
+                  unoptimized
                     src={post.featuredImage}
                     alt={post.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className="inline-flex items-center rounded-lg bg-slate-950/80 backdrop-blur-md px-2.5 py-1 text-[11px] font-bold text-cyan-300 border border-cyan-400/25">
-                      {post.category}
-                    </span>
-                  </div>
-
-                  {post.isFeatured && (
-                    <div className="absolute top-3 right-3">
-                      <span className="inline-flex items-center gap-1 rounded-lg bg-[#009fe3] px-2 py-0.5 text-[10px] font-black uppercase text-white shadow-sm">
-                        <Sparkles className="h-2.5 w-2.5" />
-                        Top Guide
-                      </span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Article Header & Excerpt */}

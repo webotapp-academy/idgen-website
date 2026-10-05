@@ -16,49 +16,82 @@ import {
   Layers,
   Check,
 } from "lucide-react";
+import type { CaseStudiesHeroPillar } from "@/lib/dynamic-case-studies-types";
 
-type CaseStudyPillar = "school" | "college" | "government" | "wearable";
+interface CaseStudiesHeroShowcaseProps {
+  pillars?: CaseStudiesHeroPillar[];
+  bottomMetrics?: Array<{ label: string; value: string }>;
+  showcaseBadgeRight?: string;
+}
 
-export function CaseStudiesHeroShowcase() {
-  const [activePillar, setActivePillar] = useState<CaseStudyPillar>("school");
+const DEFAULT_PILLARS: CaseStudiesHeroPillar[] = [
+  {
+    id: "school",
+    label: "School Project",
+    sub: "Don Bosco",
+    title: "School ID Card Project",
+    loc: "Gojapara, Assam",
+    org: "Don Bosco Hr Sec School",
+    image: "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
+    req: "Student Data + Photographs + PVC ID Cards + Lanyards + Holders",
+    badge: "Real Delivered Batch",
+  },
+  {
+    id: "college",
+    label: "College Project",
+    sub: "CKB College",
+    title: "College Campus Pass Project",
+    loc: "Jorhat, Assam",
+    org: "CKB College",
+    image: "/images/Order Deliver/CKB COLLAGE,JORHAT 1.png",
+    req: "Institutional student passes with department codes & QR verification",
+    badge: "Campus Batch",
+  },
+  {
+    id: "government",
+    label: "Institutional",
+    sub: "Govt of Assam",
+    title: "Institutional Project",
+    loc: "Nagaon, Assam",
+    org: "Government of Assam",
+    image: "/images/Order Deliver/Government of assam,nagoan 1.jpeg",
+    req: "Official staff identification credentials & custom printed lanyards",
+    badge: "Institutional",
+  },
+  {
+    id: "wearable",
+    label: "Wearable Setup",
+    sub: "Rayburn College",
+    title: "Complete Wearable Setup",
+    loc: "Manipur",
+    org: "Rayburn College",
+    image: "/images/Order Deliver/RAYBURN COLLAGE,MANIPUR 1.png",
+    req: "CR80 PVC Cards + Protective Holders + Hooks + Sublimation Lanyards",
+    badge: "Wearable Set",
+  },
+];
+
+const DEFAULT_METRICS = [
+  { label: "Evidence", value: "100% Real Projects" },
+  { label: "Coverage", value: "Assam & Northeast" },
+  { label: "Trust Rule", value: "Zero Fake Claims" },
+];
+
+export function CaseStudiesHeroShowcase({
+  pillars = DEFAULT_PILLARS,
+  bottomMetrics = DEFAULT_METRICS,
+  showcaseBadgeRight = "Documented Project Specimen",
+}: CaseStudiesHeroShowcaseProps) {
+  const activePillars = pillars && pillars.length > 0 ? pillars : DEFAULT_PILLARS;
+  const [activePillarId, setActivePillarId] = useState<string>(activePillars[0]?.id || "school");
   const [isHovered, setIsHovered] = useState(false);
 
-  const pillars = {
-    school: {
-      title: "School ID Card Project",
-      loc: "Gojapara, Assam",
-      org: "Don Bosco Hr Sec School",
-      image: "/images/Order Deliver/Don Bosco Hr Sec School, gojapara 1.png",
-      req: "Student Data + Photographs + PVC ID Cards + Lanyards + Holders",
-      badge: "Real Delivered Batch",
-    },
-    college: {
-      title: "College Campus Pass Project",
-      loc: "Jorhat, Assam",
-      org: "CKB College",
-      image: "/images/Order Deliver/CKB COLLAGE,JORHAT 1.png",
-      req: "Institutional student passes with department codes & QR verification",
-      badge: "Campus Batch",
-    },
-    government: {
-      title: "Institutional Project",
-      loc: "Nagaon, Assam",
-      org: "Government of Assam",
-      image: "/images/Order Deliver/Government of assam,nagoan 1.jpeg",
-      req: "Official staff identification credentials & custom printed lanyards",
-      badge: "Institutional",
-    },
-    wearable: {
-      title: "Complete Wearable Setup",
-      loc: "Manipur",
-      org: "Rayburn College",
-      image: "/images/Order Deliver/RAYBURN COLLAGE,MANIPUR 1.png",
-      req: "CR80 PVC Cards + Protective Holders + Hooks + Sublimation Lanyards",
-      badge: "Wearable Set",
-    },
-  };
+  const active =
+    activePillars.find((p) => p.id === activePillarId) ||
+    activePillars[0] ||
+    DEFAULT_PILLARS[0];
 
-  const active = pillars[activePillar];
+  const metrics = bottomMetrics && bottomMetrics.length > 0 ? bottomMetrics : DEFAULT_METRICS;
 
   return (
     <div className="flex flex-col h-full justify-between gap-3.5">
@@ -94,7 +127,7 @@ export function CaseStudiesHeroShowcase() {
           <div className="flex items-center gap-1.5">
             <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 px-2.5 py-0.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
               <CheckCircle2 className="h-3 w-3" />
-              <span>100% Real Evidence</span>
+              <span>{showcaseBadgeRight}</span>
             </span>
           </div>
         </div>
@@ -110,24 +143,13 @@ export function CaseStudiesHeroShowcase() {
           >
             <div className="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-slate-800 bg-slate-950 shadow-2xl">
               <Image
+                unoptimized
                 src={active.image}
                 alt={active.org}
                 fill
                 priority
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-300">
-                    {active.loc}
-                  </span>
-                  <h4 className="text-sm font-black text-white">{active.org}</h4>
-                </div>
-                <span className="rounded-lg bg-white/20 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold text-white">
-                  Real Photo
-                </span>
-              </div>
             </div>
 
             <div className="mt-3 w-full rounded-2xl bg-white/90 dark:bg-slate-900/90 p-3 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between">
@@ -145,17 +167,12 @@ export function CaseStudiesHeroShowcase() {
         {/* ── Mode Selection Tab Bar ── */}
         <div className="relative z-20 p-2.5 sm:p-3 border-t border-slate-200/90 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-900/90 backdrop-blur-md">
           <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-            {[
-              { id: "school", label: "School Project", sub: "Don Bosco" },
-              { id: "college", label: "College Project", sub: "CKB College" },
-              { id: "government", label: "Institutional", sub: "Govt of Assam" },
-              { id: "wearable", label: "Wearable Setup", sub: "Rayburn College" },
-            ].map((tab) => (
+            {activePillars.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActivePillar(tab.id as CaseStudyPillar)}
+                onClick={() => setActivePillarId(tab.id)}
                 className={`flex flex-col items-center py-2 px-1 rounded-xl transition-all duration-200 text-center ${
-                  activePillar === tab.id
+                  activePillarId === tab.id
                     ? "bg-[#009fe3] text-white shadow-md font-extrabold scale-[1.02]"
                     : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/60 font-medium"
                 }`}
@@ -163,7 +180,7 @@ export function CaseStudiesHeroShowcase() {
                 <span className="text-xs sm:text-[13px] leading-tight font-bold">{tab.label}</span>
                 <span
                   className={`text-[10px] leading-tight mt-0.5 ${
-                    activePillar === tab.id ? "text-cyan-100" : "text-slate-500 dark:text-slate-400"
+                    activePillarId === tab.id ? "text-cyan-100" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   {tab.sub}
@@ -176,18 +193,27 @@ export function CaseStudiesHeroShowcase() {
 
       {/* ── Quick Spec Strip ── */}
       <div className="grid grid-cols-3 gap-2">
-        <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-2.5 text-center shadow-2xs">
-          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase block">Evidence</span>
-          <span className="text-xs font-black text-slate-900 dark:text-white">100% Real Projects</span>
-        </div>
-        <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-2.5 text-center shadow-2xs">
-          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase block">Coverage</span>
-          <span className="text-xs font-black text-[#009fe3] dark:text-cyan-400">Assam &amp; Northeast</span>
-        </div>
-        <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-2.5 text-center shadow-2xs">
-          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase block">Trust Rule</span>
-          <span className="text-xs font-black text-emerald-600 dark:text-emerald-400">Zero Fake Claims</span>
-        </div>
+        {metrics.map((m, idx) => (
+          <div
+            key={idx}
+            className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/80 p-2.5 text-center shadow-2xs"
+          >
+            <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase block">
+              {m.label}
+            </span>
+            <span
+              className={`text-xs font-black ${
+                idx === 1
+                  ? "text-[#009fe3] dark:text-cyan-400"
+                  : idx === 2
+                  ? "text-emerald-600 dark:text-emerald-400"
+                  : "text-slate-900 dark:text-white"
+              }`}
+            >
+              {m.value}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

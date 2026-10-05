@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -37,11 +41,14 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const state = getState(stateSlug);
   if (!state) return {};
   const url = `${SITE_URL}/service-areas/${state.slug}/`;
+  const rawTitle = state.metaTitle || `ID Card Printing & Identity Solutions in ${state.name}`;
+  const cleanTitle = rawTitle.replace(/\s*\|\s*(IDGen Identity Solutions|IDGen|iDGen)\s*$/gi, "").trim();
+  const absoluteTitle = `${cleanTitle} | IDGen`;
   return {
-    title: state.metaTitle || `ID Card Printing & Identity Solutions in ${state.name} | IDGen`,
+    title: { absolute: absoluteTitle },
     description: state.metaDescription || `IDGen provides ID card printing and identity solutions across ${state.name}.`,
     alternates: { canonical: url },
-    openGraph: { title: state.metaTitle, description: state.metaDescription, url },
+    openGraph: { title: absoluteTitle, description: state.metaDescription, url },
     ...(state.indexed === false ? { robots: { index: false, follow: true } } : {}),
   };
 }

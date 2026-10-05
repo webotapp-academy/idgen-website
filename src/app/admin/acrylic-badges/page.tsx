@@ -1088,7 +1088,7 @@ function AdminAcrylicBadgesContent() {
             </div>
             <div>
               <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                Lede
+                Lede / Description
               </label>
               <input
                 type="text"
@@ -1105,100 +1105,273 @@ function AdminAcrylicBadgesContent() {
           </div>
 
           <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <Layers className="h-4 w-4 text-cyan-400" />
-              <span>Layer Stack ({data.anatomy.layers.length} Layers)</span>
-            </h3>
-            <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                <Layers className="h-4 w-4 text-cyan-400" />
+                <span>Layer Stack ({data.anatomy.layers.length} Layers)</span>
+              </h3>
+              <button
+                type="button"
+                onClick={() => {
+                  const nextStepNum = String(data.anatomy.layers.length + 1).padStart(2, "0");
+                  const newLayer: BadgeStackLayer = {
+                    step: nextStepNum,
+                    title: "New Substrate Layer",
+                    subtitle: "3mm / 4mm Specification",
+                    badge: "PMMA Grade",
+                    material: "Virgin Cast PMMA Material",
+                    benefit: "High clarity, scratch resistance & optical depth",
+                    iconName: "Box",
+                    img: "/images/Acrylic Badges Samples/Sample 1.jpg",
+                    details: [
+                      "92% light transmittance for crystal clear clarity",
+                      "UV-stabilized virgin grade substrate"
+                    ]
+                  };
+                  setData({
+                    ...data,
+                    anatomy: {
+                      ...data.anatomy,
+                      layers: [...data.anatomy.layers, newLayer]
+                    }
+                  });
+                }}
+                className="px-3 py-1.5 rounded-xl bg-cyan-950 border border-cyan-800 text-cyan-300 text-xs font-bold flex items-center gap-1.5 hover:bg-cyan-900"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Layer</span>
+              </button>
+            </div>
+
+            <div className="space-y-6">
               {data.anatomy.layers.map((layer, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-800/90 p-4 bg-slate-950/70 space-y-3"
+                  className="rounded-2xl border border-slate-800/90 p-5 bg-slate-950/70 space-y-4"
                 >
                   <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-                    <span className="text-xs font-black text-white">
-                      Layer {layer.step}: {layer.title}
-                    </span>
-                    <span className="text-[11px] font-bold text-[#009fe3] bg-[#009fe3]/10 px-2.5 py-0.5 rounded-full border border-[#009fe3]/30">
-                      {layer.badge}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-black text-white">
+                        Layer {layer.step}: {layer.title}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold text-[#009fe3] bg-[#009fe3]/10 px-2.5 py-0.5 rounded-full border border-[#009fe3]/30">
+                        {layer.badge}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updated = data.anatomy.layers.filter((_, i) => i !== idx);
+                          setData({
+                            ...data,
+                            anatomy: { ...data.anatomy, layers: updated }
+                          });
+                        }}
+                        className="p-1.5 text-rose-400 hover:text-rose-300 rounded-lg hover:bg-rose-950/40"
+                        title="Delete layer"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                        Title
-                      </label>
-                      <input
-                        type="text"
-                        value={layer.title}
-                        onChange={(e) => {
-                          const updated = [...data.anatomy.layers];
-                          updated[idx].title = e.target.value;
-                          setData({
-                            ...data,
-                            anatomy: { ...data.anatomy, layers: updated },
-                          });
-                        }}
-                        className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                      />
+                  <div className="grid gap-4 lg:grid-cols-12 items-start">
+                    {/* Image & Preview Column */}
+                    <div className="lg:col-span-4 flex flex-col items-center gap-2 p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                      <div className="relative h-32 w-full rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center">
+                        <Image
+                          src={layer.img}
+                          alt={layer.title}
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="w-full space-y-2">
+                        <div>
+                          <label className="text-[10px] text-slate-400 block mb-0.5">Image URL</label>
+                          <input
+                            type="text"
+                            value={layer.img}
+                            onChange={(e) => {
+                              const updated = [...data.anatomy.layers];
+                              updated[idx].img = e.target.value;
+                              setData({
+                                ...data,
+                                anatomy: { ...data.anatomy, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                        <label className="cursor-pointer w-full py-1.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition">
+                          <UploadCloud className="h-3.5 w-3.5" />
+                          <span>Upload Layer Image</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                handleFileUpload(file, (url) => {
+                                  const updated = [...data.anatomy.layers];
+                                  updated[idx].img = url;
+                                  setData({
+                                    ...data,
+                                    anatomy: { ...data.anatomy, layers: updated }
+                                  });
+                                });
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
                     </div>
 
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                        Subtitle
-                      </label>
-                      <input
-                        type="text"
-                        value={layer.subtitle}
-                        onChange={(e) => {
-                          const updated = [...data.anatomy.layers];
-                          updated[idx].subtitle = e.target.value;
-                          setData({
-                            ...data,
-                            anatomy: { ...data.anatomy, layers: updated },
-                          });
-                        }}
-                        className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                      />
-                    </div>
+                    {/* Details Column */}
+                    <div className="lg:col-span-8 space-y-3">
+                      <div className="grid gap-3 sm:grid-cols-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Layer Step #
+                          </label>
+                          <input
+                            type="text"
+                            value={layer.step}
+                            onChange={(e) => {
+                              const updated = [...data.anatomy.layers];
+                              updated[idx].step = e.target.value;
+                              setData({
+                                ...data,
+                                anatomy: { ...data.anatomy, layers: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Title
+                          </label>
+                          <input
+                            type="text"
+                            value={layer.title}
+                            onChange={(e) => {
+                              const updated = [...data.anatomy.layers];
+                              updated[idx].title = e.target.value;
+                              setData({
+                                ...data,
+                                anatomy: { ...data.anatomy, layers: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white font-bold"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Badge
+                          </label>
+                          <input
+                            type="text"
+                            value={layer.badge}
+                            onChange={(e) => {
+                              const updated = [...data.anatomy.layers];
+                              updated[idx].badge = e.target.value;
+                              setData({
+                                ...data,
+                                anatomy: { ...data.anatomy, layers: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
 
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                        Material &amp; Construction
-                      </label>
-                      <input
-                        type="text"
-                        value={layer.material}
-                        onChange={(e) => {
-                          const updated = [...data.anatomy.layers];
-                          updated[idx].material = e.target.value;
-                          setData({
-                            ...data,
-                            anatomy: { ...data.anatomy, layers: updated },
-                          });
-                        }}
-                        className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                      />
-                    </div>
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                          Subtitle
+                        </label>
+                        <input
+                          type="text"
+                          value={layer.subtitle}
+                          onChange={(e) => {
+                            const updated = [...data.anatomy.layers];
+                            updated[idx].subtitle = e.target.value;
+                            setData({
+                              ...data,
+                              anatomy: { ...data.anatomy, layers: updated },
+                            });
+                          }}
+                          className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                        />
+                      </div>
 
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                        Benefit / Performance
-                      </label>
-                      <input
-                        type="text"
-                        value={layer.benefit}
-                        onChange={(e) => {
-                          const updated = [...data.anatomy.layers];
-                          updated[idx].benefit = e.target.value;
-                          setData({
-                            ...data,
-                            anatomy: { ...data.anatomy, layers: updated },
-                          });
-                        }}
-                        className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                      />
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Substrate &amp; Material
+                          </label>
+                          <input
+                            type="text"
+                            value={layer.material}
+                            onChange={(e) => {
+                              const updated = [...data.anatomy.layers];
+                              updated[idx].material = e.target.value;
+                              setData({
+                                ...data,
+                                anatomy: { ...data.anatomy, layers: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Functional Performance
+                          </label>
+                          <input
+                            type="text"
+                            value={layer.benefit}
+                            onChange={(e) => {
+                              const updated = [...data.anatomy.layers];
+                              updated[idx].benefit = e.target.value;
+                              setData({
+                                ...data,
+                                anatomy: { ...data.anatomy, layers: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center justify-between mb-1">
+                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                            Key Technical Characteristics (One item per line)
+                          </label>
+                          <span className="text-[10px] text-slate-500">{layer.details.length} characteristics</span>
+                        </div>
+                        <textarea
+                          rows={3}
+                          value={layer.details.join("\n")}
+                          onChange={(e) => {
+                            const updated = [...data.anatomy.layers];
+                            updated[idx].details = e.target.value
+                              .split("\n")
+                              .filter((line) => line.trim().length > 0);
+                            setData({
+                              ...data,
+                              anatomy: { ...data.anatomy, layers: updated },
+                            });
+                          }}
+                          className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white font-mono"
+                          placeholder="92% light transmittance for crystal clear clarity&#10;UV-stabilized virgin grade..."
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1232,134 +1405,417 @@ function AdminAcrylicBadgesContent() {
             </button>
           </div>
 
+          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl grid gap-4 sm:grid-cols-3">
+            <div>
+              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                Badge Eyebrow
+              </label>
+              <input
+                type="text"
+                value={data.rangeMaster.badge}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    rangeMaster: { ...data.rangeMaster, badge: e.target.value },
+                  })
+                }
+                className="w-full rounded-xl border border-slate-700/80 bg-slate-950 px-3.5 py-2.5 text-xs font-medium text-slate-100 placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-[#009fe3] transition"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                Section Title
+              </label>
+              <input
+                type="text"
+                value={data.rangeMaster.title}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    rangeMaster: { ...data.rangeMaster, title: e.target.value },
+                  })
+                }
+                className="w-full rounded-xl border border-slate-700/80 bg-slate-950 px-3.5 py-2.5 text-xs font-medium text-slate-100 placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-[#009fe3] transition"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                Lede / Description
+              </label>
+              <input
+                type="text"
+                value={data.rangeMaster.lede}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    rangeMaster: { ...data.rangeMaster, lede: e.target.value },
+                  })
+                }
+                className="w-full rounded-xl border border-slate-700/80 bg-slate-950 px-3.5 py-2.5 text-xs font-medium text-slate-100 placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-[#009fe3] transition"
+              />
+            </div>
+          </div>
+
           <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-            {data.rangeMaster.sections.map((sec, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-slate-800/90 p-4 bg-slate-950/70 space-y-3"
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                <Boxes className="h-4 w-4 text-cyan-400" />
+                <span>Master Showcase Variants ({data.rangeMaster.sections.length})</span>
+              </h3>
+              <button
+                type="button"
+                onClick={() => {
+                  const newSection: MasterBadgeSection = {
+                    code: "Custom Variant",
+                    badge: "Option",
+                    title: "New Acrylic Badge Variant",
+                    tagline: "Short tagline description of this variant.",
+                    description: "Comprehensive overview of PMMA materials, UV print quality, and fastener options.",
+                    image: "/images/Acrylic Badges Samples/Sample 1.jpg",
+                    alt: "Custom Acrylic Badge Variant",
+                    setup: "3mm Cast PMMA + 1440 DPI Direct UV + Magnet Plate",
+                    suitable: ["Corporate Staff", "Doctors & Specialists", "Event VIPs"],
+                    specs: [
+                      { k: "Thickness", v: "3.0 mm Optical Cast PMMA" },
+                      { k: "Print Quality", v: "1440 DPI Direct UV Micro-Piezo" },
+                      { k: "Backing", v: "Triple N52 Neodymium Magnetic Plate" },
+                      { k: "Edge Finish", v: "Diamond Flame-Polished Bevel" }
+                    ],
+                    conclusion: "Zero fabric damage — safely attaches through suits, shirts, and heavy blazers."
+                  };
+                  setData({
+                    ...data,
+                    rangeMaster: {
+                      ...data.rangeMaster,
+                      sections: [...data.rangeMaster.sections, newSection]
+                    }
+                  });
+                }}
+                className="px-3 py-1.5 rounded-xl bg-cyan-950 border border-cyan-800 text-cyan-300 text-xs font-bold flex items-center gap-1.5 hover:bg-cyan-900"
               >
-                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-                  <span className="text-xs font-black text-white">
-                    Variant #{idx + 1}: {sec.code} — {sec.title}
-                  </span>
-                  <span className="text-[11px] font-bold text-[#009fe3] bg-[#009fe3]/10 px-2.5 py-0.5 rounded-full border border-[#009fe3]/30">
-                    {sec.badge}
-                  </span>
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Variant</span>
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {data.rangeMaster.sections.map((sec, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-800/90 p-5 bg-slate-950/70 space-y-4"
+                >
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs font-bold text-cyan-400 bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800">
+                        {sec.code}
+                      </span>
+                      <span className="text-xs font-extrabold text-white">— {sec.title}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold text-[#009fe3] bg-[#009fe3]/10 px-2.5 py-0.5 rounded-full border border-[#009fe3]/30">
+                        {sec.badge}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updated = data.rangeMaster.sections.filter((_, i) => i !== idx);
+                          setData({
+                            ...data,
+                            rangeMaster: { ...data.rangeMaster, sections: updated }
+                          });
+                        }}
+                        className="p-1.5 text-rose-400 hover:text-rose-300 rounded-lg hover:bg-rose-950/40"
+                        title="Delete variant"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-12 items-start">
+                    {/* Image & Preview Column */}
+                    <div className="lg:col-span-4 flex flex-col items-center gap-2 p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                      <div className="relative h-36 w-full rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center">
+                        <Image
+                          src={sec.image}
+                          alt={sec.alt || sec.title}
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="w-full space-y-2">
+                        <div>
+                          <label className="text-[10px] text-slate-400 block mb-0.5">Image URL</label>
+                          <input
+                            type="text"
+                            value={sec.image}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].image = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] text-slate-400 block mb-0.5">Image ALT Text</label>
+                          <input
+                            type="text"
+                            value={sec.alt || ""}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].alt = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                        <label className="cursor-pointer w-full py-1.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition">
+                          <UploadCloud className="h-3.5 w-3.5" />
+                          <span>Upload Variant Image</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                handleFileUpload(file, (url) => {
+                                  const updated = [...data.rangeMaster.sections];
+                                  updated[idx].image = url;
+                                  setData({
+                                    ...data,
+                                    rangeMaster: { ...data.rangeMaster, sections: updated }
+                                  });
+                                });
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Content Details Column */}
+                    <div className="lg:col-span-8 space-y-3">
+                      <div className="grid gap-3 sm:grid-cols-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Nav Code
+                          </label>
+                          <input
+                            type="text"
+                            value={sec.code}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].code = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Badge Pill
+                          </label>
+                          <input
+                            type="text"
+                            value={sec.badge}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].badge = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Title
+                          </label>
+                          <input
+                            type="text"
+                            value={sec.title}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].title = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs font-bold text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Manufacturing Setup Formula
+                          </label>
+                          <input
+                            type="text"
+                            value={sec.setup}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].setup = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Tagline
+                          </label>
+                          <input
+                            type="text"
+                            value={sec.tagline}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].tagline = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                          Description
+                        </label>
+                        <textarea
+                          rows={2}
+                          value={sec.description}
+                          onChange={(e) => {
+                            const updated = [...data.rangeMaster.sections];
+                            updated[idx].description = e.target.value;
+                            setData({
+                              ...data,
+                              rangeMaster: { ...data.rangeMaster, sections: updated },
+                            });
+                          }}
+                          className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white leading-relaxed"
+                        />
+                      </div>
+
+                      {/* 4 Spec Cards Editor */}
+                      <div>
+                        <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                          Spec Cards ({sec.specs?.length || 0})
+                        </label>
+                        <div className="grid gap-2 sm:grid-cols-2">
+                          {(sec.specs || []).map((spec, specIdx) => (
+                            <div key={specIdx} className="flex items-center gap-1.5 bg-slate-900 p-2 rounded-xl border border-slate-800">
+                              <input
+                                type="text"
+                                placeholder="Key"
+                                value={spec.k}
+                                onChange={(e) => {
+                                  const updatedSecs = [...data.rangeMaster.sections];
+                                  const updatedSpecs = [...(updatedSecs[idx].specs || [])];
+                                  updatedSpecs[specIdx] = { ...updatedSpecs[specIdx], k: e.target.value };
+                                  updatedSecs[idx].specs = updatedSpecs;
+                                  setData({
+                                    ...data,
+                                    rangeMaster: { ...data.rangeMaster, sections: updatedSecs }
+                                  });
+                                }}
+                                className="w-1/3 bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-cyan-400 font-bold"
+                              />
+                              <input
+                                type="text"
+                                placeholder="Value"
+                                value={spec.v}
+                                onChange={(e) => {
+                                  const updatedSecs = [...data.rangeMaster.sections];
+                                  const updatedSpecs = [...(updatedSecs[idx].specs || [])];
+                                  updatedSpecs[specIdx] = { ...updatedSpecs[specIdx], v: e.target.value };
+                                  updatedSecs[idx].specs = updatedSpecs;
+                                  setData({
+                                    ...data,
+                                    rangeMaster: { ...data.rangeMaster, sections: updatedSecs }
+                                  });
+                                }}
+                                className="w-2/3 bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-white"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div>
+                          <div className="flex items-center justify-between mb-1">
+                            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                              Recommended For (One item per line)
+                            </label>
+                            <span className="text-[10px] text-slate-500">{sec.suitable.length} items</span>
+                          </div>
+                          <textarea
+                            rows={3}
+                            value={sec.suitable.join("\n")}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].suitable = e.target.value
+                                .split("\n")
+                                .filter((line) => line.trim().length > 0);
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white font-mono"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                            Quality Guarantee / Conclusion
+                          </label>
+                          <textarea
+                            rows={3}
+                            value={sec.conclusion}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[idx].conclusion = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated },
+                              });
+                            }}
+                            className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white leading-relaxed"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div>
-                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Code
-                    </label>
-                    <input
-                      type="text"
-                      value={sec.code}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[idx].code = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: {
-                            ...data.rangeMaster,
-                            sections: updated,
-                          },
-                        });
-                      }}
-                      className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Title
-                    </label>
-                    <input
-                      type="text"
-                      value={sec.title}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[idx].title = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: {
-                            ...data.rangeMaster,
-                            sections: updated,
-                          },
-                        });
-                      }}
-                      className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                    />
-                  </div>
-
-                  <div className="sm:col-span-2">
-                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Description
-                    </label>
-                    <textarea
-                      rows={2}
-                      value={sec.description}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[idx].description = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: {
-                            ...data.rangeMaster,
-                            sections: updated,
-                          },
-                        });
-                      }}
-                      className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3] leading-relaxed"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Hardware Setup
-                    </label>
-                    <input
-                      type="text"
-                      value={sec.setup}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[idx].setup = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: {
-                            ...data.rangeMaster,
-                            sections: updated,
-                          },
-                        });
-                      }}
-                      className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Conclusion
-                    </label>
-                    <input
-                      type="text"
-                      value={sec.conclusion}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[idx].conclusion = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: {
-                            ...data.rangeMaster,
-                            sections: updated,
-                          },
-                        });
-                      }}
-                      className="w-full rounded-xl border border-slate-700/80 bg-slate-900 px-3 py-1.5 text-xs text-white focus:outline-hidden focus:ring-2 focus:ring-[#009fe3]"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       )}

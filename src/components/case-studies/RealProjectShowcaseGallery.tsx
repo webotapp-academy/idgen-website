@@ -185,34 +185,12 @@ export function RealProjectShowcaseGallery({
               {/* Project Image */}
               <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-slate-950">
                 <Image
+                  unoptimized
                   src={project.image}
                   alt={project.org}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-
-                <div className="absolute top-3 left-3">
-                  <span className="rounded-full bg-slate-900/85 backdrop-blur-md px-3 py-1 text-[10px] font-bold text-white border border-white/10">
-                    {project.badge}
-                  </span>
-                </div>
-
-                <div className="absolute top-3 right-3 rounded-lg bg-slate-900/80 text-white p-1.5 opacity-0 group-hover:opacity-100 transition shadow-md">
-                  <Maximize2 className="h-3.5 w-3.5" />
-                </div>
-
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                  <span className="flex items-center gap-1 text-[11px] font-bold text-cyan-300">
-                    <MapPin className="h-3 w-3" />
-                    <span>{project.location}</span>
-                  </span>
-                  {project.imageSecondary && (
-                    <span className="text-[10px] bg-white/20 backdrop-blur-md px-2 py-0.5 rounded-full font-semibold">
-                      2 Photos
-                    </span>
-                  )}
-                </div>
               </div>
 
               {/* Project Details */}
@@ -280,6 +258,7 @@ export function RealProjectShowcaseGallery({
             <div className="space-y-2">
               <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
                 <Image
+                  unoptimized
                   src={
                     activeModalImageIndex === 1 && activeModalProject.imageSecondary
                       ? activeModalProject.imageSecondary

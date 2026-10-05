@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import {
@@ -358,7 +359,7 @@ export const DEFAULT_ID_CARD_PRINTING_DATA: DynamicIdCardPrintingData = {
     eyebrow: "Design & Branding",
     title: "ID Card Design & Branding",
     lede: "Your ID card can be designed around your organization's visual identity.",
-    imageSrc: "/images/ID-Card-Design-&-Branding-Idgen.png",
+    imageSrc: "/images/ID-Card-Design-and-Branding-Idgen.png",
     imageAlt: "ID card design and brand-aligned visual identity customization by IDGen",
     topBadge: "Visual Identity Alignment",
     topBrand: "IDGen",
@@ -639,23 +640,25 @@ export const DEFAULT_ID_CARD_PRINTING_DATA: DynamicIdCardPrintingData = {
   },
 
   metadata: {
-    title: "ID Card Printing | Custom PVC & Bulk ID Cards | IDGen",
+    title: "ID Card Printing in Guwahati & Northeast India | Custom PVC Cards",
     description:
       "IDGen provides custom PVC ID card printing and bulk personalized ID cards for schools, colleges, companies, hospitals, institutions and events across Assam and Northeast India.",
     path: "/id-card-printing/",
   },
 };
 
+const FILENAME = "dynamic-id-card-printing.json";
+
 export function getDynamicIdCardPrinting(): DynamicIdCardPrintingData {
   try {
-    if (fs.existsSync(DATA_FILE)) {
-      const fileData = fs.readFileSync(DATA_FILE, "utf-8");
-      const parsed = JSON.parse(fileData);
-      return {
-        ...DEFAULT_ID_CARD_PRINTING_DATA,
-        ...parsed,
-      };
-    }
+    const parsed = loadDynamicJson<Partial<DynamicIdCardPrintingData>>(
+      FILENAME,
+      DEFAULT_ID_CARD_PRINTING_DATA
+    );
+    return {
+      ...DEFAULT_ID_CARD_PRINTING_DATA,
+      ...parsed,
+    };
   } catch (error) {
     console.error("Error reading dynamic-id-card-printing.json:", error);
   }
@@ -666,11 +669,7 @@ export function saveDynamicIdCardPrinting(
   data: DynamicIdCardPrintingData
 ): DynamicIdCardPrintingData {
   try {
-    const dir = path.dirname(DATA_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
+    saveDynamicJson(FILENAME, data);
     return data;
   } catch (error) {
     console.error("Error saving dynamic-id-card-printing.json:", error);
@@ -679,5 +678,6 @@ export function saveDynamicIdCardPrinting(
 }
 
 export function resetDynamicIdCardPrinting(): DynamicIdCardPrintingData {
-  return saveDynamicIdCardPrinting(DEFAULT_ID_CARD_PRINTING_DATA);
+  saveDynamicJson(FILENAME, DEFAULT_ID_CARD_PRINTING_DATA);
+  return DEFAULT_ID_CARD_PRINTING_DATA;
 }

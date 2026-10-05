@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import { DynamicEmployeeIdCardPrintingData } from "./dynamic-employee-id-card-printing-types";

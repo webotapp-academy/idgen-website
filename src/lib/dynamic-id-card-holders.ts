@@ -1,6 +1,9 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import type { DynamicIdCardHoldersData } from "./dynamic-id-card-holders-types";
+
+import { holderCatalog } from "@/components/id-card-holders/QuickHolderSelectionMatrix";
 
 const DATA_FILE = path.join(process.cwd(), "src", "data", "dynamic-id-card-holders.json");
 
@@ -129,6 +132,43 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
       { req: "Premium crystal appearance", option: "CV-1 Crystal Holder", badge: "Executive Crystal" },
       { req: "Connect holder to lanyard", option: "Fish Hook", badge: "Attachment" },
     ],
+    catalog: holderCatalog,
+    goldenRules: {
+      eyebrow: "Engineering & Fitment Guidelines",
+      title: "Golden Rules for Error-Free ID Holder Selection",
+      subtitle: "Guaranteed compatibility with all IDGen lanyard attachment clips",
+      rules: [
+        {
+          ruleNum: "Rule 1",
+          title: "Orientation Alignment",
+          description: "Always pair cards strictly with matching orientation frames:",
+          iconName: "Sliders",
+          points: [
+            { label: "Portrait Card (86×54mm)", value: "→ V-Series" },
+            { label: "Landscape Card (54×86mm)", value: "→ H-Series" },
+          ],
+        },
+        {
+          ruleNum: "Rule 2",
+          title: "Active Retention Locking",
+          description: "For field engineers, factory teams, or frequent movement, specify 4-Side Lock (V-2 / H-2) to eliminate lost badges.",
+          iconName: "Lock",
+          highlightNote: "Prevents card fallout during brisk motion",
+        },
+        {
+          ruleNum: "Rule 3",
+          title: "20mm Anti-Twist Aperture",
+          description: "Every IDGen holder features a standardized 20mm slot, enabling quick attachment to Fish Hooks, Dog Clips & Lanyards without binding.",
+          iconName: "Sparkles",
+          points: [
+            { label: "Standard Aperture Slot:", value: "20.0 mm" },
+          ],
+        },
+      ],
+      footerNote: "💡 Factory Recommendation: Always verify physical sample dimensions with our team prior to mass printing & assembly.",
+      ctaText: "Request Physical Sample Kit",
+      ctaHref: "https://wa.me/919207012084?text=Hi%20IDGen%2C%20I%20would%20like%20to%20request%20physical%20samples%20of%20your%20ID%20card%20holders.",
+    },
   },
   assemblyEcosystem: {
     eyebrow: "Structural Anatomy & Layer Breakdown",
@@ -751,6 +791,12 @@ export function getDynamicIdCardHolders(): DynamicIdCardHoldersData {
           ...DEFAULT_ID_CARD_HOLDERS_DATA.quickSelection,
           ...parsed.quickSelection,
           items: parsed.quickSelection?.items || DEFAULT_ID_CARD_HOLDERS_DATA.quickSelection.items,
+          catalog: parsed.quickSelection?.catalog || DEFAULT_ID_CARD_HOLDERS_DATA.quickSelection.catalog || holderCatalog,
+          goldenRules: {
+            ...DEFAULT_ID_CARD_HOLDERS_DATA.quickSelection.goldenRules,
+            ...parsed.quickSelection?.goldenRules,
+            rules: parsed.quickSelection?.goldenRules?.rules || DEFAULT_ID_CARD_HOLDERS_DATA.quickSelection.goldenRules!.rules,
+          },
         },
         assemblyEcosystem: {
           ...DEFAULT_ID_CARD_HOLDERS_DATA.assemblyEcosystem,

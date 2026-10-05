@@ -177,30 +177,12 @@ export function EmployeeSolutionsCarousel({ solutions: initialSolutions }: Emplo
           {/* Left Visual Column */}
           <div className="relative lg:col-span-6 overflow-hidden bg-slate-950 min-h-[300px] lg:min-h-[460px]">
             <Image
+                  unoptimized
               src={current.image}
               alt={current.title}
               fill
               className="object-cover object-center transition-transform duration-700 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-
-            {/* Top Floating Badge */}
-            <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-black text-white border border-white/15 shadow-md">
-                <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
-                <span>{current.badge}</span>
-              </span>
-              <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md font-mono">
-                0{activeIdx + 1} / 0{solutions.length}
-              </span>
-            </div>
-
-            {/* Bottom Title Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-              <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                {current.title}
-              </h3>
-            </div>
           </div>
 
           {/* Right Content Column */}

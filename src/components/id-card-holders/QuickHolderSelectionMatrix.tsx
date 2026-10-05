@@ -34,31 +34,9 @@ import {
   List,
   Copy,
 } from "lucide-react";
+import type { DynamicIdCardHoldersQuickSelection, HolderItem } from "@/lib/dynamic-id-card-holders-types";
 
-export interface HolderItem {
-  id: string;
-  code: string;
-  name: string;
-  req: string;
-  badge: string;
-  category: "vertical" | "horizontal" | "executive" | "attachment";
-  orientation: "Vertical (Portrait)" | "Horizontal (Landscape)" | "Universal / Hardware";
-  cardFormat: string;
-  lockType: "Standard Drop-In" | "Four-Side Lock" | "Chemical Sticker Seal" | "Executive Metal Frame" | "Optical Crystal Bevel" | "Swivel Attachment";
-  retentionRating: number; // 1 to 5
-  material: string;
-  finish: string;
-  lanyardHole: string;
-  image: string;
-  alt: string;
-  tagline: string;
-  description: string;
-  popular?: boolean;
-  premium?: boolean;
-  securityBadge?: string;
-  suitable: string[];
-  specs: { k: string; v: string }[];
-}
+export type { HolderItem };
 
 export const holderCatalog: HolderItem[] = [
   {
@@ -329,8 +307,6 @@ export const holderCatalog: HolderItem[] = [
   },
 ];
 
-import type { DynamicIdCardHoldersQuickSelection } from "@/lib/dynamic-id-card-holders-types";
-
 export function QuickHolderSelectionMatrix({
   data,
   catalog,
@@ -338,7 +314,7 @@ export function QuickHolderSelectionMatrix({
   data?: DynamicIdCardHoldersQuickSelection;
   catalog?: HolderItem[];
 } = {}) {
-  const activeCatalog = catalog && catalog.length > 0 ? catalog : holderCatalog;
+  const activeCatalog = catalog && catalog.length > 0 ? catalog : data?.catalog && data.catalog.length > 0 ? data.catalog : holderCatalog;
   const [activeTab, setActiveTab] = useState<"all" | "vertical" | "horizontal" | "executive" | "attachment">("all");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [selectedHolder, setSelectedHolder] = useState<HolderItem | null>(null);
@@ -696,6 +672,7 @@ export function QuickHolderSelectionMatrix({
               <div className="relative z-10 mt-5 flex items-center gap-5">
                 <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-2xl bg-slate-800/90 border border-slate-700 flex items-center justify-center p-2 shadow-inner group">
                   <Image
+                  unoptimized
                     src={recommendedModel.image}
                     alt={recommendedModel.alt}
                     width={96}
@@ -935,15 +912,13 @@ export function QuickHolderSelectionMatrix({
                       className="relative h-44 w-full cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100/60 dark:from-slate-800/60 dark:to-slate-900/80 border border-slate-100 dark:border-slate-800/80 p-3 flex items-center justify-center group-hover:border-sky-300 dark:group-hover:border-sky-700 transition-colors"
                     >
                       <Image
+                  unoptimized
                         src={item.image}
                         alt={item.alt}
                         width={180}
                         height={160}
                         className="h-full w-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-108"
                       />
-                      <div className="absolute bottom-2 right-2 rounded-lg bg-black/60 backdrop-blur-xs text-white p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Maximize2 className="h-3 w-3" />
-                      </div>
                     </div>
 
                     {/* Product Meta & Requirement Info */}
@@ -1033,6 +1008,7 @@ export function QuickHolderSelectionMatrix({
                           className="relative h-12 w-11 shrink-0 cursor-pointer overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center group-hover:border-[#009fe3] transition-colors"
                         >
                           <Image
+                  unoptimized
                             src={item.image}
                             alt={item.alt}
                             width={44}
@@ -1136,109 +1112,95 @@ export function QuickHolderSelectionMatrix({
       {/* ═════════════════════════════════════════════════════════════
           GOLDEN RULES & FITMENT GUIDE (PREMIUM VISUAL INFOGRAPHIC)
           ═════════════════════════════════════════════════════════════ */}
-      <div className="mt-12 overflow-hidden rounded-3xl border border-sky-200/80 dark:border-sky-800/50 bg-gradient-to-br from-white via-sky-50/30 to-white dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 p-6 sm:p-8 lg:p-10 shadow-lg">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800">
-          <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
-              <Info className="h-4 w-4" />
-              <span>Engineering &amp; Fitment Guidelines</span>
-            </span>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl mt-1">
-              Golden Rules for Error-Free ID Holder Selection
-            </h3>
+      {data?.goldenRules && (
+        <div className="mt-12 overflow-hidden rounded-3xl border border-sky-200/80 dark:border-sky-800/50 bg-gradient-to-br from-white via-sky-50/30 to-white dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 p-6 sm:p-8 lg:p-10 shadow-lg">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800">
+            <div>
+              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#009fe3] dark:text-cyan-400">
+                <Info className="h-4 w-4" />
+                <span>{data.goldenRules.eyebrow}</span>
+              </span>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl mt-1">
+                {data.goldenRules.title}
+              </h3>
+            </div>
+
+            <div className="text-xs font-medium text-slate-500 dark:text-slate-400">
+              {data.goldenRules.subtitle}
+            </div>
           </div>
 
-          <div className="text-xs font-medium text-slate-500 dark:text-slate-400">
-            Guaranteed compatibility with all IDGen lanyard attachment clips
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {data.goldenRules.rules.map((rule, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-5 shadow-xs transition-all hover:border-[#009fe3]"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-[#009fe3] dark:text-cyan-400">
+                      {rule.iconName === "Lock" ? (
+                        <Lock className="h-5 w-5" />
+                      ) : rule.iconName === "Sparkles" ? (
+                        <Sparkles className="h-5 w-5" />
+                      ) : (
+                        <Sliders className="h-5 w-5" />
+                      )}
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-black uppercase text-slate-400">
+                        {rule.ruleNum || `Rule ${idx + 1}`}
+                      </span>
+                      <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                        {rule.title}
+                      </h4>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {rule.description}
+                  </p>
+
+                  {rule.points && rule.points.length > 0 && (
+                    <div className="mt-3 space-y-1.5 text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800">
+                      {rule.points.map((pt, ptIdx) => (
+                        <div key={ptIdx} className="flex items-center justify-between">
+                          <span>{pt.label}</span>
+                          <span className="text-[#009fe3] dark:text-cyan-400 font-mono">{pt.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {rule.highlightNote && (
+                    <div className="mt-3 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50/60 dark:bg-emerald-950/40 p-3 rounded-xl border border-emerald-500/20 flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 shrink-0" />
+                      <span>{rule.highlightNote}</span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Callout Notice */}
+          <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <p>{data.goldenRules.footerNote}</p>
+            {data.goldenRules.ctaText && (
+              <div className="flex items-center gap-3">
+                <a
+                  href={data.goldenRules.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#009fe3] dark:text-cyan-400 hover:underline inline-flex items-center gap-1"
+                >
+                  <span>{data.goldenRules.ctaText}</span>
+                  <ArrowRight className="h-3 w-3" />
+                </a>
+              </div>
+            )}
           </div>
         </div>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {/* Rule 1: Aspect Ratio & Orientation */}
-          <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-5 shadow-xs transition-all hover:border-[#009fe3]">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-[#009fe3] dark:text-cyan-400">
-                <Sliders className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-black uppercase text-slate-400">Rule 1</span>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Orientation Alignment</h4>
-              </div>
-            </div>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Always pair cards strictly with matching orientation frames:
-            </p>
-            <div className="mt-3 space-y-1.5 text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800">
-              <div className="flex items-center justify-between">
-                <span>• Portrait Card (86×54mm)</span>
-                <span className="text-[#009fe3] dark:text-cyan-400 font-mono">→ V-Series</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span>• Landscape Card (54×86mm)</span>
-                <span className="text-[#009fe3] dark:text-cyan-400 font-mono">→ H-Series</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Rule 2: Locking & Security Level */}
-          <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-5 shadow-xs transition-all hover:border-emerald-500">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                <Lock className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-black uppercase text-slate-400">Rule 2</span>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Active Retention Locking</h4>
-              </div>
-            </div>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              For field engineers, factory teams, or frequent movement, specify <strong className="text-slate-900 dark:text-white">4-Side Lock (V-2 / H-2)</strong> to eliminate lost badges.
-            </p>
-            <div className="mt-3 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50/60 dark:bg-emerald-950/40 p-3 rounded-xl border border-emerald-500/20 flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 shrink-0" />
-              <span>Prevents card fallout during brisk motion</span>
-            </div>
-          </div>
-
-          {/* Rule 3: Universal 20mm Lanyard Aperture */}
-          <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-5 shadow-xs transition-all hover:border-amber-500">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
-                <Sparkles className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-black uppercase text-slate-400">Rule 3</span>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">20mm Anti-Twist Aperture</h4>
-              </div>
-            </div>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Every IDGen holder features a standardized 20mm slot, enabling quick attachment to <strong className="text-slate-900 dark:text-white">Fish Hooks, Dog Clips &amp; Lanyards</strong> without binding.
-            </p>
-            <div className="mt-3 text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <span>Standard Aperture Slot:</span>
-              <span className="font-mono font-bold text-amber-600 dark:text-amber-400">20.0 mm</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Callout Notice */}
-        <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
-          <p>
-            💡 <strong>Factory Recommendation:</strong> Always verify physical sample dimensions with our team prior to mass printing &amp; assembly.
-          </p>
-          <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/919207012084?text=Hi%20IDGen%2C%20I%20would%20like%20to%20request%20physical%20samples%20of%20your%20ID%20card%20holders."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-[#009fe3] dark:text-cyan-400 hover:underline inline-flex items-center gap-1"
-            >
-              <span>Request Physical Sample Kit</span>
-              <ArrowRight className="h-3 w-3" />
-            </a>
-          </div>
-        </div>
-      </div>
+      )}
 
       {/* ═════════════════════════════════════════════════════════════
           INTERACTIVE SPECIFICATION INSPECTION MODAL
@@ -1285,6 +1247,7 @@ export function QuickHolderSelectionMatrix({
               <div className="sm:col-span-5 flex flex-col items-center">
                 <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-800/80 dark:to-slate-900 p-4 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
                   <Image
+                  unoptimized
                     src={selectedHolder.image}
                     alt={selectedHolder.alt}
                     width={200}

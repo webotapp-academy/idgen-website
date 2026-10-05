@@ -173,43 +173,12 @@ export function UltrasonicHeroCarousel({ slides }: { slides?: UltrasonicSlide[] 
                 fill
                 unoptimized
                 priority={idx < 2}
-                className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
+                className="object-contain object-center p-3 sm:p-5 transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 pointer-events-none" />
             </div>
           );
         })}
-
-        {/* Top-Left Floating Badge */}
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-white shadow-xl transition-all">
-          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>{currentSlide.topBadge}</span>
-        </div>
-
-        {/* Top-Right Floating Brand & Spec Badge */}
-        <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-white/25 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-cyan-300 shadow-xl transition-all">
-            <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
-            <span>{currentSlide.specPill}</span>
-          </div>
-          <span className="rounded-full bg-[#009fe3] px-3.5 py-1.5 text-xs font-black text-white shadow-lg border border-white/20">
-            IDGen
-          </span>
-        </div>
-
-        {/* Bottom Floating Spec Bar */}
-        <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-2 rounded-2xl border border-white/25 bg-slate-950/90 backdrop-blur-md p-3 text-white shadow-2xl transition-all">
-          <div className="flex items-center gap-2 min-w-0">
-            <Radio className="h-4 w-4 text-cyan-400 shrink-0" />
-            <span className="text-xs font-bold truncate text-slate-100">
-              {currentSlide.bottomSpec}
-            </span>
-          </div>
-          <span className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-500/40 shadow-sm">
-            {currentSlide.hubTag}
-          </span>
-        </div>
 
         {/* Left / Right Arrow Controls */}
         <button
@@ -218,7 +187,7 @@ export function UltrasonicHeroCarousel({ slides }: { slides?: UltrasonicSlide[] 
             prevSlide();
           }}
           aria-label="Previous image"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-300 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950 shadow-lg"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-300 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950 shadow-lg cursor-pointer"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -229,37 +198,10 @@ export function UltrasonicHeroCarousel({ slides }: { slides?: UltrasonicSlide[] 
             nextSlide();
           }}
           aria-label="Next image"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-300 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950 shadow-lg"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-300 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950 shadow-lg cursor-pointer"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
-
-        {/* Bottom Pagination Indicators */}
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1.5 border border-white/20 shadow-lg">
-          {activeSlides.map((slide, idx) => (
-            <button
-              key={slide.id || idx}
-              onClick={() => goToSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentIndex
-                  ? "w-6 bg-cyan-400 shadow-sm shadow-cyan-400/50"
-                  : "w-2 bg-white/40 hover:bg-white/70"
-              }`}
-            />
-          ))}
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            aria-label={isPlaying ? "Pause auto-slide" : "Play auto-slide"}
-            className="ml-1 text-slate-300 hover:text-cyan-300 transition-colors"
-          >
-            {isPlaying ? (
-              <Pause className="h-3 w-3" />
-            ) : (
-              <Play className="h-3 w-3" />
-            )}
-          </button>
-        </div>
       </div>
 
       {/* Slide Thumbnails & Quick Navigator (Under Showcase) */}
@@ -281,7 +223,7 @@ export function UltrasonicHeroCarousel({ slides }: { slides?: UltrasonicSlide[] 
                 alt={slide.title}
                 fill
                 unoptimized
-                className="object-cover"
+                className="object-contain p-1"
                 sizes="(max-width: 640px) 20vw, 80px"
               />
               <div

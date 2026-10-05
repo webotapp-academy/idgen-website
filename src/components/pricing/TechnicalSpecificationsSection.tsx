@@ -153,16 +153,13 @@ export function TechnicalSpecificationsSection({
                 <div className="flex flex-col sm:flex-row gap-5 items-start">
                   <div className="relative h-36 w-full sm:w-36 shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
                     <Image
+                  unoptimized
                       src={prod.imageSrc || "/images/product-pvc-cards.jpg"}
                       alt={prod.alt || prod.name}
                       fill
                       className="object-cover"
                       sizes="(max-width: 640px) 100vw, 150px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
-                    <span className="absolute bottom-2 left-2 rounded bg-slate-950/80 backdrop-blur-xs px-2 py-0.5 text-[10px] font-black text-cyan-300 border border-white/10">
-                      {imageTag}
-                    </span>
                   </div>
 
                   <div className="space-y-1.5 flex-1 min-w-0">

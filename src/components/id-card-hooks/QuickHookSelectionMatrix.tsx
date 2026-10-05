@@ -368,15 +368,12 @@ export function QuickHookSelectionMatrix({
 
                 <div className="relative h-44 w-full rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 mb-4 flex items-center justify-center p-3 group-hover:bg-sky-50/30 transition">
                   <Image
+                  unoptimized
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className="object-cover p-1 group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                    className="object-contain p-2 group-hover:scale-105 transition-transform duration-500 rounded-xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-2 right-2 rounded-lg bg-slate-900/80 text-white p-1.5 opacity-0 group-hover:opacity-100 transition">
-                    <Maximize2 className="h-3.5 w-3.5" />
-                  </div>
                 </div>
 
                 <h3 className="text-base font-black text-slate-900 dark:text-white group-hover:text-[#009fe3] transition-colors leading-snug">
@@ -461,10 +458,11 @@ export function QuickHookSelectionMatrix({
             <div className="flex items-start gap-4">
               <div className="relative h-20 w-20 shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950">
                 <Image
+                  unoptimized
                   src={selectedModalHook.image}
                   alt={selectedModalHook.name}
                   fill
-                  className="object-cover"
+                  className="object-contain p-1"
                 />
               </div>
               <div className="space-y-1">

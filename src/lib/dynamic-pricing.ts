@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 
 export interface PricingItemData {
   id: string;
@@ -20,7 +19,7 @@ export interface PricingItemData {
   updatedAt?: string;
 }
 
-const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-pricing.json");
+const FILENAME = "dynamic-pricing.json";
 
 export const defaultPricingCatalog: PricingItemData[] = [
   {
@@ -245,45 +244,23 @@ export const defaultPricingCatalog: PricingItemData[] = [
   },
 ];
 
-let memoryCache: PricingItemData[] | null = null;
-
 export function getAllPricingItems(includeInactive = false): PricingItemData[] {
-  if (memoryCache) {
-    const items = includeInactive ? memoryCache : memoryCache.filter((item) => item.isActive !== false);
-    return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-  }
-
   try {
-    if (fs.existsSync(DATA_FILE_PATH)) {
-      const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-      const loaded: PricingItemData[] = JSON.parse(raw);
-      if (Array.isArray(loaded) && loaded.length > 0) {
-        memoryCache = loaded;
-        const items = includeInactive ? memoryCache : memoryCache.filter((item) => item.isActive !== false);
-        return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-      }
+    const loaded = loadDynamicJson<PricingItemData[]>(FILENAME, defaultPricingCatalog);
+    if (Array.isArray(loaded) && loaded.length > 0) {
+      const items = includeInactive ? loaded : loaded.filter((item) => item.isActive !== false);
+      return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
     }
   } catch (e) {
     console.error("Error reading dynamic-pricing.json, falling back to defaults:", e);
   }
 
-  memoryCache = defaultPricingCatalog;
-  saveAllPricingItems(defaultPricingCatalog);
-  const items = includeInactive ? memoryCache : memoryCache.filter((item) => item.isActive !== false);
+  const items = includeInactive ? defaultPricingCatalog : defaultPricingCatalog.filter((item) => item.isActive !== false);
   return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
 }
 
 export function saveAllPricingItems(items: PricingItemData[]): void {
-  memoryCache = items;
-  try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(items, null, 2), "utf-8");
-  } catch (e) {
-    console.error("Error saving dynamic-pricing.json:", e);
-  }
+  saveDynamicJson(FILENAME, items);
 }
 
 export function getPricingItem(id: string): PricingItemData | undefined {
@@ -343,7 +320,6 @@ export function deletePricingItem(id: string): boolean {
 }
 
 export function resetPricingToDefaults(): PricingItemData[] {
-  memoryCache = defaultPricingCatalog;
   saveAllPricingItems(defaultPricingCatalog);
   return defaultPricingCatalog;
 }

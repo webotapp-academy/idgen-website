@@ -31,10 +31,59 @@ export interface DynamicIdCardHoldersHero {
   slides: HolderSlide[];
 }
 
+export interface HolderItem {
+  id: string;
+  code: string;
+  name: string;
+  req: string;
+  badge: string;
+  category: "vertical" | "horizontal" | "executive" | "attachment";
+  orientation: "Vertical (Portrait)" | "Horizontal (Landscape)" | "Universal / Hardware" | string;
+  cardFormat: string;
+  lockType: "Standard Drop-In" | "Four-Side Lock" | "Chemical Sticker Seal" | "Executive Metal Frame" | "Optical Crystal Bevel" | "Swivel Attachment" | string;
+  retentionRating: number;
+  material: string;
+  finish: string;
+  lanyardHole: string;
+  image: string;
+  alt: string;
+  tagline: string;
+  description: string;
+  popular?: boolean;
+  premium?: boolean;
+  securityBadge?: string;
+  suitable: string[];
+  specs: { k: string; v: string }[];
+}
+
 export interface DynamicQuickSelectionItem {
   req: string;
   option: string;
   badge: string;
+}
+
+export interface DynamicGoldenRulePoint {
+  label: string;
+  value: string;
+}
+
+export interface DynamicGoldenRuleItem {
+  ruleNum: string;
+  title: string;
+  description: string;
+  iconName?: string;
+  highlightNote?: string;
+  points?: DynamicGoldenRulePoint[];
+}
+
+export interface DynamicGoldenRules {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  rules: DynamicGoldenRuleItem[];
+  footerNote: string;
+  ctaText: string;
+  ctaHref: string;
 }
 
 export interface DynamicIdCardHoldersQuickSelection {
@@ -42,6 +91,8 @@ export interface DynamicIdCardHoldersQuickSelection {
   title: string;
   lede: string;
   items: DynamicQuickSelectionItem[];
+  catalog?: HolderItem[];
+  goldenRules?: DynamicGoldenRules;
 }
 
 export interface DynamicAssemblyLayer {

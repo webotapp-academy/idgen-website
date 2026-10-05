@@ -931,7 +931,7 @@ function AdminIdCardHooksContent() {
             <div>
               <h2 className="text-lg font-black text-white">What Is an ID Card Hook / Assembly Ecosystem</h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                Manage the 4-layer interactive assembly breakdown.
+                Manage the 4-layer interactive assembly breakdown, layer imagery, component roles, and key points.
               </p>
             </div>
             <button
@@ -956,7 +956,7 @@ function AdminIdCardHooksContent() {
                     assembly: { ...data.assembly, badge: e.target.value },
                   })
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:border-cyan-500 outline-none"
               />
             </div>
             <div>
@@ -970,11 +970,11 @@ function AdminIdCardHooksContent() {
                     assembly: { ...data.assembly, title: e.target.value },
                   })
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:border-cyan-500 outline-none"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-300 mb-1">Lede</label>
+              <label className="block text-xs font-bold text-slate-300 mb-1">Lede / Description</label>
               <textarea
                 rows={2}
                 value={data.assembly.lede}
@@ -984,106 +984,266 @@ function AdminIdCardHooksContent() {
                     assembly: { ...data.assembly, lede: e.target.value },
                   })
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:border-cyan-500 outline-none"
               />
             </div>
           </div>
 
           {/* Layers */}
           <div className="pt-4 border-t border-slate-800 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-              Assembly Layers ({data.assembly.layers.length})
-            </h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+                Assembly Stack Layers ({data.assembly.layers.length})
+              </h3>
+              <button
+                type="button"
+                onClick={() => {
+                  const nextStepNum = String(data.assembly.layers.length + 1).padStart(2, "0");
+                  const newLayer: HookStackLayer = {
+                    step: nextStepNum,
+                    title: "New Layer Component",
+                    subtitle: "Component Subtitle",
+                    badge: "Option",
+                    material: "Component Material / Role",
+                    benefit: "Connection Purpose & Advantage",
+                    iconName: "Box",
+                    img: "/images/product-pvc-cards.jpg",
+                    details: [
+                      "Standard component specification",
+                      "Compatible with ID card assembly system"
+                    ]
+                  };
+                  setData({
+                    ...data,
+                    assembly: {
+                      ...data.assembly,
+                      layers: [...data.assembly.layers, newLayer]
+                    }
+                  });
+                }}
+                className="px-3 py-1.5 rounded-xl bg-cyan-950 border border-cyan-800 text-cyan-300 text-xs font-bold flex items-center gap-1.5 hover:bg-cyan-900"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Layer</span>
+              </button>
+            </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {data.assembly.layers.map((layer, lIdx) => (
                 <div
                   key={lIdx}
-                  className="p-5 bg-slate-950 border border-slate-800 rounded-2xl space-y-3"
+                  className="p-5 bg-slate-950 border border-slate-800 rounded-2xl space-y-4"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-cyan-400">
-                      Step {layer.step} • {layer.title}
-                    </span>
-                    <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">
-                      {layer.badge}
-                    </span>
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-900">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs font-bold text-cyan-400">
+                        Step {layer.step}
+                      </span>
+                      <span className="text-xs font-extrabold text-white">— {layer.title}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full font-bold">
+                        {layer.badge}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updated = data.assembly.layers.filter((_, i) => i !== lIdx);
+                          setData({
+                            ...data,
+                            assembly: { ...data.assembly, layers: updated }
+                          });
+                        }}
+                        className="p-1.5 text-rose-400 hover:text-rose-300 rounded-lg hover:bg-rose-950/40"
+                        title="Delete layer"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    <input
-                      type="text"
-                      placeholder="Title"
-                      value={layer.title}
-                      onChange={(e) => {
-                        const updated = [...data.assembly.layers];
-                        updated[lIdx].title = e.target.value;
-                        setData({
-                          ...data,
-                          assembly: { ...data.assembly, layers: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Subtitle"
-                      value={layer.subtitle}
-                      onChange={(e) => {
-                        const updated = [...data.assembly.layers];
-                        updated[lIdx].subtitle = e.target.value;
-                        setData({
-                          ...data,
-                          assembly: { ...data.assembly, layers: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Badge"
-                      value={layer.badge}
-                      onChange={(e) => {
-                        const updated = [...data.assembly.layers];
-                        updated[lIdx].badge = e.target.value;
-                        setData({
-                          ...data,
-                          assembly: { ...data.assembly, layers: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
-                  </div>
+                  <div className="grid gap-4 lg:grid-cols-12 items-start">
+                    {/* Image & Preview Column */}
+                    <div className="lg:col-span-4 flex flex-col items-center gap-2 p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                      <div className="relative h-32 w-full rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center">
+                        <Image
+                          src={layer.img}
+                          alt={layer.title}
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="w-full space-y-2">
+                        <div>
+                          <label className="text-[10px] text-slate-400 block mb-0.5">Image URL</label>
+                          <input
+                            type="text"
+                            value={layer.img}
+                            onChange={(e) => {
+                              const updated = [...data.assembly.layers];
+                              updated[lIdx].img = e.target.value;
+                              setData({
+                                ...data,
+                                assembly: { ...data.assembly, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                        <label className="cursor-pointer w-full py-1.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition">
+                          <UploadCloud className="h-3.5 w-3.5" />
+                          <span>Upload Layer Image</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                handleFileUpload(file, (url) => {
+                                  const updated = [...data.assembly.layers];
+                                  updated[lIdx].img = url;
+                                  setData({
+                                    ...data,
+                                    assembly: { ...data.assembly, layers: updated }
+                                  });
+                                });
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
+                    </div>
 
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <input
-                      type="text"
-                      placeholder="Component Role"
-                      value={layer.material}
-                      onChange={(e) => {
-                        const updated = [...data.assembly.layers];
-                        updated[lIdx].material = e.target.value;
-                        setData({
-                          ...data,
-                          assembly: { ...data.assembly, layers: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Purpose / Benefit"
-                      value={layer.benefit}
-                      onChange={(e) => {
-                        const updated = [...data.assembly.layers];
-                        updated[lIdx].benefit = e.target.value;
-                        setData({
-                          ...data,
-                          assembly: { ...data.assembly, layers: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
+                    {/* Details Column */}
+                    <div className="lg:col-span-8 space-y-3">
+                      <div className="grid gap-3 sm:grid-cols-3">
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Step #</label>
+                          <input
+                            type="text"
+                            value={layer.step}
+                            onChange={(e) => {
+                              const updated = [...data.assembly.layers];
+                              updated[lIdx].step = e.target.value;
+                              setData({
+                                ...data,
+                                assembly: { ...data.assembly, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Title</label>
+                          <input
+                            type="text"
+                            value={layer.title}
+                            onChange={(e) => {
+                              const updated = [...data.assembly.layers];
+                              updated[lIdx].title = e.target.value;
+                              setData({
+                                ...data,
+                                assembly: { ...data.assembly, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Badge</label>
+                          <input
+                            type="text"
+                            value={layer.badge}
+                            onChange={(e) => {
+                              const updated = [...data.assembly.layers];
+                              updated[lIdx].badge = e.target.value;
+                              setData({
+                                ...data,
+                                assembly: { ...data.assembly, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Subtitle</label>
+                        <input
+                          type="text"
+                          value={layer.subtitle}
+                          onChange={(e) => {
+                            const updated = [...data.assembly.layers];
+                            updated[lIdx].subtitle = e.target.value;
+                            setData({
+                              ...data,
+                              assembly: { ...data.assembly, layers: updated }
+                            });
+                          }}
+                          className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                        />
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Component Role</label>
+                          <input
+                            type="text"
+                            value={layer.material}
+                            onChange={(e) => {
+                              const updated = [...data.assembly.layers];
+                              updated[lIdx].material = e.target.value;
+                              setData({
+                                ...data,
+                                assembly: { ...data.assembly, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Connection Purpose / Benefit</label>
+                          <input
+                            type="text"
+                            value={layer.benefit}
+                            onChange={(e) => {
+                              const updated = [...data.assembly.layers];
+                              updated[lIdx].benefit = e.target.value;
+                              setData({
+                                ...data,
+                                assembly: { ...data.assembly, layers: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center justify-between mb-0.5">
+                          <label className="text-[10px] font-bold text-slate-400">Key Points (One point per line)</label>
+                          <span className="text-[10px] text-slate-500">{layer.details.length} points</span>
+                        </div>
+                        <textarea
+                          rows={3}
+                          value={layer.details.join("\n")}
+                          onChange={(e) => {
+                            const updated = [...data.assembly.layers];
+                            updated[lIdx].details = e.target.value
+                              .split("\n")
+                              .filter((line) => line.trim().length > 0);
+                            setData({
+                              ...data,
+                              assembly: { ...data.assembly, layers: updated }
+                            });
+                          }}
+                          className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono"
+                          placeholder="86 × 54 mm standard card dimensions&#10;Student identification & Employee identification..."
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -1101,7 +1261,7 @@ function AdminIdCardHooksContent() {
             <div>
               <h2 className="text-lg font-black text-white">Hardware Setups &amp; Range Master Catalog</h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                Manage hardware arrangements, holder pairing, and lanyard compatibility showcase.
+                Manage hardware arrangements, holder pairing, lanyard compatibility, setup images, suitable lists, and CTAs.
               </p>
             </div>
             <button
@@ -1126,7 +1286,7 @@ function AdminIdCardHooksContent() {
                     rangeMaster: { ...data.rangeMaster, badge: e.target.value },
                   })
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:border-cyan-500 outline-none"
               />
             </div>
             <div>
@@ -1140,11 +1300,11 @@ function AdminIdCardHooksContent() {
                     rangeMaster: { ...data.rangeMaster, title: e.target.value },
                   })
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:border-cyan-500 outline-none"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-300 mb-1">Lede</label>
+              <label className="block text-xs font-bold text-slate-300 mb-1">Lede / Subtitle</label>
               <textarea
                 rows={2}
                 value={data.rangeMaster.lede}
@@ -1154,78 +1314,344 @@ function AdminIdCardHooksContent() {
                     rangeMaster: { ...data.rangeMaster, lede: e.target.value },
                   })
                 }
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:border-cyan-500 outline-none"
               />
             </div>
           </div>
 
           {/* Sections List */}
           <div className="pt-4 border-t border-slate-800 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-              Showcase Setups ({data.rangeMaster.sections.length})
-            </h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+                Showcase Setups ({data.rangeMaster.sections.length})
+              </h3>
+              <button
+                type="button"
+                onClick={() => {
+                  const newSection: MasterHookSection = {
+                    code: "Custom Setup",
+                    badge: "Option",
+                    title: "New Hook Setup Configuration",
+                    tagline: "Short tagline overview of this hook setup.",
+                    description: "Detailed explanation of this setup, compatibility, and configuration format.",
+                    image: "/images/Lanyard with Hook Samples/Sample 18 .jpg",
+                    alt: "New Hook Setup Image",
+                    setup: "ID Card → Holder → Hook → Lanyard",
+                    suitable: ["ID cards", "Badges", "Event passes"],
+                    conclusion: "Compatibility should be verified prior to ordering.",
+                    cta: {
+                      label: "Request a Quote",
+                      href: "/request-a-quote/"
+                    }
+                  };
+                  setData({
+                    ...data,
+                    rangeMaster: {
+                      ...data.rangeMaster,
+                      sections: [...data.rangeMaster.sections, newSection]
+                    }
+                  });
+                }}
+                className="px-3 py-1.5 rounded-xl bg-cyan-950 border border-cyan-800 text-cyan-300 text-xs font-bold flex items-center gap-1.5 hover:bg-cyan-900"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span>Add Setup</span>
+              </button>
+            </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {data.rangeMaster.sections.map((sec, secIdx) => (
                 <div
                   key={secIdx}
-                  className="p-5 bg-slate-950 border border-slate-800 rounded-2xl space-y-3"
+                  className="p-5 bg-slate-950 border border-slate-800 rounded-2xl space-y-4"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-cyan-400">
-                      {sec.code} • {sec.title}
-                    </span>
-                    <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">
-                      {sec.badge}
-                    </span>
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-900">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs font-bold text-cyan-400 bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800">
+                        {sec.code}
+                      </span>
+                      <span className="text-xs font-extrabold text-white">— {sec.title}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full font-bold">
+                        {sec.badge}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updated = data.rangeMaster.sections.filter((_, i) => i !== secIdx);
+                          setData({
+                            ...data,
+                            rangeMaster: { ...data.rangeMaster, sections: updated }
+                          });
+                        }}
+                        className="p-1.5 text-rose-400 hover:text-rose-300 rounded-lg hover:bg-rose-950/40"
+                        title="Delete setup"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <input
-                      type="text"
-                      placeholder="Title"
-                      value={sec.title}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[secIdx].title = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: { ...data.rangeMaster, sections: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Setup Formula"
-                      value={sec.setup}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[secIdx].setup = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: { ...data.rangeMaster, sections: updated },
-                        });
-                      }}
-                      className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
-                  </div>
+                  <div className="grid gap-4 lg:grid-cols-12 items-start">
+                    {/* Image & Preview Column */}
+                    <div className="lg:col-span-4 flex flex-col items-center gap-2 p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                      <div className="relative h-36 w-full rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex items-center justify-center">
+                        <Image
+                          src={sec.image}
+                          alt={sec.alt || sec.title}
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="w-full space-y-2">
+                        <div>
+                          <label className="text-[10px] text-slate-400 block mb-0.5">Image URL</label>
+                          <input
+                            type="text"
+                            value={sec.image}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].image = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] text-slate-400 block mb-0.5">Image ALT Text</label>
+                          <input
+                            type="text"
+                            value={sec.alt || ""}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].alt = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white"
+                          />
+                        </div>
+                        <label className="cursor-pointer w-full py-1.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition">
+                          <UploadCloud className="h-3.5 w-3.5" />
+                          <span>Upload Setup Image</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                handleFileUpload(file, (url) => {
+                                  const updated = [...data.rangeMaster.sections];
+                                  updated[secIdx].image = url;
+                                  setData({
+                                    ...data,
+                                    rangeMaster: { ...data.rangeMaster, sections: updated }
+                                  });
+                                });
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
+                    </div>
 
-                  <div>
-                    <label className="text-[10px] text-slate-400 block mb-0.5">Description</label>
-                    <textarea
-                      rows={2}
-                      value={sec.description}
-                      onChange={(e) => {
-                        const updated = [...data.rangeMaster.sections];
-                        updated[secIdx].description = e.target.value;
-                        setData({
-                          ...data,
-                          rangeMaster: { ...data.rangeMaster, sections: updated },
-                        });
-                      }}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
-                    />
+                    {/* Content Details Column */}
+                    <div className="lg:col-span-8 space-y-3">
+                      <div className="grid gap-3 sm:grid-cols-3">
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Nav Code</label>
+                          <input
+                            type="text"
+                            value={sec.code}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].code = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Badge</label>
+                          <input
+                            type="text"
+                            value={sec.badge}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].badge = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Title</label>
+                          <input
+                            type="text"
+                            value={sec.title}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].title = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Setup Formula</label>
+                          <input
+                            type="text"
+                            value={sec.setup}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].setup = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Tagline</label>
+                          <input
+                            type="text"
+                            value={sec.tagline}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].tagline = e.target.value;
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Description</label>
+                        <textarea
+                          rows={2}
+                          value={sec.description}
+                          onChange={(e) => {
+                            const updated = [...data.rangeMaster.sections];
+                            updated[secIdx].description = e.target.value;
+                            setData({
+                              ...data,
+                              rangeMaster: { ...data.rangeMaster, sections: updated }
+                            });
+                          }}
+                          className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                        />
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div>
+                          <div className="flex items-center justify-between mb-0.5">
+                            <label className="text-[10px] font-bold text-slate-400">Suitable For (One item per line)</label>
+                            <span className="text-[10px] text-slate-500">{sec.suitable.length} items</span>
+                          </div>
+                          <textarea
+                            rows={3}
+                            value={sec.suitable.join("\n")}
+                            onChange={(e) => {
+                              const updated = [...data.rangeMaster.sections];
+                              updated[secIdx].suitable = e.target.value
+                                .split("\n")
+                                .filter((line) => line.trim().length > 0);
+                              setData({
+                                ...data,
+                                rangeMaster: { ...data.rangeMaster, sections: updated }
+                              });
+                            }}
+                            className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono"
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <div>
+                            <label className="text-[10px] font-bold text-slate-400 block mb-0.5">Note / Conclusion</label>
+                            <textarea
+                              rows={2}
+                              value={sec.conclusion}
+                              onChange={(e) => {
+                                const updated = [...data.rangeMaster.sections];
+                                updated[secIdx].conclusion = e.target.value;
+                                setData({
+                                  ...data,
+                                  rangeMaster: { ...data.rangeMaster, sections: updated }
+                                });
+                              }}
+                              className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white"
+                            />
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-2">
+                            <div>
+                              <label className="text-[10px] font-bold text-slate-400 block mb-0.5">CTA Label</label>
+                              <input
+                                type="text"
+                                value={sec.cta?.label || ""}
+                                onChange={(e) => {
+                                  const updated = [...data.rangeMaster.sections];
+                                  updated[secIdx].cta = {
+                                    href: updated[secIdx].cta?.href || "/id-card-holders/",
+                                    label: e.target.value
+                                  };
+                                  setData({
+                                    ...data,
+                                    rangeMaster: { ...data.rangeMaster, sections: updated }
+                                  });
+                                }}
+                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-white"
+                              />
+                            </div>
+                            <div>
+                              <label className="text-[10px] font-bold text-slate-400 block mb-0.5">CTA Href</label>
+                              <input
+                                type="text"
+                                value={sec.cta?.href || ""}
+                                onChange={(e) => {
+                                  const updated = [...data.rangeMaster.sections];
+                                  updated[secIdx].cta = {
+                                    label: updated[secIdx].cta?.label || "Learn More",
+                                    href: e.target.value
+                                  };
+                                  setData({
+                                    ...data,
+                                    rangeMaster: { ...data.rangeMaster, sections: updated }
+                                  });
+                                }}
+                                className="w-full bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-xs text-white"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}

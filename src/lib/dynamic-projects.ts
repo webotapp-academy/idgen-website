@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import {
   type RealProjectItem,
   type CategoryFilterItem,
@@ -10,45 +9,30 @@ import {
 export type { RealProjectItem, CategoryFilterItem };
 export { INITIAL_PROJECTS, DEFAULT_CATEGORY_FILTERS };
 
-const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-projects.json");
-
-let memoryCache: RealProjectItem[] | null = null;
+const FILENAME = "dynamic-projects.json";
 
 export function getAllDynamicProjects(): RealProjectItem[] {
-  if (memoryCache && memoryCache.length > 0) {
-    return memoryCache;
-  }
-
   try {
-    if (fs.existsSync(DATA_FILE_PATH)) {
-      const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-      const loaded = JSON.parse(raw);
-      if (Array.isArray(loaded) && loaded.length > 0) {
-        memoryCache = loaded;
-        return memoryCache;
+    const loaded = loadDynamicJson<any>(FILENAME, INITIAL_PROJECTS);
+    if (Array.isArray(loaded) && loaded.length > 0) {
+      return loaded;
+    }
+    if (loaded && typeof loaded === "object") {
+      if (Array.isArray(loaded.projects) && loaded.projects.length > 0) {
+        return loaded.projects;
+      }
+      if (loaded.project && typeof loaded.project === "object" && loaded.project.org) {
+        return [loaded.project, ...INITIAL_PROJECTS];
       }
     }
   } catch (e) {
     console.error("Error reading dynamic-projects.json, falling back to initial data:", e);
   }
-
-  // Fallback to initial data and persist
-  memoryCache = INITIAL_PROJECTS;
-  saveAllDynamicProjects(INITIAL_PROJECTS);
-  return memoryCache;
+  return INITIAL_PROJECTS;
 }
 
 export function saveAllDynamicProjects(projects: RealProjectItem[]): void {
-  memoryCache = projects;
-  try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(projects, null, 2), "utf-8");
-  } catch (e) {
-    console.error("Error saving dynamic-projects.json:", e);
-  }
+  saveDynamicJson(FILENAME, projects);
 }
 
 export function getDynamicProject(id: string): RealProjectItem | undefined {
@@ -119,7 +103,6 @@ export function deleteDynamicProject(id: string): boolean {
 }
 
 export function resetDynamicProjectsToDefaults(): RealProjectItem[] {
-  memoryCache = INITIAL_PROJECTS;
   saveAllDynamicProjects(INITIAL_PROJECTS);
   return INITIAL_PROJECTS;
 }

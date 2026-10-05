@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import type { DynamicCustomPrintedLanyardPrintingData } from "./dynamic-custom-printed-lanyard-printing-types";
@@ -575,21 +576,14 @@ export const DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA: DynamicCustomPrintedL
   },
 };
 
+const FILENAME = "dynamic-custom-printed-lanyard-printing.json";
+
 export function getDynamicCustomPrintedLanyardPrinting(): DynamicCustomPrintedLanyardPrintingData {
   try {
-    let raw = "";
-    if (fs.existsSync(DATA_FILE_PATH)) {
-      raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-    } else if (fs.existsSync(LEGACY_DATA_FILE_PATH)) {
-      raw = fs.readFileSync(LEGACY_DATA_FILE_PATH, "utf-8");
-      try {
-        saveDynamicCustomPrintedLanyardPrinting(JSON.parse(raw));
-      } catch (_) {}
-    } else {
-      saveDynamicCustomPrintedLanyardPrinting(DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA);
-      return DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA;
-    }
-    const parsed = JSON.parse(raw);
+    const parsed = loadDynamicJson<Partial<DynamicCustomPrintedLanyardPrintingData>>(
+      FILENAME,
+      DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA
+    );
     return {
       ...DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA,
       ...parsed,
@@ -692,11 +686,7 @@ export function saveDynamicCustomPrintedLanyardPrinting(
   data: DynamicCustomPrintedLanyardPrintingData
 ): DynamicCustomPrintedLanyardPrintingData {
   try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(data, null, 2), "utf-8");
+    saveDynamicJson(FILENAME, data);
     return data;
   } catch (error) {
     console.error("Error saving custom-printed-lanyard-printing data:", error);
@@ -706,9 +696,8 @@ export function saveDynamicCustomPrintedLanyardPrinting(
 
 export function resetDynamicCustomPrintedLanyardPrinting(): DynamicCustomPrintedLanyardPrintingData {
   try {
-    return saveDynamicCustomPrintedLanyardPrinting(
-      DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA
-    );
+    saveDynamicJson(FILENAME, DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA);
+    return DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA;
   } catch (error) {
     console.error("Error resetting custom-printed-lanyard-printing data:", error);
     throw error;

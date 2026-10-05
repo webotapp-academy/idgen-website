@@ -520,7 +520,8 @@ function AdminIdCardPrintingContent() {
               {data.hero.slides.map((slide, idx) => (
                 <div key={slide.id} className="rounded-2xl border border-slate-800 bg-slate-950 p-4 space-y-3">
                   <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-slate-800">
-                    <Image src={slide.imageSrc} alt={slide.title} fill className="object-cover" />
+                    <Image
+                  unoptimized src={slide.imageSrc} alt={slide.title} fill className="object-cover" />
                     <button
                       onClick={() => {
                         const newSlides = data.hero.slides.filter((_, i) => i !== idx);
@@ -824,7 +825,8 @@ function AdminIdCardPrintingContent() {
             {data.applicationsSection.items.map((app, idx) => (
               <div key={app.id || idx} className="rounded-2xl border border-slate-800 bg-slate-950 p-4 space-y-3">
                 <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-slate-800">
-                  <Image src={app.imageSrc} alt={app.title} fill className="object-cover" />
+                  <Image
+                  unoptimized src={app.imageSrc} alt={app.title} fill className="object-cover" />
                 </div>
                 <input
                   type="text"

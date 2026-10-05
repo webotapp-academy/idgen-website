@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import {
@@ -10,29 +11,18 @@ import {
 
 export * from "./dynamic-specifications-types";
 
-const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-specifications.json");
-const CONFIG_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-specifications-config.json");
-
-let memorySpecsCache: TechnicalSpecItem[] | null = null;
-let memoryConfigCache: TechnicalSpecsSectionConfig | null = null;
+const DATA_FILENAME = "dynamic-specifications.json";
+const CONFIG_FILENAME = "dynamic-specifications-config.json";
 
 export function getSectionConfig(): TechnicalSpecsSectionConfig {
-  if (memoryConfigCache) return memoryConfigCache;
-
   try {
-    if (fs.existsSync(CONFIG_FILE_PATH)) {
-      const raw = fs.readFileSync(CONFIG_FILE_PATH, "utf-8");
-      const loaded = JSON.parse(raw);
-      if (loaded && loaded.title) {
-        memoryConfigCache = loaded;
-        return loaded;
-      }
+    const loaded = loadDynamicJson<TechnicalSpecsSectionConfig>(CONFIG_FILENAME, defaultSectionConfig);
+    if (loaded && loaded.title) {
+      return loaded;
     }
   } catch (e) {
     console.error("Error reading section config:", e);
   }
-
-  memoryConfigCache = defaultSectionConfig;
   return defaultSectionConfig;
 }
 
@@ -44,55 +34,27 @@ export function saveSectionConfig(config: Partial<TechnicalSpecsSectionConfig>):
     lede: config.lede?.trim() || current.lede,
   };
 
-  memoryConfigCache = updated;
-  try {
-    const dir = path.dirname(CONFIG_FILE_PATH);
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(CONFIG_FILE_PATH, JSON.stringify(updated, null, 2), "utf-8");
-  } catch (e) {
-    console.error("Error saving section config:", e);
-  }
-
+  saveDynamicJson(CONFIG_FILENAME, updated);
   return updated;
 }
 
 export function getAllTechnicalSpecs(includeInactive = false): TechnicalSpecItem[] {
-  if (memorySpecsCache) {
-    const items = includeInactive ? memorySpecsCache : memorySpecsCache.filter((item) => item.isActive !== false);
-    return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-  }
-
+  let loaded = defaultTechnicalSpecs;
   try {
-    if (fs.existsSync(DATA_FILE_PATH)) {
-      const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-      const loaded: TechnicalSpecItem[] = JSON.parse(raw);
-      if (Array.isArray(loaded) && loaded.length > 0) {
-        memorySpecsCache = loaded;
-        const items = includeInactive ? memorySpecsCache : memorySpecsCache.filter((item) => item.isActive !== false);
-        return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-      }
+    const fromStorage = loadDynamicJson<TechnicalSpecItem[]>(DATA_FILENAME, defaultTechnicalSpecs);
+    if (Array.isArray(fromStorage) && fromStorage.length > 0) {
+      loaded = fromStorage;
     }
   } catch (e) {
     console.error("Error reading dynamic-specifications.json, falling back to defaults:", e);
   }
 
-  memorySpecsCache = defaultTechnicalSpecs;
-  saveAllTechnicalSpecs(defaultTechnicalSpecs);
-  const items = includeInactive ? memorySpecsCache : memorySpecsCache.filter((item) => item.isActive !== false);
+  const items = includeInactive ? loaded : loaded.filter((item) => item.isActive !== false);
   return [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
 }
 
 export function saveAllTechnicalSpecs(items: TechnicalSpecItem[]): void {
-  memorySpecsCache = items;
-  try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(items, null, 2), "utf-8");
-  } catch (e) {
-    console.error("Error saving dynamic-specifications.json:", e);
-  }
+  saveDynamicJson(DATA_FILENAME, items);
 }
 
 export function saveTechnicalSpec(
@@ -143,8 +105,6 @@ export function deleteTechnicalSpec(id: string): boolean {
 }
 
 export function resetTechnicalSpecsToDefaults(): TechnicalSpecItem[] {
-  memorySpecsCache = defaultTechnicalSpecs;
-  memoryConfigCache = defaultSectionConfig;
   saveAllTechnicalSpecs(defaultTechnicalSpecs);
   saveSectionConfig(defaultSectionConfig);
   return defaultTechnicalSpecs;

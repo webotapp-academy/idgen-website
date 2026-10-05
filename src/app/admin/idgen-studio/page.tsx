@@ -45,6 +45,7 @@ import {
   Users,
   LayoutDashboard,
 } from "lucide-react";
+import { extractYouTubeId } from "@/components/idgen-studio/StudioVideoPlayer";
 import type {
   DynamicIdgenStudioData,
   StudioVideoConfig,
@@ -140,17 +141,43 @@ function VideoEditor({
             </div>
           </div>
         ) : (
-          <div className="sm:col-span-2 space-y-1">
+          <div className="sm:col-span-2 space-y-1.5">
             <label className="text-[10px] font-bold text-slate-400 block">
-              YouTube Video URL or Video ID
+              YouTube Video URL, Shorts URL, or Video ID
             </label>
             <input
               type="text"
-              placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..."
+              placeholder="https://youtube.com/shorts/... or https://youtube.com/watch?v=... or https://youtu.be/..."
               value={video.youtubeUrl}
               onChange={(e) => onChange({ ...video, youtubeUrl: e.target.value })}
               className="w-full rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-xs font-mono text-red-400"
             />
+            {(() => {
+              const detectedId = extractYouTubeId(video.youtubeUrl);
+              if (detectedId) {
+                return (
+                  <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-medium">
+                    <CheckCircle2 className="h-3 w-3" />
+                    <span>
+                      Detected YouTube Video ID:{" "}
+                      <code className="font-mono bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                        {detectedId}
+                      </code>{" "}
+                      (Embed will render on frontend)
+                    </span>
+                  </div>
+                );
+              }
+              if (video.youtubeUrl && video.youtubeUrl.trim() !== "") {
+                return (
+                  <div className="flex items-center gap-1.5 text-[10px] text-amber-400">
+                    <AlertCircle className="h-3 w-3" />
+                    <span>Please enter a valid YouTube video URL, Shorts URL, or 11-character video ID.</span>
+                  </div>
+                );
+              }
+              return null;
+            })()}
           </div>
         )}
 

@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import { DynamicAcrylicBadgesData } from "./dynamic-acrylic-badges-types";
@@ -262,7 +263,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
         material: "Cast PMMA Laser Shield Silhouette",
         attachment: "Dual Magnet Plate",
         finish: "Prismatic Optical Edge",
-        img: "/images/Acrylic Badges Samples/Sample 11.jpg",
+        img: "/images/Acrylic Badges Samples/Sample 1.jpg",
         badge: "Shield Cut",
         description:
           "Classic shield crest badge providing a commanding executive presence for security and institutional personnel.",
@@ -276,7 +277,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
         material: "2mm Lightweight PMMA",
         attachment: "Magnet or Alligator Clip",
         finish: "Vibrant Full-Color Print",
-        img: "/images/Acrylic Badges Samples/Sample 12.jpg",
+        img: "/images/Acrylic Badges Samples/Sample 2.jpg",
         badge: "Event Series",
         description:
           "Lightweight, economical event tags designed for multi-day summits, symposiums, and trade expos.",

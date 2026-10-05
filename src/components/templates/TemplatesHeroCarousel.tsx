@@ -138,41 +138,22 @@ export function TemplatesHeroCarousel({ slides = templateSlides }: { slides?: Te
             }`}
           >
             <Image
+                  unoptimized
               src={slide.imageSrc}
               alt={slide.alt}
               fill
               priority={idx === 0}
-              className="object-cover object-center transform transition-transform duration-1000 ease-out"
+              className="object-contain object-center p-3 sm:p-5 transform transition-transform duration-1000 ease-out"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            {/* Multi-tier Gradient for Text Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/40 pointer-events-none" />
           </div>
         ))}
-
-        {/* ── Top Header Strip Overlay (Brand, Spec & Category Pill) ── */}
-        <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between gap-2">
-          {/* IDGen Brand Identifier */}
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 border border-[#009fe3]/40 shadow-lg shadow-[#009fe3]/15">
-            <span className="flex h-2 w-2 rounded-full bg-[#009fe3] animate-pulse" />
-            <span className="text-xs font-black text-white tracking-wide">IDGen</span>
-            <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest pl-1 border-l border-white/20">
-              TEMPLATES
-            </span>
-          </div>
-
-          {/* Format Tag Pill */}
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#009fe3] text-white px-3.5 py-1.5 shadow-md shadow-[#009fe3]/30 border border-sky-300/30">
-            <FileSpreadsheet className="h-3.5 w-3.5 text-white" />
-            <span className="text-xs font-black tracking-tight">{current.specPill}</span>
-          </div>
-        </div>
 
         {/* ── Center Controls (Chevron Arrows) ── */}
         <button
           onClick={prevSlide}
           aria-label="Previous Template Slide"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-slate-950/75 hover:bg-[#009fe3] text-white border border-white/20 hover:border-[#009fe3] flex items-center justify-center backdrop-blur-md transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-110 shadow-lg"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-slate-950/75 hover:bg-[#009fe3] text-white border border-white/20 hover:border-[#009fe3] flex items-center justify-center backdrop-blur-md transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-110 shadow-lg cursor-pointer"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -180,71 +161,10 @@ export function TemplatesHeroCarousel({ slides = templateSlides }: { slides?: Te
         <button
           onClick={nextSlide}
           aria-label="Next Template Slide"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-slate-950/75 hover:bg-[#009fe3] text-white border border-white/20 hover:border-[#009fe3] flex items-center justify-center backdrop-blur-md transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-110 shadow-lg"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-slate-950/75 hover:bg-[#009fe3] text-white border border-white/20 hover:border-[#009fe3] flex items-center justify-center backdrop-blur-md transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-110 shadow-lg cursor-pointer"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
-
-        {/* ── Bottom Information Card Overlay ── */}
-        <div className="absolute bottom-4 left-4 right-4 z-20">
-          <div className="rounded-2xl border border-white/15 bg-slate-950/90 backdrop-blur-md p-4 sm:p-5 shadow-2xl">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-cyan-400">
-                <Sparkles className="h-3.5 w-3.5 text-[#009fe3]" />
-                <span>{current.topBadge}</span>
-              </div>
-              <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15">
-                {current.hubTag}
-              </span>
-            </div>
-
-            <h3 className="text-base sm:text-lg lg:text-xl font-black text-white leading-snug">
-              {current.title}
-            </h3>
-
-            <p className="mt-1 text-xs text-slate-300 leading-relaxed line-clamp-2">
-              {current.bottomSpec}
-            </p>
-
-            {/* Quick Indicators & Play/Pause */}
-            <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">
-              {/* Slide Dots */}
-              <div className="flex items-center gap-1.5">
-                {activeSlides.map((slide, idx) => (
-                  <button
-                    key={slide.id || idx}
-                    onClick={() => goToSlide(idx)}
-                    aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
-                    className={`transition-all duration-300 rounded-full h-2 ${
-                      idx === currentIndex
-                        ? "w-6 bg-[#009fe3]"
-                        : "w-2 bg-white/30 hover:bg-white/60"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Pause/Play Toggle */}
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={isPlaying ? "Pause carousel slideshow" : "Play carousel slideshow"}
-                className="flex items-center gap-1 text-[11px] font-semibold text-slate-300 hover:text-white transition"
-              >
-                {isPlaying ? (
-                  <>
-                    <Pause className="h-3 w-3 text-cyan-400" />
-                    <span>Auto-Playing</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="h-3 w-3 text-emerald-400" />
-                    <span>Paused</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

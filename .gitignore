@@ -27,3 +27,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# backups and scratch scripts
+/server_backup_latest*
+*.tar.gz
+server.js
+scratch_check*.js
+*.cjs
+extract_pdf.mjs
+pdf_text.txt
+*.pdf

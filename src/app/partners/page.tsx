@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -132,35 +136,6 @@ export default function PartnersPage() {
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent pointer-events-none" />
-
-                {/* Top Floating Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                    <Sparkles className="h-3 w-3 text-cyan-400" />
-                    <span>{data.hero?.showcaseCard?.topBadge}</span>
-                  </span>
-                  <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                    {data.hero?.showcaseCard?.brandBadge}
-                  </span>
-                </div>
-
-                {/* Bottom Floating Info Badge */}
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                        {data.hero?.showcaseCard?.subTitle}
-                      </p>
-                      <p className="text-xs sm:text-sm font-black text-white">
-                        {data.hero?.showcaseCard?.mainTitle}
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                      {data.hero?.showcaseCard?.regionBadge}
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

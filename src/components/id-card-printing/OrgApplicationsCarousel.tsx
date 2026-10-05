@@ -182,31 +182,9 @@ export function OrgApplicationsCarousel({
                     alt={item.title}
                     fill
                     unoptimized
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="object-contain object-center p-2 transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20" />
-
-                  {/* Top Floating Badge with Category Pill & iDGen Tag */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold text-cyan-300 border border-white/15 shadow-sm">
-                      <Sparkles className="h-3 w-3 text-cyan-400" />
-                      <span>{item.badge}</span>
-                    </span>
-                    <span className="rounded-full bg-[#009fe3] px-2.5 py-0.5 text-[10px] font-black text-white shadow-md">
-                      iDGen
-                    </span>
-                  </div>
-
-                  {/* Bottom Image Spec Bar */}
-                  <div className="absolute bottom-3 left-3 right-3 z-10">
-                    <div className="rounded-xl border border-white/15 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 shadow-md flex items-center gap-2">
-                      <ShieldCheck className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
-                      <span className="text-[11px] font-bold text-slate-100 truncate">
-                        {item.spec}
-                      </span>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Card Content Body */}

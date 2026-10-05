@@ -70,7 +70,7 @@ export function FloatingContact() {
       {/* ==========================================
           2. MOBILE FIXED BOTTOM CONTACT BAR
           ========================================== */}
-      <div className="fixed bottom-0 inset-x-0 z-50 bg-[#070e17]/95 backdrop-blur-xl border-t border-white/10 p-3 flex gap-3 sm:hidden shadow-[0_-8px_30px_rgb(0,0,0,0.5)]">
+      <div className="fixed bottom-0 inset-x-0 z-50 bg-[#070e17]/95 backdrop-blur-xl border-t border-white/10 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex gap-3 sm:hidden shadow-[0_-8px_30px_rgb(0,0,0,0.5)]">
         {/* WhatsApp Call Button */}
         <a
           href={whatsappUrl}
@@ -96,7 +96,7 @@ export function FloatingContact() {
       <style jsx global>{`
         @media (max-width: 639px) {
           body {
-            padding-bottom: 72px !important;
+            padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
           }
         }
       `}</style>

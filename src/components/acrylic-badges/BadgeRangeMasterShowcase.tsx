@@ -213,10 +213,11 @@ export function BadgeRangeMasterShowcase({
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative h-72 sm:h-80 w-full rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-slate-950 p-2 shadow-inner flex items-center justify-center">
               <Image
+                  unoptimized
                 src={activeModel.image}
                 alt={activeModel.alt}
                 fill
-                className="object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
+                className="object-contain p-2 rounded-2xl hover:scale-105 transition-transform duration-500"
               />
             </div>
 

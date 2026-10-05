@@ -421,26 +421,13 @@ export function HolderRangeMasterShowcase({
               <div className="lg:col-span-5 flex flex-col items-center">
                 <div className="relative aspect-[4/3] w-full max-w-[380px] overflow-hidden rounded-3xl bg-gradient-to-b from-slate-50 via-slate-100/70 to-slate-200/60 dark:from-slate-800 dark:via-slate-800/80 dark:to-slate-950 p-6 border border-slate-200 dark:border-slate-700 shadow-xl flex items-center justify-center group">
                   <Image
+                  unoptimized
                     src={currentModel.image}
                     alt={currentModel.alt}
                     fill
                     priority
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-110 drop-shadow-2xl"
                   />
-
-                  {/* Top Floating Badges */}
-                  <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5">
-                    <span className="rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-3 py-1 font-mono text-xs font-black shadow-md">
-                      {currentModel.code}
-                    </span>
-                    <span className="rounded-full bg-emerald-500/90 text-white px-2.5 py-0.5 text-[10px] font-bold shadow-xs">
-                      {currentModel.highlightTag}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3 right-3 text-[10px] font-bold bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300">
-                    High-Res Studio Render
-                  </div>
                 </div>
 
                 <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -645,6 +632,7 @@ export function HolderRangeMasterShowcase({
                     {/* Visual */}
                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-950 p-3 border border-slate-100 dark:border-slate-800 flex items-center justify-center">
                       <Image
+                  unoptimized
                         src={holder.image}
                         alt={holder.alt}
                         fill

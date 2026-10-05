@@ -44,8 +44,8 @@ const orgSolutions: SolutionCardItem[] = [
     orgCode: "SOL: IDG-ACAD",
     body: "School, college, and university identification batches with bulk personalization, photo matching, and custom printed lanyards.",
     href: "/student-id-card-printing/",
-    imageSrc: "/images/sol-students-idgen-v2.jpg",
-    imageAlt: "Student and University ID Card Printing with clear IDGen branding",
+    imageSrc: "/uploads/School_Students_ID_Card_with_Holder_and_Multicolored_Lanyrad_by_IDGen_Guwahati-1790159694.webp",
+    imageAlt: "School and Student ID Card Sets with Lanyards and Holders by IDGen",
     tag: "Education",
     badge: "Schools & Colleges",
     badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
@@ -64,8 +64,8 @@ const orgSolutions: SolutionCardItem[] = [
     orgCode: "SOL: IDG-CORP",
     body: "Employee, staff, and visitor identification setups with metallic badge reels, security chips, and custom organization branding.",
     href: "/employee-id-card-printing/",
-    imageSrc: "/images/sol-companies-idgen-v2.jpg",
-    imageAlt: "Employee and Staff Corporate ID Cards with metallic badge reels and clear IDGen branding",
+    imageSrc: "/uploads/Employe_ID_Card_with_Holder_and_Multicolored_Lanyrad_by_IDGen_Guwahati-1790159981.webp",
+    imageAlt: "Employee and Staff Corporate ID Cards with multicolored lanyards and holders by IDGen",
     tag: "Corporate",
     badge: "Enterprises",
     badgeColor: "text-blue-400 bg-blue-500/10 border-blue-400/30",
@@ -84,8 +84,8 @@ const orgSolutions: SolutionCardItem[] = [
     orgCode: "SOL: IDG-EVNT",
     body: "Conference passes, delegate credentials, and VIP identification solutions with anti-twist one- or two-hook lanyard configurations.",
     href: "/event-card-printing/",
-    imageSrc: "/images/sol-events-idgen.png",
-    imageAlt: "Event VIP Badges and Delegate Passes with clear IDGen branding",
+    imageSrc: "/uploads/iDGen_PVC_Events_ID_Card_with_Multicolored_lanyard_and_Hook_in_Guwahati-1790146942.webp",
+    imageAlt: "Event VIP Badges, Official Passes and Delegate Credentials with custom lanyards by IDGen",
     tag: "Events & Summits",
     badge: "Conferences",
     badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
@@ -104,8 +104,8 @@ const orgSolutions: SolutionCardItem[] = [
     orgCode: "SOL: IDG-INST",
     body: "Hospitals, NGOs, government departments, and institutional membership passes with tamper-proof security and durable hardware.",
     href: "/membership-card-printing/",
-    imageSrc: "/images/sol-institutions-idgen.png",
-    imageAlt: "Institutional and Hospital Identity Cards with clear IDGen branding",
+    imageSrc: "/uploads/Untitled_design-1790159770.webp",
+    imageAlt: "Institutional and Hospital Identity Cards and Badges by IDGen",
     tag: "Institutional",
     badge: "Hospitals & NGOs",
     badgeColor: "text-purple-400 bg-purple-500/10 border-purple-400/30",
@@ -271,36 +271,16 @@ export function SolutionsCarousel() {
             >
               <div>
                 {/* Solution Image Frame */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-surface-border/80 img-shine mb-5">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-surface-border/80 img-shine mb-5 p-2 flex items-center justify-center">
                   <Image
                     src={org.imageSrc}
                     alt={org.imageAlt}
                     title={org.title}
                     fill
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    unoptimized
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 1200px"
+                    className="object-contain object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Top Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className={`rounded-full border px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider backdrop-blur-md shadow-md ${org.badgeColor || "text-cyan-400 bg-cyan-500/10 border-cyan-400/30"}`}>
-                      {org.badge}
-                    </span>
-                  </div>
-
-                  {/* Top Right Tag */}
-                  <div className="absolute top-3 right-3">
-                    <span className="rounded-full bg-slate-950/80 border border-white/20 px-2.5 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
-                      {org.tag}
-                    </span>
-                  </div>
-
-                  {/* Bottom Spec Floating Bar */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-medium backdrop-blur-md bg-slate-950/85 px-3 py-1.5 rounded-xl border border-white/15">
-                    <span className="truncate text-slate-200">{org.spec}</span>
-                    <Sparkles className="h-3.5 w-3.5 text-accent shrink-0 ml-1.5" />
-                  </div>
                 </div>
 
                 {/* Content Header & Body */}

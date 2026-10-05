@@ -8,23 +8,35 @@ import {
   resetDynamicProjectsToDefaults,
   type RealProjectItem,
 } from "@/lib/dynamic-projects";
+import {
+  getDynamicCaseStudiesPage,
+  saveDynamicCaseStudiesPage,
+  resetDynamicCaseStudiesPage,
+  type DynamicCaseStudiesPageData,
+} from "@/lib/dynamic-case-studies";
 import { getAdminSession } from "@/lib/auth";
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
+    const type = searchParams.get("type");
 
+    if (type === "page") {
+      const page = getDynamicCaseStudiesPage();
+      return NextResponse.json({ success: true, page, data: page });
+    }
+
+    const id = searchParams.get("id");
     if (id) {
       const project = getDynamicProject(id);
       if (!project) {
         return NextResponse.json({ success: false, error: "Project not found" }, { status: 404 });
       }
-      return NextResponse.json({ success: true, project });
+      return NextResponse.json({ success: true, project, data: project });
     }
 
     const projects = getAllDynamicProjects();
-    return NextResponse.json({ success: true, projects });
+    return NextResponse.json({ success: true, projects, data: projects });
   } catch (error) {
     console.error("Failed to fetch projects:", error);
     return NextResponse.json({ success: false, error: "Failed to fetch projects" }, { status: 500 });
@@ -39,7 +51,45 @@ export async function POST(request: Request) {
     }
 
     const data = await request.json();
-    const { project, action } = data;
+    const { project, action, type, pageData, section, sectionData } = data;
+
+    // Handle Page-Level dynamic updates (Hero / CTA)
+    if (type === "page" || action === "save_page" || action === "save_page_section" || action === "reset_page") {
+      if (action === "reset_page") {
+        const resetPage = resetDynamicCaseStudiesPage();
+        return NextResponse.json({
+          success: true,
+          message: "Case Studies page sections reset to defaults",
+          page: resetPage,
+          data: resetPage,
+        });
+      }
+
+      if (action === "save_page_section" && section && sectionData) {
+        const current = getDynamicCaseStudiesPage();
+        const updated = {
+          ...current,
+          [section]: sectionData,
+        };
+        const saved = saveDynamicCaseStudiesPage(updated);
+        return NextResponse.json({
+          success: true,
+          message: `Section ${section} updated successfully`,
+          page: saved,
+          data: saved,
+        });
+      }
+
+      if (pageData) {
+        const saved = saveDynamicCaseStudiesPage(pageData as DynamicCaseStudiesPageData);
+        return NextResponse.json({
+          success: true,
+          message: "Case Studies page updated successfully",
+          page: saved,
+          data: saved,
+        });
+      }
+    }
 
     if (action === "reset") {
       const resetProjects = resetDynamicProjectsToDefaults();
@@ -47,6 +97,7 @@ export async function POST(request: Request) {
         success: true,
         message: "Projects reset to verified default catalog",
         projects: resetProjects,
+        data: resetProjects,
       });
     }
 
@@ -60,7 +111,7 @@ export async function POST(request: Request) {
     const saved = saveDynamicProject(project);
     const allProjects = getAllDynamicProjects();
 
-    return NextResponse.json({ success: true, project: saved, projects: allProjects });
+    return NextResponse.json({ success: true, project: saved, projects: allProjects, data: allProjects });
   } catch (error) {
     console.error("Failed to save project:", error);
     return NextResponse.json(
@@ -86,7 +137,7 @@ export async function PUT(request: Request) {
 
     saveAllDynamicProjects(projects as RealProjectItem[]);
     const updated = getAllDynamicProjects();
-    return NextResponse.json({ success: true, projects: updated });
+    return NextResponse.json({ success: true, projects: updated, data: updated });
   } catch (error) {
     console.error("Failed to update projects:", error);
     return NextResponse.json({ success: false, error: "Failed to update projects" }, { status: 500 });
@@ -110,6 +161,7 @@ export async function DELETE(request: Request) {
         success: true,
         message: "Projects reset to factory defaults",
         projects,
+        data: projects,
       });
     }
 
@@ -127,6 +179,7 @@ export async function DELETE(request: Request) {
       success: true,
       message: "Project deleted successfully",
       projects: allProjects,
+      data: allProjects,
     });
   } catch (error) {
     console.error("Failed to delete project:", error);

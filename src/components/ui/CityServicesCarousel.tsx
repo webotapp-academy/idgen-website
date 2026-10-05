@@ -163,39 +163,13 @@ export function CityServicesCarousel({
               {/* Product Card Image Frame */}
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-surface-border/80 img-shine mb-4">
                 <Image
+                  unoptimized
                   src={service.imageSrc || "/images/student-id-card-printing-idgen.jpg"}
                   alt={service.title}
                   fill
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-contain object-center p-2 transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-
-                {/* Top Badge */}
-                {service.badge && (
-                  <div className="absolute top-3 left-3">
-                    <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 shadow-md">
-                      {service.badge}
-                    </span>
-                  </div>
-                )}
-
-                {/* Top Right Tag */}
-                {service.tag && (
-                  <div className="absolute top-3 right-3">
-                    <span className="rounded-full bg-slate-950/80 border border-white/20 px-2 py-0.5 text-[10px] font-bold text-slate-200 backdrop-blur-md">
-                      {service.tag}
-                    </span>
-                  </div>
-                )}
-
-                {/* Bottom Spec Floating Bar */}
-                {service.spec && (
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-medium backdrop-blur-md bg-slate-950/85 px-3 py-1.5 rounded-xl border border-white/15">
-                    <span className="truncate text-slate-200">{service.spec}</span>
-                    <Sparkles className="h-3.5 w-3.5 text-accent shrink-0 ml-1.5" />
-                  </div>
-                )}
               </div>
 
               {/* Text Information */}

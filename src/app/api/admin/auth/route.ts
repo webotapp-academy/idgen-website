@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import {
   validateCredentials,
   createSessionToken,
@@ -14,6 +15,8 @@ export async function GET(request: Request) {
   if (action === "logout") {
     const loginUrl = new URL("/admin/login", request.url);
     const response = NextResponse.redirect(loginUrl);
+    const cookieStore = await cookies();
+    cookieStore.set(SESSION_COOKIE_NAME, "", { maxAge: 0, path: "/" });
     response.cookies.set({
       name: SESSION_COOKIE_NAME,
       value: "",
@@ -26,9 +29,10 @@ export async function GET(request: Request) {
     return response;
   }
 
+  const cookieStore = await cookies();
   const cookieHeader = request.headers.get("cookie") || "";
-  const match = cookieHeader.match(new RegExp(`${SESSION_COOKIE_NAME}=([^;]+)`));
-  const token = match ? match[1] : undefined;
+  const headerMatch = cookieHeader.match(new RegExp(`${SESSION_COOKIE_NAME}=([^;]+)`));
+  const token = cookieStore.get(SESSION_COOKIE_NAME)?.value || (headerMatch ? headerMatch[1] : undefined);
 
   const session = verifySessionToken(token);
   if (!session) {
@@ -107,10 +111,10 @@ export async function POST(request: Request) {
     });
 
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Auth error:", error);
     return NextResponse.json(
-      { success: false, error: "Internal server error" },
+      { success: false, error: error?.message || String(error) },
       { status: 500 }
     );
   }

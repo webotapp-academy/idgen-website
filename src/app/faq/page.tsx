@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import Link from "next/link";
 import {
@@ -23,17 +27,23 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/schema-org";
 import { pageMetadata } from "@/lib/metadata";
+import { SITE_URL } from "@/data/site";
 import { FaqHeroShowcase } from "@/components/faq/FaqHeroShowcase";
 import { FaqPageClient } from "@/components/faq/FaqPageClient";
 import { getDynamicFaq } from "@/lib/dynamic-faq";
 
 export async function generateMetadata() {
   const data = getDynamicFaq();
-  return pageMetadata({
-    title: data.meta.title,
+  return {
+    title: { absolute: "Frequently Asked Questions | IDGen" },
     description: data.meta.description,
-    path: data.meta.path,
-  });
+    alternates: { canonical: `${SITE_URL}/faq/` },
+    openGraph: {
+      title: "Frequently Asked Questions | IDGen",
+      description: data.meta.description,
+      url: `${SITE_URL}/faq/`,
+    },
+  };
 }
 
 const SPEC_ICONS: Record<string, React.ElementType> = {

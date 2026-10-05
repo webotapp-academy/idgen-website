@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import type { DynamicEventCardPrintingData } from "./dynamic-event-card-printing-types";
@@ -722,14 +723,14 @@ export const DEFAULT_EVENT_CARD_PRINTING_DATA: DynamicEventCardPrintingData = {
   },
 };
 
+const FILENAME = "dynamic-event-card-printing.json";
+
 export function getDynamicEventCardPrinting(): DynamicEventCardPrintingData {
   try {
-    if (!fs.existsSync(DATA_FILE_PATH)) {
-      saveDynamicEventCardPrinting(DEFAULT_EVENT_CARD_PRINTING_DATA);
-      return DEFAULT_EVENT_CARD_PRINTING_DATA;
-    }
-    const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-    const parsed = JSON.parse(raw);
+    const parsed = loadDynamicJson<Partial<DynamicEventCardPrintingData>>(
+      FILENAME,
+      DEFAULT_EVENT_CARD_PRINTING_DATA
+    );
     return {
       ...DEFAULT_EVENT_CARD_PRINTING_DATA,
       ...parsed,
@@ -862,11 +863,7 @@ export function saveDynamicEventCardPrinting(
   data: DynamicEventCardPrintingData
 ): DynamicEventCardPrintingData {
   try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(data, null, 2), "utf-8");
+    saveDynamicJson(FILENAME, data);
     return data;
   } catch (error) {
     console.error("Error saving dynamic event card printing data:", error);
@@ -876,7 +873,8 @@ export function saveDynamicEventCardPrinting(
 
 export function resetDynamicEventCardPrinting(): DynamicEventCardPrintingData {
   try {
-    return saveDynamicEventCardPrinting(DEFAULT_EVENT_CARD_PRINTING_DATA);
+    saveDynamicJson(FILENAME, DEFAULT_EVENT_CARD_PRINTING_DATA);
+    return DEFAULT_EVENT_CARD_PRINTING_DATA;
   } catch (error) {
     console.error("Error resetting dynamic event card printing data:", error);
     throw error;

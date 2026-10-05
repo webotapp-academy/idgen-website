@@ -1,46 +1,22 @@
-import fs from "fs";
-import path from "path";
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import { BlogPost, BLOG_POSTS, BLOG_CATEGORIES } from "@/data/blogs";
 
-const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-blogs.json");
-
-let memoryCache: BlogPost[] | null = null;
+const FILENAME = "dynamic-blogs.json";
 
 export function getAllDynamicBlogPosts(includeDrafts = false): BlogPost[] {
-  if (memoryCache && memoryCache.length > 0) {
-    return memoryCache;
-  }
-
   try {
-    if (fs.existsSync(DATA_FILE_PATH)) {
-      const raw = fs.readFileSync(DATA_FILE_PATH, "utf-8");
-      const loaded: BlogPost[] = JSON.parse(raw);
-      if (Array.isArray(loaded) && loaded.length > 0) {
-        memoryCache = loaded;
-        return memoryCache;
-      }
+    const loaded = loadDynamicJson<BlogPost[]>(FILENAME, BLOG_POSTS);
+    if (Array.isArray(loaded) && loaded.length > 0) {
+      return loaded;
     }
   } catch (e) {
     console.error("Error reading dynamic-blogs.json, falling back to defaults:", e);
   }
-
-  // Fallback to static data and initialize file
-  memoryCache = BLOG_POSTS;
-  saveAllDynamicBlogPosts(BLOG_POSTS);
-  return memoryCache;
+  return BLOG_POSTS;
 }
 
 export function saveAllDynamicBlogPosts(posts: BlogPost[]): void {
-  memoryCache = posts;
-  try {
-    const dir = path.dirname(DATA_FILE_PATH);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(posts, null, 2), "utf-8");
-  } catch (e) {
-    console.error("Error saving dynamic-blogs.json:", e);
-  }
+  saveDynamicJson(FILENAME, posts);
 }
 
 export function getDynamicBlogPost(slug: string): BlogPost | undefined {
@@ -134,7 +110,6 @@ export function deleteDynamicBlogPost(slug: string): boolean {
 }
 
 export function resetDynamicBlogsToDefaults(): BlogPost[] {
-  memoryCache = BLOG_POSTS;
   saveAllDynamicBlogPosts(BLOG_POSTS);
   return BLOG_POSTS;
 }

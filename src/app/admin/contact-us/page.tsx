@@ -316,10 +316,9 @@ function AdminContactUsContent() {
   }
 
   const tabs = [
-    { id: "hero", label: "Hero & Showcase", icon: Sparkles },
+    { id: "hero", label: "Hero & Address", icon: Sparkles },
     { id: "channels", label: "Contact Channels", icon: Phone },
     { id: "social", label: "Social & Reviews", icon: Star },
-    { id: "facility", label: "Facility & Hours", icon: Building2 },
     { id: "form", label: "Form & Closing CTA", icon: Send },
   ];
 
@@ -798,6 +797,21 @@ function AdminContactUsContent() {
             </div>
 
             <div className="space-y-1 sm:col-span-2">
+              <label className="text-xs font-semibold text-slate-300">Subtitle / Facility Highlight</label>
+              <input
+                type="text"
+                value={data.hero.subtitle || ""}
+                onChange={(e) =>
+                  setData({
+                    ...data,
+                    hero: { ...data.hero, subtitle: e.target.value },
+                  })
+                }
+                className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3.5 py-2.5 text-xs text-white outline-none focus:border-[#009fe3]"
+              />
+            </div>
+
+            <div className="space-y-1 sm:col-span-2">
               <label className="text-xs font-semibold text-slate-300">Hero Lede Paragraph</label>
               <textarea
                 rows={3}
@@ -810,6 +824,84 @@ function AdminContactUsContent() {
                 }
                 className="w-full rounded-xl border border-slate-800 bg-slate-900 px-3.5 py-2.5 text-xs text-white outline-none focus:border-[#009fe3]"
               />
+            </div>
+          </div>
+
+          {/* Hero Address Quick-Card Settings */}
+          <div className="space-y-4 pt-4 border-t border-slate-800/80">
+            <div className="flex items-center gap-2 text-cyan-400">
+              <Building2 className="h-4 w-4" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                Hero Address Quick-Card Box Settings
+              </h3>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 grid gap-4 sm:grid-cols-2">
+              <div className="space-y-1 sm:col-span-2">
+                <label className="text-[10px] uppercase font-bold text-slate-400">Address Box Header Title</label>
+                <input
+                  type="text"
+                  value={data.hero.addressCardTitle || "Guwahati Factory & Office Address:"}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      hero: { ...data.hero, addressCardTitle: e.target.value },
+                    })
+                  }
+                  className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                  placeholder="e.g. Guwahati Factory & Office Address:"
+                />
+              </div>
+
+              <div className="space-y-1 sm:col-span-2">
+                <label className="text-[10px] uppercase font-bold text-slate-400">Physical Address Text</label>
+                <input
+                  type="text"
+                  value={data.hero.address ?? data.facility?.address ?? ""}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      hero: { ...data.hero, address: e.target.value },
+                      facility: { ...data.facility, address: e.target.value },
+                    })
+                  }
+                  className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                  placeholder="e.g. Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] uppercase font-bold text-slate-400">Landmark / Location Note</label>
+                <input
+                  type="text"
+                  value={data.hero.landmark ?? data.facility?.landmark ?? ""}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      hero: { ...data.hero, landmark: e.target.value },
+                      facility: { ...data.facility, landmark: e.target.value },
+                    })
+                  }
+                  className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                  placeholder="e.g. Central A.T. Road commercial hub, Guwahati, Assam 781001"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-[10px] uppercase font-bold text-slate-400">Operating Status Badge</label>
+                <input
+                  type="text"
+                  value={data.hero.operatingHours ?? data.facility?.operatingHours ?? ""}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      hero: { ...data.hero, operatingHours: e.target.value },
+                      facility: { ...data.facility, operatingHours: e.target.value },
+                    })
+                  }
+                  className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                  placeholder="e.g. Mon – Sat: 9:30 AM – 7:00 PM"
+                />
+              </div>
             </div>
           </div>
 
@@ -848,17 +940,45 @@ function AdminContactUsContent() {
             </div>
           </div>
 
-          {/* 3 Showcase Visual Images */}
+          {/* Single Showcase Visual Image */}
           <div className="space-y-3 pt-4 border-t border-slate-800/80">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-              Hero Showcase Visuals (3 Overlapping Images)
+              Hero Showcase Visual (Single Image)
             </h3>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {/* Primary Image */}
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 space-y-3">
-                <span className="text-xs font-bold text-cyan-400">1. Primary Factory Photo</span>
-                <div className="space-y-1">
-                  <label className="text-[10px] uppercase text-slate-400">Image URL</label>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 space-y-4 max-w-2xl">
+              <div className="flex items-center gap-4">
+                {data.hero.visual.primaryImage.src && (
+                  <div className="h-24 w-28 rounded-xl bg-slate-950 border border-slate-800 overflow-hidden flex items-center justify-center relative shrink-0 p-1">
+                    <img
+                      src={data.hero.visual.primaryImage.src}
+                      alt={data.hero.visual.primaryImage.alt || "Preview"}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                )}
+                <div className="space-y-2 flex-1">
+                  <span className="text-xs font-bold text-cyan-400">Primary Showcase Factory Photo</span>
+                  <div className="flex items-center gap-2">
+                    <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:bg-slate-700 hover:text-white transition">
+                      <UploadCloud className="h-4 w-4 text-cyan-400" />
+                      <span>Upload New Image</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => handleFileUpload(e, "visual.primaryImage")}
+                      />
+                    </label>
+                    {uploadingField === "visual.primaryImage" && (
+                      <RefreshCw className="h-4 w-4 animate-spin text-cyan-400" />
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-1 sm:col-span-2">
+                  <label className="text-[10px] uppercase font-bold text-slate-400">Image URL Path</label>
                   <input
                     type="text"
                     value={data.hero.visual.primaryImage.src}
@@ -877,29 +997,39 @@ function AdminContactUsContent() {
                         },
                       })
                     }
-                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-[#009fe3]"
+                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
                   />
                 </div>
-                <div className="flex items-center gap-2">
-                  <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:bg-slate-700">
-                    <UploadCloud className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Upload Image</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleFileUpload(e, "visual.primaryImage")}
-                    />
-                  </label>
-                  {uploadingField === "visual.primaryImage" && (
-                    <RefreshCw className="h-4 w-4 animate-spin text-cyan-400" />
-                  )}
-                </div>
+
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase text-slate-400">Badge Text</label>
+                  <label className="text-[10px] uppercase font-bold text-slate-400">Alt Text (SEO &amp; Accessibility)</label>
                   <input
                     type="text"
-                    value={data.hero.visual.primaryImage.badge}
+                    value={data.hero.visual.primaryImage.alt}
+                    onChange={(e) =>
+                      setData({
+                        ...data,
+                        hero: {
+                          ...data.hero,
+                          visual: {
+                            ...data.hero.visual,
+                            primaryImage: {
+                              ...data.hero.visual.primaryImage,
+                              alt: e.target.value,
+                            },
+                          },
+                        },
+                      })
+                    }
+                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] uppercase font-bold text-slate-400">Badge Text (Optional)</label>
+                  <input
+                    type="text"
+                    value={data.hero.visual.primaryImage.badge || ""}
                     onChange={(e) =>
                       setData({
                         ...data,
@@ -915,139 +1045,7 @@ function AdminContactUsContent() {
                         },
                       })
                     }
-                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-[#009fe3]"
-                  />
-                </div>
-              </div>
-
-              {/* Secondary Image */}
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 space-y-3">
-                <span className="text-xs font-bold text-cyan-400">2. Specimen Package Photo</span>
-                <div className="space-y-1">
-                  <label className="text-[10px] uppercase text-slate-400">Image URL</label>
-                  <input
-                    type="text"
-                    value={data.hero.visual.secondaryImage.src}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        hero: {
-                          ...data.hero,
-                          visual: {
-                            ...data.hero.visual,
-                            secondaryImage: {
-                              ...data.hero.visual.secondaryImage,
-                              src: e.target.value,
-                            },
-                          },
-                        },
-                      })
-                    }
-                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-[#009fe3]"
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:bg-slate-700">
-                    <UploadCloud className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Upload Image</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleFileUpload(e, "visual.secondaryImage")}
-                    />
-                  </label>
-                  {uploadingField === "visual.secondaryImage" && (
-                    <RefreshCw className="h-4 w-4 animate-spin text-cyan-400" />
-                  )}
-                </div>
-                <div className="space-y-1">
-                  <label className="text-[10px] uppercase text-slate-400">Alt Text</label>
-                  <input
-                    type="text"
-                    value={data.hero.visual.secondaryImage.alt}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        hero: {
-                          ...data.hero,
-                          visual: {
-                            ...data.hero.visual,
-                            secondaryImage: {
-                              ...data.hero.visual.secondaryImage,
-                              alt: e.target.value,
-                            },
-                          },
-                        },
-                      })
-                    }
-                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-[#009fe3]"
-                  />
-                </div>
-              </div>
-
-              {/* Tertiary Image */}
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 space-y-3">
-                <span className="text-xs font-bold text-cyan-400">3. Machinery Accent Photo</span>
-                <div className="space-y-1">
-                  <label className="text-[10px] uppercase text-slate-400">Image URL</label>
-                  <input
-                    type="text"
-                    value={data.hero.visual.tertiaryImage.src}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        hero: {
-                          ...data.hero,
-                          visual: {
-                            ...data.hero.visual,
-                            tertiaryImage: {
-                              ...data.hero.visual.tertiaryImage,
-                              src: e.target.value,
-                            },
-                          },
-                        },
-                      })
-                    }
-                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-[#009fe3]"
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:bg-slate-700">
-                    <UploadCloud className="h-3.5 w-3.5 text-cyan-400" />
-                    <span>Upload Image</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleFileUpload(e, "visual.tertiaryImage")}
-                    />
-                  </label>
-                  {uploadingField === "visual.tertiaryImage" && (
-                    <RefreshCw className="h-4 w-4 animate-spin text-cyan-400" />
-                  )}
-                </div>
-                <div className="space-y-1">
-                  <label className="text-[10px] uppercase text-slate-400">Alt Text</label>
-                  <input
-                    type="text"
-                    value={data.hero.visual.tertiaryImage.alt}
-                    onChange={(e) =>
-                      setData({
-                        ...data,
-                        hero: {
-                          ...data.hero,
-                          visual: {
-                            ...data.hero.visual,
-                            tertiaryImage: {
-                              ...data.hero.visual.tertiaryImage,
-                              alt: e.target.value,
-                            },
-                          },
-                        },
-                      })
-                    }
-                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-[#009fe3]"
+                    className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
                   />
                 </div>
               </div>
@@ -1391,28 +1389,65 @@ function AdminContactUsContent() {
                       <Trash2 className="h-3.5 w-3.5" />
                     </button>
 
-                    <label className="text-[10px] uppercase font-bold text-slate-400 block">
-                      Label
-                    </label>
-                    <input
-                      type="text"
-                      value={link.label}
-                      onChange={(e) => {
-                        const updated = [...data.channels.socialAndReviews.links];
-                        updated[idx] = { ...updated[idx], label: e.target.value };
-                        setData({
-                          ...data,
-                          channels: {
-                            ...data.channels,
-                            socialAndReviews: {
-                              ...data.channels.socialAndReviews,
-                              links: updated,
-                            },
-                          },
-                        });
-                      }}
-                      className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-amber-400"
-                    />
+                    <div className="grid grid-cols-2 gap-2">
+                      <div>
+                        <label className="text-[10px] uppercase font-bold text-slate-400 block">
+                          Label
+                        </label>
+                        <input
+                          type="text"
+                          value={link.label}
+                          onChange={(e) => {
+                            const updated = [...data.channels.socialAndReviews.links];
+                            updated[idx] = { ...updated[idx], label: e.target.value };
+                            setData({
+                              ...data,
+                              channels: {
+                                ...data.channels,
+                                socialAndReviews: {
+                                  ...data.channels.socialAndReviews,
+                                  links: updated,
+                                },
+                              },
+                            });
+                          }}
+                          className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-amber-400"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[10px] uppercase font-bold text-slate-400 block">
+                          Platform
+                        </label>
+                        <select
+                          value={link.platform || "instagram"}
+                          onChange={(e) => {
+                            const updated = [...data.channels.socialAndReviews.links];
+                            updated[idx] = { ...updated[idx], platform: e.target.value as any };
+                            setData({
+                              ...data,
+                              channels: {
+                                ...data.channels,
+                                socialAndReviews: {
+                                  ...data.channels.socialAndReviews,
+                                  links: updated,
+                                },
+                              },
+                            });
+                          }}
+                          className="w-full rounded-lg border border-slate-800 bg-slate-950 px-2.5 py-1.5 text-xs text-white outline-none focus:border-amber-400"
+                        >
+                          <option value="gbp">Google Business Review</option>
+                          <option value="whatsapp">WhatsApp Channel</option>
+                          <option value="instagram">Instagram</option>
+                          <option value="facebook">Facebook</option>
+                          <option value="youtube">YouTube</option>
+                          <option value="linkedin">LinkedIn</option>
+                          <option value="threads">Threads</option>
+                          <option value="pinterest">Pinterest</option>
+                          <option value="twitter">X / Twitter</option>
+                        </select>
+                      </div>
+                    </div>
 
                     <label className="text-[10px] uppercase font-bold text-slate-400 block">
                       Destination URL
@@ -1518,6 +1553,7 @@ function AdminContactUsContent() {
                     setData({
                       ...data,
                       facility: { ...data.facility, address: e.target.value },
+                      hero: { ...data.hero, address: e.target.value },
                     })
                   }
                   className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
@@ -1525,6 +1561,22 @@ function AdminContactUsContent() {
               </div>
 
               <div className="space-y-1 sm:col-span-2">
+                <label className="text-xs font-semibold text-slate-300">Address Landmark / Area Description</label>
+                <input
+                  type="text"
+                  value={data.facility.landmark || ""}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      facility: { ...data.facility, landmark: e.target.value },
+                      hero: { ...data.hero, landmark: e.target.value },
+                    })
+                  }
+                  className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                />
+              </div>
+
+              <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-300">Operating Hours</label>
                 <input
                   type="text"
@@ -1533,6 +1585,22 @@ function AdminContactUsContent() {
                     setData({
                       ...data,
                       facility: { ...data.facility, operatingHours: e.target.value },
+                      hero: { ...data.hero, operatingHours: e.target.value },
+                    })
+                  }
+                  className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-semibold text-slate-300">Closed Notice (e.g. Sundays)</label>
+                <input
+                  type="text"
+                  value={data.facility.closedNotice || ""}
+                  onChange={(e) =>
+                    setData({
+                      ...data,
+                      facility: { ...data.facility, closedNotice: e.target.value },
                     })
                   }
                   className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"

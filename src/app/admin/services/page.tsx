@@ -624,6 +624,7 @@ function AdminServicesContent() {
                 <div className="space-y-3">
                   <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
                     <Image
+                  unoptimized
                       src={item.imageSrc}
                       alt={item.imageAlt || item.title}
                       fill
@@ -1327,6 +1328,7 @@ function AdminServicesContent() {
                 <div className="flex items-center gap-4">
                   <div className="relative h-16 w-24 rounded-lg overflow-hidden border border-slate-800 bg-slate-950 shrink-0">
                     <Image
+                  unoptimized
                       src={formData.imageSrc || "/images/Precision-Print-Quality-Idgen.png"}
                       alt={formData.title}
                       fill

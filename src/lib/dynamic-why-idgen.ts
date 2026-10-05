@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import {
@@ -10,7 +11,7 @@ export { DEFAULT_WHY_IDGEN_DATA };
 
 const DATA_FILE_PATH = path.join(process.cwd(), "src", "data", "dynamic-why-idgen.json");
 
-let memoryCache: DynamicWhyIdgenData | null = null;
+
 
 export function getDynamicWhyIdgen(): DynamicWhyIdgenData {
   try {
@@ -82,7 +83,7 @@ export function getDynamicWhyIdgen(): DynamicWhyIdgenData {
         },
         closingCta: { ...DEFAULT_WHY_IDGEN_DATA.closingCta, ...(loaded.closingCta || {}) },
       };
-      memoryCache = mergedData;
+      
       return mergedData;
     }
   } catch (e) {
@@ -90,7 +91,7 @@ export function getDynamicWhyIdgen(): DynamicWhyIdgenData {
   }
 
   // Fallback to initial data and persist
-  memoryCache = DEFAULT_WHY_IDGEN_DATA;
+  
   saveDynamicWhyIdgen(DEFAULT_WHY_IDGEN_DATA);
   return DEFAULT_WHY_IDGEN_DATA;
 }
@@ -101,7 +102,7 @@ export function saveDynamicWhyIdgen(data: DynamicWhyIdgenData): DynamicWhyIdgenD
     lastUpdated: new Date().toISOString(),
   };
 
-  memoryCache = updatedData;
+  
   try {
     const dir = path.dirname(DATA_FILE_PATH);
     if (!fs.existsSync(dir)) {

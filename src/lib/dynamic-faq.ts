@@ -1,3 +1,4 @@
+import { loadDynamicJson, saveDynamicJson } from "./dynamic-storage";
 import fs from "fs";
 import path from "path";
 import type { DynamicFaqData } from "./dynamic-faq-types";
@@ -6,7 +7,7 @@ const DATA_FILE = path.join(process.cwd(), "src", "data", "dynamic-faq.json");
 
 export const DEFAULT_FAQ_DATA: DynamicFaqData = {
   meta: {
-    title: "Frequently Asked Questions About IDGen | IDGen",
+    title: "Frequently Asked Questions About IDGen",
     description:
       "Find fast, transparent answers regarding customized ID card printing, student & employee badging, wearable lanyards, RFID systems, reference pricing, and regional delivery across Northeast India.",
     path: "/faq/",

@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -200,41 +203,14 @@ export default async function CustomPrintedLanyardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.customElements.image}
                       alt={data.customElements.title}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <Sparkles className="h-3 w-3 text-cyan-400" />
-                        <span>{data.customElements.imageBadge}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.customElements.imageWidthBadge}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.customElements.imageFooterSubtitle}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.customElements.imageFooterTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.customElements.imageFooterTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -483,41 +459,14 @@ export default async function CustomPrintedLanyardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.lanyardSetup.image}
                       alt={data.lanyardSetup.title}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <Sparkles className="h-3 w-3 text-cyan-400" />
-                        <span>{data.lanyardSetup.imageBadge}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.lanyardSetup.imageTag}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.lanyardSetup.imageFooterSubtitle}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.lanyardSetup.imageFooterTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.lanyardSetup.imageFooterTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -641,41 +590,14 @@ export default async function CustomPrintedLanyardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.bulkOrders.image}
                       alt={data.bulkOrders.title}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 40vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <Sparkles className="h-3 w-3 text-cyan-400" />
-                        <span>{data.bulkOrders.imageBadge}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.bulkOrders.imageTag}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.bulkOrders.imageFooterSubtitle}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.bulkOrders.imageFooterTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.bulkOrders.imageFooterTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -841,41 +763,14 @@ export default async function CustomPrintedLanyardPrintingPage() {
               <div className="relative mx-auto w-full">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#009fe3]/25 via-cyan-500/15 to-blue-600/20 blur-xl opacity-70" />
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl group">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden p-2 sm:p-4 flex items-center justify-center bg-white dark:bg-slate-900">
                     <Image
                       src={data.ultrasonicSealing.image}
                       alt={data.ultrasonicSealing.title}
                       fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-contain object-center p-2 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 40vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-md px-3 py-1 text-xs font-bold text-cyan-300 border border-white/15 shadow-sm">
-                        <Waves className="h-3 w-3 text-cyan-400" />
-                        <span>{data.ultrasonicSealing.imageBadge}</span>
-                      </span>
-                      <span className="rounded-full bg-[#009fe3] px-3 py-1 text-xs font-black text-white shadow-md">
-                        {data.ultrasonicSealing.imageTag}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="rounded-2xl border border-white/15 bg-slate-950/80 backdrop-blur-md p-3.5 shadow-xl flex items-center justify-between">
-                        <div>
-                          <p className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400">
-                            {data.ultrasonicSealing.imageFooterSubtitle}
-                          </p>
-                          <p className="text-xs sm:text-sm font-black text-white">
-                            {data.ultrasonicSealing.imageFooterTitle}
-                          </p>
-                        </div>
-                        <span className="text-[10px] font-bold text-slate-300 bg-white/10 px-2.5 py-1 rounded-full border border-white/10">
-                          {data.ultrasonicSealing.imageFooterTag}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

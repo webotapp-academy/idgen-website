@@ -1,3 +1,7 @@
+// A1 SEO fix: ISR - revalidate every hour for CDN caching
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import React from "react";
 import { pageMetadata } from "@/lib/metadata";
 import { LegalDocumentShell, type LegalSectionItem, type LegalHighlight } from "@/components/legal/LegalDocumentShell";
@@ -6,9 +10,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/data/site";
 
 export const metadata = pageMetadata({
-  title: "Terms & Conditions — iDGen Identity Solutions",
+  title: "Terms & Conditions",
   description:
-    "Official Terms & Conditions governing your use of iDGen website, PVC ID cards, RFID credentials, custom lanyards, printing services, accessories, and the iDGen Studio platform.",
+    "Official Terms & Conditions governing your use of IDGen website, PVC ID cards, RFID credentials, custom lanyards, printing services, accessories, and the IDGen Studio platform.",
   path: "/terms-conditions/",
 });
 
@@ -43,11 +47,11 @@ const termsSections: LegalSectionItem[] = [
   {
     id: "about-idgen",
     num: "1",
-    title: "About iDGen",
+    title: "About IDGen",
     tags: ["identity", "pvc", "rfid", "smart cards", "lanyards", "accessories"],
     content: (
       <p>
-        iDGen provides identity-related products and services including PVC ID Cards, RFID and Smart ID Cards, Event ID Cards, Lanyards, ID Card Accessories, and related printing and manufacturing services.
+        IDGen provides identity-related products and services including PVC ID Cards, RFID and Smart ID Cards, Event ID Cards, Lanyards, ID Card Accessories, and related printing and manufacturing services.
       </p>
     ),
   },
@@ -58,7 +62,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["orders", "quotations", "pricing", "validity"],
     content: (
       <ul className="list-disc pl-5 space-y-2">
-        <li>All orders are subject to confirmation by iDGen.</li>
+        <li>All orders are subject to confirmation by IDGen.</li>
         <li>Quotations are valid for the period mentioned in the quotation. Prices may be revised after the quotation validity period.</li>
         <li>Any change in card type, size, quantity, material, printing method, accessories, or other specifications after quotation acceptance may result in revised pricing.</li>
       </ul>
@@ -75,7 +79,7 @@ const termsSections: LegalSectionItem[] = [
         <ul className="list-disc pl-5 space-y-2">
           <li><strong>50% advance payment</strong> is required to confirm the order.</li>
           <li><strong>The remaining 50%</strong> must be paid before dispatch.</li>
-          <li>iDGen may hold dispatch until full payment has been received.</li>
+          <li>IDGen may hold dispatch until full payment has been received.</li>
           <li>GST and other applicable taxes will be charged as mentioned in the quotation or invoice.</li>
         </ul>
         <div className="mt-3 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-3.5 text-xs text-slate-700 dark:text-slate-300">
@@ -93,7 +97,7 @@ const termsSections: LegalSectionItem[] = [
       <ul className="list-disc pl-5 space-y-2">
         <li>Advance payment becomes non-refundable once the order has been confirmed and design, work, or production has commenced.</li>
         <li>Orders cannot normally be cancelled after design approval or once production has started.</li>
-        <li>Any exceptional cancellation or refund request will be considered by iDGen based on the stage of the order and costs already incurred.</li>
+        <li>Any exceptional cancellation or refund request will be considered by IDGen based on the stage of the order and costs already incurred.</li>
       </ul>
     ),
   },
@@ -104,9 +108,9 @@ const termsSections: LegalSectionItem[] = [
     tags: ["proof", "approval", "sample", "whatsapp", "email"],
     content: (
       <ul className="list-disc pl-5 space-y-2">
-        <li>Before printing, iDGen may provide a digital proof/sample for customer verification.</li>
+        <li>Before printing, IDGen may provide a digital proof/sample for customer verification.</li>
         <li>Printing/production will begin only after customer approval.</li>
-        <li>Approval may be provided through iDGen Studio, WhatsApp, email, or another agreed communication channel.</li>
+        <li>Approval may be provided through IDGen Studio, WhatsApp, email, or another agreed communication channel.</li>
       </ul>
     ),
   },
@@ -140,11 +144,11 @@ const termsSections: LegalSectionItem[] = [
             </div>
           ))}
         </div>
-        <p>The customer must also ensure that photographs and files supplied to iDGen are clear and suitable for printing.</p>
+        <p>The customer must also ensure that photographs and files supplied to IDGen are clear and suitable for printing.</p>
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2">
           <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400" />
           <span>
-            If a user or customer submits a wrong, incorrect, outdated, duplicate, unclear, or inappropriate photograph, iDGen will not be responsible for the resulting error in the printed ID card.
+            If a user or customer submits a wrong, incorrect, outdated, duplicate, unclear, or inappropriate photograph, IDGen will not be responsible for the resulting error in the printed ID card.
           </span>
         </div>
       </div>
@@ -158,7 +162,7 @@ const termsSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-3">
         <p>
-          Once the customer provides final approval and printing/production begins, iDGen will not be responsible for errors that were present in the approved information or artwork.
+          Once the customer provides final approval and printing/production begins, IDGen will not be responsible for errors that were present in the approved information or artwork.
         </p>
         <p className="font-medium text-slate-800 dark:text-slate-200">This includes incorrect:</p>
         <ul className="list-disc pl-5 space-y-1.5">
@@ -225,7 +229,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["resolution", "dpi", "vector", "artwork"],
     content: (
       <p>
-        iDGen is not responsible for poor print results caused by low-resolution, unclear, damaged, incorrectly formatted, or poor-quality customer-supplied photographs, logos, artwork, or other files.
+        IDGen is not responsible for poor print results caused by low-resolution, unclear, damaged, incorrectly formatted, or poor-quality customer-supplied photographs, logos, artwork, or other files.
       </p>
     ),
   },
@@ -286,7 +290,7 @@ const termsSections: LegalSectionItem[] = [
       <ul className="list-disc pl-5 space-y-2">
         <li>Reprints caused by customer-approved errors may be chargeable to the customer.</li>
         <li>
-          If a confirmed manufacturing or printing defect is attributable to iDGen, iDGen will review the issue and, where appropriate, arrange a replacement or other suitable resolution.
+          If a confirmed manufacturing or printing defect is attributable to IDGen, IDGen will review the issue and, where appropriate, arrange a replacement or other suitable resolution.
         </li>
       </ul>
     ),
@@ -299,7 +303,7 @@ const termsSections: LegalSectionItem[] = [
     content: (
       <ul className="list-disc pl-5 space-y-2">
         <li>Delivery or transportation charges will be borne by the customer unless specifically included in the quotation.</li>
-        <li>iDGen may hold dispatch until the full payment has been received.</li>
+        <li>IDGen may hold dispatch until the full payment has been received.</li>
       </ul>
     ),
   },
@@ -311,7 +315,7 @@ const termsSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          iDGen will not be responsible for delays caused by circumstances outside its reasonable control, including:
+          IDGen will not be responsible for delays caused by circumstances outside its reasonable control, including:
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li>Courier or logistics delays</li>
@@ -332,7 +336,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["damaged parcel", "transit damage", "evidence", "photographs"],
     content: (
       <p>
-        If a shipment is damaged during transportation, the customer should notify iDGen as soon as possible after receipt and provide clear photographs or video evidence of the package and damaged products. iDGen will review the matter and coordinate with the customer/courier as applicable.
+        If a shipment is damaged during transportation, the customer should notify IDGen as soon as possible after receipt and provide clear photographs or video evidence of the package and damaged products. IDGen will review the matter and coordinate with the customer/courier as applicable.
       </p>
     ),
   },
@@ -343,7 +347,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["source files", "vector", "ownership", "templates"],
     content: (
       <p>
-        Unless otherwise agreed in writing, editable/source design files created by iDGen remain the property of iDGen. The customer receives the final printed products according to the approved design.
+        Unless otherwise agreed in writing, editable/source design files created by IDGen remain the property of IDGen. The customer receives the final printed products according to the approved design.
       </p>
     ),
   },
@@ -355,7 +359,7 @@ const termsSections: LegalSectionItem[] = [
     content: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
-          The iDGen name, logo, website content, graphics, software, designs, text, branding, and other original materials belonging to iDGen may not be copied, reproduced, modified, or commercially used without prior written permission.
+          The IDGen name, logo, website content, graphics, software, designs, text, branding, and other original materials belonging to IDGen may not be copied, reproduced, modified, or commercially used without prior written permission.
         </li>
         <li>
           Customers remain responsible for ensuring that logos, photographs, artwork, trademarks, and other materials supplied by them may legally be used without infringing on third-party intellectual property.
@@ -366,18 +370,18 @@ const termsSections: LegalSectionItem[] = [
   {
     id: "idgen-studio",
     num: "19",
-    title: "iDGen Studio",
+    title: "IDGen Studio",
     tags: ["idgen studio", "data portal", "portal", "student verification"],
     content: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
-          iDGen Studio may allow customers to collect, manage, review, approve, and process information required for ID card production.
+          IDGen Studio may allow customers to collect, manage, review, approve, and process information required for ID card production.
         </li>
         <li>
-          The customer is responsible for ensuring that the information and photographs submitted through iDGen Studio are accurate and that the customer has the necessary authority and permissions to provide such information.
+          The customer is responsible for ensuring that the information and photographs submitted through IDGen Studio are accurate and that the customer has the necessary authority and permissions to provide such information.
         </li>
         <li>
-          iDGen processes such information only for providing the agreed services, subject to the iDGen Privacy Policy.
+          IDGen processes such information only for providing the agreed services, subject to the IDGen Privacy Policy.
         </li>
       </ul>
     ),
@@ -385,15 +389,15 @@ const termsSections: LegalSectionItem[] = [
   {
     id: "idgen-studio-data-ownership",
     num: "20",
-    title: "iDGen Studio Data Ownership",
+    title: "IDGen Studio Data Ownership",
     tags: ["data owner", "data fiduciary", "data processor"],
     content: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
-          Data, photographs, personal information, and other content submitted by a customer through iDGen Studio remain under the customer&apos;s control and responsibility as the relevant Data Owner/Data Fiduciary, where applicable.
+          Data, photographs, personal information, and other content submitted by a customer through IDGen Studio remain under the customer&apos;s control and responsibility as the relevant Data Owner/Data Fiduciary, where applicable.
         </li>
         <li>
-          iDGen acts as a service provider/processor for the agreed ID card and related services, to the extent applicable under law.
+          IDGen acts as a service provider/processor for the agreed ID card and related services, to the extent applicable under law.
         </li>
       </ul>
     ),
@@ -405,11 +409,11 @@ const termsSections: LegalSectionItem[] = [
     tags: ["deletion", "retention", "1 month", "operational lifecycle"],
     content: (
       <div className="space-y-3">
-        <p>After completion of an order, the customer may request deletion of data stored in iDGen Studio.</p>
+        <p>After completion of an order, the customer may request deletion of data stored in IDGen Studio.</p>
         <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-4 text-xs space-y-2">
           <p className="font-bold text-slate-900 dark:text-white">Standard 1-Month Operational Retention Period:</p>
           <p>
-            Unless a longer retention period is required by law, agreed with the customer, or reasonably required for legitimate business records, <strong>iDGen&apos;s standard operational retention period for completed ID-card order data is one month</strong>, after which the applicable data is scheduled for deletion.
+            Unless a longer retention period is required by law, agreed with the customer, or reasonably required for legitimate business records, <strong>IDGen&apos;s standard operational retention period for completed ID-card order data is one month</strong>, after which the applicable data is scheduled for deletion.
           </p>
         </div>
       </div>
@@ -423,7 +427,7 @@ const termsSections: LegalSectionItem[] = [
     content: (
       <div className="space-y-2">
         <p>
-          Before scheduled deletion, the customer may request an export of available order data. Where technically available, iDGen may provide:
+          Before scheduled deletion, the customer may request an export of available order data. Where technically available, IDGen may provide:
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li><strong>Customer/order data in Excel format; and</strong></li>
@@ -442,7 +446,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["security", "encryption", "safeguards"],
     content: (
       <p>
-        iDGen will take reasonable technical and organisational measures to protect customer information. However, no internet-based service can be guaranteed to be completely secure, and iDGen cannot guarantee that unauthorised access, cyber incidents, or other events will never occur.
+        IDGen will take reasonable technical and organisational measures to protect customer information. However, no internet-based service can be guaranteed to be completely secure, and IDGen cannot guarantee that unauthorised access, cyber incidents, or other events will never occur.
       </p>
     ),
   },
@@ -453,7 +457,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["uptime", "maintenance", "hosting"],
     content: (
       <p>
-        iDGen aims to keep its website and online services available and functional. However, temporary interruptions may occur due to maintenance, technical problems, hosting issues, network failures, security incidents, or other circumstances beyond iDGen&apos;s reasonable control.
+        IDGen aims to keep its website and online services available and functional. However, temporary interruptions may occur due to maintenance, technical problems, hosting issues, network failures, security incidents, or other circumstances beyond IDGen&apos;s reasonable control.
       </p>
     ),
   },
@@ -464,7 +468,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["payment gateways", "courier partners", "cloud hosting"],
     content: (
       <p>
-        The website or iDGen Studio may use third-party services such as payment gateways, hosting providers, communication services, analytics services, courier services, or other technology providers. Such services may have their own terms and privacy policies.
+        The website or IDGen Studio may use third-party services such as payment gateways, hosting providers, communication services, analytics services, courier services, or other technology providers. Such services may have their own terms and privacy policies.
       </p>
     ),
   },
@@ -476,7 +480,7 @@ const termsSections: LegalSectionItem[] = [
     content: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
-          To the extent permitted by applicable law, iDGen will not be liable for indirect, incidental, special, or consequential losses arising from the use of the website, software, products, or services.
+          To the extent permitted by applicable law, IDGen will not be liable for indirect, incidental, special, or consequential losses arising from the use of the website, software, products, or services.
         </li>
         <li>
           Nothing in these Terms is intended to exclude or limit liability where such exclusion or limitation is not permitted under applicable law.
@@ -491,7 +495,7 @@ const termsSections: LegalSectionItem[] = [
     tags: ["updates", "amendments", "revisions"],
     content: (
       <p>
-        iDGen may update these Terms & Conditions from time to time. The updated version will be published on this website with the revised &ldquo;Last Updated&rdquo; date.
+        IDGen may update these Terms & Conditions from time to time. The updated version will be published on this website with the revised &ldquo;Last Updated&rdquo; date.
       </p>
     ),
   },
@@ -518,7 +522,7 @@ const termsSections: LegalSectionItem[] = [
       <div className="space-y-3">
         <p>For questions regarding these Terms & Conditions, please contact:</p>
         <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.03] p-4 text-xs space-y-1.5">
-          <p className="font-bold text-slate-900 dark:text-white text-sm">iDGen</p>
+          <p className="font-bold text-slate-900 dark:text-white text-sm">IDGen</p>
           <p className="text-cyan-600 dark:text-cyan-400 font-medium">Identity Solutions, Simplified</p>
           <p>
             Email:{" "}
@@ -543,13 +547,13 @@ export default function TermsConditionsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Terms & Conditions — iDGen",
+    name: "Terms & Conditions — IDGen",
     url: `${SITE_URL}/terms-conditions/`,
-    description: "Official Terms & Conditions governing your use of iDGen website, PVC ID cards, RFID credentials, custom lanyards, printing services, and iDGen Studio platform.",
+    description: "Official Terms & Conditions governing your use of IDGen website, PVC ID cards, RFID credentials, custom lanyards, printing services, and IDGen Studio platform.",
     dateModified: "2026-09-07",
     publisher: {
       "@type": "Organization",
-      name: "iDGen",
+      name: "IDGen",
       url: SITE_URL,
       email: "info@idgen.in",
     },
@@ -561,7 +565,7 @@ export default function TermsConditionsPage() {
       <LegalDocumentShell
         documentType="terms"
         title="Terms & Conditions"
-        subtitle="Welcome to iDGen. These Terms & Conditions govern your use of the iDGen website, services, products, ID card printing services, accessories, and iDGen Studio platform. By using our website, placing an order, using iDGen Studio, or making a payment, you agree to these Terms & Conditions."
+        subtitle="Welcome to IDGen. These Terms & Conditions govern your use of the IDGen website, services, products, ID card printing services, accessories, and IDGen Studio platform. By using our website, placing an order, using IDGen Studio, or making a payment, you agree to these Terms & Conditions."
         lastUpdated="7 September 2026"
         highlights={termsHighlights}
         sections={termsSections}

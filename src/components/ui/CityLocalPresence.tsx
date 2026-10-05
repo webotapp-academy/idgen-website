@@ -233,7 +233,7 @@ export function CityLocalPresence({ city, state, organizations }: CityLocalPrese
               <>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1 text-foreground font-medium backdrop-blur-sm shadow-xs">
                   <MapPin className="h-3.5 w-3.5 text-accent" />
-                  <span>{isGuwahati ? "Guwahati Primary Cleanroom" : `${city.name} Priority Routes`}</span>
+                  <span>{isGuwahati ? "Guwahati Production Facility" : "Dispatched from Guwahati Hub"}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1 text-foreground font-medium backdrop-blur-sm shadow-xs">
                   <Clock className="h-3.5 w-3.5 text-accent" />

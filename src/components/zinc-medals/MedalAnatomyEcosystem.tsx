@@ -248,10 +248,11 @@ export function MedalAnatomyEcosystem({
               <div className="mt-6 grid gap-6 sm:grid-cols-12 items-center">
                 <div className="sm:col-span-5 relative h-48 sm:h-52 w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 p-2 shadow-inner">
                   <Image
+                  unoptimized
                     src={activeLayer.img}
                     alt={activeLayer.title}
                     fill
-                    className="object-cover rounded-xl"
+                    className="object-contain p-2 rounded-xl"
                   />
                 </div>
 
