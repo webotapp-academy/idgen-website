@@ -56,7 +56,7 @@ export const DEFAULT_EVENT_CARD_PRINTING_DATA: DynamicEventCardPrintingData = {
       category: "Executive Events",
       topBadge: "Executive Summit",
       specPill: "Holographic Security",
-      bottomSpec: "Express 48h Delivery • Anti-Counterfeit Foil",
+      bottomSpec: "Express 72h Dispatch • Anti-Counterfeit Foil",
       hubTag: "EXPRESS DISPATCH",
     },
     {

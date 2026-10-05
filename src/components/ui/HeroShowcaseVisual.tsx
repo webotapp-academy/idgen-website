@@ -47,7 +47,7 @@ export function HeroShowcaseVisual({
           </div>
           <div className="rounded-xl border border-slate-200/60 dark:border-white/10 bg-slate-50/80 dark:bg-white/[0.03] p-2 transition hover:bg-accent-soft/30">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-accent">Dispatch</span>
-            <span className="text-xs font-extrabold text-slate-900 dark:text-white">24–48 Hours</span>
+            <span className="text-xs font-extrabold text-slate-900 dark:text-white">72 Hours</span>
           </div>
           <div className="rounded-xl border border-slate-200/60 dark:border-white/10 bg-slate-50/80 dark:bg-white/[0.03] p-2 transition hover:bg-accent-soft/30">
             <span className="block text-[10px] font-bold uppercase tracking-wider text-accent">Quality</span>

@@ -396,7 +396,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <Truck className="h-4 w-4 text-accent" />
-            <span>24–48 Hour Express Dispatch</span>
+            <span>72-Hour Express Dispatch</span>
           </div>
           <div className="flex items-center gap-2">
             <Award className="h-4 w-4 text-purple-400" />

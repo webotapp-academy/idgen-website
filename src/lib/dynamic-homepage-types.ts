@@ -415,7 +415,7 @@ export const DEFAULT_IDENTITY_SERVICES_DATA: HomePageIdentityServices = {
       imageSrc: "/images/service-event-card-printing-v3.jpg",
       imageAlt: "Custom event cards with clear IDGen logo and branded lanyards",
       tag: "Conferences & Summits",
-      badge: "Express 48h",
+      badge: "Express 72h",
       badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
       spec: "Oversized CR100/Custom • Dual Hook Ready",
       highlights: [
@@ -532,7 +532,7 @@ export const DEFAULT_HOMEPAGE_DATA: DynamicHomePageData = {
         category: "Conferences",
         topBadge: "VIP Event Pass",
         specPill: "Dual Chrome Hooks",
-        bottomSpec: "Holographic Foil • Express 48h Delivery",
+        bottomSpec: "Holographic Foil • Express 72h Dispatch",
         hubTag: "SUMMIT READY",
       },
       {

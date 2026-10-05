@@ -251,7 +251,7 @@ export function getDefaultCityServices(cityName: string): CityServiceItem[] {
       title: `Event Card Printing in ${cName}`,
       categoryLabel: "Conferences & Seminars",
       tag: "Conferences & Summits",
-      badge: "Express 48h",
+      badge: "Express 72h",
       imageSrc: "/images/service-event-card-printing-v3.jpg",
       description: `Fast turnaround badge passes for delegates, speakers, exhibitors, VIPs, and organizers in ${cName} with custom event lanyards.`,
       href: "/event-card-printing/",
@@ -320,11 +320,11 @@ export function getDefaultWhyChoosePoints(cityName?: string, stateName?: string,
     {
       title: isGuwahati ? "Guwahati-Based Manufacturing" : `${cName} Direct Regional Fulfillment`,
       desc: isGuwahati
-        ? "Local presence in Guwahati ensures direct factory communication, rapid physical proofs, and 24–48h fast dispatch across Assam."
+        ? "Local presence in Guwahati ensures direct factory communication, rapid physical proofs, and 72h fast dispatch across Assam."
         : `Direct logistical coordination from our regional manufacturing cleanroom with doorstep delivery across ${cName} and ${sName}.`,
       image: isGuwahati ? "/images/service-guwahati-hub.jpg" : "/images/idgen-id-card-solutions-guwahati-assam.jpg",
       badge: isGuwahati ? "Direct Cleanroom Hub" : "Regional Priority",
-      stat: isGuwahati ? "24–48h Local Delivery" : "Fast Doorstep Dispatch",
+      stat: isGuwahati ? "72h Local Delivery" : "Fast Doorstep Dispatch",
     },
     {
       title: "Experience Since 2014",

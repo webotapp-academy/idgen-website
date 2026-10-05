@@ -1972,7 +1972,7 @@ function AdminPvcCardsContent() {
           {/* Dispatch Hub */}
           <div className="rounded-3xl border border-slate-800 bg-slate-900/90 p-6 sm:p-8 shadow-xl space-y-6">
             <div className="border-b border-slate-800 pb-4">
-              <h3 className="text-lg font-black text-white">24–48h Dispatch &amp; Packaging</h3>
+              <h3 className="text-lg font-black text-white">72h Dispatch &amp; Packaging</h3>
               <p className="text-xs text-slate-400">Guwahati factory fulfillment commitments and flow</p>
             </div>
 

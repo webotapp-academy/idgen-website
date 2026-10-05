@@ -137,7 +137,7 @@ export function CityWorkflowSection({
       description:
         customSteps?.[7]?.description ||
         (isGuwahati
-          ? "Secure sorted packaging with priority 24–48h local delivery across Guwahati."
+          ? "Secure sorted packaging with priority 72h local delivery across Guwahati."
           : `Secure class/department-wise sorted packaging with priority courier dispatch to your doorstep in ${cityName}, ${stateName}.`),
       phase: customSteps?.[7]?.phase || "Fulfillment",
       icon: Truck,
@@ -206,7 +206,7 @@ export function CityWorkflowSection({
               {workflowEyebrow || "Step-by-Step Production Process • Factory Quality Standard"}
             </span>
             <span className="hidden sm:inline-flex items-center rounded-md bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent">
-              {workflowBadge || (isGuwahati ? "Local Turnaround: 24–48h" : "Priority Turnaround")}
+              {workflowBadge || (isGuwahati ? "Dispatch: 72h" : "Priority Turnaround")}
             </span>
           </div>
 
@@ -329,7 +329,7 @@ export function CityWorkflowSection({
             <span className="leading-relaxed">
               {workflowNote ||
                 (isGuwahati
-                  ? "Guwahati Hub Advantage: Free physical pre-production sample & priority 24–48h local delivery available."
+                  ? "Guwahati Hub Advantage: Free physical pre-production sample & priority local delivery available."
                   : `Doorstep express delivery across ${cityName}, ${stateName} with rigorous optical quality verification before dispatch.`)}
             </span>
           </div>

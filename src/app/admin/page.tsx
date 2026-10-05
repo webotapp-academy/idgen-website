@@ -396,7 +396,7 @@ export default async function AdminDashboardPage() {
       id: "regionalHub",
       title: "Assam & NE Direct Hub",
       badge: "Point 8: Regional Dispatch",
-      description: "Guwahati direct manufacturing factory hub, 24-48h transit, and express coverage across all 8 NE states.",
+      description: "Guwahati direct manufacturing factory hub, express transit, and express coverage across all 8 NE states.",
       stats: `${homeData.regionalHub.priorityCities?.length || 0} Priority Hubs · ${homeData.regionalHub.northeastStates?.length || 0} States`,
       icon: MapPin,
       color: "teal",

@@ -33,7 +33,7 @@ export const metadata = pageMetadata({
 const trustPillars = [
   { title: "Zero Plate / Setup Fee", desc: "No hidden die-cutting, screen, or digital prepress charges on all bulk orders." },
   { title: "Complimentary PDF Proof", desc: "Every order receives a 1:1 scale digital proof and 3D mockup before manufacturing starts." },
-  { title: "48–72h Factory Dispatch", desc: "Standard batches produced and dispatched from our Guwahati central facility within 3 days." },
+  { title: "72h Factory Dispatch", desc: "Standard batches produced and dispatched from our Guwahati central facility within 3 days." },
   { title: "NDA Data Privacy", desc: "Student and employee personal records are encrypted and expunged after production." },
 ];
 
@@ -48,7 +48,7 @@ export default function RequestAQuotePage() {
         stats={[
           { label: "Response SLA", value: "< 2 Hours" },
           { label: "Setup Fee", value: "₹0 (Free)" },
-          { label: "Dispatch Window", value: "48–72 Hours" },
+          { label: "Dispatch Window", value: "72 Hours" },
           { label: "Samples", value: "Complimentary" },
         ]}
         visual={

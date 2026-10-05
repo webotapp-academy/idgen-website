@@ -52,8 +52,8 @@ export default function AdminServiceAreasPage() {
     slug: "",
     name: "",
     heroIntro: "",
-    projectsBadge: "Verified Institutional Deployments",
-    projectsSubBadge: "Active Regional Partnerships • Zero Fabricated Claims",
+    projectsBadge: "Institutions We Serve",
+    projectsSubBadge: "Organizations across the region",
     projectsTitle: "",
     projectsDesc: "",
     verifiedClients: [],
@@ -435,8 +435,8 @@ export default function AdminServiceAreasPage() {
         slug: state.slug,
         name: state.name,
         heroIntro: state.heroIntro || "",
-        projectsBadge: state.projectsBadge || "Verified Institutional Deployments",
-        projectsSubBadge: state.projectsSubBadge || "Active Regional Partnerships • Zero Fabricated Claims",
+        projectsBadge: state.projectsBadge || "Institutions We Serve",
+        projectsSubBadge: state.projectsSubBadge || "Organizations across the region",
         projectsTitle: state.projectsTitle || `Organizations & Projects in ${state.name}`,
         projectsDesc:
           state.projectsDesc ||
@@ -460,8 +460,8 @@ export default function AdminServiceAreasPage() {
         slug: "",
         name: "",
         heroIntro: "",
-        projectsBadge: "Verified Institutional Deployments",
-        projectsSubBadge: "Active Regional Partnerships • Zero Fabricated Claims",
+        projectsBadge: "Institutions We Serve",
+        projectsSubBadge: "Organizations across the region",
         projectsTitle: "",
         projectsDesc: "",
         verifiedClients: [
@@ -563,7 +563,7 @@ export default function AdminServiceAreasPage() {
             ? city.localAdvantagePills
             : [
               `Dispatched from Guwahati Production Hub`,
-              "24–48h Priority Batch Dispatch",
+              "72h Priority Batch Dispatch",
               "Pre-Production Physical Proofing",
               "100% Optical Quality Check",
             ],
@@ -708,8 +708,8 @@ export default function AdminServiceAreasPage() {
           `Actual production capacity is matched to product and project specifications for ${city.name}. Qualified bulk projects receive physical pre-production sample proofs for institutional sign-off.`,
         bulkCta1Text: city.bulkCta1Text || "Talk to Specialist",
         bulkCta2Text: city.bulkCta2Text || `Request a ${city.name} Bulk Quote`,
-        projectsBadge: city.projectsBadge || "Verified Institutional Deployments",
-        projectsSubBadge: city.projectsSubBadge || "Active Regional Partnerships • Zero Fabricated Claims",
+        projectsBadge: city.projectsBadge || "Institutions We Serve",
+        projectsSubBadge: city.projectsSubBadge || "Organizations across the region",
         projectsTitle: city.projectsTitle || `Organizations & Projects in ${city.name}`,
         projectsDesc:
           city.projectsDesc ||
@@ -746,7 +746,7 @@ export default function AdminServiceAreasPage() {
             })
             : getDefaultWhyChoosePoints(city.name, undefined, city.isPrimary || city.slug === "guwahati"),
         workflowEyebrow: city.workflowEyebrow || "Step-by-Step Production Process • Factory Quality Standard",
-        workflowBadge: city.workflowBadge || (city.isPrimary ? "Local Turnaround: 24–48h" : "Priority Turnaround"),
+        workflowBadge: city.workflowBadge || (city.isPrimary ? "Dispatch: 72h" : "Priority Turnaround"),
         workflowTitle: city.workflowTitle || `How to Order ID Cards in ${city.name}`,
         workflowSubtitle:
           city.workflowSubtitle ||
@@ -754,7 +754,7 @@ export default function AdminServiceAreasPage() {
         workflowNote:
           city.workflowNote ||
           (city.isPrimary
-            ? "Guwahati Hub Advantage: Free physical pre-production sample & priority 24–48h local delivery available."
+            ? "Guwahati Hub Advantage: Free physical pre-production sample & priority local delivery available."
             : `Doorstep express delivery across ${city.name} with rigorous optical quality verification before dispatch.`),
         workflowCta1Text: city.workflowCta1Text || "Call / WhatsApp IDGen",
         workflowCta2Text: city.workflowCta2Text || "Start at Step 01: Request Quote",
@@ -880,7 +880,7 @@ export default function AdminServiceAreasPage() {
         localPresenceTitle: "IDGen: A Local Identity Solutions Partner",
         localAdvantagePills: [
           "Guwahati Production Facility",
-          "24–48h Priority Batch Dispatch",
+          "72h Priority Batch Dispatch",
           "Pre-Production Physical Proofing",
           "100% Optical Quality Check",
         ],
@@ -974,8 +974,8 @@ export default function AdminServiceAreasPage() {
         bulkBottomNote: "Actual production capacity is matched to product and project specifications.",
         bulkCta1Text: "Talk to Specialist",
         bulkCta2Text: "Request a Bulk Quote",
-        projectsBadge: "Verified Institutional Deployments",
-        projectsSubBadge: "Active Regional Partnerships • Zero Fabricated Claims",
+        projectsBadge: "Institutions We Serve",
+        projectsSubBadge: "Organizations across the region",
         projectsTitle: "Organizations & Projects",
         projectsDesc: "IDGen partners with leading academic institutions, corporate offices, and government departments.",
         verifiedClients: [
@@ -1440,7 +1440,7 @@ export default function AdminServiceAreasPage() {
                         </label>
                         <input
                           type="text"
-                          placeholder="Verified Institutional Deployments"
+                          placeholder="Institutions We Serve"
                           value={stateForm.projectsBadge || ""}
                           onChange={(e) => setStateForm({ ...stateForm, projectsBadge: e.target.value })}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -1452,7 +1452,7 @@ export default function AdminServiceAreasPage() {
                         </label>
                         <input
                           type="text"
-                          placeholder="Active Regional Partnerships • Zero Fabricated Claims"
+                          placeholder="Organizations across the region"
                           value={stateForm.projectsSubBadge || ""}
                           onChange={(e) => setStateForm({ ...stateForm, projectsSubBadge: e.target.value })}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -2271,7 +2271,7 @@ export default function AdminServiceAreasPage() {
                               idx === 0
                                 ? "Guwahati Production Facility"
                                 : idx === 1
-                                  ? "24–48h Priority Batch Dispatch"
+                                  ? "72h Priority Batch Dispatch"
                                   : idx === 2
                                     ? "Pre-Production Physical Proofing"
                                     : "100% Optical Quality Check"
@@ -3218,7 +3218,7 @@ export default function AdminServiceAreasPage() {
                         </label>
                         <input
                           type="text"
-                          placeholder="Local Turnaround: 24–48h"
+                          placeholder="Dispatch: 72h"
                           value={cityForm.workflowBadge || ""}
                           onChange={(e) => setCityForm({ ...cityForm, workflowBadge: e.target.value })}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -3301,7 +3301,7 @@ export default function AdminServiceAreasPage() {
                       </label>
                       <input
                         type="text"
-                        placeholder="Guwahati Hub Advantage: Free physical pre-production sample & priority 24–48h local delivery available."
+                        placeholder="Guwahati Hub Advantage: Free physical pre-production sample & priority local delivery available."
                         value={cityForm.workflowNote || ""}
                         onChange={(e) => setCityForm({ ...cityForm, workflowNote: e.target.value })}
                         className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -3414,7 +3414,7 @@ export default function AdminServiceAreasPage() {
                         <label className="block text-[10px] font-bold text-slate-400 mb-1">Bottom Stat / Highlight</label>
                         <input
                           type="text"
-                          placeholder="e.g. 24–48h Local Delivery"
+                          placeholder="e.g. 72h Local Delivery"
                           value={whyChooseStatInput}
                           onChange={(e) => setWhyChooseStatInput(e.target.value)}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -3887,7 +3887,7 @@ export default function AdminServiceAreasPage() {
                         </label>
                         <input
                           type="text"
-                          placeholder="Verified Institutional Deployments"
+                          placeholder="Institutions We Serve"
                           value={cityForm.projectsBadge || ""}
                           onChange={(e) => setCityForm({ ...cityForm, projectsBadge: e.target.value })}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -3899,7 +3899,7 @@ export default function AdminServiceAreasPage() {
                         </label>
                         <input
                           type="text"
-                          placeholder="Active Regional Partnerships • Zero Fabricated Claims"
+                          placeholder="Organizations across the region"
                           value={cityForm.projectsSubBadge || ""}
                           onChange={(e) => setCityForm({ ...cityForm, projectsSubBadge: e.target.value })}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"

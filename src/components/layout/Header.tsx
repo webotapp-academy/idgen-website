@@ -133,7 +133,7 @@ export function Header({ navItems }: { navItems?: NavItem[] }) {
             <span className="text-white/20">•</span>
             <span className="text-cyan-300 font-medium">Guwahati Hub</span>
             <span className="text-white/20">•</span>
-            <span className="text-slate-300">24–48h Dispatch Across All 8 NE States</span>
+            <span className="text-slate-300">72h Dispatch Across All 8 NE States</span>
           </div>
           <div className="flex items-center gap-4 text-slate-300">
             <Link href="/pricing/" className="hover:text-cyan-300 transition-colors">

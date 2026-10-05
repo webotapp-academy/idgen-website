@@ -273,7 +273,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
               <ShieldCheck className="h-4 w-4" />
-              <span>{state.projectsBadge || "Verified Institutional Deployments"}</span>
+              <span>{state.projectsBadge || "Institutions We Serve"}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
               {state.projectsTitle || `Organizations & Projects in ${state.name}`}

@@ -44,7 +44,7 @@ const eventHeroSlides: EventHeroSlide[] = [
     category: "Executive Events",
     topBadge: "Executive Summit",
     specPill: "Holographic Security",
-    bottomSpec: "Express 48h Delivery • Anti-Counterfeit Foil",
+    bottomSpec: "Express 72h Dispatch • Anti-Counterfeit Foil",
     hubTag: "EXPRESS DISPATCH",
   },
   {

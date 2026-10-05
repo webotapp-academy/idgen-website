@@ -664,7 +664,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               </div>
               <div className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1.5 font-semibold text-foreground shadow-2xs">
                 <Truck className="h-3.5 w-3.5 text-accent" />
-                <span>Fulfillment: {isGuwahati ? "24–48h Local" : "Express Doorstep"}</span>
+                <span>Fulfillment: {isGuwahati ? "72h Local" : "Express Doorstep"}</span>
               </div>
             </div>
           </div>
@@ -692,7 +692,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
                 <MapPin className="h-5 w-5 text-accent" />
                 <div className="text-left">
                   <p className="text-xs font-bold text-foreground">Active Daily Routes</p>
-                  <p className="text-[10px] text-muted">48–72h Doorstep Dispatch</p>
+                  <p className="text-[10px] text-muted">72h Doorstep Dispatch</p>
                 </div>
               </div>
             </div>

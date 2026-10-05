@@ -39,7 +39,7 @@ export const orderingSteps = [
   {
     num: "04",
     title: "4. Rapid Guwahati Dispatch",
-    body: "Card batches packed in anti-static trays and dispatched in 24–48h across all 8 NE states.",
+    body: "Card batches packed in anti-static trays and dispatched in 72h across all 8 NE states.",
     badge: "Dispatch",
   },
 ];
@@ -110,7 +110,7 @@ export function PvcWorkflowAndDispatch({ data }: { data?: DynamicPvcCardsWorkflo
       </div>
 
       {/* ═════════════════════════════════════════════════════════════
-          2. 24–48H EXPRESS DISPATCH COMMITMENT
+          2. 72H EXPRESS DISPATCH COMMITMENT
           ═════════════════════════════════════════════════════════════ */}
       <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 lg:p-10 shadow-xl space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
@@ -123,7 +123,7 @@ export function PvcWorkflowAndDispatch({ data }: { data?: DynamicPvcCardsWorkflo
                 {data?.dispatchBadge || "Guwahati Direct Factory"}
               </span>
               <h3 className="text-2xl font-black text-slate-900 dark:text-white">
-                {data?.dispatchTitle || "24–48h Factory Dispatch"}
+                {data?.dispatchTitle || "72h Factory Dispatch"}
               </h3>
             </div>
           </div>

@@ -77,7 +77,7 @@ const pvcSlides: PvcSlide[] = [
     category: "Full Suite",
     topBadge: "Ready Factory Stock",
     specPill: "10,000+ Daily Capacity",
-    bottomSpec: "Ready Stock in Guwahati • 24–48h Dispatch Across 8 NE States",
+    bottomSpec: "Ready Stock in Guwahati • 72h Dispatch Across 8 NE States",
     hubTag: "EXPRESS DISPATCH",
   },
 ];

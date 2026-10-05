@@ -87,7 +87,7 @@ const services: ServiceCardItem[] = [
     imageSrc: "/images/service-event-card-printing-v3.jpg",
     imageAlt: "Custom event cards with clear IDGen logo and branded lanyards",
     tag: "Conferences & Summits",
-    badge: "Express 48h",
+    badge: "Express 72h",
     badgeColor: "text-amber-400 bg-amber-500/10 border-amber-400/30",
     spec: "Oversized CR100/Custom • Dual Hook Ready",
     highlights: [

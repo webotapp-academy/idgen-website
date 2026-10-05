@@ -51,7 +51,7 @@ export const richGuwahatiData: CityData = {
     "IDGen is based in Guwahati, Assam, allowing us to work closely with organizations in one of Assam's major educational, commercial and institutional markets.",
   localAdvantagePills: [
     "Guwahati Production Facility",
-    "24–48h Priority Batch Dispatch",
+    "72h Priority Batch Dispatch",
     "Pre-Production Physical Proofing",
     "100% Optical Quality Check",
   ],
@@ -184,10 +184,10 @@ export const richGuwahatiData: CityData = {
   whyChoosePoints: [
     {
       title: "Guwahati-Based Manufacturing",
-      desc: "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 24–48h fast dispatch across Assam.",
+      desc: "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 72h fast dispatch across Assam.",
       image: "/images/service-guwahati-hub.jpg",
       badge: "Direct Cleanroom Hub",
-      stat: "24–48h Local Delivery",
+      stat: "72h Local Delivery",
     },
     {
       title: "Experience Since 2014",
@@ -400,7 +400,7 @@ function initializeDataStore(): StateData[] {
             },
             {
               q: `How long does delivery take to ${c.name}?`,
-              a: `Production typically takes 24–48 hours, followed by express door-step dispatch taking 24–72 hours to ${c.name}.`,
+              a: `Orders are typically dispatched within 72 hours of approval; delivery time to ${c.name} then depends on the courier route.`,
             },
             {
               q: `Can we get RFID / smart cards for attendance in ${c.name}?`,

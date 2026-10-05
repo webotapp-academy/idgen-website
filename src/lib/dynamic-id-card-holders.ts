@@ -38,7 +38,7 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
         iconName: "Sliders",
       },
       {
-        title: "24–48h",
+        title: "72h",
         subtitle: "Guwahati dispatch",
         iconName: "Truck",
       },

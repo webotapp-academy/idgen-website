@@ -63,9 +63,9 @@ export function QuoteCalculator() {
   const totalMaxEst = maxUnitEst * quantity;
 
   // Turnaround days calculation
-  let turnaround = "48–72 Hours";
+  let turnaround = "72 Hours";
   if (quantity > 5000) turnaround = "3–5 Days";
-  else if (quantity <= 500) turnaround = "24–48 Hours";
+  else if (quantity <= 500) turnaround = "72 Hours";
 
   return (
     <div className="overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-[#091629] via-[#06101f] to-[#040914] text-white shadow-2xl backdrop-blur-2xl">

@@ -93,7 +93,7 @@ const orgSolutions: SolutionCardItem[] = [
     highlights: [
       "Color-Coded Delegate & VIP Badges",
       "Anti-Twist Dual-Hook Lanyard Systems",
-      "Express 48h Batch Dispatch for Events",
+      "Express 72h Batch Dispatch for Events",
     ],
   },
   {

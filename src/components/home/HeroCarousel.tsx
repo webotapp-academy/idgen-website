@@ -48,7 +48,7 @@ const heroSlides: HeroSlide[] = [
     category: "Conferences",
     topBadge: "VIP Event Pass",
     specPill: "Dual Chrome Hooks",
-    bottomSpec: "Holographic Foil • Express 48h Delivery",
+    bottomSpec: "Holographic Foil • Express 72h Dispatch",
     hubTag: "SUMMIT READY",
   },
   {

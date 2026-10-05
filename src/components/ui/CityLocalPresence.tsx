@@ -237,7 +237,7 @@ export function CityLocalPresence({ city, state, organizations }: CityLocalPrese
                 </div>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1 text-foreground font-medium backdrop-blur-sm shadow-xs">
                   <Clock className="h-3.5 w-3.5 text-accent" />
-                  <span>{isGuwahati ? "24–48h Priority Batch Dispatch" : "Fast Doorstep Turnaround"}</span>
+                  <span>{isGuwahati ? "72h Priority Batch Dispatch" : "Fast Doorstep Turnaround"}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1 text-foreground font-medium backdrop-blur-sm shadow-xs">
                   <Layers className="h-3.5 w-3.5 text-accent" />

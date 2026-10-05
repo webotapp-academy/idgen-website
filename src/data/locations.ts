@@ -15,7 +15,7 @@ export const states: StateContent[] = [
         name: "Guwahati",
         isPrimary: true,
         heroIntro:
-          "IDGen is a Guwahati-based identity manufacturing facility providing customized and bulk identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, industries, events and other organizations with 48–72h local dispatch.",
+          "IDGen is a Guwahati-based identity manufacturing facility providing customized and bulk identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, industries, events and other organizations with 72h local dispatch.",
         nearbyAreas: ["Dispur", "Paltan Bazaar", "GS Road", "Khanapara", "Six Mile", "Panbazar", "Jalukbari", "Beltola", "Zoo Road", "Chandmari", "Ulubari", "Maligaon", "Borjhar", "Amingaon", "North Guwahati", "Mirza", "Azara"],
         metaTitle: "ID Card Printing in Guwahati | Factory Direct Student & Employee ID Cards | IDGen",
         metaDescription:
@@ -224,7 +224,7 @@ export const states: StateContent[] = [
       "IDGen manufactures and supplies high-grade PVC ID cards, custom printed satin lanyards, and event credentials for schools, universities, Hornbill Festival summits, and enterprises across Nagaland.",
     metaTitle: "ID Card Printing in Nagaland | Kohima, Dimapur & Mokokchung | IDGen",
     metaDescription:
-      "Custom PVC ID card printing and satin lanyards for schools, colleges, Hornbill events, and organizations in Nagaland with 48–72h factory dispatch.",
+      "Custom PVC ID card printing and satin lanyards for schools, colleges, Hornbill events, and organizations in Nagaland with 72h factory dispatch.",
     cities: [
       {
         slug: "kohima",

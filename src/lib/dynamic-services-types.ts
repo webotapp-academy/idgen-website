@@ -97,7 +97,7 @@ export const DEFAULT_SERVICES_DATA: DynamicServicesData = {
       "From 30-mil PVC smart cards and contactless RFID badges to full-color satin lanyards and ultrasonic finishing, IDGen delivers complete wearable identification manufactured under one roof in Guwahati.",
     stats: [
       { label: "Daily Output", value: "10,000+ IDs" },
-      { label: "Dispatch Timeline", value: "48–72h" },
+      { label: "Dispatch Timeline", value: "72h" },
       { label: "Print Technology", value: "Thermal Retransfer" },
       { label: "Artwork Setup", value: "Zero Fee" },
     ],

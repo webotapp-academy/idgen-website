@@ -30,7 +30,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
         iconName: "Magnet",
       },
       {
-        title: "48–72h",
+        title: "72h",
         desc: "Factory dispatch",
         iconName: "Truck",
       },
@@ -105,7 +105,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
         category: "Bulk Batch",
         topBadge: "Ready Factory Stock",
         specPill: "5,000+ Daily Capacity",
-        bottomSpec: "Zero Setup Charge • 48-72h Express Turnaround • 8 NE States",
+        bottomSpec: "Zero Setup Charge • 72h Express Turnaround • 8 NE States",
         hubTag: "EXPRESS DISPATCH",
       },
     ],
@@ -606,12 +606,12 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
       {
         num: "04",
         title: "4. Fast Dispatch Across Northeast",
-        body: "Shipped in protective foam trays with 48–72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
+        body: "Shipped in protective foam trays with 72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
         badge: "Dispatch",
       },
     ],
     dispatchBadge: "Factory Express Turnaround",
-    dispatchTitle: "48–72h Factory Dispatch",
+    dispatchTitle: "72h Factory Dispatch",
     dispatchHubTag: "Guwahati Direct Hub",
     dispatchLede:
       "For standard corporate orders with approved staff rosters, our streamlined production line operates on a strict factory fulfillment schedule:",
@@ -670,7 +670,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
       },
       {
         q: "What is the standard production and delivery turnaround?",
-        a: "Standard orders with approved staff rosters are produced in 48–72 hours at our Guwahati facility and dispatched across Assam and all 8 Northeast states.",
+        a: "Standard orders with approved staff rosters are produced in 72 hours at our Guwahati facility and dispatched across Assam and all 8 Northeast states.",
       },
     ],
   },

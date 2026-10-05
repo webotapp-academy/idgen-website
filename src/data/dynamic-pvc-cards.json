@@ -22,7 +22,7 @@
                 "iconName": "Sparkles"
             },
             {
-                "title": "24–48h",
+                "title": "72h",
                 "desc": "Factory dispatch",
                 "iconName": "Truck"
             }
@@ -97,7 +97,7 @@
                 "category": "Full Suite",
                 "topBadge": "Ready Factory Stock",
                 "specPill": "10,000+ Daily Capacity",
-                "bottomSpec": "Ready Stock in Guwahati • 24–48h Dispatch Across 8 NE States",
+                "bottomSpec": "Ready Stock in Guwahati • 72h Dispatch Across 8 NE States",
                 "hubTag": "EXPRESS DISPATCH"
             }
         ]
@@ -610,12 +610,12 @@
             {
                 "num": "04",
                 "title": "4. Rapid Guwahati Dispatch",
-                "body": "Card batches packed in anti-static trays and dispatched in 24–48h across all 8 NE states.",
+                "body": "Card batches packed in anti-static trays and dispatched in 72h across all 8 NE states.",
                 "badge": "Dispatch"
             }
         ],
         "dispatchBadge": "Guwahati Direct Factory",
-        "dispatchTitle": "24–48h Factory Dispatch",
+        "dispatchTitle": "72h Factory Dispatch",
         "dispatchHubTag": "Guwahati Direct Hub",
         "dispatchLede": "For standard organizational ID batches with approved data rosters, our automated thermal production line operates on a strict factory fulfillment schedule:",
         "dispatchFlowSteps": [
@@ -675,7 +675,7 @@
             },
             {
                 "q": "What is the dispatch turnaround for custom printed PVC cards?",
-                "a": "Standard batches with approved data rosters are produced and dispatched in 24–48 hours from our Guwahati factory across Assam and all 8 Northeast states."
+                "a": "Standard batches with approved data rosters are produced and dispatched within 72 hours from our Guwahati factory across Assam and all 8 Northeast states."
             }
         ]
     },

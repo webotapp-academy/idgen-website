@@ -280,7 +280,7 @@ export const DEFAULT_WHY_IDGEN_DATA: DynamicWhyIdgenData = {
     approachPillAction: "9-Step Precision Flow",
     approachPillLink: "#production-approach",
     quickPillLabel: "FAST TURNAROUND:",
-    quickPillValue: "24–48h Dispatch Ready",
+    quickPillValue: "72h Dispatch Ready",
     primaryCtaText: "Request an Institutional Quote",
     primaryCtaLink: "/contact/",
     secondaryCtaText: "Explore Products",
@@ -331,7 +331,7 @@ export const DEFAULT_WHY_IDGEN_DATA: DynamicWhyIdgenData = {
     centralBaseDescription:
       "Centrally positioned in Guwahati to coordinate identity card manufacturing, personalized lanyards, and accessory assembly with rapid surface and air transit across all 8 Northeastern states.",
     centralBaseFeatures: [
-      "Direct factory dispatch with 24–48h priority batches",
+      "Direct factory dispatch with 72h priority batches",
       "Dedicated regional customer support desk",
       "All state transport & courier hub connectivity",
     ],

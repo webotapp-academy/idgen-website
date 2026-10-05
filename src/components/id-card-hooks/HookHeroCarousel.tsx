@@ -77,7 +77,7 @@ const hookSlides: HookSlide[] = [
     category: "Wholesale",
     topBadge: "Ready Factory Stock",
     specPill: "25,000+ Units Ready",
-    bottomSpec: "Swivel Hooks • Fish Hooks • Keyrings • Express 24-48h Dispatch",
+    bottomSpec: "Swivel Hooks • Fish Hooks • Keyrings • Express 72h Dispatch",
     hubTag: "READY STOCK",
   },
 ];

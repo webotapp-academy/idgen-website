@@ -38,7 +38,7 @@ export const orderingSteps = [
   {
     num: "04",
     title: "4. Fast Dispatch Across Northeast",
-    body: "Shipped in protective foam trays with 48–72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
+    body: "Shipped in protective foam trays with 72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
     badge: "Dispatch",
   },
 ];
@@ -156,7 +156,7 @@ export function BadgeWorkflowAndDispatch({
       </div>
 
       {/* ═════════════════════════════════════════════════════════════
-          2. 48–72H EXPRESS DISPATCH COMMITMENT
+          2. 72H EXPRESS DISPATCH COMMITMENT
           ═════════════════════════════════════════════════════════════ */}
       <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 lg:p-10 shadow-xl space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
@@ -169,7 +169,7 @@ export function BadgeWorkflowAndDispatch({
                 {data?.dispatchBadge || "Factory Express Turnaround"}
               </span>
               <h3 className="text-2xl font-black text-slate-900 dark:text-white">
-                {data?.dispatchTitle || "48–72h Factory Dispatch"}
+                {data?.dispatchTitle || "72h Factory Dispatch"}
               </h3>
             </div>
           </div>
