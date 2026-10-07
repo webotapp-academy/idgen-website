@@ -815,7 +815,7 @@ export const DEFAULT_HOMEPAGE_DATA: DynamicHomePageData = {
       tag: "Assam • Northeast India",
     },
     dispatchKpis: [
-      { title: "Guwahati", subtitle: "Same-Day Pickup", highlightType: "default" },
+      { title: "Guwahati", subtitle: "Local Dispatch Hub", highlightType: "default" },
       { title: "72 Hours", subtitle: "Regional Dispatch", highlightType: "accent" },
       { title: "100% Zero", subtitle: "Transit Mismatch", highlightType: "emerald" },
     ],
