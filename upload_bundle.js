@@ -1,3 +1,7 @@
+if (!process.env.DEPLOY_SSH_HOST || !process.env.DEPLOY_SSH_USER || !process.env.DEPLOY_SSH_PASSWORD) {
+  console.error('Set DEPLOY_SSH_HOST, DEPLOY_SSH_PORT, DEPLOY_SSH_USER and DEPLOY_SSH_PASSWORD first.');
+  process.exit(1);
+}
 const fs = require('fs');
 const path = require('path');
 const { Client } = require('ssh2');
@@ -87,9 +91,9 @@ conn.on('ready', () => {
 }).on('error', (err) => {
   console.error('SSH connection error:', err);
 }).connect({
-  host: '147.93.109.23',
-  port: 65002,
-  username: 'u942704794',
-  password: 'IDgen789@#$',
+  host: process.env.DEPLOY_SSH_HOST,
+  port: Number(process.env.DEPLOY_SSH_PORT || 22),
+  username: process.env.DEPLOY_SSH_USER,
+  password: process.env.DEPLOY_SSH_PASSWORD,
   readyTimeout: 45000,
 });

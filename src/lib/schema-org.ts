@@ -29,8 +29,8 @@ export function organizationSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 26.1825,
-      longitude: 91.7415,
+      latitude: 26.1798,
+      longitude: 91.7423,
     },
     openingHoursSpecification: [
       {
