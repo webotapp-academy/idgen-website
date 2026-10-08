@@ -103,7 +103,7 @@
                 "topBadge": "Ready Factory Stock",
                 "specPill": "10,000+ Units Ready",
                 "bottomSpec": "V-1 • V-2 • V-3 • H-1 • H-2 • CV-1 • Chemical Stickers",
-                "hubTag": "EXPRESS DISPATCH"
+                "hubTag": "COURIER DISPATCH"
             }
         ]
     },
@@ -1140,7 +1140,7 @@
         "orderingWorkflow": {
             "eyebrow": "Fulfillment Pipeline",
             "title": "Ordering ID Card Holders",
-            "lede": "A frictionless 6-step ordering process from requirement confirmation to express delivery.",
+            "lede": "A frictionless 6-step ordering process from requirement confirmation to courier dispatch.",
             "steps": [
                 {
                     "num": "01",
@@ -1182,7 +1182,7 @@
         },
         "expressDispatch": {
             "badge": "Factory Speed Commitment",
-            "title": "72-Hour Express Dispatch",
+            "title": "72-Hour Dispatch",
             "pill": "⚡ Guaranteed Timeline on Approved Orders",
             "steps": [
                 {
@@ -1225,7 +1225,7 @@
             "trustPoints": [
                 "Wholesale Cartons in Stock",
                 "Free Physical Sample Kits for Institutions",
-                "Pan-India Express Logistics"
+                "Pan-India Courier Shipping"
             ]
         }
     },

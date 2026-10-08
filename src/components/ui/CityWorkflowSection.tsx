@@ -133,12 +133,12 @@ export function CityWorkflowSection({
     },
     {
       step: "08",
-      title: customSteps?.[7]?.title || "Doorstep Dispatch",
+      title: customSteps?.[7]?.title || "Courier Dispatch",
       description:
         customSteps?.[7]?.description ||
         (isGuwahati
-          ? "Secure sorted packaging with priority 72h local delivery across Guwahati."
-          : `Secure class/department-wise sorted packaging with priority courier dispatch to your doorstep in ${cityName}, ${stateName}.`),
+          ? "Secure sorted packaging, dispatched within 72 hours and shipped by courier across Guwahati."
+          : `Secure class/department-wise sorted packaging, handed over to a courier agency for shipping to ${cityName}, ${stateName}.`),
       phase: customSteps?.[7]?.phase || "Fulfillment",
       icon: Truck,
       colorClass: "from-sky-500/20 to-blue-500/10 text-sky-500 dark:text-sky-400 border-sky-500/30",
@@ -220,7 +220,7 @@ export function CityWorkflowSection({
               </h2>
               <p className="text-sm sm:text-base text-muted leading-relaxed">
                 {workflowSubtitle ||
-                  `A predictable 8-stage manufacturing workflow ensuring zero data errors, exact color calibration, and doorstep dispatch to ${cityName}.`}
+                  `A predictable 8-stage manufacturing workflow ensuring zero data errors, exact color calibration, and courier dispatch to ${cityName}.`}
               </p>
             </div>
 
@@ -329,8 +329,8 @@ export function CityWorkflowSection({
             <span className="leading-relaxed">
               {workflowNote ||
                 (isGuwahati
-                  ? "Guwahati Hub Advantage: Free physical pre-production sample & priority local delivery available."
-                  : `Doorstep express delivery across ${cityName}, ${stateName} with rigorous optical quality verification before dispatch.`)}
+                  ? "Guwahati Hub Advantage: Free physical pre-production sample available; orders ship via courier agency."
+                  : `Courier shipping across ${cityName}, ${stateName} after rigorous optical quality verification.`)}
             </span>
           </div>
 

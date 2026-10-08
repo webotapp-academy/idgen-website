@@ -132,7 +132,7 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h3 className="text-xs font-bold tracking-widest text-cyan-400 uppercase flex items-center gap-2 mb-4">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-              Northeast Delivery
+              Northeast Shipping
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
@@ -396,7 +396,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <Truck className="h-4 w-4 text-accent" />
-            <span>72-Hour Express Dispatch</span>
+            <span>72-Hour Dispatch</span>
           </div>
           <div className="flex items-center gap-2">
             <Award className="h-4 w-4 text-purple-400" />

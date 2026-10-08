@@ -183,7 +183,7 @@ export default function CaseStudiesPage() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span>72-Hour Express Dispatch</span>
+                  <span>72-Hour Dispatch</span>
                 </div>
               </div>
             </div>
@@ -248,7 +248,7 @@ export default function CaseStudiesPage() {
                   <p className="font-mono text-slate-300">
                     IDGen — Real Identification Case Studies
                   </p>
-                  <p>Guwahati, Assam • Direct Factory Deliveries Across Northeast India</p>
+                  <p>Guwahati, Assam • Direct Factory Supply Across Northeast India</p>
                 </div>
               </div>
             </section>

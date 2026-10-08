@@ -98,7 +98,7 @@
                 "topBadge": "Ready Factory Stock",
                 "specPill": "5,000+ Daily Capacity",
                 "bottomSpec": "Zero Setup Charge • 48-72h Express Turnaround • 8 NE States",
-                "hubTag": "EXPRESS DISPATCH"
+                "hubTag": "COURIER DISPATCH"
             }
         ]
     },
@@ -563,7 +563,7 @@
     "workflowAndDispatch": {
         "workflowBadge": "Manufacturing Workflow",
         "workflowTitle": "How We Craft Custom Acrylic Badges",
-        "workflowLede": "From vector artwork verification to precision CO2 laser contour cutting and express delivery across all 8 Northeast states.",
+        "workflowLede": "From vector artwork verification to precision CO2 laser contour cutting and courier dispatch to all 8 Northeast states.",
         "orderingSteps": [
             {
                 "num": "01",

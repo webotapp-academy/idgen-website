@@ -114,7 +114,7 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
         topBadge: "Ready Factory Stock",
         specPill: "10,000+ Units Ready",
         bottomSpec: "V-1 • V-2 • V-3 • H-1 • H-2 • CV-1 • Chemical Stickers",
-        hubTag: "EXPRESS DISPATCH",
+        hubTag: "COURIER DISPATCH",
       },
     ],
   },
@@ -643,7 +643,7 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
     orderingWorkflow: {
       eyebrow: "Fulfillment Pipeline",
       title: "Ordering ID Card Holders",
-      lede: "A frictionless 6-step ordering process from requirement confirmation to express delivery.",
+      lede: "A frictionless 6-step ordering process from requirement confirmation to courier dispatch.",
       steps: [
         {
           num: "01",
@@ -685,7 +685,7 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
     },
     expressDispatch: {
       badge: "Factory Speed Commitment",
-      title: "72-Hour Express Dispatch",
+      title: "72-Hour Dispatch",
       pill: "⚡ Guaranteed Timeline on Approved Orders",
       steps: [
         { step: "01", label: "Approval & Payment", desc: "Digital signoff released" },
@@ -712,7 +712,7 @@ export const DEFAULT_ID_CARD_HOLDERS_DATA: DynamicIdCardHoldersData = {
       trustPoints: [
         "Wholesale Cartons in Stock",
         "Free Physical Sample Kits for Institutions",
-        "Pan-India Express Logistics",
+        "Pan-India Courier Shipping",
       ],
     },
   },

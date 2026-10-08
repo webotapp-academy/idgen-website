@@ -227,7 +227,7 @@ export function HolderWorkflowAndDispatch({
             {ordering?.title || "Ordering ID Card Holders"}
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1.5">
-            {ordering?.lede || "A frictionless 6-step ordering process from requirement confirmation to express delivery."}
+            {ordering?.lede || "A frictionless 6-step ordering process from requirement confirmation to courier dispatch."}
           </p>
         </div>
 
@@ -280,7 +280,7 @@ export function HolderWorkflowAndDispatch({
                 {dispatch?.badge || "Factory Speed Commitment"}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-white">
-                {dispatch?.title || "72-Hour Express Dispatch"}
+                {dispatch?.title || "72-Hour Dispatch"}
               </h3>
             </div>
           </div>
@@ -383,7 +383,7 @@ export function HolderWorkflowAndDispatch({
               closing?.trustPoints || [
                 "Wholesale Cartons in Stock",
                 "Free Physical Sample Kits for Institutions",
-                "Pan-India Express Logistics",
+                "Pan-India Courier Shipping",
               ]
             ).map((point, idx) => (
               <span key={idx} className="flex items-center gap-1.5">

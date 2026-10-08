@@ -66,7 +66,7 @@ export const DEFAULT_ID_CARD_SLIDES: IdCardSlideItem[] = [
     topBadge: "Bulk Batch Ready",
     specPill: "10,000+ Daily Capacity",
     bottomSpec: "Multi-Design Batches • Barcodes • Fast Turnaround",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 
@@ -190,7 +190,7 @@ export const DEFAULT_WORKFLOW_STEPS: WorkflowConfigStep[] = [
   {
     num: "09",
     title: "Packaging & Dispatch",
-    body: "Completed orders are sorted, batch-packaged and prepared for express dispatch across Assam and the Northeast.",
+    body: "Completed orders are sorted, batch-packaged and prepared for dispatch by courier agency across Assam and the Northeast.",
     badge: "Step 9 • Safe Dispatch",
     img: "https://images.unsplash.com/photo-1586528116493-a029325540fa?auto=format&fit=crop&w=1000&q=80",
     iconName: "Truck",
@@ -565,7 +565,7 @@ export const DEFAULT_ID_CARD_PRINTING_DATA: DynamicIdCardPrintingData = {
   orderWorkflowSection: {
     eyebrow: "Ordering Process",
     title: "How to Order ID Cards from IDGen",
-    lede: "A straightforward eight-step pathway from your initial inquiry to door-to-door delivery.",
+    lede: "A straightforward eight-step pathway from your initial inquiry to courier dispatch.",
     steps: [
       { title: "Step 1 — Tell Us Your Requirement", body: "Tell us the card type, approximate quantity and application." },
       { title: "Step 2 — Share Data", body: "Provide the required information and photographs." },

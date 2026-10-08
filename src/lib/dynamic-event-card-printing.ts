@@ -57,7 +57,7 @@ export const DEFAULT_EVENT_CARD_PRINTING_DATA: DynamicEventCardPrintingData = {
       topBadge: "Executive Summit",
       specPill: "Holographic Security",
       bottomSpec: "Express 72h Dispatch • Anti-Counterfeit Foil",
-      hubTag: "EXPRESS DISPATCH",
+      hubTag: "COURIER DISPATCH",
     },
     {
       id: "event-two-hook-config",
@@ -555,7 +555,7 @@ export const DEFAULT_EVENT_CARD_PRINTING_DATA: DynamicEventCardPrintingData = {
       "Hook configuration",
       "Ultrasonic sealing",
       "Packaging",
-      "Delivery requirements",
+      "Shipping requirements",
     ],
     note: "This keeps the service page focused on the solution while the dedicated pricing pages handle current price information.",
     cta1Text: "View Event Card Pricing",

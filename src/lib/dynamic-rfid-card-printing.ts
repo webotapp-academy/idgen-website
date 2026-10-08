@@ -93,7 +93,7 @@ export const DEFAULT_RFID_CARD_PRINTING_DATA: DynamicRfidCardPrintingData = {
         topBadge: "Bulk Batch Ready",
         specPill: "10,000+ Daily Capacity",
         bottomSpec: "Pre-Encoded UID • Sequential Numbering • Express Dispatch",
-        hubTag: "EXPRESS DISPATCH",
+        hubTag: "COURIER DISPATCH",
       },
     ],
   },

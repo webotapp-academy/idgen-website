@@ -82,7 +82,7 @@ const idCardSlides: IdCardSlide[] = [
     topBadge: "Bulk Batch Ready",
     specPill: "10,000+ Daily Capacity",
     bottomSpec: "Multi-Design Batches • Barcodes • Fast Turnaround",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 

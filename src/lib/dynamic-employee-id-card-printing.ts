@@ -97,7 +97,7 @@ export const DEFAULT_EMPLOYEE_ID_CARD_PRINTING_DATA: DynamicEmployeeIdCardPrinti
       topBadge: "Bulk Workforce Ready",
       specPill: "10,000+ Daily Capacity",
       bottomSpec: "Multi-Department Batches • Barcodes • Fast Dispatch",
-      hubTag: "EXPRESS DISPATCH",
+      hubTag: "COURIER DISPATCH",
     },
   ],
 

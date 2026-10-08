@@ -120,7 +120,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
       q: `Does IDGen have an office in ${city.name}?`,
       a: city.isPrimary
         ? `Yes. ${SITE.hqCity} is IDGen's primary business base and manufacturing cleanroom.`
-        : `IDGen's primary business base is in ${SITE.hqCity}, ${SITE.hqState}. The ${city.name} page represents direct institutional service coverage and doorstep express logistics across ${state.name}.`,
+        : `IDGen's primary business base is in ${SITE.hqCity}, ${SITE.hqState}. The ${city.name} page represents direct institutional service coverage and courier shipping across ${state.name}.`,
     },
   ];
 
@@ -145,14 +145,14 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
   const organizations = city.organizationsServed || defaultOrganizations;
 
   const defaultOrderSteps = [
-    { step: "01", title: "Tell Us Your Requirement", description: "Share: Organization + Product + Quantity + Delivery Requirement." },
+    { step: "01", title: "Tell Us Your Requirement", description: "Share: Organization + Product + Quantity + Shipping Requirement." },
     { step: "02", title: "Share Your Data", description: "Provide the required records and photos (or use IDGen Studio)." },
     { step: "03", title: "Confirm the Design", description: "Use your existing design or discuss a custom template." },
     { step: "04", title: "Review & Proofing", description: "Review digital PDF proofs or request physical pre-production sample." },
     { step: "05", title: "Approval", description: "Formal sign-off on design, data, and accessory specs." },
     { step: "06", title: "Production", description: "Thermal printing, RFID encoding, and ultrasonic lamination." },
     { step: "07", title: "Quality Check", description: "100% optical inspection before dispatch." },
-    { step: "08", title: "Dispatch", description: `Prepared for dispatch and delivered directly to your doorstep in ${city.name}.` },
+    { step: "08", title: "Dispatch", description: `Prepared for dispatch and handed over to a courier agency for shipping to ${city.name}.` },
   ];
   const orderSteps = city.orderSteps || defaultOrderSteps;
 
@@ -468,7 +468,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               </h2>
               <p className="text-sm sm:text-base text-muted leading-relaxed">
                 {city.coverageIntro ||
-                  (isGuwahati ? `IDGen is based in Guwahati, Assam, and serves organizations across the city and surrounding areas.` : `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`)}
+                  (isGuwahati ? `IDGen is based in Guwahati, Assam, and serves organizations across the city and surrounding areas.` : `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders are shipped by courier agency to the city and surrounding areas.`)}
               </p>
             </div>
 
@@ -495,7 +495,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
                   {city.name} Serviced Localities &amp; Fulfillment Zones:
                 </span>
                 <span className="text-[11px] text-muted">
-                  ({city.nearbyAreas.length} active delivery zones covered)
+                  ({city.nearbyAreas.length} service areas covered)
                 </span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -664,7 +664,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               </div>
               <div className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1.5 font-semibold text-foreground shadow-2xs">
                 <Truck className="h-3.5 w-3.5 text-accent" />
-                <span>Fulfillment: {isGuwahati ? "72h Local" : "Express Doorstep"}</span>
+                <span>Fulfillment: {isGuwahati ? "72h Dispatch" : "Courier Shipping"}</span>
               </div>
             </div>
           </div>
@@ -677,14 +677,14 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               <div>
                 <div className="inline-flex items-center gap-2 mb-2">
                   <span className="h-px w-6 bg-accent" aria-hidden="true" />
-                  <p className="text-xs font-bold tracking-widest text-accent uppercase">Regional Logistics Network</p>
+                  <p className="text-xs font-bold tracking-widest text-accent uppercase">Regional Coverage</p>
                   <span className="h-px w-6 bg-accent/40" aria-hidden="true" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
                   Other Cities We Serve in <span className="gradient-text">{state.name}</span>
                 </h2>
                 <p className="mt-2 text-sm text-muted max-w-2xl leading-relaxed">
-                  Direct institutional identity support, sample dispatch, and door-to-door fulfillment across all primary districts of {state.name}.
+                  Direct institutional identity support, sample dispatch, and courier shipping across all primary districts of {state.name}.
                 </p>
               </div>
 
@@ -692,7 +692,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
                 <MapPin className="h-5 w-5 text-accent" />
                 <div className="text-left">
                   <p className="text-xs font-bold text-foreground">Active Daily Routes</p>
-                  <p className="text-[10px] text-muted">72h Doorstep Dispatch</p>
+                  <p className="text-[10px] text-muted">72h Dispatch by Courier</p>
                 </div>
               </div>
             </div>
@@ -726,7 +726,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
 
             <p className="pt-3 border-t border-slate-200/60 dark:border-white/10 text-xs text-muted flex items-center gap-1.5">
               <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
-              <span>All regional shipments are factory-calibrated and dispatched directly from our primary manufacturing hub with door-to-door tracking.</span>
+              <span>All regional shipments are factory-calibrated and handed over to a courier agency from our primary manufacturing hub; tracking depends on the courier.</span>
             </p>
           </div>
         )}

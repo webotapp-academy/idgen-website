@@ -95,7 +95,7 @@ export const workflowStepsData: WorkflowItem[] = [
     num: "09",
     title: "Packaging & Dispatch",
     body: "Completed orders are prepared for dispatch according to the applicable order timeline.",
-    badge: "Step 9 • Safe Delivery",
+    badge: "Step 9 • Safe Dispatch",
     img: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1000&q=80",
     icon: Truck,
   },

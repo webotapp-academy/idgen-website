@@ -321,10 +321,10 @@ export function getDefaultWhyChoosePoints(cityName?: string, stateName?: string,
       title: isGuwahati ? "Guwahati-Based Manufacturing" : `${cName} Direct Regional Fulfillment`,
       desc: isGuwahati
         ? "Local presence in Guwahati ensures direct factory communication, rapid physical proofs, and 72h fast dispatch across Assam."
-        : `Direct logistical coordination from our regional manufacturing cleanroom with doorstep delivery across ${cName} and ${sName}.`,
+        : `Direct coordination with our Guwahati manufacturing cleanroom, with orders shipped by courier agency across ${cName} and ${sName}.`,
       image: isGuwahati ? "/images/service-guwahati-hub.jpg" : "/images/idgen-id-card-solutions-guwahati-assam.jpg",
       badge: isGuwahati ? "Direct Cleanroom Hub" : "Regional Priority",
-      stat: isGuwahati ? "72h Local Delivery" : "Fast Doorstep Dispatch",
+      stat: isGuwahati ? "72h Dispatch" : "Courier Shipping",
     },
     {
       title: "Experience Since 2014",

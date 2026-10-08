@@ -191,7 +191,7 @@ export function HeroSection({ data }: { data?: HomePageHero } = {}) {
               </div>
               <div className="min-w-0">
                 <p className="text-base sm:text-lg font-extrabold text-foreground tracking-tight">72 Hours</p>
-                <p className="text-xs font-medium text-muted">Express Dispatch</p>
+                <p className="text-xs font-medium text-muted">Courier Dispatch</p>
               </div>
             </div>
 

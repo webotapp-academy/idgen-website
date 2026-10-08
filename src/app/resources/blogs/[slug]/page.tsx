@@ -429,7 +429,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             links={[
               { label: "Request Free Sample Kit", href: "/request-a-quote/", primary: true },
               { label: "Check Wholesale Pricing", href: "/pricing/" },
-              { label: "Northeast Delivery Matrix", href: "/contact-us/" },
+              { label: "Northeast Shipping Guide", href: "/contact-us/" },
             ]}
           />
         </div>

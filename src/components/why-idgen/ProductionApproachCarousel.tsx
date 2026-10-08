@@ -40,7 +40,7 @@ export const productionStepsData: ProductionStep[] = [
   {
     num: "01",
     title: "Requirement",
-    body: "We understand the required: Product, Quantity, Specifications, Personalization, Accessories, Delivery requirements.",
+    body: "We understand the required: Product, Quantity, Specifications, Personalization, Accessories, Shipping requirements.",
     badge: "Step 1 • Requirements",
     img: "/images/why-idgen-cards-showcase-branded.jpg",
     iconType: "ClipboardCheck",
@@ -104,8 +104,8 @@ export const productionStepsData: ProductionStep[] = [
   {
     num: "09",
     title: "Dispatch",
-    body: "Orders are packed and dispatched for delivery across Assam and Northeast India.",
-    badge: "Step 9 • Delivery",
+    body: "Orders are packed and dispatched by courier across Assam and Northeast India.",
+    badge: "Step 9 • Courier Dispatch",
     img: "/images/why-idgen-hero-showcase.jpg",
     iconType: "Truck",
   },

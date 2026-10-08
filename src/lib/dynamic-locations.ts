@@ -88,10 +88,10 @@ export const richGuwahatiData: CityData = {
   ],
   localAdvantageTitle: "Guwahati Local Production Advantage",
   localAdvantageDesc:
-    "Direct cleanroom manufacturing in Guwahati ensures fast physical proofs, immediate design sign-off, and priority local dispatch.",
+    "Direct cleanroom manufacturing in Guwahati ensures fast physical proofs, immediate design sign-off, and dispatch by courier.",
   localAdvantageCta: "Quote →",
-  deliveryRoutesTitle: "Direct Doorstep Delivery & Pickup Routes Across Guwahati:",
-  deliveryRoutesSubtitle: "Rapid fulfillment across all major institutional & commercial zones in Guwahati",
+  deliveryRoutesTitle: "Courier Shipping Routes Across Guwahati:",
+  deliveryRoutesSubtitle: "Orders shipped by courier to major institutional & commercial zones in Guwahati",
   coverageEyebrow: "Guwahati Service Coverage",
   coverageTitle: "Guwahati Service Coverage",
   coverageIntro:
@@ -187,7 +187,7 @@ export const richGuwahatiData: CityData = {
       desc: "Local presence in Guwahati ensures direct communication, rapid physical proofs, and 72h fast dispatch across Assam.",
       image: "/images/service-guwahati-hub.jpg",
       badge: "Direct Cleanroom Hub",
-      stat: "72h Local Delivery",
+      stat: "72h Dispatch",
     },
     {
       title: "Experience Since 2014",
@@ -230,7 +230,7 @@ export const richGuwahatiData: CityData = {
   workflowEyebrow: "Standard Workflow",
   workflowTitle: "How to Order ID Cards in Guwahati",
   workflowSubtitle:
-    "An institutional-grade 8-stage production flow engineered for data integrity, zero defects, and doorstep fulfillment in Guwahati.",
+    "An institutional-grade 8-stage production flow engineered for data integrity, zero defects, and courier dispatch in Guwahati.",
   orderSteps: [
     {
       step: "01",
@@ -270,7 +270,7 @@ export const richGuwahatiData: CityData = {
     {
       step: "08",
       title: "Dispatch",
-      description: "Secure sorted packaging and hand-delivery in Guwahati or priority courier dispatch across Assam.",
+      description: "Secure sorted packaging and handover to a courier agency for shipping across Assam.",
     },
   ],
 
@@ -315,7 +315,7 @@ export const richGuwahatiData: CityData = {
     },
     {
       q: "Does IDGen serve areas outside central Guwahati?",
-      a: "Yes. IDGen provides doorstep delivery and priority courier services across all areas of Guwahati (Dispur, Khanapara, Jalukbari, Beltola, Amingaon, etc.) and across Assam.",
+      a: "Yes. IDGen ships orders through courier agencies to all areas of Guwahati (Dispur, Khanapara, Jalukbari, Beltola, Amingaon, etc.) and across Assam.",
     },
     {
       q: "How does IDGen handle identification data & confidentiality?",
@@ -391,7 +391,7 @@ function initializeDataStore(): StateData[] {
             { step: "01", title: "Share Requirement", description: "Specify card type, estimated quantity, and accessories." },
             { step: "02", title: "Submit Data", description: "Provide Excel spreadsheet and photos (or use IDGen Studio)." },
             { step: "03", title: "Proofing & Approval", description: "Review and approve digital PDF proofs." },
-            { step: "04", title: "Production & Delivery", description: "Dispatched from Guwahati to your doorstep in " + c.name + "." },
+            { step: "04", title: "Production & Shipping", description: "Dispatched from Guwahati by courier to " + c.name + "." },
           ],
           faqs: [
             {
@@ -408,10 +408,10 @@ function initializeDataStore(): StateData[] {
             },
             {
               q: `Does IDGen have a physical office in ${c.name}?`,
-              a: `IDGen's primary manufacturing facility is located in Guwahati, Assam. The ${c.name} page represents direct institutional service coverage and doorstep logistics.`,
+              a: `IDGen's primary manufacturing facility is located in Guwahati, Assam. The ${c.name} page represents direct institutional service coverage and courier shipping.`,
             },
           ],
-          quickAnswer: `IDGen delivers factory-direct ID card printing and identity solutions in ${c.name}, ${st.name}. Services include student ID cards, corporate badges, event passes, RFID cards, and custom printed lanyards with doorstep express dispatch from our central Guwahati manufacturing hub.`,
+          quickAnswer: `IDGen delivers factory-direct ID card printing and identity solutions in ${c.name}, ${st.name}. Services include student ID cards, corporate badges, event passes, RFID cards, and custom printed lanyards with courier shipping from our central Guwahati manufacturing hub.`,
           metaTitle: c.metaTitle || `ID Card Printing in ${c.name}, ${st.name} | IDGen Identity Solutions`,
           metaDescription:
             c.metaDescription ||

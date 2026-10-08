@@ -3154,7 +3154,7 @@ function AdminIdCardHoldersContent() {
               <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 space-y-3">
                 <h3 className="text-sm font-bold text-emerald-400 flex items-center gap-2">
                   <Clock className="h-4 w-4" />
-                  <span>72-Hour Express Dispatch</span>
+                  <span>72-Hour Dispatch</span>
                 </h3>
                 <input
                   type="text"

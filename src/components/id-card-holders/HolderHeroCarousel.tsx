@@ -78,7 +78,7 @@ const holderSlides: HolderSlide[] = [
     topBadge: "Ready Factory Stock",
     specPill: "10,000+ Units Ready",
     bottomSpec: "V-1 • V-2 • V-3 • H-1 • H-2 • CV-1 • Chemical Stickers",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 

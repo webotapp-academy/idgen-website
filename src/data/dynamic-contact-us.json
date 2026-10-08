@@ -117,14 +117,14 @@
         "eyebrow": "Central Manufacturing Facility",
         "title": "Guwahati Industrial Production Hub",
         "description": "Our cleanroom manufacturing facility operates automated thermal retransfer printing presses, continuous dye-sublimation lines, and ultrasonic acoustic welding machinery.",
-        "address": "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
+        "address": "Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001",
         "operatingHours": "Mon – Sat: 9:30 AM – 7:00 PM",
         "primaryCta": {
             "label": "Request Itemized Quote",
             "href": "/request-a-quote/"
         },
         "secondaryCta": {
-            "label": "View Northeast Delivery Network",
+            "label": "View Northeast Service Areas",
             "href": "/service-areas/assam/"
         }
     },

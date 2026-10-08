@@ -10,13 +10,13 @@ const isDev = process.env.NODE_ENV !== "production";
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   // Allow scripts from self + Google Analytics/Maps + WhatsApp widget
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://cdn.jsdelivr.net`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://cdn.jsdelivr.net https://www.clarity.ms https://scripts.clarity.ms`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   // A13: Allow images from known sources + Google Maps + CDN
-  "img-src 'self' data: blob: https://images.pexels.com https://images.unsplash.com https://cdn.pixabay.com https://*.googleusercontent.com https://maps.googleapis.com https://maps.gstatic.com",
+  "img-src 'self' data: blob: https://images.pexels.com https://images.unsplash.com https://cdn.pixabay.com https://*.googleusercontent.com https://maps.googleapis.com https://maps.gstatic.com https://*.clarity.ms https://c.bing.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   // A13: Allow connections to analytics + WhatsApp API
-  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://api.whatsapp.com https://api.indexnow.org",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://api.whatsapp.com https://api.indexnow.org https://*.clarity.ms https://c.bing.com",
   "media-src 'self' blob: data: https:",
   "frame-src https://maps.google.com https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com",
   "object-src 'none'",

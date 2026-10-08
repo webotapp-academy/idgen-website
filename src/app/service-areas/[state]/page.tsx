@@ -105,7 +105,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     { q: "Where is IDGen based?", a: `IDGen is based in ${SITE.hqCity}, ${SITE.hqState}, India.` },
     {
       q: `Which ${state.name} cities does IDGen serve?`,
-      a: `Priority markets include ${state.cities.map((c) => c.name).join(", ")}. IDGen also delivers door-to-door to institutions across all districts in ${state.name}.`,
+      a: `Priority markets include ${state.cities.map((c) => c.name).join(", ")}. IDGen ships by courier agency to institutions across all districts in ${state.name}.`,
     },
     { q: "Can schools order student ID cards?", a: "Yes. Schools, colleges and universities can request customized student ID cards with lanyards and crystal holders." },
     { q: "Can companies order employee ID cards?", a: "Yes. Companies, offices, hospitals and institutions can request customized employee and staff ID cards with RFID chips." },
@@ -141,7 +141,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
         <div className="mt-5 space-y-4 pt-4 border-t border-slate-200/80 dark:border-white/10">
           <div className="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-3.5 sm:p-4 backdrop-blur-sm shadow-2xs border-l-3 border-l-accent">
             <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300 font-normal">
-              Direct factory printing, RFID smart credentials, and custom printed lanyards engineered for institutions across {state.name} with insured door-to-door dispatch.
+              Direct factory printing, RFID smart credentials, and custom printed lanyards engineered for institutions across {state.name} with courier dispatch.
             </p>
           </div>
 
@@ -173,7 +173,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-              <span>Doorstep Dispatch Across {state.name}</span>
+              <span>Courier Shipping Across {state.name}</span>
             </span>
           </div>
         </div>
@@ -196,7 +196,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           <SectionHead
             eyebrow="Operational Network"
             title={`${state.name} Priority Service Hubs`}
-            lede={`Explore local identity solutions, institutional delivery timelines, and nearby coverage areas across ${state.name}.`}
+            lede={`Explore local identity solutions, shipping timelines, and nearby coverage areas across ${state.name}.`}
           />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {state.cities.map((c) => (

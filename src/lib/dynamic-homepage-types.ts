@@ -778,13 +778,13 @@ export const DEFAULT_HOMEPAGE_DATA: DynamicHomePageData = {
     },
     priorityCitiesTitle: "Priority Assam Service Cities",
     priorityCitiesDesc:
-      "Fast courier and direct institutional delivery available in all major districts:",
+      "Orders ship by courier agency to all major districts:",
     priorityCities: [
       { name: "Guwahati", slug: "guwahati" },
       { name: "Jorhat", slug: "jorhat" },
       { name: "Dibrugarh", slug: "dibrugarh" },
       { name: "Silchar", slug: "silchar" },
-      { name: "Tezpur", slug: "tezpur" },
+      { name: "Tezpur", slug: "sonitpur" },
       { name: "Nagaon", slug: "nagaon" },
       { name: "Tinsukia", slug: "tinsukia" },
       { name: "Sivasagar", slug: "sivasagar" },
@@ -803,7 +803,7 @@ export const DEFAULT_HOMEPAGE_DATA: DynamicHomePageData = {
       { name: "Sikkim", slug: "sikkim" },
     ],
     quoteCallout: {
-      text: "Need a custom regional rollout or district delivery quote?",
+      text: "Need a custom regional rollout or district shipping quote?",
       buttonText: "Request Assam Quote",
       buttonHref: "/request-a-quote/",
     },

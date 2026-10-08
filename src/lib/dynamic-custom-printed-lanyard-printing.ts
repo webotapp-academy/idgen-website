@@ -86,7 +86,7 @@ export const DEFAULT_CUSTOM_PRINTED_LANYARD_PRINTING_DATA: DynamicCustomPrintedL
       topBadge: "Bulk Batch Ready",
       specPill: "5,000+ Daily Capacity",
       bottomSpec: "Schools • Universities • Summits • Corporate Offices",
-      hubTag: "EXPRESS DISPATCH",
+      hubTag: "COURIER DISPATCH",
     },
   ],
   customElements: {

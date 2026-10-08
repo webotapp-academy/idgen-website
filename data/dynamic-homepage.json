@@ -581,7 +581,7 @@
             "button2Href": "/service-areas/assam/guwahati/"
         },
         "priorityCitiesTitle": "Priority Assam Service Cities",
-        "priorityCitiesDesc": "Fast courier and direct institutional delivery available in all major districts:",
+        "priorityCitiesDesc": "Orders ship by courier agency to all major districts:",
         "priorityCities": [
             {
                 "name": "Guwahati",
@@ -660,7 +660,7 @@
             }
         ],
         "quoteCallout": {
-            "text": "Need a custom regional rollout or district delivery quote?",
+            "text": "Need a custom regional rollout or district shipping quote?",
             "buttonText": "Request Assam Quote",
             "buttonHref": "/request-a-quote/"
         },
@@ -674,7 +674,7 @@
         "dispatchKpis": [
             {
                 "title": "Guwahati",
-                "subtitle": "Same-Day Pickup",
+                "subtitle": "Local Dispatch Hub",
                 "highlightType": "default"
             },
             {

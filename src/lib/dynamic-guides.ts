@@ -56,7 +56,7 @@ export const DEFAULT_GUIDES_DATA: DynamicGuidesData = {
     trustBadges: [
       "Factory Direct Guidance",
       "Guwahati Production Hub",
-      "72-Hour Express Dispatch",
+      "72-Hour Dispatch",
     ],
   },
   heroShowcase: {
@@ -347,7 +347,7 @@ export const DEFAULT_GUIDES_DATA: DynamicGuidesData = {
           "Card specification",
           "Printing requirement",
           "Accessories",
-          "Delivery location",
+          "Shipping location",
           "Existing artwork, if available",
           "Data readiness",
           "Required timeline",

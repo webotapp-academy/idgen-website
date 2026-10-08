@@ -865,7 +865,7 @@ function AdminContactUsContent() {
                     })
                   }
                   className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
-                  placeholder="e.g. Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001"
+                  placeholder="e.g. Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001"
                 />
               </div>
 
@@ -882,7 +882,7 @@ function AdminContactUsContent() {
                     })
                   }
                   className="w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-white outline-none focus:border-[#009fe3]"
-                  placeholder="e.g. Central A.T. Road commercial hub, Guwahati, Assam 781001"
+                  placeholder="e.g. Opposite Police Reserve, Assam Trunk Rd, Tokobari Satra, Guwahati, Assam 781001"
                 />
               </div>
 

@@ -556,7 +556,7 @@ export default function AdminServiceAreasPage() {
           city.localPresenceBadge ||
           (city.isPrimary ? "Central Manufacturing Hub • Guwahati Cleanroom" : `Local Identity Solutions • ${city.name}`),
         localPresenceSubBadge:
-          city.localPresenceSubBadge || (city.isPrimary ? "Direct Factory Access" : "Direct Doorstep Logistics"),
+          city.localPresenceSubBadge || (city.isPrimary ? "Direct Factory Access" : "Courier Shipping"),
         localPresenceTitle: city.localPresenceTitle || `IDGen in ${city.name}: A Local Identity Solutions Partner`,
         localAdvantagePills:
           city.localAdvantagePills && city.localAdvantagePills.length > 0
@@ -593,17 +593,17 @@ export default function AdminServiceAreasPage() {
         localAdvantageTitle: city.localAdvantageTitle || `${city.name} Local Production Advantage`,
         localAdvantageDesc:
           city.localAdvantageDesc ||
-          `Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch across ${city.name}.`,
+          `Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and dispatch by courier across ${city.name}.`,
         deliveryRoutesTitle:
-          city.deliveryRoutesTitle || `Direct Doorstep Delivery & Pickup Routes Across ${city.name}:`,
+          city.deliveryRoutesTitle || `Courier Shipping Routes Across ${city.name}:`,
         deliveryRoutesSubtitle:
           city.deliveryRoutesSubtitle ||
-          `Rapid fulfillment across all major institutional & commercial zones in ${city.name}`,
+          `Orders shipped by courier to major institutional & commercial zones in ${city.name}`,
         coverageEyebrow: city.coverageEyebrow || `${city.name} Service Coverage`,
         coverageTitle: city.coverageTitle || `${city.name} Service Coverage`,
         coverageIntro:
           city.coverageIntro ||
-          `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`,
+          `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders are shipped by courier agency to the city and surrounding areas.`,
         coverageHubTitle: city.coverageHubTitle || (city.isPrimary || city.slug === "guwahati" ? "Guwahati Direct Hub" : "Direct City Hub"),
         coverageHubSubtitle: city.coverageHubSubtitle || `Full ${city.name} & Regional Reach`,
         coverageNotice:
@@ -664,7 +664,7 @@ export default function AdminServiceAreasPage() {
         bulkTitle: city.bulkTitle || `Bulk ID Card Printing in ${city.name}`,
         bulkDesc:
           city.bulkDesc ||
-          `IDGen supports institutional and high-volume identification requirements across ${city.name}. For larger projects (schools, colleges, university batches, corporate renewals), our cleanroom workflows ensure reliable color calibration and prompt doorstep dispatch.`,
+          `IDGen supports institutional and high-volume identification requirements across ${city.name}. For larger projects (schools, colleges, university batches, corporate renewals), our cleanroom workflows ensure reliable color calibration and dispatch by courier.`,
         bulkHighlights:
           city.bulkHighlights && city.bulkHighlights.length > 0
             ? city.bulkHighlights
@@ -698,8 +698,8 @@ export default function AdminServiceAreasPage() {
               },
               {
                 step: "04",
-                title: "Accessories & Delivery",
-                description: `Custom printed lanyards, card holders & express doorstep dispatch to ${city.name}.`,
+                title: "Accessories & Shipping",
+                description: `Custom printed lanyards, card holders & courier dispatch to ${city.name}.`,
                 badge: "Full Ecosystem",
               },
             ],
@@ -750,12 +750,12 @@ export default function AdminServiceAreasPage() {
         workflowTitle: city.workflowTitle || `How to Order ID Cards in ${city.name}`,
         workflowSubtitle:
           city.workflowSubtitle ||
-          `A predictable 8-stage manufacturing workflow ensuring zero data errors, exact color calibration, and doorstep dispatch to ${city.name}.`,
+          `A predictable 8-stage manufacturing workflow ensuring zero data errors, exact color calibration, and courier dispatch to ${city.name}.`,
         workflowNote:
           city.workflowNote ||
           (city.isPrimary
-            ? "Guwahati Hub Advantage: Free physical pre-production sample & priority local delivery available."
-            : `Doorstep express delivery across ${city.name} with rigorous optical quality verification before dispatch.`),
+            ? "Guwahati Hub Advantage: Free physical pre-production sample available; orders ship via courier agency."
+            : `Courier shipping across ${city.name} after rigorous optical quality verification.`),
         workflowCta1Text: city.workflowCta1Text || "Call / WhatsApp IDGen",
         workflowCta2Text: city.workflowCta2Text || "Start at Step 01: Request Quote",
         orderSteps:
@@ -765,7 +765,7 @@ export default function AdminServiceAreasPage() {
               {
                 step: "01",
                 title: "Tell Us Your Requirement",
-                description: `Share: Organization + Product + Quantity + Delivery Requirement in ${city.name}.`,
+                description: `Share: Organization + Product + Quantity + Shipping Requirement in ${city.name}.`,
                 phase: "Intake",
               },
               {
@@ -806,8 +806,8 @@ export default function AdminServiceAreasPage() {
               },
               {
                 step: "08",
-                title: "Doorstep Dispatch",
-                description: `Prepared for dispatch and delivered directly to your doorstep in ${city.name}.`,
+                title: "Courier Dispatch",
+                description: `Prepared for dispatch and handed over to a courier agency for shipping to ${city.name}.`,
                 phase: "Fulfillment",
               },
             ],
@@ -876,7 +876,7 @@ export default function AdminServiceAreasPage() {
         heroShowcaseChip2: "Verified Cleanroom",
         localColor: "",
         localPresenceBadge: "Local Identity Solutions",
-        localPresenceSubBadge: "Direct Doorstep Logistics",
+        localPresenceSubBadge: "Courier Shipping",
         localPresenceTitle: "IDGen: A Local Identity Solutions Partner",
         localAdvantagePills: [
           "Guwahati Production Facility",
@@ -902,9 +902,9 @@ export default function AdminServiceAreasPage() {
         organizationsServed: ["Schools", "Colleges", "Hospitals", "Corporate Offices", "Institutions"],
         localAdvantageTitle: "Local Production Advantage",
         localAdvantageDesc:
-          "Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch.",
-        deliveryRoutesTitle: "Direct Doorstep Delivery & Pickup Routes:",
-        deliveryRoutesSubtitle: "Rapid fulfillment across all major institutional & commercial zones",
+          "Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and dispatch by courier.",
+        deliveryRoutesTitle: "Courier Shipping Routes:",
+        deliveryRoutesSubtitle: "Orders shipped by courier to major institutional & commercial zones",
         coverageEyebrow: "Service Coverage",
         coverageTitle: "Service Coverage",
         coverageIntro:
@@ -969,7 +969,7 @@ export default function AdminServiceAreasPage() {
           { step: "01", title: "Target Quantity", description: "50 to 50,000+ units with batch-wise staggered production.", badge: "Scalable Volume" },
           { step: "02", title: "Card & RFID Type", description: "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.", badge: "Credential Spec" },
           { step: "03", title: "Data & Photographs", description: "Spreadsheet records, photo archives, or live IDGen Studio digital portal.", badge: "Data Processing" },
-          { step: "04", title: "Accessories & Delivery", description: "Custom printed lanyards, card holders & express doorstep dispatch.", badge: "Full Ecosystem" },
+          { step: "04", title: "Accessories & Shipping", description: "Custom printed lanyards, card holders & courier dispatch.", badge: "Full Ecosystem" },
         ],
         bulkBottomNote: "Actual production capacity is matched to product and project specifications.",
         bulkCta1Text: "Talk to Specialist",
@@ -997,19 +997,19 @@ export default function AdminServiceAreasPage() {
         workflowBadge: "Priority Turnaround",
         workflowTitle: "How to Order ID Cards",
         workflowSubtitle:
-          "An institutional-grade 8-stage production flow engineered for data integrity, zero defects, and doorstep fulfillment.",
-        workflowNote: "Doorstep express delivery with rigorous optical quality verification before dispatch.",
+          "An institutional-grade 8-stage production flow engineered for data integrity, zero defects, and courier dispatch.",
+        workflowNote: "Courier shipping after rigorous optical quality verification.",
         workflowCta1Text: "Call / WhatsApp IDGen",
         workflowCta2Text: "Start at Step 01: Request Quote",
         orderSteps: [
-          { step: "01", title: "Tell Us Your Requirement", description: "Share: Organization + Product + Quantity + Delivery Requirement.", phase: "Intake" },
+          { step: "01", title: "Tell Us Your Requirement", description: "Share: Organization + Product + Quantity + Shipping Requirement.", phase: "Intake" },
           { step: "02", title: "Share Your Data", description: "Provide the required records and photos (or use IDGen Studio).", phase: "Data Intake" },
           { step: "03", title: "Confirm the Design", description: "Use your existing design or discuss a custom template.", phase: "Artwork" },
           { step: "04", title: "Review & Proofing", description: "Review digital PDF proofs or request physical pre-production sample.", phase: "Proofing" },
           { step: "05", title: "Approval Sign-Off", description: "Formal sign-off on design, data, and accessory specs.", phase: "Sign-Off" },
           { step: "06", title: "Cleanroom Production", description: "Thermal printing, RFID encoding, and ultrasonic lamination.", phase: "Manufacturing" },
           { step: "07", title: "100% Quality Check", description: "100% optical inspection before dispatch.", phase: "Quality Audit" },
-          { step: "08", title: "Doorstep Dispatch", description: "Prepared for dispatch and delivered directly to your doorstep.", phase: "Fulfillment" },
+          { step: "08", title: "Courier Dispatch", description: "Prepared for dispatch and handed over to a courier agency for shipping.", phase: "Fulfillment" },
         ],
         faqsTitle: "Frequently Asked Questions",
         faqsSubtitle: "Key answers regarding ID card printing, batch timelines, accessories, and delivery.",
@@ -2483,7 +2483,7 @@ export default function AdminServiceAreasPage() {
                         rows={2}
                         value={cityForm.localAdvantageDesc || ""}
                         onChange={(e) => setCityForm({ ...cityForm, localAdvantageDesc: e.target.value })}
-                        placeholder="Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and priority local dispatch."
+                        placeholder="Direct cleanroom manufacturing ensures fast physical proofs, immediate design sign-off, and dispatch by courier."
                         className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
                       />
                     </div>
@@ -2830,7 +2830,7 @@ export default function AdminServiceAreasPage() {
                           badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
                           shortDescription: `Premium identification hardware and accessories supplied to organizations in ${cityForm.name || "Guwahati"}.`,
                           spec: "Industrial Grade Material",
-                          highlights: ["Precision Engineered", "Durable Construction", "Doorstep Dispatch"],
+                          highlights: ["Precision Engineered", "Durable Construction", "Courier Dispatch"],
                         };
                         setCityForm({
                           ...cityForm,
@@ -3301,7 +3301,7 @@ export default function AdminServiceAreasPage() {
                       </label>
                       <input
                         type="text"
-                        placeholder="Guwahati Hub Advantage: Free physical pre-production sample & priority local delivery available."
+                        placeholder="Guwahati Hub Advantage: Free physical pre-production sample available; orders ship via courier agency."
                         value={cityForm.workflowNote || ""}
                         onChange={(e) => setCityForm({ ...cityForm, workflowNote: e.target.value })}
                         className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -3414,7 +3414,7 @@ export default function AdminServiceAreasPage() {
                         <label className="block text-[10px] font-bold text-slate-400 mb-1">Bottom Stat / Highlight</label>
                         <input
                           type="text"
-                          placeholder="e.g. 72h Local Delivery"
+                          placeholder="e.g. 72h Dispatch"
                           value={whyChooseStatInput}
                           onChange={(e) => setWhyChooseStatInput(e.target.value)}
                           className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
@@ -4194,7 +4194,7 @@ export default function AdminServiceAreasPage() {
                     <div className="flex items-center justify-between border-b border-slate-800 pb-2">
                       <span className="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
                         <MapPin className="h-4 w-4" />
-                        <span>{cityForm.name || "Guwahati"} Service Coverage &amp; Delivery Zones</span>
+                        <span>{cityForm.name || "Guwahati"} Service Coverage &amp; Shipping Zones</span>
                       </span>
                       <button
                         type="button"
@@ -4227,7 +4227,7 @@ export default function AdminServiceAreasPage() {
                             ...cityForm,
                             coverageEyebrow: `${cityForm.name || "Guwahati"} Service Coverage`,
                             coverageTitle: `${cityForm.name || "Guwahati"} Service Coverage`,
-                            coverageIntro: `IDGen serves ${cityForm.name || "Guwahati"} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`,
+                            coverageIntro: `IDGen serves ${cityForm.name || "Guwahati"} from its production facility in Guwahati, Assam. Orders are shipped by courier agency to the city and surrounding areas.`,
                             coverageHubTitle:
                               cityForm.isPrimary || cityForm.slug === "guwahati"
                                 ? "Guwahati Direct Hub"
@@ -4237,7 +4237,7 @@ export default function AdminServiceAreasPage() {
                           });
                           setMessage({
                             type: "success",
-                            text: `Reset Service Coverage & ${defaultAreas.length} delivery zones to defaults.`,
+                            text: `Reset Service Coverage & ${defaultAreas.length} shipping zones to defaults.`,
                           });
                         }}
                         className="text-[11px] text-teal-400 hover:underline flex items-center gap-1"
@@ -4282,7 +4282,7 @@ export default function AdminServiceAreasPage() {
                         rows={2}
                         value={cityForm.coverageIntro || ""}
                         onChange={(e) => setCityForm({ ...cityForm, coverageIntro: e.target.value })}
-                        placeholder={`IDGen serves ${cityForm.name || "Guwahati"} from its production facility in Guwahati, Assam. Orders can be placed and delivered across the city and surrounding areas.`}
+                        placeholder={`IDGen serves ${cityForm.name || "Guwahati"} from its production facility in Guwahati, Assam. Orders are shipped by courier agency to the city and surrounding areas.`}
                         className="w-full px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white"
                       />
                     </div>

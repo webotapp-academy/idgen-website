@@ -135,8 +135,8 @@ export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
     title: "Get in Touch with IDGen Guwahati",
     subtitle: "Direct Manufacturing Facility & Identification Engineering Desk",
     addressCardTitle: "Guwahati Factory & Office Address:",
-    address: "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
-    landmark: "Central A.T. Road commercial hub, Guwahati, Assam 781001",
+    address: "Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001",
+    landmark: "Opposite Police Reserve, Assam Trunk Rd, Tokobari Satra, Guwahati, Assam 781001",
     operatingHours: "Mon – Sat: 9:30 AM – 7:00 PM",
     lede: "Connect with our identity engineering desk, request factory visit appointments, or order complimentary physical specimen kits for your institutional procurement committee.",
     stats: [
@@ -222,8 +222,8 @@ export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
     title: "Guwahati Industrial Production Hub",
     description:
       "Our cleanroom manufacturing facility operates automated thermal retransfer printing presses, continuous dye-sublimation lines, and ultrasonic acoustic welding machinery.",
-    address: "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
-    landmark: "Central A.T. Road commercial hub, Guwahati, Assam 781001",
+    address: "Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001",
+    landmark: "Opposite Police Reserve, Assam Trunk Rd, Tokobari Satra, Guwahati, Assam 781001",
     operatingHours: "Mon – Sat: 9:30 AM – 7:00 PM",
     closedNotice: "Sunday: Closed (WhatsApp queries processed)",
     primaryCta: {
@@ -231,7 +231,7 @@ export const DEFAULT_CONTACT_US_DATA: DynamicContactUsData = {
       href: "/request-a-quote/",
     },
     secondaryCta: {
-      label: "View Northeast Delivery Network",
+      label: "View Northeast Service Areas",
       href: "/service-areas/assam/",
     },
   },

@@ -78,7 +78,7 @@ const medalSlides: MedalSlide[] = [
     topBadge: "Free 3D Digital Proof",
     specPill: "Eco Zinc Alloy",
     bottomSpec: "Zero Lead/Cadmium • Scratch-Resistant Enamel • 72h Dispatch",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 

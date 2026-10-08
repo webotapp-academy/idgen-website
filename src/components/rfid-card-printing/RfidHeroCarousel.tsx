@@ -80,7 +80,7 @@ const rfidSlides: RfidSlide[] = [
     topBadge: "Bulk Batch Ready",
     specPill: "10,000+ Daily Capacity",
     bottomSpec: "Pre-Encoded UID • Sequential Numbering • Express Dispatch",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 

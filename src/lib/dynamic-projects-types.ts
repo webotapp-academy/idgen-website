@@ -73,7 +73,7 @@ export const INITIAL_PROJECTS: RealProjectItem[] = [
       "Proof Review",
       "Approval",
       "Batch Printing",
-      "Express Delivery",
+      "Courier Dispatch",
     ],
     outcome:
       "Full student enrollment cards personalized with barcode registration and branded college lanyard.",
@@ -136,7 +136,7 @@ export const INITIAL_PROJECTS: RealProjectItem[] = [
       "Category Color-Coding",
       "Fast Printing",
       "Dual-Hook Lanyard Assembly",
-      "Express Delivery",
+      "Courier Dispatch",
     ],
     outcome:
       "High-impact oversized event badges delivered on exact summit timeline with color-coded access tiers.",
@@ -176,7 +176,7 @@ export const INITIAL_PROJECTS: RealProjectItem[] = [
       "QR Generation",
       "High-Gloss Print",
       "Inspection",
-      "Express Delivery",
+      "Courier Dispatch",
     ],
     outcome:
       "Durable, elegant membership cards featuring scannable QR codes for instant member verification.",

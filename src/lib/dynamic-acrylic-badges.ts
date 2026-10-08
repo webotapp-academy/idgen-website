@@ -106,7 +106,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
         topBadge: "Ready Factory Stock",
         specPill: "5,000+ Daily Capacity",
         bottomSpec: "Zero Setup Charge • 72h Express Turnaround • 8 NE States",
-        hubTag: "EXPRESS DISPATCH",
+        hubTag: "COURIER DISPATCH",
       },
     ],
   },
@@ -583,7 +583,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
     workflowBadge: "Manufacturing Workflow",
     workflowTitle: "How We Craft Custom Acrylic Badges",
     workflowLede:
-      "From vector artwork verification to precision CO2 laser contour cutting and express delivery across all 8 Northeast states.",
+      "From vector artwork verification to precision CO2 laser contour cutting and courier dispatch to all 8 Northeast states.",
     orderingSteps: [
       {
         num: "01",
@@ -606,7 +606,7 @@ export const DEFAULT_ACRYLIC_BADGES_DATA: DynamicAcrylicBadgesData = {
       {
         num: "04",
         title: "4. Fast Dispatch Across Northeast",
-        body: "Shipped in protective foam trays with 72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
+        body: "Packed in protective foam trays, dispatched within 72h and shipped by courier to Assam, Meghalaya, Nagaland and all 8 NE states.",
         badge: "Dispatch",
       },
     ],

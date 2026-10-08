@@ -182,7 +182,7 @@ export function CityLocalPresence({ city, state, organizations }: CityLocalPrese
                   : `Local Identity Solutions • ${cityName}, ${stateName}`)}
             </span>
             <span className="hidden sm:inline-flex items-center rounded-md bg-accent/20 px-2 py-0.5 text-[10px] font-bold text-accent">
-              {city?.localPresenceSubBadge || (isGuwahati ? "Direct Factory Access" : "Direct Doorstep Logistics")}
+              {city?.localPresenceSubBadge || (isGuwahati ? "Direct Factory Access" : "Courier Shipping")}
             </span>
           </div>
 
@@ -206,7 +206,7 @@ export function CityLocalPresence({ city, state, organizations }: CityLocalPrese
             {city?.localColor ||
               (isGuwahati
                 ? "IDGen operates its central identity manufacturing cleanroom in Guwahati, Assam, working closely with premier academic institutions, corporate offices, and government organizations across the region."
-                : `IDGen provides direct factory ID card printing, RFID encoding, and custom lanyard supply with prompt doorstep delivery for organizations across ${cityName}, ${stateName}.`)}
+                : `IDGen provides direct factory ID card printing, RFID encoding, and custom lanyard supply with courier shipping for organizations across ${cityName}, ${stateName}.`)}
           </p>
 
           {/* Quick Advantage Pills */}
@@ -237,7 +237,7 @@ export function CityLocalPresence({ city, state, organizations }: CityLocalPrese
                 </div>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1 text-foreground font-medium backdrop-blur-sm shadow-xs">
                   <Clock className="h-3.5 w-3.5 text-accent" />
-                  <span>{isGuwahati ? "72h Priority Batch Dispatch" : "Fast Doorstep Turnaround"}</span>
+                  <span>{isGuwahati ? "72h Priority Batch Dispatch" : "Courier Shipping"}</span>
                 </div>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1 text-foreground font-medium backdrop-blur-sm shadow-xs">
                   <Layers className="h-3.5 w-3.5 text-accent" />
@@ -410,8 +410,8 @@ export function CityLocalPresence({ city, state, organizations }: CityLocalPrese
                   <p className="text-[11px] text-muted leading-relaxed mt-0.5">
                     {city.localAdvantageDesc ||
                       (isGuwahati
-                        ? "Direct cleanroom manufacturing in Guwahati ensures fast physical proofs, immediate design sign-off, and priority local dispatch."
-                        : `Direct coordination with our manufacturing cleanroom ensures 100% optical quality inspection, physical sample proofing, and reliable doorstep delivery in ${city.name}.`)}
+                        ? "Direct cleanroom manufacturing in Guwahati ensures fast physical proofs, immediate design sign-off, and dispatch by courier."
+                        : `Direct coordination with our manufacturing cleanroom ensures 100% optical quality inspection, physical sample proofing, and courier shipping to ${city.name}.`)}
                   </p>
                 </div>
                 <Link

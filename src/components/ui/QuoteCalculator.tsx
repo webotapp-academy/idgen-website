@@ -300,7 +300,7 @@ export function QuoteCalculator() {
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 shrink-0">
                   <Check className="h-3.5 w-3.5" />
                 </div>
-                <span>Direct factory express dispatch from Guwahati</span>
+                <span>Dispatch by courier agency from Guwahati</span>
               </li>
             </ul>
           </div>

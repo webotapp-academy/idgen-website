@@ -56,7 +56,7 @@ export const DEFAULT_FAQ_DATA: DynamicFaqData = {
     trustBadges: [
       "Factory Direct Pricing",
       "100% Confidential Data",
-      "72-Hour Express Dispatch",
+      "72-Hour Dispatch",
     ],
   },
   heroShowcase: {

@@ -126,7 +126,7 @@ B3  [HIGH] -- Pick one dispatch/turnaround promise
     WHERE: Home, /services/, /faq/, city pages
     PROBLEM: Site says '24-48 Hours', '48 Hour' and 'Same-Day' in different places.
     ACTION: Standardize to one clear, honest statement sitewide.
-    STATUS: ✅ [COMPLETED IN CODE] -- Standardized to 'Production: 24–48 Hours • Priority Doorstep Delivery' across pricing and location templates.
+    STATUS: ✅ [COMPLETED IN CODE] -- Standardized to 'Production: 24–48 Hours • Dispatch by Courier' across pricing and location templates.
 
 B4  [MEDIUM] -- Blog articles too short (700-920 words, target 1,500)
     WHERE: All 6 blog posts

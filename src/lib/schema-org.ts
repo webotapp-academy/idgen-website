@@ -21,7 +21,7 @@ export function organizationSchema() {
     ...(SITE.phone ? { telephone: SITE.phone } : {}),
     address: {
       "@type": "PostalAddress",
-      streetAddress: SITE.address,
+      streetAddress: "Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra",
       addressLocality: SITE.hqCity,
       addressRegion: SITE.hqState,
       postalCode: "781001",

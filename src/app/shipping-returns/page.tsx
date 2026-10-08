@@ -73,7 +73,7 @@ const shippingSections: LegalSectionItem[] = [
             The dispatch date is the date on which the parcel is handed over to the logistics provider.
           </p>
           <div className="mt-3 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-3.5 text-xs text-slate-700 dark:text-slate-300 font-medium">
-            <strong>Important Notice:</strong> IDGen is not the courier or transport service provider and does not provide door-to-door delivery services.
+            <strong>Important Notice:</strong> IDGen is not the courier or transport service provider and does not provide courier dispatch services.
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@ const shippingSections: LegalSectionItem[] = [
     id: "courier-transport-charges",
     num: "4",
     title: "Courier & Transport Charges",
-    tags: ["freight", "shipping charges", "quotation", "self pickup", "transport"],
+    tags: ["freight", "shipping charges", "quotation", "own courier", "transport"],
     content: (
       <div className="space-y-3">
         <p>
@@ -380,7 +380,7 @@ const shippingSections: LegalSectionItem[] = [
             Manufacturing & Dispatch Scope
           </p>
           <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-            <strong>IDGen&apos;s responsibility is to manufacture the ordered products and hand over the completed parcel to the applicable courier, transport or logistics provider. IDGen does not provide door-to-door delivery services.</strong>
+            <strong>IDGen&apos;s responsibility is to manufacture the ordered products and hand over the completed parcel to the applicable courier, transport or logistics provider. IDGen does not provide courier dispatch services.</strong>
           </p>
           <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
             Once the parcel has been handed over to the logistics provider, delivery is subject to the terms, routes, schedules and operating conditions of that provider.

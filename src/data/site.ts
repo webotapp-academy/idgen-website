@@ -27,7 +27,7 @@ export const SITE = {
   // — leave blank rather than fabricate. City/state are known (Guwahati,
   // Assam) and used directly via SITE.hqCity/hqState where needed.
   email: "info@idgen.in",
-  address: "Room No 118, Mangal Ram Tower, A.T. Road, Guwahati, Assam 781001",
+  address: "Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001",
   social: {
     instagram: "https://www.instagram.com/idgenguwahati/",
     facebook: "https://www.facebook.com/iDGenGuwahati",

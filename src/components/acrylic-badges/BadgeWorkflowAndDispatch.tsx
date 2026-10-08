@@ -38,7 +38,7 @@ export const orderingSteps = [
   {
     num: "04",
     title: "4. Fast Dispatch Across Northeast",
-    body: "Shipped in protective foam trays with 72h delivery to Assam, Meghalaya, Nagaland and all 8 NE states.",
+    body: "Packed in protective foam trays, dispatched within 72h and shipped by courier to Assam, Meghalaya, Nagaland and all 8 NE states.",
     badge: "Dispatch",
   },
 ];
@@ -125,7 +125,7 @@ export function BadgeWorkflowAndDispatch({
             </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-2xl">
               {data?.workflowLede ||
-                "From vector artwork verification to precision CO2 laser contour cutting and express delivery across all 8 Northeast states."}
+                "From vector artwork verification to precision CO2 laser contour cutting and courier dispatch to all 8 Northeast states."}
             </p>
           </div>
         </div>
@@ -156,7 +156,7 @@ export function BadgeWorkflowAndDispatch({
       </div>
 
       {/* ═════════════════════════════════════════════════════════════
-          2. 72H EXPRESS DISPATCH COMMITMENT
+          2. 72H DISPATCH COMMITMENT
           ═════════════════════════════════════════════════════════════ */}
       <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 lg:p-10 shadow-xl space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">

@@ -67,7 +67,7 @@ const defaultStudentHeroSlides: StudentHeroSlide[] = [
     topBadge: "Bulk Batch Ready",
     specPill: "10,000+ Daily Capacity",
     bottomSpec: "Multi-Class Batches • Photos • Variable Barcodes",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
   {
     id: "rfid-campus-tap",

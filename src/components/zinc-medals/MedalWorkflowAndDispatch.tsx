@@ -37,7 +37,7 @@ export const orderingSteps = [
   },
   {
     num: "04",
-    title: "4. QC & Bulk Express Delivery",
+    title: "4. QC & Bulk Courier Dispatch",
     body: "Each medal is individually polybagged and shipped across Guwahati, Shillong, Itanagar and all NE states.",
     badge: "Delivery",
   },
@@ -96,7 +96,7 @@ export function MedalWorkflowAndDispatch({
       ? data.dispatchDisclaimers
       : [
           "Each medal is individually packed in protective sleeves, and batches are sorted by category (Gold, Silver, Bronze) for effortless event day distribution.",
-          "Direct delivery to sports complexes, schools, universities, and corporate offices across all 8 Northeast states.",
+          "Courier shipping to sports complexes, schools, universities, and corporate offices across all 8 Northeast states.",
         ];
 
   const defaultButtons = [

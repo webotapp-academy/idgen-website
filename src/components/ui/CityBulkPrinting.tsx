@@ -85,10 +85,10 @@ export function CityBulkPrinting({
     },
     {
       step: "04",
-      title: customBulkInputs?.[3]?.title || "Accessories & Delivery",
+      title: customBulkInputs?.[3]?.title || "Accessories & Shipping",
       description:
         customBulkInputs?.[3]?.description ||
-        `Custom printed lanyards, card holders & express doorstep dispatch to ${cityName}.`,
+        `Custom printed lanyards, card holders & courier dispatch to ${cityName}.`,
       icon: PackageCheck,
       colorClass: "from-amber-500/20 to-orange-500/10 text-amber-500 dark:text-amber-400 border-amber-500/30",
       badge: customBulkInputs?.[3]?.badge || "Full Ecosystem",
@@ -142,7 +142,7 @@ export function CityBulkPrinting({
               </h2>
               <p className="mt-2 text-sm sm:text-base text-muted max-w-3xl leading-relaxed">
                 {bulkDesc ||
-                  `IDGen supports institutional and high-volume identification requirements across ${cityName}, ${stateName}. For larger projects (schools, colleges, university batches, corporate renewals), our cleanroom workflows ensure reliable color calibration and prompt doorstep dispatch.`}
+                  `IDGen supports institutional and high-volume identification requirements across ${cityName}, ${stateName}. For larger projects (schools, colleges, university batches, corporate renewals), our cleanroom workflows ensure reliable color calibration and dispatch by courier.`}
               </p>
             </div>
           </div>

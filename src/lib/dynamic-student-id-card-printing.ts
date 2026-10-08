@@ -64,7 +64,7 @@ export const DEFAULT_STUDENT_HERO_SLIDES: StudentHeroSlideItem[] = [
     topBadge: "Bulk Batch Ready",
     specPill: "10,000+ Daily Capacity",
     bottomSpec: "Multi-Class Batches • Photos • Variable Barcodes",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
   {
     id: "rfid-campus-tap",
@@ -264,7 +264,7 @@ export const DEFAULT_WORKFLOW_STEPS: StudentWorkflowConfigStep[] = [
     description: "The completed student cards are dispatched to the institution.",
     iconName: "Truck",
     badge: "Step 09 / Logistics",
-    categoryTag: "Express Delivery",
+    categoryTag: "Courier Dispatch",
     glowColor: "from-blue-600/20 via-sky-500/15 to-transparent",
   },
 ];
@@ -766,7 +766,7 @@ export const DEFAULT_STUDENT_ID_CARD_PRINTING_DATA: DynamicStudentIdCardPrinting
       "Holder",
       "Hook",
       "Sealing",
-      "Delivery requirements",
+      "Shipping requirements",
     ],
     boxNote: "This keeps pricing centralized and prevents conflicting prices across multiple pages.",
     bottomText: "Need the Current Price?",

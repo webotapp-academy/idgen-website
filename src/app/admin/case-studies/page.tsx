@@ -110,7 +110,7 @@ const STANDARD_WORKFLOW_PRESETS = [
       "Category Color-Coding",
       "Fast Printing",
       "Dual-Hook Lanyard Assembly",
-      "Express Delivery",
+      "Courier Dispatch",
     ],
   },
   {
@@ -703,7 +703,7 @@ export default function AdminCaseStudiesPage() {
 
         <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
           <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-            Express Dispatch
+            Courier Dispatch
           </span>
           <p className="mt-1 text-2xl font-black text-white">Guwahati Hub</p>
           <p className="text-[10px] text-teal-400 mt-0.5">All 8 NE States Covered</p>

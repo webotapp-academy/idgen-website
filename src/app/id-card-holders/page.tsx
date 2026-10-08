@@ -237,7 +237,7 @@ export default function IdCardHoldersPage() {
           {/* Applications Grid across Industries */}
           <HolderApplicationsGrid data={data.applications} />
 
-          {/* Workflow, Quality, 72-Hour Express Dispatch & Luxury Closing CTA */}
+          {/* Workflow, Quality, 72-Hour Dispatch & Luxury Closing CTA */}
           <HolderWorkflowAndDispatch data={data.workflowAndDispatch} />
 
           {/* Frequently Asked Questions Section */}

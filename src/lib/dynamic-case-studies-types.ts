@@ -76,7 +76,7 @@ export const DEFAULT_CASE_STUDIES_PAGE_DATA: DynamicCaseStudiesPageData = {
     trustBadges: [
       "Real Delivered Client Batches",
       "Guwahati Production Hub",
-      "72-Hour Express Dispatch",
+      "72-Hour Dispatch",
     ],
     pillars: [
       {
@@ -142,6 +142,6 @@ export const DEFAULT_CASE_STUDIES_PAGE_DATA: DynamicCaseStudiesPageData = {
     tertiaryBtnText: "View Pricing Tiers",
     tertiaryBtnLink: "/pricing/",
     footerBrand: "IDGen — Real Identification Case Studies",
-    footerText: "Guwahati, Assam • Direct Factory Deliveries Across Northeast India",
+    footerText: "Guwahati, Assam • Direct Factory Supply Across Northeast India",
   },
 };

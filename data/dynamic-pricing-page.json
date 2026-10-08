@@ -70,7 +70,7 @@
             "priceTag": "From ₹35 / card",
             "topBadge": "Event Credentials",
             "specPill": "Dual Hook Ready",
-            "bottomSpec": "Conferences • VIP Passes • Exhibitions • Same-Day / 72h Dispatch",
+            "bottomSpec": "Conferences • VIP Passes • Exhibitions • 72h Dispatch",
             "hubTag": "EXPRESS SUMMITS",
             "isActive": true
         },
@@ -327,7 +327,7 @@
                 "Accessory selection",
                 "Production requirements",
                 "Packaging",
-                "Delivery requirements"
+                "Shipping requirements"
             ],
             "disclaimer": "Therefore, the price shown on this page should always be treated as a reference price unless explicitly marked as a fixed price."
         },

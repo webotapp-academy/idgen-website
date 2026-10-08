@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const STATE_INTROS: Record<string, string> = {
-  assam: "Assam is IDGen's home state. Our production facility is based in Guwahati, providing the fastest local turnaround and direct pickup options for organizations across the state.",
+  assam: "Assam is IDGen's home state. Our production facility is based in Guwahati, producing orders at its Guwahati facility and shipping them through courier agencies to organizations across the state.",
   "arunachal-pradesh": "IDGen serves educational institutions, government offices, and enterprises in Arunachal Pradesh with factory-direct ID card printing dispatched from Guwahati.",
   meghalaya: "From Shillong to Tura and Jowai, IDGen delivers professional ID card solutions to organizations across Meghalaya.",
   nagaland: "IDGen provides ID card printing and custom lanyard services to organizations in Kohima, Dimapur, Mokokchung and across Nagaland.",
@@ -114,7 +114,7 @@ export default function ServiceAreasPage() {
             <p className="text-sm text-muted leading-relaxed">
               All IDGen identity products are manufactured at our centralized production facility in Guwahati, Assam. 
               Orders from any state are processed digitally through IDGen Studio, with physical pre-production sample proofs 
-              available before full batch printing, and express doorstep dispatch to your location.
+              available before full batch printing, and courier shipping to your location.
             </p>
             <Link
               href="/request-a-quote/"

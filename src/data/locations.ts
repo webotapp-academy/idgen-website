@@ -15,7 +15,7 @@ export const states: StateContent[] = [
         name: "Guwahati",
         isPrimary: true,
         heroIntro:
-          "IDGen is a Guwahati-based identity manufacturing facility providing customized and bulk identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, industries, events and other organizations with 72h local dispatch.",
+          "IDGen is a Guwahati-based identity manufacturing facility providing customized and bulk identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, industries, events and other organizations with 72h dispatch.",
         nearbyAreas: ["Dispur", "Paltan Bazaar", "GS Road", "Khanapara", "Six Mile", "Panbazar", "Jalukbari", "Beltola", "Zoo Road", "Chandmari", "Ulubari", "Maligaon", "Borjhar", "Amingaon", "North Guwahati", "Mirza", "Azara"],
         metaTitle: "ID Card Printing in Guwahati | Factory Direct Student & Employee ID Cards | IDGen",
         metaDescription:
@@ -382,7 +382,7 @@ export const states: StateContent[] = [
       "IDGen supplies high-definition PVC ID cards, custom printed satin lanyards, and tourist conference badges for Sikkim University, SMIT, and institutions across Sikkim.",
     metaTitle: "ID Card Printing in Sikkim | Gangtok, Namchi & Geyzing | IDGen",
     metaDescription:
-      "Custom student and employee ID card printing for organizations in Sikkim. Bulk PVC cards, lanyards, and event passes with express dispatch from Guwahati.",
+      "Custom student and employee ID card printing for organizations in Sikkim. Bulk PVC cards, lanyards, and event passes with courier dispatch from Guwahati.",
     cities: [
       {
         slug: "gangtok",

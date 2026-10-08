@@ -78,7 +78,7 @@ const badgeSlides: BadgeSlide[] = [
     topBadge: "Ready Factory Stock",
     specPill: "5,000+ Daily Capacity",
     bottomSpec: "Zero Setup Charge • 72h Express Turnaround • 8 NE States",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 

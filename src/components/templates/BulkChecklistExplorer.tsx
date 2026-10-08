@@ -29,7 +29,7 @@ export const bulkChecklistItems = [
   "Lanyard width",
   "Attachment configuration",
   "RFID specification, if applicable",
-  "Delivery location",
+  "Shipping location",
   "Required timeline",
   "Approval contact",
 ];

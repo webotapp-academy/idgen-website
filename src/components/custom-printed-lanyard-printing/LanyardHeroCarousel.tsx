@@ -78,7 +78,7 @@ const lanyardHeroSlides: LanyardHeroSlide[] = [
     topBadge: "Bulk Batch Ready",
     specPill: "5,000+ Daily Capacity",
     bottomSpec: "Schools • Universities • Summits • Corporate Offices",
-    hubTag: "EXPRESS DISPATCH",
+    hubTag: "COURIER DISPATCH",
   },
 ];
 

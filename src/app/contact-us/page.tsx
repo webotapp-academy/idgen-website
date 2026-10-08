@@ -126,7 +126,7 @@ function getPlatformBadgeClasses(platform: string) {
 export default function ContactUsPage() {
   const data = getDynamicContactUs();
   const addressText = data.hero?.address || data.facility?.address || SITE.address;
-  const landmarkText = data.hero?.landmark || data.facility?.landmark || "Landmark: Central A.T. Road commercial hub, Guwahati, Assam 781001";
+  const landmarkText = data.hero?.landmark || data.facility?.landmark || "Landmark: Opposite Police Reserve, Assam Trunk Rd, Tokobari Satra, Guwahati, Assam 781001";
   const operatingHoursText = data.hero?.operatingHours || data.facility?.operatingHours || "Mon – Sat: 9:30 AM – 7:00 PM";
   const addressCardTitleText = data.hero?.addressCardTitle || "Guwahati Factory & Office Address:";
   const mapQuery = encodeURIComponent(`IDGen ${addressText}`);
@@ -266,7 +266,7 @@ export default function ContactUsPage() {
                         {data.hero?.stats?.[0]?.label || "Guwahati Hub"}
                       </p>
                       <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
-                        {data.hero?.stats?.[0]?.value || "A.T. Road Facility"}
+                        {data.hero?.stats?.[0]?.value || "Assam Trunk Rd Facility"}
                       </p>
                     </div>
                   </div>
