@@ -76,7 +76,7 @@ export function FloatingContact() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3.5 text-xs font-extrabold tracking-wider uppercase text-white shadow-md active:scale-95 transition-transform border-none"
+          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#0b7a43] py-3.5 text-xs font-extrabold tracking-wider uppercase text-white shadow-md active:scale-95 transition-transform border-none"
         >
           <WhatsAppIcon className="h-5 w-5 text-white" />
           <span>WhatsApp</span>

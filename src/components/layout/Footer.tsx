@@ -182,6 +182,7 @@ export function Footer() {
             
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-1 transition-all duration-500 hover:border-cyan-500/30 w-full h-[180px]">
               <iframe 
+                title="IDGen location map, Mangal Ram Tower, Guwahati"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.478822006423!2d91.74225507541439!3d26.179842077091585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5b0ec266ccb3%3A0x574f9be299885e5b!2siDGen!5e1!3m2!1sen!2sin!4v1787376536957!5m2!1sen!2sin" 
                 className="w-full h-full rounded-lg opacity-80 hover:opacity-100 transition-opacity duration-300"
                 style={{ border: 0 }} 

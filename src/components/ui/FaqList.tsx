@@ -25,9 +25,9 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
           }`}>
             {index + 1}
           </span>
-          <dt className={`font-semibold transition-colors duration-200 ${isOpen ? "text-accent" : "text-foreground"}`}>
+          <h3 className={`font-semibold transition-colors duration-200 ${isOpen ? "text-accent" : "text-foreground"}`}>
             {faq.q}
-          </dt>
+          </h3>
         </div>
         <ChevronDown
           className={`h-5 w-5 shrink-0 text-muted transition-all duration-300 ${
@@ -41,9 +41,9 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
         }`}
       >
         <div className="overflow-hidden">
-          <dd className="px-5 pb-5 sm:px-6 sm:pb-6 pl-[4.25rem] text-sm leading-relaxed text-muted">
+          <div className="px-5 pb-5 sm:px-6 sm:pb-6 pl-[4.25rem] text-sm leading-relaxed text-muted">
             {faq.a}
-          </dd>
+          </div>
         </div>
       </div>
     </div>
@@ -54,11 +54,11 @@ export function FaqList({ faqs }: { faqs: Faq[] }) {
   if (!faqs.length) return null;
   return (
     <div>
-      <dl className="overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm">
         {faqs.map((f, i) => (
           <FaqItem key={f.q} faq={f} index={i} />
         ))}
-      </dl>
+      </div>
     </div>
   );
 }

@@ -468,3 +468,17 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Accessibility: brand cyan (#009fe3) is only 2.97:1 on white. In light mode,
+ * solid accent text/buttons use a darker shade that clears WCAG AA (4.5:1).
+ * Dark mode keeps the original brand cyan. */
+:root:not(.dark) .text-accent {
+  color: #006a96;
+}
+:root:not(.dark) .bg-accent {
+  background-color: #006a96;
+}
+:root:not(.dark) .text-emerald-500,
+:root:not(.dark) .text-emerald-600 {
+  color: #047857;
+}
