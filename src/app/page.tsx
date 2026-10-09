@@ -233,9 +233,9 @@ export default function HomePage() {
                   </div>
 
                   <div className="text-center w-full min-w-0">
-                    <h4 className="text-xs sm:text-[13px] font-extrabold text-foreground dark:text-white group-hover:text-accent dark:group-hover:text-cyan-300 transition-colors truncate">
+                    <h3 className="text-xs sm:text-[13px] font-extrabold text-foreground dark:text-white group-hover:text-accent dark:group-hover:text-cyan-300 transition-colors truncate">
                       {client.name}
-                    </h4>
+                    </h3>
                     <p className="text-[10px] font-bold text-accent dark:text-cyan-400 truncate mt-0.5">
                       {client.tag || client.location}
                     </p>

@@ -322,7 +322,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-slate-900 border border-amber-500/40 text-amber-400 hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all text-xs font-bold shadow-md shadow-amber-500/10"
-                  aria-label="Google Business Profile Review"
+                  aria-label="Google Review"
                   title="Leave Google Review"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-amber-400">

@@ -239,10 +239,10 @@ export function StudentOrgCarousel({ items }: { items?: StudentOrgSlideItem[] } 
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`h-6 p-2 bg-clip-content rounded-full transition-all duration-300 ${
                     idx === currentIndex
-                      ? "w-7 bg-[#009fe3]"
-                      : "w-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300"
+                      ? "w-11 bg-[#009fe3]"
+                      : "w-6 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300"
                   }`}
                 />
               ))}

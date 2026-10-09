@@ -369,10 +369,10 @@ export function ProductShowcaseCarousel({
               key={p.id}
               onClick={() => scrollToIndex(idx)}
               aria-label={`Go to product ${p.name}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
+              className={`h-6 p-2 bg-clip-content rounded-full transition-all duration-300 ${
                 idx === currentIndex
-                  ? "w-8 bg-accent shadow-sm shadow-accent/50"
-                  : "w-2 bg-surface-border hover:bg-accent/40"
+                  ? "w-12 bg-accent shadow-sm shadow-accent/50"
+                  : "w-6 bg-surface-border hover:bg-accent/40"
               }`}
             />
           ))}
