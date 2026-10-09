@@ -362,9 +362,9 @@ export default function ContactUsPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#009fe3]/10 dark:bg-cyan-950 text-[#009fe3] dark:text-cyan-400">
                   <Phone className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
+                <h2 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
                   {data.channels.hotline.title}
-                </h3>
+                </h2>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {data.channels.hotline.desc}
                 </p>
@@ -388,9 +388,9 @@ export default function ContactUsPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500 text-white">
                   <MessageSquare className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
+                <h2 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
                   {data.channels.whatsapp.title}
-                </h3>
+                </h2>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {data.channels.whatsapp.desc}
                 </p>
@@ -416,9 +416,9 @@ export default function ContactUsPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#009fe3]/10 dark:bg-cyan-950 text-[#009fe3] dark:text-cyan-400">
                   <Mail className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
+                <h2 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
                   {data.channels.email.title}
-                </h3>
+                </h2>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {data.channels.email.desc}
                 </p>
@@ -442,9 +442,9 @@ export default function ContactUsPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-500">
                   <Star className="h-6 w-6 fill-amber-500 text-amber-500" />
                 </div>
-                <h3 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
+                <h2 className="mt-4 font-bold text-slate-950 dark:text-white text-lg">
                   {data.channels.socialAndReviews.title}
-                </h3>
+                </h2>
                 <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {data.channels.socialAndReviews.desc}
                 </p>
