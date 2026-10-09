@@ -103,7 +103,7 @@ function getPlatformBadgeClasses(platform: string) {
     case "gbp":
       return "bg-amber-500 text-slate-950 hover:bg-amber-400";
     case "whatsapp":
-      return "bg-[#128C7E] text-white hover:opacity-90";
+      return "bg-[#0b6e63] text-white hover:opacity-90";
     case "linkedin":
       return "bg-[#0A66C2] text-white hover:opacity-90";
     case "threads":

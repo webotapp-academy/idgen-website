@@ -97,9 +97,9 @@ export function FaqHeroShowcase({ data }: { data: DynamicFaqHeroShowcase }) {
                         <IconComp className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="text-xs font-extrabold text-slate-900 dark:text-white">
+                        <h2 className="text-xs font-extrabold text-slate-900 dark:text-white">
                           {activePillar.cardTitle}
-                        </h3>
+                        </h2>
                         <p className="text-[10px] text-slate-500">{activePillar.cardSubtitle}</p>
                       </div>
                     </div>
@@ -139,7 +139,7 @@ export function FaqHeroShowcase({ data }: { data: DynamicFaqHeroShowcase }) {
                         <IconComp className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="text-xs font-extrabold text-white">{activePillar.cardTitle}</h3>
+                        <h2 className="text-xs font-extrabold text-white">{activePillar.cardTitle}</h2>
                         <p className="text-[9px] text-slate-400">{activePillar.cardSubtitle}</p>
                       </div>
                     </div>
@@ -174,9 +174,9 @@ export function FaqHeroShowcase({ data }: { data: DynamicFaqHeroShowcase }) {
                         <IconComp className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="text-xs font-extrabold text-slate-900 dark:text-white">
+                        <h2 className="text-xs font-extrabold text-slate-900 dark:text-white">
                           {activePillar.cardTitle}
-                        </h3>
+                        </h2>
                         <p className="text-[9px] text-slate-500">{activePillar.cardSubtitle}</p>
                       </div>
                     </div>
@@ -211,9 +211,9 @@ export function FaqHeroShowcase({ data }: { data: DynamicFaqHeroShowcase }) {
                         <IconComp className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="text-xs font-extrabold text-slate-900 dark:text-white">
+                        <h2 className="text-xs font-extrabold text-slate-900 dark:text-white">
                           {activePillar.cardTitle}
-                        </h3>
+                        </h2>
                         <p className="text-[9px] text-slate-500">{activePillar.cardSubtitle}</p>
                       </div>
                     </div>

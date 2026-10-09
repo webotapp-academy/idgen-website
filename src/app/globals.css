@@ -507,3 +507,6 @@ h1, h2, h3, h4, h5, h6 {
 :root:not(.dark) main .bg-emerald-500.text-white{background-color:#047857}
 :root:not(.dark) main .text-red-500{color:#dc2626}
 :root:not(.dark) main [class*="text-[#009fe3]/"]{color:#006a96}
+:root:not(.dark) main .bg-white\/20.text-white{background-color:rgba(0,40,70,.35)}
+:root:not(.dark) main .text-\[10px\].font-bold.opacity-75{opacity:1}
+:root:not(.dark) main .bg-slate-100 .text-slate-400,:root:not(.dark) main .bg-slate-100.text-slate-400,:root:not(.dark) main .bg-slate-100.text-slate-500{color:#475569}

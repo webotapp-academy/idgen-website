@@ -940,7 +940,7 @@ export default async function EventCardPrintingPage() {
                     <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400">
                       {pkg.badge}
                     </span>
-                    <h4 className="font-extrabold text-white text-sm">{pkg.title}</h4>
+                    <h3 className="font-extrabold text-white text-sm">{pkg.title}</h3>
                     <FlowChain steps={pkg.formula} dark />
                   </div>
                 ))}
