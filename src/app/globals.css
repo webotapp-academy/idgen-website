@@ -482,3 +482,6 @@ h1, h2, h3, h4, h5, h6 {
 :root:not(.dark) .text-emerald-600 {
   color: #047857;
 }
+:root:not(.dark) .bg-\[\#009fe3\] {
+  background-color: #006a96;
+}
