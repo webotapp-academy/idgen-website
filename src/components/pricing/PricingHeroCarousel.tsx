@@ -193,10 +193,10 @@ export function PricingHeroCarousel({ initialSlides }: { initialSlides?: Pricing
               key={slide.id || idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}: ${slide.title || "Product"}`}
-              className={`transition-all duration-300 rounded-full h-2 ${
+              className={`transition-all duration-300 rounded-full h-6 p-2 bg-clip-content ${
                 idx === currentIndex
-                  ? "w-6 bg-[#009fe3]"
-                  : "w-2 bg-white/40 hover:bg-white/70"
+                  ? "w-12 bg-[#009fe3]"
+                  : "w-6 bg-white/40 hover:bg-white/70"
               }`}
             />
           ))}
