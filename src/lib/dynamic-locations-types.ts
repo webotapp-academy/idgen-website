@@ -187,6 +187,9 @@ export interface CityData {
   faqsHelpText?: string;
   faqs?: Faq[];
 
+  // 10b. Operational / Facility Address
+  address?: string;
+
   // 11. SEO & AI Overview
   quickAnswer?: string;
   metaTitle: string;

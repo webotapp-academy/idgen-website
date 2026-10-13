@@ -54,7 +54,7 @@ const nextConfig = {
       { source: "/service-area/:state/:city", destination: "/service-areas/:state/:city/" },
       { source: "/service-area/:state", destination: "/service-areas/:state/" },
       { source: "/service-area", destination: "/service-areas/" },
-      { source: "/service-areas/assam/tezpur", destination: "/service-areas/assam/sonitpur/" },
+      { source: "/service-areas/assam/sonitpur", destination: "/service-areas/assam/tezpur/" },
       { source: "/service-areas/assam/karimganj", destination: "/service-areas/assam/sribhumi-karimganj/" },
       { source: "/service-areas/assam/sribhumi", destination: "/service-areas/assam/sribhumi-karimganj/" },
       { source: "/get-a-quote", destination: "/request-a-quote/" },

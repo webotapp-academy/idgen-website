@@ -40,6 +40,7 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
+import { LocationAddressBar } from "@/components/ui/LocationAddressBar";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessSchema, faqSchema } from "@/lib/schema-org";
 import { getState, getCity, getAllCities, getDefaultCityServices } from "@/lib/dynamic-locations";
@@ -730,6 +731,13 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
             </p>
           </div>
         )}
+
+        {/* Dedicated City Address Section */}
+        <LocationAddressBar
+          locationName={city.name}
+          address={city.address}
+          isPrimary={city.isPrimary || city.slug === "guwahati"}
+        />
 
         {/* Closing CTA */}
         <div className="mt-8">

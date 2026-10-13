@@ -74,6 +74,7 @@ export default function AdminServiceAreasPage() {
     slug: "",
     name: "",
     isPrimary: false,
+    address: "",
     heroHeadline: "",
     heroIntro: "",
     heroSubtext: "",
@@ -99,7 +100,7 @@ export default function AdminServiceAreasPage() {
 
   // Active tab in City Editor modal
   const [cityActiveTab, setCityActiveTab] = useState<
-    "general" | "local" | "services" | "products" | "packages" | "whyChoose" | "clients" | "faqs" | "seo"
+    "general" | "local" | "services" | "products" | "packages" | "whyChoose" | "clients" | "faqs" | "address" | "seo"
   >("general");
 
   // Helper inputs for tags and list additions
@@ -445,15 +446,16 @@ export default function AdminServiceAreasPage() {
           state.verifiedClients && state.verifiedClients.length > 0
             ? [...state.verifiedClients]
             : [
-                { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
-                { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
-                { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
-                { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
-                { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
-                { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
-                { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
-                { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
-              ],
+              { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
+              { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
+              { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
+              { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
+              { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
+              { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
+              { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
+              { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
+            ],
+        cities: state.cities || [],
       });
     } else {
       setStateForm({
@@ -534,6 +536,7 @@ export default function AdminServiceAreasPage() {
     if (city) {
       setCityForm({
         ...city,
+        address: city.address || "",
         heroEyebrow: city.heroEyebrow || `${stateSlug.toUpperCase()} SERVICE AREA`,
         heroWorkflowSteps:
           city.heroWorkflowSteps && city.heroWorkflowSteps.length > 0
@@ -827,14 +830,14 @@ export default function AdminServiceAreasPage() {
         services:
           city.services && city.services.length > 0
             ? city.services.map((srv, i) => {
-                const defaults = getDefaultCityServices(city.name);
-                const fallback = defaults[i % defaults.length] || defaults[0];
-                return {
-                  ...srv,
-                  spec: srv.spec || fallback.spec,
-                  highlights: srv.highlights && srv.highlights.length > 0 ? srv.highlights : fallback.highlights,
-                };
-              })
+              const defaults = getDefaultCityServices(city.name);
+              const fallback = defaults[i % defaults.length] || defaults[0];
+              return {
+                ...srv,
+                spec: srv.spec || fallback.spec,
+                highlights: srv.highlights && srv.highlights.length > 0 ? srv.highlights : fallback.highlights,
+              };
+            })
             : getDefaultCityServices(city.name),
         catalogEyebrow: city.catalogEyebrow || `${city.name} Hardware & Products`,
         catalogTitle: city.catalogTitle || `Explore Our Product Catalog in ${city.name}`,
@@ -844,14 +847,14 @@ export default function AdminServiceAreasPage() {
         products:
           city.products && city.products.length > 0
             ? city.products.map((prod, i) => {
-                const defaults = getDefaultCityProducts(city.name);
-                const fallback = defaults[i % defaults.length] || defaults[0];
-                return {
-                  ...prod,
-                  spec: prod.spec || fallback.spec,
-                  highlights: prod.highlights && prod.highlights.length > 0 ? prod.highlights : fallback.highlights,
-                };
-              })
+              const defaults = getDefaultCityProducts(city.name);
+              const fallback = defaults[i % defaults.length] || defaults[0];
+              return {
+                ...prod,
+                spec: prod.spec || fallback.spec,
+                highlights: prod.highlights && prod.highlights.length > 0 ? prod.highlights : fallback.highlights,
+              };
+            })
             : getDefaultCityProducts(city.name),
       });
     } else {
@@ -859,6 +862,7 @@ export default function AdminServiceAreasPage() {
         slug: "",
         name: "",
         isPrimary: false,
+        address: "",
         heroEyebrow: `${stateSlug.toUpperCase()} SERVICE AREA`,
         heroHeadline: "",
         heroIntro: "",
@@ -1106,8 +1110,8 @@ export default function AdminServiceAreasPage() {
       {message && (
         <div
           className={`p-4 rounded-2xl flex items-center justify-between text-xs font-semibold ${message.type === "success"
-              ? "bg-emerald-500/10 border border-emerald-500/30 text-emerald-400"
-              : "bg-rose-500/10 border border-rose-500/30 text-rose-400"
+            ? "bg-emerald-500/10 border border-emerald-500/30 text-emerald-400"
+            : "bg-rose-500/10 border border-rose-500/30 text-rose-400"
             }`}
         >
           <span>{message.text}</span>
@@ -1124,16 +1128,16 @@ export default function AdminServiceAreasPage() {
             key={st.slug}
             onClick={() => setSelectedStateSlug(st.slug)}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${selectedStateSlug === st.slug
-                ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/20"
-                : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
+              ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/20"
+              : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
               }`}
           >
             <Building2 className="h-3.5 w-3.5" />
             <span>{st.name}</span>
             <span
               className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${selectedStateSlug === st.slug
-                  ? "bg-slate-950 text-teal-300"
-                  : "bg-slate-800 text-slate-400"
+                ? "bg-slate-950 text-teal-300"
+                : "bg-slate-800 text-slate-400"
                 }`}
             >
               {st.cities?.length || 0}
@@ -1316,22 +1320,20 @@ export default function AdminServiceAreasPage() {
               <button
                 type="button"
                 onClick={() => setStateActiveTab("general")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                  stateActiveTab === "general"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${stateActiveTab === "general"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
                 1. General Details
               </button>
               <button
                 type="button"
                 onClick={() => setStateActiveTab("clients")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${
-                  stateActiveTab === "clients"
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${stateActiveTab === "clients"
                     ? "bg-teal-500 text-slate-950"
                     : "text-slate-400 hover:text-white hover:bg-slate-800"
-                }`}
+                  }`}
               >
                 <ShieldCheck className="h-3.5 w-3.5" />
                 <span>2. Client Logos Ticker ({stateForm.verifiedClients?.length || 0})</span>
@@ -1556,7 +1558,7 @@ export default function AdminServiceAreasPage() {
                       <div className="flex items-center gap-3 p-2.5 bg-slate-900/80 border border-slate-800 rounded-xl">
                         <div className="h-10 w-16 relative bg-white/10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1">
                           <Image
-                  unoptimized
+                            unoptimized
                             src={stateClientLogoInput}
                             alt="Preview"
                             fill
@@ -1627,7 +1629,7 @@ export default function AdminServiceAreasPage() {
                             <div className="flex items-center gap-3 min-w-0">
                               <div className="h-10 w-14 relative bg-white/10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center p-1">
                                 <Image
-                  unoptimized
+                                  unoptimized
                                   src={client.logo || "/images/clint logo/1.png"}
                                   alt={client.name}
                                   fill
@@ -1727,7 +1729,7 @@ export default function AdminServiceAreasPage() {
                   {cityForm.slug ? `Edit ${cityForm.name} Dynamic Content` : `Add City in ${editingStateSlug}`}
                 </h3>
                 <p className="text-xs text-slate-400">
-                  Manage all 9 sections: Hero, Local Presence, Services, Product Catalog, Setups &amp; Workflow, Bulk &amp; Why Choose, Client Logos &amp; Coverage, FAQs, and SEO.
+                  Manage all 10 sections: Hero, Local Presence, Services, Product Catalog, Setups &amp; Workflow, Bulk &amp; Why Choose, Client Logos &amp; Coverage, FAQs, Operational Address, and SEO.
                 </p>
               </div>
               <button onClick={() => setIsCityModalOpen(false)} className="text-slate-400 hover:text-white">
@@ -1735,14 +1737,14 @@ export default function AdminServiceAreasPage() {
               </button>
             </div>
 
-            {/* 9 Section Navigation Tabs */}
+            {/* 10 Section Navigation Tabs */}
             <div className="flex flex-wrap items-center gap-1.5 border-b border-slate-800 pb-2">
               <button
                 type="button"
                 onClick={() => setCityActiveTab("general")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${cityActiveTab === "general"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 1. Hero &amp; Header
@@ -1751,8 +1753,8 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("local")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "local"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 2. Local Presence &amp; Audiences
@@ -1761,8 +1763,8 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("services")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "services"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 3. Services ({cityForm.services?.length || 0})
@@ -1771,8 +1773,8 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("products")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "products"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 4. Product Catalog ({cityForm.products?.length || 0})
@@ -1781,8 +1783,8 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("packages")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "packages"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 5. Packages &amp; Workflow
@@ -1791,8 +1793,8 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("whyChoose")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "whyChoose"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 6. Why Choose &amp; Bulk ({cityForm.whyChoosePoints?.length || 0})
@@ -1801,8 +1803,8 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("clients")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "clients"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 7. Client Logos &amp; Coverage ({cityForm.verifiedClients?.length || 0})
@@ -1811,21 +1813,34 @@ export default function AdminServiceAreasPage() {
                 type="button"
                 onClick={() => setCityActiveTab("faqs")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "faqs"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
                   }`}
               >
                 8. FAQs ({cityForm.faqs?.length || 0})
               </button>
               <button
                 type="button"
-                onClick={() => setCityActiveTab("seo")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "seo"
-                    ? "bg-teal-500 text-slate-950"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                onClick={() => setCityActiveTab("address")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "address"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-teal-400 hover:text-white hover:bg-slate-800 border border-teal-500/30"
                   }`}
               >
-                9. SEO &amp; AI Summary
+                <span className="flex items-center gap-1">
+                  <MapPin className="h-3 w-3" />
+                  <span>9. Operational Address</span>
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setCityActiveTab("seo")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${cityActiveTab === "seo"
+                  ? "bg-teal-500 text-slate-950"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  }`}
+              >
+                10. SEO &amp; AI Summary
               </button>
             </div>
 
@@ -3519,7 +3534,7 @@ export default function AdminServiceAreasPage() {
                           <div className="relative h-20 w-24 sm:w-28 shrink-0 rounded-lg overflow-hidden border border-slate-800 bg-slate-950 flex flex-col items-center justify-center group/img">
                             {pt.image ? (
                               <Image
-                  unoptimized
+                                unoptimized
                                 src={pt.image}
                                 alt={pt.title}
                                 fill
@@ -4506,10 +4521,96 @@ export default function AdminServiceAreasPage() {
                       </div>
                     ))}
                   </div>
+
+                  {/* City Operational / Facility Address in FAQ tab */}
+                  <div className="p-4 sm:p-5 bg-slate-950 border-2 border-teal-500/40 rounded-2xl space-y-3 mt-6 shadow-md">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
+                        <MapPin className="h-4 w-4 text-teal-400 shrink-0" />
+                        <span>City Operational / Facility Address (Bottom Page Address Section)</span>
+                      </label>
+                      <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-teal-500/10 text-teal-300 border border-teal-500/30">
+                        Bottom Section Card
+                      </span>
+                    </div>
+                    <textarea
+                      rows={2}
+                      placeholder="e.g. Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001"
+                      value={cityForm.address || ""}
+                      onChange={(e) => setCityForm({ ...cityForm, address: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500 font-medium leading-relaxed"
+                    />
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] text-slate-400">
+                      <span>
+                        This address is displayed in the dedicated bottom address bar on the {cityForm.name || "city"} page (above the final CTA band).
+                      </span>
+                      {!cityForm.address && (
+                        <span className="text-amber-400/90 font-medium">
+                          Using default Guwahati HQ address fallback
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
 
-              {/* TAB 7: SEO & AI SUMMARY */}
+              {/* TAB 9: OPERATIONAL / FACILITY ADDRESS */}
+              {cityActiveTab === "address" && (
+                <div className="space-y-4">
+                  <div className="p-5 bg-slate-950 border border-teal-500/50 rounded-2xl space-y-4 shadow-lg">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                      <div>
+                        <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                          <MapPin className="h-4 w-4 text-teal-400" />
+                          <span>Operational / Facility Address for {cityForm.name || "City"}</span>
+                        </h4>
+                        <p className="text-xs text-slate-400 mt-0.5">
+                          Configure the exact physical address displayed in the dedicated bottom facility badge section on the public {cityForm.name || "city"} page.
+                        </p>
+                      </div>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-teal-500/10 text-teal-300 border border-teal-500/30">
+                        Bottom Section
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="block text-xs font-semibold text-slate-300">
+                        Full Physical Address / Facility Location
+                      </label>
+                      <textarea
+                        rows={3}
+                        placeholder="e.g. Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001"
+                        value={cityForm.address || ""}
+                        onChange={(e) => setCityForm({ ...cityForm, address: e.target.value })}
+                        className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-teal-500 font-medium leading-relaxed"
+                      />
+                      <p className="text-[11px] text-slate-400">
+                        Leave blank to automatically use the Guwahati primary facility address.
+                      </p>
+                    </div>
+
+                    {/* Live Preview Card */}
+                    <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-teal-400 block">
+                        Live Preview on Public Page:
+                      </span>
+                      <div className="flex items-start gap-2.5 text-xs text-slate-300">
+                        <MapPin className="h-4 w-4 text-teal-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-semibold text-white">
+                            {cityForm.name || "City"} Direct Production &amp; Delivery Facility
+                          </p>
+                          <p className="text-slate-400 text-[11px] mt-0.5">
+                            {cityForm.address || "Room No 118, Mangal Ram Tower, Assam Trunk Rd, Opposite Police Reserve, Tokobari Satra, Guwahati, Assam 781001 (Default)"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 10: SEO & AI SUMMARY */}
               {cityActiveTab === "seo" && (
                 <div className="space-y-4">
                   <div>

@@ -27,6 +27,7 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { FlowChain } from "@/components/ui/FlowChain";
 import { FaqList } from "@/components/ui/FaqList";
 import { CtaBand } from "@/components/ui/CtaBand";
+import { LocationAddressBar } from "@/components/ui/LocationAddressBar";
 import { getState, getAllStates, getDefaultCityServices } from "@/lib/dynamic-locations";
 import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import { SITE, SITE_URL } from "@/data/site";
@@ -368,6 +369,12 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
             </div>
           </div>
         </div>
+
+        {/* Dedicated State Service Base & Cleanroom Address Section */}
+        <LocationAddressBar
+          locationName={state.name}
+          isPrimary={state.slug === "assam"}
+        />
 
         {/* Closing CTA */}
         <div className="mt-8">
