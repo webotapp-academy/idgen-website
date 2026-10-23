@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "ID Card Printing Manufacturer in Guwahati, Assam | iDGen",
-    "description": "iDGen is a Guwahati, Assam-based ID card and identity-product manufacturer supplying PVC ID cards, student and employee cards, RFID cards, printed lanyards and event badges across Northeast India.",
+    "title": "ID Card Printing Manufacturer in Guwahati, Assam | IDGen",
+    "description": "IDGen is a Guwahati, Assam-based ID card and identity-product manufacturer supplying PVC ID cards, student and employee cards, RFID cards, printed lanyards and event badges across Northeast India.",
     "keywords": [
       "Identity solutions",
       "ID card printing",
@@ -26,7 +26,7 @@
       "highlight": "Guwahati, Assam"
     },
     "subhead": "Custom ID Cards, Printed Lanyards & Complete Identification Solutions for Schools, Companies, Institutions & Events ",
-    "description": "iDGen is an ID card and identity-product manufacturer based in Guwahati, Assam. We produce customized PVC ID cards, student ID cards, employee and staff ID cards, RFID cards, custom printed lanyards, event badges and related identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs and events across Assam and Northeast India.",
+    "description": "IDGen is an ID card and identity-product manufacturer based in Guwahati, Assam. We produce customized PVC ID cards, student ID cards, employee and staff ID cards, RFID cards, custom printed lanyards, event badges and related identification products for schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs and events across Assam and Northeast India.",
     "featureCards": [
       {
         "title": "Complete ID Solutions",
@@ -79,7 +79,7 @@
         "category": "Conferences",
         "topBadge": "VIP Event Pass",
         "specPill": "Dual Chrome Hooks",
-        "bottomSpec": "Holographic Foil • Express 48h Delivery",
+        "bottomSpec": "Holographic Foil • Express 72h Dispatch",
         "hubTag": "SUMMIT READY"
       },
       {
@@ -251,52 +251,124 @@
     "tickerEyebrow": "Trusted Credentials Partner Across Assam & Northeast India",
     "clients": [
       {
-        "name": "Don Bosco Hr Sec School",
-        "logo": "/images/clint logo/1.png",
-        "location": "Gojapara, Assam",
-        "tag": "Gojapara"
+        "name": "Shrimanta Shankar Academy",
+        "logo": "/uploads/Shrimanta_Shankar_Academy__Guwahat__Assam-1791632357267.jpg",
+        "location": " Guwahat, Assam",
+        "tag": " Guwahat, Assam"
       },
       {
-        "name": "Jorhat Kendriya Vidyalaya",
-        "logo": "/images/clint logo/2.png",
-        "location": "Jorhat, Assam",
-        "tag": "Jorhat"
+        "name": "Dibrugarh University",
+        "logo": "/uploads/Dibrugarh_University__Dibrugarh-1791632441225.png",
+        "location": "Dibrugarh, Assam",
+        "tag": "Dibrugarh, Assam"
       },
       {
-        "name": "CKB College",
-        "logo": "/images/clint logo/3.png",
-        "location": "Jorhat, Assam",
-        "tag": "Jorhat"
+        "name": "Don Bosco School,",
+        "logo": "/uploads/Don_Bosco_School__Itanagar-1791636281608.png",
+        "location": " Itanagar, Arunachal Pradesh",
+        "tag": " Itanagar, Arunachal Pradesh"
       },
       {
-        "name": "DBS Itanagar",
-        "logo": "/images/clint logo/4.png",
-        "location": "Arunachal Pradesh",
-        "tag": "Arunachal Pradesh"
+        "name": "Donyi Polo Academy",
+        "logo": "/uploads/Donyi_Polo_Academy__Itanagar-1791636338004.jpg",
+        "location": " Itanagar, Arunachal Pradesh",
+        "tag": " Itanagar, Arunachal Pradesh"
       },
       {
-        "name": "Rayburn College",
-        "logo": "/images/clint logo/5.png",
+        "name": "Covenant English School",
+        "logo": "/uploads/Covenant_English_School__Imphal-1791636406360.jpg",
+        "location": "Imphal, Manipur",
+        "tag": "Imphal, Manipur"
+      },
+      {
+        "name": "Young Pillars",
+        "logo": "/uploads/Young_Pillars__Churachandpur__Manipur-1791636448369.jpeg",
         "location": "Churachandpur, Manipur",
-        "tag": "Churachandpur"
+        "tag": "Churachandpur, Manipur"
       },
       {
-        "name": "Nathan Brown Academy",
-        "logo": "/images/clint logo/6.png",
-        "location": "Namrup, Assam",
-        "tag": "Namrup"
+        "name": "Sankardev College",
+        "logo": "/uploads/Sankardev_College__Shillong__Meghalaya-1791636547780.jpg",
+        "location": "Shillong, Meghalaya",
+        "tag": "Shillong, Meghalaya"
       },
       {
-        "name": "Ardalivia English School",
-        "logo": "/images/clint logo/7.png",
-        "location": "Assam",
-        "tag": "Assam"
+        "name": "Gilead Bethel School",
+        "logo": "/uploads/Gilead_Bethel_School__Shillong-1791636627302.jpg",
+        "location": "Shillong, Meghalaya",
+        "tag": "Shillong, Meghalaya"
       },
       {
-        "name": "Assam Govt Departments",
-        "logo": "/images/clint logo/8.png",
-        "location": "Guwahati Hub",
-        "tag": "Guwahati"
+        "name": "Don Bosco School, ",
+        "logo": "/uploads/Don_Bosco_School__Tura-1791636676190.jpg",
+        "location": "Tura, Meghalaya",
+        "tag": "Tura, Meghalaya"
+      },
+      {
+        "name": "Sherwood School",
+        "logo": "/uploads/Sherwood_School__Tura-1791636747453.jpg",
+        "location": "Tura, Meghalaya",
+        "tag": "Tura, Meghalaya"
+      },
+      {
+        "name": "Holy Heart School",
+        "logo": "/uploads/Holy_Heart_School___Aizawl-1791636790491.jpg",
+        "location": "Aizawl, Mizoram",
+        "tag": "Aizawl, Mizoram"
+      },
+      {
+        "name": "Little Kingdom School",
+        "logo": "/uploads/Little_Kingdom_School__Aizawl-1791636832643.jpg",
+        "location": "Aizawl, Mizoram",
+        "tag": "Aizawl, Mizoram"
+      },
+      {
+        "name": "Bethesda Higher Secondary School",
+        "logo": "/uploads/Bethesda_Higher_Secondary_School__Dimapur__Nagaland-1791636888289.jpg",
+        "location": "Dimapur, Nagaland",
+        "tag": "Dimapur, Nagaland"
+      },
+      {
+        "name": "MGM Higher Secondary School",
+        "logo": "/uploads/MGM_Higher_Secondary_School__Dimapur-1791636915512.jpg",
+        "location": "Dimapur, Nagaland",
+        "tag": "Dimapur, Nagaland"
+      },
+      {
+        "name": "Christ King Higher Secondary School",
+        "logo": "/uploads/Christ_King_Higher_Secondary_School___Kohima__Nagaland-1791636940432.jpg",
+        "location": "Kohima, Nagaland",
+        "tag": "Kohima, Nagaland"
+      },
+      {
+        "name": "Little Flower Higher Secondary School",
+        "logo": "/uploads/Little_Flower_Higher_Secondary_School__Kohima-1791636970835.jpg",
+        "location": "Kohima, Nagaland",
+        "tag": "Kohima, Nagaland"
+      },
+      {
+        "name": "Don Bosco Senior Secondary School",
+        "logo": "/uploads/Don_Bosco_Senior_Secondary_School__Kohima-1791637040602.jpg",
+        "location": "Kohima, Nagaland",
+        "tag": "Kohima, Nagaland"
+      },
+      {
+        "name": "Holy Cross School ",
+        "logo": "/uploads/Holy_Cross_School_Kumarghat_Tripura-1791637168842.jpg",
+        "location": "Agartala, Tripura",
+        "tag": "Agartala, Tripura"
+      },
+      {
+        "name": "Vivekananda Vidyapith",
+        "logo": "/uploads/Vivekananda_Vidyapith__Tripura-1791637210186.jpg",
+        "location": "Agartala, Tripura",
+        "tag": "Agartala, Tripura"
+      },
+      {
+        "name": "Gauhati University",
+        "logo": "/uploads/Gauhati_University__Guwahati-1791637316347.jpg",
+        "location": "Guwahati, Assam",
+        "tag": "Guwahati, Assam"
       }
     ],
     "videoBanner": {
@@ -365,7 +437,7 @@
         "imageSrc": "/uploads/iDGen_PVC_Events_ID_Card_with_Multicolored_lanyard_and_Hook_in_Guwahati-1790324821.webp",
         "imageAlt": "Custom event cards with clear IDGen logo and branded lanyards",
         "tag": "Conferences & Summits",
-        "badge": "Express 48h",
+        "badge": "Express 72h",
         "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
         "spec": "Oversized CR100/Custom • Dual Hook Ready",
         "highlights": [
@@ -601,7 +673,7 @@
       },
       {
         "name": "Tezpur",
-        "slug": "tezpur"
+        "slug": "sonitpur"
       },
       {
         "name": "Nagaon",
@@ -695,28 +767,28 @@
     "lede": "Frequently asked questions about IDGen identity solutions, card printing, custom lanyards, and digital workflows. ",
     "faqs": [
       {
-        "q": "What types of identification and customized products can iDGen manufacture?",
-        "a": "iDGen manufactures customized PVC ID cards, student and employee ID cards, RFID cards, event badges, printed lanyards, ID card holders, hooks and complete identification sets. iDGen also supplies customized sports medals and other identification-related products for institutions, organizations and events.\n"
+        "q": "What types of identification and customized products can IDGen manufacture?",
+        "a": "IDGen manufactures customized PVC ID cards, student and employee ID cards, RFID cards, event badges, printed lanyards, ID card holders, hooks and complete identification sets. IDGen also supplies customized sports medals and other identification-related products for institutions, organizations and events.\n"
       },
       {
-        "q": "Can iDGen supply complete ID card sets instead of cards alone?",
+        "q": "Can IDGen supply complete ID card sets instead of cards alone?",
         "a": "Yes. Organizations can order cards alone or combine ID cards with holders, hooks, custom printed lanyards and other required accessories to create a ready-to-use identification set."
       },
       {
-        "q": "What types of organizations can order products from iDGen?",
-        "a": "iDGen serves schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, sports organizations, clubs, events and other organizations requiring customized identification or event-related products.\n"
+        "q": "What types of organizations can order products from IDGen?",
+        "a": "IDGen serves schools, colleges, universities, companies, hospitals, institutions, government organizations, NGOs, sports organizations, clubs, events and other organizations requiring customized identification or event-related products.\n"
       },
       {
-        "q": "Can iDGen handle large institutional or bulk orders?",
-        "a": "Yes. iDGen handles institutional and high-volume orders for identity products and related customized items. Production capacity can reach 10,000+ identity products per day depending on the product, personalization, quantity and project requirements.\n"
+        "q": "Can IDGen handle large institutional or bulk orders?",
+        "a": "Yes. IDGen handles institutional and high-volume orders for identity products and related customized items. Production capacity can reach 10,000+ identity products per day depending on the product, personalization, quantity and project requirements.\n"
       },
       {
-        "q": "How does an organization start a project with iDGen?",
-        "a": "Organizations can share their requirements, including the required product, quantity, design or branding requirements and relevant specifications. iDGen can then recommend the appropriate products and workflow before production.\n"
+        "q": "How does an organization start a project with IDGen?",
+        "a": "Organizations can share their requirements, including the required product, quantity, design or branding requirements and relevant specifications. IDGen can then recommend the appropriate products and workflow before production.\n"
       },
       {
         "q": "Can organizations get both physical identification products and digital data-collection support?",
-        "a": "Yes. Where required, iDGen can combine physical identification products with iDGen Studio, its digital workflow for collecting identification information, photographs, reviewing submissions and preparing approved records for printing.\n"
+        "a": "Yes. Where required, IDGen can combine physical identification products with IDGen Studio, its digital workflow for collecting identification information, photographs, reviewing submissions and preparing approved records for printing.\n"
       }
     ]
   },
@@ -738,5 +810,5 @@
       "secondaryHref": "/contact-us/"
     }
   },
-  "lastUpdated": "2026-09-12T05:41:15.077Z"
+  "lastUpdated": "2026-10-10T13:02:59.654Z"
 }

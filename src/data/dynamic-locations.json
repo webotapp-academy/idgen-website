@@ -1244,7 +1244,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "K.B. Road, Behind Little South Restaurant, Jorhat, Assam - 785001"
       },
       {
         "slug": "dibrugarh",
@@ -1810,7 +1811,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Running Shed Gate, opp. Little Flower School, Dibrugarh, Assam 786001"
       },
       {
         "slug": "nagaon",
@@ -2366,7 +2368,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "A. T. Road, Opposite Terapanth Bhawan, Haibargaon, Nagaon, Assam 782002"
       },
       {
         "slug": "tinsukia",
@@ -2902,7 +2905,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Rangagora Rd, Tinsukia, Assam 786125"
       },
       {
         "slug": "sivasagar",
@@ -3471,7 +3475,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Bus Stand, GNG Rd, near A.S.T.C, Sivasagar, Assam 785640"
       },
       {
         "slug": "golaghat",
@@ -4032,7 +4037,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Station Rd, Golaghat, Assam 785621"
       },
       {
         "slug": "dhemaji",
@@ -4618,7 +4624,8 @@
         "coverageHubSubtitle": "Full Dhemaji & Regional Reach",
         "confidentialityTitle": "Identification Data & Confidentiality",
         "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
-        "confidentialityCta": "Explore IDGen Studio →"
+        "confidentialityCta": "Explore IDGen Studio →",
+        "address": "Station Rd, Ram Nagar, Dhemaji, Assam 787057"
       },
       {
         "slug": "hojai",
@@ -5174,7 +5181,8 @@
         "coverageHubSubtitle": "Full Hojai & Regional Reach",
         "confidentialityTitle": "Identification Data & Confidentiality",
         "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
-        "confidentialityCta": "Explore IDGen Studio →"
+        "confidentialityCta": "Explore IDGen Studio →",
+        "address": "Jk Kedia Road, Hojai Main Rd, Hojai, Assam 782436"
       },
       {
         "slug": "lakhimpur",
@@ -5747,11 +5755,12 @@
         "coverageHubSubtitle": "Full Lakhimpur & Regional Reach",
         "confidentialityTitle": "Identification Data & Confidentiality",
         "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
-        "confidentialityCta": "Explore IDGen Studio →"
+        "confidentialityCta": "Explore IDGen Studio →",
+        "address": "Ward No. 6, A.S.T.C Road, near Town Bor Masjid, North Lakhimpur, Assam 787001"
       },
       {
         "slug": "tezpur",
-        "name": "tezpur",
+        "name": "Tezpur",
         "isPrimary": false,
         "heroEyebrow": "ASSAM SERVICE AREA",
         "heroHeadline": "ID Card Printing & Identity Solutions in tezpur",
@@ -5954,8 +5963,8 @@
           }
         ],
         "catalogEyebrow": "Hardware & Identity Products",
-        "catalogTitle": "",
-        "catalogSubtitle": "",
+        "catalogTitle": "Explore Our Product Catalog in tezpur",
+        "catalogSubtitle": "From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in tezpur.",
         "products": [
           {
             "id": "id-card-holders",
@@ -6313,7 +6322,13 @@
         ],
         "quickAnswer": "",
         "metaTitle": "ID Card Printing in tezpur | IDGen Identity Solutions",
-        "metaDescription": "IDGen provides ID card printing and identity solutions in tezpur, including student, employee, event and RFID cards."
+        "metaDescription": "IDGen provides ID card printing and identity solutions in tezpur, including student, employee, event and RFID cards.",
+        "address": "Durgabari Rubber Bagan Rd, Mahabhairab, Tezpur, Assam 784001",
+        "coverageHubTitle": "Direct City Hub",
+        "coverageHubSubtitle": "Full tezpur & Regional Reach",
+        "confidentialityTitle": "Identification Data & Confidentiality",
+        "confidentialityDesc": "Personalized ID card projects contain student/employee names, biometrics, and photos. IDGen treats all customer-provided identification data as strictly confidential project information and uses it solely for the authorized printing scope.",
+        "confidentialityCta": "Explore IDGen Studio →"
       }
     ],
     "projectsBadge": "Institutions We Serve",
@@ -6871,7 +6886,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "NH415, opp. IDBI Bank, E- Sector, Itanagar, Arunachal Pradesh 791111"
       }
     ],
     "projectsBadge": "Institutions We Serve",
@@ -7473,7 +7489,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Police Bazar, Shillong, Meghalaya 793001"
       },
       {
         "slug": "tura",
@@ -8032,7 +8049,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "H. K Road, Tura Bazaar, Kimri Jamdap, Tura, Meghalaya 794001"
       },
       {
         "slug": "jowai",
@@ -8586,7 +8604,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Iawmusiang main road, opposite uco bank, Jowai, Meghalaya 793150"
       }
     ]
   },
@@ -9136,7 +9155,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "near Ao Baptist Church, Midland Colony, Kohima, Nagaland 797001"
       },
       {
         "slug": "dimapur",
@@ -9686,7 +9706,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Bank Colony, Near D.C. Residence Opposite BSNL Office, Kohima, Road, Dimapur, Nagaland 797112"
       }
     ]
   },
@@ -10259,7 +10280,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Central Jail Road, Old Lambulane Rd, opp. GP Womens College, Imphal, Manipur 795001"
       }
     ]
   },
@@ -10809,7 +10831,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Saron Veng Rd, Dawrpui, Aizawl, Mizoram 796007"
       }
     ],
     "projectsBadge": "Institutions We Serve",
@@ -11384,7 +11407,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Banamalipur Rd, near Lalbahadur Club, Banamalipur, Agartala, Tripura 799001"
       }
     ],
     "projectsBadge": "Institutions We Serve",
@@ -11958,7 +11982,8 @@
               "Scratch-Resistant Overlaminate"
             ]
           }
-        ]
+        ],
+        "address": "Roll house, Mahatma Gandhi Marg, Arithang, Gangtok, Sikkim 737101"
       }
     ]
   }

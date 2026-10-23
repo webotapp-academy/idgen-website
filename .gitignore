@@ -37,3 +37,5 @@ scratch_check*.js
 extract_pdf.mjs
 pdf_text.txt
 *.pdf
+/public_html/
+*.bak*

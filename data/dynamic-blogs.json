@@ -222,7 +222,8 @@
       "modern-id-card-security-guide",
       "holder-v1-v2-h1-comparison-guide",
       "event-badging-best-practices"
-    ]
+    ],
+    "isFeatured": false
   },
   {
     "slug": "holder-v1-v2-h1-comparison-guide",
@@ -332,7 +333,8 @@
       "modern-id-card-security-guide",
       "rfid-frequency-comparison-guide",
       "ultrasonic-lanyard-sealing-revolution"
-    ]
+    ],
+    "isFeatured": false
   },
   {
     "slug": "rfid-frequency-comparison-guide",
@@ -443,7 +445,8 @@
       "modern-id-card-security-guide",
       "holder-v1-v2-h1-comparison-guide",
       "idgen-studio-digital-onboarding"
-    ]
+    ],
+    "isFeatured": false
   },
   {
     "slug": "idgen-studio-digital-onboarding",
@@ -538,7 +541,8 @@
       "modern-id-card-security-guide",
       "event-badging-best-practices",
       "rfid-frequency-comparison-guide"
-    ]
+    ],
+    "isFeatured": false
   },
   {
     "slug": "event-badging-best-practices",
@@ -633,6 +637,7 @@
       "ultrasonic-lanyard-sealing-revolution",
       "modern-id-card-security-guide",
       "idgen-studio-digital-onboarding"
-    ]
+    ],
+    "isFeatured": false
   }
 ]
