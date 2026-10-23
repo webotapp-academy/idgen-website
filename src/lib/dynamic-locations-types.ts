@@ -190,6 +190,9 @@ export interface CityData {
   // 10b. Operational / Facility Address
   address?: string;
 
+  // 10c. City-specific article (unique local content, rendered above the FAQ)
+  localArticle?: { title: string; sections: { heading: string; body: string }[] };
+
   // 11. SEO & AI Overview
   quickAnswer?: string;
   metaTitle: string;
@@ -269,16 +272,16 @@ export function getDefaultCityServices(cityName: string): CityServiceItem[] {
       id: "rfid-card",
       title: `RFID Card Printing in ${cName}`,
       categoryLabel: "Smart Credentials",
-      tag: "13.56 MHz / NFC",
+      tag: "Contactless Credentials",
       badge: "Turnstile Ready",
       imageSrc: "/images/service-rfid-card-printing-v3.jpg",
-      description: `13.56 MHz Mifare 1K, 125 kHz Proximity, and UHF contactless credentials calibrated for door access & attendance systems across ${cName}.`,
+      description: `RFID and contactless cards matched to your reader or software, for door access and attendance systems in ${cName}. Tell us the reader model and we confirm compatibility before printing.`,
       href: "/rfid-card-printing/",
-      spec: "Mifare 1K / 125 kHz • Turnstile Encoded",
+      spec: "Matched to your reader • Compatibility confirmed first",
       highlights: [
-        "Pre-Encoded UID Serial Numbers",
-        "Compatible with All Reader Brands",
-        "Embedded Contactless Smart Chips",
+        "Chip type matched to your system",
+        "Reader compatibility confirmed before printing",
+        "Embedded contactless chips",
       ],
     },
     {

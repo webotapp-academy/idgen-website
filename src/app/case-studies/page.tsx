@@ -97,7 +97,7 @@ export default function CaseStudiesPage() {
                   </span>
                   <span className="h-3 w-px bg-[#009fe3]/30" />
                   <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                    Verified Customer Proof
+                    Customer Projects
                   </span>
                 </div>
 

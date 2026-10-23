@@ -56,7 +56,7 @@ export interface DynamicCaseStudiesPageData {
 export const DEFAULT_CASE_STUDIES_PAGE_DATA: DynamicCaseStudiesPageData = {
   hero: {
     badge: "Real Delivered Projects",
-    badgeSub: "Verified Customer Proof",
+    badgeSub: "Customer Projects",
     title: "IDGen Case Studies & ",
     titleHighlight: "Identification Projects",
     subtitle:

@@ -562,7 +562,7 @@ export const DEFAULT_HOMEPAGE_DATA: DynamicHomePageData = {
   productCatalog: DEFAULT_PRODUCT_CATALOG_DATA,
   trust: {
     eyebrow: "One Workflow. One Partner.",
-    title: "Trusted by Organizations That Need More Than Just an ID Card",
+    title: "Chosen by Organizations That Need More Than Just an ID Card",
     subtitle:
       "Most organizations don't simply need a card—they need a complete identification system.",
     description:

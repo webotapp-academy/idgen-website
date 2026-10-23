@@ -51,7 +51,7 @@ export function CityWhyChooseCarousel({ city, state }: CityWhyChooseCarouselProp
       desc: pt.desc || fallback.desc,
       image: pt.image || fallback.image || "/images/why-idgen-more-than-brand.jpg",
       badge: pt.badge || fallback.badge || "IDGen Advantage",
-      stat: pt.stat || fallback.stat || `${city.name} Verified`,
+      stat: pt.stat || fallback.stat || `${city.name} Service`,
       icon: iconOptions[idx % iconOptions.length],
     };
   });

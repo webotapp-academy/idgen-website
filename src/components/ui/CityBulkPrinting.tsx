@@ -68,7 +68,7 @@ export function CityBulkPrinting({
       title: customBulkInputs?.[1]?.title || "Card & RFID Type",
       description:
         customBulkInputs?.[1]?.description ||
-        "Standard CR80 PVC, 125kHz Proximity, or 13.56MHz Mifare smartcards.",
+        "Standard CR80 PVC or RFID cards, matched to your reader or system.",
       icon: CreditCard,
       colorClass: "from-blue-500/20 to-indigo-500/10 text-blue-500 dark:text-blue-400 border-blue-500/30",
       badge: customBulkInputs?.[1]?.badge || "Credential Spec",

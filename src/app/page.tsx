@@ -43,6 +43,7 @@ import { faqSchema, localBusinessSchema, breadcrumbSchema } from "@/lib/schema-o
 import { HeroSection } from "@/components/home/HeroSection";
 import { ProductShowcaseCarousel } from "@/components/home/ProductShowcaseCarousel";
 import { ServicesCarousel } from "@/components/home/ServicesCarousel";
+import { ReviewsSection } from "@/components/home/ReviewsSection";
 import { SolutionsCarousel } from "@/components/home/SolutionsCarousel";
 import { QuoteCalculator } from "@/components/ui/QuoteCalculator";
 import { SITE, SITE_URL } from "@/data/site";
@@ -754,6 +755,8 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      <ReviewsSection />
 
       {/* ============================================================
           10. DYNAMIC FREQUENTLY ASKED QUESTIONS

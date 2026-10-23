@@ -94,16 +94,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
 
   const isGuwahati = city.slug === "guwahati";
 
-  const verifiedClients = [
-    { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
-    { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
-    { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
-    { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
-    { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
-    { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
-    { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
-    { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
-  ];
+  const clients = city.verifiedClients ?? [];
 
   // Build FAQs
   const defaultFaqs: Faq[] = [
@@ -392,6 +383,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
       </Container>
 
       {/* Real Organizations & Projects Showcase (Container Fluid / Full Viewport Width) */}
+      {clients.length > 0 && (
       <div className="my-14 relative z-10 w-full">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
@@ -417,8 +409,8 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
 
           <div className="animate-marquee flex items-center gap-10 sm:gap-14">
             {[
-              ...(city.verifiedClients && city.verifiedClients.length > 0 ? city.verifiedClients : verifiedClients),
-              ...(city.verifiedClients && city.verifiedClients.length > 0 ? city.verifiedClients : verifiedClients),
+              ...clients,
+              ...clients,
             ].map((client, idx) => (
               <div
                 key={idx}
@@ -449,6 +441,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
           </div>
         </div>
       </div>
+      )}
 
       <Container className="pb-12 md:pb-16 space-y-16">
 
@@ -577,6 +570,21 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
           customSteps={city.orderSteps}
         />
 
+        {/* City-specific article */}
+        {city.localArticle && city.localArticle.sections.length > 0 && (
+          <article className="mx-auto max-w-3xl space-y-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              {city.localArticle.title}
+            </h2>
+            {city.localArticle.sections.map((sec) => (
+              <section key={sec.heading} className="space-y-2">
+                <h3 className="text-lg font-bold text-foreground">{sec.heading}</h3>
+                <p className="text-sm sm:text-base leading-relaxed text-muted">{sec.body}</p>
+              </section>
+            ))}
+          </article>
+        )}
+
         {/* FAQ Section */}
         <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/90 dark:border-white/10 bg-gradient-to-br from-white via-slate-50/60 to-white dark:from-[#0b1320] dark:via-[#0e1726] dark:to-[#070d18] p-6 sm:p-9 lg:p-10 shadow-2xl shadow-slate-900/5 dark:shadow-black/60 backdrop-blur-xl space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
@@ -641,7 +649,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               </div>
               <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full self-start sm:self-auto flex items-center gap-1">
                 <CheckCircle2 className="h-3 w-3" />
-                <span>Factory Verified Overview</span>
+                <span>Overview</span>
               </span>
             </div>
 

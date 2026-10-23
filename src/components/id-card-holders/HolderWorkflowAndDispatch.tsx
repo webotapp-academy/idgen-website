@@ -257,7 +257,7 @@ export function HolderWorkflowAndDispatch({
 
               <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
                 <CheckCircle2 className="h-3.5 w-3.5" />
-                <span>Verified Step</span>
+                <span>Step</span>
               </div>
             </div>
           ))}

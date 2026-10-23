@@ -60,17 +60,6 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   const state = getState(stateSlug);
   if (!state) notFound();
 
-  const defaultVerifiedClients = [
-    { name: "Don Bosco Hr Sec School", logo: "/images/clint logo/1.png", location: "Gojapara, Assam", tag: "Guwahati" },
-    { name: "Jorhat Kendriya Vidyalaya", logo: "/images/clint logo/2.png", location: "Jorhat, Assam", tag: "Jorhat" },
-    { name: "CKB College", logo: "/images/clint logo/3.png", location: "Jorhat, Assam", tag: "Dibrugarh" },
-    { name: "DBS Itanagar", logo: "/images/clint logo/4.png", location: "Arunachal Pradesh", tag: "Silchar" },
-    { name: "Rayburn College", logo: "/images/clint logo/5.png", location: "Churachandpur, Manipur", tag: "Tezpur" },
-    { name: "Nathan Brown Academy", logo: "/images/clint logo/6.png", location: "Namrup, Assam", tag: "Nagaon" },
-    { name: "Ardalivia English School", logo: "/images/clint logo/7.png", location: "Assam", tag: "Tinsukia" },
-    { name: "Assam Govt Departments", logo: "/images/clint logo/8.png", location: "Guwahati Hub", tag: "Sivasagar" },
-  ];
-
   // Aggregate all client logos from all cities in this state (e.g. Guwahati, Dibrugarh, Jorhat, etc.)
   const allCityClients = state.cities.flatMap((city) => {
     if (!city.verifiedClients || city.verifiedClients.length === 0) return [];
@@ -96,7 +85,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     return true;
   });
 
-  const displayClients = uniqueClients.length > 0 ? uniqueClients : defaultVerifiedClients;
+  const displayClients = uniqueClients;
 
   const faqs: Faq[] = [
     {
@@ -269,6 +258,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </Container>
 
       {/* Real Organizations & Projects Showcase (Container Fluid / Full Viewport Width) */}
+      {displayClients.length > 0 && (
       <div className="my-14 relative z-10 w-full">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-6 space-y-2">
@@ -323,6 +313,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           </div>
         </div>
       </div>
+      )}
 
       <Container className="pb-14 space-y-16">
 

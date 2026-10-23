@@ -14,7 +14,7 @@ export const DEFAULT_FAQ_DATA: DynamicFaqData = {
   },
   hero: {
     badgePrefix: "Knowledge Base & Support",
-    badgeHighlight: "25+ Verified Answers",
+    badgeHighlight: "25+ Answers",
     titlePrefix: "Frequently Asked Questions ",
     titleHighlight: "About IDGen",
     description:

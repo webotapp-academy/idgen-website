@@ -28,7 +28,7 @@ export function LocationAddressBar({ locationName, address, isPrimary }: Locatio
               </span>
               <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
                 <ShieldCheck className="h-3 w-3" />
-                Verified Facility
+                Listed Address
               </span>
             </div>
             <h4 className="text-sm sm:text-base font-bold text-foreground">

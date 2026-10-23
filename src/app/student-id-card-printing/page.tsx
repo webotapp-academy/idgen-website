@@ -1193,7 +1193,7 @@ export default function StudentIdCardPrintingPage() {
                     </div>
                     <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-400">
                       <span>Institutional Standard</span>
-                      <span className="text-[#009fe3] dark:text-cyan-400">Verified</span>
+                      <span className="text-[#009fe3] dark:text-cyan-400">Standard</span>
                     </div>
                   </div>
                 );

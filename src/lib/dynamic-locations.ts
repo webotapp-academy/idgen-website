@@ -41,7 +41,7 @@ export const richGuwahatiData: CityData = {
   heroSecondaryCtaText: "Call / WhatsApp IDGen",
   heroShowcaseBadge: "Guwahati Direct Supply",
   heroShowcaseChip1: "CR80 PVC & RFID Credentials",
-  heroShowcaseChip2: "Verified Cleanroom",
+  heroShowcaseChip2: "Guwahati Production Facility",
 
   // 2. Local Presence & Coverage Section
   localPresenceBadge: "Central Manufacturing Hub • Guwahati Cleanroom",

@@ -112,7 +112,7 @@ export function FaqExplorerMatrix({
         </div>
 
         <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          Showing {totalAnswerCount} of {totalAllQuestions} Verified Questions
+          Showing {totalAnswerCount} of {totalAllQuestions} Questions
         </div>
       </div>
 

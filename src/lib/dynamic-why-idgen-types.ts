@@ -437,7 +437,7 @@ export const DEFAULT_WHY_IDGEN_DATA: DynamicWhyIdgenData = {
   sectorsAndTrust: {
     eyebrow: "WHO WE SERVE",
     title: "Organizations Served & Operational Reach",
-    subtitle: "Trusted by educational, corporate, healthcare, government, and event organizations across Northeast India.",
+    subtitle: "Chosen by educational, corporate, healthcare, government, and event organizations across Northeast India.",
     sectors: [
       {
         title: "Schools & Universities",
