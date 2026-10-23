@@ -1,4 +1,4 @@
-import { Quote, MapPin, BadgeCheck, ArrowUpRight, ArrowRight } from "lucide-react";
+import { Quote, MapPin, BadgeCheck, ArrowUpRight, ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -30,6 +30,22 @@ export function ReviewsSection() {
             lede="Reviews from our Google Business Profile, written by the people who ordered. We reply to every one."
             className="max-w-3xl"
           />
+
+          <div className="mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-surface-border bg-background px-5 py-2.5 shadow-sm">
+            <span className="relative inline-flex" role="img" aria-label="Highly rated on Google">
+              <span className="flex gap-0.5 text-slate-300 dark:text-slate-600">
+                {[0, 1, 2, 3, 4].map((n) => (
+                  <Star key={n} className="h-5 w-5 fill-current" aria-hidden="true" />
+                ))}
+              </span>
+              <span className="absolute inset-y-0 left-0 flex w-[96%] gap-0.5 overflow-hidden text-amber-400">
+                {[0, 1, 2, 3, 4].map((n) => (
+                  <Star key={n} className="h-5 w-5 shrink-0 fill-current" aria-hidden="true" />
+                ))}
+              </span>
+            </span>
+            <span className="text-sm font-bold text-foreground">Highly rated on Google</span>
+          </div>
 
           <div className="mx-auto mt-6 flex max-w-3xl flex-wrap items-center justify-center gap-2">
             {REVIEW_PLACES.map((p) => (

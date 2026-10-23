@@ -30,6 +30,10 @@ export interface BlogPost {
     }[];
   };
   relatedSlugs: string[];
+  /** Public sources for facts and figures cited in the post */
+  sources?: { title: string; url: string }[];
+  /** ISO date of the last substantive update */
+  updatedDate?: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [

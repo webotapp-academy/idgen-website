@@ -94,11 +94,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     url: `${SITE_URL}/resources/blogs/${post.slug}/`,
     image: `${SITE_URL}${encodeURI(post.featuredImage)}`,
     datePublished: post.publishedDate,
-    dateModified: post.publishedDate,
+    dateModified: post.updatedDate || post.publishedDate,
     author: {
-      "@type": "Person",
-      name: post.author.name,
-      jobTitle: post.author.role,
+      "@type": "Organization",
+      name: "IDGen",
+      url: SITE_URL,
     },
     publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: {
@@ -293,6 +293,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </section>
               ))}
             </div>
+
+            {/* Sources */}
+            {post.sources && post.sources.length > 0 && (
+              <div className="rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-6">
+                <h2 className="text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  Sources
+                </h2>
+                <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-slate-700 dark:text-slate-300">
+                  {post.sources.map((src) => (
+                    <li key={src.url}>
+                      <a href={src.url} target="_blank" rel="noopener noreferrer nofollow" className="text-[#009fe3] hover:underline">
+                        {src.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Tags Row */}
             <div className="pt-8 border-t border-slate-200/80 dark:border-slate-800/80">

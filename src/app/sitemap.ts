@@ -4,7 +4,7 @@ import { SITE_URL } from "@/data/site";
 import { services } from "@/data/services";
 import { products } from "@/data/products";
 import { getAllStates, getAllCities } from "@/lib/dynamic-locations";
-import { BLOG_POSTS } from "@/data/blogs";
+import { getAllDynamicBlogPosts } from "@/lib/dynamic-blogs";
 
 // Real per-file last-commit date instead of a single build timestamp
 // stamped on every URL — Google discounts sitemaps where lastmod is
@@ -93,10 +93,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const post of BLOG_POSTS) {
+  for (const post of getAllDynamicBlogPosts()) {
     entries.push({
       url: `${SITE_URL}/resources/blogs/${post.slug}/`,
-      lastModified: new Date(post.publishedDate),
+      lastModified: new Date(post.updatedDate || post.publishedDate),
       changeFrequency: "monthly",
       priority: 0.8,
     });
