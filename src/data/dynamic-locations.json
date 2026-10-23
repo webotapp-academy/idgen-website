@@ -11,7 +11,7 @@
         "isPrimary": true,
         "indexed": true,
         "heroEyebrow": "Assam Service Area",
-        "heroHeadline": "Professional ID Cards & Identification Solutions for Organizations in Guwahati",
+        "heroHeadline": "Professional ID Cards & Identification Solutions for Organisations in Guwahati",
         "heroIntro": "IDGen is based in Guwahati, so this is the one city where you can talk to the people who make your cards. We print student, staff, event and RFID cards for universities, schools, public-sector offices and companies across the city, from Assam Royal Global University and Gauhati University to Nichols Higher Secondary School and Stanford International School.",
         "heroSubtext": "Schools such as Heritage Public School, Modern Public Academy and Shrimanta Shankar Academy, and large organisations such as Indian Oil and LIC, appear in our Guwahati client list. If your organisation sits in Dispur, Paltan Bazaar, Beltola or Jalukbari, the cards come from the same Guwahati production floor.",
         "heroImage": "/uploads/School_Students_ID_Card_with_Holder_and_Multicolored_Lanyrad_by_IDGen_Guwahati-1790333084.webp",
@@ -43,7 +43,7 @@
           "Pre-Production Physical Proofing",
           "100% Optical Quality Check"
         ],
-        "audiencesTitle": "Organizations in Guwahati require identity products for:",
+        "audiencesTitle": "Organisations in Guwahati require identity products for:",
         "audiencesSubtitle": "Tailored credential architectures mapped to specific access requirements in Guwahati.",
         "audiencesNote": "Single & dual-sided thermal, RFID & ultrasonic sealed credentials",
         "targetAudiences": [
@@ -88,7 +88,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Guwahati:",
+        "organizationsTitle": "Typical Organisations We Serve in Guwahati:",
         "organizationsSubtitle": "Institutions, healthcare bodies, government offices & enterprises across Guwahati.",
         "organizationsServed": [
           "Schools",
@@ -99,13 +99,12 @@
           "Hospitals",
           "Hotels",
           "Institutions",
-          "Government organizations",
+          "Government organisations",
           "NGOs",
           "Industries",
           "Events",
           "Clubs",
-          "Associations",
-          "dedw"
+          "Associations"
         ],
         "localAdvantageTitle": "Guwahati Local Production Advantage",
         "localAdvantageDesc": "Direct cleanroom manufacturing in Guwahati ensures fast physical proofs, immediate design sign-off, and dispatch by courier.",
@@ -114,7 +113,7 @@
         "deliveryRoutesSubtitle": "Orders shipped by courier to major institutional & commercial zones in Guwahati",
         "coverageEyebrow": "Guwahati Service Coverage",
         "coverageTitle": "Guwahati Service Coverage",
-        "coverageIntro": "IDGen is based in Guwahati and can serve organizations across the city and surrounding areas according to the applicable order and delivery arrangements.",
+        "coverageIntro": "IDGen is based in Guwahati and can serve organisations across the city and surrounding areas according to the applicable order and delivery arrangements.",
         "coverageExamples": [
           "/service-areas/assam/guwahati/dispur/",
           "/service-areas/assam/guwahati/beltola/",
@@ -241,12 +240,12 @@
             "tag": "20mm Satin",
             "badge": "Bestseller",
             "imageSrc": "/uploads/iDGen_Multicolored_Lanyard_with_Hook-1790333314.webp",
-            "description": "High-density multicolor sublimation lanyards (16mm / 20mm) with durable metallic hooks and safety breakaways dispatched to Guwahati.",
+            "description": "High-density multicolour sublimation lanyards (16mm / 20mm) with durable metallic hooks and safety breakaways dispatched to Guwahati.",
             "href": "/custom-printed-lanyard-printing/",
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -257,11 +256,11 @@
             "tag": "Tamper-Evident",
             "badge": "Industrial Grade",
             "imageSrc": "/uploads/PVC_Membership_Cards_IDGen_Guwahati-1790333323.webp",
-            "description": "Custom Membership ID Card Printing for Gameszones, Clubs, Gyms, Associations & Organizations\n",
+            "description": "Custom Membership ID Card Printing for Gameszones, Clubs, Gyms, Associations & Organisations\n",
             "href": "/membership-card-printing/",
             "spec": "High-Frequency Fusion • Non-Stitch Clean",
             "highlights": [
-              "High-Frequency ",
+              "Custom Club, Gym & Association Cards",
               "100% Stitchless Clean Finish",
               "Weatherproof Multi-Year Protection"
             ]
@@ -269,7 +268,7 @@
         ],
         "catalogEyebrow": "Guwahati Hardware & Products",
         "catalogTitle": "Explore Our Product Catalog in Guwahati",
-        "catalogSubtitle": "From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organizations in Guwahati, Assam.",
+        "catalogSubtitle": "From crystal-clear acrylic badge cases and anti-rust swivel hooks to custom zinc medals and 30-mil virgin PVC smart cards, discover IDGen's factory products supplied directly to organisations in Guwahati, Assam.",
         "products": [
           {
             "id": "id-card-holders",
@@ -369,11 +368,11 @@
         ],
         "setupsEyebrow": "Configurations",
         "setupsTitle": "Complete ID Card Solutions & Packages in Guwahati",
-        "setupsSubtitle": "Not every organization needs the same identification setup. Select the exact packaging that matches your project requirements.",
+        "setupsSubtitle": "Not every organisation needs the same identification setup. Select the exact packaging that matches your project requirements.",
         "completeSetups": [
           {
             "title": "Card Only",
-            "subtitle": "For organizations that already have their own accessories.",
+            "subtitle": "For organisations that already have their own accessories.",
             "items": [
               "CR80 PVC Card",
               "High-Resolution Front & Back Print",
@@ -408,13 +407,13 @@
               "Ultrasonic Sealing Lamination",
               "Rigid / Soft ID Holder",
               "Custom Breakaway Hook",
-              "Multi-Color Sublimation Lanyard"
+              "Multi-Colour Sublimation Lanyard"
             ]
           }
         ],
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkTitle": "Bulk ID Card Printing in Guwahati",
-        "bulkDesc": "Direct cleanroom manufacturing in Guwahati ensuring high-capacity production, precise color calibration, and priority dispatch across Assam.",
+        "bulkDesc": "Direct cleanroom manufacturing in Guwahati ensures high-capacity production, precise colour calibration, and priority dispatch across Assam.",
         "whyChooseEyebrow": "Why Choose Us",
         "whyChooseTitle": "Why Choose IDGen in Guwahati?",
         "whyChooseSubtitle": "Guwahati-based manufacturing cleanroom, experience dating back to 2014, organizational focus, and an integrated digital workflow.",
@@ -428,7 +427,7 @@
           },
           {
             "title": "Experience Since 2014",
-            "desc": "Over a decade of specialized expertise in high-volume card manufacturing, color calibration, RFID encoding, and zero-defect data integrity.",
+            "desc": "Over a decade of specialized expertise in high-volume card manufacturing, colour calibration, RFID encoding, and zero-defect data integrity.",
             "image": "/images/why-idgen-more-than-brand.jpg",
             "badge": "10+ Years Proven",
             "stat": "Since 2014"
@@ -449,7 +448,7 @@
           },
           {
             "title": "Structured 8-Stage Workflow",
-            "desc": "Rigorous quality stages from requirement → data check → proofing → cleanroom production → 100% optical inspection → dispatch.",
+            "desc": "Rigorous quality stages from requirement → data check → design → proofing → approval → cleanroom production → 100% optical inspection → dispatch.",
             "image": "/images/why-idgen-production-batches-branded.jpg",
             "badge": "Quality Assured",
             "stat": "Zero-Defect Standard"
@@ -469,12 +468,12 @@
           {
             "step": "01",
             "title": "Tell Us Your Requirement",
-            "description": "Share your organization name, target card type, estimated quantity, and delivery timeline."
+            "description": "Share your organisation name, target card type, estimated quantity, and delivery timeline."
           },
           {
             "step": "02",
             "title": "Share Your Data",
-            "description": "Provide student/employee Excel records and high-res photos (or use IDGen Studio digital portal)."
+            "description": "Provide student/employee Excel records and high-res photos (or use the IDGen Studio digital portal)."
           },
           {
             "step": "03",
@@ -499,7 +498,7 @@
           {
             "step": "07",
             "title": "Quality Check",
-            "description": "100% optical inspection for print alignment, barcode legibility, chip frequency, and edge lamination."
+            "description": "100% optical inspection for print alignment, barcode legibility, RFID chip function, and edge lamination."
           },
           {
             "step": "08",
@@ -510,7 +509,7 @@
         "faqsTitle": "Frequently Asked Questions in Guwahati",
         "faqsSubtitle": "Key answers regarding ID card printing, batch timelines, accessories, and delivery in Guwahati.",
         "faqsHelpTitle": "Have Specific Questions?",
-        "faqsHelpText": "Need guidance on custom RFID chip frequencies, lanyard branding, or batch approvals? Our Guwahati production desk is here to help.",
+        "faqsHelpText": "Need guidance on RFID chip compatibility, lanyard branding, or batch approvals? Our Guwahati production desk is here to help.",
         "faqs": [
           {
             "q": "Where is IDGen located?",
@@ -534,7 +533,7 @@
           },
           {
             "q": "Can ID cards be supplied with lanyards and holders?",
-            "a": "Yes. Cards can be combined with custom multicolor satin lanyards, crystal/rigid holders, metallic hooks, and ultrasonic edge sealing for a complete wearable setup."
+            "a": "Yes. Cards can be combined with custom multicolour satin lanyards, crystal/rigid holders, metallic hooks, and ultrasonic edge sealing for a complete wearable setup."
           },
           {
             "q": "Does IDGen provide RFID cards in Guwahati?",
@@ -595,8 +594,8 @@
         "bulkCta1Text": "Talk to Specialist",
         "bulkCta2Text": "Request a Guwahati Bulk Quote",
         "projectsBadge": "Institutions We Serve",
-        "projectsSubBadge": "Organizations across the region",
-        "projectsTitle": "Organizations & Projects in Guwahati",
+        "projectsSubBadge": "Organisations across the region",
+        "projectsTitle": "Organisations & Projects in Guwahati",
         "projectsDesc": "IDGen partners with leading academic institutions, corporate offices, and government departments across Guwahati. Every identification setup is manufactured with direct factory calibration and rigorous data confidentiality.",
         "verifiedClients": [
           {
@@ -735,7 +734,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -887,7 +886,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -929,14 +928,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Jorhat",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Jorhat: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Jorhat: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Jorhat",
           "Proof before print",
           "Reorders on your approved design",
           "Student and staff cards"
         ],
-        "audiencesTitle": "Organizations in Jorhat require identity products for:",
+        "audiencesTitle": "Organisations in Jorhat require identity products for:",
         "audiencesSubtitle": "Card types for the groups of people Jorhat organisations identify.",
         "audiencesNote": "Printed one or both sides, with RFID and sealing as options",
         "targetAudiences": [
@@ -981,7 +980,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Jorhat:",
+        "organizationsTitle": "Typical Organisations We Serve in Jorhat:",
         "organizationsSubtitle": "Organisations in Jorhat and Mariani: colleges, a medical college and schools, and tea estates and hospitals.",
         "localAdvantageTitle": "Jorhat Institutions, Served from Guwahati",
         "localAdvantageDesc": "Colleges and schools in Jorhat order from us in bulk, usually ahead of a new session. We send a proof first, ship by courier after approval, and your approved design makes reorders faster.",
@@ -999,7 +998,7 @@
         ],
         "setupsEyebrow": "Configurations",
         "setupsTitle": "Complete ID Card Solutions & Packages in Jorhat",
-        "setupsSubtitle": "A card alone is enough for some, a full set suits others. Choose what fits your Jorhat project.",
+        "setupsSubtitle": "A card alone is enough for some; a full set suits others. Choose what fits your Jorhat project.",
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Jorhat Priority Route",
         "bulkTitle": "Bulk ID Card Printing in Jorhat",
@@ -1043,7 +1042,7 @@
         "bulkCta2Text": "Request a Jorhat Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Clients in Jorhat",
-        "projectsTitle": "Organizations & Projects in Jorhat",
+        "projectsTitle": "Organisations & Projects in Jorhat",
         "projectsDesc": "Colleges, a medical college, an agricultural university and a spread of schools in Jorhat are on our client list. Logos below are shown as supplied by each institution.",
         "verifiedClients": [
           {
@@ -1282,7 +1281,7 @@
             },
             {
               "heading": "Data is the real work",
-              "body": "Most delays on ID card orders come from the data, not the printing. Photos in different sizes, names spelt two ways, class and section missing. For a Jorhat batch we ask for one spreadsheet and a folder of photos named by roll number, check them, and send back a list of problems before anything is printed. IDGen Studio can also be used to collect photos and details from students directly."
+              "body": "Most delays on ID card orders come from the data, not the printing. Typical problems are photos in different sizes, names spelt two ways, and missing class and section details. For a Jorhat batch we ask for one spreadsheet and a folder of photos named by roll number, check them, and send back a list of problems before anything is printed. IDGen Studio can also be used to collect photos and details from students directly."
             },
             {
               "heading": "From Guwahati to Jorhat",
@@ -1297,7 +1296,7 @@
         "isPrimary": false,
         "indexed": true,
         "heroHeadline": "ID Card Printing & Identity Solutions in Dibrugarh",
-        "heroIntro": "Dibrugarh has the state's oldest medical college, a central university and a long list of schools, and IDGen prints for all three. Clients include Dibrugarh University, Assam Medical College and Hospital, Dibru College, DHSK Commerce College and Manohari Devi Kanoi Girls' College.",
+        "heroIntro": "Dibrugarh has the state's oldest medical college, a state university and a long list of schools, and IDGen prints for all three. Clients include Dibrugarh University, Assam Medical College and Hospital, Dibru College, DHSK Commerce College and Manohari Devi Kanoi Girls' College.",
         "heroSubtext": "Cards for Dibrugarh are produced in Guwahati and sent by courier. A college that orders again next session can reuse its approved design and send only the new students.",
         "localColor": "Dibrugarh sits at the eastern end of the Brahmaputra valley and draws students and patients from the whole of Upper Assam. DHSK Commerce College's logo shows 1960 and Dibru College's shows 1963, so the city's colleges have a long history and large records to match.",
         "nearbyAreas": [
@@ -1334,7 +1333,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -1406,7 +1405,7 @@
             "a": "Yes. Tell us the reader or software in use and we will match the card type to it."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Dibrugarh, Assam to Dibrugarh University, Assam Medical College and Hospital, Dibru College, DHSK Commerce College, Manohari Devi Kanoi Girls' College, Moran Junior College and several schools. Cards are made in Guwahati and shipped by courier, dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Dibrugarh, Assam, to Dibrugarh University, Assam Medical College and Hospital, Dibru College, DHSK Commerce College, Manohari Devi Kanoi Girls' College, Moran Junior College and several schools. Cards are made in Guwahati and shipped by courier, dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Dibrugarh | University & College Cards",
         "metaDescription": "ID cards for Dibrugarh University, AMCH, Dibru College, DHSK Commerce College and schools. Made in Guwahati, shipped to Dibrugarh by courier.",
         "services": [
@@ -1486,7 +1485,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -1528,14 +1527,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Dibrugarh",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Dibrugarh: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Dibrugarh: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Dibrugarh",
           "University and college cards",
           "Hospital staff cards",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Dibrugarh require identity products for:",
+        "audiencesTitle": "Organisations in Dibrugarh require identity products for:",
         "audiencesSubtitle": "The people your Dibrugarh cards are for, grouped by use.",
         "audiencesNote": "One- or two-sided cards, optional RFID and edge sealing",
         "targetAudiences": [
@@ -1580,7 +1579,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Dibrugarh:",
+        "organizationsTitle": "Typical Organisations We Serve in Dibrugarh:",
         "organizationsSubtitle": "Dibrugarh customers include a university, a medical college and schools.",
         "localAdvantageTitle": "Dibrugarh Clients, Served from Guwahati",
         "localAdvantageDesc": "Universities, colleges, a medical college and schools in Dibrugarh order from IDGen. Proofs and data are handled online and cards come by courier.",
@@ -1642,8 +1641,8 @@
         "bulkCta2Text": "Request a Dibrugarh Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Organisations in and around Dibrugarh",
-        "projectsTitle": "Organizations & Projects in Dibrugarh",
-        "projectsDesc": "A central university, a medical college, degree colleges and schools in and around Dibrugarh are on our client list, including Moran and Moranhat.",
+        "projectsTitle": "Organisations & Projects in Dibrugarh",
+        "projectsDesc": "A state university, a medical college, degree colleges and schools in and around Dibrugarh are on our client list, including Moran and Moranhat.",
         "verifiedClients": [
           {
             "name": "Dr. R.K. School",
@@ -1750,7 +1749,7 @@
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
         "workflowTitle": "How to Order ID Cards in Dibrugarh",
-        "workflowSubtitle": "How a Dibrugarh order moves: requirement, data, proof, approval, print, check and dispatch.",
+        "workflowSubtitle": "How a Dibrugarh order moves: requirement, data, design, proof, approval, print, check and dispatch.",
         "workflowNote": "Dibrugarh orders leave Guwahati by courier after the optical quality check. Tracking depends on the courier.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
         "workflowCta2Text": "Start at Step 01: Request Quote",
@@ -1867,7 +1866,7 @@
           "sections": [
             {
               "heading": "Three kinds of customer in one city",
-              "body": "Dibrugarh's institutions fall into three groups: the university and colleges, the medical college and its hospital, and the schools. Dibrugarh University, Dibru College, DHSK Commerce College and Manohari Devi Kanoi Girls' College are on the first list, Assam Medical College and Hospital is the second, and Dr. R.K. School and others make up the third. Each wants something slightly different from an ID card."
+              "body": "Dibrugarh's institutions fall into three groups: the university and colleges, the medical college and its hospital, and the schools. Dibrugarh University, Dibru College, DHSK Commerce College and Manohari Devi Kanoi Girls' College are in the first group, Assam Medical College and Hospital is the second, and Dr. R.K. School and others make up the third. Each wants something slightly different from an ID card."
             },
             {
               "heading": "Colleges with a long record",
@@ -1923,7 +1922,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -1956,7 +1955,7 @@
           {
             "step": "02",
             "title": "Submit Data",
-            "description": "Send the data in the format we agree."
+            "description": "Send the data in the format we agree on."
           },
           {
             "step": "03",
@@ -1995,7 +1994,7 @@
             "a": "Send a folder of photos named by roll number plus one spreadsheet. We check it and report problems before printing. IDGen Studio can also be used to collect the data."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Nagaon, Assam to Nagaon University, St. Boniface School, Christ Jyoti School (Dhing), Gyanodaya Academy, Gyanjyoti Vidyapith, Kuhi School of Science and Arts, Raahat Hospital and A & B Institute of Paramedical Science and Technology. Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Nagaon, Assam, to Nagaon University, St. Boniface School, Christ Jyoti School (Dhing), Gyanodaya Academy, Gyanjyoti Vidyapith, Kuhi School of Science and Arts, Raahat Hospital and A & B Institute of Paramedical Science and Technology. Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Nagaon | School & University Cards",
         "metaDescription": "ID cards for Nagaon University, St. Boniface School, Christ Jyoti School, Raahat Hospital and more. Made in Guwahati and shipped by courier.",
         "services": [
@@ -2070,12 +2069,12 @@
             "tag": "20mm Satin",
             "badge": "Bestseller",
             "imageSrc": "/images/service-custom-printed-lanyards.jpg",
-            "description": "Lanyards for institutions like Nagaon University and for smaller orders alike, printed in Guwahati and shipped to Nagaon.",
+            "description": "Lanyards for institutions like Nagaon University as well as smaller orders, printed in Guwahati and shipped to Nagaon.",
             "href": "/custom-printed-lanyard-printing/",
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -2117,14 +2116,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Nagaon",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Nagaon: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Nagaon: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Nagaon",
           "Student and hospital cards",
           "New-university card design",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Nagaon require identity products for:",
+        "audiencesTitle": "Organisations in Nagaon require identity products for:",
         "audiencesSubtitle": "Typical ID card needs in Nagaon, by group.",
         "audiencesNote": "Cards printed on one or both sides; RFID and sealing optional",
         "targetAudiences": [
@@ -2169,7 +2168,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Nagaon:",
+        "organizationsTitle": "Typical Organisations We Serve in Nagaon:",
         "organizationsSubtitle": "From Nagaon University to smaller institutions around Raha.",
         "localAdvantageTitle": "Nagaon Clients, Served from Guwahati",
         "localAdvantageDesc": "Schools, a university and healthcare institutes in Nagaon and Dhing order from IDGen. Everything is handled online and the cards come by courier from Guwahati.",
@@ -2231,7 +2230,7 @@
         "bulkCta2Text": "Request a Nagaon Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Nagaon and nearby towns",
-        "projectsTitle": "Organizations & Projects in Nagaon",
+        "projectsTitle": "Organisations & Projects in Nagaon",
         "projectsDesc": "Nagaon University, long-running schools in Nagaon and Dhing, and healthcare training institutes are on our client list.",
         "verifiedClients": [
           {
@@ -2343,7 +2342,7 @@
         "faqsTitle": "Frequently Asked Questions in Nagaon",
         "faqsSubtitle": "What Nagaon customers ask before they order.",
         "faqsHelpTitle": "Have Specific Questions?",
-        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you order for Nagaon.",
+        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you place your Nagaon order.",
         "catalogEyebrow": "Nagaon Hardware & Products",
         "catalogTitle": "Explore Our Product Catalog in Nagaon",
         "catalogSubtitle": "The products Nagaon organisations order most: PVC cards, lanyards, holders and hooks, plus badges and medals.",
@@ -2510,7 +2509,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -2582,7 +2581,7 @@
             "a": "Use the quote form with your organisation, quantity and card type. We reply with a price and the data format we need."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Tinsukia, Assam to Tinsukia Commerce College, Sunrise English Academy, Stephen High School and Gariyoshi Senior Secondary School (Bordumsa). Cards are made in Guwahati and shipped to Tinsukia by courier, dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Tinsukia, Assam, to Tinsukia Commerce College, Sunrise English Academy, Stephen High School and Gariyoshi Senior Secondary School (Bordumsa). Cards are made in Guwahati and shipped to Tinsukia by courier, dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Tinsukia | School & College ID Cards",
         "metaDescription": "ID cards for Tinsukia Commerce College, Sunrise English Academy, Stephen High School and more. Produced in Guwahati, shipped by courier.",
         "services": [
@@ -2662,7 +2661,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -2704,16 +2703,16 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Tinsukia",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Tinsukia: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Tinsukia: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Tinsukia",
           "School and college cards",
           "Proof before print",
           "Reorders on approved designs"
         ],
-        "audiencesTitle": "Organizations in Tinsukia require identity products for:",
+        "audiencesTitle": "Organisations in Tinsukia require identity products for:",
         "audiencesSubtitle": "Who orders ID cards in Tinsukia, and what they usually need.",
-        "audiencesNote": "Single and double-sided printing, RFID options and sealed edges",
+        "audiencesNote": "Single- and double-sided printing, RFID options and sealed edges",
         "targetAudiences": [
           {
             "name": "Students & Scholars",
@@ -2756,7 +2755,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Tinsukia:",
+        "organizationsTitle": "Typical Organisations We Serve in Tinsukia:",
         "organizationsSubtitle": "A commerce college and schools across Tinsukia, plus offices and employers.",
         "localAdvantageTitle": "Tinsukia Schools and Colleges, Served from Guwahati",
         "localAdvantageDesc": "Schools and colleges in Tinsukia and Bordumsa order from IDGen. Cards are produced in Guwahati and arrive by courier.",
@@ -2818,7 +2817,7 @@
         "bulkCta2Text": "Request a Tinsukia Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Our Tinsukia client list",
-        "projectsTitle": "Organizations & Projects in Tinsukia",
+        "projectsTitle": "Organisations & Projects in Tinsukia",
         "projectsDesc": "Tinsukia Commerce College, Sunrise English Academy, Stephen High School and Gariyoshi Senior Secondary School in Bordumsa are on our client list.",
         "verifiedClients": [
           {
@@ -3036,7 +3035,7 @@
         "isPrimary": false,
         "indexed": true,
         "heroHeadline": "ID Card Printing & Identity Solutions in Sivasagar",
-        "heroIntro": "IDGen prints ID cards for Sivasagar's schools and its commerce college. Clients include Sibsagar Commerce College, Gaurisagar Senior Secondary School, Holy Name School, Blooming Bud English Medium School, Brahmaputra Valley School, Brilliant Groves Academy and Pakshalika High, plus Amguri, Nazira and nearby towns.",
+        "heroIntro": "IDGen prints ID cards for Sivasagar's schools and its commerce college. Clients include Sibsagar Commerce College, Gaurisagar Senior Secondary School, Holy Name School, Blooming Bud English Medium School, Brahmaputra Valley School, Brilliant Groves Academy and Pakshalika High, with schools in Amguri, Nazira and nearby towns.",
         "heroSubtext": "Sivasagar's list is almost entirely schools, so most orders are student cards with matching teacher cards, lanyards and holders. Everything is produced in Guwahati and sent by courier.",
         "localColor": "Sivasagar was the heart of the Ahom kingdom and is a heritage and school town today. Holy Name School's logo shows 1986 and Gaurisagar Senior Secondary School's shows 2007, and several clients are only a few years old, such as Amguri English Medium High School (2019) and Blooming Bud English Medium School (2018).",
         "nearbyAreas": [
@@ -3070,7 +3069,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -3142,7 +3141,7 @@
             "a": "Allow for approval time, 72 hours to dispatch, and courier time. Two to three weeks before the date is comfortable."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Sivasagar, Assam to Sibsagar Commerce College, Gaurisagar Senior Secondary School, Holy Name School, Blooming Bud English Medium School, Brahmaputra Valley School, Brilliant Groves Academy, Pakshalika High, St. Peter's School (Nazira), Arunodoi Academy and Amguri English Medium High School. Cards are made in Guwahati, dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Sivasagar, Assam, to Sibsagar Commerce College, Gaurisagar Senior Secondary School, Holy Name School, Blooming Bud English Medium School, Brahmaputra Valley School, Brilliant Groves Academy, Pakshalika High, St. Peter's School (Nazira), Arunodoi Academy and Amguri English Medium High School. Cards are made in Guwahati, dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Sivasagar | School & College ID Cards",
         "metaDescription": "ID cards for Sivasagar schools and Sibsagar Commerce College, including Holy Name School, Gaurisagar HSS and Pakshalika High. Made in Guwahati.",
         "services": [
@@ -3222,7 +3221,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -3264,14 +3263,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Sivasagar",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Sivasagar: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Sivasagar: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Sivasagar",
           "Student and teacher sets",
           "Lanyards and holders",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Sivasagar require identity products for:",
+        "audiencesTitle": "Organisations in Sivasagar require identity products for:",
         "audiencesSubtitle": "Card types for the groups of people Sivasagar organisations identify.",
         "audiencesNote": "Printed one or both sides, with RFID and sealing as options",
         "targetAudiences": [
@@ -3316,7 +3315,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Sivasagar:",
+        "organizationsTitle": "Typical Organisations We Serve in Sivasagar:",
         "organizationsSubtitle": "Organisations in Sivasagar and Nazira: schools and a commerce college, and oil-sector offices and heritage operators.",
         "localAdvantageTitle": "Sivasagar Schools, Served from Guwahati",
         "localAdvantageDesc": "Ten Sivasagar-area schools and colleges order from IDGen. We supply matching sets of student cards, teacher cards, lanyards and holders by courier.",
@@ -3334,11 +3333,11 @@
         ],
         "setupsEyebrow": "Configurations",
         "setupsTitle": "Complete ID Card Solutions & Packages in Sivasagar",
-        "setupsSubtitle": "A card alone is enough for some, a full set suits others. Choose what fits your Sivasagar project.",
+        "setupsSubtitle": "A card alone is enough for some; a full set suits others. Choose what fits your Sivasagar project.",
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Sivasagar Priority Route",
         "bulkTitle": "Bulk ID Card Printing in Sivasagar",
-        "bulkDesc": "For a school with 800 students, we usually produce the cards, teacher cards and a few spares in the same run, so the colours match.",
+        "bulkDesc": "For a school with 800 students, we usually produce the student cards, teacher cards and a few spares in the same run, so the colours match.",
         "bulkHighlights": [
           "Up to 10,000+ IDs / Day",
           "100% Optical Quality Check",
@@ -3378,7 +3377,7 @@
         "bulkCta2Text": "Request a Sivasagar Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Clients in Sivasagar",
-        "projectsTitle": "Organizations & Projects in Sivasagar",
+        "projectsTitle": "Organisations & Projects in Sivasagar",
         "projectsDesc": "Sibsagar Commerce College and nine schools across Sivasagar, Amguri, Nazira and Namtidoll are on our client list.",
         "verifiedClients": [
           {
@@ -3664,7 +3663,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -3736,7 +3735,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time to Golaghat."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Golaghat, Assam to Don Bosco College, Don Bosco High School (Rangajan), Sacred Heart School, Christian High School, Kamargaon College, Furkating Junior College, Maria Nivas School (Dergaon), Anjali Borbora Memorial Academy and Numaligarh Refinery Limited. Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Golaghat, Assam, to Don Bosco College, Don Bosco High School (Rangajan), Sacred Heart School, Christian High School, Kamargaon College, Furkating Junior College, Maria Nivas School (Dergaon), Anjali Borbora Memorial Academy and Numaligarh Refinery Limited. Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Golaghat | School, College & Industry",
         "metaDescription": "ID cards for Golaghat schools, Don Bosco College, Kamargaon College and Numaligarh Refinery. Made in Guwahati and shipped by courier.",
         "services": [
@@ -3747,7 +3746,7 @@
             "tag": "Schools & Universities",
             "badge": "Academic Priority",
             "imageSrc": "/images/student-id-card-printing-idgen.jpg",
-            "description": "Golaghat institutions such as Don Bosco College and Numaligarh Refinery Limited need student cards that survive a full year in a bag; we print on durable CR80 PVC.",
+            "description": "Golaghat institutions such as Don Bosco College and Kamargaon College need student cards that survive a full year in a bag; we print on durable CR80 PVC.",
             "href": "/student-id-card-printing/",
             "spec": "30-Mil CR80 PVC • High-Res Photo Print",
             "highlights": [
@@ -3816,7 +3815,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -3858,14 +3857,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Golaghat",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Golaghat: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Golaghat: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Golaghat",
           "Schools and colleges",
           "Industrial staff cards",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Golaghat require identity products for:",
+        "audiencesTitle": "Organisations in Golaghat require identity products for:",
         "audiencesSubtitle": "The people your Golaghat cards are for, grouped by use.",
         "audiencesNote": "One- or two-sided cards, optional RFID and edge sealing",
         "targetAudiences": [
@@ -3910,7 +3909,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Golaghat:",
+        "organizationsTitle": "Typical Organisations We Serve in Golaghat:",
         "organizationsSubtitle": "Golaghat customers include schools, colleges and a refinery.",
         "localAdvantageTitle": "Golaghat District, Served from Guwahati",
         "localAdvantageDesc": "Schools, colleges and an industrial employer in the Golaghat district order from IDGen, from Rangajan and Dergaon to Furkating and Numaligarh.",
@@ -3972,7 +3971,7 @@
         "bulkCta2Text": "Request a Golaghat Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Organisations in and around Golaghat",
-        "projectsTitle": "Organizations & Projects in Golaghat",
+        "projectsTitle": "Organisations & Projects in Golaghat",
         "projectsDesc": "Nine institutions across Golaghat, Dergaon, Rangajan, Furkating and Numaligarh are on our client list, from a school founded in 1919 to an oil refinery.",
         "verifiedClients": [
           {
@@ -4080,7 +4079,7 @@
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
         "workflowTitle": "How to Order ID Cards in Golaghat",
-        "workflowSubtitle": "How a Golaghat order moves: requirement, data, proof, approval, print, check and dispatch.",
+        "workflowSubtitle": "How a Golaghat order moves: requirement, data, design, proof, approval, print, check and dispatch.",
         "workflowNote": "Golaghat orders leave Guwahati by courier after the optical quality check. Tracking depends on the courier.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
         "workflowCta2Text": "Start at Step 01: Request Quote",
@@ -4235,7 +4234,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Quote",
+        "heroCtaText": "Request a Dhemaji Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Dhemaji",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -4243,14 +4242,14 @@
         "localColor": "Dhemaji's institutions are spread along the north bank, from Silapathar to Bishnupur and Bordoloni, and many are old: the logos show 1960 for Batgharia, 1965 for The Dhemaji College and 1966 for Dhemaji Higher Secondary Girls' School.",
         "localPresenceBadge": "Produced in Guwahati • Courier to Dhemaji",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Dhemaji: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Dhemaji: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Dhemaji",
           "School and college cards",
           "Plan extra lead time",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations require identity products for:",
+        "audiencesTitle": "Organisations in Dhemaji require identity products for:",
         "audiencesSubtitle": "Typical ID card needs in Dhemaji, by group.",
         "audiencesNote": "Cards printed on one or both sides; RFID and sealing optional",
         "targetAudiences": [
@@ -4295,7 +4294,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve:",
+        "organizationsTitle": "Typical Organisations We Serve in Dhemaji:",
         "organizationsSubtitle": "From The Dhemaji College to smaller institutions around Jonai.",
         "organizationsServed": [
           "Degree colleges",
@@ -4307,10 +4306,10 @@
         ],
         "localAdvantageTitle": "Dhemaji District, Served from Guwahati",
         "localAdvantageDesc": "Nine schools and colleges across Dhemaji, Silapathar, Bishnupur and Bordoloni order from IDGen. We ship cards by courier and handle proofs online.",
-        "deliveryRoutesTitle": "Courier Shipping Routes:",
+        "deliveryRoutesTitle": "Courier Shipping Routes Across Dhemaji:",
         "deliveryRoutesSubtitle": "Courier from Guwahati to Dhemaji, Silapathar and Jonai.",
-        "coverageEyebrow": "Service Coverage",
-        "coverageTitle": "Service Coverage",
+        "coverageEyebrow": "Dhemaji Service Coverage",
+        "coverageTitle": "Dhemaji Service Coverage",
         "coverageIntro": "IDGen serves Dhemaji and nearby towns including Silapathar, Jonai, Bordoloni and Bishnupur from its production facility in Guwahati.",
         "coverageExamples": [
           "/service-areas/state/city/dispur/",
@@ -4329,7 +4328,7 @@
         "services": [
           {
             "id": "student-id",
-            "title": "Student ID Card Printing in Your City",
+            "title": "Student ID Card Printing in Dhemaji",
             "categoryLabel": "Educational Institutions",
             "tag": "Schools & Universities",
             "badge": "Academic Priority",
@@ -4345,7 +4344,7 @@
           },
           {
             "id": "employee-id",
-            "title": "Employee ID Card Printing in Your City",
+            "title": "Employee ID Card Printing in Dhemaji",
             "categoryLabel": "Corporate & Enterprises",
             "tag": "Corporate Staff",
             "badge": "Enterprise Core",
@@ -4361,7 +4360,7 @@
           },
           {
             "id": "event-card",
-            "title": "Event Card Printing in Your City",
+            "title": "Event Card Printing in Dhemaji",
             "categoryLabel": "Conferences & Seminars",
             "tag": "Conferences & Summits",
             "badge": "Express 72h",
@@ -4377,7 +4376,7 @@
           },
           {
             "id": "rfid-card",
-            "title": "RFID Card Printing in Your City",
+            "title": "RFID Card Printing in Dhemaji",
             "categoryLabel": "Smart Credentials",
             "tag": "Contactless Credentials",
             "badge": "Turnstile Ready",
@@ -4393,23 +4392,23 @@
           },
           {
             "id": "custom-lanyards",
-            "title": "Custom Printed Lanyards in Your City",
+            "title": "Custom Printed Lanyards in Dhemaji",
             "categoryLabel": "Wearable Branding",
             "tag": "20mm Satin",
             "badge": "Bestseller",
             "imageSrc": "/images/service-custom-printed-lanyards.jpg",
-            "description": "Lanyards for institutions like The Dhemaji College and for smaller orders alike, printed in Guwahati and shipped to Dhemaji.",
+            "description": "Lanyards for institutions like The Dhemaji College as well as smaller orders, printed in Guwahati and shipped to Dhemaji.",
             "href": "/custom-printed-lanyard-printing/",
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
           {
             "id": "ultrasonic-sealing",
-            "title": "Ultrasonic Sealing in Your City",
+            "title": "Ultrasonic Sealing in Dhemaji",
             "categoryLabel": "Advanced Engineering",
             "tag": "Tamper-Evident",
             "badge": "Industrial Grade",
@@ -4435,7 +4434,7 @@
             "category": "holders",
             "categoryLabel": "Protection Cases",
             "imageSrc": "/images/product-id-holders.jpg",
-            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Your City",
+            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Dhemaji",
             "tag": "Hard Acrylic / PMMA",
             "badge": "Protection",
             "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
@@ -4454,7 +4453,7 @@
             "category": "hardware",
             "categoryLabel": "Attachments",
             "imageSrc": "/images/product-hooks-hardware.jpg",
-            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Your City",
+            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Dhemaji",
             "tag": "Chrome-Plated Metal",
             "badge": "Hardware",
             "badgeColor": "text-blue-400 bg-blue-500/10 border-blue-400/30",
@@ -4473,7 +4472,7 @@
             "category": "badges",
             "categoryLabel": "Executive Badges",
             "imageSrc": "/images/product-acrylic-badges.jpg",
-            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Your City",
+            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Dhemaji",
             "tag": "Laser Cut PMMA",
             "badge": "Executive",
             "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
@@ -4492,7 +4491,7 @@
             "category": "medals",
             "categoryLabel": "Sports & Honors",
             "imageSrc": "/images/product-zinc-medals.jpg",
-            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Your City",
+            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Dhemaji",
             "tag": "Die-Cast Metal",
             "badge": "Recognition",
             "badgeColor": "text-purple-400 bg-purple-500/10 border-purple-400/30",
@@ -4511,7 +4510,7 @@
             "category": "cards",
             "categoryLabel": "Card Media",
             "imageSrc": "/images/product-pvc-cards.jpg",
-            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Your City",
+            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Dhemaji",
             "tag": "Virgin PVC Core",
             "badge": "Core Media",
             "badgeColor": "text-sky-400 bg-sky-500/10 border-sky-400/30",
@@ -4525,7 +4524,7 @@
           }
         ],
         "setupsEyebrow": "Configurations",
-        "setupsTitle": "Complete ID Card Solutions & Packages",
+        "setupsTitle": "Complete ID Card Solutions & Packages in Dhemaji",
         "setupsSubtitle": "Pick the combination that suits Dhemaji: card only, card with lanyard, or a full set.",
         "completeSetups": [
           {
@@ -4565,20 +4564,20 @@
               "Ultrasonic Sealing Lamination",
               "Rigid / Soft ID Holder",
               "Custom Breakaway Hook",
-              "Multi-Color Sublimation Lanyard"
+              "Multi-Colour Sublimation Lanyard"
             ]
           }
         ],
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Priority Route",
-        "bulkTitle": "Bulk ID Card Printing",
+        "bulkTitle": "Bulk ID Card Printing in Dhemaji",
         "bulkDesc": "Dhemaji schools often order together at the start of the year. A single production run for several schools is possible if the data files arrive together.",
         "bulkHighlights": [
           "Up to 10,000+ IDs / Day",
           "100% Optical Quality Check",
           "Free Pre-Production Physical Sample"
         ],
-        "bulkInputsTitle": "Key Inputs for Large Institutional Orders:",
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Dhemaji:",
         "bulkInputsDesc": "Send these four details and we will reply with a clear quote for Dhemaji.",
         "bulkInputsStepTag": "Step 1 of 4 Preparation",
         "bulkInputs": [
@@ -4609,10 +4608,10 @@
         ],
         "bulkBottomNote": "Capacity is matched to the product and the project. Bulk projects for Dhemaji can include a physical pre-production sample, subject to confirmation.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Bulk Quote",
+        "bulkCta2Text": "Request a Dhemaji Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Dhemaji and nearby towns",
-        "projectsTitle": "Organizations & Projects",
+        "projectsTitle": "Organisations & Projects in Dhemaji",
         "projectsDesc": "Nine schools and colleges across the Dhemaji district, with logos showing founding years from 1960 to 2015, are on our client list.",
         "verifiedClients": [
           {
@@ -4671,7 +4670,7 @@
           }
         ],
         "whyChooseEyebrow": "Why Choose Us",
-        "whyChooseTitle": "Why Choose IDGen?",
+        "whyChooseTitle": "Why Choose IDGen in Dhemaji?",
         "whyChooseSubtitle": "A focus on institutions, a data check before printing, and courier dispatch to Dhemaji.",
         "whyChoosePoints": [
           {
@@ -4719,7 +4718,7 @@
         ],
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
-        "workflowTitle": "How to Order ID Cards",
+        "workflowTitle": "How to Order ID Cards in Dhemaji",
         "workflowSubtitle": "What happens to your Dhemaji order, step by step, before it leaves Guwahati.",
         "workflowNote": "Dhemaji orders leave Guwahati by courier after the optical quality check. Courier time to the north bank can be longer.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
@@ -4734,7 +4733,7 @@
           {
             "step": "02",
             "title": "Share Your Data",
-            "description": "Send the data in the format we agree.",
+            "description": "Send the data in the format we agree on.",
             "phase": "Data Intake"
           },
           {
@@ -4774,10 +4773,10 @@
             "phase": "Fulfillment"
           }
         ],
-        "faqsTitle": "Frequently Asked Questions",
+        "faqsTitle": "Frequently Asked Questions in Dhemaji",
         "faqsSubtitle": "What Dhemaji customers ask before they order.",
         "faqsHelpTitle": "Have Specific Questions?",
-        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you order for Dhemaji.",
+        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you place your Dhemaji order.",
         "faqs": [
           {
             "q": "Which Dhemaji institutions have used IDGen?",
@@ -4804,7 +4803,7 @@
             "a": "A spreadsheet with a photo folder named by roll number is the easiest format. IDGen Studio can also collect it."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Dhemaji, Assam to The Dhemaji College, Bordoloni Central Senior Secondary School, Dhemaji Public Academy, Dhemaji Higher Secondary Girls' School, Silapathar Residential English H.S. School, Bishnupur Tekjuri High School, Batgharia Higher Secondary School, Paramananda Academy and Little God Model School. Cards are dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Dhemaji, Assam, to The Dhemaji College, Bordoloni Central Senior Secondary School, Dhemaji Public Academy, Dhemaji Higher Secondary Girls' School, Silapathar Residential English H.S. School, Bishnupur Tekjuri High School, Batgharia Higher Secondary School, Paramananda Academy and Little God Model School. Cards are dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Dhemaji | School & College ID Cards",
         "metaDescription": "ID cards for The Dhemaji College, Dhemaji Public Academy, Silapathar and Bishnupur schools and more. Produced in Guwahati, shipped by courier.",
         "indexed": true,
@@ -4843,7 +4842,7 @@
         "heroEyebrow": "Assam Service Area",
         "heroHeadline": "ID Card Printing & Identity Solutions in Hojai",
         "heroIntro": "IDGen prints ID cards for four schools in the Hojai district: Don Bosco High School in Hojai, Markaz Academy, Saraswati Gurukul High School in Lumding and Sunrise Senior Secondary School.",
-        "heroSubtext": "Hojai is a small client list, and we say so. If you run a school or college in Hojai, Lumding or Doboka, we make your cards in Guwahati and send them by courier.",
+        "heroSubtext": "Our Hojai client list is small, and we say so. If you run a school or college in Hojai, Lumding or Doboka, we make your cards in Guwahati and send them by courier.",
         "heroWorkflowSteps": [
           "Requirement",
           "Design",
@@ -4857,7 +4856,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Quote",
+        "heroCtaText": "Request a Hojai Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Hojai",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -4865,16 +4864,16 @@
         "localColor": "Hojai is known for its agarwood trade and for Lumding, an important railway town. Don Bosco High School's logo shows 1971, and Sunrise Senior Secondary School's shows 2024, so we have supplied both a long-running mission school and a very new school here.",
         "localPresenceBadge": "Produced in Guwahati • Courier to Hojai",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Hojai: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Hojai: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Hojai",
           "School ID cards",
           "Lumding and Doboka",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations require identity products for:",
+        "audiencesTitle": "Organisations in Hojai require identity products for:",
         "audiencesSubtitle": "Who orders ID cards in Hojai, and what they usually need.",
-        "audiencesNote": "Single and double-sided printing, RFID options and sealed edges",
+        "audiencesNote": "Single- and double-sided printing, RFID options and sealed edges",
         "targetAudiences": [
           {
             "name": "Students & Scholars",
@@ -4917,7 +4916,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve:",
+        "organizationsTitle": "Typical Organisations We Serve in Hojai:",
         "organizationsSubtitle": "Four schools across Hojai, plus offices and employers.",
         "organizationsServed": [
           "Mission and private schools",
@@ -4929,10 +4928,10 @@
         ],
         "localAdvantageTitle": "Hojai and Lumding, Served from Guwahati",
         "localAdvantageDesc": "Schools in Hojai and Lumding order from IDGen. We produce in Guwahati and ship by courier.",
-        "deliveryRoutesTitle": "Courier Shipping Routes:",
+        "deliveryRoutesTitle": "Courier Shipping Routes Across Hojai:",
         "deliveryRoutesSubtitle": "Orders ship to Hojai and nearby towns such as Lumding.",
-        "coverageEyebrow": "Service Coverage",
-        "coverageTitle": "Service Coverage",
+        "coverageEyebrow": "Hojai Service Coverage",
+        "coverageTitle": "Hojai Service Coverage",
         "coverageIntro": "IDGen serves Hojai and nearby towns including Lumding, Doboka and Jamunamukh from its production facility in Guwahati.",
         "coverageExamples": [
           "/service-areas/state/city/dispur/",
@@ -4951,7 +4950,7 @@
         "services": [
           {
             "id": "student-id",
-            "title": "Student ID Card Printing in Your City",
+            "title": "Student ID Card Printing in Hojai",
             "categoryLabel": "Educational Institutions",
             "tag": "Schools & Universities",
             "badge": "Academic Priority",
@@ -4967,7 +4966,7 @@
           },
           {
             "id": "employee-id",
-            "title": "Employee ID Card Printing in Your City",
+            "title": "Employee ID Card Printing in Hojai",
             "categoryLabel": "Corporate & Enterprises",
             "tag": "Corporate Staff",
             "badge": "Enterprise Core",
@@ -4983,7 +4982,7 @@
           },
           {
             "id": "event-card",
-            "title": "Event Card Printing in Your City",
+            "title": "Event Card Printing in Hojai",
             "categoryLabel": "Conferences & Seminars",
             "tag": "Conferences & Summits",
             "badge": "Express 72h",
@@ -4999,7 +4998,7 @@
           },
           {
             "id": "rfid-card",
-            "title": "RFID Card Printing in Your City",
+            "title": "RFID Card Printing in Hojai",
             "categoryLabel": "Smart Credentials",
             "tag": "Contactless Credentials",
             "badge": "Turnstile Ready",
@@ -5015,7 +5014,7 @@
           },
           {
             "id": "custom-lanyards",
-            "title": "Custom Printed Lanyards in Your City",
+            "title": "Custom Printed Lanyards in Hojai",
             "categoryLabel": "Wearable Branding",
             "tag": "20mm Satin",
             "badge": "Bestseller",
@@ -5025,13 +5024,13 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
           {
             "id": "ultrasonic-sealing",
-            "title": "Ultrasonic Sealing in Your City",
+            "title": "Ultrasonic Sealing in Hojai",
             "categoryLabel": "Advanced Engineering",
             "tag": "Tamper-Evident",
             "badge": "Industrial Grade",
@@ -5057,7 +5056,7 @@
             "category": "holders",
             "categoryLabel": "Protection Cases",
             "imageSrc": "/images/product-id-holders.jpg",
-            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Your City",
+            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Hojai",
             "tag": "Hard Acrylic / PMMA",
             "badge": "Protection",
             "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
@@ -5076,7 +5075,7 @@
             "category": "hardware",
             "categoryLabel": "Attachments",
             "imageSrc": "/images/product-hooks-hardware.jpg",
-            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Your City",
+            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Hojai",
             "tag": "Chrome-Plated Metal",
             "badge": "Hardware",
             "badgeColor": "text-blue-400 bg-blue-500/10 border-blue-400/30",
@@ -5095,7 +5094,7 @@
             "category": "badges",
             "categoryLabel": "Executive Badges",
             "imageSrc": "/images/product-acrylic-badges.jpg",
-            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Your City",
+            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Hojai",
             "tag": "Laser Cut PMMA",
             "badge": "Executive",
             "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
@@ -5114,7 +5113,7 @@
             "category": "medals",
             "categoryLabel": "Sports & Honors",
             "imageSrc": "/images/product-zinc-medals.jpg",
-            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Your City",
+            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Hojai",
             "tag": "Die-Cast Metal",
             "badge": "Recognition",
             "badgeColor": "text-purple-400 bg-purple-500/10 border-purple-400/30",
@@ -5133,7 +5132,7 @@
             "category": "cards",
             "categoryLabel": "Card Media",
             "imageSrc": "/images/product-pvc-cards.jpg",
-            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Your City",
+            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Hojai",
             "tag": "Virgin PVC Core",
             "badge": "Core Media",
             "badgeColor": "text-sky-400 bg-sky-500/10 border-sky-400/30",
@@ -5147,7 +5146,7 @@
           }
         ],
         "setupsEyebrow": "Configurations",
-        "setupsTitle": "Complete ID Card Solutions & Packages",
+        "setupsTitle": "Complete ID Card Solutions & Packages in Hojai",
         "setupsSubtitle": "Organisations differ. Choose the setup that fits your staff or students in Hojai.",
         "completeSetups": [
           {
@@ -5187,20 +5186,20 @@
               "Ultrasonic Sealing Lamination",
               "Rigid / Soft ID Holder",
               "Custom Breakaway Hook",
-              "Multi-Color Sublimation Lanyard"
+              "Multi-Colour Sublimation Lanyard"
             ]
           }
         ],
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Priority Route",
-        "bulkTitle": "Bulk ID Card Printing",
+        "bulkTitle": "Bulk ID Card Printing in Hojai",
         "bulkDesc": "Most Hojai orders are a few hundred cards. We can quote for any size.",
         "bulkHighlights": [
           "Up to 10,000+ IDs / Day",
           "100% Optical Quality Check",
           "Free Pre-Production Physical Sample"
         ],
-        "bulkInputsTitle": "Key Inputs for Large Institutional Orders:",
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Hojai:",
         "bulkInputsDesc": "These four answers let us price your Hojai order accurately.",
         "bulkInputsStepTag": "Step 1 of 4 Preparation",
         "bulkInputs": [
@@ -5231,10 +5230,10 @@
         ],
         "bulkBottomNote": "For larger Hojai batches, ask for a pre-production sample; we confirm what is available for your order.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Bulk Quote",
+        "bulkCta2Text": "Request a Hojai Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Our Hojai client list",
-        "projectsTitle": "Organizations & Projects",
+        "projectsTitle": "Organisations & Projects in Hojai",
         "projectsDesc": "Four schools in Hojai and Lumding, with logos showing founding years from 1971 to 2024, are on our client list.",
         "verifiedClients": [
           {
@@ -5263,7 +5262,7 @@
           }
         ],
         "whyChooseEyebrow": "Why Choose Us",
-        "whyChooseTitle": "Why Choose IDGen?",
+        "whyChooseTitle": "Why Choose IDGen in Hojai?",
         "whyChooseSubtitle": "Production in Guwahati, work since 2014, a focus on organisations, and a digital data workflow.",
         "whyChoosePoints": [
           {
@@ -5311,7 +5310,7 @@
         ],
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
-        "workflowTitle": "How to Order ID Cards",
+        "workflowTitle": "How to Order ID Cards in Hojai",
         "workflowSubtitle": "From requirement to courier: the path every Hojai order takes.",
         "workflowNote": "Hojai orders leave Guwahati by courier after the optical quality check. Tracking depends on the courier.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
@@ -5366,7 +5365,7 @@
             "phase": "Fulfillment"
           }
         ],
-        "faqsTitle": "Frequently Asked Questions",
+        "faqsTitle": "Frequently Asked Questions in Hojai",
         "faqsSubtitle": "Questions about ordering ID cards in Hojai and Lumding.",
         "faqsHelpTitle": "Have Specific Questions?",
         "faqsHelpText": "Need a hand with a Hojai order? Call or message the team.",
@@ -5396,7 +5395,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Hojai, Assam to Don Bosco High School (Hojai), Markaz Academy, Saraswati Gurukul High School (Lumding) and Sunrise Senior Secondary School. Cards are made in Guwahati and shipped by courier, dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Hojai, Assam, to Don Bosco High School (Hojai), Markaz Academy, Saraswati Gurukul High School (Lumding) and Sunrise Senior Secondary School. Cards are made in Guwahati and shipped by courier, dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Hojai | School ID Cards",
         "metaDescription": "ID cards for Hojai schools including Don Bosco High School, Markaz Academy and Saraswati Gurukul, Lumding. Made in Guwahati, shipped by courier.",
         "indexed": true,
@@ -5405,7 +5404,7 @@
         "confidentialityTitle": "Identification Data & Confidentiality",
         "confidentialityDesc": "Student and staff data from Hojai stays confidential and is used only to print your cards.",
         "confidentialityCta": "Explore IDGen Studio →",
-        "address": "Jk Kedia Road, Hojai Main Rd, Hojai, Assam 782436",
+        "address": "JK Kedia Road, Hojai Main Rd, Hojai, Assam 782436",
         "localArticle": {
           "title": "ID cards for schools in Hojai and Lumding",
           "sections": [
@@ -5449,7 +5448,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Quote",
+        "heroCtaText": "Request a Lakhimpur Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Lakhimpur",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -5457,14 +5456,14 @@
         "localColor": "North Lakhimpur sits on the north bank, and its schools include several in Ghilamara and Dhakuakhana as well as a tea estate school at Gurinadi. The logos show 1964 for Kanta Khanikar High School, 1985 for Central School Dhakuakhana and 2022 or 2023 for the newest.",
         "localPresenceBadge": "Produced in Guwahati • Courier to Lakhimpur",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Lakhimpur: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Lakhimpur: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Lakhimpur",
           "School and estate cards",
           "Proof before print",
           "Plan extra lead time"
         ],
-        "audiencesTitle": "Organizations require identity products for:",
+        "audiencesTitle": "Organisations in Lakhimpur require identity products for:",
         "audiencesSubtitle": "Card types for the groups of people Lakhimpur organisations identify.",
         "audiencesNote": "Printed one or both sides, with RFID and sealing as options",
         "targetAudiences": [
@@ -5509,7 +5508,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve:",
+        "organizationsTitle": "Typical Organisations We Serve in Lakhimpur:",
         "organizationsSubtitle": "Organisations in Lakhimpur and Ghilamara: schools in several towns and a tea estate, and tea estates and offices.",
         "organizationsServed": [
           "High and higher secondary schools",
@@ -5521,10 +5520,10 @@
         ],
         "localAdvantageTitle": "Lakhimpur District, Served from Guwahati",
         "localAdvantageDesc": "Schools in North Lakhimpur, Ghilamara and Dhakuakhana order from IDGen. Cards are produced in Guwahati and shipped by courier.",
-        "deliveryRoutesTitle": "Courier Shipping Routes:",
+        "deliveryRoutesTitle": "Courier Shipping Routes Across Lakhimpur:",
         "deliveryRoutesSubtitle": "Shipped by courier to Lakhimpur, Dhakuakhana and surrounding areas.",
-        "coverageEyebrow": "Service Coverage",
-        "coverageTitle": "Service Coverage",
+        "coverageEyebrow": "Lakhimpur Service Coverage",
+        "coverageTitle": "Lakhimpur Service Coverage",
         "coverageIntro": "IDGen serves North Lakhimpur and nearby towns including Ghilamara, Dhakuakhana and Narayanpur from its production facility in Guwahati.",
         "coverageExamples": [
           "/service-areas/state/city/dispur/",
@@ -5548,7 +5547,7 @@
         "services": [
           {
             "id": "student-id",
-            "title": "Student ID Card Printing in Your City",
+            "title": "Student ID Card Printing in Lakhimpur",
             "categoryLabel": "Educational Institutions",
             "tag": "Schools & Universities",
             "badge": "Academic Priority",
@@ -5564,7 +5563,7 @@
           },
           {
             "id": "employee-id",
-            "title": "Employee ID Card Printing in Your City",
+            "title": "Employee ID Card Printing in Lakhimpur",
             "categoryLabel": "Corporate & Enterprises",
             "tag": "Corporate Staff",
             "badge": "Enterprise Core",
@@ -5580,7 +5579,7 @@
           },
           {
             "id": "event-card",
-            "title": "Event Card Printing in Your City",
+            "title": "Event Card Printing in Lakhimpur",
             "categoryLabel": "Conferences & Seminars",
             "tag": "Conferences & Summits",
             "badge": "Express 72h",
@@ -5596,7 +5595,7 @@
           },
           {
             "id": "rfid-card",
-            "title": "RFID Card Printing in Your City",
+            "title": "RFID Card Printing in Lakhimpur",
             "categoryLabel": "Smart Credentials",
             "tag": "Contactless Credentials",
             "badge": "Turnstile Ready",
@@ -5612,7 +5611,7 @@
           },
           {
             "id": "custom-lanyards",
-            "title": "Custom Printed Lanyards in Your City",
+            "title": "Custom Printed Lanyards in Lakhimpur",
             "categoryLabel": "Wearable Branding",
             "tag": "20mm Satin",
             "badge": "Bestseller",
@@ -5622,13 +5621,13 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
           {
             "id": "ultrasonic-sealing",
-            "title": "Ultrasonic Sealing in Your City",
+            "title": "Ultrasonic Sealing in Lakhimpur",
             "categoryLabel": "Advanced Engineering",
             "tag": "Tamper-Evident",
             "badge": "Industrial Grade",
@@ -5654,7 +5653,7 @@
             "category": "holders",
             "categoryLabel": "Protection Cases",
             "imageSrc": "/images/product-id-holders.jpg",
-            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Your City",
+            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Lakhimpur",
             "tag": "Hard Acrylic / PMMA",
             "badge": "Protection",
             "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
@@ -5673,7 +5672,7 @@
             "category": "hardware",
             "categoryLabel": "Attachments",
             "imageSrc": "/images/product-hooks-hardware.jpg",
-            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Your City",
+            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Lakhimpur",
             "tag": "Chrome-Plated Metal",
             "badge": "Hardware",
             "badgeColor": "text-blue-400 bg-blue-500/10 border-blue-400/30",
@@ -5692,7 +5691,7 @@
             "category": "badges",
             "categoryLabel": "Executive Badges",
             "imageSrc": "/images/product-acrylic-badges.jpg",
-            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Your City",
+            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Lakhimpur",
             "tag": "Laser Cut PMMA",
             "badge": "Executive",
             "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
@@ -5711,7 +5710,7 @@
             "category": "medals",
             "categoryLabel": "Sports & Honors",
             "imageSrc": "/images/product-zinc-medals.jpg",
-            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Your City",
+            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Lakhimpur",
             "tag": "Die-Cast Metal",
             "badge": "Recognition",
             "badgeColor": "text-purple-400 bg-purple-500/10 border-purple-400/30",
@@ -5730,7 +5729,7 @@
             "category": "cards",
             "categoryLabel": "Card Media",
             "imageSrc": "/images/product-pvc-cards.jpg",
-            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Your City",
+            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Lakhimpur",
             "tag": "Virgin PVC Core",
             "badge": "Core Media",
             "badgeColor": "text-sky-400 bg-sky-500/10 border-sky-400/30",
@@ -5744,8 +5743,8 @@
           }
         ],
         "setupsEyebrow": "Configurations",
-        "setupsTitle": "Complete ID Card Solutions & Packages",
-        "setupsSubtitle": "A card alone is enough for some, a full set suits others. Choose what fits your Lakhimpur project.",
+        "setupsTitle": "Complete ID Card Solutions & Packages in Lakhimpur",
+        "setupsSubtitle": "A card alone is enough for some; a full set suits others. Choose what fits your Lakhimpur project.",
         "completeSetups": [
           {
             "title": "Card Only",
@@ -5784,20 +5783,20 @@
               "Ultrasonic Sealing Lamination",
               "Rigid / Soft ID Holder",
               "Custom Breakaway Hook",
-              "Multi-Color Sublimation Lanyard"
+              "Multi-Colour Sublimation Lanyard"
             ]
           }
         ],
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Priority Route",
-        "bulkTitle": "Bulk ID Card Printing",
+        "bulkTitle": "Bulk ID Card Printing in Lakhimpur",
         "bulkDesc": "Lakhimpur schools often order in the first months of the year. We plan production and courier time together.",
         "bulkHighlights": [
           "Up to 10,000+ IDs / Day",
           "100% Optical Quality Check",
           "Free Pre-Production Physical Sample"
         ],
-        "bulkInputsTitle": "Key Inputs for Large Institutional Orders:",
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Lakhimpur:",
         "bulkInputsDesc": "Share the quantity, card type, data and shipping address, and we will quote for Lakhimpur.",
         "bulkInputsStepTag": "Step 1 of 4 Preparation",
         "bulkInputs": [
@@ -5828,10 +5827,10 @@
         ],
         "bulkBottomNote": "Production is planned around your quantity and deadline. Lakhimpur bulk orders can start with a sample proof.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Bulk Quote",
+        "bulkCta2Text": "Request a Lakhimpur Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Clients in Lakhimpur",
-        "projectsTitle": "Organizations & Projects",
+        "projectsTitle": "Organisations & Projects in Lakhimpur",
         "projectsDesc": "Six schools across North Lakhimpur, Ghilamara, Dhakuakhana, Thekeraguri and Gurinadi, including one run by a tea estate, are on our client list.",
         "verifiedClients": [
           {
@@ -5872,7 +5871,7 @@
           }
         ],
         "whyChooseEyebrow": "Why Choose Us",
-        "whyChooseTitle": "Why Choose IDGen?",
+        "whyChooseTitle": "Why Choose IDGen in Lakhimpur?",
         "whyChooseSubtitle": "Why Lakhimpur institutions such as Kanta Khanikar High School choose to order from IDGen.",
         "whyChoosePoints": [
           {
@@ -5920,7 +5919,7 @@
         ],
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
-        "workflowTitle": "How to Order ID Cards",
+        "workflowTitle": "How to Order ID Cards in Lakhimpur",
         "workflowSubtitle": "Eight clear stages from your first message to courier dispatch to Lakhimpur.",
         "workflowNote": "Lakhimpur orders leave Guwahati by courier after the optical quality check. Courier time to the north bank can be longer.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
@@ -5975,7 +5974,7 @@
             "phase": "Fulfillment"
           }
         ],
-        "faqsTitle": "Frequently Asked Questions",
+        "faqsTitle": "Frequently Asked Questions in Lakhimpur",
         "faqsSubtitle": "Answers about ID cards, timelines, accessories and delivery for Lakhimpur.",
         "faqsHelpTitle": "Have Specific Questions?",
         "faqsHelpText": "Not sure which card or lanyard to pick for Lakhimpur? Ask the team.",
@@ -6005,7 +6004,7 @@
             "a": "A spreadsheet plus a folder of photos named by roll number. IDGen Studio can also collect data."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Lakhimpur, Assam to Adarsha Vidyalaya (Ghilamara), Central School (Dhakuakhana), Kanta Khanikar High School (Ghilamara), River View Academy (Thekeraguri), Siajuli Tea Estate Model School (Gurinadi) and Valmiki Vidya Kanan. Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Lakhimpur, Assam, to Adarsha Vidyalaya (Ghilamara), Central School (Dhakuakhana), Kanta Khanikar High School (Ghilamara), River View Academy (Thekeraguri), Siajuli Tea Estate Model School (Gurinadi) and Valmiki Vidya Kanan. Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Lakhimpur | School & Estate ID Cards",
         "metaDescription": "ID cards for Lakhimpur schools including Kanta Khanikar High School, Central School Dhakuakhana and Siajuli Tea Estate Model School. Made in Guwahati.",
         "indexed": true,
@@ -6058,7 +6057,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Quote",
+        "heroCtaText": "Request a Tezpur Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Tezpur",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -6066,14 +6065,14 @@
         "localColor": "Tezpur is the cultural capital of Sonitpur district and is known for Tezpur University and the Kolia Bhomora Setu over the Brahmaputra. The logos on our Sonitpur clients show 2000 for Morning Star H.S. School, 2006 for St. Xavier's School and 2015 for both Balipara Academy and Wisdom Academy.",
         "localPresenceBadge": "Produced in Guwahati • Courier to Tezpur",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen: A Local Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Tezpur: A Local Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Tezpur",
           "School and institute cards",
           "Balipara and Chariduar",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations require identity products for:",
+        "audiencesTitle": "Organisations in Tezpur require identity products for:",
         "audiencesSubtitle": "The people your Tezpur cards are for, grouped by use.",
         "audiencesNote": "One- or two-sided cards, optional RFID and edge sealing",
         "targetAudiences": [
@@ -6118,7 +6117,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve:",
+        "organizationsTitle": "Typical Organisations We Serve in Tezpur:",
         "organizationsSubtitle": "Tezpur customers include schools and a health institute.",
         "organizationsServed": [
           "Senior secondary schools",
@@ -6130,10 +6129,10 @@
         ],
         "localAdvantageTitle": "Tezpur and Sonitpur, Served from Guwahati",
         "localAdvantageDesc": "Schools and a health institute in Tezpur, Balipara and Chariduar order from IDGen. Cards are produced in Guwahati and shipped by courier.",
-        "deliveryRoutesTitle": "Courier Shipping Routes:",
+        "deliveryRoutesTitle": "Courier Shipping Routes Across Tezpur:",
         "deliveryRoutesSubtitle": "Courier routes to Tezpur and nearby towns.",
-        "coverageEyebrow": "Service Coverage",
-        "coverageTitle": "Service Coverage",
+        "coverageEyebrow": "Tezpur Service Coverage",
+        "coverageTitle": "Tezpur Service Coverage",
         "coverageIntro": "IDGen serves Tezpur and nearby towns including Balipara, Chariduar, Dhekiajuli and Rangapara from its production facility in Guwahati.",
         "coverageExamples": [
           "/service-areas/state/city/dispur/",
@@ -6144,7 +6143,7 @@
         "services": [
           {
             "id": "student-id",
-            "title": "Student ID Card Printing in Your City",
+            "title": "Student ID Card Printing in Tezpur",
             "categoryLabel": "Educational Institutions",
             "tag": "Schools & Universities",
             "badge": "Academic Priority",
@@ -6160,7 +6159,7 @@
           },
           {
             "id": "employee-id",
-            "title": "Employee ID Card Printing in Your City",
+            "title": "Employee ID Card Printing in Tezpur",
             "categoryLabel": "Corporate & Enterprises",
             "tag": "Corporate Staff",
             "badge": "Enterprise Core",
@@ -6176,7 +6175,7 @@
           },
           {
             "id": "event-card",
-            "title": "Event Card Printing in Your City",
+            "title": "Event Card Printing in Tezpur",
             "categoryLabel": "Conferences & Seminars",
             "tag": "Conferences & Summits",
             "badge": "Express 72h",
@@ -6192,7 +6191,7 @@
           },
           {
             "id": "rfid-card",
-            "title": "RFID Card Printing in Your City",
+            "title": "RFID Card Printing in Tezpur",
             "categoryLabel": "Smart Credentials",
             "tag": "Contactless Credentials",
             "badge": "Turnstile Ready",
@@ -6208,7 +6207,7 @@
           },
           {
             "id": "custom-lanyards",
-            "title": "Custom Printed Lanyards in Your City",
+            "title": "Custom Printed Lanyards in Tezpur",
             "categoryLabel": "Wearable Branding",
             "tag": "20mm Satin",
             "badge": "Bestseller",
@@ -6218,13 +6217,13 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
           {
             "id": "ultrasonic-sealing",
-            "title": "Ultrasonic Sealing in Your City",
+            "title": "Ultrasonic Sealing in Tezpur",
             "categoryLabel": "Advanced Engineering",
             "tag": "Tamper-Evident",
             "badge": "Industrial Grade",
@@ -6240,7 +6239,7 @@
           }
         ],
         "catalogEyebrow": "Hardware & Identity Products",
-        "catalogTitle": "Explore Our Product Catalog in tezpur",
+        "catalogTitle": "Explore Our Product Catalog in Tezpur",
         "catalogSubtitle": "Cards, lanyards, holders, hooks, badges and medals, made for organisations in Tezpur.",
         "products": [
           {
@@ -6250,7 +6249,7 @@
             "category": "holders",
             "categoryLabel": "Protection Cases",
             "imageSrc": "/images/product-id-holders.jpg",
-            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Your City",
+            "imageAlt": "Crystal Clear Hard Acrylic and Polycarbonate ID Card Badge Holders in Tezpur",
             "tag": "Hard Acrylic / PMMA",
             "badge": "Protection",
             "badgeColor": "text-cyan-400 bg-cyan-500/10 border-cyan-400/30",
@@ -6269,7 +6268,7 @@
             "category": "hardware",
             "categoryLabel": "Attachments",
             "imageSrc": "/images/product-hooks-hardware.jpg",
-            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Your City",
+            "imageAlt": "Chrome Swivel Dog Hooks and Lanyard Hardware Clips in Tezpur",
             "tag": "Chrome-Plated Metal",
             "badge": "Hardware",
             "badgeColor": "text-blue-400 bg-blue-500/10 border-blue-400/30",
@@ -6288,7 +6287,7 @@
             "category": "badges",
             "categoryLabel": "Executive Badges",
             "imageSrc": "/images/product-acrylic-badges.jpg",
-            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Your City",
+            "imageAlt": "Laser-Cut Crystal Acrylic Name Badges with Magnetic Backing in Tezpur",
             "tag": "Laser Cut PMMA",
             "badge": "Executive",
             "badgeColor": "text-amber-400 bg-amber-500/10 border-amber-400/30",
@@ -6307,7 +6306,7 @@
             "category": "medals",
             "categoryLabel": "Sports & Honors",
             "imageSrc": "/images/product-zinc-medals.jpg",
-            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Your City",
+            "imageAlt": "3D Die-Cast Zinc Medals with Satin Ribbons in Tezpur",
             "tag": "Die-Cast Metal",
             "badge": "Recognition",
             "badgeColor": "text-purple-400 bg-purple-500/10 border-purple-400/30",
@@ -6326,7 +6325,7 @@
             "category": "cards",
             "categoryLabel": "Card Media",
             "imageSrc": "/images/product-pvc-cards.jpg",
-            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Your City",
+            "imageAlt": "Solid Virgin PVC Core ID Cards and Smart RFID Media for Tezpur",
             "tag": "Virgin PVC Core",
             "badge": "Core Media",
             "badgeColor": "text-sky-400 bg-sky-500/10 border-sky-400/30",
@@ -6340,7 +6339,7 @@
           }
         ],
         "setupsEyebrow": "Configurations",
-        "setupsTitle": "Complete ID Card Solutions & Packages",
+        "setupsTitle": "Complete ID Card Solutions & Packages in Tezpur",
         "setupsSubtitle": "Three common setups for Tezpur orders; ask us if yours needs something else.",
         "completeSetups": [
           {
@@ -6380,20 +6379,20 @@
               "Ultrasonic Sealing Lamination",
               "Rigid / Soft ID Holder",
               "Custom Breakaway Hook",
-              "Multi-Color Sublimation Lanyard"
+              "Multi-Colour Sublimation Lanyard"
             ]
           }
         ],
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Priority Route",
-        "bulkTitle": "Bulk ID Card Printing",
+        "bulkTitle": "Bulk ID Card Printing in Tezpur",
         "bulkDesc": "Tezpur batches are mostly schools in the hundreds. A health institute may also need separate student and staff cards.",
         "bulkHighlights": [
           "Up to 10,000+ IDs / Day",
           "100% Optical Quality Check",
           "Free Pre-Production Physical Sample"
         ],
-        "bulkInputsTitle": "Key Inputs for Large Institutional Orders:",
+        "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Tezpur:",
         "bulkInputsDesc": "Four things we need for a Tezpur quotation.",
         "bulkInputsStepTag": "Step 1 of 4 Preparation",
         "bulkInputs": [
@@ -6424,10 +6423,10 @@
         ],
         "bulkBottomNote": "Tell us your quantity and date. For big Tezpur runs we will talk through a sample proof first.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Bulk Quote",
+        "bulkCta2Text": "Request a Tezpur Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Organisations in and around Tezpur",
-        "projectsTitle": "Organizations & Projects",
+        "projectsTitle": "Organisations & Projects in Tezpur",
         "projectsDesc": "Five schools and one health institute across Tezpur, Balipara and Chariduar, with logos showing founding years from 2000 to 2019, are on our client list.",
         "verifiedClients": [
           {
@@ -6468,7 +6467,7 @@
           }
         ],
         "whyChooseEyebrow": "Why Choose Us",
-        "whyChooseTitle": "Why Choose IDGen?",
+        "whyChooseTitle": "Why Choose IDGen in Tezpur?",
         "whyChooseSubtitle": "What Tezpur organisations tell us they need: accurate data, matched sets and clear dispatch.",
         "whyChoosePoints": [
           {
@@ -6516,8 +6515,8 @@
         ],
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
-        "workflowTitle": "How to Order ID Cards",
-        "workflowSubtitle": "How a Tezpur order moves: requirement, data, proof, approval, print, check and dispatch.",
+        "workflowTitle": "How to Order ID Cards in Tezpur",
+        "workflowSubtitle": "How a Tezpur order moves: requirement, data, design, proof, approval, print, check and dispatch.",
         "workflowNote": "Tezpur orders leave Guwahati by courier after the optical quality check. Tracking depends on the courier.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
         "workflowCta2Text": "Start at Step 01: Request Quote",
@@ -6571,7 +6570,7 @@
             "phase": "Fulfillment"
           }
         ],
-        "faqsTitle": "Frequently Asked Questions",
+        "faqsTitle": "Frequently Asked Questions in Tezpur",
         "faqsSubtitle": "Common questions from Tezpur schools, colleges and offices.",
         "faqsHelpTitle": "Have Specific Questions?",
         "faqsHelpText": "Questions about your reader, lanyard branding or batch approval? We can help with your Tezpur order.",
@@ -6601,12 +6600,12 @@
             "a": "Dispatch within 72 hours of approval, then courier time."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Tezpur and Sonitpur, Assam to Balipara Academy, Inspire Academy Senior Secondary School, Morning Star H.S. School (Dolongbasti, Chariduar), St. Xavier's School, Wisdom Academy Senior Secondary School and the Institute of Health and Allied Science (IHAS). Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Tezpur and Sonitpur, Assam, to Balipara Academy, Inspire Academy Senior Secondary School, Morning Star H.S. School (Dolongbasti, Chariduar), St. Xavier's School, Wisdom Academy Senior Secondary School and the Institute of Health and Allied Science (IHAS). Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Tezpur | School & Institute ID Cards",
         "metaDescription": "ID cards for Tezpur and Sonitpur schools including St. Xavier's School, Balipara Academy and IHAS. Made in Guwahati and shipped by courier.",
         "address": "Durgabari Rubber Bagan Rd, Mahabhairab, Tezpur, Assam 784001",
         "coverageHubTitle": "Courier Shipping Hub",
-        "coverageHubSubtitle": "Full tezpur & Regional Reach",
+        "coverageHubSubtitle": "Full Tezpur & Regional Reach",
         "confidentialityTitle": "Identification Data & Confidentiality",
         "confidentialityDesc": "ID card projects hold names, photos and sometimes biometric details. IDGen treats customer data as confidential and uses it only for the printing you ask for.",
         "confidentialityCta": "Explore IDGen Studio →",
@@ -6698,7 +6697,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -6731,7 +6730,7 @@
           {
             "step": "02",
             "title": "Submit Data",
-            "description": "Send the data in the format we agree."
+            "description": "Send the data in the format we agree on."
           },
           {
             "step": "03",
@@ -6770,7 +6769,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Itanagar, Arunachal Pradesh to Don Bosco School, Donyi Polo Academy, Elite Residential School and Donyi Polo International Hotel. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
+        "quickAnswer": "IDGen supplies ID cards in Itanagar, Arunachal Pradesh, to Don Bosco School, Donyi Polo Academy, Elite Residential School and Donyi Polo International Hotel. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
         "metaTitle": "ID Card Printing in Itanagar | School & Hotel ID Cards",
         "metaDescription": "ID cards for Itanagar schools and hotels, including Don Bosco School, Donyi Polo Academy and Elite Residential School. Made in Guwahati.",
         "services": [
@@ -6845,12 +6844,12 @@
             "tag": "20mm Satin",
             "badge": "Bestseller",
             "imageSrc": "/images/service-custom-printed-lanyards.jpg",
-            "description": "Lanyards for institutions like Donyi Polo Academy and for smaller orders alike, printed in Guwahati and shipped to Itanagar.",
+            "description": "Lanyards for institutions like Donyi Polo Academy as well as smaller orders, printed in Guwahati and shipped to Itanagar.",
             "href": "/custom-printed-lanyard-printing/",
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -6885,7 +6884,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Itanagar Quote",
+        "heroCtaText": "Request an Itanagar Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Itanagar",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -6899,7 +6898,7 @@
           "Hotel staff badges",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Itanagar require identity products for:",
+        "audiencesTitle": "Organisations in Itanagar require identity products for:",
         "audiencesSubtitle": "Typical ID card needs in Itanagar, by group.",
         "audiencesNote": "Cards printed on one or both sides; RFID and sealing optional",
         "targetAudiences": [
@@ -6944,7 +6943,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Itanagar:",
+        "organizationsTitle": "Typical Organisations We Serve in Itanagar:",
         "organizationsSubtitle": "From Donyi Polo Academy to smaller institutions around Nirjuli.",
         "localAdvantageTitle": "Itanagar Clients, Served from Guwahati",
         "localAdvantageDesc": "Schools and a hotel in Itanagar order from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -7003,10 +7002,10 @@
         ],
         "bulkBottomNote": "Capacity is matched to the product and the project. Bulk projects for Itanagar can include a physical pre-production sample, subject to confirmation.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Itanagar Bulk Quote",
+        "bulkCta2Text": "Request an Itanagar Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Itanagar and nearby towns",
-        "projectsTitle": "Organizations & Projects in Itanagar",
+        "projectsTitle": "Organisations & Projects in Itanagar",
         "projectsDesc": "Three schools and one hotel in Itanagar are on our client list.",
         "verifiedClients": [
           {
@@ -7061,7 +7060,7 @@
           },
           {
             "title": "Complete Identification Ecosystem",
-            "desc": "Everything a Itanagar organisation wears or carries for identification, ordered together and shipped together.",
+            "desc": "Everything an Itanagar organisation wears or carries for identification, ordered together and shipped together.",
             "image": "/images/why-idgen-complete-ecosystem-branded.jpg",
             "badge": "Turnkey Packages",
             "stat": "Cards + Lanyards + Holders"
@@ -7094,7 +7093,7 @@
         "faqsTitle": "Frequently Asked Questions in Itanagar",
         "faqsSubtitle": "What Itanagar customers ask before they order.",
         "faqsHelpTitle": "Have Specific Questions?",
-        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you order for Itanagar.",
+        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you place your Itanagar order.",
         "catalogEyebrow": "Itanagar Hardware & Products",
         "catalogTitle": "Explore Our Product Catalog in Itanagar",
         "catalogSubtitle": "The products Itanagar organisations order most: PVC cards, lanyards, holders and hooks, plus badges and medals.",
@@ -7195,7 +7194,7 @@
             ]
           }
         ],
-        "address": "NH415, opp. IDBI Bank, E- Sector, Itanagar, Arunachal Pradesh 791111",
+        "address": "NH415, opp. IDBI Bank, E-Sector, Itanagar, Arunachal Pradesh 791111",
         "localArticle": {
           "title": "ID cards for schools and hotels in Itanagar",
           "sections": [
@@ -7242,7 +7241,7 @@
         "indexed": true,
         "heroHeadline": "ID Card Printing & Identity Solutions in Shillong",
         "heroIntro": "IDGen prints ID cards for eleven schools, colleges and institutions in Shillong, including Sankardev College, Umshyrpi College, William Carey University, Meghalaya Hindu Mission School, St. John's School Whitehall, Gilead Bethel School, Holy Child HR SEC School and the Presbyterian Church of India.",
-        "heroSubtext": "Shillong is the capital of Meghalaya and the longest client list we have in the hills. Cards are made in Guwahati and sent by courier.",
+        "heroSubtext": "Shillong is the capital of Meghalaya and has the longest client list we have in the hills. Cards are made in Guwahati and sent by courier.",
         "localColor": "Shillong's institutions are among the oldest in this part of India. The logo of Meghalaya Hindu Mission School shows 1936, Sankardev College 1962 and Stephen Memorial Higher Secondary School 1982.",
         "nearbyAreas": [
           "Police Bazar",
@@ -7286,7 +7285,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -7358,7 +7357,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time to Shillong."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Shillong, Meghalaya to Sankardev College, Umshyrpi College, William Carey University, Meghalaya Hindu Mission School, St. John's School Whitehall, Gilead Bethel School, Holy Child HR SEC School, Emjay Secondary School, Stephen Memorial Higher Secondary School, Shri Kanchi Kamakoti Vidya Bharati Vidyalaya and the Presbyterian Church of India. Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Shillong, Meghalaya, to Sankardev College, Umshyrpi College, William Carey University, Meghalaya Hindu Mission School, St. John's School Whitehall, Gilead Bethel School, Holy Child HR SEC School, Emjay Secondary School, Stephen Memorial Higher Secondary School, Shri Kanchi Kamakoti Vidya Bharati Vidyalaya and the Presbyterian Church of India. Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Shillong | School & College ID Cards",
         "metaDescription": "ID cards for Shillong colleges and schools including Sankardev College, Umshyrpi College, William Carey University and St. John's Whitehall. Made in Guwahati.",
         "services": [
@@ -7438,7 +7437,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -7487,9 +7486,9 @@
           "Church and association cards",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Shillong require identity products for:",
+        "audiencesTitle": "Organisations in Shillong require identity products for:",
         "audiencesSubtitle": "Who orders ID cards in Shillong, and what they usually need.",
-        "audiencesNote": "Single and double-sided printing, RFID options and sealed edges",
+        "audiencesNote": "Single- and double-sided printing, RFID options and sealed edges",
         "targetAudiences": [
           {
             "name": "Students & Scholars",
@@ -7532,7 +7531,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Shillong:",
+        "organizationsTitle": "Typical Organisations We Serve in Shillong:",
         "organizationsSubtitle": "Colleges, a university and long-established schools across Shillong, plus offices and employers.",
         "localAdvantageTitle": "Shillong Institutions, Served from Guwahati",
         "localAdvantageDesc": "Eleven Shillong colleges, schools and a church organisation order from IDGen. Cards are made in Guwahati and travel to Shillong by courier.",
@@ -7594,7 +7593,7 @@
         "bulkCta2Text": "Request a Shillong Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Our Shillong client list",
-        "projectsTitle": "Organizations & Projects in Shillong",
+        "projectsTitle": "Organisations & Projects in Shillong",
         "projectsDesc": "Eleven Shillong institutions are on our client list, with logos showing founding years from 1936 to 1994.",
         "verifiedClients": [
           {
@@ -7890,7 +7889,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -7962,7 +7961,7 @@
             "a": "Yes, with their data files sent together."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Tura, Meghalaya to Don Bosco School Tura, St. Mary's Higher Secondary School, Sherwood School, Captain Williams School, Durama College, Dobasipara U.P. School, Bethel Secondary School (Dadenggre) and Don Bosco School (Nongchram, Rongjeng). Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Tura, Meghalaya, to Don Bosco School Tura, St. Mary's Higher Secondary School, Sherwood School, Captain Williams School, Durama College, Dobasipara U.P. School, Bethel Secondary School (Dadenggre) and Don Bosco School (Nongchram, Rongjeng). Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Tura | Garo Hills School & College Cards",
         "metaDescription": "ID cards for Tura schools and Durama College, including Don Bosco School, St. Mary's HSS and Sherwood School. Made in Guwahati, shipped by courier.",
         "services": [
@@ -8042,7 +8041,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -8084,14 +8083,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Tura",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Tura: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Tura: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Tura",
           "Garo Hills schools",
           "College cards",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Tura require identity products for:",
+        "audiencesTitle": "Organisations in Tura require identity products for:",
         "audiencesSubtitle": "Card types for the groups of people Tura organisations identify.",
         "audiencesNote": "Printed one or both sides, with RFID and sealing as options",
         "targetAudiences": [
@@ -8136,7 +8135,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Tura:",
+        "organizationsTitle": "Typical Organisations We Serve in Tura:",
         "organizationsSubtitle": "Organisations in Tura and Dadenggre: schools and a college in the Garo Hills, and hospitals and local businesses.",
         "localAdvantageTitle": "Tura and the Garo Hills, Served from Guwahati",
         "localAdvantageDesc": "Schools and a college in Tura, Dadenggre and Rongjeng order from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -8154,7 +8153,7 @@
         ],
         "setupsEyebrow": "Configurations",
         "setupsTitle": "Complete ID Card Solutions & Packages in Tura",
-        "setupsSubtitle": "A card alone is enough for some, a full set suits others. Choose what fits your Tura project.",
+        "setupsSubtitle": "A card alone is enough for some; a full set suits others. Choose what fits your Tura project.",
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Tura Priority Route",
         "bulkTitle": "Bulk ID Card Printing in Tura",
@@ -8198,8 +8197,8 @@
         "bulkCta2Text": "Request a Tura Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Clients in Tura",
-        "projectsTitle": "Organizations & Projects in Tura",
-        "projectsDesc": "Eight schools and one college across Tura, Dadenggre and Rongjeng, with logos showing founding years from 1957 to 2015, are on our client list.",
+        "projectsTitle": "Organisations & Projects in Tura",
+        "projectsDesc": "Seven schools and one college across Tura, Dadenggre and Rongjeng, with logos showing founding years from 1957 to 2015, are on our client list.",
         "verifiedClients": [
           {
             "name": "Captain Williams School",
@@ -8411,7 +8410,7 @@
             ]
           }
         ],
-        "address": "H. K Road, Tura Bazaar, Kimri Jamdap, Tura, Meghalaya 794001",
+        "address": "H.K. Road, Tura Bazaar, Kimri Jamdap, Tura, Meghalaya 794001",
         "localArticle": {
           "title": "ID cards for schools and colleges in Tura and the Garo Hills",
           "sections": [
@@ -8440,7 +8439,7 @@
         "isPrimary": false,
         "indexed": true,
         "heroHeadline": "ID Card Printing & Identity Solutions in Jowai",
-        "heroIntro": "IDGen prints ID cards for eight schools and a university in the Jaintia Hills, including North East Adventist University in Jowai, Seinraij Hr. Secondary School in Wahiajer, Hubert Memorial School in Thadialong, Khliehriat Presbyterian HS School and Sutnga Presbyterian Higher Secondary School.",
+        "heroIntro": "IDGen prints ID cards for seven schools and a university in the Jaintia Hills, including North East Adventist University in Jowai, Seinraij Hr. Secondary School in Wahiajer, Hubert Memorial School in Thadialong, Khliehriat Presbyterian HS School and Sutnga Presbyterian Higher Secondary School.",
         "heroSubtext": "Jowai is the main town of West Jaintia Hills, and our clients are on the Jowai-Khliehriat road. Cards are made in Guwahati and shipped by courier.",
         "localColor": "The Jaintia Hills have a long tradition of church-run schools. Sutnga Presbyterian Higher Secondary School's logo shows 1961 and Holy Infant LP & UP School's 2002, while Seinraij Hr. Secondary School's shows 2017.",
         "nearbyAreas": [
@@ -8471,7 +8470,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -8543,7 +8542,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time to the Jaintia Hills."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Jowai and the Jaintia Hills, Meghalaya to North East Adventist University, Seinraij Hr. Secondary School (Wahiajer), Hubert Memorial School (Thadialong), Holy Infant LP & UP School, Khliehriat Presbyterian HS School, Sham Sham Secondary School, Little Flower Secondary School and Sutnga Presbyterian Higher Secondary School. Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Jowai and the Jaintia Hills, Meghalaya, to North East Adventist University, Seinraij Hr. Secondary School (Wahiajer), Hubert Memorial School (Thadialong), Holy Infant LP & UP School, Khliehriat Presbyterian HS School, Sham Sham Secondary School, Little Flower Secondary School and Sutnga Presbyterian Higher Secondary School. Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Jowai | Jaintia Hills School & University Cards",
         "metaDescription": "ID cards for Jowai and Jaintia Hills schools and North East Adventist University. Made in Guwahati and shipped by courier.",
         "services": [
@@ -8623,7 +8622,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -8665,14 +8664,14 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Jowai",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Jowai: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Jowai: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Jowai",
           "Jaintia Hills schools",
           "University cards",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Jowai require identity products for:",
+        "audiencesTitle": "Organisations in Jowai require identity products for:",
         "audiencesSubtitle": "The people your Jowai cards are for, grouped by use.",
         "audiencesNote": "One- or two-sided cards, optional RFID and edge sealing",
         "targetAudiences": [
@@ -8717,7 +8716,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Jowai:",
+        "organizationsTitle": "Typical Organisations We Serve in Jowai:",
         "organizationsSubtitle": "Jowai customers include schools and a university in the Jaintia Hills.",
         "localAdvantageTitle": "Jowai and the Jaintia Hills, Served from Guwahati",
         "localAdvantageDesc": "Schools and a university across West and East Jaintia Hills order from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -8779,8 +8778,8 @@
         "bulkCta2Text": "Request a Jowai Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Organisations in and around Jowai",
-        "projectsTitle": "Organizations & Projects in Jowai",
-        "projectsDesc": "Eight schools and a university across West and East Jaintia Hills, with logos showing founding years from 1961 to 2017, are on our client list.",
+        "projectsTitle": "Organisations & Projects in Jowai",
+        "projectsDesc": "Seven schools and a university across West and East Jaintia Hills, with logos showing founding years from 1961 to 2017, are on our client list.",
         "verifiedClients": [
           {
             "name": "Holy Infant LP & UP School",
@@ -8881,7 +8880,7 @@
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Priority Turnaround",
         "workflowTitle": "How to Order ID Cards in Jowai",
-        "workflowSubtitle": "How a Jowai order moves: requirement, data, proof, approval, print, check and dispatch.",
+        "workflowSubtitle": "How a Jowai order moves: requirement, data, design, proof, approval, print, check and dispatch.",
         "workflowNote": "Jowai orders leave Guwahati by courier after the optical quality check. Tracking depends on the courier.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
         "workflowCta2Text": "Start at Step 01: Request Quote",
@@ -8992,7 +8991,7 @@
             ]
           }
         ],
-        "address": "Iawmusiang main road, opposite uco bank, Jowai, Meghalaya 793150",
+        "address": "Iawmusiang Main Road, opposite UCO Bank, Jowai, Meghalaya 793150",
         "localArticle": {
           "title": "ID cards for schools and a university in Jowai and the Jaintia Hills",
           "sections": [
@@ -9066,7 +9065,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -9099,7 +9098,7 @@
           {
             "step": "02",
             "title": "Submit Data",
-            "description": "Send the data in the format we agree."
+            "description": "Send the data in the format we agree on."
           },
           {
             "step": "03",
@@ -9138,7 +9137,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time to Kohima."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Kohima, Nagaland to Christ King Higher Secondary School, Little Flower Higher Secondary School, Don Bosco Senior Secondary School, Koinonia Baptist School and Kekhrie Krotho Khuzama. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
+        "quickAnswer": "IDGen supplies ID cards in Kohima, Nagaland, to Christ King Higher Secondary School, Little Flower Higher Secondary School, Don Bosco Senior Secondary School, Koinonia Baptist School and Kekhrie Krotho Khuzama. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
         "metaTitle": "ID Card Printing in Kohima | School ID Cards",
         "metaDescription": "ID cards for Kohima schools including Christ King HSS, Little Flower HSS, Don Bosco Sr. Sec. School and Koinonia Baptist School. Made in Guwahati.",
         "services": [
@@ -9213,12 +9212,12 @@
             "tag": "20mm Satin",
             "badge": "Bestseller",
             "imageSrc": "/images/service-custom-printed-lanyards.jpg",
-            "description": "Lanyards for institutions like Christ King Higher Secondary School and for smaller orders alike, printed in Guwahati and shipped to Kohima.",
+            "description": "Lanyards for institutions like Christ King Higher Secondary School as well as smaller orders, printed in Guwahati and shipped to Kohima.",
             "href": "/custom-printed-lanyard-printing/",
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -9267,7 +9266,7 @@
           "Proof before print",
           "Dimapur route"
         ],
-        "audiencesTitle": "Organizations in Kohima require identity products for:",
+        "audiencesTitle": "Organisations in Kohima require identity products for:",
         "audiencesSubtitle": "Typical ID card needs in Kohima, by group.",
         "audiencesNote": "Cards printed on one or both sides; RFID and sealing optional",
         "targetAudiences": [
@@ -9312,7 +9311,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Kohima:",
+        "organizationsTitle": "Typical Organisations We Serve in Kohima:",
         "organizationsSubtitle": "From Christ King Higher Secondary School to smaller institutions around Jotsoma.",
         "localAdvantageTitle": "Kohima Schools, Served from Guwahati",
         "localAdvantageDesc": "Five Kohima schools order from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -9374,7 +9373,7 @@
         "bulkCta2Text": "Request a Kohima Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Kohima and nearby towns",
-        "projectsTitle": "Organizations & Projects in Kohima",
+        "projectsTitle": "Organisations & Projects in Kohima",
         "projectsDesc": "Five Kohima schools, with logos showing founding years of 1964 and 1969 for the oldest, are on our client list.",
         "verifiedClients": [
           {
@@ -9468,7 +9467,7 @@
         "faqsTitle": "Frequently Asked Questions in Kohima",
         "faqsSubtitle": "What Kohima customers ask before they order.",
         "faqsHelpTitle": "Have Specific Questions?",
-        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you order for Kohima.",
+        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you place your Kohima order.",
         "catalogEyebrow": "Kohima Hardware & Products",
         "catalogTitle": "Explore Our Product Catalog in Kohima",
         "catalogSubtitle": "The products Kohima organisations order most: PVC cards, lanyards, holders and hooks, plus badges and medals.",
@@ -9569,7 +9568,7 @@
             ]
           }
         ],
-        "address": "near Ao Baptist Church, Midland Colony, Kohima, Nagaland 797001",
+        "address": "Near Ao Baptist Church, Midland Colony, Kohima, Nagaland 797001",
         "localArticle": {
           "title": "ID cards for schools in Kohima",
           "sections": [
@@ -9631,7 +9630,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -9703,7 +9702,7 @@
             "a": "Yes, with data files sent together."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Dimapur, Nagaland to Assisi Higher Secondary School, Bethesda Higher Secondary School, Jehovah Jireh School, MGM Higher Secondary School, Puda Memorial School, Vidhya Bhawan Higher Secondary School and Livingstone Foundation International. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
+        "quickAnswer": "IDGen supplies ID cards in Dimapur, Nagaland, to Assisi Higher Secondary School, Bethesda Higher Secondary School, Jehovah Jireh School, MGM Higher Secondary School, Puda Memorial School, Vidhya Bhawan Higher Secondary School and Livingstone Foundation International. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
         "metaTitle": "ID Card Printing in Dimapur | School ID Cards",
         "metaDescription": "ID cards for Dimapur schools including Assisi HSS, Bethesda HSS, MGM HSS and Vidhya Bhawan HSS. Made in Guwahati and shipped by courier.",
         "services": [
@@ -9783,7 +9782,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -9825,16 +9824,16 @@
         "heroShowcaseChip2": "Guwahati Production Facility",
         "localPresenceBadge": "Produced in Guwahati • Courier to Dimapur",
         "localPresenceSubBadge": "Courier Shipping",
-        "localPresenceTitle": "IDGen in Dimapur: Direct Identity Solutions Partner",
+        "localPresenceTitle": "IDGen in Dimapur: A Direct Identity Solutions Partner",
         "localAdvantagePills": [
           "Courier to Dimapur",
           "School ID cards",
           "Proof before print",
           "Nearest to Guwahati"
         ],
-        "audiencesTitle": "Organizations in Dimapur require identity products for:",
+        "audiencesTitle": "Organisations in Dimapur require identity products for:",
         "audiencesSubtitle": "Who orders ID cards in Dimapur, and what they usually need.",
-        "audiencesNote": "Single and double-sided printing, RFID options and sealed edges",
+        "audiencesNote": "Single- and double-sided printing, RFID options and sealed edges",
         "targetAudiences": [
           {
             "name": "Students & Scholars",
@@ -9877,7 +9876,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Dimapur:",
+        "organizationsTitle": "Typical Organisations We Serve in Dimapur:",
         "organizationsSubtitle": "Higher secondary schools and a foundation across Dimapur, plus offices and employers.",
         "localAdvantageTitle": "Dimapur Schools, Served from Guwahati",
         "localAdvantageDesc": "Seven Dimapur schools and institutions order from IDGen. Dimapur is the closest Nagaland city to our Guwahati facility, and cards travel by courier.",
@@ -9939,7 +9938,7 @@
         "bulkCta2Text": "Request a Dimapur Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Our Dimapur client list",
-        "projectsTitle": "Organizations & Projects in Dimapur",
+        "projectsTitle": "Organisations & Projects in Dimapur",
         "projectsDesc": "Seven Dimapur schools and institutions, with logos showing founding years from 1988 to 2017, are on our client list.",
         "verifiedClients": [
           {
@@ -10146,7 +10145,7 @@
             ]
           }
         ],
-        "address": "Bank Colony, Near D.C. Residence Opposite BSNL Office, Kohima, Road, Dimapur, Nagaland 797112",
+        "address": "Bank Colony, Near D.C. Residence, Opposite BSNL Office, Kohima Road, Dimapur, Nagaland 797112",
         "localArticle": {
           "title": "ID cards for schools and organisations in Dimapur",
           "sections": [
@@ -10186,7 +10185,7 @@
         "isPrimary": false,
         "indexed": true,
         "heroHeadline": "ID Card Printing & Identity Solutions in Imphal",
-        "heroIntro": "IDGen prints ID cards for institutions in Imphal and Churachandpur, including Manipur University, Imphal College, Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School, Don Bosco School and Young Pillars school in Churachandpur.",
+        "heroIntro": "IDGen prints ID cards for institutions in Imphal and Churachandpur, including Manipur University, Imphal College, Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School, Don Bosco School and Young Pillars School in Churachandpur.",
         "heroSubtext": "Imphal is Manipur's capital. Our client list covers a university, a college and several schools. Cards are made in Guwahati and shipped by courier.",
         "localColor": "Imphal sits in a valley with its own long-standing school tradition, and Manipur University is based at Canchipur. Covenant English School, Tiny Tots Unique School and Don Bosco School all carry 'Imphal' in their logos.",
         "nearbyAreas": [
@@ -10225,7 +10224,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -10274,7 +10273,7 @@
         "faqs": [
           {
             "q": "Which Imphal institutions use IDGen?",
-            "a": "Manipur University, Imphal College, Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School, Don Bosco School and Young Pillars school in Churachandpur."
+            "a": "Manipur University, Imphal College, Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School, Don Bosco School and Young Pillars School in Churachandpur."
           },
           {
             "q": "Is there an IDGen office in Imphal?",
@@ -10297,7 +10296,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time to Manipur."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Imphal, Manipur to Manipur University, Imphal College, Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School, Don Bosco School and Young Pillars school (Churachandpur). Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
+        "quickAnswer": "IDGen supplies ID cards in Imphal, Manipur, to Manipur University, Imphal College, Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School, Don Bosco School and Young Pillars School (Churachandpur). Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
         "metaTitle": "ID Card Printing in Imphal | University & School ID Cards",
         "metaDescription": "ID cards for Imphal institutions including Manipur University, Imphal College, Covenant English School and Don Bosco School. Made in Guwahati.",
         "services": [
@@ -10377,7 +10376,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -10412,7 +10411,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Imphal Quote",
+        "heroCtaText": "Request an Imphal Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Imphal",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -10426,7 +10425,7 @@
           "Churachandpur",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Imphal require identity products for:",
+        "audiencesTitle": "Organisations in Imphal require identity products for:",
         "audiencesSubtitle": "Card types for the groups of people Imphal organisations identify.",
         "audiencesNote": "Printed one or both sides, with RFID and sealing as options",
         "targetAudiences": [
@@ -10471,7 +10470,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Imphal:",
+        "organizationsTitle": "Typical Organisations We Serve in Imphal:",
         "organizationsSubtitle": "Organisations in Imphal and Canchipur: a university, a college and schools, and hospitals and government offices.",
         "localAdvantageTitle": "Imphal Institutions, Served from Guwahati",
         "localAdvantageDesc": "A university, a college and schools in Imphal and Churachandpur order from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -10489,7 +10488,7 @@
         ],
         "setupsEyebrow": "Configurations",
         "setupsTitle": "Complete ID Card Solutions & Packages in Imphal",
-        "setupsSubtitle": "A card alone is enough for some, a full set suits others. Choose what fits your Imphal project.",
+        "setupsSubtitle": "A card alone is enough for some; a full set suits others. Choose what fits your Imphal project.",
         "bulkEyebrow": "High-Capacity Production • Institutional Fulfillment",
         "bulkSubBadge": "Guwahati Direct Hub",
         "bulkTitle": "Bulk ID Card Printing in Imphal",
@@ -10530,10 +10529,10 @@
         ],
         "bulkBottomNote": "Production is planned around your quantity and deadline. Imphal bulk orders can start with a sample proof.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Imphal Bulk Quote",
+        "bulkCta2Text": "Request an Imphal Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Clients in Imphal",
-        "projectsTitle": "Organizations & Projects in Imphal",
+        "projectsTitle": "Organisations & Projects in Imphal",
         "projectsDesc": "A university, a college and seven schools across Imphal and Churachandpur are on our client list.",
         "verifiedClients": [
           {
@@ -10611,7 +10610,7 @@
           },
           {
             "title": "Spanning the valley and the hills",
-            "desc": "Our Manipur clients include Imphal in the valley and Churachandpur in the hills.",
+            "desc": "Our Manipur clients are in both Imphal, in the valley, and Churachandpur, in the hills.",
             "image": "/images/sol-institutions-idgen-v1.jpg",
             "badge": "Institutional Grade",
             "stat": "Bulk & Enterprise"
@@ -10752,13 +10751,13 @@
             ]
           }
         ],
-        "address": "Central Jail Road, Old Lambulane Rd, opp. GP Womens College, Imphal, Manipur 795001",
+        "address": "Central Jail Road, Old Lambulane Rd, opp. G.P. Women's College, Imphal, Manipur 795001",
         "localArticle": {
           "title": "ID cards for Imphal's university, college and schools",
           "sections": [
             {
               "heading": "Who we work with in Imphal",
-              "body": "Our Manipur list includes Manipur University and Imphal College, and schools such as Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School and Don Bosco School. Beyond Imphal, Young Pillars school in Churachandpur is on the list too."
+              "body": "Our Manipur list includes Manipur University and Imphal College, and schools such as Covenant English School, St. Joseph Higher Secondary School, Sainik School, Tiny Tots Unique School, Herbert School and Don Bosco School. Beyond Imphal, Young Pillars School in Churachandpur is on the list too."
             },
             {
               "heading": "Universities, colleges and schools",
@@ -10826,7 +10825,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -10898,7 +10897,7 @@
             "a": "Yes. Give us the delivery address in the quote request."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Aizawl, Mizoram to Divine Intervention School, Govt. Bethlehem Vengthlang Primary School-I, Holy Heart School, Kids Care School and Little Kingdom School. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
+        "quickAnswer": "IDGen supplies ID cards in Aizawl, Mizoram, to Divine Intervention School, Govt. Bethlehem Vengthlang Primary School-I, Holy Heart School, Kids Care School and Little Kingdom School. Cards are made in Guwahati and dispatched within 72 hours of approval, then shipped by courier.",
         "metaTitle": "ID Card Printing in Aizawl | School ID Cards",
         "metaDescription": "ID cards for Aizawl schools including Holy Heart School, Little Kingdom School and Kids Care School. Made in Guwahati and shipped by courier.",
         "services": [
@@ -10978,7 +10977,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -11013,7 +11012,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Aizawl Quote",
+        "heroCtaText": "Request an Aizawl Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Aizawl",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -11027,7 +11026,7 @@
           "Government and private",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Aizawl require identity products for:",
+        "audiencesTitle": "Organisations in Aizawl require identity products for:",
         "audiencesSubtitle": "The people your Aizawl cards are for, grouped by use.",
         "audiencesNote": "One- or two-sided cards, optional RFID and edge sealing",
         "targetAudiences": [
@@ -11072,7 +11071,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Aizawl:",
+        "organizationsTitle": "Typical Organisations We Serve in Aizawl:",
         "organizationsSubtitle": "Aizawl customers include private and government schools.",
         "localAdvantageTitle": "Aizawl Schools, Served from Guwahati",
         "localAdvantageDesc": "Five Aizawl schools order from IDGen, including a government primary school. Cards are produced in Guwahati and shipped by courier.",
@@ -11101,7 +11100,7 @@
           "Free Pre-Production Physical Sample"
         ],
         "bulkInputsTitle": "Key Inputs for Large Institutional Orders in Aizawl:",
-        "bulkInputsDesc": "Four things we need for a Aizawl quotation.",
+        "bulkInputsDesc": "Four things we need for an Aizawl quotation.",
         "bulkInputsStepTag": "Step 1 of 4 Preparation",
         "bulkInputs": [
           {
@@ -11131,16 +11130,16 @@
         ],
         "bulkBottomNote": "Tell us your quantity and date. For big Aizawl runs we will talk through a sample proof first.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Aizawl Bulk Quote",
+        "bulkCta2Text": "Request an Aizawl Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Organisations in and around Aizawl",
-        "projectsTitle": "Organizations & Projects in Aizawl",
+        "projectsTitle": "Organisations & Projects in Aizawl",
         "projectsDesc": "Five Aizawl schools, including a government primary school, are on our client list.",
         "verifiedClients": [
           {
             "name": "Divine Intervention School",
-            "location": "Aizwal, Mizoram",
-            "tag": "Aizwal, Mizoram",
+            "location": "Aizawl, Mizoram",
+            "tag": "Aizawl, Mizoram",
             "logo": "/uploads/Divine_Intervention_School__Aizwal-1791803616154.png"
           },
           {
@@ -11151,8 +11150,8 @@
           },
           {
             "name": "Holy Heart School",
-            "location": "Aizwal, Mizoram",
-            "tag": "Aizwal, Mizoram",
+            "location": "Aizawl, Mizoram",
+            "tag": "Aizawl, Mizoram",
             "logo": "/uploads/Holy_Heart_School___Aizawl-1791803694545.jpg"
           },
           {
@@ -11163,8 +11162,8 @@
           },
           {
             "name": "Little Kingdom School",
-            "location": "Aizwal, Mizoram",
-            "tag": "Aizwal, Mizoram",
+            "location": "Aizawl, Mizoram",
+            "tag": "Aizawl, Mizoram",
             "logo": "/uploads/Little_Kingdom_School__Aizawl-1791803734083.jpg"
           }
         ],
@@ -11218,7 +11217,7 @@
         "workflowEyebrow": "Step-by-Step Production Process • Factory Quality Standard",
         "workflowBadge": "Dispatch: 72h",
         "workflowTitle": "How to Order ID Cards in Aizawl",
-        "workflowSubtitle": "How a Aizawl order moves: requirement, data, proof, approval, print, check and dispatch.",
+        "workflowSubtitle": "How an Aizawl order moves: requirement, data, design, proof, approval, print, check and dispatch.",
         "workflowNote": "Aizawl orders leave Guwahati by courier after the optical quality check. Tracking depends on the courier.",
         "workflowCta1Text": "Call / WhatsApp IDGen",
         "workflowCta2Text": "Start at Step 01: Request Quote",
@@ -11410,7 +11409,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -11443,7 +11442,7 @@
           {
             "step": "02",
             "title": "Submit Data",
-            "description": "Send the data in the format we agree."
+            "description": "Send the data in the format we agree on."
           },
           {
             "step": "03",
@@ -11482,7 +11481,7 @@
             "a": "Dispatch within 72 hours of approval, then courier time to Tripura."
           }
         ],
-        "quickAnswer": "IDGen supplies ID cards in Agartala and across Tripura to the Department of Education, Tripura, the Health and Family Welfare Department, Tripura, Vivekananda Vidyapith, Hazachari Higher Secondary School, Akya Mog Para High School, Holy Cross School (Kumarghat), Netaji Vidyamandir English Medium School (Sabroom) and Ramkrishna Shishu Tirtha Higher Secondary School (Melaghar). Cards are made in Guwahati and dispatched within 72 hours of approval.",
+        "quickAnswer": "IDGen supplies ID cards in Agartala and across Tripura, to the Department of Education, Tripura, the Health and Family Welfare Department, Tripura, Vivekananda Vidyapith, Hazachari Higher Secondary School, Akya Mog Para High School, Holy Cross School (Kumarghat), Netaji Vidyamandir English Medium School (Sabroom) and Ramkrishna Shishu Tirtha Higher Secondary School (Melaghar). Cards are made in Guwahati and dispatched within 72 hours of approval.",
         "metaTitle": "ID Card Printing in Agartala | Tripura School & Govt ID Cards",
         "metaDescription": "ID cards for Tripura schools and government departments, including Vivekananda Vidyapith, Hazachari HSS and Holy Cross School. Made in Guwahati.",
         "services": [
@@ -11557,12 +11556,12 @@
             "tag": "20mm Satin",
             "badge": "Bestseller",
             "imageSrc": "/images/service-custom-printed-lanyards.jpg",
-            "description": "Lanyards for institutions like Vivekananda Vidyapith and for smaller orders alike, printed in Guwahati and shipped to Agartala.",
+            "description": "Lanyards for institutions like Vivekananda Vidyapith as well as smaller orders, printed in Guwahati and shipped to Agartala.",
             "href": "/custom-printed-lanyard-printing/",
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -11597,7 +11596,7 @@
           "100% Optical Inspection",
           "Produced at IDGen's Guwahati Facility"
         ],
-        "heroCtaText": "Request a Agartala Quote",
+        "heroCtaText": "Request an Agartala Quote",
         "heroSecondaryCtaText": "Call / WhatsApp IDGen",
         "heroShowcaseBadge": "Courier to Agartala",
         "heroShowcaseChip1": "CR80 PVC & RFID Credentials",
@@ -11611,7 +11610,7 @@
           "Schools across Tripura",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Agartala require identity products for:",
+        "audiencesTitle": "Organisations in Agartala require identity products for:",
         "audiencesSubtitle": "Typical ID card needs in Agartala, by group.",
         "audiencesNote": "Cards printed on one or both sides; RFID and sealing optional",
         "targetAudiences": [
@@ -11656,7 +11655,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Agartala:",
+        "organizationsTitle": "Typical Organisations We Serve in Agartala:",
         "organizationsSubtitle": "From Vivekananda Vidyapith to smaller institutions around Kumarghat.",
         "localAdvantageTitle": "Agartala and Tripura, Served from Guwahati",
         "localAdvantageDesc": "Schools and two state government departments across Tripura order from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -11715,10 +11714,10 @@
         ],
         "bulkBottomNote": "Capacity is matched to the product and the project. Bulk projects for Agartala can include a physical pre-production sample, subject to confirmation.",
         "bulkCta1Text": "Talk to Specialist",
-        "bulkCta2Text": "Request a Agartala Bulk Quote",
+        "bulkCta2Text": "Request an Agartala Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Agartala and nearby towns",
-        "projectsTitle": "Organizations & Projects in Agartala",
+        "projectsTitle": "Organisations & Projects in Agartala",
         "projectsDesc": "Two state government departments and six schools across Tripura, with logos showing founding years from 1952 to 2020, are on our client list.",
         "verifiedClients": [
           {
@@ -11797,7 +11796,7 @@
           },
           {
             "title": "Complete Identification Ecosystem",
-            "desc": "Everything a Agartala organisation wears or carries for identification, ordered together and shipped together.",
+            "desc": "Everything an Agartala organisation wears or carries for identification, ordered together and shipped together.",
             "image": "/images/why-idgen-complete-ecosystem-branded.jpg",
             "badge": "Turnkey Packages",
             "stat": "Cards + Lanyards + Holders"
@@ -11830,7 +11829,7 @@
         "faqsTitle": "Frequently Asked Questions in Agartala",
         "faqsSubtitle": "What Agartala customers ask before they order.",
         "faqsHelpTitle": "Have Specific Questions?",
-        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you order for Agartala.",
+        "faqsHelpText": "Unsure about RFID type or design? Talk to us before you place your Agartala order.",
         "catalogEyebrow": "Agartala Hardware & Products",
         "catalogTitle": "Explore Our Product Catalog in Agartala",
         "catalogSubtitle": "The products Agartala organisations order most: PVC cards, lanyards, holders and hooks, plus badges and medals.",
@@ -12011,7 +12010,7 @@
             "items": [
               "CR80 Standard PVC",
               "Waterproof Edge Seal",
-              "Front & Back Color"
+              "Front & Back Colour"
             ]
           },
           {
@@ -12163,7 +12162,7 @@
             "spec": "20mm Satin • Ultrasonic Edge Sealed",
             "highlights": [
               "Zero-Fray Ultrasonic Sealed Ends",
-              "Pantone Accurate Color Matching",
+              "Pantone Accurate Colour Matching",
               "Chrome Dog / Swivel Metal Hooks"
             ]
           },
@@ -12212,9 +12211,9 @@
           "Event passes",
           "Proof before print"
         ],
-        "audiencesTitle": "Organizations in Gangtok require identity products for:",
+        "audiencesTitle": "Organisations in Gangtok require identity products for:",
         "audiencesSubtitle": "Who orders ID cards in Gangtok, and what they usually need.",
-        "audiencesNote": "Single and double-sided printing, RFID options and sealed edges",
+        "audiencesNote": "Single- and double-sided printing, RFID options and sealed edges",
         "targetAudiences": [
           {
             "name": "Students & Scholars",
@@ -12257,7 +12256,7 @@
             "badge": "Smart RFID"
           }
         ],
-        "organizationsTitle": "Typical Organizations We Serve in Gangtok:",
+        "organizationsTitle": "Typical Organisations We Serve in Gangtok:",
         "organizationsSubtitle": "Gangtok customers include schools, hotels and event organisers.",
         "localAdvantageTitle": "Gangtok, Served from Guwahati",
         "localAdvantageDesc": "Organisations in Gangtok can order student, employee, event and RFID cards from IDGen. Cards are produced in Guwahati and shipped by courier.",
@@ -12319,7 +12318,7 @@
         "bulkCta2Text": "Request a Gangtok Bulk Quote",
         "projectsBadge": "Institutions We Serve",
         "projectsSubBadge": "Our Gangtok client list",
-        "projectsTitle": "Organizations & Projects in Gangtok",
+        "projectsTitle": "Organisations & Projects in Gangtok",
         "projectsDesc": null,
         "verifiedClients": [],
         "whyChooseEyebrow": "Why Choose Us",
@@ -12483,7 +12482,7 @@
             ]
           }
         ],
-        "address": "Roll house, Mahatma Gandhi Marg, Arithang, Gangtok, Sikkim 737101",
+        "address": "Roll House, Mahatma Gandhi Marg, Arithang, Gangtok, Sikkim 737101",
         "localArticle": {
           "title": "ID cards for schools, hotels and events in Gangtok",
           "sections": [

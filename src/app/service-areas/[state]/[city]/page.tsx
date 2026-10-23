@@ -101,7 +101,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
     { q: "Where is IDGen located?", a: `${SITE.hqCity}, ${SITE.hqState}, India.` },
     {
       q: `Does IDGen provide ID card printing in ${city.name}?`,
-      a: `Yes. IDGen provides customized and bulk identification products for organizations in ${city.name}.`,
+      a: `Yes. IDGen provides customized and bulk identification products for organisations in ${city.name}.`,
     },
     { q: `Does IDGen print student ID cards in ${city.name}?`, a: "Yes, for schools, colleges and universities." },
     { q: `Does IDGen print employee ID cards in ${city.name}?`, a: "Yes, for companies, offices, hospitals and institutions." },
@@ -127,7 +127,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
     "Hospitals",
     "Hotels",
     "Institutions",
-    "Government organizations",
+    "Government organisations",
     "NGOs",
     "Industries",
     "Events",
@@ -151,7 +151,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
   const defaultSetups = [
     {
       title: "Card Only",
-      subtitle: "For organizations that already have their own accessories.",
+      subtitle: "For organisations that already have their own accessories.",
       items: ["CR80 Standard PVC Card", "High-Resolution Front & Back Print", "Standard Lamination"],
     },
     {
@@ -216,7 +216,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
           <div className="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] p-3.5 sm:p-4 backdrop-blur-sm shadow-2xs border-l-3 border-l-accent">
             <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300 font-normal">
               {city.heroSubtext ||
-                `From a simple card requirement to a complete institutional identification setup, IDGen helps organizations in ${city.name} coordinate the exact products and production workflow they need.`}
+                `From a simple card requirement to a complete institutional identification setup, IDGen helps organisations in ${city.name} coordinate the exact products and production workflow they need.`}
             </p>
           </div>
 
@@ -392,7 +392,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               <span>{city.projectsBadge || "Institutions We Serve"}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
-              {city.projectsTitle || `Organizations & Projects in ${city.name}`}
+              {city.projectsTitle || `Organisations & Projects in ${city.name}`}
             </h2>
             <p className="text-sm text-muted leading-relaxed">
               {city.projectsDesc ||
@@ -462,7 +462,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               </h2>
               <p className="text-sm sm:text-base text-muted leading-relaxed">
                 {city.coverageIntro ||
-                  (isGuwahati ? `IDGen is based in Guwahati, Assam, and serves organizations across the city and surrounding areas.` : `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders are shipped by courier agency to the city and surrounding areas.`)}
+                  (isGuwahati ? `IDGen is based in Guwahati, Assam, and serves organisations across the city and surrounding areas.` : `IDGen serves ${city.name} from its production facility in Guwahati, Assam. Orders are shipped by courier agency to the city and surrounding areas.`)}
               </p>
             </div>
 
