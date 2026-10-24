@@ -241,7 +241,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
               href="/request-a-quote/"
               className="rounded-full bg-accent px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-cyan-500/25 transition hover:bg-accent-hover btn-glow flex items-center gap-2"
             >
-              <span>{city.heroCtaText || `Request a ${city.name} Quote`}</span>
+              <span>{city.heroCtaText || `Request ${/^[AEIOU]/i.test(city.name) ? "an" : "a"} ${city.name} Quote`}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
@@ -753,7 +753,7 @@ export default async function CityPage({ params }: { params: Promise<{ state: st
             title={`Need ID cards for your organization in ${city.name}?`}
             body={`Tell IDGen your organization name, target card quantity, and required accessories for an immediate proposal.`}
             links={[
-              { label: `Request a ${city.name} Quote`, href: "/request-a-quote/", primary: true },
+              { label: `Request ${/^[AEIOU]/i.test(city.name) ? "an" : "a"} ${city.name} Quote`, href: "/request-a-quote/", primary: true },
               { label: "Contact IDGen Engineering Desk", href: "/contact-us/" },
             ]}
           />

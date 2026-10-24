@@ -249,7 +249,7 @@ export function CityBulkPrinting({
               href="/request-a-quote/"
               className="flex-1 sm:flex-none text-center rounded-full bg-accent px-6 py-2.5 text-xs font-bold text-white shadow-lg shadow-cyan-500/25 transition hover:bg-accent-hover btn-glow flex items-center justify-center gap-1.5"
             >
-              <span>{bulkCta2Text || `Request a ${cityName} Bulk Quote`}</span>
+              <span>{bulkCta2Text || `Request ${/^[AEIOU]/i.test(cityName) ? "an" : "a"} ${cityName} Bulk Quote`}</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>

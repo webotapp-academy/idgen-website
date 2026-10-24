@@ -550,7 +550,7 @@ export default function AdminServiceAreasPage() {
               "100% Optical Inspection",
               "Direct Cleanroom Manufacturing",
             ],
-        heroCtaText: city.heroCtaText || `Request a ${city.name} Quote`,
+        heroCtaText: city.heroCtaText || `Request ${/^[AEIOU]/i.test(city.name) ? "an" : "a"} ${city.name} Quote`,
         heroSecondaryCtaText: city.heroSecondaryCtaText || "Call / WhatsApp IDGen",
         heroShowcaseBadge: city.heroShowcaseBadge || `${city.name} Direct Supply`,
         heroShowcaseChip1: city.heroShowcaseChip1 || "CR80 PVC & RFID Credentials",
@@ -710,7 +710,7 @@ export default function AdminServiceAreasPage() {
           city.bulkBottomNote ||
           `Actual production capacity is matched to product and project specifications for ${city.name}. Qualified bulk projects receive physical pre-production sample proofs for institutional sign-off.`,
         bulkCta1Text: city.bulkCta1Text || "Talk to Specialist",
-        bulkCta2Text: city.bulkCta2Text || `Request a ${city.name} Bulk Quote`,
+        bulkCta2Text: city.bulkCta2Text || `Request ${/^[AEIOU]/i.test(city.name) ? "an" : "a"} ${city.name} Bulk Quote`,
         projectsBadge: city.projectsBadge || "Institutions We Serve",
         projectsSubBadge: city.projectsSubBadge || "Organizations across the region",
         projectsTitle: city.projectsTitle || `Organizations & Projects in ${city.name}`,
